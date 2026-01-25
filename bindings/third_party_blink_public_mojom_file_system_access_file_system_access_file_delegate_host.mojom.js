@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,28 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost = {};
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost.$interfaceName = 'blink.mojom.FileSystemAccessFileDelegateHost';
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

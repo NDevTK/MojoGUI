@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,50 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.AudioOutputStream = {};
-mojo.internal.bindings.media.mojom.AudioOutputStreamSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.DisconnectReasonSpec = mojo.internal.bindings.media.mojom.DisconnectReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.AudioOutputStream = mojo.internal.bindings.media.mojom.AudioOutputStream || {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioOutputStream.$interfaceName = 'media.mojom.AudioOutputStream';
-mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStreamObserver = {};
-mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamObserver = mojo.internal.bindings.media.mojom.AudioOutputStreamObserver || {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamObserverSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamObserver.$interfaceName = 'media.mojom.AudioOutputStreamObserver';
-mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStreamProvider = {};
-mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamProvider = mojo.internal.bindings.media.mojom.AudioOutputStreamProvider || {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamProviderSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamProvider.$interfaceName = 'media.mojom.AudioOutputStreamProvider';
-mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient = {};
-mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient || {};
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient.$interfaceName = 'media.mojom.AudioOutputStreamProviderClient';
-mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.DeviceSwitchInterface = {};
-mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec = mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.DeviceSwitchInterface = mojo.internal.bindings.media.mojom.DeviceSwitchInterface || {};
+mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec = mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec.$.structSpec && mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceSpec.$ = {};
 mojo.internal.bindings.media.mojom.DeviceSwitchInterface.$interfaceName = 'media.mojom.DeviceSwitchInterface';
-mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec = mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient = {};
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient || {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCacheClient';
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache = {};
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache || {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache.$interfaceName = 'auction_worklet.mojom.TrustedSignalsCache';
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = { $: {} };
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

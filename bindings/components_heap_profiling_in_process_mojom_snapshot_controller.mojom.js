@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.heap_profiling.mojom.SnapshotController = {};
-mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = { $ : {} };
+mojo.internal.bindings.heap_profiling.mojom.SnapshotController = mojo.internal.bindings.heap_profiling.mojom.SnapshotController || {};
+mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec || { $ : {} };
+if (mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController.$interfaceName = 'heap_profiling.mojom.SnapshotController';
-mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = { $: {} };
+mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$ = {};
 
 // Interface: SnapshotController
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,46 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.StreamTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.Decryptor = {};
-mojo.internal.bindings.media.mojom.DecryptorSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.StatusSpec = mojo.internal.bindings.media.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StreamTypeSpec = mojo.internal.bindings.media.mojom.StreamTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.Decryptor = mojo.internal.bindings.media.mojom.Decryptor || {};
+mojo.internal.bindings.media.mojom.DecryptorSpec = mojo.internal.bindings.media.mojom.DecryptorSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.DecryptorSpec.$.structSpec && mojo.internal.bindings.media.mojom.DecryptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DecryptorSpec.$ = {};
 mojo.internal.bindings.media.mojom.Decryptor.$interfaceName = 'media.mojom.Decryptor';
-mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameResourceReleaser = {};
-mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameResourceReleaser = mojo.internal.bindings.media.mojom.FrameResourceReleaser || {};
+mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec = mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameResourceReleaserSpec.$ = {};
 mojo.internal.bindings.media.mojom.FrameResourceReleaser.$interfaceName = 'media.mojom.FrameResourceReleaser';
 
 // External type stubs (from imports)

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,27 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
 mojo.internal.bindings.chromeos.cfm.mojom = mojo.internal.bindings.chromeos.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser = {};
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec = mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec = mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec = mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser || {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser.$interfaceName = 'chromeos.cfm.mojom.CfmBrowser';
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$ = {};
 
 // Interface: CfmBrowser
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,17 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
 mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cfm.mojom.MeetBrowser = {};
-mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec = { $ : {} };
+mojo.internal.bindings.ash.cfm.mojom.MeetBrowser = mojo.internal.bindings.ash.cfm.mojom.MeetBrowser || {};
+mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec = mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.MeetBrowserSpec.$ = {};
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowser.$interfaceName = 'ash.cfm.mojom.MeetBrowser';
-mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$ = {};
 
 // Interface: MeetBrowser
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowserPendingReceiver = class {

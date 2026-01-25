@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,29 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.RendererTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.RendererPoolSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebService = {};
-mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec = mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.RendererTypeSpec = mojo.internal.bindings.chromecast.mojom.RendererTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.RendererPoolSpec = mojo.internal.bindings.chromecast.mojom.RendererPoolSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec = mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebService = mojo.internal.bindings.chromecast.mojom.CastWebService || {};
+mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec = mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebServiceSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.CastWebService.$interfaceName = 'chromecast.mojom.CastWebService';
-mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};

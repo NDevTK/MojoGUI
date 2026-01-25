@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GeolocationContext = {};
-mojo.internal.bindings.device.mojom.GeolocationContextSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec = mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GeolocationContext = mojo.internal.bindings.device.mojom.GeolocationContext || {};
+mojo.internal.bindings.device.mojom.GeolocationContextSpec = mojo.internal.bindings.device.mojom.GeolocationContextSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GeolocationContextSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationContextSpec.$ = {};
 mojo.internal.bindings.device.mojom.GeolocationContext.$interfaceName = 'device.mojom.GeolocationContext';
-mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

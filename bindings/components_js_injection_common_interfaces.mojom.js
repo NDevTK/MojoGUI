@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,37 +123,55 @@
 
  mojo.internal.bindings.js_injection = mojo.internal.bindings.js_injection || {};
 mojo.internal.bindings.js_injection.mojom = mojo.internal.bindings.js_injection.mojom || {};
-mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsObjectSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging = {};
-mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec = { $ : {} };
+mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec = mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsObjectSpec = mojo.internal.bindings.js_injection.mojom.JsObjectSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsObjectSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsObjectSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec = mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec = mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging = mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging || {};
+mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec = mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec || { $ : {} };
+if (mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingSpec.$ = {};
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging.$interfaceName = 'js_injection.mojom.JsToBrowserMessaging';
-mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsObjectsClient = {};
-mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec = { $ : {} };
+mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsObjectsClient = mojo.internal.bindings.js_injection.mojom.JsObjectsClient || {};
+mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec = mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec || { $ : {} };
+if (mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsObjectsClientSpec.$ = {};
 mojo.internal.bindings.js_injection.mojom.JsObjectsClient.$interfaceName = 'js_injection.mojom.JsObjectsClient';
-mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory = {};
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec = { $ : {} };
+mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory || {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec || { $ : {} };
+if (mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactorySpec.$ = {};
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory.$interfaceName = 'js_injection.mojom.BrowserToJsMessagingFactory';
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging = {};
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec = { $ : {} };
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging || {};
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec || { $ : {} };
+if (mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingSpec.$ = {};
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging.$interfaceName = 'js_injection.mojom.BrowserToJsMessaging';
-mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsCommunication = {};
-mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec = { $ : {} };
+mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec = mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsCommunication = mojo.internal.bindings.js_injection.mojom.JsCommunication || {};
+mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec = mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec || { $ : {} };
+if (mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsCommunicationSpec.$ = {};
 mojo.internal.bindings.js_injection.mojom.JsCommunication.$interfaceName = 'js_injection.mojom.JsCommunication';
-mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = { $: {} };
+mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$ = {};
+mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec = mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.structSpec && mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

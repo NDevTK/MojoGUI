@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,34 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.BlobURLStore = {};
-mojo.internal.bindings.blink.mojom.BlobURLStoreSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BlobURLStore = mojo.internal.bindings.blink.mojom.BlobURLStore || {};
+mojo.internal.bindings.blink.mojom.BlobURLStoreSpec = mojo.internal.bindings.blink.mojom.BlobURLStoreSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStoreSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStoreSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStoreSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BlobURLStore.$interfaceName = 'blink.mojom.BlobURLStore';
-mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLToken = {};
-mojo.internal.bindings.blink.mojom.BlobURLTokenSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLToken = mojo.internal.bindings.blink.mojom.BlobURLToken || {};
+mojo.internal.bindings.blink.mojom.BlobURLTokenSpec = mojo.internal.bindings.blink.mojom.BlobURLTokenSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BlobURLToken.$interfaceName = 'blink.mojom.BlobURLToken';
-mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

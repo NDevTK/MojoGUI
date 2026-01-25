@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,19 +125,29 @@
 mojo.internal.bindings.chromeos.auth = mojo.internal.bindings.chromeos.auth || {};
 mojo.internal.bindings.chromeos.auth.mojom = mojo.internal.bindings.chromeos.auth.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth = {};
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec = { $ : {} };
+mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec = mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth || {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthSpec.$ = {};
 mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth.$interfaceName = 'chromeos.auth.mojom.InSessionAuth';
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

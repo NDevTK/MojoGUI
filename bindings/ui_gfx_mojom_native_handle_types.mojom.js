@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,18 @@
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.DXGIHandleSpec = { $: {} };
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec = mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec = mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec = mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.DXGIHandleTokenSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.DXGIHandleSpec = mojo.internal.bindings.gfx.mojom.DXGIHandleSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.DXGIHandleSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.DXGIHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.DXGIHandleSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

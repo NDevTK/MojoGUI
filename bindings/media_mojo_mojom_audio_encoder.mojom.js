@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,37 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.AacOutputFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder = {};
-mojo.internal.bindings.media.mojom.AudioEncoderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AacOutputFormatSpec = mojo.internal.bindings.media.mojom.AacOutputFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec = mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AacAudioEncoderConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec = mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec = mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec.$.structSpec && mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.EncodedAudioBufferSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder = mojo.internal.bindings.media.mojom.AudioEncoder || {};
+mojo.internal.bindings.media.mojom.AudioEncoderSpec = mojo.internal.bindings.media.mojom.AudioEncoderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoderSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoderSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioEncoder.$interfaceName = 'media.mojom.AudioEncoder';
-mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioEncoderClient = {};
-mojo.internal.bindings.media.mojom.AudioEncoderClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioEncoderClient = mojo.internal.bindings.media.mojom.AudioEncoderClient || {};
+mojo.internal.bindings.media.mojom.AudioEncoderClientSpec = mojo.internal.bindings.media.mojom.AudioEncoderClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoderClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoderClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioEncoderClient.$interfaceName = 'media.mojom.AudioEncoderClient';
-mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec = mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

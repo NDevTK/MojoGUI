@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,9 +124,12 @@
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.webnn.mojom.PackageVersionSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.PackageVersionSpec = mojo.internal.bindings.webnn.mojom.PackageVersionSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.PackageVersionSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.PackageVersionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.PackageVersionSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec = mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

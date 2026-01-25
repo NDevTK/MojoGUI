@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,29 @@
  mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
 mojo.internal.bindings.cert_verifier.mojom = mojo.internal.bindings.cert_verifier.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory = {};
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec = { $ : {} };
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec = mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec = mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec = mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory || {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec || { $ : {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactorySpec.$ = {};
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory.$interfaceName = 'cert_verifier.mojom.CertVerifierServiceFactory';
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = { $: {} };
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec && mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};

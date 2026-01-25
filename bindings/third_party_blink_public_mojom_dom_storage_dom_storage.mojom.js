@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DomStorageProvider = {};
-mojo.internal.bindings.blink.mojom.DomStorageProviderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DomStorageProvider = mojo.internal.bindings.blink.mojom.DomStorageProvider || {};
+mojo.internal.bindings.blink.mojom.DomStorageProviderSpec = mojo.internal.bindings.blink.mojom.DomStorageProviderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageProviderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageProviderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DomStorageProvider.$interfaceName = 'blink.mojom.DomStorageProvider';
-mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DomStorage = {};
-mojo.internal.bindings.blink.mojom.DomStorageSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DomStorage = mojo.internal.bindings.blink.mojom.DomStorage || {};
+mojo.internal.bindings.blink.mojom.DomStorageSpec = mojo.internal.bindings.blink.mojom.DomStorageSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DomStorage.$interfaceName = 'blink.mojom.DomStorage';
-mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DomStorageClient = {};
-mojo.internal.bindings.blink.mojom.DomStorageClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DomStorageClient = mojo.internal.bindings.blink.mojom.DomStorageClient || {};
+mojo.internal.bindings.blink.mojom.DomStorageClientSpec = mojo.internal.bindings.blink.mojom.DomStorageClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DomStorageClient.$interfaceName = 'blink.mojom.DomStorageClient';
-mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec = mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

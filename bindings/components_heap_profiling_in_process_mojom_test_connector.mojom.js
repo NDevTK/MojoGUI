@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,24 @@
 
  mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 
-mojo.internal.bindings.heap_profiling.mojom.TestConnector = {};
-mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec = { $ : {} };
+mojo.internal.bindings.heap_profiling.mojom.TestConnector = mojo.internal.bindings.heap_profiling.mojom.TestConnector || {};
+mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnectorSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.TestConnector.$interfaceName = 'heap_profiling.mojom.TestConnector';
-mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = { $: {} };
+mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};

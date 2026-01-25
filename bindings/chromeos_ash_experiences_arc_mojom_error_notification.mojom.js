@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,42 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.ErrorDetailsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationHost = {};
-mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ErrorTypeSpec = mojo.internal.bindings.arc.mojom.ErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ErrorDetailsSpec = mojo.internal.bindings.arc.mojom.ErrorDetailsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationHost = mojo.internal.bindings.arc.mojom.ErrorNotificationHost || {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ErrorNotificationHost.$interfaceName = 'arc.mojom.ErrorNotificationHost';
-mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationInstance = {};
-mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationInstance = mojo.internal.bindings.arc.mojom.ErrorNotificationInstance || {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstance.$interfaceName = 'arc.mojom.ErrorNotificationInstance';
-mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationItem = {};
-mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationItem = mojo.internal.bindings.arc.mojom.ErrorNotificationItem || {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationItemSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ErrorNotificationItem.$interfaceName = 'arc.mojom.ErrorNotificationItem';
-mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler = {};
-mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler || {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler.$interfaceName = 'arc.mojom.ErrorNotificationActionHandler';
-mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$ = {};
 
 // Enum: ErrorType
 mojo.internal.bindings.arc.mojom.ErrorType = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ax.mojom.AutomationClient = {};
-mojo.internal.bindings.ax.mojom.AutomationClientSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.AutomationClient = mojo.internal.bindings.ax.mojom.AutomationClient || {};
+mojo.internal.bindings.ax.mojom.AutomationClientSpec = mojo.internal.bindings.ax.mojom.AutomationClientSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClientSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClientSpec.$ = {};
 mojo.internal.bindings.ax.mojom.AutomationClient.$interfaceName = 'ax.mojom.AutomationClient';
-mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec = mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec = mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec = mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec = mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

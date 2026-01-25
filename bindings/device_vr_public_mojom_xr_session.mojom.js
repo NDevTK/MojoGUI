@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,27 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.device.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRSessionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRDepthUsageSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRDepthDataFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRDepthTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRTrackedImageSpec = { $: {} };
-mojo.internal.bindings.device.mojom.XRDepthOptionsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.XRSessionOptionsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.XrLogMessageSpec = { $: {} };
+mojo.internal.bindings.device.mojom.RequestSessionErrorSpec = mojo.internal.bindings.device.mojom.RequestSessionErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRSessionFeatureSpec = mojo.internal.bindings.device.mojom.XRSessionFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRSessionModeSpec = mojo.internal.bindings.device.mojom.XRSessionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRDepthUsageSpec = mojo.internal.bindings.device.mojom.XRDepthUsageSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRDepthDataFormatSpec = mojo.internal.bindings.device.mojom.XRDepthDataFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRDepthTypeSpec = mojo.internal.bindings.device.mojom.XRDepthTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRTrackedImageSpec = mojo.internal.bindings.device.mojom.XRTrackedImageSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XRTrackedImageSpec.$.structSpec && mojo.internal.bindings.device.mojom.XRTrackedImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XRTrackedImageSpec.$ = {};
+mojo.internal.bindings.device.mojom.XRDepthOptionsSpec = mojo.internal.bindings.device.mojom.XRDepthOptionsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XRDepthOptionsSpec.$.structSpec && mojo.internal.bindings.device.mojom.XRDepthOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XRDepthOptionsSpec.$ = {};
+mojo.internal.bindings.device.mojom.XRSessionOptionsSpec = mojo.internal.bindings.device.mojom.XRSessionOptionsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XRSessionOptionsSpec.$.structSpec && mojo.internal.bindings.device.mojom.XRSessionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XRSessionOptionsSpec.$ = {};
+mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec = mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec.$.structSpec && mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec.$ = {};
+mojo.internal.bindings.device.mojom.XrLogMessageSpec = mojo.internal.bindings.device.mojom.XrLogMessageSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XrLogMessageSpec.$.structSpec && mojo.internal.bindings.device.mojom.XrLogMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XrLogMessageSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

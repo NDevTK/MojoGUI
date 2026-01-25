@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,80 @@
 
  mojo.internal.bindings.device_test = mojo.internal.bindings.device_test || {};
 mojo.internal.bindings.device_test.mojom = mojo.internal.bindings.device_test.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.device_test.mojom.EyeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device_test.mojom.ColorSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.ViewDataSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.DeviceConfigSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.EventDataSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook = {};
-mojo.internal.bindings.device_test.mojom.XRTestHookSpec = { $ : {} };
+mojo.internal.bindings.device_test.mojom.EyeSpec = mojo.internal.bindings.device_test.mojom.EyeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test.mojom.ControllerRoleSpec = mojo.internal.bindings.device_test.mojom.ControllerRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test.mojom.EventTypeSpec = mojo.internal.bindings.device_test.mojom.EventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_test.mojom.ColorSpec = mojo.internal.bindings.device_test.mojom.ColorSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.ColorSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.ColorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.ColorSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.ViewDataSpec = mojo.internal.bindings.device_test.mojom.ViewDataSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.ViewDataSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.ViewDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.ViewDataSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.DeviceConfigSpec = mojo.internal.bindings.device_test.mojom.DeviceConfigSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.DeviceConfigSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.DeviceConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.DeviceConfigSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec = mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec = mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.EventDataSpec = mojo.internal.bindings.device_test.mojom.EventDataSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.EventDataSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.EventDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.EventDataSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec = mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook = mojo.internal.bindings.device_test.mojom.XRTestHook || {};
+mojo.internal.bindings.device_test.mojom.XRTestHookSpec = mojo.internal.bindings.device_test.mojom.XRTestHookSpec || { $ : {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHookSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHookSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHookSpec.$ = {};
 mojo.internal.bindings.device_test.mojom.XRTestHook.$interfaceName = 'device_test.mojom.XRTestHook';
-mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRServiceTestHook = {};
-mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec = { $ : {} };
+mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHook = mojo.internal.bindings.device_test.mojom.XRServiceTestHook || {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec || { $ : {} };
+if (mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRServiceTestHookSpec.$ = {};
 mojo.internal.bindings.device_test.mojom.XRServiceTestHook.$interfaceName = 'device_test.mojom.XRServiceTestHook';
-mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec = mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

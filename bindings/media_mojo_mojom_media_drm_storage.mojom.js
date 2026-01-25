@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,35 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.KeyTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.SessionDataSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage = {};
-mojo.internal.bindings.media.mojom.MediaDrmStorageSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.KeyTypeSpec = mojo.internal.bindings.media.mojom.KeyTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.SessionDataSpec = mojo.internal.bindings.media.mojom.SessionDataSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SessionDataSpec.$.structSpec && mojo.internal.bindings.media.mojom.SessionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SessionDataSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage = mojo.internal.bindings.media.mojom.MediaDrmStorage || {};
+mojo.internal.bindings.media.mojom.MediaDrmStorageSpec = mojo.internal.bindings.media.mojom.MediaDrmStorageSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorageSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorageSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaDrmStorage.$interfaceName = 'media.mojom.MediaDrmStorage';
-mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

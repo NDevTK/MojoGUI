@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,21 @@
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.sharing.mojom.TcpSocketFactory = {};
-mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.TcpSocketFactory = mojo.internal.bindings.sharing.mojom.TcpSocketFactory || {};
+mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TcpSocketFactorySpec.$ = {};
 mojo.internal.bindings.sharing.mojom.TcpSocketFactory.$interfaceName = 'sharing.mojom.TcpSocketFactory';
-mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

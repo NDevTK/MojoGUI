@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,37 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
 mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver = {};
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver.$interfaceName = 'chromeos.network_health.mojom.NetworkEventsObserver';
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService = {};
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService || {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceSpec.$ = {};
 mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService.$interfaceName = 'chromeos.network_health.mojom.NetworkHealthService';
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

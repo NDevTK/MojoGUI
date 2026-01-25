@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,34 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver = {};
-mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec = mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec = mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver || {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver.$interfaceName = 'chromecast.mojom.CastContentWindowObserver';
-mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow = {};
-mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow = mojo.internal.bindings.chromecast.mojom.CastContentWindow || {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindowSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.CastContentWindow.$interfaceName = 'chromecast.mojom.CastContentWindow';
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};

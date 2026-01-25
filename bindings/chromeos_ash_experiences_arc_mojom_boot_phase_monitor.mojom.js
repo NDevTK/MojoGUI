@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost = {};
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost = mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost || {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec = mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost.$interfaceName = 'arc.mojom.BootPhaseMonitorHost';
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance = {};
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec = mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance = mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance || {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec = mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance.$interfaceName = 'arc.mojom.BootPhaseMonitorInstance';
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: BootPhaseMonitorHost
 mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostPendingReceiver = class {

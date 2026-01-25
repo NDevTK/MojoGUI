@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,22 +125,34 @@
 mojo.internal.bindings.chromecast.external_mojo = mojo.internal.bindings.chromecast.external_mojo || {};
 mojo.internal.bindings.chromecast.external_mojo.mojom = mojo.internal.bindings.chromecast.external_mojo.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService = {};
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec = { $ : {} };
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService || {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceSpec.$ = {};
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService.$interfaceName = 'chromecast.external_mojo.mojom.ExternalService';
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector = {};
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec = { $ : {} };
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector || {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorSpec.$ = {};
 mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector.$interfaceName = 'chromecast.external_mojo.mojom.ExternalConnector';
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,36 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = {};
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec = { $ : {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.AcPowerStatusEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = mojo.internal.bindings.ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec = mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec = mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier || {};
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierSpec.$ = {};
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.$interfaceName = 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

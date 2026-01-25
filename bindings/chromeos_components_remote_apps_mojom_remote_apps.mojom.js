@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,50 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.remote_apps = mojo.internal.bindings.chromeos.remote_apps || {};
 mojo.internal.bindings.chromeos.remote_apps.mojom = mojo.internal.bindings.chromeos.remote_apps.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps = {};
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec = { $ : {} };
+mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.AddFolderResultSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.AddAppResultSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps || {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsSpec.$ = {};
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps.$interfaceName = 'chromeos.remote_apps.mojom.RemoteApps';
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory = {};
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec = { $ : {} };
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory || {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactorySpec.$ = {};
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppsFactory';
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver = {};
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver || {};
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver';
-mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

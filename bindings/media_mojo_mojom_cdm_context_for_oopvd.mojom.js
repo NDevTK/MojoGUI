@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,48 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.DecryptStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmContextEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmContextEventCallback = {};
-mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.DecryptStatusSpec = mojo.internal.bindings.media.mojom.DecryptStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmContextEventSpec = mojo.internal.bindings.media.mojom.CdmContextEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmContextEventCallback = mojo.internal.bindings.media.mojom.CdmContextEventCallback || {};
+mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec = mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextEventCallbackSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmContextEventCallback.$interfaceName = 'media.mojom.CdmContextEventCallback';
-mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD = {};
-mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD = mojo.internal.bindings.media.mojom.CdmContextForOOPVD || {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVDSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmContextForOOPVD.$interfaceName = 'media.mojom.CdmContextForOOPVD';
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

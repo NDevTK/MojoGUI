@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,40 +123,67 @@
 
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory = {};
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory || {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory.$interfaceName = 'lens.mojom.LensSidePanelPageHandlerFactory';
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler = {};
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler || {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec.$ = {};
 mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler.$interfaceName = 'lens.mojom.LensSidePanelPageHandler';
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage = {};
-mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec = { $ : {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage = mojo.internal.bindings.lens.mojom.LensSidePanelPage || {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec || { $ : {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec.$ = {};
 mojo.internal.bindings.lens.mojom.LensSidePanelPage.$interfaceName = 'lens.mojom.LensSidePanelPage';
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};

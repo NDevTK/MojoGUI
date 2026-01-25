@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,33 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessObserver = {};
-mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserver = mojo.internal.bindings.blink.mojom.FileSystemAccessObserver || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserver.$interfaceName = 'blink.mojom.FileSystemAccessObserver';
-mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

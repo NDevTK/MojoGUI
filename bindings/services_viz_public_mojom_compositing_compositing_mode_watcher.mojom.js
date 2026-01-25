@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.viz.mojom.CompositingModeWatcher = {};
-mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.CompositingModeWatcher = mojo.internal.bindings.viz.mojom.CompositingModeWatcher || {};
+mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec = mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositingModeWatcherSpec.$ = {};
 mojo.internal.bindings.viz.mojom.CompositingModeWatcher.$interfaceName = 'viz.mojom.CompositingModeWatcher';
-mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositingModeReporter = {};
-mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositingModeReporter = mojo.internal.bindings.viz.mojom.CompositingModeReporter || {};
+mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec = mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositingModeReporterSpec.$ = {};
 mojo.internal.bindings.viz.mojom.CompositingModeReporter.$interfaceName = 'viz.mojom.CompositingModeReporter';
-mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$ = {};
 
 // Interface: CompositingModeWatcher
 mojo.internal.bindings.viz.mojom.CompositingModeWatcherPendingReceiver = class {

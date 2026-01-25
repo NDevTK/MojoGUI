@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,17 @@
  mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.audio.mojom.MlModelManager = {};
-mojo.internal.bindings.audio.mojom.MlModelManagerSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.MlModelManager = mojo.internal.bindings.audio.mojom.MlModelManager || {};
+mojo.internal.bindings.audio.mojom.MlModelManagerSpec = mojo.internal.bindings.audio.mojom.MlModelManagerSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.MlModelManagerSpec.$.structSpec && mojo.internal.bindings.audio.mojom.MlModelManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.MlModelManagerSpec.$ = {};
 mojo.internal.bindings.audio.mojom.MlModelManager.$interfaceName = 'audio.mojom.MlModelManager';
-mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

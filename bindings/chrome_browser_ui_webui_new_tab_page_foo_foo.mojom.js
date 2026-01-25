@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,19 @@
 
  mojo.internal.bindings.foo = mojo.internal.bindings.foo || {};
 mojo.internal.bindings.foo.mojom = mojo.internal.bindings.foo.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.foo.mojom.FooDataItemSpec = { $: {} };
-mojo.internal.bindings.foo.mojom.FooHandler = {};
-mojo.internal.bindings.foo.mojom.FooHandlerSpec = { $ : {} };
+mojo.internal.bindings.foo.mojom.FooDataItemSpec = mojo.internal.bindings.foo.mojom.FooDataItemSpec || { $: {} };
+if (mojo.internal.bindings.foo.mojom.FooDataItemSpec.$.structSpec && mojo.internal.bindings.foo.mojom.FooDataItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.foo.mojom.FooDataItemSpec.$ = {};
+mojo.internal.bindings.foo.mojom.FooHandler = mojo.internal.bindings.foo.mojom.FooHandler || {};
+mojo.internal.bindings.foo.mojom.FooHandlerSpec = mojo.internal.bindings.foo.mojom.FooHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.foo.mojom.FooHandlerSpec.$.structSpec && mojo.internal.bindings.foo.mojom.FooHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.foo.mojom.FooHandlerSpec.$ = {};
 mojo.internal.bindings.foo.mojom.FooHandler.$interfaceName = 'foo.mojom.FooHandler';
-mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec = { $: {} };
-mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec = mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec.$.structSpec && mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec.$ = {};
+mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec = mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$ = {};
 
 // Interface: FooHandler
 mojo.internal.bindings.foo.mojom.FooHandlerPendingReceiver = class {

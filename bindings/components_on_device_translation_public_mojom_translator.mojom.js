@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.on_device_translation = mojo.internal.bindings.on_device_translation || {};
 mojo.internal.bindings.on_device_translation.mojom = mojo.internal.bindings.on_device_translation.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.on_device_translation.mojom.Translator = {};
-mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec = { $ : {} };
+mojo.internal.bindings.on_device_translation.mojom.Translator = mojo.internal.bindings.on_device_translation.mojom.Translator || {};
+mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec = mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec.$.structSpec && mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation.mojom.TranslatorSpec.$ = {};
 mojo.internal.bindings.on_device_translation.mojom.Translator.$interfaceName = 'on_device_translation.mojom.Translator';
-mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec = mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$ = {};
 
 // Interface: Translator
 mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,32 +125,56 @@
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.StatusSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService = {};
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec = mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryResponseSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.StatusSpec = mojo.internal.bindings.ash.ime.mojom.StatusSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.StatusSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.StatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.StatusSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService.$interfaceName = 'ash.ime.mojom.InputMethodUserDataService';
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

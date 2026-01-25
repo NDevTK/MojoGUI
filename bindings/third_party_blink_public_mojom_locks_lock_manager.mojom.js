@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,35 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.LockModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WaitModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.LockInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LockHandle = {};
-mojo.internal.bindings.blink.mojom.LockHandleSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.LockModeSpec = mojo.internal.bindings.blink.mojom.LockModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WaitModeSpec = mojo.internal.bindings.blink.mojom.WaitModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.LockInfoSpec = mojo.internal.bindings.blink.mojom.LockInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LockHandle = mojo.internal.bindings.blink.mojom.LockHandle || {};
+mojo.internal.bindings.blink.mojom.LockHandleSpec = mojo.internal.bindings.blink.mojom.LockHandleSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.LockHandleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockHandleSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LockHandle.$interfaceName = 'blink.mojom.LockHandle';
-mojo.internal.bindings.blink.mojom.LockRequest = {};
-mojo.internal.bindings.blink.mojom.LockRequestSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.LockRequest = mojo.internal.bindings.blink.mojom.LockRequest || {};
+mojo.internal.bindings.blink.mojom.LockRequestSpec = mojo.internal.bindings.blink.mojom.LockRequestSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.LockRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockRequestSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LockRequest.$interfaceName = 'blink.mojom.LockRequest';
-mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LockManager = {};
-mojo.internal.bindings.blink.mojom.LockManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec = mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec = mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LockManager = mojo.internal.bindings.blink.mojom.LockManager || {};
+mojo.internal.bindings.blink.mojom.LockManagerSpec = mojo.internal.bindings.blink.mojom.LockManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.LockManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LockManager.$interfaceName = 'blink.mojom.LockManager';
-mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec = mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec = mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$ = {};
 
 // Enum: LockMode
 mojo.internal.bindings.blink.mojom.LockMode = {

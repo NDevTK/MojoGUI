@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,36 +124,60 @@
  mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
 mojo.internal.bindings.system_media_controls.mojom = mojo.internal.bindings.system_media_controls.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 
-mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls = {};
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec = { $ : {} };
+mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec = mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls || {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec || { $ : {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsSpec.$ = {};
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls.$interfaceName = 'system_media_controls.mojom.SystemMediaControls';
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver = {};
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec = { $ : {} };
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver || {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverSpec.$ = {};
 mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver.$interfaceName = 'system_media_controls.mojom.SystemMediaControlsObserver';
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = { $: {} };
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};

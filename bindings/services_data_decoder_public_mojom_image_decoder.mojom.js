@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.ImageDecoder = {};
-mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec = { $ : {} };
+mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec = mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec = mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoder = mojo.internal.bindings.data_decoder.mojom.ImageDecoder || {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec || { $ : {} };
+if (mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.ImageDecoderSpec.$ = {};
 mojo.internal.bindings.data_decoder.mojom.ImageDecoder.$interfaceName = 'data_decoder.mojom.ImageDecoder';
-mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

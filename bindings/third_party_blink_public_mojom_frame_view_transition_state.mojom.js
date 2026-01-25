@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,19 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec = mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec = mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec = mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewTransitionElementSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec = mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

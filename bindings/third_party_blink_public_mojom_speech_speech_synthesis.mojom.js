@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,52 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver = {};
-mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver = mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver || {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver.$interfaceName = 'blink.mojom.SpeechSynthesisVoiceListObserver';
-mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient = {};
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient || {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SpeechSynthesisClient.$interfaceName = 'blink.mojom.SpeechSynthesisClient';
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesis = {};
-mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesis = mojo.internal.bindings.blink.mojom.SpeechSynthesis || {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesisSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SpeechSynthesis.$interfaceName = 'blink.mojom.SpeechSynthesis';
-mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$ = {};
 
 mojo.internal.bindings.blink.mojom.kSpeechSynthesisDefaultRate = 1.0;
 

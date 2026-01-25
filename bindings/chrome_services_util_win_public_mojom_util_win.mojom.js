@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,40 +124,65 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.CertificateTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.InspectionResultSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ClsIdSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin = {};
-mojo.internal.bindings.chrome.mojom.UtilWinSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec = mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.CertificateTypeSpec = mojo.internal.bindings.chrome.mojom.CertificateTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec = mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec = mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec = mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.InspectionResultSpec = mojo.internal.bindings.chrome.mojom.InspectionResultSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.InspectionResultSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.InspectionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.InspectionResultSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec = mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec = mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ClsIdSpec = mojo.internal.bindings.chrome.mojom.ClsIdSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ClsIdSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ClsIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ClsIdSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec = mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin = mojo.internal.bindings.chrome.mojom.UtilWin || {};
+mojo.internal.bindings.chrome.mojom.UtilWinSpec = mojo.internal.bindings.chrome.mojom.UtilWinSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWinSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWinSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWinSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.UtilWin.$interfaceName = 'chrome.mojom.UtilWin';
-mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProcessorMetrics = {};
-mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProcessorMetrics = mojo.internal.bindings.chrome.mojom.ProcessorMetrics || {};
+mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec = mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProcessorMetricsSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ProcessorMetrics.$interfaceName = 'chrome.mojom.ProcessorMetrics';
-mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

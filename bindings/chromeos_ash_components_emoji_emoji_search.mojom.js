@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.emoji_search = mojo.internal.bindings.emoji_search || {};
 mojo.internal.bindings.emoji_search.mojom = mojo.internal.bindings.emoji_search.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec = { $: {} };
-mojo.internal.bindings.emoji_search.mojom.EmojiSearch = {};
-mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec = { $ : {} };
+mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec = mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$.structSpec && mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$ = {};
+mojo.internal.bindings.emoji_search.mojom.EmojiSearch = mojo.internal.bindings.emoji_search.mojom.EmojiSearch || {};
+mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec = mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec || { $ : {} };
+if (mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec.$.structSpec && mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_search.mojom.EmojiSearchSpec.$ = {};
 mojo.internal.bindings.emoji_search.mojom.EmojiSearch.$interfaceName = 'emoji_search.mojom.EmojiSearch';
-mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = { $: {} };
+mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$ = {};
 
 // Interface: EmojiSearch
 mojo.internal.bindings.emoji_search.mojom.EmojiSearchPendingReceiver = class {

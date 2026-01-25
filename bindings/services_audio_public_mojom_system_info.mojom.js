@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,47 @@
 
  mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.audio.mojom.SystemInfo = {};
-mojo.internal.bindings.audio.mojom.SystemInfoSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.SystemInfo = mojo.internal.bindings.audio.mojom.SystemInfo || {};
+mojo.internal.bindings.audio.mojom.SystemInfoSpec = mojo.internal.bindings.audio.mojom.SystemInfoSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfoSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfoSpec.$ = {};
 mojo.internal.bindings.audio.mojom.SystemInfo.$interfaceName = 'audio.mojom.SystemInfo';
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};

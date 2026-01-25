@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,21 +125,32 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerResultStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DetectCornersResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DoPostProcessingResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner.$interfaceName = 'chromeos.machine_learning.mojom.DocumentScanner';
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,36 +123,59 @@
 
  mojo.internal.bindings.commerce = mojo.internal.bindings.commerce || {};
 mojo.internal.bindings.commerce.mojom = mojo.internal.bindings.commerce.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.shopping_service = mojo.internal.bindings.shopping_service || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.SubscriptionSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory = {};
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec = mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.EligibilityDetailSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec = mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.ShoppingEligibilityDetailsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.SubscriptionSpec = mojo.internal.bindings.commerce.mojom.SubscriptionSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.SubscriptionSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.SubscriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.SubscriptionSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec = mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.ProductSpecificationsSetSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory || {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactorySpec.$ = {};
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory.$interfaceName = 'commerce.mojom.CommerceInternalsHandlerFactory';
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler = {};
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec = { $ : {} };
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler || {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerSpec.$ = {};
 mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler.$interfaceName = 'commerce.mojom.CommerceInternalsHandler';
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.mojom.CommerceInternalsPage = {};
-mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec = { $ : {} };
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsPage = mojo.internal.bindings.commerce.mojom.CommerceInternalsPage || {};
+mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec || { $ : {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsPageSpec.$ = {};
 mojo.internal.bindings.commerce.mojom.CommerceInternalsPage.$interfaceName = 'commerce.mojom.CommerceInternalsPage';
-mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec = mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.commerce = mojo.internal.bindings.commerce || {};

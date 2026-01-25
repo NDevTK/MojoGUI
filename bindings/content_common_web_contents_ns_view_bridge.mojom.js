@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,43 +123,69 @@
 
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
-mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView = {};
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec = mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec = mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView || {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView.$interfaceName = 'remote_cocoa.mojom.WebContentsNSView';
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost = {};
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost || {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHostSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost.$interfaceName = 'remote_cocoa.mojom.WebContentsNSViewHost';
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};

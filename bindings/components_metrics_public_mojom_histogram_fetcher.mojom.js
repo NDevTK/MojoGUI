@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,28 @@
  mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory = {};
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec = { $ : {} };
+mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec = mojo.internal.bindings.metrics.mojom.UmaChildPingStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec = mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory || {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec || { $ : {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactorySpec.$ = {};
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory.$interfaceName = 'metrics.mojom.ChildHistogramFetcherFactory';
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher = {};
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec = { $ : {} };
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher || {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec || { $ : {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherSpec.$ = {};
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher.$interfaceName = 'metrics.mojom.ChildHistogramFetcher';
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

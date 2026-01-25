@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,36 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.DisplaySettings = {};
-mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.DisplaySettings = mojo.internal.bindings.chromecast.mojom.DisplaySettings || {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettingsSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.DisplaySettings.$interfaceName = 'chromecast.mojom.DisplaySettings';
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver = {};
-mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver = mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver || {};
+mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver.$interfaceName = 'chromecast.mojom.DisplaySettingsObserver';
-mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

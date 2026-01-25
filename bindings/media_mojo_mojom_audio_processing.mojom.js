@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,25 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioProcessorControls = {};
-mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec = mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec = mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec = mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioProcessorControls = mojo.internal.bindings.media.mojom.AudioProcessorControls || {};
+mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec = mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioProcessorControls.$interfaceName = 'media.mojom.AudioProcessorControls';
-mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec = mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$ = {};
 
 // Interface: AudioProcessorControls
 mojo.internal.bindings.media.mojom.AudioProcessorControlsPendingReceiver = class {

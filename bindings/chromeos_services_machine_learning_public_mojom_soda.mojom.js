@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,37 +125,58 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient.$interfaceName = 'chromeos.machine_learning.mojom.SodaClient';
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer.$interfaceName = 'chromeos.machine_learning.mojom.SodaRecognizer';
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

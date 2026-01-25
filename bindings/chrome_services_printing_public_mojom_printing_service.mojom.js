@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.printing.mojom.PrintingService = {};
-mojo.internal.bindings.printing.mojom.PrintingServiceSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.PrintingService = mojo.internal.bindings.printing.mojom.PrintingService || {};
+mojo.internal.bindings.printing.mojom.PrintingServiceSpec = mojo.internal.bindings.printing.mojom.PrintingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PrintingServiceSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintingServiceSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PrintingService.$interfaceName = 'printing.mojom.PrintingService';
-mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,41 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory = {};
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec = { $ : {} };
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory || {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec.$ = {};
 mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory.$interfaceName = 'chromeos.cdm.mojom.BrowserCdmFactory';
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

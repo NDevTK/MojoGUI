@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,37 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.connectivity = mojo.internal.bindings.chromeos.connectivity || {};
 mojo.internal.bindings.chromeos.connectivity.mojom = mojo.internal.bindings.chromeos.connectivity.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener = {};
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener || {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerSpec.$ = {};
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener.$interfaceName = 'chromeos.connectivity.mojom.PasspointEventsListener';
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService = {};
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService || {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceSpec.$ = {};
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService.$interfaceName = 'chromeos.connectivity.mojom.PasspointService';
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec = mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$ = {};
 
 // Interface: PasspointEventsListener
 mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver = class {

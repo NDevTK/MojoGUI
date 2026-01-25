@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,21 @@
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridge = {};
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertDispositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeInitParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridge = mojo.internal.bindings.remote_cocoa.mojom.AlertBridge || {};
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.AlertBridge.$interfaceName = 'remote_cocoa.mojom.AlertBridge';
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

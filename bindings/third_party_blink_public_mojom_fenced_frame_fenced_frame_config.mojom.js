@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,42 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.OpaqueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AutomaticBeaconTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdAuctionDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.URNConfigPairSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ReportingDestinationSpec = mojo.internal.bindings.blink.mojom.ReportingDestinationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec = mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OpaqueSpec = mojo.internal.bindings.blink.mojom.OpaqueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AutomaticBeaconTypeSpec = mojo.internal.bindings.blink.mojom.AutomaticBeaconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSizeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueBoolSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec = mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdAuctionDataSpec = mojo.internal.bindings.blink.mojom.AdAuctionDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdAuctionDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdAuctionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdAuctionDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.URNConfigPairSpec = mojo.internal.bindings.blink.mojom.URNConfigPairSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.URNConfigPairSpec.$.structSpec && mojo.internal.bindings.blink.mojom.URNConfigPairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.URNConfigPairSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec = mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec = mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec = mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec = mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FencedFramePropertiesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

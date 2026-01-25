@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,27 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PdfNupConverter = {};
-mojo.internal.bindings.printing.mojom.PdfNupConverterSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.StatusSpec = mojo.internal.bindings.printing.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PdfNupConverter = mojo.internal.bindings.printing.mojom.PdfNupConverter || {};
+mojo.internal.bindings.printing.mojom.PdfNupConverterSpec = mojo.internal.bindings.printing.mojom.PdfNupConverterSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverterSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverterSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PdfNupConverter.$interfaceName = 'printing.mojom.PdfNupConverter';
-mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

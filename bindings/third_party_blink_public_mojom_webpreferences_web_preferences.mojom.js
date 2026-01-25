@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,20 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.PointerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.HoverTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.OutputDeviceUpdateAbilityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.EditingBehaviorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ViewportStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AutoplayPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPreferencesSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PointerTypeSpec = mojo.internal.bindings.blink.mojom.PointerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.HoverTypeSpec = mojo.internal.bindings.blink.mojom.HoverTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OutputDeviceUpdateAbilityTypeSpec = mojo.internal.bindings.blink.mojom.OutputDeviceUpdateAbilityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EditingBehaviorSpec = mojo.internal.bindings.blink.mojom.EditingBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec = mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ViewportStyleSpec = mojo.internal.bindings.blink.mojom.ViewportStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AutoplayPolicySpec = mojo.internal.bindings.blink.mojom.AutoplayPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec = mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPreferencesSpec = mojo.internal.bindings.blink.mojom.WebPreferencesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPreferencesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPreferencesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPreferencesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,26 +125,41 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.app_notification = mojo.internal.bindings.ash.settings.app_notification || {};
 mojo.internal.bindings.ash.settings.app_notification.mojom = mojo.internal.bindings.ash.settings.app_notification.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
 
-mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler = {};
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler || {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler.$interfaceName = 'ash.settings.app_notification.mojom.AppNotificationsHandler';
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver = {};
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver || {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver.$interfaceName = 'ash.settings.app_notification.mojom.AppNotificationsObserver';
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec = mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};

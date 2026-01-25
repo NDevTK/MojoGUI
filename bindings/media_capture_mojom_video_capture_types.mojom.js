@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,37 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.ResolutionChangePolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.PowerLineFrequencySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoFacingModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CameraAvailabilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureApiSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.DeviceEnumerationResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaneStridesSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec = { $: {} };
+mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec = mojo.internal.bindings.media.mojom.VideoCapturePixelFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.ResolutionChangePolicySpec = mojo.internal.bindings.media.mojom.ResolutionChangePolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.PowerLineFrequencySpec = mojo.internal.bindings.media.mojom.PowerLineFrequencySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoFacingModeSpec = mojo.internal.bindings.media.mojom.VideoFacingModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CameraAvailabilitySpec = mojo.internal.bindings.media.mojom.CameraAvailabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureApiSpec = mojo.internal.bindings.media.mojom.VideoCaptureApiSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec = mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec = mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec = mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec = mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec = mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec = mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.DeviceEnumerationResultSpec = mojo.internal.bindings.media.mojom.DeviceEnumerationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec = mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec = mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureFormatSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec = mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureFeedbackSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaneStridesSpec = mojo.internal.bindings.media.mojom.PlaneStridesSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaneStridesSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaneStridesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaneStridesSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec = mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureDeviceDescriptorSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec = mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

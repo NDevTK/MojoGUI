@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.InnerHtmlAgent = {};
-mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.InnerHtmlAgent = mojo.internal.bindings.blink.mojom.InnerHtmlAgent || {};
+mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec = mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InnerHtmlAgentSpec.$ = {};
 mojo.internal.bindings.blink.mojom.InnerHtmlAgent.$interfaceName = 'blink.mojom.InnerHtmlAgent';
-mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$ = {};
 
 // Interface: InnerHtmlAgent
 mojo.internal.bindings.blink.mojom.InnerHtmlAgentPendingReceiver = class {

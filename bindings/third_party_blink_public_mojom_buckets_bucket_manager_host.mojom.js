@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,41 +124,71 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.BucketErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BucketPoliciesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost = {};
-mojo.internal.bindings.blink.mojom.BucketHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BucketErrorSpec = mojo.internal.bindings.blink.mojom.BucketErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BucketPoliciesSpec = mojo.internal.bindings.blink.mojom.BucketPoliciesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost = mojo.internal.bindings.blink.mojom.BucketHost || {};
+mojo.internal.bindings.blink.mojom.BucketHostSpec = mojo.internal.bindings.blink.mojom.BucketHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BucketHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BucketHost.$interfaceName = 'blink.mojom.BucketHost';
-mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost = {};
-mojo.internal.bindings.blink.mojom.BucketManagerHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost = mojo.internal.bindings.blink.mojom.BucketManagerHost || {};
+mojo.internal.bindings.blink.mojom.BucketManagerHostSpec = mojo.internal.bindings.blink.mojom.BucketManagerHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BucketManagerHost.$interfaceName = 'blink.mojom.BucketManagerHost';
-mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

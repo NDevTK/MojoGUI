@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,36 @@
 
  mojo.internal.bindings.echo = mojo.internal.bindings.echo || {};
 mojo.internal.bindings.echo.mojom = mojo.internal.bindings.echo.mojom || {};
-mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.echo.mojom.LoadStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.echo.mojom.EchoService = {};
-mojo.internal.bindings.echo.mojom.EchoServiceSpec = { $ : {} };
+mojo.internal.bindings.echo.mojom.LoadStatusSpec = mojo.internal.bindings.echo.mojom.LoadStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.echo.mojom.EchoService = mojo.internal.bindings.echo.mojom.EchoService || {};
+mojo.internal.bindings.echo.mojom.EchoServiceSpec = mojo.internal.bindings.echo.mojom.EchoServiceSpec || { $ : {} };
+if (mojo.internal.bindings.echo.mojom.EchoServiceSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoServiceSpec.$ = {};
 mojo.internal.bindings.echo.mojom.EchoService.$interfaceName = 'echo.mojom.EchoService';
-mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

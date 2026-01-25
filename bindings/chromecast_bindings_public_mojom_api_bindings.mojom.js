@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.chromecast.mojom.ApiBindingSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.ApiBindings = {};
-mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.ApiBindingSpec = mojo.internal.bindings.chromecast.mojom.ApiBindingSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ApiBindingSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ApiBindingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ApiBindingSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.ApiBindings = mojo.internal.bindings.chromecast.mojom.ApiBindings || {};
+mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ApiBindingsSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.ApiBindings.$interfaceName = 'chromecast.mojom.ApiBindings';
-mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec = mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

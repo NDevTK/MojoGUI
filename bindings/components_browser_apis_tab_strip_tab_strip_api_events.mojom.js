@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,19 @@
 
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};

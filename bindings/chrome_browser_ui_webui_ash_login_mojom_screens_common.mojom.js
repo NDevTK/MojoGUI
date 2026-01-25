@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,54 +125,80 @@
 mojo.internal.bindings.ash.screens_common = mojo.internal.bindings.ash.screens_common || {};
 mojo.internal.bindings.ash.screens_common.mojom = mojo.internal.bindings.ash.screens_common.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec = mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec = mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.AiIntroPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage = {};
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage || {};
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage.$interfaceName = 'ash.screens_common.mojom.AiIntroPage';
-mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler = mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler.$interfaceName = 'ash.screens_common.mojom.AppDownloadingPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler.$interfaceName = 'ash.screens_common.mojom.DrivePinningPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage = {};
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage || {};
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage.$interfaceName = 'ash.screens_common.mojom.DrivePinningPage';
-mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler = mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler.$interfaceName = 'ash.screens_common.mojom.FjordStationSetupPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage = {};
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage || {};
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage.$interfaceName = 'ash.screens_common.mojom.GaiaInfoPage';
-mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler = mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler.$interfaceName = 'ash.screens_common.mojom.GestureNavigationPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler = {};
-mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler || {};
+mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler.$interfaceName = 'ash.screens_common.mojom.GeminiIntroPageHandler';
-mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

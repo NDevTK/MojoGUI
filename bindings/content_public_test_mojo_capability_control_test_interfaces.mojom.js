@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,35 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.TestInterfaceForDefer = {};
-mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.TestInterfaceForDefer = mojo.internal.bindings.content.mojom.TestInterfaceForDefer || {};
+mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec = mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForDeferSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestInterfaceForDefer.$interfaceName = 'content.mojom.TestInterfaceForDefer';
-mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestInterfaceForGrant = {};
-mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestInterfaceForGrant = mojo.internal.bindings.content.mojom.TestInterfaceForGrant || {};
+mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec = mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForGrantSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestInterfaceForGrant.$interfaceName = 'content.mojom.TestInterfaceForGrant';
-mojo.internal.bindings.content.mojom.TestInterfaceForCancel = {};
-mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.TestInterfaceForCancel = mojo.internal.bindings.content.mojom.TestInterfaceForCancel || {};
+mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec = mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForCancelSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestInterfaceForCancel.$interfaceName = 'content.mojom.TestInterfaceForCancel';
-mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected = {};
-mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected = mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected || {};
+mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec = mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestInterfaceForUnexpected.$interfaceName = 'content.mojom.TestInterfaceForUnexpected';
-mojo.internal.bindings.content.mojom.MojoContextProvider = {};
-mojo.internal.bindings.content.mojom.MojoContextProviderSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.MojoContextProvider = mojo.internal.bindings.content.mojom.MojoContextProvider || {};
+mojo.internal.bindings.content.mojom.MojoContextProviderSpec = mojo.internal.bindings.content.mojom.MojoContextProviderSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.MojoContextProviderSpec.$.structSpec && mojo.internal.bindings.content.mojom.MojoContextProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.MojoContextProviderSpec.$ = {};
 mojo.internal.bindings.content.mojom.MojoContextProvider.$interfaceName = 'content.mojom.MojoContextProvider';
-mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec = mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$ = {};
 
 // Interface: TestInterfaceForDefer
 mojo.internal.bindings.content.mojom.TestInterfaceForDeferPendingReceiver = class {

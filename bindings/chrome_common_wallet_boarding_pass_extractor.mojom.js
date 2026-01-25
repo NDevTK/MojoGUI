@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.wallet = mojo.internal.bindings.wallet || {};
 mojo.internal.bindings.wallet.mojom = mojo.internal.bindings.wallet.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.wallet.mojom.BoardingPassExtractor = {};
-mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec = { $ : {} };
+mojo.internal.bindings.wallet.mojom.BoardingPassExtractor = mojo.internal.bindings.wallet.mojom.BoardingPassExtractor || {};
+mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec = mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec || { $ : {} };
+if (mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.BoardingPassExtractorSpec.$ = {};
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractor.$interfaceName = 'wallet.mojom.BoardingPassExtractor';
-mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = { $: {} };
-mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec = mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec.$ = {};
+mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec.$ = {};
 
 // Interface: BoardingPassExtractor
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractorPendingReceiver = class {

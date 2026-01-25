@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,27 @@
 
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec = { $: {} };
+mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec = mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrContentLightLevelInformationSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec = mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrMasteringDisplayColorVolumeSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveControlPointSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmGainCurveSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmComponentMixingFunctionSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmColorGainFunctionSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmAlternateImageSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec = mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAgtmHeadroomAdaptiveToneMapSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec = mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkHdrAdaptiveGlobalToneMapSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};

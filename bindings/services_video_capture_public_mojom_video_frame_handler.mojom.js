@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,29 +123,48 @@
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler = {};
-mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec = mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler = mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler || {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler.$interfaceName = 'video_capture.mojom.VideoFrameAccessHandler';
-mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler = {};
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler || {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.VideoFrameHandler.$interfaceName = 'video_capture.mojom.VideoFrameHandler';
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = { $: {} };
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

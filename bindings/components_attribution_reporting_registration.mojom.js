@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,33 +124,58 @@
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec = { $: {} };
+mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec = mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec = mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.FilterDataSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec = mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.FilterConfigSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec = mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.FilterPairSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregationKeysSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableTriggerDataSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec = mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DestinationSetSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec = mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.EventReportWindowsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.TriggerDataSetSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingContributionSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableDebugReportingConfigSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec = mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.SourceAggregatableDebugReportingConfigSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec = mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesSetSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec = mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AttributionScopesDataSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetDefsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec = mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.EventTriggerDataSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableDedupKeySpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesValueSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableValuesSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec = mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.AggregatableNamedBudgetCandidateSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec = mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationItemSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec = mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};

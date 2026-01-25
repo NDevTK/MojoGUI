@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.test = mojo.internal.bindings.test || {};
 mojo.internal.bindings.test.mojom = mojo.internal.bindings.test.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.test.mojom.Foo = {};
-mojo.internal.bindings.test.mojom.FooSpec = { $ : {} };
+mojo.internal.bindings.test.mojom.Foo = mojo.internal.bindings.test.mojom.Foo || {};
+mojo.internal.bindings.test.mojom.FooSpec = mojo.internal.bindings.test.mojom.FooSpec || { $ : {} };
+if (mojo.internal.bindings.test.mojom.FooSpec.$.structSpec && mojo.internal.bindings.test.mojom.FooSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.FooSpec.$ = {};
 mojo.internal.bindings.test.mojom.Foo.$interfaceName = 'test.mojom.Foo';
-mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec = { $: {} };
-mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.test.mojom.Bar = {};
-mojo.internal.bindings.test.mojom.BarSpec = { $ : {} };
+mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec = mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec.$ = {};
+mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec = mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.test.mojom.Bar = mojo.internal.bindings.test.mojom.Bar || {};
+mojo.internal.bindings.test.mojom.BarSpec = mojo.internal.bindings.test.mojom.BarSpec || { $ : {} };
+if (mojo.internal.bindings.test.mojom.BarSpec.$.structSpec && mojo.internal.bindings.test.mojom.BarSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.BarSpec.$ = {};
 mojo.internal.bindings.test.mojom.Bar.$interfaceName = 'test.mojom.Bar';
-mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec = { $: {} };
-mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.test.mojom.Baz = {};
-mojo.internal.bindings.test.mojom.BazSpec = { $ : {} };
+mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec = mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec.$ = {};
+mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec = mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.test.mojom.Baz = mojo.internal.bindings.test.mojom.Baz || {};
+mojo.internal.bindings.test.mojom.BazSpec = mojo.internal.bindings.test.mojom.BazSpec || { $ : {} };
+if (mojo.internal.bindings.test.mojom.BazSpec.$.structSpec && mojo.internal.bindings.test.mojom.BazSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.BazSpec.$ = {};
 mojo.internal.bindings.test.mojom.Baz.$interfaceName = 'test.mojom.Baz';
-mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec = { $: {} };
-mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec = mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec.$ = {};
+mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec = mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$ = {};
 
 // Interface: Foo
 mojo.internal.bindings.test.mojom.FooPendingReceiver = class {

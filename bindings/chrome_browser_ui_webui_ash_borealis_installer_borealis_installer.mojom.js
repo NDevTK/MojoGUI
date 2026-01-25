@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,42 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.borealis_installer = mojo.internal.bindings.ash.borealis_installer || {};
 mojo.internal.bindings.ash.borealis_installer.mojom = mojo.internal.bindings.ash.borealis_installer.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.borealis = mojo.internal.bindings.borealis || {};
 
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.borealis_installer.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler = {};
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler || {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler.$interfaceName = 'ash.borealis_installer.mojom.PageHandler';
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.Page = {};
-mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.Page = mojo.internal.bindings.ash.borealis_installer.mojom.Page || {};
+mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec = mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.PageSpec.$ = {};
 mojo.internal.bindings.ash.borealis_installer.mojom.Page.$interfaceName = 'ash.borealis_installer.mojom.Page';
-mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.borealis = mojo.internal.bindings.borealis || {};

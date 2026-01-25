@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,52 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.IndexedDBObserver = {};
-mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.IndexedDBObserver = mojo.internal.bindings.storage.mojom.IndexedDBObserver || {};
+mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$ = {};
 mojo.internal.bindings.storage.mojom.IndexedDBObserver.$interfaceName = 'storage.mojom.IndexedDBObserver';
-mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl = {};
-mojo.internal.bindings.storage.mojom.IndexedDBControlSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl = mojo.internal.bindings.storage.mojom.IndexedDBControl || {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlSpec.$ = {};
 mojo.internal.bindings.storage.mojom.IndexedDBControl.$interfaceName = 'storage.mojom.IndexedDBControl';
-mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

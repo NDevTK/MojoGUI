@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,40 @@
  mojo.internal.bindings.segmentation_internals = mojo.internal.bindings.segmentation_internals || {};
 mojo.internal.bindings.segmentation_internals.mojom = mojo.internal.bindings.segmentation_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec = mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec = mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec = mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory = mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory.$interfaceName = 'segmentation_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.PageHandler = {};
-mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandler = mojo.internal.bindings.segmentation_internals.mojom.PageHandler || {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.segmentation_internals.mojom.PageHandler.$interfaceName = 'segmentation_internals.mojom.PageHandler';
-mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.Page = {};
-mojo.internal.bindings.segmentation_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.Page = mojo.internal.bindings.segmentation_internals.mojom.Page || {};
+mojo.internal.bindings.segmentation_internals.mojom.PageSpec = mojo.internal.bindings.segmentation_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.segmentation_internals.mojom.Page.$interfaceName = 'segmentation_internals.mojom.Page';
-mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = { $: {} };
+mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec = mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

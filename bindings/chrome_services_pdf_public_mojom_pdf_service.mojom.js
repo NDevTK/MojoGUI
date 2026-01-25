@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,23 @@
 
  mojo.internal.bindings.pdf = mojo.internal.bindings.pdf || {};
 mojo.internal.bindings.pdf.mojom = mojo.internal.bindings.pdf.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.pdf.mojom.Ocr = {};
-mojo.internal.bindings.pdf.mojom.OcrSpec = { $ : {} };
+mojo.internal.bindings.pdf.mojom.Ocr = mojo.internal.bindings.pdf.mojom.Ocr || {};
+mojo.internal.bindings.pdf.mojom.OcrSpec = mojo.internal.bindings.pdf.mojom.OcrSpec || { $ : {} };
+if (mojo.internal.bindings.pdf.mojom.OcrSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.OcrSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.OcrSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.Ocr.$interfaceName = 'pdf.mojom.Ocr';
-mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfService = {};
-mojo.internal.bindings.pdf.mojom.PdfServiceSpec = { $ : {} };
+mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec = mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfService = mojo.internal.bindings.pdf.mojom.PdfService || {};
+mojo.internal.bindings.pdf.mojom.PdfServiceSpec = mojo.internal.bindings.pdf.mojom.PdfServiceSpec || { $ : {} };
+if (mojo.internal.bindings.pdf.mojom.PdfServiceSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfServiceSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfService.$interfaceName = 'pdf.mojom.PdfService';
 
 // External type stubs (from imports)

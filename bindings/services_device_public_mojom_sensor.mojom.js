@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,43 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.SensorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.ReportingModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.SensorReadingRawSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorConfigurationSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor = {};
-mojo.internal.bindings.device.mojom.SensorSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.SensorTypeSpec = mojo.internal.bindings.device.mojom.SensorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.ReportingModeSpec = mojo.internal.bindings.device.mojom.ReportingModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.SensorReadingRawSpec = mojo.internal.bindings.device.mojom.SensorReadingRawSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorReadingRawSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorReadingRawSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorReadingRawSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorConfigurationSpec = mojo.internal.bindings.device.mojom.SensorConfigurationSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor = mojo.internal.bindings.device.mojom.Sensor || {};
+mojo.internal.bindings.device.mojom.SensorSpec = mojo.internal.bindings.device.mojom.SensorSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.SensorSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorSpec.$ = {};
 mojo.internal.bindings.device.mojom.Sensor.$interfaceName = 'device.mojom.Sensor';
-mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorClient = {};
-mojo.internal.bindings.device.mojom.SensorClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec = mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorClient = mojo.internal.bindings.device.mojom.SensorClient || {};
+mojo.internal.bindings.device.mojom.SensorClientSpec = mojo.internal.bindings.device.mojom.SensorClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.SensorClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.SensorClient.$interfaceName = 'device.mojom.SensorClient';
-mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec = mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec = mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$ = {};
 
 // Enum: SensorType
 mojo.internal.bindings.device.mojom.SensorType = {

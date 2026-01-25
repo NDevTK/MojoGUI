@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,16 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec = { $: {} };
+mojo.internal.bindings.media.mojom.RemotingStopReasonSpec = mojo.internal.bindings.media.mojom.RemotingStopReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec = mojo.internal.bindings.media.mojom.RemotingStartFailReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec = mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec = mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec = mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec = mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec.$.structSpec && mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec.$ = {};
 
 // Enum: RemotingStopReason
 mojo.internal.bindings.media.mojom.RemotingStopReason = {

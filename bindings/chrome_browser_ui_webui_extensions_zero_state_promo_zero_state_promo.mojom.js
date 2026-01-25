@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,22 @@
 
  mojo.internal.bindings.zero_state_promo = mojo.internal.bindings.zero_state_promo || {};
 mojo.internal.bindings.zero_state_promo.mojom = mojo.internal.bindings.zero_state_promo.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec = mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory.$interfaceName = 'zero_state_promo.mojom.PageHandlerFactory';
-mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.zero_state_promo.mojom.PageHandler = {};
-mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.zero_state_promo.mojom.PageHandler = mojo.internal.bindings.zero_state_promo.mojom.PageHandler || {};
+mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.zero_state_promo.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.zero_state_promo.mojom.PageHandler.$interfaceName = 'zero_state_promo.mojom.PageHandler';
-mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = { $: {} };
+mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec = mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$.structSpec && mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$ = {};
 
 mojo.internal.bindings.zero_state_promo.mojom.kDiscoverExtensionWebStoreUrl = "https://chromewebstore.google.com/";
 

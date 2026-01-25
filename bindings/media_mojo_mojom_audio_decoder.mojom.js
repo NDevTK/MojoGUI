@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,42 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder = {};
-mojo.internal.bindings.media.mojom.AudioDecoderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec = mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder = mojo.internal.bindings.media.mojom.AudioDecoder || {};
+mojo.internal.bindings.media.mojom.AudioDecoderSpec = mojo.internal.bindings.media.mojom.AudioDecoderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoderSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoderSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioDecoder.$interfaceName = 'media.mojom.AudioDecoder';
-mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoderClient = {};
-mojo.internal.bindings.media.mojom.AudioDecoderClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Construct_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Decode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoder_Reset_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoderClient = mojo.internal.bindings.media.mojom.AudioDecoderClient || {};
+mojo.internal.bindings.media.mojom.AudioDecoderClientSpec = mojo.internal.bindings.media.mojom.AudioDecoderClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoderClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoderClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.AudioDecoderClient.$interfaceName = 'media.mojom.AudioDecoderClient';
-mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec = mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.FontPrewarmer = {};
-mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.FontPrewarmer = mojo.internal.bindings.chrome.mojom.FontPrewarmer || {};
+mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec = mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FontPrewarmerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.FontPrewarmer.$interfaceName = 'chrome.mojom.FontPrewarmer';
-mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor = {};
-mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor || {};
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor.$interfaceName = 'chrome.mojom.RenderFrameFontFamilyAccessor';
-mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$ = {};
 
 // Interface: FontPrewarmer
 mojo.internal.bindings.chrome.mojom.FontPrewarmerPendingReceiver = class {

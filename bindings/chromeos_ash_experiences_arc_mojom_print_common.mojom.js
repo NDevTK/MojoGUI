@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,31 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PrintPageRangeSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintResolutionSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintMarginsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintAttributesSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintJobRequestSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrinterInfoSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PrintColorModeSpec = mojo.internal.bindings.arc.mojom.PrintColorModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrintDuplexModeSpec = mojo.internal.bindings.arc.mojom.PrintDuplexModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrintContentTypeSpec = mojo.internal.bindings.arc.mojom.PrintContentTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrinterStatusSpec = mojo.internal.bindings.arc.mojom.PrinterStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PrintPageRangeSpec = mojo.internal.bindings.arc.mojom.PrintPageRangeSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintPageRangeSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintPageRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintPageRangeSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec = mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintMediaSizeSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintResolutionSpec = mojo.internal.bindings.arc.mojom.PrintResolutionSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintResolutionSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintResolutionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintResolutionSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintMarginsSpec = mojo.internal.bindings.arc.mojom.PrintMarginsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintMarginsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintMarginsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintMarginsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintAttributesSpec = mojo.internal.bindings.arc.mojom.PrintAttributesSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintAttributesSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintAttributesSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec = mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintJobRequestSpec = mojo.internal.bindings.arc.mojom.PrintJobRequestSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintJobRequestSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintJobRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintJobRequestSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec = mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrinterCapabilitiesSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrinterInfoSpec = mojo.internal.bindings.arc.mojom.PrinterInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrinterInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrinterInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrinterInfoSpec.$ = {};
 
 // Enum: PrintColorMode
 mojo.internal.bindings.arc.mojom.PrintColorMode = {

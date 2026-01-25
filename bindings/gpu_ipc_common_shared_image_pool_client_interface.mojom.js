@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface = {};
-mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec = { $ : {} };
+mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface || {};
+mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface.$interfaceName = 'gpu.mojom.SharedImagePoolClientInterface';
-mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$ = {};
 
 // Interface: SharedImagePoolClientInterface
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {

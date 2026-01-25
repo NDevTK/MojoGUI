@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,18 +125,26 @@
 mojo.internal.bindings.ash.shortcut_customization = mojo.internal.bindings.ash.shortcut_customization || {};
 mojo.internal.bindings.ash.shortcut_customization.mojom = mojo.internal.bindings.ash.shortcut_customization.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec = { $: {} };
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec || { $: {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec.$ = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver || {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverSpec.$ = {};
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.$interfaceName = 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver';
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler = {};
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler || {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerSpec.$ = {};
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler.$interfaceName = 'ash.shortcut_customization.mojom.SearchHandler';
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

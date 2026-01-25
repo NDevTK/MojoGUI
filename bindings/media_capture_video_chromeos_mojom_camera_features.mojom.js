@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,14 @@
 
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.cros.mojom.PortraitModeSegResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.PortraitModeSegResultSpec = mojo.internal.bindings.cros.mojom.PortraitModeSegResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec = mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec.$.structSpec && mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec.$ = {};
+mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec = mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec.$.structSpec && mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec.$ = {};
 
 // Enum: PortraitModeSegResult
 mojo.internal.bindings.cros.mojom.PortraitModeSegResult = {

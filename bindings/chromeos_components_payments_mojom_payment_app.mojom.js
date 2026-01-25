@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,29 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
 mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance = {};
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance || {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceSpec.$ = {};
 mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance.$interfaceName = 'chromeos.payments.mojom.PaymentAppInstance';
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

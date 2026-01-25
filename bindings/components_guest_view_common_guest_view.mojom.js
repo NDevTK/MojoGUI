@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,22 @@
  mojo.internal.bindings.guest_view = mojo.internal.bindings.guest_view || {};
 mojo.internal.bindings.guest_view.mojom = mojo.internal.bindings.guest_view.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.guest_view.mojom.ViewHandle = {};
-mojo.internal.bindings.guest_view.mojom.ViewHandleSpec = { $ : {} };
+mojo.internal.bindings.guest_view.mojom.ViewHandle = mojo.internal.bindings.guest_view.mojom.ViewHandle || {};
+mojo.internal.bindings.guest_view.mojom.ViewHandleSpec = mojo.internal.bindings.guest_view.mojom.ViewHandleSpec || { $ : {} };
+if (mojo.internal.bindings.guest_view.mojom.ViewHandleSpec.$.structSpec && mojo.internal.bindings.guest_view.mojom.ViewHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_view.mojom.ViewHandleSpec.$ = {};
 mojo.internal.bindings.guest_view.mojom.ViewHandle.$interfaceName = 'guest_view.mojom.ViewHandle';
-mojo.internal.bindings.guest_view.mojom.GuestViewHost = {};
-mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec = { $ : {} };
+mojo.internal.bindings.guest_view.mojom.GuestViewHost = mojo.internal.bindings.guest_view.mojom.GuestViewHost || {};
+mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec = mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec || { $ : {} };
+if (mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec.$.structSpec && mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_view.mojom.GuestViewHostSpec.$ = {};
 mojo.internal.bindings.guest_view.mojom.GuestViewHost.$interfaceName = 'guest_view.mojom.GuestViewHost';
-mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec = mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

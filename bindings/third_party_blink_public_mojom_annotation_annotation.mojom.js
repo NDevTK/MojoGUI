@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,39 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AttachmentResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SelectorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgent = {};
-mojo.internal.bindings.blink.mojom.AnnotationAgentSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AnnotationTypeSpec = mojo.internal.bindings.blink.mojom.AnnotationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AttachmentResultSpec = mojo.internal.bindings.blink.mojom.AttachmentResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SelectorSpec = mojo.internal.bindings.blink.mojom.SelectorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SelectorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SelectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SelectorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec = mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SelectorCreationResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgent = mojo.internal.bindings.blink.mojom.AnnotationAgent || {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AnnotationAgent.$interfaceName = 'blink.mojom.AnnotationAgent';
-mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgentHost = {};
-mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentHost = mojo.internal.bindings.blink.mojom.AnnotationAgentHost || {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AnnotationAgentHost.$interfaceName = 'blink.mojom.AnnotationAgentHost';
-mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainer = {};
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainer = mojo.internal.bindings.blink.mojom.AnnotationAgentContainer || {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentContainerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AnnotationAgentContainer.$interfaceName = 'blink.mojom.AnnotationAgentContainer';
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec = mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

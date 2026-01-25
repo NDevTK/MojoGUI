@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService = {};
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService || {};
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceSpec.$ = {};
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService.$interfaceName = 'ash.cros_safety.mojom.CrosSafetyService';
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

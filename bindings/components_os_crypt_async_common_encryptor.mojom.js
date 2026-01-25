@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,9 +124,12 @@
  mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
 mojo.internal.bindings.os_crypt_async.mojom = mojo.internal.bindings.os_crypt_async.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.os_crypt_async.mojom.KeySpec = { $: {} };
-mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec = { $: {} };
+mojo.internal.bindings.os_crypt_async.mojom.KeySpec = mojo.internal.bindings.os_crypt_async.mojom.KeySpec || { $: {} };
+if (mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$.structSpec && mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$ = {};
+mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec = mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec || { $: {} };
+if (mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec.$.structSpec && mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

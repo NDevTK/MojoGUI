@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 
-mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider = {};
-mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider = mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider || {};
+mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec = mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec.$.structSpec && mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderSpec.$ = {};
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider.$interfaceName = 'cros.mojom.JpegAcceleratorProvider';
-mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};

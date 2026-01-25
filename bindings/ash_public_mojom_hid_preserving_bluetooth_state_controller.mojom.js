@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,16 @@
 
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController = {};
-mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec = mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController = mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController || {};
+mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec = mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec.$.structSpec && mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerSpec.$ = {};
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController.$interfaceName = 'ash.mojom.HidPreservingBluetoothStateController';
-mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec = mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$ = {};
 
 // Enum: HidWarningDialogSource
 mojo.internal.bindings.ash.mojom.HidWarningDialogSource = {

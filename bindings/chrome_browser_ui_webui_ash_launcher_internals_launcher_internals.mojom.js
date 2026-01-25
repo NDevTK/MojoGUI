@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.launcher_internals = mojo.internal.bindings.launcher_internals || {};
 mojo.internal.bindings.launcher_internals.mojom = mojo.internal.bindings.launcher_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.launcher_internals.mojom.ResultSpec = { $: {} };
-mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.launcher_internals.mojom.ResultSpec = mojo.internal.bindings.launcher_internals.mojom.ResultSpec || { $: {} };
+if (mojo.internal.bindings.launcher_internals.mojom.ResultSpec.$.structSpec && mojo.internal.bindings.launcher_internals.mojom.ResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.launcher_internals.mojom.ResultSpec.$ = {};
+mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory = mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory.$interfaceName = 'launcher_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.launcher_internals.mojom.Page = {};
-mojo.internal.bindings.launcher_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.launcher_internals.mojom.Page = mojo.internal.bindings.launcher_internals.mojom.Page || {};
+mojo.internal.bindings.launcher_internals.mojom.PageSpec = mojo.internal.bindings.launcher_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.launcher_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.launcher_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.launcher_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.launcher_internals.mojom.Page.$interfaceName = 'launcher_internals.mojom.Page';
-mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec = { $: {} };
+mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec = mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$.structSpec && mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactoryPendingReceiver = class {

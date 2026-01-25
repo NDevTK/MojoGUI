@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,44 @@
 
  mojo.internal.bindings.ntp_promo = mojo.internal.bindings.ntp_promo || {};
 mojo.internal.bindings.ntp_promo.mojom = mojo.internal.bindings.ntp_promo.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.PromoSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler = {};
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec = { $ : {} };
+mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec = mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec = mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.PromoSpec = mojo.internal.bindings.ntp_promo.mojom.PromoSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler || {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerSpec.$ = {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler.$interfaceName = 'ntp_promo.mojom.NtpPromoHandler';
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient = {};
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec = { $ : {} };
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient = mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient || {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec || { $ : {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$ = {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient.$interfaceName = 'ntp_promo.mojom.NtpPromoClient';
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory = {};
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory || {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory.$interfaceName = 'ntp_promo.mojom.NtpPromoHandlerFactory';
-mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$ = {};
 
 // Enum: ShowNtpPromosResult
 mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResult = {

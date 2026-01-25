@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushSubscriptionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging = {};
-mojo.internal.bindings.blink.mojom.PushMessagingSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PushErrorTypeSpec = mojo.internal.bindings.blink.mojom.PushErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec = mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushSubscriptionSpec = mojo.internal.bindings.blink.mojom.PushSubscriptionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushSubscriptionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushSubscriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushSubscriptionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging = mojo.internal.bindings.blink.mojom.PushMessaging || {};
+mojo.internal.bindings.blink.mojom.PushMessagingSpec = mojo.internal.bindings.blink.mojom.PushMessagingSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PushMessagingSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessagingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessagingSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PushMessaging.$interfaceName = 'blink.mojom.PushMessaging';
-mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,20 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver = {};
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver = mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver || {};
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec = mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver.$interfaceName = 'chromecast.mojom.FeatureUpdateObserver';
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateService = {};
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec = mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateService = mojo.internal.bindings.chromecast.mojom.FeatureUpdateService || {};
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec = mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateService.$interfaceName = 'chromecast.mojom.FeatureUpdateService';
-mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec = mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

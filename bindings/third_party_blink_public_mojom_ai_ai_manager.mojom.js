@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,49 +123,82 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient = {};
-mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec = mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient = mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient.$interfaceName = 'blink.mojom.AIManagerCreateWriterClient';
-mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient = {};
-mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient = mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient.$interfaceName = 'blink.mojom.AIManagerCreateRewriterClient';
-mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient = {};
-mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient = mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient.$interfaceName = 'blink.mojom.AIManagerCreateSummarizerClient';
-mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient = {};
-mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient = mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient.$interfaceName = 'blink.mojom.AIManagerCreateProofreaderClient';
-mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager = {};
-mojo.internal.bindings.blink.mojom.AIManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager = mojo.internal.bindings.blink.mojom.AIManager || {};
+mojo.internal.bindings.blink.mojom.AIManagerSpec = mojo.internal.bindings.blink.mojom.AIManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManager.$interfaceName = 'blink.mojom.AIManager';
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

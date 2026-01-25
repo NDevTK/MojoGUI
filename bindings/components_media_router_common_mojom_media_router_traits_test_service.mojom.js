@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService = {};
-mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec = { $ : {} };
+mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService || {};
+mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec || { $ : {} };
+if (mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceSpec.$ = {};
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService.$interfaceName = 'media_router.mojom.MediaRouterTraitsTestService';
-mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};

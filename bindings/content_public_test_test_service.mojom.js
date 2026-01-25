@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,35 +124,62 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.TestService = {};
-mojo.internal.bindings.content.mojom.TestServiceSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.TestService = mojo.internal.bindings.content.mojom.TestService || {};
+mojo.internal.bindings.content.mojom.TestServiceSpec = mojo.internal.bindings.content.mojom.TestServiceSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.TestServiceSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestServiceSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestService.$interfaceName = 'content.mojom.TestService';
-mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

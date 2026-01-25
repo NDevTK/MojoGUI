@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,27 @@
 
  mojo.internal.bindings.legion_internals = mojo.internal.bindings.legion_internals || {};
 mojo.internal.bindings.legion_internals.mojom = mojo.internal.bindings.legion_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler = {};
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec = mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionResponseSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler || {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerSpec.$ = {};
 mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler.$interfaceName = 'legion_internals.mojom.LegionInternalsPageHandler';
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec.$ = {};
 
 // Interface: LegionInternalsPageHandler
 mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerPendingReceiver = class {

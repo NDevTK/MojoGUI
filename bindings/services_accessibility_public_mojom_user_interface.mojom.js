@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.ax.mojom.FocusTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.FocusRingInfoSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface = {};
-mojo.internal.bindings.ax.mojom.UserInterfaceSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.FocusTypeSpec = mojo.internal.bindings.ax.mojom.FocusTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec = mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.FocusRingInfoSpec = mojo.internal.bindings.ax.mojom.FocusRingInfoSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.FocusRingInfoSpec.$.structSpec && mojo.internal.bindings.ax.mojom.FocusRingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.FocusRingInfoSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface = mojo.internal.bindings.ax.mojom.UserInterface || {};
+mojo.internal.bindings.ax.mojom.UserInterfaceSpec = mojo.internal.bindings.ax.mojom.UserInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.UserInterfaceSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterfaceSpec.$ = {};
 mojo.internal.bindings.ax.mojom.UserInterface.$interfaceName = 'ax.mojom.UserInterface';
-mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

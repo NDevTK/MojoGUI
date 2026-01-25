@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,28 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.quick_start = mojo.internal.bindings.ash.quick_start || {};
 mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_start.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec = { $: {} };
-mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = { $: {} };
+mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityTypeSpec = mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResultSpec = mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec = mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.BootstrapConfigurationsSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec = mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.UserVerificationMethodSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec = mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.UserVerificationResponseSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec = mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.UserVerificationRequestedSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec = mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.WifiCredentialsSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec = mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.FidoAssertionResponseSpec.$ = {};
+mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec = mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec.$.structSpec && mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_start.mojom.NotifySourceOfUpdateResponseSpec.$ = {};
 
 // Enum: WifiSecurityType
 mojo.internal.bindings.ash.quick_start.mojom.WifiSecurityType = {

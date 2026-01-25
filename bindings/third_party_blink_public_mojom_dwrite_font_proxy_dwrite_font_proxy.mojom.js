@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,42 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DWriteStringPairSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MapCharactersResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy = {};
-mojo.internal.bindings.blink.mojom.DWriteFontProxySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DWriteStringPairSpec = mojo.internal.bindings.blink.mojom.DWriteStringPairSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteStringPairSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteStringPairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteStringPairSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec = mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontStyleSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MapCharactersResultSpec = mojo.internal.bindings.blink.mojom.MapCharactersResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MapCharactersResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MapCharactersResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MapCharactersResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy = mojo.internal.bindings.blink.mojom.DWriteFontProxy || {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxySpec = mojo.internal.bindings.blink.mojom.DWriteFontProxySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxySpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxySpec.$ = {};
 mojo.internal.bindings.blink.mojom.DWriteFontProxy.$interfaceName = 'blink.mojom.DWriteFontProxy';
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

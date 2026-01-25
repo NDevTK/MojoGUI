@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,43 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.blink.mojom.SerialPortInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialPortFilterSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService = {};
-mojo.internal.bindings.blink.mojom.SerialServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SerialPortInfoSpec = mojo.internal.bindings.blink.mojom.SerialPortInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialPortFilterSpec = mojo.internal.bindings.blink.mojom.SerialPortFilterSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService = mojo.internal.bindings.blink.mojom.SerialService || {};
+mojo.internal.bindings.blink.mojom.SerialServiceSpec = mojo.internal.bindings.blink.mojom.SerialServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SerialServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SerialService.$interfaceName = 'blink.mojom.SerialService';
-mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SerialServiceClient = {};
-mojo.internal.bindings.blink.mojom.SerialServiceClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SerialServiceClient = mojo.internal.bindings.blink.mojom.SerialServiceClient || {};
+mojo.internal.bindings.blink.mojom.SerialServiceClientSpec = mojo.internal.bindings.blink.mojom.SerialServiceClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SerialServiceClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialServiceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialServiceClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SerialServiceClient.$interfaceName = 'blink.mojom.SerialServiceClient';
-mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};

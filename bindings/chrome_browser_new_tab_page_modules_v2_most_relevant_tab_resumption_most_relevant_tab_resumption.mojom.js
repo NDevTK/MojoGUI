@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,29 @@
  mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
 mojo.internal.bindings.ntp.most_relevant_tab_resumption = mojo.internal.bindings.ntp.most_relevant_tab_resumption || {};
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler = {};
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler || {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler.$interfaceName = 'ntp.most_relevant_tab_resumption.mojom.PageHandler';
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};

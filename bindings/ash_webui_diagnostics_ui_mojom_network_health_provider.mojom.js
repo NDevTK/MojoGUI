@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,47 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.AuthenticationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoamingStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.LockTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.SecurityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkTypePropertiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.IPConfigPropertiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.CellularStatePropertiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.EthernetStatePropertiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.WiFiStatePropertiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver = mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkListObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver = mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkStateObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider = {};
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider = mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider || {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider.$interfaceName = 'ash.diagnostics.mojom.NetworkHealthProvider';
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,46 +123,77 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.HidBusTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.HidUsageAndPageSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidReportItemSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidReportDescriptionSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidCollectionInfoSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidDeviceInfoSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManagerClient = {};
-mojo.internal.bindings.device.mojom.HidManagerClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.HidBusTypeSpec = mojo.internal.bindings.device.mojom.HidBusTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.HidUsageAndPageSpec = mojo.internal.bindings.device.mojom.HidUsageAndPageSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidUsageAndPageSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidUsageAndPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidUsageAndPageSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidReportItemSpec = mojo.internal.bindings.device.mojom.HidReportItemSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidReportItemSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidReportItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidReportItemSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidReportDescriptionSpec = mojo.internal.bindings.device.mojom.HidReportDescriptionSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidReportDescriptionSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidReportDescriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidReportDescriptionSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidCollectionInfoSpec = mojo.internal.bindings.device.mojom.HidCollectionInfoSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidCollectionInfoSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidCollectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidCollectionInfoSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidDeviceInfoSpec = mojo.internal.bindings.device.mojom.HidDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidDeviceInfoSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManagerClient = mojo.internal.bindings.device.mojom.HidManagerClient || {};
+mojo.internal.bindings.device.mojom.HidManagerClientSpec = mojo.internal.bindings.device.mojom.HidManagerClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.HidManagerClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManagerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManagerClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.HidManagerClient.$interfaceName = 'device.mojom.HidManagerClient';
-mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager = {};
-mojo.internal.bindings.device.mojom.HidManagerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec = mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec = mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec = mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager = mojo.internal.bindings.device.mojom.HidManager || {};
+mojo.internal.bindings.device.mojom.HidManagerSpec = mojo.internal.bindings.device.mojom.HidManagerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.HidManagerSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManagerSpec.$ = {};
 mojo.internal.bindings.device.mojom.HidManager.$interfaceName = 'device.mojom.HidManager';
-mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection = {};
-mojo.internal.bindings.device.mojom.HidConnectionSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec = mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec = mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec = mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection = mojo.internal.bindings.device.mojom.HidConnection || {};
+mojo.internal.bindings.device.mojom.HidConnectionSpec = mojo.internal.bindings.device.mojom.HidConnectionSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.HidConnectionSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnectionSpec.$ = {};
 mojo.internal.bindings.device.mojom.HidConnection.$interfaceName = 'device.mojom.HidConnection';
-mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnectionClient = {};
-mojo.internal.bindings.device.mojom.HidConnectionClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec = mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnectionClient = mojo.internal.bindings.device.mojom.HidConnectionClient || {};
+mojo.internal.bindings.device.mojom.HidConnectionClientSpec = mojo.internal.bindings.device.mojom.HidConnectionClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.HidConnectionClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnectionClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnectionClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.HidConnectionClient.$interfaceName = 'device.mojom.HidConnectionClient';
-mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.HidConnectionWatcher = {};
-mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec = mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.HidConnectionWatcher = mojo.internal.bindings.device.mojom.HidConnectionWatcher || {};
+mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec = mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec.$.structSpec && mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.HidConnectionWatcherSpec.$ = {};
 mojo.internal.bindings.device.mojom.HidConnectionWatcher.$interfaceName = 'device.mojom.HidConnectionWatcher';
 
 mojo.internal.bindings.device.mojom.kPageUndefined = 0x00;

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,39 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
 
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost = {};
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec = { $ : {} };
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost || {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec || { $ : {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostSpec.$ = {};
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerHost';
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu = {};
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec = { $ : {} };
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu || {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec || { $ : {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec.$ = {};
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerGpu';
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = { $: {} };
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

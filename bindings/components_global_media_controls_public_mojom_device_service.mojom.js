@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,45 +124,71 @@
  mojo.internal.bindings.global_media_controls = mojo.internal.bindings.global_media_controls || {};
 mojo.internal.bindings.global_media_controls.mojom = mojo.internal.bindings.global_media_controls.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.global_media_controls.mojom.DeviceSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceListHost = {};
-mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec = { $ : {} };
+mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec = mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.global_media_controls.mojom.DeviceSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceListHost = mojo.internal.bindings.global_media_controls.mojom.DeviceListHost || {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec || { $ : {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceListHostSpec.$ = {};
 mojo.internal.bindings.global_media_controls.mojom.DeviceListHost.$interfaceName = 'global_media_controls.mojom.DeviceListHost';
-mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceListClient = {};
-mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec = { $ : {} };
+mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceListClient = mojo.internal.bindings.global_media_controls.mojom.DeviceListClient || {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec || { $ : {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceListClientSpec.$ = {};
 mojo.internal.bindings.global_media_controls.mojom.DeviceListClient.$interfaceName = 'global_media_controls.mojom.DeviceListClient';
-mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceService = {};
-mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec = { $ : {} };
+mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceService = mojo.internal.bindings.global_media_controls.mojom.DeviceService || {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec || { $ : {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceServiceSpec.$ = {};
 mojo.internal.bindings.global_media_controls.mojom.DeviceService.$interfaceName = 'global_media_controls.mojom.DeviceService';
-mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider = {};
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec = { $ : {} };
+mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider || {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec || { $ : {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderSpec.$ = {};
 mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider.$interfaceName = 'global_media_controls.mojom.DevicePickerProvider';
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver = {};
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec = { $ : {} };
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver || {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec || { $ : {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverSpec.$ = {};
 mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver.$interfaceName = 'global_media_controls.mojom.DevicePickerObserver';
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = { $: {} };
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec = mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

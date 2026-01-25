@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,33 @@
 
  mojo.internal.bindings.discards = mojo.internal.bindings.discards || {};
 mojo.internal.bindings.discards.mojom = mojo.internal.bindings.discards.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataValueSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataEntrySpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataArraySpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataProvider = {};
-mojo.internal.bindings.discards.mojom.SiteDataProviderSpec = { $ : {} };
+mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec = mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec = mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec = mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataValueSpec = mojo.internal.bindings.discards.mojom.SiteDataValueSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataValueSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataValueSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataEntrySpec = mojo.internal.bindings.discards.mojom.SiteDataEntrySpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataEntrySpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataEntrySpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataArraySpec = mojo.internal.bindings.discards.mojom.SiteDataArraySpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataArraySpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataArraySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataArraySpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataProvider = mojo.internal.bindings.discards.mojom.SiteDataProvider || {};
+mojo.internal.bindings.discards.mojom.SiteDataProviderSpec = mojo.internal.bindings.discards.mojom.SiteDataProviderSpec || { $ : {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataProviderSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataProviderSpec.$ = {};
 mojo.internal.bindings.discards.mojom.SiteDataProvider.$interfaceName = 'discards.mojom.SiteDataProvider';
-mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$ = {};
 
 // Interface: SiteDataProvider
 mojo.internal.bindings.discards.mojom.SiteDataProviderPendingReceiver = class {

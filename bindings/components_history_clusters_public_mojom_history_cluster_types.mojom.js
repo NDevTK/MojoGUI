@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,21 @@
  mojo.internal.bindings.history_clusters = mojo.internal.bindings.history_clusters || {};
 mojo.internal.bindings.history_clusters.mojom = mojo.internal.bindings.history_clusters.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.InteractionStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.URLVisitSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.ClusterSpec = { $: {} };
+mojo.internal.bindings.history_clusters.mojom.AnnotationSpec = mojo.internal.bindings.history_clusters.mojom.AnnotationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.InteractionStateSpec = mojo.internal.bindings.history_clusters.mojom.InteractionStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec = mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.MatchPositionSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec = mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.SearchQuerySpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec = mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.RawVisitDataSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.URLVisitSpec = mojo.internal.bindings.history_clusters.mojom.URLVisitSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.URLVisitSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.ClusterSpec = mojo.internal.bindings.history_clusters.mojom.ClusterSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.ClusterSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.ClusterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.ClusterSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

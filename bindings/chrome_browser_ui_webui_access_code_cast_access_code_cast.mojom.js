@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,33 @@
 
  mojo.internal.bindings.access_code_cast = mojo.internal.bindings.access_code_cast || {};
 mojo.internal.bindings.access_code_cast.mojom = mojo.internal.bindings.access_code_cast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 
-mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec = mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec = mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory = mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec = mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory.$interfaceName = 'access_code_cast.mojom.PageHandlerFactory';
-mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.access_code_cast.mojom.PageHandler = {};
-mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandler = mojo.internal.bindings.access_code_cast.mojom.PageHandler || {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.access_code_cast.mojom.PageHandler.$interfaceName = 'access_code_cast.mojom.PageHandler';
-mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.access_code_cast.mojom.Page = {};
-mojo.internal.bindings.access_code_cast.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$ = {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec.$ = {};
+mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.access_code_cast.mojom.Page = mojo.internal.bindings.access_code_cast.mojom.Page || {};
+mojo.internal.bindings.access_code_cast.mojom.PageSpec = mojo.internal.bindings.access_code_cast.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.access_code_cast.mojom.PageSpec.$.structSpec && mojo.internal.bindings.access_code_cast.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.access_code_cast.mojom.PageSpec.$ = {};
 mojo.internal.bindings.access_code_cast.mojom.Page.$interfaceName = 'access_code_cast.mojom.Page';
 
 // External type stubs (from imports)

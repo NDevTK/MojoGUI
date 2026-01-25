@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,10 +125,13 @@
 mojo.internal.bindings.ntp.calendar = mojo.internal.bindings.ntp.calendar || {};
 mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec = { $: {} };
-mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = { $: {} };
+mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec = mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$ = {};
+mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

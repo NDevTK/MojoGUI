@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionHost = {};
-mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec = mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionSpec = mojo.internal.bindings.blink.mojom.TextSuggestionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionHost = mojo.internal.bindings.blink.mojom.TextSuggestionHost || {};
+mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec = mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.TextSuggestionHost.$interfaceName = 'blink.mojom.TextSuggestionHost';
-mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$ = {};
 
 // Interface: TextSuggestionHost
 mojo.internal.bindings.blink.mojom.TextSuggestionHostPendingReceiver = class {

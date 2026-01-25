@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,27 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest = {};
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec = mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec = mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec = mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest || {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequestSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequest.$interfaceName = 'blink.mojom.DigitalIdentityRequest';
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec = mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

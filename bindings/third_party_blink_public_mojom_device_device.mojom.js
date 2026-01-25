@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,51 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver = {};
-mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec = mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAttributeResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver = mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver || {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver.$interfaceName = 'blink.mojom.ManagedConfigurationObserver';
-mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService = {};
-mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService = mojo.internal.bindings.blink.mojom.DeviceAPIService || {};
+mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec = mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DeviceAPIService.$interfaceName = 'blink.mojom.DeviceAPIService';
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManagedConfigurationService = {};
-mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationService = mojo.internal.bindings.blink.mojom.ManagedConfigurationService || {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManagedConfigurationService.$interfaceName = 'blink.mojom.ManagedConfigurationService';
-mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

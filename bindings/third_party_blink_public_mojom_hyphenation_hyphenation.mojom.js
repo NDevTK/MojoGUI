@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.Hyphenation = {};
-mojo.internal.bindings.blink.mojom.HyphenationSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.Hyphenation = mojo.internal.bindings.blink.mojom.Hyphenation || {};
+mojo.internal.bindings.blink.mojom.HyphenationSpec = mojo.internal.bindings.blink.mojom.HyphenationSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.HyphenationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HyphenationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HyphenationSpec.$ = {};
 mojo.internal.bindings.blink.mojom.Hyphenation.$interfaceName = 'blink.mojom.Hyphenation';
-mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec = mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

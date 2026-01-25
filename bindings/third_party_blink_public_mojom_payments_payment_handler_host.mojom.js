@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,31 @@
 
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost = {};
-mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec = mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost = mojo.internal.bindings.payments.mojom.PaymentHandlerHost || {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHostSpec.$ = {};
 mojo.internal.bindings.payments.mojom.PaymentHandlerHost.$interfaceName = 'payments.mojom.PaymentHandlerHost';
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};

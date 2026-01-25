@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,36 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
-mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.PluginInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.PluginParamSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.PluginHost = {};
-mojo.internal.bindings.chrome.mojom.PluginHostSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.PluginStatusSpec = mojo.internal.bindings.chrome.mojom.PluginStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.PluginInfoSpec = mojo.internal.bindings.chrome.mojom.PluginInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginInfoSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginInfoSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.PluginParamSpec = mojo.internal.bindings.chrome.mojom.PluginParamSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginParamSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginParamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginParamSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.PluginHost = mojo.internal.bindings.chrome.mojom.PluginHost || {};
+mojo.internal.bindings.chrome.mojom.PluginHostSpec = mojo.internal.bindings.chrome.mojom.PluginHostSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.PluginHostSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginHostSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.PluginHost.$interfaceName = 'chrome.mojom.PluginHost';
-mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.PluginAuthHost = {};
-mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec = mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.PluginAuthHost = mojo.internal.bindings.chrome.mojom.PluginAuthHost || {};
+mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec = mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginAuthHostSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.PluginAuthHost.$interfaceName = 'chrome.mojom.PluginAuthHost';
-mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.PluginInfoHost = {};
-mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec = mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.PluginInfoHost = mojo.internal.bindings.chrome.mojom.PluginInfoHost || {};
+mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec = mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginInfoHostSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.PluginInfoHost.$interfaceName = 'chrome.mojom.PluginInfoHost';
-mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};

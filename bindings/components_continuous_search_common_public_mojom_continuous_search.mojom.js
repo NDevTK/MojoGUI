@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,26 @@
  mojo.internal.bindings.continuous_search = mojo.internal.bindings.continuous_search || {};
 mojo.internal.bindings.continuous_search.mojom = mojo.internal.bindings.continuous_search.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.continuous_search.mojom.CategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.continuous_search.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.continuous_search.mojom.SearchResultSpec = { $: {} };
-mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec = { $: {} };
-mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec = { $: {} };
-mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor = {};
-mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec = { $ : {} };
+mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec = mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.continuous_search.mojom.CategorySpec = mojo.internal.bindings.continuous_search.mojom.CategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.continuous_search.mojom.StatusSpec = mojo.internal.bindings.continuous_search.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.continuous_search.mojom.SearchResultSpec = mojo.internal.bindings.continuous_search.mojom.SearchResultSpec || { $: {} };
+if (mojo.internal.bindings.continuous_search.mojom.SearchResultSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.SearchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.SearchResultSpec.$ = {};
+mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec = mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec || { $: {} };
+if (mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec.$ = {};
+mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec = mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec || { $: {} };
+if (mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec.$ = {};
+mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor || {};
+mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec || { $ : {} };
+if (mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorSpec.$ = {};
 mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor.$interfaceName = 'continuous_search.mojom.SearchResultExtractor';
-mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$ = {};
+mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

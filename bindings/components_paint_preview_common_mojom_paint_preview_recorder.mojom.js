@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,31 @@
  mojo.internal.bindings.paint_preview = mojo.internal.bindings.paint_preview || {};
 mojo.internal.bindings.paint_preview.mojom = mojo.internal.bindings.paint_preview.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.LinkDataSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder = {};
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec = { $ : {} };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewStatusSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.LinkDataSpec = mojo.internal.bindings.paint_preview.mojom.LinkDataSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.LinkDataSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.LinkDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.LinkDataSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCaptureResponseSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec = mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.GeometryMetadataParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec = mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.GeometryMetadataResponseSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder = mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder || {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec || { $ : {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderSpec.$ = {};
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder.$interfaceName = 'paint_preview.mojom.PaintPreviewRecorder';
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

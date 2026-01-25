@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,50 +124,83 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule = {};
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec = mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec = mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec = mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec = mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec = mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec = mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec = mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec = mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule || {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleSpec.$ = {};
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule.$interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModule';
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient = {};
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient || {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientSpec.$ = {};
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient.$interfaceName = 'chromeos.cdm.mojom.ContentDecryptionModuleClient';
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$ = {};
 
 // Enum: EmeInitDataType
 mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataType = {

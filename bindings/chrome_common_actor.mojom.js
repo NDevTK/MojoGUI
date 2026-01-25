@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,41 +124,64 @@
  mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
 mojo.internal.bindings.actor.mojom = mojo.internal.bindings.actor.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.actor.mojom.ClickTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ClickCountSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ActionResultCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.mojom.ToolTargetSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ToolActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ClickActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.MouseMoveActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ScrollToActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.TypeActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ScrollActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.SelectActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ScriptToolActionSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.TaskIdSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ToolInvocationSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.ActionResultSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.JournalDetailsSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.JournalEntrySpec = { $: {} };
-mojo.internal.bindings.actor.mojom.JournalClient = {};
-mojo.internal.bindings.actor.mojom.JournalClientSpec = { $ : {} };
+mojo.internal.bindings.actor.mojom.ClickTypeSpec = mojo.internal.bindings.actor.mojom.ClickTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ClickCountSpec = mojo.internal.bindings.actor.mojom.ClickCountSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ModeSpec = mojo.internal.bindings.actor.mojom.ModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ScrollDirectionSpec = mojo.internal.bindings.actor.mojom.ScrollDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ActionResultCodeSpec = mojo.internal.bindings.actor.mojom.ActionResultCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec = mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.mojom.ToolTargetSpec = mojo.internal.bindings.actor.mojom.ToolTargetSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ToolTargetSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ToolTargetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ToolTargetSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ToolActionSpec = mojo.internal.bindings.actor.mojom.ToolActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ToolActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ToolActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ToolActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec = mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ClickActionSpec = mojo.internal.bindings.actor.mojom.ClickActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ClickActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ClickActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ClickActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.MouseMoveActionSpec = mojo.internal.bindings.actor.mojom.MouseMoveActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.MouseMoveActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.MouseMoveActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.MouseMoveActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ScrollToActionSpec = mojo.internal.bindings.actor.mojom.ScrollToActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ScrollToActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScrollToActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScrollToActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.TypeActionSpec = mojo.internal.bindings.actor.mojom.TypeActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.TypeActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.TypeActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.TypeActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ScrollActionSpec = mojo.internal.bindings.actor.mojom.ScrollActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ScrollActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScrollActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScrollActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.SelectActionSpec = mojo.internal.bindings.actor.mojom.SelectActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.SelectActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.SelectActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.SelectActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec = mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ScriptToolActionSpec = mojo.internal.bindings.actor.mojom.ScriptToolActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.TaskIdSpec = mojo.internal.bindings.actor.mojom.TaskIdSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.TaskIdSpec.$.structSpec && mojo.internal.bindings.actor.mojom.TaskIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.TaskIdSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ToolInvocationSpec = mojo.internal.bindings.actor.mojom.ToolInvocationSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec = mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ActionResultSpec = mojo.internal.bindings.actor.mojom.ActionResultSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ActionResultSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ActionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ActionResultSpec.$ = {};
+mojo.internal.bindings.actor.mojom.JournalDetailsSpec = mojo.internal.bindings.actor.mojom.JournalDetailsSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.JournalDetailsSpec.$.structSpec && mojo.internal.bindings.actor.mojom.JournalDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.JournalDetailsSpec.$ = {};
+mojo.internal.bindings.actor.mojom.JournalEntrySpec = mojo.internal.bindings.actor.mojom.JournalEntrySpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.JournalEntrySpec.$.structSpec && mojo.internal.bindings.actor.mojom.JournalEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.JournalEntrySpec.$ = {};
+mojo.internal.bindings.actor.mojom.JournalClient = mojo.internal.bindings.actor.mojom.JournalClient || {};
+mojo.internal.bindings.actor.mojom.JournalClientSpec = mojo.internal.bindings.actor.mojom.JournalClientSpec || { $ : {} };
+if (mojo.internal.bindings.actor.mojom.JournalClientSpec.$.structSpec && mojo.internal.bindings.actor.mojom.JournalClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.JournalClientSpec.$ = {};
 mojo.internal.bindings.actor.mojom.JournalClient.$interfaceName = 'actor.mojom.JournalClient';
-mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.PageStabilityMonitor = {};
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec = { $ : {} };
+mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec = mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.mojom.PageStabilityMonitor = mojo.internal.bindings.actor.mojom.PageStabilityMonitor || {};
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec = mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec || { $ : {} };
+if (mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec.$.structSpec && mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.PageStabilityMonitorSpec.$ = {};
 mojo.internal.bindings.actor.mojom.PageStabilityMonitor.$interfaceName = 'actor.mojom.PageStabilityMonitor';
-mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec = mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec = mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};

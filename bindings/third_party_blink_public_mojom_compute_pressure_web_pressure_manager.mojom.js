@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.blink.mojom.WebPressureManager = {};
-mojo.internal.bindings.blink.mojom.WebPressureManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPressureManager = mojo.internal.bindings.blink.mojom.WebPressureManager || {};
+mojo.internal.bindings.blink.mojom.WebPressureManagerSpec = mojo.internal.bindings.blink.mojom.WebPressureManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPressureManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPressureManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPressureManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPressureManager.$interfaceName = 'blink.mojom.WebPressureManager';
-mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPressureClient = {};
-mojo.internal.bindings.blink.mojom.WebPressureClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPressureClient = mojo.internal.bindings.blink.mojom.WebPressureClient || {};
+mojo.internal.bindings.blink.mojom.WebPressureClientSpec = mojo.internal.bindings.blink.mojom.WebPressureClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPressureClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPressureClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPressureClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPressureClient.$interfaceName = 'blink.mojom.WebPressureClient';
-mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

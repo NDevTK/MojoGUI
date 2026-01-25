@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,11 +124,15 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GeopositionResultSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeopositionSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeopositionErrorSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec = mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GeopositionResultSpec = mojo.internal.bindings.device.mojom.GeopositionResultSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeopositionResultSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeopositionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeopositionResultSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeopositionSpec = mojo.internal.bindings.device.mojom.GeopositionSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeopositionSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeopositionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeopositionSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeopositionErrorSpec = mojo.internal.bindings.device.mojom.GeopositionErrorSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,11 +124,14 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.printing.mojom.PrinterXmlParser = {};
-mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.PrinterXmlParser = mojo.internal.bindings.printing.mojom.PrinterXmlParser || {};
+mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec = mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrinterXmlParserSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PrinterXmlParser.$interfaceName = 'printing.mojom.PrinterXmlParser';
-mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$ = {};
 
 // Interface: PrinterXmlParser
 mojo.internal.bindings.printing.mojom.PrinterXmlParserPendingReceiver = class {

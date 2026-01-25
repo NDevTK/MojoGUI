@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,24 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.scanner_feedback_ui = mojo.internal.bindings.ash.mojom.scanner_feedback_ui || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler = {};
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec.$ = {};
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler || {};
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler.$interfaceName = 'ash.mojom.scanner_feedback_ui.PageHandler';
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

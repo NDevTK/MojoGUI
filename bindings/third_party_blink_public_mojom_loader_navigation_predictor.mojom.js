@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,35 +124,59 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementClickSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost = {};
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec = mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementClickSpec = mojo.internal.bindings.blink.mojom.AnchorElementClickSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementClickSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementClickSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementClickSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec = mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec = mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec = mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec = mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec = mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec = mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec = mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec = mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost || {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost.$interfaceName = 'blink.mojom.AnchorElementMetricsHost';
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

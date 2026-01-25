@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,30 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CredentialInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager = {};
-mojo.internal.bindings.blink.mojom.CredentialManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.CredentialTypeSpec = mojo.internal.bindings.blink.mojom.CredentialTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec = mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec = mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CredentialInfoSpec = mojo.internal.bindings.blink.mojom.CredentialInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager = mojo.internal.bindings.blink.mojom.CredentialManager || {};
+mojo.internal.bindings.blink.mojom.CredentialManagerSpec = mojo.internal.bindings.blink.mojom.CredentialManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.CredentialManager.$interfaceName = 'blink.mojom.CredentialManager';
-mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,38 +124,58 @@
  mojo.internal.bindings.mac_notifications = mojo.internal.bindings.mac_notifications || {};
 mojo.internal.bindings.mac_notifications.mojom = mojo.internal.bindings.mac_notifications.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.NotificationSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService = {};
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec = { $ : {} };
+mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec = mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec = mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec = mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.NotificationSpec = mojo.internal.bindings.mac_notifications.mojom.NotificationSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.NotificationSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.NotificationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.NotificationSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService || {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceSpec.$ = {};
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationService.$interfaceName = 'mac_notifications.mojom.MacNotificationService';
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler = {};
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec = { $ : {} };
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler = mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler || {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerSpec.$ = {};
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler.$interfaceName = 'mac_notifications.mojom.MacNotificationActionHandler';
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider = {};
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec = { $ : {} };
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$ = {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider = mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider || {};
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec || { $ : {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderSpec.$ = {};
 mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider.$interfaceName = 'mac_notifications.mojom.MacNotificationProvider';
-mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = { $: {} };
+mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec = mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.structSpec && mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

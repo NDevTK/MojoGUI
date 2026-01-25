@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter = {};
-mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter || {};
+mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec.$.structSpec && mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterSpec.$ = {};
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter.$interfaceName = 'content.mojom.WebTestBluetoothFakeAdapterSetter';
-mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec.$ = {};
 
 // Interface: WebTestBluetoothFakeAdapterSetter
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {

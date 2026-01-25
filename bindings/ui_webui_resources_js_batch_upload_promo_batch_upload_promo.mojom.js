@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.batch_upload_promo = mojo.internal.bindings.batch_upload_promo || {};
 mojo.internal.bindings.batch_upload_promo.mojom = mojo.internal.bindings.batch_upload_promo.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory = mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory.$interfaceName = 'batch_upload_promo.mojom.PageHandlerFactory';
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandler = {};
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandler = mojo.internal.bindings.batch_upload_promo.mojom.PageHandler || {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.batch_upload_promo.mojom.PageHandler.$interfaceName = 'batch_upload_promo.mojom.PageHandler';
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.batch_upload_promo.mojom.Page = {};
-mojo.internal.bindings.batch_upload_promo.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec.$ = {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.batch_upload_promo.mojom.Page = mojo.internal.bindings.batch_upload_promo.mojom.Page || {};
+mojo.internal.bindings.batch_upload_promo.mojom.PageSpec = mojo.internal.bindings.batch_upload_promo.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.PageSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.PageSpec.$ = {};
 mojo.internal.bindings.batch_upload_promo.mojom.Page.$interfaceName = 'batch_upload_promo.mojom.Page';
-mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver = class {

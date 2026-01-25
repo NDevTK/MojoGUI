@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.guest_os = mojo.internal.bindings.guest_os || {};
 mojo.internal.bindings.guest_os.mojom = mojo.internal.bindings.guest_os.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.guest_os.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec = { $: {} };
-mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec = { $: {} };
-mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec = { $: {} };
+mojo.internal.bindings.guest_os.mojom.StatusSpec = mojo.internal.bindings.guest_os.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec = mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec || { $: {} };
+if (mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$.structSpec && mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$ = {};
+mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec = mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec || { $: {} };
+if (mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$.structSpec && mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$ = {};
+mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec = mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec || { $: {} };
+if (mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec.$.structSpec && mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

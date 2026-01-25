@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.page_image_service = mojo.internal.bindings.page_image_service || {};
 mojo.internal.bindings.page_image_service.mojom = mojo.internal.bindings.page_image_service.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.page_image_service.mojom.OptionsSpec = { $: {} };
-mojo.internal.bindings.page_image_service.mojom.ImageResultSpec = { $: {} };
-mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler = {};
-mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec = { $ : {} };
+mojo.internal.bindings.page_image_service.mojom.ClientIdSpec = mojo.internal.bindings.page_image_service.mojom.ClientIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.page_image_service.mojom.OptionsSpec = mojo.internal.bindings.page_image_service.mojom.OptionsSpec || { $: {} };
+if (mojo.internal.bindings.page_image_service.mojom.OptionsSpec.$.structSpec && mojo.internal.bindings.page_image_service.mojom.OptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_image_service.mojom.OptionsSpec.$ = {};
+mojo.internal.bindings.page_image_service.mojom.ImageResultSpec = mojo.internal.bindings.page_image_service.mojom.ImageResultSpec || { $: {} };
+if (mojo.internal.bindings.page_image_service.mojom.ImageResultSpec.$.structSpec && mojo.internal.bindings.page_image_service.mojom.ImageResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_image_service.mojom.ImageResultSpec.$ = {};
+mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler || {};
+mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec.$.structSpec && mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerSpec.$ = {};
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler.$interfaceName = 'page_image_service.mojom.PageImageServiceHandler';
-mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

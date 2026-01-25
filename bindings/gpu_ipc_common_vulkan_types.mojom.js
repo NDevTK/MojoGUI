@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,26 @@
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkExtent3DSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec = mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceFeaturesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkExtent3DSpec = mojo.internal.bindings.gpu.mojom.VkExtent3DSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkExtent3DSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkExtent3DSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkExtent3DSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec.$ = {};
 
 // Enum: VkPhysicalDeviceType
 mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceType = {

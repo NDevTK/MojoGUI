@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,36 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
-mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
-mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.CookieManagerInfoSpec = { $: {} };
-mojo.internal.bindings.content.mojom.StorageInfoSpec = { $: {} };
-mojo.internal.bindings.content.mojom.NavigationClient = {};
-mojo.internal.bindings.content.mojom.NavigationClientSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.NavigationGestureSpec = mojo.internal.bindings.content.mojom.NavigationGestureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.PageTransitionSpec = mojo.internal.bindings.content.mojom.PageTransitionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.PageStateSpec = mojo.internal.bindings.content.mojom.PageStateSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.PageStateSpec.$.structSpec && mojo.internal.bindings.content.mojom.PageStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.PageStateSpec.$ = {};
+mojo.internal.bindings.content.mojom.PageStateSpec = mojo.internal.bindings.content.mojom.PageStateSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.PageStateSpec.$.structSpec && mojo.internal.bindings.content.mojom.PageStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.PageStateSpec.$ = {};
+mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.CookieManagerInfoSpec = mojo.internal.bindings.content.mojom.CookieManagerInfoSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.CookieManagerInfoSpec.$.structSpec && mojo.internal.bindings.content.mojom.CookieManagerInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.CookieManagerInfoSpec.$ = {};
+mojo.internal.bindings.content.mojom.StorageInfoSpec = mojo.internal.bindings.content.mojom.StorageInfoSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.StorageInfoSpec.$.structSpec && mojo.internal.bindings.content.mojom.StorageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.StorageInfoSpec.$ = {};
+mojo.internal.bindings.content.mojom.NavigationClient = mojo.internal.bindings.content.mojom.NavigationClient || {};
+mojo.internal.bindings.content.mojom.NavigationClientSpec = mojo.internal.bindings.content.mojom.NavigationClientSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.NavigationClientSpec.$.structSpec && mojo.internal.bindings.content.mojom.NavigationClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.NavigationClientSpec.$ = {};
 mojo.internal.bindings.content.mojom.NavigationClient.$interfaceName = 'content.mojom.NavigationClient';
-mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec = mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

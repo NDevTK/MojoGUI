@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,31 @@
 
  mojo.internal.bindings.new_tab_page_third_party = mojo.internal.bindings.new_tab_page_third_party || {};
 mojo.internal.bindings.new_tab_page_third_party.mojom = mojo.internal.bindings.new_tab_page_third_party.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};
 
-mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec = { $: {} };
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec.$ = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory.$interfaceName = 'new_tab_page_third_party.mojom.PageHandlerFactory';
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler = {};
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler || {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler.$interfaceName = 'new_tab_page_third_party.mojom.PageHandler';
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page_third_party.mojom.Page = {};
-mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.Page = mojo.internal.bindings.new_tab_page_third_party.mojom.Page || {};
+mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.PageSpec.$ = {};
 mojo.internal.bindings.new_tab_page_third_party.mojom.Page.$interfaceName = 'new_tab_page_third_party.mojom.Page';
-mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = { $: {} };
+mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};

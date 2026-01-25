@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,25 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.keymint = mojo.internal.bindings.arc.keymint || {};
 mojo.internal.bindings.arc.keymint.mojom = mojo.internal.bindings.arc.keymint.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec = { $: {} };
-mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec = { $: {} };
-mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec = { $: {} };
-mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance = {};
-mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec = mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec.$ = {};
+mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec = mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec.$ = {};
+mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec = mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec.$ = {};
+mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance = mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance || {};
+mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec = mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceSpec.$ = {};
 mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance.$interfaceName = 'arc.keymint.mojom.CertStoreInstance';
-mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec = mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

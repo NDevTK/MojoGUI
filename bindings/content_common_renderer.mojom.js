@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,39 +123,64 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
-mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer = {};
-mojo.internal.bindings.content.mojom.RendererSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec = mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec = mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer = mojo.internal.bindings.content.mojom.Renderer || {};
+mojo.internal.bindings.content.mojom.RendererSpec = mojo.internal.bindings.content.mojom.RendererSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.RendererSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererSpec.$ = {};
 mojo.internal.bindings.content.mojom.Renderer.$interfaceName = 'content.mojom.Renderer';
-mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec = mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec = mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};

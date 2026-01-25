@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,11 +124,16 @@
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.skia.mojom.BitmapN32Spec = { $: {} };
-mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.InlineBitmapSpec = { $: {} };
+mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.BitmapN32Spec.$.structSpec && mojo.internal.bindings.skia.mojom.BitmapN32Spec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.BitmapN32Spec.$ = {};
+mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$.structSpec && mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec.$ = {};
+mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec.$.structSpec && mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec.$ = {};
+mojo.internal.bindings.skia.mojom.InlineBitmapSpec = mojo.internal.bindings.skia.mojom.InlineBitmapSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.InlineBitmapSpec.$.structSpec && mojo.internal.bindings.skia.mojom.InlineBitmapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.InlineBitmapSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

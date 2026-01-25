@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,34 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.NetLogExporter = {};
-mojo.internal.bindings.network.mojom.NetLogExporterSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec = mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec = mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.NetLogExporter = mojo.internal.bindings.network.mojom.NetLogExporter || {};
+mojo.internal.bindings.network.mojom.NetLogExporterSpec = mojo.internal.bindings.network.mojom.NetLogExporterSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.NetLogExporterSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogExporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogExporterSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetLogExporter.$interfaceName = 'network.mojom.NetLogExporter';
-mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogProxySource = {};
-mojo.internal.bindings.network.mojom.NetLogProxySourceSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec = mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec = mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec = mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec = mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetLogProxySource = mojo.internal.bindings.network.mojom.NetLogProxySource || {};
+mojo.internal.bindings.network.mojom.NetLogProxySourceSpec = mojo.internal.bindings.network.mojom.NetLogProxySourceSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.NetLogProxySourceSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogProxySourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogProxySourceSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetLogProxySource.$interfaceName = 'network.mojom.NetLogProxySource';
-mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogProxySink = {};
-mojo.internal.bindings.network.mojom.NetLogProxySinkSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec = mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetLogProxySink = mojo.internal.bindings.network.mojom.NetLogProxySink || {};
+mojo.internal.bindings.network.mojom.NetLogProxySinkSpec = mojo.internal.bindings.network.mojom.NetLogProxySinkSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.NetLogProxySinkSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogProxySinkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogProxySinkSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetLogProxySink.$interfaceName = 'network.mojom.NetLogProxySink';
-mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec = mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

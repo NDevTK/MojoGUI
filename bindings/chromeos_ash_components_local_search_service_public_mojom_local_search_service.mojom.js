@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,28 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
 mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter = {};
-mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec = { $ : {} };
+mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec = mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec = mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter = mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter || {};
+mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec = mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec || { $ : {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterSpec.$ = {};
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter.$interfaceName = 'ash.local_search_service.mojom.SearchMetricsReporter';
-mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService = {};
-mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService || {};
+mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceSpec.$ = {};
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService.$interfaceName = 'ash.local_search_service.mojom.LocalSearchService';
-mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

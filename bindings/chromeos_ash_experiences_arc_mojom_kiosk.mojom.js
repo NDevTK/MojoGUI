@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.KioskHost = {};
-mojo.internal.bindings.arc.mojom.KioskHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.KioskHost = mojo.internal.bindings.arc.mojom.KioskHost || {};
+mojo.internal.bindings.arc.mojom.KioskHostSpec = mojo.internal.bindings.arc.mojom.KioskHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.KioskHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.KioskHost.$interfaceName = 'arc.mojom.KioskHost';
-mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.KioskInstance = {};
-mojo.internal.bindings.arc.mojom.KioskInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec = mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec = mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.KioskInstance = mojo.internal.bindings.arc.mojom.KioskInstance || {};
+mojo.internal.bindings.arc.mojom.KioskInstanceSpec = mojo.internal.bindings.arc.mojom.KioskInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.KioskInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.KioskInstance.$interfaceName = 'arc.mojom.KioskInstance';
-mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: KioskHost
 mojo.internal.bindings.arc.mojom.KioskHostPendingReceiver = class {

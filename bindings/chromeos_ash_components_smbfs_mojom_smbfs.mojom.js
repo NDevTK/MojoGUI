@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,50 @@
 
  mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};
 mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.smbfs.mojom.SourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.smbfs.mojom.PasswordSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.MountOptionsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.CredentialsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap = {};
-mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec = { $ : {} };
+mojo.internal.bindings.smbfs.mojom.MountErrorSpec = mojo.internal.bindings.smbfs.mojom.MountErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec = mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.smbfs.mojom.SourceSpec = mojo.internal.bindings.smbfs.mojom.SourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.smbfs.mojom.PasswordSpec = mojo.internal.bindings.smbfs.mojom.PasswordSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.PasswordSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.PasswordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.PasswordSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec = mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec = mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.MountOptionsSpec = mojo.internal.bindings.smbfs.mojom.MountOptionsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.CredentialsSpec = mojo.internal.bindings.smbfs.mojom.CredentialsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.CredentialsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.CredentialsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.CredentialsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap = mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap || {};
+mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec = mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec || { $ : {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapSpec.$ = {};
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap.$interfaceName = 'smbfs.mojom.SmbFsBootstrap';
-mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFs = {};
-mojo.internal.bindings.smbfs.mojom.SmbFsSpec = { $ : {} };
+mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFs = mojo.internal.bindings.smbfs.mojom.SmbFs || {};
+mojo.internal.bindings.smbfs.mojom.SmbFsSpec = mojo.internal.bindings.smbfs.mojom.SmbFsSpec || { $ : {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsSpec.$ = {};
 mojo.internal.bindings.smbfs.mojom.SmbFs.$interfaceName = 'smbfs.mojom.SmbFs';
-mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFsDelegate = {};
-mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec = { $ : {} };
+mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsDelegate = mojo.internal.bindings.smbfs.mojom.SmbFsDelegate || {};
+mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec = mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec.$ = {};
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegate.$interfaceName = 'smbfs.mojom.SmbFsDelegate';
-mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.smbfs = mojo.internal.bindings.smbfs || {};

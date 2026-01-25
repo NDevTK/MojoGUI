@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,30 +124,47 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient = {};
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient || {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceClient';
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost = {};
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost || {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost.$interfaceName = 'blink.mojom.EmbeddedWorkerInstanceHost';
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

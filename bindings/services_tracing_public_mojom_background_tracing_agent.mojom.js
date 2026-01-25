@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient = {};
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec = { $ : {} };
+mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient || {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec || { $ : {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient.$interfaceName = 'tracing.mojom.BackgroundTracingAgentClient';
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent = {};
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec = { $ : {} };
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent || {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec || { $ : {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent.$interfaceName = 'tracing.mojom.BackgroundTracingAgent';
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider = {};
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = { $ : {} };
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider || {};
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec || { $ : {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider.$interfaceName = 'tracing.mojom.BackgroundTracingAgentProvider';
-mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = { $: {} };
+mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$ = {};
 
 // Interface: BackgroundTracingAgentClient
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientPendingReceiver = class {

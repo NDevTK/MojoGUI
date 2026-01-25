@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,26 @@
  mojo.internal.bindings.user_data_importer = mojo.internal.bindings.user_data_importer || {};
 mojo.internal.bindings.user_data_importer.mojom = mojo.internal.bindings.user_data_importer.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec = { $: {} };
-mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec = { $: {} };
-mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec = { $: {} };
-mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec = { $: {} };
-mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser = {};
-mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec = { $ : {} };
+mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec = mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec = mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec = mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec = mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser || {};
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec || { $ : {} };
+if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserSpec.$ = {};
 mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser.$interfaceName = 'user_data_importer.mojom.BookmarkHtmlParser';
-mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = { $: {} };
-mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,49 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaMetadataSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AttachedImageSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser = {};
-mojo.internal.bindings.chrome.mojom.MediaParserSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec = mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaMetadataSpec = mojo.internal.bindings.chrome.mojom.MediaMetadataSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaMetadataSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaMetadataSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AttachedImageSpec = mojo.internal.bindings.chrome.mojom.AttachedImageSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AttachedImageSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AttachedImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AttachedImageSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser = mojo.internal.bindings.chrome.mojom.MediaParser || {};
+mojo.internal.bindings.chrome.mojom.MediaParserSpec = mojo.internal.bindings.chrome.mojom.MediaParserSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParserSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParserSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.MediaParser.$interfaceName = 'chrome.mojom.MediaParser';
-mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParserFactory = {};
-mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParserFactory = mojo.internal.bindings.chrome.mojom.MediaParserFactory || {};
+mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec = mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParserFactorySpec.$ = {};
 mojo.internal.bindings.chrome.mojom.MediaParserFactory.$interfaceName = 'chrome.mojom.MediaParserFactory';
-mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaDataSource = {};
-mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaDataSource = mojo.internal.bindings.chrome.mojom.MediaDataSource || {};
+mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec = mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaDataSourceSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.MediaDataSource.$interfaceName = 'chrome.mojom.MediaDataSource';
-mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec = mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

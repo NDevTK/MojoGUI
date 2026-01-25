@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,38 @@
 
  mojo.internal.bindings.device_signals = mojo.internal.bindings.device_signals || {};
 mojo.internal.bindings.device_signals.mojom = mojo.internal.bindings.device_signals.mojom || {};
-mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService = {};
-mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec = { $ : {} };
+mojo.internal.bindings.device_signals.mojom.PresenceValueSpec = mojo.internal.bindings.device_signals.mojom.PresenceValueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec = mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec = mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec = mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec = mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec = mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec = mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService = mojo.internal.bindings.device_signals.mojom.SystemSignalsService || {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceSpec.$ = {};
 mojo.internal.bindings.device_signals.mojom.SystemSignalsService.$interfaceName = 'device_signals.mojom.SystemSignalsService';
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = { $: {} };
-mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$ = {};
+mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,33 @@
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsObserver = {};
-mojo.internal.bindings.sharing.mojom.MdnsObserverSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec = mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsObserver = mojo.internal.bindings.sharing.mojom.MdnsObserver || {};
+mojo.internal.bindings.sharing.mojom.MdnsObserverSpec = mojo.internal.bindings.sharing.mojom.MdnsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsObserverSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsObserverSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.MdnsObserver.$interfaceName = 'sharing.mojom.MdnsObserver';
-mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsManager = {};
-mojo.internal.bindings.sharing.mojom.MdnsManagerSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager = mojo.internal.bindings.sharing.mojom.MdnsManager || {};
+mojo.internal.bindings.sharing.mojom.MdnsManagerSpec = mojo.internal.bindings.sharing.mojom.MdnsManagerSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManagerSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManagerSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.MdnsManager.$interfaceName = 'sharing.mojom.MdnsManager';
-mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$ = {};
 
 // Interface: MdnsObserver
 mojo.internal.bindings.sharing.mojom.MdnsObserverPendingReceiver = class {

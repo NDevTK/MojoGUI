@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,49 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost = {};
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec = mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec = mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrivateAggregationConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost || {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost.$interfaceName = 'blink.mojom.SharedStorageWorkletHost';
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService = {};
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService || {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService.$interfaceName = 'blink.mojom.SharedStorageDocumentService';
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

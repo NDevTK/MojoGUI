@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,43 +125,70 @@
 mojo.internal.bindings.ash.screens_login = mojo.internal.bindings.ash.screens_login || {};
 mojo.internal.bindings.ash.screens_login.mojom = mojo.internal.bindings.ash.screens_login.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler = {};
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec = mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler || {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPageHandler';
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage = {};
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage || {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageSpec.$ = {};
 mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage.$interfaceName = 'ash.screens_login.mojom.ArcVmDataMigrationPage';
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler = {};
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler || {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPageHandler';
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage = {};
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage || {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageSpec.$ = {};
 mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage.$interfaceName = 'ash.screens_login.mojom.EncryptionMigrationPage';
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec = mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

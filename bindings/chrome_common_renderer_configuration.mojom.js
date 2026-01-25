@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,40 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
-mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.DynamicParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.StaticParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler = {};
-mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec = mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec = mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.DynamicParamsSpec = mojo.internal.bindings.chrome.mojom.DynamicParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.DynamicParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.DynamicParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.DynamicParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.StaticParamsSpec = mojo.internal.bindings.chrome.mojom.StaticParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.StaticParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.StaticParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.StaticParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler = mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler || {};
+mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec = mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler.$interfaceName = 'chrome.mojom.BoundSessionRequestThrottledHandler';
-mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeOSListener = {};
-mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeOSListener = mojo.internal.bindings.chrome.mojom.ChromeOSListener || {};
+mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec = mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeOSListenerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ChromeOSListener.$interfaceName = 'chrome.mojom.ChromeOSListener';
-mojo.internal.bindings.chrome.mojom.RendererConfiguration = {};
-mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.RendererConfiguration = mojo.internal.bindings.chrome.mojom.RendererConfiguration || {};
+mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec = mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RendererConfigurationSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.RendererConfiguration.$interfaceName = 'chrome.mojom.RendererConfiguration';
-mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};

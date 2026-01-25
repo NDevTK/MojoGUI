@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,16 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.media = mojo.internal.bindings.chromecast.media || {};
 mojo.internal.bindings.chromecast.media.mojom = mojo.internal.bindings.chromecast.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec = { $: {} };
+mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec = mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec = mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec = mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec = mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec = mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec = mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec.$ = {};
 
 // Enum: AudioCodec
 mojo.internal.bindings.chromecast.media.mojom.AudioCodec = {

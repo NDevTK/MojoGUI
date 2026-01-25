@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,30 @@
 
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 
-mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.TensorUsageSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.TensorInfoSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNTensor = {};
-mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = { $ : {} };
+mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec = mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.TensorUsageSpec = mojo.internal.bindings.webnn.mojom.TensorUsageSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.TensorUsageSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.TensorUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.TensorUsageSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.TensorInfoSpec = mojo.internal.bindings.webnn.mojom.TensorInfoSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.TensorInfoSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.TensorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.TensorInfoSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNTensor = mojo.internal.bindings.webnn.mojom.WebNNTensor || {};
+mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = mojo.internal.bindings.webnn.mojom.WebNNTensorSpec || { $ : {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensorSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensorSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNTensor.$interfaceName = 'webnn.mojom.WebNNTensor';
-mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,28 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.EnterpriseReportingHost = {};
-mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec = mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.EnterpriseReportingHost = mojo.internal.bindings.arc.mojom.EnterpriseReportingHost || {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHost.$interfaceName = 'arc.mojom.EnterpriseReportingHost';
-mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance = {};
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance || {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance.$interfaceName = 'arc.mojom.EnterpriseReportingInstance';
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$ = {};
 
 // Enum: TimedCloudDpcOp
 mojo.internal.bindings.arc.mojom.TimedCloudDpcOp = {

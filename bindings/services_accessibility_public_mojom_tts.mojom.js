@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,29 +123,47 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ax.mojom.TtsEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TtsErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TtsVoiceSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.TtsOptionsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.TtsEventSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.TtsUtteranceClient = {};
-mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.TtsEventTypeSpec = mojo.internal.bindings.ax.mojom.TtsEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TtsErrorSpec = mojo.internal.bindings.ax.mojom.TtsErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TtsVoiceSpec = mojo.internal.bindings.ax.mojom.TtsVoiceSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.TtsVoiceSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsVoiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsVoiceSpec.$ = {};
+mojo.internal.bindings.ax.mojom.TtsOptionsSpec = mojo.internal.bindings.ax.mojom.TtsOptionsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.TtsOptionsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsOptionsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.TtsEventSpec = mojo.internal.bindings.ax.mojom.TtsEventSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.TtsEventSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsEventSpec.$ = {};
+mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec = mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsSpeakResultSpec.$ = {};
+mojo.internal.bindings.ax.mojom.TtsUtteranceClient = mojo.internal.bindings.ax.mojom.TtsUtteranceClient || {};
+mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec = mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsUtteranceClientSpec.$ = {};
 mojo.internal.bindings.ax.mojom.TtsUtteranceClient.$interfaceName = 'ax.mojom.TtsUtteranceClient';
-mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts = {};
-mojo.internal.bindings.ax.mojom.TtsSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec = mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts = mojo.internal.bindings.ax.mojom.Tts || {};
+mojo.internal.bindings.ax.mojom.TtsSpec = mojo.internal.bindings.ax.mojom.TtsSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.TtsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.TtsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.TtsSpec.$ = {};
 mojo.internal.bindings.ax.mojom.Tts.$interfaceName = 'ax.mojom.Tts';
-mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec = mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec.$ = {};
 
 // Enum: TtsEventType
 mojo.internal.bindings.ax.mojom.TtsEventType = {

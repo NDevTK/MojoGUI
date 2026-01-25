@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,42 +123,71 @@
 
  mojo.internal.bindings.certificate_manager = mojo.internal.bindings.certificate_manager || {};
 mojo.internal.bindings.certificate_manager.mojom = mojo.internal.bindings.certificate_manager.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory = {};
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec = mojo.internal.bindings.certificate_manager.mojom.SuccessResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec = mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.ActionResultSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec = mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.SummaryCertInfoSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec = mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertManagementMetadataSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory || {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory.$interfaceName = 'certificate_manager.mojom.CertificateManagerPageHandlerFactory';
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler = {};
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler || {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerSpec.$ = {};
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler.$interfaceName = 'certificate_manager.mojom.CertificateManagerPageHandler';
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage = {};
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec = { $ : {} };
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage || {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec || { $ : {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageSpec.$ = {};
 mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage.$interfaceName = 'certificate_manager.mojom.CertificateManagerPage';
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = { $: {} };
-mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$ = {};
+mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec = mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.certificate_manager = mojo.internal.bindings.certificate_manager || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,45 +125,73 @@
 mojo.internal.bindings.ash.scanning = mojo.internal.bindings.ash.scanning || {};
 mojo.internal.bindings.ash.scanning.mojom = mojo.internal.bindings.ash.scanning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScannerSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver = {};
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec = mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec = mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec = mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec = mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec = mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec = mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec = mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScannerSpec = mojo.internal.bindings.ash.scanning.mojom.ScannerSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver || {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec.$ = {};
 mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver.$interfaceName = 'ash.scanning.mojom.ScanJobObserver';
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService = {};
-mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService = mojo.internal.bindings.ash.scanning.mojom.ScanService || {};
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec = mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanServiceSpec.$ = {};
 mojo.internal.bindings.ash.scanning.mojom.ScanService.$interfaceName = 'ash.scanning.mojom.ScanService';
-mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController = {};
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec = { $ : {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController || {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec.$ = {};
 mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController.$interfaceName = 'ash.scanning.mojom.MultiPageScanController';
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

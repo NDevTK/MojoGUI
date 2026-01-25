@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ax.mojom.AccessibilityFileLoader = {};
-mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.AccessibilityFileLoader = mojo.internal.bindings.ax.mojom.AccessibilityFileLoader || {};
+mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec = mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderSpec.$ = {};
 mojo.internal.bindings.ax.mojom.AccessibilityFileLoader.$interfaceName = 'ax.mojom.AccessibilityFileLoader';
-mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

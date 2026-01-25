@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,49 +123,84 @@
 
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.cros.mojom.CameraFacingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.TorchModeStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.CameraResourceCostSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraInfoSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModuleCallbacks = {};
-mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.CameraFacingSpec = mojo.internal.bindings.cros.mojom.CameraFacingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec = mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.TorchModeStatusSpec = mojo.internal.bindings.cros.mojom.TorchModeStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CameraResourceCostSpec = mojo.internal.bindings.cros.mojom.CameraResourceCostSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraResourceCostSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraResourceCostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraResourceCostSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraInfoSpec = mojo.internal.bindings.cros.mojom.CameraInfoSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraInfoSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraInfoSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModuleCallbacks = mojo.internal.bindings.cros.mojom.CameraModuleCallbacks || {};
+mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec = mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CameraModuleCallbacks.$interfaceName = 'cros.mojom.CameraModuleCallbacks';
-mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps = {};
-mojo.internal.bindings.cros.mojom.VendorTagOpsSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps = mojo.internal.bindings.cros.mojom.VendorTagOps || {};
+mojo.internal.bindings.cros.mojom.VendorTagOpsSpec = mojo.internal.bindings.cros.mojom.VendorTagOpsSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOpsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOpsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOpsSpec.$ = {};
 mojo.internal.bindings.cros.mojom.VendorTagOps.$interfaceName = 'cros.mojom.VendorTagOps';
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule = {};
-mojo.internal.bindings.cros.mojom.CameraModuleSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule = mojo.internal.bindings.cros.mojom.CameraModule || {};
+mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros.mojom.CameraModuleSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CameraModuleSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModuleSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CameraModule.$interfaceName = 'cros.mojom.CameraModule';
-mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};

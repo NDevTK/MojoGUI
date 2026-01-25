@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,37 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusConditionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRequestConditionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterOrConditionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNotConditionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterConditionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterNetworkSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndFetchEventSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterFetchEventSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterCacheSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRaceNetworkAndCacheSourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRuleSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRulesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

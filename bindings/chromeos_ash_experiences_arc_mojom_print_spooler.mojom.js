@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,39 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.PrintSessionHost = {};
-mojo.internal.bindings.arc.mojom.PrintSessionHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrintSessionHost = mojo.internal.bindings.arc.mojom.PrintSessionHost || {};
+mojo.internal.bindings.arc.mojom.PrintSessionHostSpec = mojo.internal.bindings.arc.mojom.PrintSessionHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrintSessionHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSessionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSessionHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrintSessionHost.$interfaceName = 'arc.mojom.PrintSessionHost';
-mojo.internal.bindings.arc.mojom.PrintSessionInstance = {};
-mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrintSessionInstance = mojo.internal.bindings.arc.mojom.PrintSessionInstance || {};
+mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec = mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSessionInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrintSessionInstance.$interfaceName = 'arc.mojom.PrintSessionInstance';
-mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSpoolerHost = {};
-mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec = mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerHost = mojo.internal.bindings.arc.mojom.PrintSpoolerHost || {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrintSpoolerHost.$interfaceName = 'arc.mojom.PrintSpoolerHost';
-mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSpoolerInstance = {};
-mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerInstance = mojo.internal.bindings.arc.mojom.PrintSpoolerInstance || {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstance.$interfaceName = 'arc.mojom.PrintSpoolerInstance';
-mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

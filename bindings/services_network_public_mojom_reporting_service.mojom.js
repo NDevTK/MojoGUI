@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,25 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.ReportingApiReportSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ReportingApiObserver = {};
-mojo.internal.bindings.network.mojom.ReportingApiObserverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec = mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ReportingApiReportSpec = mojo.internal.bindings.network.mojom.ReportingApiReportSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$ = {};
+mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec = mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec.$ = {};
+mojo.internal.bindings.network.mojom.ReportingApiObserver = mojo.internal.bindings.network.mojom.ReportingApiObserver || {};
+mojo.internal.bindings.network.mojom.ReportingApiObserverSpec = mojo.internal.bindings.network.mojom.ReportingApiObserverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiObserverSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiObserverSpec.$ = {};
 mojo.internal.bindings.network.mojom.ReportingApiObserver.$interfaceName = 'network.mojom.ReportingApiObserver';
-mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

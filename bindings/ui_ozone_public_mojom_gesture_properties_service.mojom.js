@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,32 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService = {};
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec = { $ : {} };
+mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec = mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropValueSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService || {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceSpec.$ = {};
 mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService.$interfaceName = 'ui.ozone.mojom.GesturePropertiesService';
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,35 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyConfigClient = {};
-mojo.internal.bindings.network.mojom.ProxyConfigClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec = mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyConfigClient = mojo.internal.bindings.network.mojom.ProxyConfigClient || {};
+mojo.internal.bindings.network.mojom.ProxyConfigClientSpec = mojo.internal.bindings.network.mojom.ProxyConfigClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.ProxyConfigClient.$interfaceName = 'network.mojom.ProxyConfigClient';
-mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyConfigPollerClient = {};
-mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec = mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient = mojo.internal.bindings.network.mojom.ProxyConfigPollerClient || {};
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec = mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigPollerClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.ProxyConfigPollerClient.$interfaceName = 'network.mojom.ProxyConfigPollerClient';
-mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyErrorClient = {};
-mojo.internal.bindings.network.mojom.ProxyErrorClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyErrorClient = mojo.internal.bindings.network.mojom.ProxyErrorClient || {};
+mojo.internal.bindings.network.mojom.ProxyErrorClientSpec = mojo.internal.bindings.network.mojom.ProxyErrorClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ProxyErrorClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyErrorClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyErrorClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.ProxyErrorClient.$interfaceName = 'network.mojom.ProxyErrorClient';
-mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

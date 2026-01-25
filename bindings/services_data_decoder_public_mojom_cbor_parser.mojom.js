@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.data_decoder.mojom.CborParser = {};
-mojo.internal.bindings.data_decoder.mojom.CborParserSpec = { $ : {} };
+mojo.internal.bindings.data_decoder.mojom.CborParser = mojo.internal.bindings.data_decoder.mojom.CborParser || {};
+mojo.internal.bindings.data_decoder.mojom.CborParserSpec = mojo.internal.bindings.data_decoder.mojom.CborParserSpec || { $ : {} };
+if (mojo.internal.bindings.data_decoder.mojom.CborParserSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.CborParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.CborParserSpec.$ = {};
 mojo.internal.bindings.data_decoder.mojom.CborParser.$interfaceName = 'data_decoder.mojom.CborParser';
-mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

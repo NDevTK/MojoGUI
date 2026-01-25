@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,38 +124,68 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer = {};
-mojo.internal.bindings.extensions.mojom.RendererSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec = mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ExtensionLoadedParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec = mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.UserScriptWorldInfoSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer = mojo.internal.bindings.extensions.mojom.Renderer || {};
+mojo.internal.bindings.extensions.mojom.RendererSpec = mojo.internal.bindings.extensions.mojom.RendererSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.RendererSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.Renderer.$interfaceName = 'extensions.mojom.Renderer';
-mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

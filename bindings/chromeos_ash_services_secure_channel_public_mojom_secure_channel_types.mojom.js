@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,14 +125,19 @@
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener = {};
-mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec = mojo.internal.bindings.ash.secure_channel.mojom.FileTransferStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec = mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec = mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.FileTransferUpdateSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener || {};
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener.$interfaceName = 'ash.secure_channel.mojom.FilePayloadListener';
-mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

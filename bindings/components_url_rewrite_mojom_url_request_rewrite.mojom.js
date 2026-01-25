@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,35 @@
 
  mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
 mojo.internal.bindings.url_rewrite.mojom = mojo.internal.bindings.url_rewrite.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = { $: {} };
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver = {};
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec = { $ : {} };
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec = mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec.$ = {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver || {};
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverSpec.$ = {};
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver.$interfaceName = 'url_rewrite.mojom.UrlRequestRulesReceiver';
-mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

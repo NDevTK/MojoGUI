@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,35 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder = {};
-mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec = mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackPropertiesSpec.$ = {};
+mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec = mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$.structSpec && mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder = mojo.internal.bindings.media.mojom.WatchTimeRecorder || {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorderSpec.$ = {};
 mojo.internal.bindings.media.mojom.WatchTimeRecorder.$interfaceName = 'media.mojom.WatchTimeRecorder';
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

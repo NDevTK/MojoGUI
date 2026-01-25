@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = { $ : {} };
+mojo.internal.bindings.new_tab_page.mojom.AuthTypeSpec = mojo.internal.bindings.new_tab_page.mojom.AuthTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument || {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument';
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = { $: {} };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$ = {};
 
 // Enum: AuthType
 mojo.internal.bindings.new_tab_page.mojom.AuthType = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,59 @@
 
  mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.bluetooth.mojom.PropertySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.bluetooth.mojom.GattResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device = {};
-mojo.internal.bindings.bluetooth.mojom.DeviceSpec = { $ : {} };
+mojo.internal.bindings.bluetooth.mojom.PropertySpec = mojo.internal.bindings.bluetooth.mojom.PropertySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.GattResultSpec = mojo.internal.bindings.bluetooth.mojom.GattResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec = mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.RSSIWrapperSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec = mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec = mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.ServiceInfoSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec = mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.CharacteristicInfoSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec = mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.DescriptorInfoSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device = mojo.internal.bindings.bluetooth.mojom.Device || {};
+mojo.internal.bindings.bluetooth.mojom.DeviceSpec = mojo.internal.bindings.bluetooth.mojom.DeviceSpec || { $ : {} };
+if (mojo.internal.bindings.bluetooth.mojom.DeviceSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.DeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.DeviceSpec.$ = {};
 mojo.internal.bindings.bluetooth.mojom.Device.$interfaceName = 'bluetooth.mojom.Device';
-mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = { $: {} };
-mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};

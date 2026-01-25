@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,42 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.SerializationFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.extensions.mojom.ChannelTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.extensions.mojom.MessageDataSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.PortIdSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessageSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagePort = {};
-mojo.internal.bindings.extensions.mojom.MessagePortSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.SerializationFormatSpec = mojo.internal.bindings.extensions.mojom.SerializationFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions.mojom.ChannelTypeSpec = mojo.internal.bindings.extensions.mojom.ChannelTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec = mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions.mojom.MessageDataSpec = mojo.internal.bindings.extensions.mojom.MessageDataSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessageDataSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessageDataSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.PortIdSpec = mojo.internal.bindings.extensions.mojom.PortIdSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.PortIdSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.PortIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.PortIdSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec = mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec = mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec = mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessageSpec = mojo.internal.bindings.extensions.mojom.MessageSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessageSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessageSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagePort = mojo.internal.bindings.extensions.mojom.MessagePort || {};
+mojo.internal.bindings.extensions.mojom.MessagePortSpec = mojo.internal.bindings.extensions.mojom.MessagePortSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePortSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePortSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePortSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.MessagePort.$interfaceName = 'extensions.mojom.MessagePort';
-mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagePortHost = {};
-mojo.internal.bindings.extensions.mojom.MessagePortHostSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec = mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec = mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagePortHost = mojo.internal.bindings.extensions.mojom.MessagePortHost || {};
+mojo.internal.bindings.extensions.mojom.MessagePortHostSpec = mojo.internal.bindings.extensions.mojom.MessagePortHostSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePortHostSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePortHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePortHostSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.MessagePortHost.$interfaceName = 'extensions.mojom.MessagePortHost';
-mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec = mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec = mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec = mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

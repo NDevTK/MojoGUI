@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,30 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager = {};
-mojo.internal.bindings.blink.mojom.ManifestManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec = mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager = mojo.internal.bindings.blink.mojom.ManifestManager || {};
+mojo.internal.bindings.blink.mojom.ManifestManagerSpec = mojo.internal.bindings.blink.mojom.ManifestManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManifestManager.$interfaceName = 'blink.mojom.ManifestManager';
-mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

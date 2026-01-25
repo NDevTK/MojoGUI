@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage = {};
-mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageSpec.$ = {};
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage.$interfaceName = 'ash.mojom.sample_swa.ChildUntrustedPage';
-mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage = {};
-mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage || {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec.$ = {};
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage.$interfaceName = 'ash.mojom.sample_swa.ParentTrustedPage';
-mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$ = {};
 
 // Interface: ChildUntrustedPage
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmStorage = {};
-mojo.internal.bindings.media.mojom.CdmStorageSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.StatusSpec = mojo.internal.bindings.media.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StatusSpec = mojo.internal.bindings.media.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmStorage = mojo.internal.bindings.media.mojom.CdmStorage || {};
+mojo.internal.bindings.media.mojom.CdmStorageSpec = mojo.internal.bindings.media.mojom.CdmStorageSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmStorageSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmStorageSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmStorage.$interfaceName = 'media.mojom.CdmStorage';
-mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFile = {};
-mojo.internal.bindings.media.mojom.CdmFileSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec = mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFile = mojo.internal.bindings.media.mojom.CdmFile || {};
+mojo.internal.bindings.media.mojom.CdmFileSpec = mojo.internal.bindings.media.mojom.CdmFileSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmFileSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFileSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmFile.$interfaceName = 'media.mojom.CdmFile';
-mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec = mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec = mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$ = {};
 
 // Enum: Status
 mojo.internal.bindings.media.mojom.Status = {

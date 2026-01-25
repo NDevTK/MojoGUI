@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,19 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

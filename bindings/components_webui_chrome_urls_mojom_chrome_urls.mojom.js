@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,35 @@
 
  mojo.internal.bindings.chrome_urls = mojo.internal.bindings.chrome_urls || {};
 mojo.internal.bindings.chrome_urls.mojom = mojo.internal.bindings.chrome_urls.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec = mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec = mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory = mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec = mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory.$interfaceName = 'chrome_urls.mojom.PageHandlerFactory';
-mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.PageHandler = {};
-mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandler = mojo.internal.bindings.chrome_urls.mojom.PageHandler || {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.chrome_urls.mojom.PageHandler.$interfaceName = 'chrome_urls.mojom.PageHandler';
-mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome_urls.mojom.Page = {};
-mojo.internal.bindings.chrome_urls.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec = mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome_urls.mojom.Page = mojo.internal.bindings.chrome_urls.mojom.Page || {};
+mojo.internal.bindings.chrome_urls.mojom.PageSpec = mojo.internal.bindings.chrome_urls.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.chrome_urls.mojom.PageSpec.$.structSpec && mojo.internal.bindings.chrome_urls.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome_urls.mojom.PageSpec.$ = {};
 mojo.internal.bindings.chrome_urls.mojom.Page.$interfaceName = 'chrome_urls.mojom.Page';
 
 // External type stubs (from imports)

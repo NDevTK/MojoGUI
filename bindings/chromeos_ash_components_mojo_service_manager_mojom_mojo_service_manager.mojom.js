@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,32 +125,50 @@
 mojo.internal.bindings.chromeos.mojo_service_manager = mojo.internal.bindings.chromeos.mojo_service_manager || {};
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom = mojo.internal.bindings.chromeos.mojo_service_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager = {};
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceStateSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.RegisteredServiceStateSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.UnregisteredServiceStateSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ErrorSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerSpec.$ = {};
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceManager';
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider = {};
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec = { $ : {} };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderSpec.$ = {};
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceProvider';
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver = {};
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver || {};
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver.$interfaceName = 'chromeos.mojo_service_manager.mojom.ServiceObserver';
-mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec = mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

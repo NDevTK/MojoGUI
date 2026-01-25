@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,47 +125,77 @@
 mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side_panel.customize_chrome || {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom = mojo.internal.bindings.side_panel.customize_chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactorySpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandler';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

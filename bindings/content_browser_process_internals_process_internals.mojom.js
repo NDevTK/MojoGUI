@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -119,31 +122,53 @@
  };
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mojom.ProcessCountInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.SiteInstanceInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.FrameInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.WebContentsInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.IsolatedOriginInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler = {};
-mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec = { $ : {} };
+mojo.internal.bindings.mojom.TypeSpec = mojo.internal.bindings.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojom.ProcessCountInfoSpec = mojo.internal.bindings.mojom.ProcessCountInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessCountInfoSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessCountInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessCountInfoSpec.$ = {};
+mojo.internal.bindings.mojom.SiteInstanceInfoSpec = mojo.internal.bindings.mojom.SiteInstanceInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$.structSpec && mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$ = {};
+mojo.internal.bindings.mojom.FrameInfoSpec = mojo.internal.bindings.mojom.FrameInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.FrameInfoSpec.$.structSpec && mojo.internal.bindings.mojom.FrameInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.FrameInfoSpec.$ = {};
+mojo.internal.bindings.mojom.WebContentsInfoSpec = mojo.internal.bindings.mojom.WebContentsInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.WebContentsInfoSpec.$.structSpec && mojo.internal.bindings.mojom.WebContentsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.WebContentsInfoSpec.$ = {};
+mojo.internal.bindings.mojom.IsolatedOriginInfoSpec = mojo.internal.bindings.mojom.IsolatedOriginInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.IsolatedOriginInfoSpec.$.structSpec && mojo.internal.bindings.mojom.IsolatedOriginInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.IsolatedOriginInfoSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler = mojo.internal.bindings.mojom.ProcessInternalsHandler || {};
+mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec = mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandlerSpec.$ = {};
 mojo.internal.bindings.mojom.ProcessInternalsHandler.$interfaceName = 'mojom.ProcessInternalsHandler';
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

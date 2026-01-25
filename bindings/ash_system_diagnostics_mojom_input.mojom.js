@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,22 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.PhysicalLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.MechanicalLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.NumberPadPresenceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.TopRowKeySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.TopRightKeySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.BottomLeftLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.BottomRightLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.ConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.PhysicalLayoutSpec = mojo.internal.bindings.ash.diagnostics.mojom.PhysicalLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.MechanicalLayoutSpec = mojo.internal.bindings.ash.diagnostics.mojom.MechanicalLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NumberPadPresenceSpec = mojo.internal.bindings.ash.diagnostics.mojom.NumberPadPresenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.TopRowKeySpec = mojo.internal.bindings.ash.diagnostics.mojom.TopRowKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.TopRightKeySpec = mojo.internal.bindings.ash.diagnostics.mojom.TopRightKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BottomLeftLayoutSpec = mojo.internal.bindings.ash.diagnostics.mojom.BottomLeftLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BottomRightLayoutSpec = mojo.internal.bindings.ash.diagnostics.mojom.BottomRightLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayoutSpec = mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$ = {};
 
 // Enum: ConnectionType
 mojo.internal.bindings.ash.diagnostics.mojom.ConnectionType = {

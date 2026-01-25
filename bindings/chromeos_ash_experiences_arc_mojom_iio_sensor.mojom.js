@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,26 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 
-mojo.internal.bindings.arc.mojom.IioSensorHost = {};
-mojo.internal.bindings.arc.mojom.IioSensorHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.IioSensorHost = mojo.internal.bindings.arc.mojom.IioSensorHost || {};
+mojo.internal.bindings.arc.mojom.IioSensorHostSpec = mojo.internal.bindings.arc.mojom.IioSensorHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.IioSensorHost.$interfaceName = 'arc.mojom.IioSensorHost';
-mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.IioSensorInstance = {};
-mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec = mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.IioSensorInstance = mojo.internal.bindings.arc.mojom.IioSensorInstance || {};
+mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec = mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.IioSensorInstance.$interfaceName = 'arc.mojom.IioSensorInstance';
-mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

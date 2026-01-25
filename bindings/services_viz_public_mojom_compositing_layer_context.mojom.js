@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,37 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.PendingLayerContextSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerContext = {};
-mojo.internal.bindings.viz.mojom.LayerContextSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.TypeSpec = mojo.internal.bindings.viz.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec = mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec = mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.PendingLayerContextSpec = mojo.internal.bindings.viz.mojom.PendingLayerContextSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.PendingLayerContextSpec.$.structSpec && mojo.internal.bindings.viz.mojom.PendingLayerContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.PendingLayerContextSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerContext = mojo.internal.bindings.viz.mojom.LayerContext || {};
+mojo.internal.bindings.viz.mojom.LayerContextSpec = mojo.internal.bindings.viz.mojom.LayerContextSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.LayerContextSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContextSpec.$ = {};
 mojo.internal.bindings.viz.mojom.LayerContext.$interfaceName = 'viz.mojom.LayerContext';
-mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerContextClient = {};
-mojo.internal.bindings.viz.mojom.LayerContextClientSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec = mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec = mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec = mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerContextClient = mojo.internal.bindings.viz.mojom.LayerContextClient || {};
+mojo.internal.bindings.viz.mojom.LayerContextClientSpec = mojo.internal.bindings.viz.mojom.LayerContextClientSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.LayerContextClientSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContextClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContextClientSpec.$ = {};
 mojo.internal.bindings.viz.mojom.LayerContextClient.$interfaceName = 'viz.mojom.LayerContextClient';
-mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec = mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

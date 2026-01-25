@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,43 @@
  mojo.internal.bindings.history_embeddings = mojo.internal.bindings.history_embeddings || {};
 mojo.internal.bindings.history_embeddings.mojom = mojo.internal.bindings.history_embeddings.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler = {};
-mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec = mojo.internal.bindings.history_embeddings.mojom.AnswerStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec = mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec = mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.AnswerDataSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec = mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.SearchResultItemSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec = mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.SearchQuerySpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec = mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.SearchResultSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler = mojo.internal.bindings.history_embeddings.mojom.PageHandler || {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.history_embeddings.mojom.PageHandler.$interfaceName = 'history_embeddings.mojom.PageHandler';
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_embeddings.mojom.Page = {};
-mojo.internal.bindings.history_embeddings.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$ = {};
+mojo.internal.bindings.history_embeddings.mojom.Page = mojo.internal.bindings.history_embeddings.mojom.Page || {};
+mojo.internal.bindings.history_embeddings.mojom.PageSpec = mojo.internal.bindings.history_embeddings.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.history_embeddings.mojom.PageSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageSpec.$ = {};
 mojo.internal.bindings.history_embeddings.mojom.Page.$interfaceName = 'history_embeddings.mojom.Page';
-mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

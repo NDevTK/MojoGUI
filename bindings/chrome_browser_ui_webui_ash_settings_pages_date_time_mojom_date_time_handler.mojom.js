@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,23 +125,35 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.date_time = mojo.internal.bindings.ash.settings.date_time || {};
 mojo.internal.bindings.ash.settings.date_time.mojom = mojo.internal.bindings.ash.settings.date_time.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.date_time.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler = {};
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler || {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler.$interfaceName = 'ash.settings.date_time.mojom.PageHandler';
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.Page = {};
-mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.Page = mojo.internal.bindings.ash.settings.date_time.mojom.Page || {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$ = {};
 mojo.internal.bindings.ash.settings.date_time.mojom.Page.$interfaceName = 'ash.settings.date_time.mojom.Page';
-mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver = class {

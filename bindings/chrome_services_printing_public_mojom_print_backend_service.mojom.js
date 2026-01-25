@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,42 +124,70 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost = {};
-mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec = mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrinterCapsAndInfoSpec.$ = {};
+mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost = mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost || {};
+mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec = mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec.$.structSpec && mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostSpec.$ = {};
 mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost.$interfaceName = 'printing.mojom.UnsandboxedPrintBackendHost';
-mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost = {};
-mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost = mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost || {};
+mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec = mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec.$.structSpec && mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostSpec.$ = {};
 mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost.$interfaceName = 'printing.mojom.SandboxedPrintBackendHost';
-mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService = {};
-mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService = mojo.internal.bindings.printing.mojom.PrintBackendService || {};
+mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec = mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendServiceSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PrintBackendService.$interfaceName = 'printing.mojom.PrintBackendService';
-mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

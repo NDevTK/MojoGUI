@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver = {};
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver || {};
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver.$interfaceName = 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver';
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject = {};
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject || {};
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.$interfaceName = 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject';
-mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$ = {};
 
 // Interface: GeneralAudienceBrowsingAPIKeyObserver
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver = class {

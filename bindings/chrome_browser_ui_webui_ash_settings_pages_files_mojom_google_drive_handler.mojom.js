@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,27 +125,42 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.google_drive = mojo.internal.bindings.ash.settings.google_drive || {};
 mojo.internal.bindings.ash.settings.google_drive.mojom = mojo.internal.bindings.ash.settings.google_drive.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
 
-mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.google_drive.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler = {};
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler || {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler.$interfaceName = 'ash.settings.google_drive.mojom.PageHandler';
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.Page = {};
-mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.Page = mojo.internal.bindings.ash.settings.google_drive.mojom.Page || {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.PageSpec.$ = {};
 mojo.internal.bindings.ash.settings.google_drive.mojom.Page.$interfaceName = 'ash.settings.google_drive.mojom.Page';
-mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec = mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec = { $: {} };
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter = {};
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec = mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec.$.structSpec && mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec.$ = {};
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter || {};
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec.$.structSpec && mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterSpec.$ = {};
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter.$interfaceName = 'network.mojom.CrossOriginOpenerPolicyReporter';
-mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

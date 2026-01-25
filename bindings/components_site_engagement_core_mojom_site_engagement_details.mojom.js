@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.site_engagement = mojo.internal.bindings.site_engagement || {};
 mojo.internal.bindings.site_engagement.mojom = mojo.internal.bindings.site_engagement.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec = { $: {} };
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider = {};
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec = { $ : {} };
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec || { $: {} };
+if (mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec.$.structSpec && mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec.$ = {};
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider || {};
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec || { $ : {} };
+if (mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec.$.structSpec && mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderSpec.$ = {};
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider.$interfaceName = 'site_engagement.mojom.SiteEngagementDetailsProvider';
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = { $: {} };
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

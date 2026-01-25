@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,46 +124,77 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.tts = mojo.internal.bindings.chromeos.tts || {};
 mojo.internal.bindings.chromeos.tts.mojom = mojo.internal.bindings.chromeos.tts.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsService = {};
-mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec = mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsService = mojo.internal.bindings.chromeos.tts.mojom.TtsService || {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsServiceSpec.$ = {};
 mojo.internal.bindings.chromeos.tts.mojom.TtsService.$interfaceName = 'chromeos.tts.mojom.TtsService';
-mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream = {};
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec = { $ : {} };
+mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream || {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamSpec.$ = {};
 mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream.$interfaceName = 'chromeos.tts.mojom.GoogleTtsStream';
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream = {};
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec = { $ : {} };
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream || {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec.$ = {};
 mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream.$interfaceName = 'chromeos.tts.mojom.PlaybackTtsStream';
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver = {};
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver || {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver.$interfaceName = 'chromeos.tts.mojom.TtsEventObserver';
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

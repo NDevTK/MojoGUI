@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,18 @@
  mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};
 mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.SmartTabGroupingService = {};
-mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec = { $ : {} };
+mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec = mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec.$.structSpec && mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec.$ = {};
+mojo.internal.bindings.ai.mojom.SmartTabGroupingService = mojo.internal.bindings.ai.mojom.SmartTabGroupingService || {};
+mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec = mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec.$.structSpec && mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceSpec.$ = {};
 mojo.internal.bindings.ai.mojom.SmartTabGroupingService.$interfaceName = 'ai.mojom.SmartTabGroupingService';
-mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec = mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec = mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebOTPService = {};
-mojo.internal.bindings.blink.mojom.WebOTPServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SmsStatusSpec = mojo.internal.bindings.blink.mojom.SmsStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebOTPService = mojo.internal.bindings.blink.mojom.WebOTPService || {};
+mojo.internal.bindings.blink.mojom.WebOTPServiceSpec = mojo.internal.bindings.blink.mojom.WebOTPServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebOTPServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebOTPServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebOTPServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebOTPService.$interfaceName = 'blink.mojom.WebOTPService';
-mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec = mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec = mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec.$ = {};
 
 // Enum: SmsStatus
 mojo.internal.bindings.blink.mojom.SmsStatus = {

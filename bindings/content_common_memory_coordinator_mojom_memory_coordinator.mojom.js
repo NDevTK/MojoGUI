@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildMemoryConsumer = {};
-mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$.structSpec && mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer = mojo.internal.bindings.content.mojom.ChildMemoryConsumer || {};
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec = mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec.$ = {};
 mojo.internal.bindings.content.mojom.ChildMemoryConsumer.$interfaceName = 'content.mojom.ChildMemoryConsumer';
-mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry = {};
-mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec = { $ : {} };
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry || {};
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec.$.structSpec && mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec.$ = {};
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
-mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$ = {};
 
 // Interface: ChildMemoryConsumer
 mojo.internal.bindings.content.mojom.ChildMemoryConsumerPendingReceiver = class {

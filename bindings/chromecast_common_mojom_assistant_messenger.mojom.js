@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,26 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe = {};
-mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe = mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe || {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe.$interfaceName = 'chromecast.mojom.AssistantMessagePipe';
-mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.AssistantMessageClient = {};
-mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageClient = mojo.internal.bindings.chromecast.mojom.AssistantMessageClient || {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessageClientSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClient.$interfaceName = 'chromecast.mojom.AssistantMessageClient';
-mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.AssistantMessageService = {};
-mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageService = mojo.internal.bindings.chromecast.mojom.AssistantMessageService || {};
+mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.AssistantMessageService.$interfaceName = 'chromecast.mojom.AssistantMessageService';
-mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

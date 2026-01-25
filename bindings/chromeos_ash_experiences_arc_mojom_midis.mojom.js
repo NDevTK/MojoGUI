@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,49 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisRequestSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisClient = {};
-mojo.internal.bindings.arc.mojom.MidisClientSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec = mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisRequestSpec = mojo.internal.bindings.arc.mojom.MidisRequestSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisRequestSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisRequestSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisClient = mojo.internal.bindings.arc.mojom.MidisClient || {};
+mojo.internal.bindings.arc.mojom.MidisClientSpec = mojo.internal.bindings.arc.mojom.MidisClientSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.MidisClientSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisClientSpec.$ = {};
 mojo.internal.bindings.arc.mojom.MidisClient.$interfaceName = 'arc.mojom.MidisClient';
-mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisServer = {};
-mojo.internal.bindings.arc.mojom.MidisServerSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisServer = mojo.internal.bindings.arc.mojom.MidisServer || {};
+mojo.internal.bindings.arc.mojom.MidisServerSpec = mojo.internal.bindings.arc.mojom.MidisServerSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.MidisServerSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServerSpec.$ = {};
 mojo.internal.bindings.arc.mojom.MidisServer.$interfaceName = 'arc.mojom.MidisServer';
-mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisHost = {};
-mojo.internal.bindings.arc.mojom.MidisHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisHost = mojo.internal.bindings.arc.mojom.MidisHost || {};
+mojo.internal.bindings.arc.mojom.MidisHostSpec = mojo.internal.bindings.arc.mojom.MidisHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.MidisHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.MidisHost.$interfaceName = 'arc.mojom.MidisHost';
-mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisInstance = {};
-mojo.internal.bindings.arc.mojom.MidisInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisInstance = mojo.internal.bindings.arc.mojom.MidisInstance || {};
+mojo.internal.bindings.arc.mojom.MidisInstanceSpec = mojo.internal.bindings.arc.mojom.MidisInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.MidisInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.MidisInstance.$interfaceName = 'arc.mojom.MidisInstance';
-mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: MidisClient
 mojo.internal.bindings.arc.mojom.MidisClientPendingReceiver = class {

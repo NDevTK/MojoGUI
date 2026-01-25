@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,25 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.RendererHost = {};
-mojo.internal.bindings.content.mojom.RendererHostSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.RendererHost = mojo.internal.bindings.content.mojom.RendererHost || {};
+mojo.internal.bindings.content.mojom.RendererHostSpec = mojo.internal.bindings.content.mojom.RendererHostSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.RendererHostSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHostSpec.$ = {};
 mojo.internal.bindings.content.mojom.RendererHost.$interfaceName = 'content.mojom.RendererHost';
-mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$ = {};
 
 // Interface: RendererHost
 mojo.internal.bindings.content.mojom.RendererHostPendingReceiver = class {

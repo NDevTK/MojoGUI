@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,29 @@
  mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
 mojo.internal.bindings.ntp.tab_groups = mojo.internal.bindings.ntp.tab_groups || {};
 mojo.internal.bindings.ntp.tab_groups.mojom = mojo.internal.bindings.ntp.tab_groups.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler = {};
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec = mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler || {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler.$interfaceName = 'ntp.tab_groups.mojom.PageHandler';
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = { $: {} };
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};

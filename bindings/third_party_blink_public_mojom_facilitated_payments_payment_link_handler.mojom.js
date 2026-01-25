@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.facilitated = mojo.internal.bindings.payments.facilitated || {};
 mojo.internal.bindings.payments.facilitated.mojom = mojo.internal.bindings.payments.facilitated.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler = {};
-mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec = { $ : {} };
+mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler = mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler || {};
+mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec = mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec.$.structSpec && mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerSpec.$ = {};
 mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler.$interfaceName = 'payments.facilitated.mojom.PaymentLinkHandler';
-mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = { $: {} };
+mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

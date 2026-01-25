@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,29 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.graduation_ui = mojo.internal.bindings.ash.graduation_ui || {};
 mojo.internal.bindings.ash.graduation_ui.mojom = mojo.internal.bindings.ash.graduation_ui.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler = {};
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec = mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec = mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler || {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerSpec.$ = {};
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler.$interfaceName = 'ash.graduation_ui.mojom.GraduationUiHandler';
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$ = {};
 
 // Enum: GraduationScreen
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreen = {

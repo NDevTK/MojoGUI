@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection = {};
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec = mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.LinkTypeSpec = mojo.internal.bindings.chromeos.cdm.mojom.LinkTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection || {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionSpec.$ = {};
 mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection.$interfaceName = 'chromeos.cdm.mojom.OutputProtection';
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec.$ = {};
 
 // Enum: ProtectionType
 mojo.internal.bindings.chromeos.cdm.mojom.ProtectionType = {

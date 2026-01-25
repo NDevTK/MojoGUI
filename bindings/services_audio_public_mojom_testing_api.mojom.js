@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.audio.mojom.TestingApi = {};
-mojo.internal.bindings.audio.mojom.TestingApiSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.TestingApi = mojo.internal.bindings.audio.mojom.TestingApi || {};
+mojo.internal.bindings.audio.mojom.TestingApiSpec = mojo.internal.bindings.audio.mojom.TestingApiSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.TestingApiSpec.$.structSpec && mojo.internal.bindings.audio.mojom.TestingApiSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.TestingApiSpec.$ = {};
 mojo.internal.bindings.audio.mojom.TestingApi.$interfaceName = 'audio.mojom.TestingApi';
-mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec = mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec.$ = {};
 
 // Interface: TestingApi
 mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver = class {

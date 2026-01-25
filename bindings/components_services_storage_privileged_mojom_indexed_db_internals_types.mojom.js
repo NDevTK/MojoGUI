@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,24 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec = { $: {} };
+mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec = mojo.internal.bindings.storage.mojom.IdbTransactionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec = mojo.internal.bindings.storage.mojom.IdbTransactionStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec = mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec = mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbStorageKeyMetadataSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec = mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbBucketMetadataSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec = mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbDatabaseMetadataSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec = mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbTransactionMetadataSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec = mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec.$.structSpec && mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IdbTransactionMetadataStateHistorySpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

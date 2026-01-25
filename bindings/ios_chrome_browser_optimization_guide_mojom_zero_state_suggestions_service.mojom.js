@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,18 @@
  mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};
 mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService = {};
-mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec = { $ : {} };
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec.$.structSpec && mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec.$ = {};
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService || {};
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec.$.structSpec && mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceSpec.$ = {};
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService.$interfaceName = 'ai.mojom.ZeroStateSuggestionsService';
-mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec.$ = {};
+mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};

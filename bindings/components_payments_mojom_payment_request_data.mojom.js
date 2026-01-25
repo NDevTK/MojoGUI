@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,19 @@
 
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.payments.mojom.PaymentAddressSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PayerErrorsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.AddressErrorsSpec = { $: {} };
+mojo.internal.bindings.payments.mojom.PaymentAddressSpec = mojo.internal.bindings.payments.mojom.PaymentAddressSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentAddressSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentAddressSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentAddressSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec = mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec = mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PayerErrorsSpec = mojo.internal.bindings.payments.mojom.PayerErrorsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PayerErrorsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PayerErrorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PayerErrorsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.AddressErrorsSpec = mojo.internal.bindings.payments.mojom.AddressErrorsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

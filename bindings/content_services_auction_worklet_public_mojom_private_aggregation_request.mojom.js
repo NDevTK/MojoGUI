@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = { $: {} };
+mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec = mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec = mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec = mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec = mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec = mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.ForEventSignalValueSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec = mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec = mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AggregatableReportContributionSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec = mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec = mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec = mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec = mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec = mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.PrivateAggregationRequestSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec = mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.FinalizedPrivateAggregationRequestSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};

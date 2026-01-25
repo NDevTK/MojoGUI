@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,47 +124,76 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.HdcpVersionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.ExceptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmPromiseResultSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmKeyInformationSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmContextSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule = {};
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec = mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = mojo.internal.bindings.media.mojom.CdmSessionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmMessageTypeSpec = mojo.internal.bindings.media.mojom.CdmMessageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmKeyStatusSpec = mojo.internal.bindings.media.mojom.CdmKeyStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.HdcpVersionSpec = mojo.internal.bindings.media.mojom.HdcpVersionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.ExceptionSpec = mojo.internal.bindings.media.mojom.ExceptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmConfigSpec = mojo.internal.bindings.media.mojom.CdmConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmPromiseResultSpec = mojo.internal.bindings.media.mojom.CdmPromiseResultSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmKeyInformationSpec = mojo.internal.bindings.media.mojom.CdmKeyInformationSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmKeyInformationSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmKeyInformationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmKeyInformationSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmContextSpec = mojo.internal.bindings.media.mojom.CdmContextSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmContextSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmContextSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule = mojo.internal.bindings.media.mojom.ContentDecryptionModule || {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec.$ = {};
 mojo.internal.bindings.media.mojom.ContentDecryptionModule.$interfaceName = 'media.mojom.ContentDecryptionModule';
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient = {};
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient || {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient.$interfaceName = 'media.mojom.ContentDecryptionModuleClient';
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFactory = {};
-mojo.internal.bindings.media.mojom.CdmFactorySpec = { $ : {} };
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFactory = mojo.internal.bindings.media.mojom.CdmFactory || {};
+mojo.internal.bindings.media.mojom.CdmFactorySpec = mojo.internal.bindings.media.mojom.CdmFactorySpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmFactorySpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFactorySpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmFactory.$interfaceName = 'media.mojom.CdmFactory';
-mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec = mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

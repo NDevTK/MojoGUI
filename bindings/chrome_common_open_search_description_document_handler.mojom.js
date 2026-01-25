@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,16 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler = {};
-mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler = mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler || {};
+mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec = mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler.$interfaceName = 'chrome.mojom.OpenSearchDescriptionDocumentHandler';
-mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec = mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

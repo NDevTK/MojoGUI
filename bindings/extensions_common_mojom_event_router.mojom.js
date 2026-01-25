@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,43 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventListenerSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter = {};
-mojo.internal.bindings.extensions.mojom.EventRouterSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec = mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventListenerSpec = mojo.internal.bindings.extensions.mojom.EventListenerSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventListenerSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventListenerSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter = mojo.internal.bindings.extensions.mojom.EventRouter || {};
+mojo.internal.bindings.extensions.mojom.EventRouterSpec = mojo.internal.bindings.extensions.mojom.EventRouterSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouterSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouterSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.EventRouter.$interfaceName = 'extensions.mojom.EventRouter';
-mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

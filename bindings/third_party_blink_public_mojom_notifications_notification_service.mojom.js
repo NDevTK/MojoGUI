@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,46 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener = {};
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec = mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener || {};
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener.$interfaceName = 'blink.mojom.NonPersistentNotificationListener';
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService = {};
-mojo.internal.bindings.blink.mojom.NotificationServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService = mojo.internal.bindings.blink.mojom.NotificationService || {};
+mojo.internal.bindings.blink.mojom.NotificationServiceSpec = mojo.internal.bindings.blink.mojom.NotificationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.NotificationServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.NotificationService.$interfaceName = 'blink.mojom.NotificationService';
-mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

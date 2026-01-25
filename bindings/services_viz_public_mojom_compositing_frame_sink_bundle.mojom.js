@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,36 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundle = {};
-mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec = mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec = mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec.$.structSpec && mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec.$ = {};
+mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec = mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec.$.structSpec && mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec.$ = {};
+mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec = mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$.structSpec && mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$ = {};
+mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec = mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec.$.structSpec && mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundle = mojo.internal.bindings.viz.mojom.FrameSinkBundle || {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundleSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkBundle.$interfaceName = 'viz.mojom.FrameSinkBundle';
-mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundleClient = {};
-mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClient = mojo.internal.bindings.viz.mojom.FrameSinkBundleClient || {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundleClientSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkBundleClient.$interfaceName = 'viz.mojom.FrameSinkBundleClient';
-mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};

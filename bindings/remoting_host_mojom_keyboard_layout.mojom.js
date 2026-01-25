@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,16 @@
 
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remoting.mojom.KeyActionSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec = mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remoting.mojom.KeyActionSpec = mojo.internal.bindings.remoting.mojom.KeyActionSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.KeyActionSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.KeyActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.KeyActionSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec = mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec = mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};

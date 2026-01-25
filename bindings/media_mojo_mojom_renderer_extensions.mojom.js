@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,29 +124,43 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.FrameTextureInfoSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FlingingRendererClientExtension = {};
-mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.FrameTextureInfoSpec = mojo.internal.bindings.media.mojom.FrameTextureInfoSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$ = {};
+mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec = mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec.$.structSpec && mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec.$ = {};
+mojo.internal.bindings.media.mojom.FlingingRendererClientExtension = mojo.internal.bindings.media.mojom.FlingingRendererClientExtension || {};
+mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec = mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec.$.structSpec && mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionSpec.$ = {};
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtension.$interfaceName = 'media.mojom.FlingingRendererClientExtension';
-mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension = {};
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension || {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension.$interfaceName = 'media.mojom.MediaFoundationRendererExtension';
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver = {};
-mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver = mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver || {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaFoundationRendererObserver.$interfaceName = 'media.mojom.MediaFoundationRendererObserver';
-mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier = {};
-mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier = mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier || {};
+mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier.$interfaceName = 'media.mojom.MediaFoundationRendererNotifier';
-mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

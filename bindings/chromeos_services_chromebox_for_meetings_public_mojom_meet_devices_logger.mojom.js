@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,30 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
 mojo.internal.bindings.chromeos.cfm.mojom = mojo.internal.bindings.chromeos.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver = {};
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec = mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec = mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec = mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec = mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver = mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver || {};
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec = mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver.$interfaceName = 'chromeos.cfm.mojom.LoggerStateObserver';
-mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger = {};
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger || {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesLogger';
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$ = {};
 
 // Enum: EnqueuePriority
 mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePriority = {

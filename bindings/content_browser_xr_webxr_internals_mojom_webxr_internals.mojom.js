@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,56 @@
 
  mojo.internal.bindings.webxr = mojo.internal.bindings.webxr || {};
 mojo.internal.bindings.webxr.mojom = mojo.internal.bindings.webxr.mojom || {};
-mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.webxr.mojom.DeviceInfoSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler = {};
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec = { $ : {} };
+mojo.internal.bindings.webxr.mojom.DeviceInfoSpec = mojo.internal.bindings.webxr.mojom.DeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec = mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec = mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec = mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec = mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec = mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler || {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerSpec.$ = {};
 mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler.$interfaceName = 'webxr.mojom.WebXrInternalsHandler';
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener = {};
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec = { $ : {} };
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener || {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec || { $ : {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerSpec.$ = {};
 mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener.$interfaceName = 'webxr.mojom.XRInternalsSessionListener';
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = { $: {} };
-mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = { $: {} };
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$ = {};
+mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec = mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

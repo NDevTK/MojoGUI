@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,47 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink = {};
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec = mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink = mojo.internal.bindings.viz.mojom.CompositorFrameSink || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkSpec.$ = {};
 mojo.internal.bindings.viz.mojom.CompositorFrameSink.$interfaceName = 'viz.mojom.CompositorFrameSink';
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient = {};
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient || {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientSpec.$ = {};
 mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient.$interfaceName = 'viz.mojom.CompositorFrameSinkClient';
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec = mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

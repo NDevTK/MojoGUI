@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,49 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.DeviceService = {};
-mojo.internal.bindings.device.mojom.DeviceServiceSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.DeviceService = mojo.internal.bindings.device.mojom.DeviceService || {};
+mojo.internal.bindings.device.mojom.DeviceServiceSpec = mojo.internal.bindings.device.mojom.DeviceServiceSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.DeviceServiceSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceServiceSpec.$ = {};
 mojo.internal.bindings.device.mojom.DeviceService.$interfaceName = 'device.mojom.DeviceService';
-mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindFingerprint_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindPressureManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindHidManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec = mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

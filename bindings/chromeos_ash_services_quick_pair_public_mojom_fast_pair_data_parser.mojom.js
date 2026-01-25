@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,54 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.quick_pair = mojo.internal.bindings.ash.quick_pair || {};
 mojo.internal.bindings.ash.quick_pair.mojom = mojo.internal.bindings.ash.quick_pair.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser = {};
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = { $ : {} };
+mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec = mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec = mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec = mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec = mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec = mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec = mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec = mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec = mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec = mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec = mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec = mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec = mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser || {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec || { $ : {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec.$ = {};
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser.$interfaceName = 'ash.quick_pair.mojom.FastPairDataParser';
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

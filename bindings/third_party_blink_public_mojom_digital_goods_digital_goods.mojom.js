@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,37 @@
 
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.payments.mojom.DigitalGoods = {};
-mojo.internal.bindings.payments.mojom.DigitalGoodsSpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.DigitalGoods = mojo.internal.bindings.payments.mojom.DigitalGoods || {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsSpec = mojo.internal.bindings.payments.mojom.DigitalGoodsSpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoodsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoodsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoodsSpec.$ = {};
 mojo.internal.bindings.payments.mojom.DigitalGoods.$interfaceName = 'payments.mojom.DigitalGoods';
-mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoodsFactory = {};
-mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsFactory = mojo.internal.bindings.payments.mojom.DigitalGoodsFactory || {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec = mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoodsFactorySpec.$ = {};
 mojo.internal.bindings.payments.mojom.DigitalGoodsFactory.$interfaceName = 'payments.mojom.DigitalGoodsFactory';
-mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,34 @@
 
  mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener = {};
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec = { $ : {} };
+mojo.internal.bindings.service_manager.mojom.InstanceStateSpec = mojo.internal.bindings.service_manager.mojom.InstanceStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec = mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener || {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec || { $ : {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerSpec.$ = {};
 mojo.internal.bindings.service_manager.mojom.ServiceManagerListener.$interfaceName = 'service_manager.mojom.ServiceManagerListener';
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.ServiceManager = {};
-mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec = { $ : {} };
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.ServiceManager = mojo.internal.bindings.service_manager.mojom.ServiceManager || {};
+mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec = mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec || { $ : {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManagerSpec.$ = {};
 mojo.internal.bindings.service_manager.mojom.ServiceManager.$interfaceName = 'service_manager.mojom.ServiceManager';
-mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec = { $: {} };
+mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec = mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};

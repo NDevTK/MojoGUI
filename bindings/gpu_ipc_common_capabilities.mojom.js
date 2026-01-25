@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,18 @@
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 
-mojo.internal.bindings.gpu.mojom.CapabilitiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.CapabilitiesSpec = mojo.internal.bindings.gpu.mojom.CapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.CapabilitiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.CapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.CapabilitiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec = mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec = mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};

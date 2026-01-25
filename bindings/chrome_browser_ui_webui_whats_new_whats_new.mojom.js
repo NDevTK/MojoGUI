@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,42 +124,70 @@
  mojo.internal.bindings.whats_new = mojo.internal.bindings.whats_new || {};
 mojo.internal.bindings.whats_new.mojom = mojo.internal.bindings.whats_new.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.whats_new.mojom.ModulePositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.whats_new.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec = mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.whats_new.mojom.ModulePositionSpec = mojo.internal.bindings.whats_new.mojom.ModulePositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.whats_new.mojom.PageHandlerFactory = mojo.internal.bindings.whats_new.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec = mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.whats_new.mojom.PageHandlerFactory.$interfaceName = 'whats_new.mojom.PageHandlerFactory';
-mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler = {};
-mojo.internal.bindings.whats_new.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler = mojo.internal.bindings.whats_new.mojom.PageHandler || {};
+mojo.internal.bindings.whats_new.mojom.PageHandlerSpec = mojo.internal.bindings.whats_new.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.whats_new.mojom.PageHandler.$interfaceName = 'whats_new.mojom.PageHandler';
-mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.whats_new.mojom.Page = {};
-mojo.internal.bindings.whats_new.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.Page = mojo.internal.bindings.whats_new.mojom.Page || {};
+mojo.internal.bindings.whats_new.mojom.PageSpec = mojo.internal.bindings.whats_new.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.whats_new.mojom.PageSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageSpec.$ = {};
 mojo.internal.bindings.whats_new.mojom.Page.$interfaceName = 'whats_new.mojom.Page';
 
 // External type stubs (from imports)

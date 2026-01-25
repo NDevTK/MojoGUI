@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec = mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension || {};
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension.$interfaceName = 'chrome.mojom.TrustedVaultEncryptionKeysExtension';
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec.$ = {};
 
 // Interface: TrustedVaultEncryptionKeysExtension
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {

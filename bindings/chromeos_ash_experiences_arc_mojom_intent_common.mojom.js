@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,9 +123,12 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.ActivityNameSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ActionTypeSpec = mojo.internal.bindings.arc.mojom.ActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ActivityNameSpec = mojo.internal.bindings.arc.mojom.ActivityNameSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ActivityNameSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ActivityNameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ActivityNameSpec.$ = {};
 
 // Enum: ActionType
 mojo.internal.bindings.arc.mojom.ActionType = {

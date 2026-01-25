@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
 mojo.internal.bindings.tenor.mojom = mojo.internal.bindings.tenor.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.tenor.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.tenor.mojom.GifUrlsSpec = { $: {} };
-mojo.internal.bindings.tenor.mojom.GifResponseSpec = { $: {} };
-mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec = { $: {} };
+mojo.internal.bindings.tenor.mojom.StatusSpec = mojo.internal.bindings.tenor.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tenor.mojom.GifUrlsSpec = mojo.internal.bindings.tenor.mojom.GifUrlsSpec || { $: {} };
+if (mojo.internal.bindings.tenor.mojom.GifUrlsSpec.$.structSpec && mojo.internal.bindings.tenor.mojom.GifUrlsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tenor.mojom.GifUrlsSpec.$ = {};
+mojo.internal.bindings.tenor.mojom.GifResponseSpec = mojo.internal.bindings.tenor.mojom.GifResponseSpec || { $: {} };
+if (mojo.internal.bindings.tenor.mojom.GifResponseSpec.$.structSpec && mojo.internal.bindings.tenor.mojom.GifResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tenor.mojom.GifResponseSpec.$ = {};
+mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec = mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec || { $: {} };
+if (mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec.$.structSpec && mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

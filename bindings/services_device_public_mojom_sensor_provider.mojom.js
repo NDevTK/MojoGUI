@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,44 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorInitParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider = {};
-mojo.internal.bindings.device.mojom.SensorProviderSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.SensorCreationResultSpec = mojo.internal.bindings.device.mojom.SensorCreationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec = mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec = mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec = mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec = mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$.structSpec && mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorInitParamsSpec = mojo.internal.bindings.device.mojom.SensorInitParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec = mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec.$.structSpec && mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec.$ = {};
+mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec = mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec.$.structSpec && mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider = mojo.internal.bindings.device.mojom.SensorProvider || {};
+mojo.internal.bindings.device.mojom.SensorProviderSpec = mojo.internal.bindings.device.mojom.SensorProviderSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.SensorProviderSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProviderSpec.$ = {};
 mojo.internal.bindings.device.mojom.SensorProvider.$interfaceName = 'device.mojom.SensorProvider';
-mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

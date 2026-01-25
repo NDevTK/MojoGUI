@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,34 @@
 
  mojo.internal.bindings.infobar_internals = mojo.internal.bindings.infobar_internals || {};
 mojo.internal.bindings.infobar_internals.mojom = mojo.internal.bindings.infobar_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec = { $: {} };
-mojo.internal.bindings.infobar_internals.mojom.Page = {};
-mojo.internal.bindings.infobar_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec = mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec = mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec.$ = {};
+mojo.internal.bindings.infobar_internals.mojom.Page = mojo.internal.bindings.infobar_internals.mojom.Page || {};
+mojo.internal.bindings.infobar_internals.mojom.PageSpec = mojo.internal.bindings.infobar_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.infobar_internals.mojom.Page.$interfaceName = 'infobar_internals.mojom.Page';
-mojo.internal.bindings.infobar_internals.mojom.PageHandler = {};
-mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.infobar_internals.mojom.PageHandler = mojo.internal.bindings.infobar_internals.mojom.PageHandler || {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.infobar_internals.mojom.PageHandler.$interfaceName = 'infobar_internals.mojom.PageHandler';
-mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = { $: {} };
-mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = { $: {} };
-mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$ = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$ = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory = mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory.$interfaceName = 'infobar_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
 
 // Enum: InfoBarType
 mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {

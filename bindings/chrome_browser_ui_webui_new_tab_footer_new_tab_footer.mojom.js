@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,35 +123,56 @@
 
  mojo.internal.bindings.new_tab_footer = mojo.internal.bindings.new_tab_footer || {};
 mojo.internal.bindings.new_tab_footer.mojom = mojo.internal.bindings.new_tab_footer.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory = {};
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec = mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec = mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory || {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactorySpec.$ = {};
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandlerFactory';
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler = {};
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec = { $ : {} };
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler || {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerSpec.$ = {};
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler.$interfaceName = 'new_tab_footer.mojom.NewTabFooterHandler';
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument = {};
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec = { $ : {} };
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument || {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentSpec.$ = {};
 mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument.$interfaceName = 'new_tab_footer.mojom.NewTabFooterDocument';
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = { $: {} };
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec = mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,37 @@
 
  mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};
 mojo.internal.bindings.image_annotation.mojom = mojo.internal.bindings.image_annotation.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.AnnotationSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.ImageProcessor = {};
-mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec = { $ : {} };
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec = mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.AnnotationSpec = mojo.internal.bindings.image_annotation.mojom.AnnotationSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.AnnotationSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.AnnotationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.AnnotationSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor = mojo.internal.bindings.image_annotation.mojom.ImageProcessor || {};
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec = mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec || { $ : {} };
+if (mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec.$ = {};
 mojo.internal.bindings.image_annotation.mojom.ImageProcessor.$interfaceName = 'image_annotation.mojom.ImageProcessor';
-mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.Annotator = {};
-mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec = { $ : {} };
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.Annotator = mojo.internal.bindings.image_annotation.mojom.Annotator || {};
+mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec = mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec || { $ : {} };
+if (mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec.$ = {};
 mojo.internal.bindings.image_annotation.mojom.Annotator.$interfaceName = 'image_annotation.mojom.Annotator';
-mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService = {};
-mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec = { $ : {} };
+mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService || {};
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceSpec.$ = {};
 mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService.$interfaceName = 'image_annotation.mojom.ImageAnnotationService';
-mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec && mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};

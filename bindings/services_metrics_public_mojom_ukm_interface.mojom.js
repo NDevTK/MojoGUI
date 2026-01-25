@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,39 @@
 
  mojo.internal.bindings.ukm = mojo.internal.bindings.ukm || {};
 mojo.internal.bindings.ukm.mojom = mojo.internal.bindings.ukm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ukm.mojom.UkmEntrySpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.SingularUkmInterface = {};
-mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec = { $ : {} };
+mojo.internal.bindings.ukm.mojom.UkmEntrySpec = mojo.internal.bindings.ukm.mojom.UkmEntrySpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$ = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec.$ = {};
+mojo.internal.bindings.ukm.mojom.SingularUkmInterface = mojo.internal.bindings.ukm.mojom.SingularUkmInterface || {};
+mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec = mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceSpec.$ = {};
 mojo.internal.bindings.ukm.mojom.SingularUkmInterface.$interfaceName = 'ukm.mojom.SingularUkmInterface';
-mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface = {};
-mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec = { $ : {} };
+mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec = mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$ = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface = mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface || {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceSpec.$ = {};
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface.$interfaceName = 'ukm.mojom.UkmRecorderClientInterface';
-mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.UkmRecorderInterface = {};
-mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec = { $ : {} };
+mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$ = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderInterface = mojo.internal.bindings.ukm.mojom.UkmRecorderInterface || {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceSpec.$ = {};
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterface.$interfaceName = 'ukm.mojom.UkmRecorderInterface';
-mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.ukm.mojom.UkmRecorderFactory = {};
-mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec = { $ : {} };
+mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$ = {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderFactory = mojo.internal.bindings.ukm.mojom.UkmRecorderFactory || {};
+mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec = mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec.$ = {};
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory.$interfaceName = 'ukm.mojom.UkmRecorderFactory';
-mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = { $: {} };
+mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec && mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$ = {};
 
 // Interface: SingularUkmInterface
 mojo.internal.bindings.ukm.mojom.SingularUkmInterfacePendingReceiver = class {

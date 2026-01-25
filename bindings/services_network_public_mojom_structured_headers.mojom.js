@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,20 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec = { $: {} };
+mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec = mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersItemSpec.$ = {};
+mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec = mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersParameterSpec.$ = {};
+mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec = mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec.$ = {};
+mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec = mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec.$ = {};
+mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec = mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersDictionaryMemberSpec.$ = {};
+mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec = mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec.$.structSpec && mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

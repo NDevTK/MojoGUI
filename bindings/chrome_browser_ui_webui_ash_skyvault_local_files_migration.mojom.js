@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,37 @@
  mojo.internal.bindings.policy = mojo.internal.bindings.policy || {};
 mojo.internal.bindings.policy.local_user_files = mojo.internal.bindings.policy.local_user_files || {};
 mojo.internal.bindings.policy.local_user_files.mojom = mojo.internal.bindings.policy.local_user_files.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec = mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec = mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec = mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory = mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory.$interfaceName = 'policy.local_user_files.mojom.PageHandlerFactory';
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandler = {};
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandler = mojo.internal.bindings.policy.local_user_files.mojom.PageHandler || {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandler.$interfaceName = 'policy.local_user_files.mojom.PageHandler';
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.policy.local_user_files.mojom.Page = {};
-mojo.internal.bindings.policy.local_user_files.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.local_user_files.mojom.Page = mojo.internal.bindings.policy.local_user_files.mojom.Page || {};
+mojo.internal.bindings.policy.local_user_files.mojom.PageSpec = mojo.internal.bindings.policy.local_user_files.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.PageSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.PageSpec.$ = {};
 mojo.internal.bindings.policy.local_user_files.mojom.Page.$interfaceName = 'policy.local_user_files.mojom.Page';
-mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = { $: {} };
+mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec = mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$ = {};
 
 // Enum: CloudProvider
 mojo.internal.bindings.policy.local_user_files.mojom.CloudProvider = {

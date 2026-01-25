@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,28 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.SettingsClient = {};
-mojo.internal.bindings.chromecast.mojom.SettingsClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec = mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec = mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.SettingsClient = mojo.internal.bindings.chromecast.mojom.SettingsClient || {};
+mojo.internal.bindings.chromecast.mojom.SettingsClientSpec = mojo.internal.bindings.chromecast.mojom.SettingsClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsClientSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsClientSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.SettingsClient.$interfaceName = 'chromecast.mojom.SettingsClient';
-mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.SettingsPlatform = {};
-mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec = mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec = mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.SettingsPlatform = mojo.internal.bindings.chromecast.mojom.SettingsPlatform || {};
+mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec = mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsPlatformSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.SettingsPlatform.$interfaceName = 'chromecast.mojom.SettingsPlatform';
-mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec = mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec = mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

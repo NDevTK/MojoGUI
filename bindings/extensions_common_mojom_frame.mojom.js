@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,46 +124,79 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.RequestParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame = {};
-mojo.internal.bindings.extensions.mojom.LocalFrameSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec = mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.RequestParamsSpec = mojo.internal.bindings.extensions.mojom.RequestParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RequestParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RequestParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RequestParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame = mojo.internal.bindings.extensions.mojom.LocalFrame || {};
+mojo.internal.bindings.extensions.mojom.LocalFrameSpec = mojo.internal.bindings.extensions.mojom.LocalFrameSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.LocalFrame.$interfaceName = 'extensions.mojom.LocalFrame';
-mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost = {};
-mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost = mojo.internal.bindings.extensions.mojom.LocalFrameHost || {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHostSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.LocalFrameHost.$interfaceName = 'extensions.mojom.LocalFrameHost';
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec = mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,56 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.CompositionSegmentSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.KeyEventDataSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost = {};
-mojo.internal.bindings.arc.mojom.ImeHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.TextInputTypeSpec = mojo.internal.bindings.arc.mojom.TextInputTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.SegmentStyleSpec = mojo.internal.bindings.arc.mojom.SegmentStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec = mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CompositionSegmentSpec = mojo.internal.bindings.arc.mojom.CompositionSegmentSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CompositionSegmentSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CompositionSegmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CompositionSegmentSpec.$ = {};
+mojo.internal.bindings.arc.mojom.KeyEventDataSpec = mojo.internal.bindings.arc.mojom.KeyEventDataSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.KeyEventDataSpec.$.structSpec && mojo.internal.bindings.arc.mojom.KeyEventDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.KeyEventDataSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost = mojo.internal.bindings.arc.mojom.ImeHost || {};
+mojo.internal.bindings.arc.mojom.ImeHostSpec = mojo.internal.bindings.arc.mojom.ImeHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ImeHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ImeHost.$interfaceName = 'arc.mojom.ImeHost';
-mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance = {};
-mojo.internal.bindings.arc.mojom.ImeInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance = mojo.internal.bindings.arc.mojom.ImeInstance || {};
+mojo.internal.bindings.arc.mojom.ImeInstanceSpec = mojo.internal.bindings.arc.mojom.ImeInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ImeInstance.$interfaceName = 'arc.mojom.ImeInstance';
-mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

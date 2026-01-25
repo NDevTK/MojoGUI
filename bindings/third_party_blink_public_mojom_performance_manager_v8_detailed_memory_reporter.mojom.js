@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,25 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter = {};
-mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ModeSpec = mojo.internal.bindings.blink.mojom.ModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec = mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PerContextV8MemoryUsageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec = mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PerContextCanvasMemoryUsageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec = mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PerIsolateV8MemoryUsageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec = mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PerProcessV8MemoryUsageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter = mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter || {};
+mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec = mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterSpec.$ = {};
 mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter.$interfaceName = 'blink.mojom.V8DetailedMemoryReporter';
-mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

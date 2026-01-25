@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,9 +124,12 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chromeos.media_perception || {};
 mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerception = {};
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec = { $ : {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerception = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerception || {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionSpec.$ = {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerception.$interfaceName = 'chromeos.media_perception.mojom.MediaPerception';
 
 // Interface: MediaPerception

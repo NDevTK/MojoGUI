@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,32 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AppBannerController = {};
-mojo.internal.bindings.blink.mojom.AppBannerControllerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec = mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AppBannerController = mojo.internal.bindings.blink.mojom.AppBannerController || {};
+mojo.internal.bindings.blink.mojom.AppBannerControllerSpec = mojo.internal.bindings.blink.mojom.AppBannerControllerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerControllerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerControllerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AppBannerController.$interfaceName = 'blink.mojom.AppBannerController';
-mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AppBannerEvent = {};
-mojo.internal.bindings.blink.mojom.AppBannerEventSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AppBannerEvent = mojo.internal.bindings.blink.mojom.AppBannerEvent || {};
+mojo.internal.bindings.blink.mojom.AppBannerEventSpec = mojo.internal.bindings.blink.mojom.AppBannerEventSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerEventSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerEventSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AppBannerEvent.$interfaceName = 'blink.mojom.AppBannerEvent';
-mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AppBannerService = {};
-mojo.internal.bindings.blink.mojom.AppBannerServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec = mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec = mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AppBannerService = mojo.internal.bindings.blink.mojom.AppBannerService || {};
+mojo.internal.bindings.blink.mojom.AppBannerServiceSpec = mojo.internal.bindings.blink.mojom.AppBannerServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AppBannerService.$interfaceName = 'blink.mojom.AppBannerService';
-mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec = mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$ = {};
 
 // Enum: AppBannerPromptReply
 mojo.internal.bindings.blink.mojom.AppBannerPromptReply = {

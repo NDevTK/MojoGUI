@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,25 @@
 
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.printing.mojom.ColorModelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PageOrientationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PrintScalingOptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.SkiaDocumentTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.MetafileDataTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.MarginTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.ResultCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PrinterTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PrinterLanguageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.ClientTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PageRangeSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.ColorModelSpec = mojo.internal.bindings.printing.mojom.ColorModelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.DuplexModeSpec = mojo.internal.bindings.printing.mojom.DuplexModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PageOrientationSpec = mojo.internal.bindings.printing.mojom.PageOrientationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PrintScalingOptionSpec = mojo.internal.bindings.printing.mojom.PrintScalingOptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.SkiaDocumentTypeSpec = mojo.internal.bindings.printing.mojom.SkiaDocumentTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.MetafileDataTypeSpec = mojo.internal.bindings.printing.mojom.MetafileDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec = mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.MarginTypeSpec = mojo.internal.bindings.printing.mojom.MarginTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.ResultCodeSpec = mojo.internal.bindings.printing.mojom.ResultCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PrinterTypeSpec = mojo.internal.bindings.printing.mojom.PrinterTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PrinterLanguageTypeSpec = mojo.internal.bindings.printing.mojom.PrinterLanguageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.ClientTypeSpec = mojo.internal.bindings.printing.mojom.ClientTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec = mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PageRangeSpec = mojo.internal.bindings.printing.mojom.PageRangeSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PageRangeSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PageRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PageRangeSpec.$ = {};
 
 // Enum: ColorModel
 mojo.internal.bindings.printing.mojom.ColorModel = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,19 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardMechanicalLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardNumberPadPresenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRowKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKeySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardDiagnosticEventInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};

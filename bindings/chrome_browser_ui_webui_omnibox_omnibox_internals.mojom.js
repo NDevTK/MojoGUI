@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -119,30 +122,49 @@
  };
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mojom.ACMatchClassificationSpec = { $: {} };
-mojo.internal.bindings.mojom.SignalsSpec = { $: {} };
-mojo.internal.bindings.mojom.AutocompleteMatchSpec = { $: {} };
-mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxResponseSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler = {};
-mojo.internal.bindings.mojom.OmniboxPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec = mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojom.ACMatchClassificationSpec = mojo.internal.bindings.mojom.ACMatchClassificationSpec || { $: {} };
+if (mojo.internal.bindings.mojom.ACMatchClassificationSpec.$.structSpec && mojo.internal.bindings.mojom.ACMatchClassificationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.ACMatchClassificationSpec.$ = {};
+mojo.internal.bindings.mojom.SignalsSpec = mojo.internal.bindings.mojom.SignalsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.SignalsSpec.$.structSpec && mojo.internal.bindings.mojom.SignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.SignalsSpec.$ = {};
+mojo.internal.bindings.mojom.AutocompleteMatchSpec = mojo.internal.bindings.mojom.AutocompleteMatchSpec || { $: {} };
+if (mojo.internal.bindings.mojom.AutocompleteMatchSpec.$.structSpec && mojo.internal.bindings.mojom.AutocompleteMatchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.AutocompleteMatchSpec.$ = {};
+mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec = mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec || { $: {} };
+if (mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec.$.structSpec && mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxResponseSpec = mojo.internal.bindings.mojom.OmniboxResponseSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxResponseSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxResponseSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler = mojo.internal.bindings.mojom.OmniboxPageHandler || {};
+mojo.internal.bindings.mojom.OmniboxPageHandlerSpec = mojo.internal.bindings.mojom.OmniboxPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandlerSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandlerSpec.$ = {};
 mojo.internal.bindings.mojom.OmniboxPageHandler.$interfaceName = 'mojom.OmniboxPageHandler';
-mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPage = {};
-mojo.internal.bindings.mojom.OmniboxPageSpec = { $ : {} };
+mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPage = mojo.internal.bindings.mojom.OmniboxPage || {};
+mojo.internal.bindings.mojom.OmniboxPageSpec = mojo.internal.bindings.mojom.OmniboxPageSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.OmniboxPageSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPageSpec.$ = {};
 mojo.internal.bindings.mojom.OmniboxPage.$interfaceName = 'mojom.OmniboxPage';
-mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = { $: {} };
+mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec = mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

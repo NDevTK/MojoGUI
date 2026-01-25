@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,44 +123,72 @@
 
  mojo.internal.bindings.coral = mojo.internal.bindings.coral || {};
 mojo.internal.bindings.coral.mojom = mojo.internal.bindings.coral.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.coral.mojom.EntitySpec = { $: {} };
-mojo.internal.bindings.coral.mojom.GroupResultSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.TabSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.AppSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.GroupSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.GroupRequestSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.GroupResponseSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.TitleObserver = {};
-mojo.internal.bindings.coral.mojom.TitleObserverSpec = { $ : {} };
+mojo.internal.bindings.coral.mojom.CoralErrorSpec = mojo.internal.bindings.coral.mojom.CoralErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.coral.mojom.EntitySpec = mojo.internal.bindings.coral.mojom.EntitySpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.EntitySpec.$.structSpec && mojo.internal.bindings.coral.mojom.EntitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.EntitySpec.$ = {};
+mojo.internal.bindings.coral.mojom.GroupResultSpec = mojo.internal.bindings.coral.mojom.GroupResultSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.GroupResultSpec.$.structSpec && mojo.internal.bindings.coral.mojom.GroupResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.GroupResultSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec = mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec.$ = {};
+mojo.internal.bindings.coral.mojom.TabSpec = mojo.internal.bindings.coral.mojom.TabSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.TabSpec.$.structSpec && mojo.internal.bindings.coral.mojom.TabSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.TabSpec.$ = {};
+mojo.internal.bindings.coral.mojom.AppSpec = mojo.internal.bindings.coral.mojom.AppSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.AppSpec.$.structSpec && mojo.internal.bindings.coral.mojom.AppSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.AppSpec.$ = {};
+mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec = mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec = mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec = mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.GroupSpec = mojo.internal.bindings.coral.mojom.GroupSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.GroupSpec.$.structSpec && mojo.internal.bindings.coral.mojom.GroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.GroupSpec.$ = {};
+mojo.internal.bindings.coral.mojom.GroupRequestSpec = mojo.internal.bindings.coral.mojom.GroupRequestSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.GroupRequestSpec.$.structSpec && mojo.internal.bindings.coral.mojom.GroupRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.GroupRequestSpec.$ = {};
+mojo.internal.bindings.coral.mojom.GroupResponseSpec = mojo.internal.bindings.coral.mojom.GroupResponseSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.GroupResponseSpec.$.structSpec && mojo.internal.bindings.coral.mojom.GroupResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.GroupResponseSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec = mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec = mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec.$ = {};
+mojo.internal.bindings.coral.mojom.TitleObserver = mojo.internal.bindings.coral.mojom.TitleObserver || {};
+mojo.internal.bindings.coral.mojom.TitleObserverSpec = mojo.internal.bindings.coral.mojom.TitleObserverSpec || { $ : {} };
+if (mojo.internal.bindings.coral.mojom.TitleObserverSpec.$.structSpec && mojo.internal.bindings.coral.mojom.TitleObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.TitleObserverSpec.$ = {};
 mojo.internal.bindings.coral.mojom.TitleObserver.$interfaceName = 'coral.mojom.TitleObserver';
-mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralProcessor = {};
-mojo.internal.bindings.coral.mojom.CoralProcessorSpec = { $ : {} };
+mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec = mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralProcessor = mojo.internal.bindings.coral.mojom.CoralProcessor || {};
+mojo.internal.bindings.coral.mojom.CoralProcessorSpec = mojo.internal.bindings.coral.mojom.CoralProcessorSpec || { $ : {} };
+if (mojo.internal.bindings.coral.mojom.CoralProcessorSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralProcessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralProcessorSpec.$ = {};
 mojo.internal.bindings.coral.mojom.CoralProcessor.$interfaceName = 'coral.mojom.CoralProcessor';
-mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService = {};
-mojo.internal.bindings.coral.mojom.CoralServiceSpec = { $ : {} };
+mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec = mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService = mojo.internal.bindings.coral.mojom.CoralService || {};
+mojo.internal.bindings.coral.mojom.CoralServiceSpec = mojo.internal.bindings.coral.mojom.CoralServiceSpec || { $ : {} };
+if (mojo.internal.bindings.coral.mojom.CoralServiceSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralServiceSpec.$ = {};
 mojo.internal.bindings.coral.mojom.CoralService.$interfaceName = 'coral.mojom.CoralService';
-mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec = { $: {} };
-mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec = { $: {} };
+mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec.$ = {};
+mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec = mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

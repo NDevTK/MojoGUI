@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,30 @@
  mojo.internal.bindings.actor_internals = mojo.internal.bindings.actor_internals || {};
 mojo.internal.bindings.actor_internals.mojom = mojo.internal.bindings.actor_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec = { $: {} };
-mojo.internal.bindings.actor_internals.mojom.Page = {};
-mojo.internal.bindings.actor_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec = mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec || { $: {} };
+if (mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$ = {};
+mojo.internal.bindings.actor_internals.mojom.Page = mojo.internal.bindings.actor_internals.mojom.Page || {};
+mojo.internal.bindings.actor_internals.mojom.PageSpec = mojo.internal.bindings.actor_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.actor_internals.mojom.Page.$interfaceName = 'actor_internals.mojom.Page';
-mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor_internals.mojom.PageHandler = {};
-mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.actor_internals.mojom.PageHandler = mojo.internal.bindings.actor_internals.mojom.PageHandler || {};
+mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec = mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.actor_internals.mojom.PageHandler.$interfaceName = 'actor_internals.mojom.PageHandler';
-mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec.$ = {};
+mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec.$ = {};
+mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory = mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory.$interfaceName = 'actor_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

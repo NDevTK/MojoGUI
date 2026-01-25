@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,31 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
 mojo.internal.bindings.chromeos.cfm.mojom = mojo.internal.bindings.chromeos.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReason = {};
-mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReason = mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReason || {};
+mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec = mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReason.$interfaceName = 'chromeos.cfm.mojom.DisconnectReason';
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext = {};
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext || {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext.$interfaceName = 'chromeos.cfm.mojom.CfmServiceContext';
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor = {};
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor || {};
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor.$interfaceName = 'chromeos.cfm.mojom.CfmServiceAdaptor';
-mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$ = {};
 
 mojo.internal.bindings.chromeos.cfm.mojom.kUnknownCode = 0;
 

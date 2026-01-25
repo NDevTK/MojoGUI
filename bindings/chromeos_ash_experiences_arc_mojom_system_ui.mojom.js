@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.SystemUiInstance = {};
-mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec = mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.SystemUiInstance = mojo.internal.bindings.arc.mojom.SystemUiInstance || {};
+mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec = mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.SystemUiInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.SystemUiInstance.$interfaceName = 'arc.mojom.SystemUiInstance';
-mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec = mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec = mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$ = {};
 
 // Enum: ThemeStyleType
 mojo.internal.bindings.arc.mojom.ThemeStyleType = {

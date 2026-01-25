@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory = {};
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory || {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactorySpec.$ = {};
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactory';
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient = {};
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient || {};
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactoryClient';
-mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

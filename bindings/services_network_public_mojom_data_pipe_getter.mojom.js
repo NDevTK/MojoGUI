@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,19 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.DataPipeGetter = {};
-mojo.internal.bindings.network.mojom.DataPipeGetterSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.DataPipeGetter = mojo.internal.bindings.network.mojom.DataPipeGetter || {};
+mojo.internal.bindings.network.mojom.DataPipeGetterSpec = mojo.internal.bindings.network.mojom.DataPipeGetterSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.DataPipeGetterSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataPipeGetterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataPipeGetterSpec.$ = {};
 mojo.internal.bindings.network.mojom.DataPipeGetter.$interfaceName = 'network.mojom.DataPipeGetter';
-mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec = mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec = mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec = mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec.$ = {};
 
 // Interface: DataPipeGetter
 mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver = class {

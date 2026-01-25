@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,52 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.color = mojo.internal.bindings.color || {};
 
-mojo.internal.bindings.blink.mojom.PagehideDispatchSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast = {};
-mojo.internal.bindings.blink.mojom.PageBroadcastSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PagehideDispatchSpec = mojo.internal.bindings.blink.mojom.PagehideDispatchSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec = mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec = mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec = mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec = mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast = mojo.internal.bindings.blink.mojom.PageBroadcast || {};
+mojo.internal.bindings.blink.mojom.PageBroadcastSpec = mojo.internal.bindings.blink.mojom.PageBroadcastSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcastSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcastSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcastSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PageBroadcast.$interfaceName = 'blink.mojom.PageBroadcast';
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec = mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

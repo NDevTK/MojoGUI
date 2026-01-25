@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,28 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ElementSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RequestBodySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HttpBodySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewStateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FrameStateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PageStateSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec = mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ElementSpec = mojo.internal.bindings.blink.mojom.ElementSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ElementSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ElementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ElementSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec = mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSpec = mojo.internal.bindings.blink.mojom.FileSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RequestBodySpec = mojo.internal.bindings.blink.mojom.RequestBodySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RequestBodySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RequestBodySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RequestBodySpec.$ = {};
+mojo.internal.bindings.blink.mojom.HttpBodySpec = mojo.internal.bindings.blink.mojom.HttpBodySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HttpBodySpec.$.structSpec && mojo.internal.bindings.blink.mojom.HttpBodySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HttpBodySpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewStateSpec = mojo.internal.bindings.blink.mojom.ViewStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewStateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FrameStateSpec = mojo.internal.bindings.blink.mojom.FrameStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FrameStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameStateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PageStateSpec = mojo.internal.bindings.blink.mojom.PageStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PageStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PageStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PageStateSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

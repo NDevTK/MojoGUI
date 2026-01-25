@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,45 +123,71 @@
 
  mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.screen_ai.mojom.DirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.LineBoxSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.WordBoxSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator = {};
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec = { $ : {} };
+mojo.internal.bindings.screen_ai.mojom.DirectionSpec = mojo.internal.bindings.screen_ai.mojom.DirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec = mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec = mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec = mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.LineBoxSpec = mojo.internal.bindings.screen_ai.mojom.LineBoxSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.LineBoxSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.LineBoxSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.LineBoxSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.WordBoxSpec = mojo.internal.bindings.screen_ai.mojom.WordBoxSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.WordBoxSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.WordBoxSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.WordBoxSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator || {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec || { $ : {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorSpec.$ = {};
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator.$interfaceName = 'screen_ai.mojom.ScreenAIAnnotator';
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor = {};
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = { $ : {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor || {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec || { $ : {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorSpec.$ = {};
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor.$interfaceName = 'screen_ai.mojom.Screen2xMainContentExtractor';
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.OCRService = {};
-mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = { $ : {} };
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.OCRService = mojo.internal.bindings.screen_ai.mojom.OCRService || {};
+mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec = mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec || { $ : {} };
+if (mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.OCRServiceSpec.$ = {};
 mojo.internal.bindings.screen_ai.mojom.OCRService.$interfaceName = 'screen_ai.mojom.OCRService';
-mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = { $: {} };
-mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService = {};
-mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = { $ : {} };
+mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$ = {};
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService || {};
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceSpec.$ = {};
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService.$interfaceName = 'screen_ai.mojom.MainContentExtractionService';
-mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.structSpec && mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

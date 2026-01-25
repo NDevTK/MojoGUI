@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,28 @@
  mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider = {};
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec = mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider = mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider || {};
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec = mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderSpec.$ = {};
 mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider.$interfaceName = 'audio.mojom.DebugRecordingFileProvider';
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.DebugRecording = {};
-mojo.internal.bindings.audio.mojom.DebugRecordingSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.DebugRecording = mojo.internal.bindings.audio.mojom.DebugRecording || {};
+mojo.internal.bindings.audio.mojom.DebugRecordingSpec = mojo.internal.bindings.audio.mojom.DebugRecordingSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecordingSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecordingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecordingSpec.$ = {};
 mojo.internal.bindings.audio.mojom.DebugRecording.$interfaceName = 'audio.mojom.DebugRecording';
-mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec = mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

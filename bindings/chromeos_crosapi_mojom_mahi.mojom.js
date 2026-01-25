@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,17 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec = mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec = mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec = mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec = mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.MahiPageContentSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

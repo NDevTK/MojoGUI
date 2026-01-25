@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,40 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.ProviderStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.AccessPointDataSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationInternalsObserver = {};
-mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.ProviderStateSpec = mojo.internal.bindings.device.mojom.ProviderStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec = mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.AccessPointDataSpec = mojo.internal.bindings.device.mojom.AccessPointDataSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.AccessPointDataSpec.$.structSpec && mojo.internal.bindings.device.mojom.AccessPointDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.AccessPointDataSpec.$ = {};
+mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec = mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec = mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec = mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec = mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec = mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec.$.structSpec && mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver = mojo.internal.bindings.device.mojom.GeolocationInternalsObserver || {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec.$ = {};
 mojo.internal.bindings.device.mojom.GeolocationInternalsObserver.$interfaceName = 'device.mojom.GeolocationInternalsObserver';
-mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationInternals = {};
-mojo.internal.bindings.device.mojom.GeolocationInternalsSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationInternals = mojo.internal.bindings.device.mojom.GeolocationInternals || {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsSpec = mojo.internal.bindings.device.mojom.GeolocationInternalsSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternalsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternalsSpec.$ = {};
 mojo.internal.bindings.device.mojom.GeolocationInternals.$interfaceName = 'device.mojom.GeolocationInternals';
-mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,44 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.wifi_direct = mojo.internal.bindings.ash.wifi_direct || {};
 mojo.internal.bindings.ash.wifi_direct.mojom = mojo.internal.bindings.ash.wifi_direct.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager = {};
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec = { $ : {} };
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiCredentialsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager || {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerSpec.$ = {};
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager.$interfaceName = 'ash.wifi_direct.mojom.WifiDirectManager';
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection = {};
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec = { $ : {} };
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection || {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec || { $ : {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionSpec.$ = {};
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection.$interfaceName = 'ash.wifi_direct.mojom.WifiDirectConnection';
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec.$ = {};
 
 // Enum: WifiDirectOperationResult
 mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectOperationResult = {

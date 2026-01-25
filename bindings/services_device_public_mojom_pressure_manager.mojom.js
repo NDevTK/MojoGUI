@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,37 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager = {};
-mojo.internal.bindings.device.mojom.PressureManagerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec = mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec = mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec.$.structSpec && mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VirtualPressureSourceMetadataSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager = mojo.internal.bindings.device.mojom.PressureManager || {};
+mojo.internal.bindings.device.mojom.PressureManagerSpec = mojo.internal.bindings.device.mojom.PressureManagerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.PressureManagerSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManagerSpec.$ = {};
 mojo.internal.bindings.device.mojom.PressureManager.$interfaceName = 'device.mojom.PressureManager';
-mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.PressureClient = {};
-mojo.internal.bindings.device.mojom.PressureClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureClient = mojo.internal.bindings.device.mojom.PressureClient || {};
+mojo.internal.bindings.device.mojom.PressureClientSpec = mojo.internal.bindings.device.mojom.PressureClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.PressureClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.PressureClient.$interfaceName = 'device.mojom.PressureClient';
-mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec = mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,38 @@
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.LocationHintSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.IncomingMessagesListener = {};
-mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec = mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.LocationHintSpec = mojo.internal.bindings.sharing.mojom.LocationHintSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.LocationHintSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.LocationHintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.LocationHintSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.IncomingMessagesListener = mojo.internal.bindings.sharing.mojom.IncomingMessagesListener || {};
+mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec = mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListener.$interfaceName = 'sharing.mojom.IncomingMessagesListener';
-mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession = {};
-mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec = mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec = mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession = mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession || {};
+mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec = mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession.$interfaceName = 'sharing.mojom.ReceiveMessagesSession';
-mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger = {};
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec = mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger || {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger.$interfaceName = 'sharing.mojom.WebRtcSignalingMessenger';
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$ = {};
 
 // Enum: LocationStandardFormat
 mojo.internal.bindings.sharing.mojom.LocationStandardFormat = {

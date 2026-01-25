@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,29 +124,45 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 
-mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionClient = {};
-mojo.internal.bindings.blink.mojom.MediaSessionClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec = mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec = mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec = mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec = mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionClient = mojo.internal.bindings.blink.mojom.MediaSessionClient || {};
+mojo.internal.bindings.blink.mojom.MediaSessionClientSpec = mojo.internal.bindings.blink.mojom.MediaSessionClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.MediaSessionClient.$interfaceName = 'blink.mojom.MediaSessionClient';
-mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService = {};
-mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService = mojo.internal.bindings.blink.mojom.MediaSessionService || {};
+mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec = mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.MediaSessionService.$interfaceName = 'blink.mojom.MediaSessionService';
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

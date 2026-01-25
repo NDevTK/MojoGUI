@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.LcpElementSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost = {};
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.LcpElementSpec = mojo.internal.bindings.blink.mojom.LcpElementSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LcpElementSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LcpElementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LcpElementSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost || {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost.$interfaceName = 'blink.mojom.LCPCriticalPathPredictorHost';
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec = mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

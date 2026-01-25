@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,38 +124,64 @@
  mojo.internal.bindings.page_load_metrics = mojo.internal.bindings.page_load_metrics || {};
 mojo.internal.bindings.page_load_metrics.mojom = mojo.internal.bindings.page_load_metrics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics = {};
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec = { $ : {} };
+mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec = mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec = mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec = mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec = mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec = mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec = mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec = mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec = mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics || {};
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec || { $ : {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics.$interfaceName = 'page_load_metrics.mojom.PageLoadMetrics';
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = { $: {} };
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = { $: {} };
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

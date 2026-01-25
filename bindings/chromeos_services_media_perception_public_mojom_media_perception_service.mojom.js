@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,28 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chromeos.media_perception || {};
 mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService = {};
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService || {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceSpec.$ = {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController = {};
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController || {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec.$ = {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec = { $ : {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient || {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec.$ = {};
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
-mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

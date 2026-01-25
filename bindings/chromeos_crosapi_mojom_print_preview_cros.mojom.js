@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,29 +123,43 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
-mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.MediaSizeSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate = {};
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec = mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec = mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.MediaSizeSpec = mojo.internal.bindings.crosapi.mojom.MediaSizeSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.MediaSizeSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.MediaSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.MediaSizeSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec = mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate || {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate.$interfaceName = 'crosapi.mojom.PrintPreviewCrosDelegate';
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient = {};
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient || {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient.$interfaceName = 'crosapi.mojom.PrintPreviewCrosClient';
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.StatusReason = mojo.internal.bindings.StatusReason || {};

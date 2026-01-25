@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,40 @@
 
  mojo.internal.bindings.optimization_guide_internals = mojo.internal.bindings.optimization_guide_internals || {};
 mojo.internal.bindings.optimization_guide_internals.mojom = mojo.internal.bindings.optimization_guide_internals.mojom || {};
-mojo.internal.bindings.optimization_guide_common = mojo.internal.bindings.optimization_guide_common || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.optimization_guide_common = mojo.internal.bindings.optimization_guide_common || {};
 
-mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec = mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec = mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory.$interfaceName = 'optimization_guide_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide_internals.mojom.Page = {};
-mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide_internals.mojom.Page = mojo.internal.bindings.optimization_guide_internals.mojom.Page || {};
+mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec = mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.optimization_guide_internals.mojom.Page.$interfaceName = 'optimization_guide_internals.mojom.Page';
-mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,77 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 
-mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DisplayLayoutModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DisplayLayoutPositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DisplayConfigSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.EdidSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayModeSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController = {};
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec = mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DisplayLayoutModeSpec = mojo.internal.bindings.crosapi.mojom.DisplayLayoutModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DisplayLayoutPositionSpec = mojo.internal.bindings.crosapi.mojom.DisplayLayoutPositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec = mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DisplayConfigSourceSpec = mojo.internal.bindings.crosapi.mojom.DisplayConfigSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec = mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec = mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec = mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec = mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec = mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.EdidSpec = mojo.internal.bindings.crosapi.mojom.EdidSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.EdidSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.EdidSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.EdidSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec = mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayModeSpec = mojo.internal.bindings.crosapi.mojom.DisplayModeSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec = mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec = mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController || {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController.$interfaceName = 'crosapi.mojom.CrosDisplayConfigController';
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver = {};
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver || {};
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver.$interfaceName = 'crosapi.mojom.CrosDisplayConfigObserver';
-mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec = mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

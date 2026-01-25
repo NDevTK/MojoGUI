@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,35 @@
 
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient = {};
-mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec = mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BrowserSignalsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletPermissionsPolicyStateSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsPublicKeySpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient = mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient || {};
+mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec = mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient.$interfaceName = 'auction_worklet.mojom.LoadSellerWorkletClient';
-mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService = {};
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService || {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService.$interfaceName = 'auction_worklet.mojom.AuctionWorkletService';
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = { $: {} };
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};

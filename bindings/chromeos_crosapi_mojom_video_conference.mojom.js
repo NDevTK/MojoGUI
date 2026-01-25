@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,38 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient = {};
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec = mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient || {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient.$interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,38 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ContentCategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentDescriptionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService = {};
-mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec = mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ContentCategorySpec = mojo.internal.bindings.blink.mojom.ContentCategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec = mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentDescriptionSpec = mojo.internal.bindings.blink.mojom.ContentDescriptionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService = mojo.internal.bindings.blink.mojom.ContentIndexService || {};
+mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec = mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ContentIndexService.$interfaceName = 'blink.mojom.ContentIndexService';
-mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

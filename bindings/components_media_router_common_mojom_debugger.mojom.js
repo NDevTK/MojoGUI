@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,20 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.Debugger = {};
-mojo.internal.bindings.media_router.mojom.DebuggerSpec = { $ : {} };
+mojo.internal.bindings.media_router.mojom.Debugger = mojo.internal.bindings.media_router.mojom.Debugger || {};
+mojo.internal.bindings.media_router.mojom.DebuggerSpec = mojo.internal.bindings.media_router.mojom.DebuggerSpec || { $ : {} };
+if (mojo.internal.bindings.media_router.mojom.DebuggerSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.DebuggerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.DebuggerSpec.$ = {};
 mojo.internal.bindings.media_router.mojom.Debugger.$interfaceName = 'media_router.mojom.Debugger';
-mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec = mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec = mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec = mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec = mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

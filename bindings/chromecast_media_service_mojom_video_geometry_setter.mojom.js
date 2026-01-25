@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,21 +125,29 @@
 mojo.internal.bindings.chromecast.media = mojo.internal.bindings.chromecast.media || {};
 mojo.internal.bindings.chromecast.media.mojom = mojo.internal.bindings.chromecast.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient = {};
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient || {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientSpec.$ = {};
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeClient';
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber = {};
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec = { $ : {} };
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber || {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberSpec.$ = {};
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber.$interfaceName = 'chromecast.media.mojom.VideoGeometryChangeSubscriber';
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter = {};
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec = { $ : {} };
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter = mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter || {};
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterSpec.$ = {};
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter.$interfaceName = 'chromecast.media.mojom.VideoGeometrySetter';
-mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec = mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,34 +124,51 @@
  mojo.internal.bindings.help_bubble = mojo.internal.bindings.help_bubble || {};
 mojo.internal.bindings.help_bubble.mojom = mojo.internal.bindings.help_bubble.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.tracked_element = mojo.internal.bindings.tracked_element || {};
 
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.ProgressSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory = {};
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.ProgressSpec = mojo.internal.bindings.help_bubble.mojom.ProgressSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.ProgressSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.ProgressSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.ProgressSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory || {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactorySpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory.$interfaceName = 'help_bubble.mojom.HelpBubbleHandlerFactory';
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory = {};
-mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory = mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory || {};
+mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec = mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactorySpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory.$interfaceName = 'help_bubble.mojom.PdfHelpBubbleHandlerFactory';
-mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler = {};
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec = { $ : {} };
+mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler || {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler.$interfaceName = 'help_bubble.mojom.HelpBubbleHandler';
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient = {};
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec = { $ : {} };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient || {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec || { $ : {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientSpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient.$interfaceName = 'help_bubble.mojom.HelpBubbleClient';
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = { $: {} };
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$ = {};
+mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,53 @@
 
  mojo.internal.bindings.security_interstitials = mojo.internal.bindings.security_interstitials || {};
 mojo.internal.bindings.security_interstitials.mojom = mojo.internal.bindings.security_interstitials.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands = {};
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec = { $ : {} };
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands || {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec || { $ : {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsSpec.$ = {};
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands.$interfaceName = 'security_interstitials.mojom.InterstitialCommands';
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = { $: {} };
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.structSpec && mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$ = {};
 
 // Interface: InterstitialCommands
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {

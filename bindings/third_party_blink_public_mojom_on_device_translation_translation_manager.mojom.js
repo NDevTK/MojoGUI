@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient = {};
-mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec = mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec = mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec = mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec = mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec = mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient = mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient || {};
+mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec = mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient.$interfaceName = 'blink.mojom.TranslationManagerCreateTranslatorClient';
-mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslationManager = {};
-mojo.internal.bindings.blink.mojom.TranslationManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslationManager = mojo.internal.bindings.blink.mojom.TranslationManager || {};
+mojo.internal.bindings.blink.mojom.TranslationManagerSpec = mojo.internal.bindings.blink.mojom.TranslationManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.TranslationManager.$interfaceName = 'blink.mojom.TranslationManager';
-mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec = mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

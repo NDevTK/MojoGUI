@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,29 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.WakeLockTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.WakeLockReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.WakeLock = {};
-mojo.internal.bindings.device.mojom.WakeLockSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.WakeLockTypeSpec = mojo.internal.bindings.device.mojom.WakeLockTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.WakeLockReasonSpec = mojo.internal.bindings.device.mojom.WakeLockReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.WakeLock = mojo.internal.bindings.device.mojom.WakeLock || {};
+mojo.internal.bindings.device.mojom.WakeLockSpec = mojo.internal.bindings.device.mojom.WakeLockSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.WakeLockSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockSpec.$ = {};
 mojo.internal.bindings.device.mojom.WakeLock.$interfaceName = 'device.mojom.WakeLock';
-mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_RequestWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_CancelWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_AddClient_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_ChangeType_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec.$ = {};
 
 // Enum: WakeLockType
 mojo.internal.bindings.device.mojom.WakeLockType = {

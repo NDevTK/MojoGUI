@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,29 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CSPDispositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CSPSourceSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CSPSourceListSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec = { $: {} };
-mojo.internal.bindings.network.mojom.CSPViolationSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPDispositionSpec = mojo.internal.bindings.network.mojom.CSPDispositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec = mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec = mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec = mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec.$.structSpec && mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec.$ = {};
+mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$.structSpec && mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$ = {};
+mojo.internal.bindings.network.mojom.CSPSourceSpec = mojo.internal.bindings.network.mojom.CSPSourceSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CSPSourceSpec.$.structSpec && mojo.internal.bindings.network.mojom.CSPSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CSPSourceSpec.$ = {};
+mojo.internal.bindings.network.mojom.CSPSourceListSpec = mojo.internal.bindings.network.mojom.CSPSourceListSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CSPSourceListSpec.$.structSpec && mojo.internal.bindings.network.mojom.CSPSourceListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CSPSourceListSpec.$ = {};
+mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec = mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$.structSpec && mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$ = {};
+mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec = mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$.structSpec && mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$ = {};
+mojo.internal.bindings.network.mojom.CSPViolationSpec = mojo.internal.bindings.network.mojom.CSPViolationSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CSPViolationSpec.$.structSpec && mojo.internal.bindings.network.mojom.CSPViolationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CSPViolationSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

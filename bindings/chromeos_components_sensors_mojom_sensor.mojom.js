@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,44 +124,71 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.sensors = mojo.internal.bindings.chromeos.sensors || {};
 mojo.internal.bindings.chromeos.sensors.mojom = mojo.internal.bindings.chromeos.sensors.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService = {};
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec = mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec = mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService = mojo.internal.bindings.chromeos.sensors.mojom.SensorService || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec.$ = {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorService.$interfaceName = 'chromeos.sensors.mojom.SensorService';
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice = {};
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec = { $ : {} };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSpec.$ = {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice.$interfaceName = 'chromeos.sensors.mojom.SensorDevice';
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorDeviceSamplesObserver';
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver || {};
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver';
-mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$ = {};
 
 mojo.internal.bindings.chromeos.sensors.mojom.kScale = "scale";
 

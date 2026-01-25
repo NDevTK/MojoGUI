@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,42 +123,72 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 
-mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService = {};
-mojo.internal.bindings.arc.mojom.CameraServiceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec = mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec = mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService = mojo.internal.bindings.arc.mojom.CameraService || {};
+mojo.internal.bindings.arc.mojom.CameraServiceSpec = mojo.internal.bindings.arc.mojom.CameraServiceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.CameraServiceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraServiceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.CameraService.$interfaceName = 'arc.mojom.CameraService';
-mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraHost = {};
-mojo.internal.bindings.arc.mojom.CameraHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraHost = mojo.internal.bindings.arc.mojom.CameraHost || {};
+mojo.internal.bindings.arc.mojom.CameraHostSpec = mojo.internal.bindings.arc.mojom.CameraHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.CameraHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.CameraHost.$interfaceName = 'arc.mojom.CameraHost';
-mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraInstance = {};
-mojo.internal.bindings.arc.mojom.CameraInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraInstance = mojo.internal.bindings.arc.mojom.CameraInstance || {};
+mojo.internal.bindings.arc.mojom.CameraInstanceSpec = mojo.internal.bindings.arc.mojom.CameraInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.CameraInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.CameraInstance.$interfaceName = 'arc.mojom.CameraInstance';
-mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};

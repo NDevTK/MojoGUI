@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,26 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient = {};
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient = mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient || {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient.$interfaceName = 'chrome.mojom.WebRtcLoggingClient';
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent = {};
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent || {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent.$interfaceName = 'chrome.mojom.WebRtcLoggingAgent';
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

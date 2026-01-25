@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,31 @@
 
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mime_handler = mojo.internal.bindings.extensions.mime_handler || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.MimeHandlerService = {};
-mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec = { $ : {} };
+mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec = mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec = mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.MimeHandlerService = mojo.internal.bindings.extensions.mime_handler.MimeHandlerService || {};
+mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec = mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceSpec.$ = {};
 mojo.internal.bindings.extensions.mime_handler.MimeHandlerService.$interfaceName = 'extensions.mime_handler.MimeHandlerService';
-mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl = {};
-mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec = { $ : {} };
+mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec = mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl || {};
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlSpec.$ = {};
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl.$interfaceName = 'extensions.mime_handler.BeforeUnloadControl';
-mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$ = {};
 
 // Interface: MimeHandlerService
 mojo.internal.bindings.extensions.mime_handler.MimeHandlerServicePendingReceiver = class {

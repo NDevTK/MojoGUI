@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,29 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.WakeLockProvider = {};
-mojo.internal.bindings.device.mojom.WakeLockProviderSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.WakeLockProvider = mojo.internal.bindings.device.mojom.WakeLockProvider || {};
+mojo.internal.bindings.device.mojom.WakeLockProviderSpec = mojo.internal.bindings.device.mojom.WakeLockProviderSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProviderSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProviderSpec.$ = {};
 mojo.internal.bindings.device.mojom.WakeLockProvider.$interfaceName = 'device.mojom.WakeLockProvider';
-mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.WakeLockObserver = {};
-mojo.internal.bindings.device.mojom.WakeLockObserverSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.WakeLockObserver = mojo.internal.bindings.device.mojom.WakeLockObserver || {};
+mojo.internal.bindings.device.mojom.WakeLockObserverSpec = mojo.internal.bindings.device.mojom.WakeLockObserverSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.WakeLockObserverSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockObserverSpec.$ = {};
 mojo.internal.bindings.device.mojom.WakeLockObserver.$interfaceName = 'device.mojom.WakeLockObserver';
-mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec = mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,18 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory = {};
-mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory || {};
+mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactorySpec.$ = {};
 mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory.$interfaceName = 'blink.mojom.RendererAudioOutputStreamFactory';
-mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

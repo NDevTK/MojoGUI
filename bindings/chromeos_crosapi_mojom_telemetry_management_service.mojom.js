@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementService = {};
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementService = mojo.internal.bindings.crosapi.mojom.TelemetryManagementService || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec = mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementService.$interfaceName = 'crosapi.mojom.TelemetryManagementService';
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$ = {};
 
 // Interface: TelemetryManagementService
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementServicePendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.media = mojo.internal.bindings.chromecast.media || {};
 mojo.internal.bindings.chromecast.media.mojom = mojo.internal.bindings.chromecast.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec = { $: {} };
-mojo.internal.bindings.chromecast.media.mojom.MediaCaps = {};
-mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec = { $ : {} };
+mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec = mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec.$ = {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCaps = mojo.internal.bindings.chromecast.media.mojom.MediaCaps || {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec = mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.MediaCapsSpec.$ = {};
 mojo.internal.bindings.chromecast.media.mojom.MediaCaps.$interfaceName = 'chromecast.media.mojom.MediaCaps';
-mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver = {};
-mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver = mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver || {};
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec = mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver.$interfaceName = 'chromecast.media.mojom.MediaCapsObserver';
-mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$ = {};
 
 // Interface: MediaCaps
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsPendingReceiver = class {

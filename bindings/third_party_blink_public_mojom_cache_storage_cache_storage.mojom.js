@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,39 +124,65 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.OperationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MatchResponseSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BatchOperationSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EagerResponseSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheEntrySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache = {};
-mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec = mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.OperationTypeSpec = mojo.internal.bindings.blink.mojom.OperationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MatchResponseSpec = mojo.internal.bindings.blink.mojom.MatchResponseSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MatchResponseSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MatchResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MatchResponseSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec = mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec = mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec = mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BatchOperationSpec = mojo.internal.bindings.blink.mojom.BatchOperationSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BatchOperationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BatchOperationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BatchOperationSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EagerResponseSpec = mojo.internal.bindings.blink.mojom.EagerResponseSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EagerResponseSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EagerResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EagerResponseSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheEntrySpec = mojo.internal.bindings.blink.mojom.CacheEntrySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheEntrySpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheEntrySpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache = mojo.internal.bindings.blink.mojom.CacheStorageCache || {};
+mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec = mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCacheSpec.$ = {};
 mojo.internal.bindings.blink.mojom.CacheStorageCache.$interfaceName = 'blink.mojom.CacheStorageCache';
-mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage = {};
-mojo.internal.bindings.blink.mojom.CacheStorageSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage = mojo.internal.bindings.blink.mojom.CacheStorage || {};
+mojo.internal.bindings.blink.mojom.CacheStorageSpec = mojo.internal.bindings.blink.mojom.CacheStorageSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorageSpec.$ = {};
 mojo.internal.bindings.blink.mojom.CacheStorage.$interfaceName = 'blink.mojom.CacheStorage';
-mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec = mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

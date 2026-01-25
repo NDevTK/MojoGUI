@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,20 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.ReasonSpec = mojo.internal.bindings.crosapi.mojom.ReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedReasonSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportedSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExtensionUnsupportedSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};

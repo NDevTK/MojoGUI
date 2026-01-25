@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,30 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.CdmRequestSpec = { $: {} };
-mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider = {};
-mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec = mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CdmRequestSpec = mojo.internal.bindings.media.mojom.CdmRequestSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmRequestSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmRequestSpec.$ = {};
+mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec = mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec.$.structSpec && mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec.$ = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider = mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider || {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderSpec.$ = {};
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider.$interfaceName = 'media.mojom.FuchsiaMediaCdmProvider';
-mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider = {};
-mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider || {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderSpec.$ = {};
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider.$interfaceName = 'media.mojom.FuchsiaMediaCodecProvider';
-mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

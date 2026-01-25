@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,53 +124,78 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SecureDnsModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SecureDnsPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TristateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.DnsQueryTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CacheUsageSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.PurposeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.UpdateTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.HostResolverHostSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveHostParametersSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveHostHandle = {};
-mojo.internal.bindings.network.mojom.ResolveHostHandleSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec = mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SecureDnsModeSpec = mojo.internal.bindings.network.mojom.SecureDnsModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SecureDnsPolicySpec = mojo.internal.bindings.network.mojom.SecureDnsPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TristateSpec = mojo.internal.bindings.network.mojom.TristateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.DnsQueryTypeSpec = mojo.internal.bindings.network.mojom.DnsQueryTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SourceSpec = mojo.internal.bindings.network.mojom.SourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CacheUsageSpec = mojo.internal.bindings.network.mojom.CacheUsageSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.PurposeSpec = mojo.internal.bindings.network.mojom.PurposeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.UpdateTypeSpec = mojo.internal.bindings.network.mojom.UpdateTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.HostResolverHostSpec = mojo.internal.bindings.network.mojom.HostResolverHostSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HostResolverHostSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostResolverHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostResolverHostSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec = mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec = mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec = mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveHostParametersSpec = mojo.internal.bindings.network.mojom.ResolveHostParametersSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostParametersSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostParametersSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveHostHandle = mojo.internal.bindings.network.mojom.ResolveHostHandle || {};
+mojo.internal.bindings.network.mojom.ResolveHostHandleSpec = mojo.internal.bindings.network.mojom.ResolveHostHandleSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostHandleSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostHandleSpec.$ = {};
 mojo.internal.bindings.network.mojom.ResolveHostHandle.$interfaceName = 'network.mojom.ResolveHostHandle';
-mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveHostClient = {};
-mojo.internal.bindings.network.mojom.ResolveHostClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec = mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveHostClient = mojo.internal.bindings.network.mojom.ResolveHostClient || {};
+mojo.internal.bindings.network.mojom.ResolveHostClientSpec = mojo.internal.bindings.network.mojom.ResolveHostClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.ResolveHostClient.$interfaceName = 'network.mojom.ResolveHostClient';
-mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.MdnsListenClient = {};
-mojo.internal.bindings.network.mojom.MdnsListenClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec = mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.MdnsListenClient = mojo.internal.bindings.network.mojom.MdnsListenClient || {};
+mojo.internal.bindings.network.mojom.MdnsListenClientSpec = mojo.internal.bindings.network.mojom.MdnsListenClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.MdnsListenClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.MdnsListenClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.MdnsListenClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.MdnsListenClient.$interfaceName = 'network.mojom.MdnsListenClient';
-mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HostResolver = {};
-mojo.internal.bindings.network.mojom.HostResolverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HostResolver = mojo.internal.bindings.network.mojom.HostResolver || {};
+mojo.internal.bindings.network.mojom.HostResolverSpec = mojo.internal.bindings.network.mojom.HostResolverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.HostResolverSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostResolverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostResolverSpec.$ = {};
 mojo.internal.bindings.network.mojom.HostResolver.$interfaceName = 'network.mojom.HostResolver';
-mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient = {};
-mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec = mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec = mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient || {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient.$interfaceName = 'network.mojom.DnsConfigChangeManagerClient';
-mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsConfigChangeManager = {};
-mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManager = mojo.internal.bindings.network.mojom.DnsConfigChangeManager || {};
+mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsConfigChangeManagerSpec.$ = {};
 mojo.internal.bindings.network.mojom.DnsConfigChangeManager.$interfaceName = 'network.mojom.DnsConfigChangeManager';
-mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

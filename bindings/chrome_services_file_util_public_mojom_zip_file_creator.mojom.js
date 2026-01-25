@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,24 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
-mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};
 
-mojo.internal.bindings.chrome.mojom.ZipListener = {};
-mojo.internal.bindings.chrome.mojom.ZipListenerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ZipListener = mojo.internal.bindings.chrome.mojom.ZipListener || {};
+mojo.internal.bindings.chrome.mojom.ZipListenerSpec = mojo.internal.bindings.chrome.mojom.ZipListenerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ZipListenerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ZipListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ZipListenerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ZipListener.$interfaceName = 'chrome.mojom.ZipListener';
-mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ZipFileCreator = {};
-mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec = mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec = mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ZipFileCreator = mojo.internal.bindings.chrome.mojom.ZipFileCreator || {};
+mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec = mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ZipFileCreatorSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ZipFileCreator.$interfaceName = 'chrome.mojom.ZipFileCreator';
-mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.filesystem = mojo.internal.bindings.filesystem || {};

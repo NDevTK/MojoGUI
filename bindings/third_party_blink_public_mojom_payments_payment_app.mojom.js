@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,43 +123,71 @@
 
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.PaymentDelegationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager = {};
-mojo.internal.bindings.payments.mojom.PaymentManagerSpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec = mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec = mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.PaymentDelegationSpec = mojo.internal.bindings.payments.mojom.PaymentDelegationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec = mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$ = {};
+mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec = mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec.$.structSpec && mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec = mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec.$ = {};
+mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec = mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec.$.structSpec && mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager = mojo.internal.bindings.payments.mojom.PaymentManager || {};
+mojo.internal.bindings.payments.mojom.PaymentManagerSpec = mojo.internal.bindings.payments.mojom.PaymentManagerSpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManagerSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManagerSpec.$ = {};
 mojo.internal.bindings.payments.mojom.PaymentManager.$interfaceName = 'payments.mojom.PaymentManager';
-mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback = {};
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback || {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackSpec.$ = {};
 mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback.$interfaceName = 'payments.mojom.PaymentHandlerResponseCallback';
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = { $: {} };
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

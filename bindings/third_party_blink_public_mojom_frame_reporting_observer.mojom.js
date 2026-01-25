@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ReportBodyElementSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportBodySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingObserver = {};
-mojo.internal.bindings.blink.mojom.ReportingObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ReportBodyElementSpec = mojo.internal.bindings.blink.mojom.ReportBodyElementSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportBodyElementSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportBodyElementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportBodyElementSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportBodySpec = mojo.internal.bindings.blink.mojom.ReportBodySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportBodySpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportBodySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportBodySpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportSpec = mojo.internal.bindings.blink.mojom.ReportSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingObserver = mojo.internal.bindings.blink.mojom.ReportingObserver || {};
+mojo.internal.bindings.blink.mojom.ReportingObserverSpec = mojo.internal.bindings.blink.mojom.ReportingObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ReportingObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ReportingObserver.$interfaceName = 'blink.mojom.ReportingObserver';
-mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

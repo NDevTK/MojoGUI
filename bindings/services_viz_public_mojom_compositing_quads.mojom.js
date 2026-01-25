@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,36 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.OverlayPrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.DrawQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TextureQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TileQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DrawQuadSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec = mojo.internal.bindings.viz.mojom.ProtectedVideoStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.OverlayPrioritySpec = mojo.internal.bindings.viz.mojom.OverlayPrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.DrawQuadStateSpec = mojo.internal.bindings.viz.mojom.DrawQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DrawQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DrawQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DrawQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec = mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec.$.structSpec && mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.RoundedDisplayMasksInfoSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec = mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DebugBorderQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec = mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CompositorRenderPassQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec = mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.SolidColorQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec = mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.SurfaceQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TextureQuadStateSpec = mojo.internal.bindings.viz.mojom.TextureQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TextureQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TextureQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TextureQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TileQuadStateSpec = mojo.internal.bindings.viz.mojom.TileQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TileQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TileQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TileQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec = mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VideoHoleQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec = mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.SharedElementQuadStateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DrawQuadSpec = mojo.internal.bindings.viz.mojom.DrawQuadSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DrawQuadSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DrawQuadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DrawQuadSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

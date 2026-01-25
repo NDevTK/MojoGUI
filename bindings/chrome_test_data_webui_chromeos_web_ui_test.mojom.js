@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.web_ui_test = mojo.internal.bindings.web_ui_test || {};
 mojo.internal.bindings.web_ui_test.mojom = mojo.internal.bindings.web_ui_test.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.web_ui_test.mojom.TestRunner = {};
-mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec = { $ : {} };
+mojo.internal.bindings.web_ui_test.mojom.TestRunner = mojo.internal.bindings.web_ui_test.mojom.TestRunner || {};
+mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec = mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec || { $ : {} };
+if (mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec.$.structSpec && mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web_ui_test.mojom.TestRunnerSpec.$ = {};
 mojo.internal.bindings.web_ui_test.mojom.TestRunner.$interfaceName = 'web_ui_test.mojom.TestRunner';
-mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$ = {};
 
 // Interface: TestRunner
 mojo.internal.bindings.web_ui_test.mojom.TestRunnerPendingReceiver = class {

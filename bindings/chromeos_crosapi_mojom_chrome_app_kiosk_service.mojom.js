@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController = {};
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec = mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController || {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController.$interfaceName = 'crosapi.mojom.ChromeKioskLaunchController';
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService = {};
-mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService = mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService || {};
+mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec = mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService.$interfaceName = 'crosapi.mojom.ChromeAppKioskService';
-mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$ = {};
 
 // Enum: ChromeKioskInstallResult
 mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResult = {

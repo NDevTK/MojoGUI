@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,76 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationConnection = {};
-mojo.internal.bindings.blink.mojom.PresentationConnectionSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec = mojo.internal.bindings.blink.mojom.ScreenAvailabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec = mojo.internal.bindings.blink.mojom.PresentationConnectionStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec = mojo.internal.bindings.blink.mojom.PresentationConnectionCloseReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec = mojo.internal.bindings.blink.mojom.PresentationErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec = mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnectionMessageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationInfoSpec = mojo.internal.bindings.blink.mojom.PresentationInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationErrorSpec = mojo.internal.bindings.blink.mojom.PresentationErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec = mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnectionResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationConnection = mojo.internal.bindings.blink.mojom.PresentationConnection || {};
+mojo.internal.bindings.blink.mojom.PresentationConnectionSpec = mojo.internal.bindings.blink.mojom.PresentationConnectionSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnectionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnectionSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PresentationConnection.$interfaceName = 'blink.mojom.PresentationConnection';
-mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService = {};
-mojo.internal.bindings.blink.mojom.PresentationServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService = mojo.internal.bindings.blink.mojom.PresentationService || {};
+mojo.internal.bindings.blink.mojom.PresentationServiceSpec = mojo.internal.bindings.blink.mojom.PresentationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PresentationServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PresentationService.$interfaceName = 'blink.mojom.PresentationService';
-mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationController = {};
-mojo.internal.bindings.blink.mojom.PresentationControllerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationController = mojo.internal.bindings.blink.mojom.PresentationController || {};
+mojo.internal.bindings.blink.mojom.PresentationControllerSpec = mojo.internal.bindings.blink.mojom.PresentationControllerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PresentationControllerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationControllerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PresentationController.$interfaceName = 'blink.mojom.PresentationController';
-mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PresentationReceiver = {};
-mojo.internal.bindings.blink.mojom.PresentationReceiverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PresentationReceiver = mojo.internal.bindings.blink.mojom.PresentationReceiver || {};
+mojo.internal.bindings.blink.mojom.PresentationReceiverSpec = mojo.internal.bindings.blink.mojom.PresentationReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PresentationReceiverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationReceiverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PresentationReceiver.$interfaceName = 'blink.mojom.PresentationReceiver';
-mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec = mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

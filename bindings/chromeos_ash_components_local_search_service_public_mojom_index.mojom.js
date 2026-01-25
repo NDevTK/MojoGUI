@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,24 +125,40 @@
 mojo.internal.bindings.ash.local_search_service = mojo.internal.bindings.ash.local_search_service || {};
 mojo.internal.bindings.ash.local_search_service.mojom = mojo.internal.bindings.ash.local_search_service.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.local_search_service.mojom.Index = {};
-mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec = { $ : {} };
+mojo.internal.bindings.ash.local_search_service.mojom.Index = mojo.internal.bindings.ash.local_search_service.mojom.Index || {};
+mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec = mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec || { $ : {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.IndexSpec.$ = {};
 mojo.internal.bindings.ash.local_search_service.mojom.Index.$interfaceName = 'ash.local_search_service.mojom.Index';
-mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec = mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

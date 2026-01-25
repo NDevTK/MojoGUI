@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,25 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend = {};
-mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend = mojo.internal.bindings.blink.mojom.TextSuggestionBackend || {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackendSpec.$ = {};
 mojo.internal.bindings.blink.mojom.TextSuggestionBackend.$interfaceName = 'blink.mojom.TextSuggestionBackend';
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$ = {};
 
 // Interface: TextSuggestionBackend
 mojo.internal.bindings.blink.mojom.TextSuggestionBackendPendingReceiver = class {

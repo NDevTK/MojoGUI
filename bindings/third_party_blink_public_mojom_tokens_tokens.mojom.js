@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,56 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FrameTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DocumentTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.V8ContextTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FrameTokenSpec = mojo.internal.bindings.blink.mojom.FrameTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FrameTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerTokenSpec = mojo.internal.bindings.blink.mojom.WorkerTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkletTokenSpec = mojo.internal.bindings.blink.mojom.WorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec = mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec = mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DocumentTokenSpec = mojo.internal.bindings.blink.mojom.DocumentTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec = mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec = mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec = mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec = mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec = mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec = mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec = mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec = mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec = mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.V8ContextTokenSpec = mojo.internal.bindings.blink.mojom.V8ContextTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.V8ContextTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.V8ContextTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.V8ContextTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec = mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec = mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec = mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

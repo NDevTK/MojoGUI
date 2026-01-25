@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,11 +125,14 @@
 mojo.internal.bindings.ash.multidevice = mojo.internal.bindings.ash.multidevice || {};
 mojo.internal.bindings.ash.multidevice.mojom = mojo.internal.bindings.ash.multidevice.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec = { $: {} };
-mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec = { $: {} };
+mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec = mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec = mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec = mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec || { $: {} };
+if (mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec.$.structSpec && mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec.$ = {};
+mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec = mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec.$.structSpec && mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

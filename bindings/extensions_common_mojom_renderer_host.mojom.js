@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.RendererHost = {};
-mojo.internal.bindings.extensions.mojom.RendererHostSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.RendererHost = mojo.internal.bindings.extensions.mojom.RendererHost || {};
+mojo.internal.bindings.extensions.mojom.RendererHostSpec = mojo.internal.bindings.extensions.mojom.RendererHostSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHostSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHostSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.RendererHost.$interfaceName = 'extensions.mojom.RendererHost';
-mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec = mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec = mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec = mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

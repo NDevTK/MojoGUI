@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,37 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.sample_swa || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory = {};
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec = mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory = mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory || {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory.$interfaceName = 'ash.mojom.sample_swa.PageHandlerFactory';
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandler = {};
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandler = mojo.internal.bindings.ash.mojom.sample_swa.PageHandler || {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandler.$interfaceName = 'ash.mojom.sample_swa.PageHandler';
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.Page = {};
-mojo.internal.bindings.ash.mojom.sample_swa.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.Page = mojo.internal.bindings.ash.mojom.sample_swa.Page || {};
+mojo.internal.bindings.ash.mojom.sample_swa.PageSpec = mojo.internal.bindings.ash.mojom.sample_swa.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.PageSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.PageSpec.$ = {};
 mojo.internal.bindings.ash.mojom.sample_swa.Page.$interfaceName = 'ash.mojom.sample_swa.Page';
-mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

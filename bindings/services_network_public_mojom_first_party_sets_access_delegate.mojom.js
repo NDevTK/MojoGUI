@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate = {};
-mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec = mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate || {};
+mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateSpec.$ = {};
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate.$interfaceName = 'network.mojom.FirstPartySetsAccessDelegate';
-mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

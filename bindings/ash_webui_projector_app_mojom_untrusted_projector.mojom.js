@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,45 +125,77 @@
 mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
 mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler = {};
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler || {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandler';
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage = {};
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec = { $ : {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage || {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec.$ = {};
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPage';
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory || {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
-mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

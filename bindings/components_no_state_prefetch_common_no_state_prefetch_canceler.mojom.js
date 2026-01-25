@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.prerender = mojo.internal.bindings.prerender || {};
 mojo.internal.bindings.prerender.mojom = mojo.internal.bindings.prerender.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler = {};
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec = { $ : {} };
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler || {};
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec || { $ : {} };
+if (mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec.$.structSpec && mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerSpec.$ = {};
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler.$interfaceName = 'prerender.mojom.NoStatePrefetchCanceler';
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = { $: {} };
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = { $: {} };
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec.$.structSpec && mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec.$ = {};
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec.$.structSpec && mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec.$ = {};
 
 // Interface: NoStatePrefetchCanceler
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerPendingReceiver = class {

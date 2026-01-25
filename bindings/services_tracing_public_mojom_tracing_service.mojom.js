@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.tracing.mojom.ClientInfoSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.TracingService = {};
-mojo.internal.bindings.tracing.mojom.TracingServiceSpec = { $ : {} };
+mojo.internal.bindings.tracing.mojom.ClientInfoSpec = mojo.internal.bindings.tracing.mojom.ClientInfoSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.TracingService = mojo.internal.bindings.tracing.mojom.TracingService || {};
+mojo.internal.bindings.tracing.mojom.TracingServiceSpec = mojo.internal.bindings.tracing.mojom.TracingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.tracing.mojom.TracingServiceSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracingServiceSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.TracingService.$interfaceName = 'tracing.mojom.TracingService';
-mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec = { $: {} };
+mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec = mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec = mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester.$interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

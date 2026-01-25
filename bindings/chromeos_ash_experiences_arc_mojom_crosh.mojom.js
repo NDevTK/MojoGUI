@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcShellCommandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance = {};
-mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ArcShellCommandSpec = mojo.internal.bindings.arc.mojom.ArcShellCommandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance || {};
+mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance.$interfaceName = 'arc.mojom.ArcShellExecutionInstance';
-mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

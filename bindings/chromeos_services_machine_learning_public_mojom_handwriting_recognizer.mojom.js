@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,25 +125,40 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer.$interfaceName = 'chromeos.machine_learning.mojom.HandwritingRecognizer';
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

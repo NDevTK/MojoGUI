@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,50 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.watermark = mojo.internal.bindings.watermark || {};
 
-mojo.internal.bindings.printing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PrintCompositor = {};
-mojo.internal.bindings.printing.mojom.PrintCompositorSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.StatusSpec = mojo.internal.bindings.printing.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.DocumentTypeSpec = mojo.internal.bindings.printing.mojom.DocumentTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PrintCompositor = mojo.internal.bindings.printing.mojom.PrintCompositor || {};
+mojo.internal.bindings.printing.mojom.PrintCompositorSpec = mojo.internal.bindings.printing.mojom.PrintCompositorSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PrintCompositor.$interfaceName = 'printing.mojom.PrintCompositor';
-mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

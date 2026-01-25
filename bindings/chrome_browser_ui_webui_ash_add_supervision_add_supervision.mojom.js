@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,32 @@
 
  mojo.internal.bindings.add_supervision = mojo.internal.bindings.add_supervision || {};
 mojo.internal.bindings.add_supervision.mojom = mojo.internal.bindings.add_supervision.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler = {};
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec = { $ : {} };
+mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec = mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler || {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerSpec.$ = {};
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler.$interfaceName = 'add_supervision.mojom.AddSupervisionHandler';
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = { $: {} };
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec && mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$ = {};
 
 // Enum: OAuthTokenFetchStatus
 mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatus = {

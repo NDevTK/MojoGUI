@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,44 +124,74 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor = {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec = mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec = mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec = mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor = mojo.internal.bindings.blink.mojom.SynchronousCompositor || {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SynchronousCompositor.$interfaceName = 'blink.mojom.SynchronousCompositor';
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHost = {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost = mojo.internal.bindings.blink.mojom.SynchronousCompositorHost || {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SynchronousCompositorHost.$interfaceName = 'blink.mojom.SynchronousCompositorHost';
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost = {};
-mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost || {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost.$interfaceName = 'blink.mojom.SynchronousCompositorControlHost';
-mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

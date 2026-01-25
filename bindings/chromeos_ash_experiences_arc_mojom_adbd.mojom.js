@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AdbdMonitorHost = {};
-mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AdbdMonitorHost = mojo.internal.bindings.arc.mojom.AdbdMonitorHost || {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AdbdMonitorHost.$interfaceName = 'arc.mojom.AdbdMonitorHost';
-mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AdbdMonitorInstance = {};
-mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorInstance = mojo.internal.bindings.arc.mojom.AdbdMonitorInstance || {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AdbdMonitorInstance.$interfaceName = 'arc.mojom.AdbdMonitorInstance';
-mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: AdbdMonitorHost
 mojo.internal.bindings.arc.mojom.AdbdMonitorHostPendingReceiver = class {

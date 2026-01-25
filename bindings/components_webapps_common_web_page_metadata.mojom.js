@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,11 +124,14 @@
  mojo.internal.bindings.webapps = mojo.internal.bindings.webapps || {};
 mojo.internal.bindings.webapps.mojom = mojo.internal.bindings.webapps.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec = { $: {} };
-mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec = { $: {} };
+mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec = mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec = mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec || { $: {} };
+if (mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec.$.structSpec && mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec.$ = {};
+mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec = mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec || { $: {} };
+if (mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec.$.structSpec && mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

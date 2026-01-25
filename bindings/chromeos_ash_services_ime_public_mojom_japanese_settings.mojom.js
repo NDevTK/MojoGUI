@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,26 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.JpUnused = {};
-mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec = mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec = mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.JpUnused = mojo.internal.bindings.ash.ime.mojom.JpUnused || {};
+mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.JpUnused.$interfaceName = 'ash.ime.mojom.JpUnused';
-mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec.$ = {};
 
 // Enum: JpUnusedEnum0
 mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0 = {

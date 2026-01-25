@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,17 +125,26 @@
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder = {};
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec = { $ : {} };
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder || {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderSpec.$ = {};
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder.$interfaceName = 'ash.camera_app.mojom.PdfBuilder';
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

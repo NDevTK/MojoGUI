@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,19 @@
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog = {};
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog || {};
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog.$interfaceName = 'remote_cocoa.mojom.SelectFileDialog';
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

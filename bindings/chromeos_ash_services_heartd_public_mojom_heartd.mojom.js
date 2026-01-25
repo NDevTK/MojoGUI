@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,48 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.heartd = mojo.internal.bindings.ash.heartd || {};
 mojo.internal.bindings.ash.heartd.mojom = mojo.internal.bindings.ash.heartd.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.ActionSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartdControl = {};
-mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec = { $ : {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec = mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec = mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec = mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec = mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.ActionSpec = mojo.internal.bindings.ash.heartd.mojom.ActionSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl = mojo.internal.bindings.ash.heartd.mojom.HeartdControl || {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec = mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec || { $ : {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartdControlSpec.$ = {};
 mojo.internal.bindings.ash.heartd.mojom.HeartdControl.$interfaceName = 'ash.heartd.mojom.HeartdControl';
-mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatService = {};
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService = mojo.internal.bindings.ash.heartd.mojom.HeartbeatService || {};
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec = mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceSpec.$ = {};
 mojo.internal.bindings.ash.heartd.mojom.HeartbeatService.$interfaceName = 'ash.heartd.mojom.HeartbeatService';
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.Pacemaker = {};
-mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec = { $ : {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker = mojo.internal.bindings.ash.heartd.mojom.Pacemaker || {};
+mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec = mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec.$ = {};
 mojo.internal.bindings.ash.heartd.mojom.Pacemaker.$interfaceName = 'ash.heartd.mojom.Pacemaker';
-mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec = mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec = mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$ = {};
 
 // Enum: HeartbeatResponse
 mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponse = {

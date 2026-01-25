@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,21 @@
  mojo.internal.bindings.subresource_filter = mojo.internal.bindings.subresource_filter || {};
 mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver = {};
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec = { $ : {} };
+mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec = mojo.internal.bindings.subresource_filter.mojom.ActivationLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec = mojo.internal.bindings.subresource_filter.mojom.AdsViolationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterDisabledReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec = mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.ActivationStateSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec = mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.DocumentLoadStatisticsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver || {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec || { $ : {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserverSpec.$ = {};
 mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver.$interfaceName = 'subresource_filter.mojom.SubresourceFilterRulesetObserver';
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = { $: {} };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

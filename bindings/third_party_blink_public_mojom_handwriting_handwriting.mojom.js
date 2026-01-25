@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,50 @@
  mojo.internal.bindings.handwriting = mojo.internal.bindings.handwriting || {};
 mojo.internal.bindings.handwriting.mojom = mojo.internal.bindings.handwriting.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer = {};
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec = { $ : {} };
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionTypeSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.handwriting.mojom.HandwritingInputTypeSpec = mojo.internal.bindings.handwriting.mojom.HandwritingInputTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec = mojo.internal.bindings.handwriting.mojom.CreateHandwritingRecognizerResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec = mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingPointSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec = mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingStrokeSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec = mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingDrawingSegmentSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec = mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingSegmentSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec = mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingPredictionSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingHintsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec = mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingHintsQueryResultSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec = mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.QueryHandwritingRecognizerResultSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec = mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingModelConstraintSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer = mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer || {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec || { $ : {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerSpec.$ = {};
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer.$interfaceName = 'handwriting.mojom.HandwritingRecognizer';
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService = {};
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec = { $ : {} };
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService || {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceSpec.$ = {};
 mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService.$interfaceName = 'handwriting.mojom.HandwritingRecognitionService';
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = { $: {} };
-mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$ = {};
+mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

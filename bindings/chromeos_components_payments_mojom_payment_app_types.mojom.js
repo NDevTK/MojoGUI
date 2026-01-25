@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,13 +125,20 @@
 mojo.internal.bindings.chromeos.payments = mojo.internal.bindings.chromeos.payments || {};
 mojo.internal.bindings.chromeos.payments.mojom = mojo.internal.bindings.chromeos.payments.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec = { $: {} };
-mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec = { $: {} };
+mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec = mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec = mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.IsReadyToPayResultSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec = mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec = mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec = mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.PaymentParametersSpec.$ = {};
+mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec = mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$.structSpec && mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

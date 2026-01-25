@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,39 @@
  mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_guide || {};
 mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimization_guide.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 
-mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSolution = {};
-mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec = mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec = mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSolution = mojo.internal.bindings.optimization_guide.mojom.ModelSolution || {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution.$interfaceName = 'optimization_guide.mojom.ModelSolution';
-mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber = {};
-mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber || {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber.$interfaceName = 'optimization_guide.mojom.ModelSubscriber';
-mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.ModelBroker = {};
-mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.ModelBroker = mojo.internal.bindings.optimization_guide.mojom.ModelBroker || {};
+mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec = mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelBrokerSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelBroker.$interfaceName = 'optimization_guide.mojom.ModelBroker';
-mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = { $: {} };
+mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

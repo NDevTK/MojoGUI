@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,25 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.common = mojo.internal.bindings.ash.common || {};
 mojo.internal.bindings.ash.common.mojom = mojo.internal.bindings.ash.common.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver = {};
-mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver = mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver || {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverSpec.$ = {};
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver.$interfaceName = 'ash.common.mojom.ShortcutInputObserver';
-mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider = {};
-mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider = mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider || {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderSpec.$ = {};
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider.$interfaceName = 'ash.common.mojom.ShortcutInputProvider';
-mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec = mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

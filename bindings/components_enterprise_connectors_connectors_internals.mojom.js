@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,53 @@
 
  mojo.internal.bindings.connectors_internals = mojo.internal.bindings.connectors_internals || {};
 mojo.internal.bindings.connectors_internals.mojom = mojo.internal.bindings.connectors_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler = {};
-mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec = mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec = mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec = mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec = mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec = mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec = mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec = mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec = mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec = mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec = mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec = mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec = mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec = mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec = mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler = mojo.internal.bindings.connectors_internals.mojom.PageHandler || {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.connectors_internals.mojom.PageHandler.$interfaceName = 'connectors_internals.mojom.PageHandler';
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = { $: {} };
-mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$ = {};
+mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.connectors_internals = mojo.internal.bindings.connectors_internals || {};

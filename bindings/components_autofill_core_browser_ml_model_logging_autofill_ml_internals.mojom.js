@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,28 @@
  mojo.internal.bindings.autofill_ml_internals = mojo.internal.bindings.autofill_ml_internals || {};
 mojo.internal.bindings.autofill_ml_internals.mojom = mojo.internal.bindings.autofill_ml_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec = { $: {} };
-mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec = { $: {} };
-mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec = { $: {} };
-mojo.internal.bindings.autofill_ml_internals.mojom.Page = {};
-mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec = mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec = mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec || { $: {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec.$ = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec = mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec || { $: {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$ = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec = mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec || { $: {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec.$ = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.Page = mojo.internal.bindings.autofill_ml_internals.mojom.Page || {};
+mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec = mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.autofill_ml_internals.mojom.Page.$interfaceName = 'autofill_ml_internals.mojom.Page';
-mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler = {};
-mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec = mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler = mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler || {};
+mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec = mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler.$interfaceName = 'autofill_ml_internals.mojom.PageHandler';
-mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec = mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.web_cache = mojo.internal.bindings.web_cache || {};
 mojo.internal.bindings.web_cache.mojom = mojo.internal.bindings.web_cache.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.web_cache.mojom.WebCache = {};
-mojo.internal.bindings.web_cache.mojom.WebCacheSpec = { $ : {} };
+mojo.internal.bindings.web_cache.mojom.WebCache = mojo.internal.bindings.web_cache.mojom.WebCache || {};
+mojo.internal.bindings.web_cache.mojom.WebCacheSpec = mojo.internal.bindings.web_cache.mojom.WebCacheSpec || { $ : {} };
+if (mojo.internal.bindings.web_cache.mojom.WebCacheSpec.$.structSpec && mojo.internal.bindings.web_cache.mojom.WebCacheSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web_cache.mojom.WebCacheSpec.$ = {};
 mojo.internal.bindings.web_cache.mojom.WebCache.$interfaceName = 'web_cache.mojom.WebCache';
-mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec = { $: {} };
+mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec = mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec.$.structSpec && mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec.$ = {};
 
 // Interface: WebCache
 mojo.internal.bindings.web_cache.mojom.WebCachePendingReceiver = class {

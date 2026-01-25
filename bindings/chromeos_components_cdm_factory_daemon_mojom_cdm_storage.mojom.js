@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,33 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cdm = mojo.internal.bindings.chromeos.cdm || {};
 mojo.internal.bindings.chromeos.cdm.mojom = mojo.internal.bindings.chromeos.cdm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage = {};
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage || {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageSpec.$ = {};
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage.$interfaceName = 'chromeos.cdm.mojom.CdmStorage';
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec.$ = {};
 
 // Interface: CdmStorage
 mojo.internal.bindings.chromeos.cdm.mojom.CdmStoragePendingReceiver = class {

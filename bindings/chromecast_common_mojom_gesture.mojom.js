@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,46 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromecast.mojom.GestureHandler = {};
-mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.GestureHandler = mojo.internal.bindings.chromecast.mojom.GestureHandler || {};
+mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec = mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandlerSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.GestureHandler.$interfaceName = 'chromecast.mojom.GestureHandler';
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureSource = {};
-mojo.internal.bindings.chromecast.mojom.GestureSourceSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureSource = mojo.internal.bindings.chromecast.mojom.GestureSource || {};
+mojo.internal.bindings.chromecast.mojom.GestureSourceSpec = mojo.internal.bindings.chromecast.mojom.GestureSourceSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureSourceSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureSourceSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.GestureSource.$interfaceName = 'chromecast.mojom.GestureSource';
-mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec = mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

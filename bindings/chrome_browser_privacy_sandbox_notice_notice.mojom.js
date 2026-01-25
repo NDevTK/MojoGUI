@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,9 +124,11 @@
  mojo.internal.bindings.privacy_sandbox = mojo.internal.bindings.privacy_sandbox || {};
 mojo.internal.bindings.privacy_sandbox.notice = mojo.internal.bindings.privacy_sandbox.notice || {};
 mojo.internal.bindings.privacy_sandbox.notice.mojom = mojo.internal.bindings.privacy_sandbox.notice.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec = mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec = mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: PrivacySandboxNoticeEvent
 mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNoticeEvent = {

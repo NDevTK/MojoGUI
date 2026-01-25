@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,33 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner = {};
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec = mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec = mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner || {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner.$interfaceName = 'ash.diagnostics.mojom.RoutineRunner';
-mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController = {};
-mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController || {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController.$interfaceName = 'ash.diagnostics.mojom.SystemRoutineController';
-mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

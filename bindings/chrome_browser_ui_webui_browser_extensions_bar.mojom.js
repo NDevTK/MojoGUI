@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,41 @@
 
  mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
 mojo.internal.bindings.extensions_bar.mojom = mojo.internal.bindings.extensions_bar.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory = mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec = mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory.$interfaceName = 'extensions_bar.mojom.PageHandlerFactory';
-mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.PageHandler = {};
-mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandler = mojo.internal.bindings.extensions_bar.mojom.PageHandler || {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.PageHandler.$interfaceName = 'extensions_bar.mojom.PageHandler';
-mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.Page = {};
-mojo.internal.bindings.extensions_bar.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.Page = mojo.internal.bindings.extensions_bar.mojom.Page || {};
+mojo.internal.bindings.extensions_bar.mojom.PageSpec = mojo.internal.bindings.extensions_bar.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.extensions_bar.mojom.PageSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageSpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.Page.$interfaceName = 'extensions_bar.mojom.Page';
-mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec = mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};

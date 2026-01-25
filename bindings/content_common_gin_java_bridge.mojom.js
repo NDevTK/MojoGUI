@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,45 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
-mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 
-mojo.internal.bindings.content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.GinJavaBridge = {};
-mojo.internal.bindings.content.mojom.GinJavaBridgeSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.GinJavaBridgeErrorSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.GinJavaBridge = mojo.internal.bindings.content.mojom.GinJavaBridge || {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeSpec.$ = {};
 mojo.internal.bindings.content.mojom.GinJavaBridge.$interfaceName = 'content.mojom.GinJavaBridge';
-mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject = {};
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject || {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectSpec.$ = {};
 mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject.$interfaceName = 'content.mojom.GinJavaBridgeRemoteObject';
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeHost = {};
-mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeHost = mojo.internal.bindings.content.mojom.GinJavaBridgeHost || {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeHostSpec.$ = {};
 mojo.internal.bindings.content.mojom.GinJavaBridgeHost.$interfaceName = 'content.mojom.GinJavaBridgeHost';
-mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,29 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter = {};
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter.$interfaceName = 'blink.mojom.FileSystemAccessFileWriter';
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

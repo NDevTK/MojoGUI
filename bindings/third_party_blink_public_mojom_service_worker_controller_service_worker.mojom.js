@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,29 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ControllerServiceWorker = {};
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorker = mojo.internal.bindings.blink.mojom.ControllerServiceWorker || {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorker.$interfaceName = 'blink.mojom.ControllerServiceWorker';
-mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector = {};
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector || {};
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector.$interfaceName = 'blink.mojom.ControllerServiceWorkerConnector';
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

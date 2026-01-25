@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.NetworkDiagnostics = {};
-mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.NetworkDiagnostics = mojo.internal.bindings.chrome.mojom.NetworkDiagnostics || {};
+mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.NetworkDiagnostics.$interfaceName = 'chrome.mojom.NetworkDiagnostics';
-mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient = {};
-mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient || {};
+mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient.$interfaceName = 'chrome.mojom.NetworkDiagnosticsClient';
-mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

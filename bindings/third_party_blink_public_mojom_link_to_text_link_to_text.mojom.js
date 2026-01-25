@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,36 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver = {};
-mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec = mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec = mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver = mojo.internal.bindings.blink.mojom.TextFragmentReceiver || {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.TextFragmentReceiver.$interfaceName = 'blink.mojom.TextFragmentReceiver';
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

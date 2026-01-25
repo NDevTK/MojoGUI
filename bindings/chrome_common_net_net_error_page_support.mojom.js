@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.NetErrorPageSupport = {};
-mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.NetErrorPageSupport = mojo.internal.bindings.chrome.mojom.NetErrorPageSupport || {};
+mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec = mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetErrorPageSupportSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport.$interfaceName = 'chrome.mojom.NetErrorPageSupport';
-mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$ = {};
 
 // Interface: NetErrorPageSupport
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportPendingReceiver = class {

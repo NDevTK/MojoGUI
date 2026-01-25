@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,29 @@
 
  mojo.internal.bindings.content_capture = mojo.internal.bindings.content_capture || {};
 mojo.internal.bindings.content_capture.mojom = mojo.internal.bindings.content_capture.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver = {};
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec = { $ : {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver || {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverSpec.$ = {};
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_capture.mojom.ContentCaptureSender = {};
-mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec = { $ : {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$ = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$ = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$ = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$ = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender = mojo.internal.bindings.content_capture.mojom.ContentCaptureSender || {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec || { $ : {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderSpec.$ = {};
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSender.$interfaceName = 'content_capture.mojom.ContentCaptureSender';
-mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$ = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec && mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content_capture = mojo.internal.bindings.content_capture || {};

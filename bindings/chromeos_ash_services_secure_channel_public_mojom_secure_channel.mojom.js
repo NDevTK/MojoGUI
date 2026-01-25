@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,48 +125,73 @@
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionCreationDetailSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel = {};
-mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionCreationDetailSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionCreationDetailSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryResultSpec = mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryErrorCodeSpec = mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStateSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec = mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel = mojo.internal.bindings.ash.secure_channel.mojom.Channel || {};
+mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec = mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.ChannelSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.Channel.$interfaceName = 'ash.secure_channel.mojom.Channel';
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver = {};
-mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver = mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver || {};
+mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec = mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver.$interfaceName = 'ash.secure_channel.mojom.MessageReceiver';
-mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate = {};
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate || {};
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate.$interfaceName = 'ash.secure_channel.mojom.ConnectionDelegate';
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger = {};
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger || {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.$interfaceName = 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger';
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel = {};
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel || {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel.$interfaceName = 'ash.secure_channel.mojom.SecureChannel';
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

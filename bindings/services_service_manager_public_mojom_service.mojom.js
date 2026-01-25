@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,25 @@
 
  mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.service_manager.mojom = mojo.internal.bindings.service_manager.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.Service = {};
-mojo.internal.bindings.service_manager.mojom.ServiceSpec = { $ : {} };
+mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec = mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.Service = mojo.internal.bindings.service_manager.mojom.Service || {};
+mojo.internal.bindings.service_manager.mojom.ServiceSpec = mojo.internal.bindings.service_manager.mojom.ServiceSpec || { $ : {} };
+if (mojo.internal.bindings.service_manager.mojom.ServiceSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.ServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.ServiceSpec.$ = {};
 mojo.internal.bindings.service_manager.mojom.Service.$interfaceName = 'service_manager.mojom.Service';
-mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = { $: {} };
+mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec = mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec = mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec = mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec = mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.structSpec && mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};

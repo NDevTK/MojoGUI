@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_session.mojom.MediaSessionService = {};
-mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec = { $ : {} };
+mojo.internal.bindings.media_session.mojom.MediaSessionService = mojo.internal.bindings.media_session.mojom.MediaSessionService || {};
+mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec = mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSessionServiceSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.MediaSessionService.$interfaceName = 'media_session.mojom.MediaSessionService';
-mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};

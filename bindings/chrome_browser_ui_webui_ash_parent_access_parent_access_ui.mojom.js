@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,33 +124,53 @@
  mojo.internal.bindings.parent_access_ui = mojo.internal.bindings.parent_access_ui || {};
 mojo.internal.bindings.parent_access_ui.mojom = mojo.internal.bindings.parent_access_ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler = {};
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec = { $ : {} };
+mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec = mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec = mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec = mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler || {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerSpec.$ = {};
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler.$interfaceName = 'parent_access_ui.mojom.ParentAccessUiHandler';
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec.$ = {};
+mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

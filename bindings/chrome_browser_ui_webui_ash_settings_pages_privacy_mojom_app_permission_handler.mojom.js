@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,27 +125,44 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.app_permission = mojo.internal.bindings.ash.settings.app_permission || {};
 mojo.internal.bindings.ash.settings.app_permission.mojom = mojo.internal.bindings.ash.settings.app_permission.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};
 
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler = {};
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler || {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsHandler';
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver = {};
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver || {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver.$interfaceName = 'ash.settings.app_permission.mojom.AppPermissionsObserver';
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec = mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.app_management = mojo.internal.bindings.app_management || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,44 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.language = mojo.internal.bindings.ash.language || {};
 mojo.internal.bindings.ash.language.mojom = mojo.internal.bindings.ash.language.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.language.mojom.FeatureIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.language.mojom.PackStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver = {};
-mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.language.mojom.FeatureIdSpec = mojo.internal.bindings.ash.language.mojom.FeatureIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.language.mojom.PackStateSpec = mojo.internal.bindings.ash.language.mojom.PackStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec = mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec = mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec = mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver = mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver || {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec.$ = {};
 mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver.$interfaceName = 'ash.language.mojom.LanguagePacksObserver';
-mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks = {};
-mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec = { $ : {} };
+mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks = mojo.internal.bindings.ash.language.mojom.LanguagePacks || {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec || { $ : {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacksSpec.$ = {};
 mojo.internal.bindings.ash.language.mojom.LanguagePacks.$interfaceName = 'ash.language.mojom.LanguagePacks';
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec = mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$ = {};
 
 // Enum: FeatureId
 mojo.internal.bindings.ash.language.mojom.FeatureId = {

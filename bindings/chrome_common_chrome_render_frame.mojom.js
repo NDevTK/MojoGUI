@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,38 +123,60 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
 mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ImageFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame = {};
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ImageFormatSpec = mojo.internal.bindings.chrome.mojom.ImageFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame || {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrameSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ChromeRenderFrame.$interfaceName = 'chrome.mojom.ChromeRenderFrame';
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};

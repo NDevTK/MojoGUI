@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,20 @@
 
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.cros.mojom.DetectCornersResultSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosDocumentScanner = {};
-mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.DetectCornersResultSpec = mojo.internal.bindings.cros.mojom.DetectCornersResultSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.DetectCornersResultSpec.$.structSpec && mojo.internal.bindings.cros.mojom.DetectCornersResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.DetectCornersResultSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosDocumentScanner = mojo.internal.bindings.cros.mojom.CrosDocumentScanner || {};
+mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec = mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosDocumentScannerSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CrosDocumentScanner.$interfaceName = 'cros.mojom.CrosDocumentScanner';
-mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.supervised_user = mojo.internal.bindings.supervised_user || {};
 mojo.internal.bindings.supervised_user.mojom = mojo.internal.bindings.supervised_user.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands = {};
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec = { $ : {} };
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands || {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec || { $ : {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsSpec.$ = {};
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands.$interfaceName = 'supervised_user.mojom.SupervisedUserCommands';
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = { $: {} };
-mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$ = {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$ = {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$ = {};
+mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec.$ = {};
 
 // Interface: SupervisedUserCommands
 mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsPendingReceiver = class {

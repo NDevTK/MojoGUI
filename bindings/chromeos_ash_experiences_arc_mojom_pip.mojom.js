@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,28 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PipHost = {};
-mojo.internal.bindings.arc.mojom.PipHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ArcPipEventSpec = mojo.internal.bindings.arc.mojom.ArcPipEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PipHost = mojo.internal.bindings.arc.mojom.PipHost || {};
+mojo.internal.bindings.arc.mojom.PipHostSpec = mojo.internal.bindings.arc.mojom.PipHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PipHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PipHost.$interfaceName = 'arc.mojom.PipHost';
-mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PipInstance = {};
-mojo.internal.bindings.arc.mojom.PipInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec = mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PipInstance = mojo.internal.bindings.arc.mojom.PipInstance || {};
+mojo.internal.bindings.arc.mojom.PipInstanceSpec = mojo.internal.bindings.arc.mojom.PipInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PipInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PipInstance.$interfaceName = 'arc.mojom.PipInstance';
-mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec = mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$ = {};
 
 // Enum: ArcPipEvent
 mojo.internal.bindings.arc.mojom.ArcPipEvent = {

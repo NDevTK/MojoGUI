@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,45 @@
 
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl = {};
-mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec = mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec = mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl = mojo.internal.bindings.storage.mojom.SessionStorageControl || {};
+mojo.internal.bindings.storage.mojom.SessionStorageControlSpec = mojo.internal.bindings.storage.mojom.SessionStorageControlSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControlSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControlSpec.$ = {};
 mojo.internal.bindings.storage.mojom.SessionStorageControl.$interfaceName = 'storage.mojom.SessionStorageControl';
-mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec = mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

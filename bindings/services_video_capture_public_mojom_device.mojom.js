@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,36 @@
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.Device = {};
-mojo.internal.bindings.video_capture.mojom.DeviceSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.Device = mojo.internal.bindings.video_capture.mojom.Device || {};
+mojo.internal.bindings.video_capture.mojom.DeviceSpec = mojo.internal.bindings.video_capture.mojom.DeviceSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.DeviceSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.DeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.DeviceSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.Device.$interfaceName = 'video_capture.mojom.Device';
-mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = { $: {} };
+mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_TakePhoto_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec = mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

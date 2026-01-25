@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.color_change_listener = mojo.internal.bindings.color_change_listener || {};
 mojo.internal.bindings.color_change_listener.mojom = mojo.internal.bindings.color_change_listener.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.color_change_listener.mojom.PageHandler = {};
-mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.color_change_listener.mojom.PageHandler = mojo.internal.bindings.color_change_listener.mojom.PageHandler || {};
+mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec = mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.color_change_listener.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.color_change_listener.mojom.PageHandler.$interfaceName = 'color_change_listener.mojom.PageHandler';
-mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.color_change_listener.mojom.Page = {};
-mojo.internal.bindings.color_change_listener.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec && mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$ = {};
+mojo.internal.bindings.color_change_listener.mojom.Page = mojo.internal.bindings.color_change_listener.mojom.Page || {};
+mojo.internal.bindings.color_change_listener.mojom.PageSpec = mojo.internal.bindings.color_change_listener.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.color_change_listener.mojom.PageSpec.$.structSpec && mojo.internal.bindings.color_change_listener.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.color_change_listener.mojom.PageSpec.$ = {};
 mojo.internal.bindings.color_change_listener.mojom.Page.$interfaceName = 'color_change_listener.mojom.Page';
-mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec.$ = {};
 
 // Interface: PageHandler
 mojo.internal.bindings.color_change_listener.mojom.PageHandlerPendingReceiver = class {

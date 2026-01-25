@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,33 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AppfuseHost = {};
-mojo.internal.bindings.arc.mojom.AppfuseHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AppfuseHost = mojo.internal.bindings.arc.mojom.AppfuseHost || {};
+mojo.internal.bindings.arc.mojom.AppfuseHostSpec = mojo.internal.bindings.arc.mojom.AppfuseHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AppfuseHost.$interfaceName = 'arc.mojom.AppfuseHost';
-mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseInstance = {};
-mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseInstance = mojo.internal.bindings.arc.mojom.AppfuseInstance || {};
+mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec = mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AppfuseInstance.$interfaceName = 'arc.mojom.AppfuseInstance';
-mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: AppfuseHost
 mojo.internal.bindings.arc.mojom.AppfuseHostPendingReceiver = class {

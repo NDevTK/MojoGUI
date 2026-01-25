@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,11 +124,15 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.OffsetTagSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.OffsetTagValueSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.OffsetTagSpec = mojo.internal.bindings.viz.mojom.OffsetTagSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.OffsetTagSpec.$.structSpec && mojo.internal.bindings.viz.mojom.OffsetTagSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.OffsetTagSpec.$ = {};
+mojo.internal.bindings.viz.mojom.OffsetTagValueSpec = mojo.internal.bindings.viz.mojom.OffsetTagValueSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.OffsetTagValueSpec.$.structSpec && mojo.internal.bindings.viz.mojom.OffsetTagValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.OffsetTagValueSpec.$ = {};
+mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec = mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec.$.structSpec && mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

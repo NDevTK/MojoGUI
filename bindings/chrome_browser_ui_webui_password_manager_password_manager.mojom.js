@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,40 +123,69 @@
 
  mojo.internal.bindings.password_manager = mojo.internal.bindings.password_manager || {};
 mojo.internal.bindings.password_manager.mojom = mojo.internal.bindings.password_manager.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.password_manager.mojom.DomainInfoSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.password_manager.mojom.DomainInfoSpec = mojo.internal.bindings.password_manager.mojom.DomainInfoSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.DomainInfoSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.DomainInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.DomainInfoSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec = mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.ActorLoginPermissionSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandlerFactory = mojo.internal.bindings.password_manager.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec = mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.password_manager.mojom.PageHandlerFactory.$interfaceName = 'password_manager.mojom.PageHandlerFactory';
-mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler = {};
-mojo.internal.bindings.password_manager.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler = mojo.internal.bindings.password_manager.mojom.PageHandler || {};
+mojo.internal.bindings.password_manager.mojom.PageHandlerSpec = mojo.internal.bindings.password_manager.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.password_manager.mojom.PageHandler.$interfaceName = 'password_manager.mojom.PageHandler';
-mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.password_manager.mojom.Page = {};
-mojo.internal.bindings.password_manager.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.password_manager.mojom.Page = mojo.internal.bindings.password_manager.mojom.Page || {};
+mojo.internal.bindings.password_manager.mojom.PageSpec = mojo.internal.bindings.password_manager.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.password_manager.mojom.PageSpec.$.structSpec && mojo.internal.bindings.password_manager.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.password_manager.mojom.PageSpec.$ = {};
 mojo.internal.bindings.password_manager.mojom.Page.$interfaceName = 'password_manager.mojom.Page';
 
 // External type stubs (from imports)

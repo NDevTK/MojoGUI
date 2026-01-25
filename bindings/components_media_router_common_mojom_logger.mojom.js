@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media_router.mojom.Logger = {};
-mojo.internal.bindings.media_router.mojom.LoggerSpec = { $ : {} };
+mojo.internal.bindings.media_router.mojom.LogCategorySpec = mojo.internal.bindings.media_router.mojom.LogCategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_router.mojom.Logger = mojo.internal.bindings.media_router.mojom.Logger || {};
+mojo.internal.bindings.media_router.mojom.LoggerSpec = mojo.internal.bindings.media_router.mojom.LoggerSpec || { $ : {} };
+if (mojo.internal.bindings.media_router.mojom.LoggerSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.LoggerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.LoggerSpec.$ = {};
 mojo.internal.bindings.media_router.mojom.Logger.$interfaceName = 'media_router.mojom.Logger';
-mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec = mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec = mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec = mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec = mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$ = {};
 
 // Enum: LogCategory
 mojo.internal.bindings.media_router.mojom.LogCategory = {

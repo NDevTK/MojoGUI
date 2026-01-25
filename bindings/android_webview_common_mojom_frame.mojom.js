@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,41 @@
  mojo.internal.bindings.android_webview = mojo.internal.bindings.android_webview || {};
 mojo.internal.bindings.android_webview.mojom = mojo.internal.bindings.android_webview.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.android_webview.mojom.HitTestDataSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame = {};
-mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec = { $ : {} };
+mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec = mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.android_webview.mojom.HitTestDataSpec = mojo.internal.bindings.android_webview.mojom.HitTestDataSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.HitTestDataSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.HitTestDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.HitTestDataSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame = mojo.internal.bindings.android_webview.mojom.LocalMainFrame || {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec || { $ : {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrameSpec.$ = {};
 mojo.internal.bindings.android_webview.mojom.LocalMainFrame.$interfaceName = 'android_webview.mojom.LocalMainFrame';
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.FrameHost = {};
-mojo.internal.bindings.android_webview.mojom.FrameHostSpec = { $ : {} };
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec = mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.FrameHost = mojo.internal.bindings.android_webview.mojom.FrameHost || {};
+mojo.internal.bindings.android_webview.mojom.FrameHostSpec = mojo.internal.bindings.android_webview.mojom.FrameHostSpec || { $ : {} };
+if (mojo.internal.bindings.android_webview.mojom.FrameHostSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.FrameHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.FrameHostSpec.$ = {};
 mojo.internal.bindings.android_webview.mojom.FrameHost.$interfaceName = 'android_webview.mojom.FrameHost';
-mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = { $: {} };
-mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec = mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec = mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,30 @@
 
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.CacheStorageObserver = {};
-mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec = mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.CacheStorageObserver = mojo.internal.bindings.storage.mojom.CacheStorageObserver || {};
+mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec = mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageObserverSpec.$ = {};
 mojo.internal.bindings.storage.mojom.CacheStorageObserver.$interfaceName = 'storage.mojom.CacheStorageObserver';
-mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.CacheStorageControl = {};
-mojo.internal.bindings.storage.mojom.CacheStorageControlSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.CacheStorageControl = mojo.internal.bindings.storage.mojom.CacheStorageControl || {};
+mojo.internal.bindings.storage.mojom.CacheStorageControlSpec = mojo.internal.bindings.storage.mojom.CacheStorageControlSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageControlSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageControlSpec.$ = {};
 mojo.internal.bindings.storage.mojom.CacheStorageControl.$interfaceName = 'storage.mojom.CacheStorageControl';
-mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,38 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.status_area_internals = mojo.internal.bindings.ash.mojom.status_area_internals || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler = {};
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec = mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler || {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler.$interfaceName = 'ash.mojom.status_area_internals.PageHandler';
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$ = {};
 
 // Enum: BatteryIcon
 mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIcon = {

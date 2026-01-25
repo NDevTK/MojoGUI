@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,37 @@
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.tabs_api.mojom.TabsEventSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService = {};
-mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec = { $ : {} };
+mojo.internal.bindings.tabs_api.mojom.TabsEventSpec = mojo.internal.bindings.tabs_api.mojom.TabsEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabsEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabsEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabsEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec = mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService = mojo.internal.bindings.tabs_api.mojom.TabStripService || {};
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec = mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec || { $ : {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripServiceSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.TabStripService.$interfaceName = 'tabs_api.mojom.TabStripService';
-mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabsObserver = {};
-mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec = { $ : {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabsObserver = mojo.internal.bindings.tabs_api.mojom.TabsObserver || {};
+mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec = mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.TabsObserver.$interfaceName = 'tabs_api.mojom.TabsObserver';
-mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};

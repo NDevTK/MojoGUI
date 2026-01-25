@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,30 +124,49 @@
  mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
 mojo.internal.bindings.actor.webui = mojo.internal.bindings.actor.webui || {};
 mojo.internal.bindings.actor.webui.mojom = mojo.internal.bindings.actor.webui.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.CredentialSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec = { $: {} };
-mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec = { $: {} };
+mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec = mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec = mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogErrorReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReasonSpec = mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec = mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec = mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResultSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec = mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestResultSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec = mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.CredentialSpec = mojo.internal.bindings.actor.webui.mojom.CredentialSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.CredentialSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.CredentialSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.CredentialSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec = mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogRequestSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec = mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogResponseSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec = mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.AutofillSuggestionSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec = mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.FormFillingRequestSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec = mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogRequestSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec = mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.FormFillingResponseSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec = mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec = mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogPayloadSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec = mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogRequestSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec = mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.UserConfirmationDialogResponseSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec = mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationRequestSpec.$ = {};
+mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec = mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec.$.structSpec && mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.webui.mojom.NavigationConfirmationResponseSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};

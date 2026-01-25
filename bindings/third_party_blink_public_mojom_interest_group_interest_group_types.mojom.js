@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,42 +124,73 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BuyerReportTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RealTimeReportingTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InterestGroupAdSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InterestGroupSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PreviousWinSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdCurrencySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ExecutionModeSpec = mojo.internal.bindings.blink.mojom.ExecutionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec = mojo.internal.bindings.blink.mojom.TrustedBiddingSignalsSlotSizeModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BuyerReportTypeSpec = mojo.internal.bindings.blink.mojom.BuyerReportTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RealTimeReportingTypeSpec = mojo.internal.bindings.blink.mojom.RealTimeReportingTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromisePerBuyerSignalsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerTimeoutsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseBuyerCurrenciesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec = mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdAuctionRequestOrErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InterestGroupAdSpec = mojo.internal.bindings.blink.mojom.InterestGroupAdSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InterestGroupAdSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InterestGroupAdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InterestGroupAdSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec = mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SellerCapabilitiesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec = mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionServerRequestFlagsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec = mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InterestGroupSpec = mojo.internal.bindings.blink.mojom.InterestGroupSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InterestGroupSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InterestGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InterestGroupSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PreviousWinSpec = mojo.internal.bindings.blink.mojom.PreviousWinSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PreviousWinSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PreviousWinSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PreviousWinSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec = mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec = mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec = mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec = mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec = mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec = mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdCurrencySpec = mojo.internal.bindings.blink.mojom.AdCurrencySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdCurrencySpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdCurrencySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdCurrencySpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec = mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec = mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionReportBuyerDebugModeConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec = mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionReportBuyersConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec = mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec = mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec = mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec = mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,26 @@
 
  mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser = {};
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec = { $ : {} };
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser || {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec || { $ : {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserSpec.$ = {};
 mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser.$interfaceName = 'data_decoder.mojom.StructuredHeadersParser';
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

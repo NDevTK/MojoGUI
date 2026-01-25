@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,45 +124,73 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.RequestTokenStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RequestUserInfoStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DisconnectStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.IdpSigninStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RpContextSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RpModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TokenErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest = {};
-mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RequestTokenStatusSpec = mojo.internal.bindings.blink.mojom.RequestTokenStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RequestUserInfoStatusSpec = mojo.internal.bindings.blink.mojom.RequestUserInfoStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DisconnectStatusSpec = mojo.internal.bindings.blink.mojom.DisconnectStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.IdpSigninStatusSpec = mojo.internal.bindings.blink.mojom.IdpSigninStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RpContextSpec = mojo.internal.bindings.blink.mojom.RpContextSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RpModeSpec = mojo.internal.bindings.blink.mojom.RpModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec = mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FormatSpec = mojo.internal.bindings.blink.mojom.FormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec = mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec = mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec = mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec = mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityUserInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec = mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LoginStatusAccountSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec = mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec = mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityProviderGetParametersSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TokenErrorSpec = mojo.internal.bindings.blink.mojom.TokenErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TokenErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TokenErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TokenErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest = mojo.internal.bindings.blink.mojom.FederatedAuthRequest || {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequestSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FederatedAuthRequest.$interfaceName = 'blink.mojom.FederatedAuthRequest';
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.comments = mojo.internal.bindings.comments || {};
 mojo.internal.bindings.comments.mojom = mojo.internal.bindings.comments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.comments.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.comments.mojom.PageHandlerFactory = mojo.internal.bindings.comments.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec = mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.comments.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.comments.mojom.PageHandlerFactory.$interfaceName = 'comments.mojom.PageHandlerFactory';
-mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.comments.mojom.PageHandler = {};
-mojo.internal.bindings.comments.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.comments.mojom.PageHandler = mojo.internal.bindings.comments.mojom.PageHandler || {};
+mojo.internal.bindings.comments.mojom.PageHandlerSpec = mojo.internal.bindings.comments.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.comments.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.comments.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.comments.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.comments.mojom.PageHandler.$interfaceName = 'comments.mojom.PageHandler';
-mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.comments.mojom.Page = {};
-mojo.internal.bindings.comments.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec = mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec && mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.comments.mojom.PageHandler_ShowUI_ParamsSpec.$ = {};
+mojo.internal.bindings.comments.mojom.Page = mojo.internal.bindings.comments.mojom.Page || {};
+mojo.internal.bindings.comments.mojom.PageSpec = mojo.internal.bindings.comments.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.comments.mojom.PageSpec.$.structSpec && mojo.internal.bindings.comments.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.comments.mojom.PageSpec.$ = {};
 mojo.internal.bindings.comments.mojom.Page.$interfaceName = 'comments.mojom.Page';
 
 // Interface: PageHandlerFactory

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,47 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver = {};
-mojo.internal.bindings.network.mojom.DevToolsObserverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec = mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec = mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec = mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver = mojo.internal.bindings.network.mojom.DevToolsObserver || {};
+mojo.internal.bindings.network.mojom.DevToolsObserverSpec = mojo.internal.bindings.network.mojom.DevToolsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserverSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserverSpec.$ = {};
 mojo.internal.bindings.network.mojom.DevToolsObserver.$interfaceName = 'network.mojom.DevToolsObserver';
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec = mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

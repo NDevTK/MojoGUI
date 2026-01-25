@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,46 +124,75 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TransportTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.LoadInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ClientCertificateResponder = {};
-mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec = mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TransportTypeSpec = mojo.internal.bindings.network.mojom.TransportTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.LoadInfoSpec = mojo.internal.bindings.network.mojom.LoadInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.LoadInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.LoadInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.LoadInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.ClientCertificateResponder = mojo.internal.bindings.network.mojom.ClientCertificateResponder || {};
+mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec = mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec.$.structSpec && mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ClientCertificateResponderSpec.$ = {};
 mojo.internal.bindings.network.mojom.ClientCertificateResponder.$interfaceName = 'network.mojom.ClientCertificateResponder';
-mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLPrivateKey = {};
-mojo.internal.bindings.network.mojom.SSLPrivateKeySpec = { $ : {} };
+mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec = mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec = mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec = mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLPrivateKey = mojo.internal.bindings.network.mojom.SSLPrivateKey || {};
+mojo.internal.bindings.network.mojom.SSLPrivateKeySpec = mojo.internal.bindings.network.mojom.SSLPrivateKeySpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.SSLPrivateKeySpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLPrivateKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLPrivateKeySpec.$ = {};
 mojo.internal.bindings.network.mojom.SSLPrivateKey.$interfaceName = 'network.mojom.SSLPrivateKey';
-mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.AuthChallengeResponder = {};
-mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec = mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec = mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.AuthChallengeResponder = mojo.internal.bindings.network.mojom.AuthChallengeResponder || {};
+mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec = mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec.$.structSpec && mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AuthChallengeResponderSpec.$ = {};
 mojo.internal.bindings.network.mojom.AuthChallengeResponder.$interfaceName = 'network.mojom.AuthChallengeResponder';
-mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver = {};
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec = mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver || {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverSpec.$ = {};
 mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver.$interfaceName = 'network.mojom.URLLoaderNetworkServiceObserver';
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

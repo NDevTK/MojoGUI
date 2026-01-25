@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,27 +125,46 @@
 mojo.internal.bindings.ash.printing = mojo.internal.bindings.ash.printing || {};
 mojo.internal.bindings.ash.printing.print_preview = mojo.internal.bindings.ash.printing.print_preview || {};
 mojo.internal.bindings.ash.printing.print_preview.mojom = mojo.internal.bindings.ash.printing.print_preview.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec = { $: {} };
-mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec = { $: {} };
+mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec = mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec.$ = {};
+mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec = mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec.$.structSpec && mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec.$ = {};
 
 // Enum: ColorType
 mojo.internal.bindings.ash.printing.print_preview.mojom.ColorType = {

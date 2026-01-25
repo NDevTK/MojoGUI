@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,36 @@
  mojo.internal.bindings.aim_eligibility = mojo.internal.bindings.aim_eligibility || {};
 mojo.internal.bindings.aim_eligibility.mojom = mojo.internal.bindings.aim_eligibility.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.Page = {};
-mojo.internal.bindings.aim_eligibility.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec = mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.Page = mojo.internal.bindings.aim_eligibility.mojom.Page || {};
+mojo.internal.bindings.aim_eligibility.mojom.PageSpec = mojo.internal.bindings.aim_eligibility.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageSpec.$ = {};
 mojo.internal.bindings.aim_eligibility.mojom.Page.$interfaceName = 'aim_eligibility.mojom.Page';
-mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler = {};
-mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler = mojo.internal.bindings.aim_eligibility.mojom.PageHandler || {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.aim_eligibility.mojom.PageHandler.$interfaceName = 'aim_eligibility.mojom.PageHandler';
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory = mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory.$interfaceName = 'aim_eligibility.mojom.PageHandlerFactory';
-mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

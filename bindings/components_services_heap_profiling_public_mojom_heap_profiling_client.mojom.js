@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,29 @@
 
  mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
 mojo.internal.bindings.heap_profiling.mojom = mojo.internal.bindings.heap_profiling.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.heap_profiling.mojom.StackModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClient = {};
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec = { $ : {} };
+mojo.internal.bindings.heap_profiling.mojom.StackModeSpec = mojo.internal.bindings.heap_profiling.mojom.StackModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec = mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec = mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec = mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient || {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec || { $ : {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClientSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingClient.$interfaceName = 'heap_profiling.mojom.ProfilingClient';
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = { $: {} };
-mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec.$ = {};
 
 // Enum: StackMode
 mojo.internal.bindings.heap_profiling.mojom.StackMode = {

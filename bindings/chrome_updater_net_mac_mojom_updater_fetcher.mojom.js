@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,43 @@
  mojo.internal.bindings.updater = mojo.internal.bindings.updater || {};
 mojo.internal.bindings.updater.mojom = mojo.internal.bindings.updater.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.updater.mojom.HttpHeaderSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.PostRequestObserver = {};
-mojo.internal.bindings.updater.mojom.PostRequestObserverSpec = { $ : {} };
+mojo.internal.bindings.updater.mojom.HttpHeaderSpec = mojo.internal.bindings.updater.mojom.HttpHeaderSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$.structSpec && mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$ = {};
+mojo.internal.bindings.updater.mojom.PostRequestObserver = mojo.internal.bindings.updater.mojom.PostRequestObserver || {};
+mojo.internal.bindings.updater.mojom.PostRequestObserverSpec = mojo.internal.bindings.updater.mojom.PostRequestObserverSpec || { $ : {} };
+if (mojo.internal.bindings.updater.mojom.PostRequestObserverSpec.$.structSpec && mojo.internal.bindings.updater.mojom.PostRequestObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.PostRequestObserverSpec.$ = {};
 mojo.internal.bindings.updater.mojom.PostRequestObserver.$interfaceName = 'updater.mojom.PostRequestObserver';
-mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FileDownloadObserver = {};
-mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec = { $ : {} };
+mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec = mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec = mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec = mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FileDownloadObserver = mojo.internal.bindings.updater.mojom.FileDownloadObserver || {};
+mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec || { $ : {} };
+if (mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec.$ = {};
 mojo.internal.bindings.updater.mojom.FileDownloadObserver.$interfaceName = 'updater.mojom.FileDownloadObserver';
-mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FetchService = {};
-mojo.internal.bindings.updater.mojom.FetchServiceSpec = { $ : {} };
+mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService = mojo.internal.bindings.updater.mojom.FetchService || {};
+mojo.internal.bindings.updater.mojom.FetchServiceSpec = mojo.internal.bindings.updater.mojom.FetchServiceSpec || { $ : {} };
+if (mojo.internal.bindings.updater.mojom.FetchServiceSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchServiceSpec.$ = {};
 mojo.internal.bindings.updater.mojom.FetchService.$interfaceName = 'updater.mojom.FetchService';
-mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

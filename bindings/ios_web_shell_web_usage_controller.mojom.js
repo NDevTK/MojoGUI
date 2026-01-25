@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.web = mojo.internal.bindings.web || {};
 mojo.internal.bindings.web.mojom = mojo.internal.bindings.web.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.web.mojom.WebUsageController = {};
-mojo.internal.bindings.web.mojom.WebUsageControllerSpec = { $ : {} };
+mojo.internal.bindings.web.mojom.WebUsageController = mojo.internal.bindings.web.mojom.WebUsageController || {};
+mojo.internal.bindings.web.mojom.WebUsageControllerSpec = mojo.internal.bindings.web.mojom.WebUsageControllerSpec || { $ : {} };
+if (mojo.internal.bindings.web.mojom.WebUsageControllerSpec.$.structSpec && mojo.internal.bindings.web.mojom.WebUsageControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web.mojom.WebUsageControllerSpec.$ = {};
 mojo.internal.bindings.web.mojom.WebUsageController.$interfaceName = 'web.mojom.WebUsageController';
-mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec = mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec = mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec.$ = {};
 
 // Interface: WebUsageController
 mojo.internal.bindings.web.mojom.WebUsageControllerPendingReceiver = class {

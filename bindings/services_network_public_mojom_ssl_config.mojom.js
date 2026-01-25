@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,19 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.SSLVersionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SSLConfigSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLConfigClient = {};
-mojo.internal.bindings.network.mojom.SSLConfigClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.SSLVersionSpec = mojo.internal.bindings.network.mojom.SSLVersionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec = mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SSLConfigSpec = mojo.internal.bindings.network.mojom.SSLConfigSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLConfigSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLConfigClient = mojo.internal.bindings.network.mojom.SSLConfigClient || {};
+mojo.internal.bindings.network.mojom.SSLConfigClientSpec = mojo.internal.bindings.network.mojom.SSLConfigClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.SSLConfigClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLConfigClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLConfigClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.SSLConfigClient.$interfaceName = 'network.mojom.SSLConfigClient';
-mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$ = {};
 
 // Enum: SSLVersion
 mojo.internal.bindings.network.mojom.SSLVersion = {

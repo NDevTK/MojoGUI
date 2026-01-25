@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,29 @@
 
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.TraitsTestService = {};
-mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec = { $ : {} };
+mojo.internal.bindings.gfx.mojom.TraitsTestService = mojo.internal.bindings.gfx.mojom.TraitsTestService || {};
+mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec = mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec || { $ : {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestServiceSpec.$ = {};
 mojo.internal.bindings.gfx.mojom.TraitsTestService.$interfaceName = 'gfx.mojom.TraitsTestService';
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

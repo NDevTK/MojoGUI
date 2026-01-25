@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,30 @@
 
  mojo.internal.bindings.browser_command = mojo.internal.bindings.browser_command || {};
 mojo.internal.bindings.browser_command.mojom = mojo.internal.bindings.browser_command.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.browser_command.mojom.CommandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.browser_command.mojom.ClickInfoSpec = { $: {} };
-mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory = {};
-mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.browser_command.mojom.CommandSpec = mojo.internal.bindings.browser_command.mojom.CommandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser_command.mojom.ClickInfoSpec = mojo.internal.bindings.browser_command.mojom.ClickInfoSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.ClickInfoSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.ClickInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.ClickInfoSpec.$ = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory = mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory || {};
+mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec = mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandlerFactorySpec.$ = {};
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory.$interfaceName = 'browser_command.mojom.CommandHandlerFactory';
-mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_command.mojom.CommandHandler = {};
-mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec = { $ : {} };
+mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandler = mojo.internal.bindings.browser_command.mojom.CommandHandler || {};
+mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec = mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandlerSpec.$ = {};
 mojo.internal.bindings.browser_command.mojom.CommandHandler.$interfaceName = 'browser_command.mojom.CommandHandler';
-mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$ = {};
 
 // Enum: Command
 mojo.internal.bindings.browser_command.mojom.Command = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,51 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.NDEFErrorSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NDEFRecordSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NDEFMessageSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC = {};
-mojo.internal.bindings.device.mojom.NFCSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec = mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec = mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.NDEFErrorSpec = mojo.internal.bindings.device.mojom.NDEFErrorSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NDEFErrorSpec.$.structSpec && mojo.internal.bindings.device.mojom.NDEFErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NDEFErrorSpec.$ = {};
+mojo.internal.bindings.device.mojom.NDEFRecordSpec = mojo.internal.bindings.device.mojom.NDEFRecordSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NDEFRecordSpec.$.structSpec && mojo.internal.bindings.device.mojom.NDEFRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NDEFRecordSpec.$ = {};
+mojo.internal.bindings.device.mojom.NDEFMessageSpec = mojo.internal.bindings.device.mojom.NDEFMessageSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NDEFMessageSpec.$.structSpec && mojo.internal.bindings.device.mojom.NDEFMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NDEFMessageSpec.$ = {};
+mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec = mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC = mojo.internal.bindings.device.mojom.NFC || {};
+mojo.internal.bindings.device.mojom.NFCSpec = mojo.internal.bindings.device.mojom.NFCSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.NFCSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCSpec.$ = {};
 mojo.internal.bindings.device.mojom.NFC.$interfaceName = 'device.mojom.NFC';
-mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFCClient = {};
-mojo.internal.bindings.device.mojom.NFCClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec = mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec = mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec = mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFCClient = mojo.internal.bindings.device.mojom.NFCClient || {};
+mojo.internal.bindings.device.mojom.NFCClientSpec = mojo.internal.bindings.device.mojom.NFCClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.NFCClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.NFCClient.$interfaceName = 'device.mojom.NFCClient';
-mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec = mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec = mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec.$ = {};
 
 // Enum: NDEFErrorType
 mojo.internal.bindings.device.mojom.NDEFErrorType = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.DemuxerStream = {};
-mojo.internal.bindings.media.mojom.DemuxerStreamSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.TypeSpec = mojo.internal.bindings.media.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StatusSpec = mojo.internal.bindings.media.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.DemuxerStream = mojo.internal.bindings.media.mojom.DemuxerStream || {};
+mojo.internal.bindings.media.mojom.DemuxerStreamSpec = mojo.internal.bindings.media.mojom.DemuxerStreamSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStreamSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStreamSpec.$ = {};
 mojo.internal.bindings.media.mojom.DemuxerStream.$interfaceName = 'media.mojom.DemuxerStream';
-mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec = mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec = mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,27 @@
 
  mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};
 mojo.internal.bindings.chromeos_camera.mojom = mojo.internal.bindings.chromeos_camera.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator = {};
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = { $ : {} };
+mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec = mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator || {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorSpec.$ = {};
 mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator.$interfaceName = 'chromeos_camera.mojom.JpegEncodeAccelerator';
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec = mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos_camera = mojo.internal.bindings.chromeos_camera || {};

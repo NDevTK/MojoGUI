@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.dom_distiller = mojo.internal.bindings.dom_distiller || {};
 mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distiller.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService = {};
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec = { $ : {} };
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService || {};
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec || { $ : {} };
+if (mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec.$.structSpec && mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceSpec.$ = {};
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService.$interfaceName = 'dom_distiller.mojom.DistillerJavaScriptService';
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = { $: {} };
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = { $: {} };
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = { $: {} };
-mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = { $: {} };
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.structSpec && mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$ = {};
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.structSpec && mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$ = {};
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.structSpec && mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$ = {};
+mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.structSpec && mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.dom_distiller = mojo.internal.bindings.dom_distiller || {};

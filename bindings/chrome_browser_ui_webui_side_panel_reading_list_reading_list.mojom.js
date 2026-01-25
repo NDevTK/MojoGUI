@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,38 +123,62 @@
 
  mojo.internal.bindings.reading_list = mojo.internal.bindings.reading_list || {};
 mojo.internal.bindings.reading_list.mojom = mojo.internal.bindings.reading_list.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.WindowSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec = mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec = mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec = mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.WindowSpec = mojo.internal.bindings.reading_list.mojom.WindowSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.WindowSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.WindowSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.WindowSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandlerFactory = mojo.internal.bindings.reading_list.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec = mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.reading_list.mojom.PageHandlerFactory.$interfaceName = 'reading_list.mojom.PageHandlerFactory';
-mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler = {};
-mojo.internal.bindings.reading_list.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler = mojo.internal.bindings.reading_list.mojom.PageHandler || {};
+mojo.internal.bindings.reading_list.mojom.PageHandlerSpec = mojo.internal.bindings.reading_list.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.reading_list.mojom.PageHandler.$interfaceName = 'reading_list.mojom.PageHandler';
-mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.Page = {};
-mojo.internal.bindings.reading_list.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.Page = mojo.internal.bindings.reading_list.mojom.Page || {};
+mojo.internal.bindings.reading_list.mojom.PageSpec = mojo.internal.bindings.reading_list.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.reading_list.mojom.PageSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.PageSpec.$ = {};
 mojo.internal.bindings.reading_list.mojom.Page.$interfaceName = 'reading_list.mojom.Page';
-mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec = mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec = mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};

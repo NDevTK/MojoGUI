@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,32 @@
 
  mojo.internal.bindings.on_device_translation_internals = mojo.internal.bindings.on_device_translation_internals || {};
 mojo.internal.bindings.on_device_translation_internals.mojom = mojo.internal.bindings.on_device_translation_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec = { $: {} };
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec = mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec = mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec.$ = {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory.$interfaceName = 'on_device_translation_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler = {};
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler || {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler.$interfaceName = 'on_device_translation_internals.mojom.PageHandler';
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_translation_internals.mojom.Page = {};
-mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_translation_internals.mojom.Page = mojo.internal.bindings.on_device_translation_internals.mojom.Page || {};
+mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec = mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.on_device_translation_internals.mojom.Page.$interfaceName = 'on_device_translation_internals.mojom.Page';
-mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$ = {};
 
 // Enum: LanguagePackStatus
 mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatus = {

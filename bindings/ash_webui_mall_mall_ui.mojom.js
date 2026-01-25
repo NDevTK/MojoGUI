@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,18 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mall = mojo.internal.bindings.ash.mall || {};
 mojo.internal.bindings.ash.mall.mojom = mojo.internal.bindings.ash.mall.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.mall.mojom.PageHandler = {};
-mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.mall.mojom.PageHandler = mojo.internal.bindings.ash.mall.mojom.PageHandler || {};
+mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec = mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mall.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.mall.mojom.PageHandler.$interfaceName = 'ash.mall.mojom.PageHandler';
-mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

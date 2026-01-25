@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,29 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator.$interfaceName = 'chromeos.machine_learning.mojom.ImageContentAnnotator';
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

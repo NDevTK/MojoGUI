@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -119,14 +122,21 @@
  };
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojom.AudioConsumerRequestSpec = { $: {} };
-mojo.internal.bindings.mojom.WebEngineMediaResourceProvider = {};
-mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec = { $ : {} };
+mojo.internal.bindings.mojom.AudioConsumerRequestSpec = mojo.internal.bindings.mojom.AudioConsumerRequestSpec || { $: {} };
+if (mojo.internal.bindings.mojom.AudioConsumerRequestSpec.$.structSpec && mojo.internal.bindings.mojom.AudioConsumerRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.AudioConsumerRequestSpec.$ = {};
+mojo.internal.bindings.mojom.WebEngineMediaResourceProvider = mojo.internal.bindings.mojom.WebEngineMediaResourceProvider || {};
+mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec = mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec.$.structSpec && mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.WebEngineMediaResourceProviderSpec.$ = {};
 mojo.internal.bindings.mojom.WebEngineMediaResourceProvider.$interfaceName = 'mojom.WebEngineMediaResourceProvider';
-mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = { $: {} };
+mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$ = {};
 
 // Interface: WebEngineMediaResourceProvider
 mojo.internal.bindings.mojom.WebEngineMediaResourceProviderPendingReceiver = class {

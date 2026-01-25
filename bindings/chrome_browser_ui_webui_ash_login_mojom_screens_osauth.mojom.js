@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,21 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.screens_osauth = mojo.internal.bindings.ash.screens_osauth || {};
 mojo.internal.bindings.ash.screens_osauth.mojom = mojo.internal.bindings.ash.screens_osauth.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = {};
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler || {};
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.$interfaceName = 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler';
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$ = {};
 
 // Interface: LocalDataLossWarningPageHandler
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {

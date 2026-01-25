@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,30 @@
 
  mojo.internal.bindings.customize_color_scheme_mode = mojo.internal.bindings.customize_color_scheme_mode || {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom = mojo.internal.bindings.customize_color_scheme_mode.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = {};
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory || {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactorySpec.$ = {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory';
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler = {};
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec = { $ : {} };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler || {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerSpec.$ = {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler';
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient = {};
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec = { $ : {} };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient || {};
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec || { $ : {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientSpec.$ = {};
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.$interfaceName = 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient';
-mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = { $: {} };
+mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$ = {};
 
 // Enum: ColorSchemeMode
 mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeMode = {

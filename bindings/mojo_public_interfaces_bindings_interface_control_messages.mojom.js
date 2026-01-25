@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,35 @@
 
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo.interface_control.RunInputSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RunOutputSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.QueryVersionSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.RequireVersionSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.MessageAckSpec = { $: {} };
-mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec = { $: {} };
+mojo.internal.bindings.mojo.interface_control.RunInputSpec = mojo.internal.bindings.mojo.interface_control.RunInputSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunInputSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunInputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunInputSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RunOutputSpec = mojo.internal.bindings.mojo.interface_control.RunOutputSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunOutputSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunOutputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunOutputSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec = mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunMessageParamsSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec = mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunResponseMessageParamsSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.QueryVersionSpec = mojo.internal.bindings.mojo.interface_control.QueryVersionSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.QueryVersionSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.QueryVersionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.QueryVersionSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec = mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec = mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec = mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RunOrClosePipeMessageParamsSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.RequireVersionSpec = mojo.internal.bindings.mojo.interface_control.RequireVersionSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.RequireVersionSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.RequireVersionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.RequireVersionSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec = mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.MessageAckSpec = mojo.internal.bindings.mojo.interface_control.MessageAckSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.MessageAckSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.MessageAckSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.MessageAckSpec.$ = {};
+mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec = mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec || { $: {} };
+if (mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec.$.structSpec && mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};

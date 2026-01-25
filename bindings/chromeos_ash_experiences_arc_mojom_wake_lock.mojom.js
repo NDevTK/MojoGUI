@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,29 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WakeLockHost = {};
-mojo.internal.bindings.arc.mojom.WakeLockHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WakeLockHost = mojo.internal.bindings.arc.mojom.WakeLockHost || {};
+mojo.internal.bindings.arc.mojom.WakeLockHostSpec = mojo.internal.bindings.arc.mojom.WakeLockHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.WakeLockHost.$interfaceName = 'arc.mojom.WakeLockHost';
-mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WakeLockInstance = {};
-mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WakeLockInstance = mojo.internal.bindings.arc.mojom.WakeLockInstance || {};
+mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec = mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.WakeLockInstance.$interfaceName = 'arc.mojom.WakeLockInstance';
-mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec.$ = {};
 
 // Interface: WakeLockHost
 mojo.internal.bindings.arc.mojom.WakeLockHostPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,35 +124,61 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.MediaURLSchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider = {};
-mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MediaURLSchemeSpec = mojo.internal.bindings.media.mojom.MediaURLSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.MediaMetricsProvider = mojo.internal.bindings.media.mojom.MediaMetricsProvider || {};
+mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec = mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProviderSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaMetricsProvider.$interfaceName = 'media.mojom.MediaMetricsProvider';
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

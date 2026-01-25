@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,36 @@
 
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.LocalStorageControl = {};
-mojo.internal.bindings.storage.mojom.LocalStorageControlSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.LocalStorageControl = mojo.internal.bindings.storage.mojom.LocalStorageControl || {};
+mojo.internal.bindings.storage.mojom.LocalStorageControlSpec = mojo.internal.bindings.storage.mojom.LocalStorageControlSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControlSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControlSpec.$ = {};
 mojo.internal.bindings.storage.mojom.LocalStorageControl.$interfaceName = 'storage.mojom.LocalStorageControl';
-mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec = mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

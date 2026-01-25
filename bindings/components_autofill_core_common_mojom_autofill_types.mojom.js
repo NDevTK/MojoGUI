@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,46 +124,68 @@
  mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.autofill.mojom.FormControlTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.CheckStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.RoleAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.LabelSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.FormActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.autofill.mojom.FrameTokenSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormRendererIdSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FillIdSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.SelectOptionSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormFieldDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.ParsingResultSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec = { $: {} };
+mojo.internal.bindings.autofill.mojom.FormControlTypeSpec = mojo.internal.bindings.autofill.mojom.FormControlTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.HtmlFieldModeSpec = mojo.internal.bindings.autofill.mojom.HtmlFieldModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.HtmlFieldTypeSpec = mojo.internal.bindings.autofill.mojom.HtmlFieldTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec = mojo.internal.bindings.autofill.mojom.SubmissionIndicatorEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.SubmissionSourceSpec = mojo.internal.bindings.autofill.mojom.SubmissionSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.FocusedFieldTypeSpec = mojo.internal.bindings.autofill.mojom.FocusedFieldTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.ButtonTitleTypeSpec = mojo.internal.bindings.autofill.mojom.ButtonTitleTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.SubmissionReadinessStateSpec = mojo.internal.bindings.autofill.mojom.SubmissionReadinessStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.CheckStatusSpec = mojo.internal.bindings.autofill.mojom.CheckStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.RoleAttributeSpec = mojo.internal.bindings.autofill.mojom.RoleAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.LabelSourceSpec = mojo.internal.bindings.autofill.mojom.LabelSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.AutofillSuggestionAvailabilitySpec = mojo.internal.bindings.autofill.mojom.AutofillSuggestionAvailabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec = mojo.internal.bindings.autofill.mojom.ActionPersistenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.FormActionTypeSpec = mojo.internal.bindings.autofill.mojom.FormActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec = mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec = mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.FrameTokenSpec = mojo.internal.bindings.autofill.mojom.FrameTokenSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec = mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormRendererIdSpec = mojo.internal.bindings.autofill.mojom.FormRendererIdSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormRendererIdSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec = mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FillIdSpec = mojo.internal.bindings.autofill.mojom.FillIdSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FillIdSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FillIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FillIdSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.SelectOptionSpec = mojo.internal.bindings.autofill.mojom.SelectOptionSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.SelectOptionSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.SelectOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.SelectOptionSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec = mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormFieldDataSpec = mojo.internal.bindings.autofill.mojom.FormFieldDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormFieldDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec = mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec = mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.ButtonTitleInfoSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormDataSpec = mojo.internal.bindings.autofill.mojom.FormDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec = mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec = mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec = mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordAndMetadataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec = mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec = mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec = mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TriggeringFieldSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.ParsingResultSpec = mojo.internal.bindings.autofill.mojom.ParsingResultSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec = mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

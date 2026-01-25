@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,31 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
-mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 
-mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost = {};
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec = mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost = mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost || {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost.$interfaceName = 'arc.mojom.OnDeviceSafetyHost';
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance = {};
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance || {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance.$interfaceName = 'arc.mojom.OnDeviceSafetyInstance';
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

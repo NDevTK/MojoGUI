@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,22 @@
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler = {};
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler || {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler.$interfaceName = 'auction_worklet.mojom.AuctionNetworkEventsHandler';
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = { $: {} };
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

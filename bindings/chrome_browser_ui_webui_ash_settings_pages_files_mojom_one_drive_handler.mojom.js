@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,27 +125,43 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.one_drive = mojo.internal.bindings.ash.settings.one_drive || {};
 mojo.internal.bindings.ash.settings.one_drive.mojom = mojo.internal.bindings.ash.settings.one_drive.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.one_drive.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler = {};
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler || {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler.$interfaceName = 'ash.settings.one_drive.mojom.PageHandler';
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.Page = {};
-mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.Page = mojo.internal.bindings.ash.settings.one_drive.mojom.Page || {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.PageSpec.$ = {};
 mojo.internal.bindings.ash.settings.one_drive.mojom.Page.$interfaceName = 'ash.settings.one_drive.mojom.Page';
-mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerFactoryPendingReceiver = class {

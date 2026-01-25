@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,34 +124,55 @@
  mojo.internal.bindings.spellcheck = mojo.internal.bindings.spellcheck || {};
 mojo.internal.bindings.spellcheck.mojom = mojo.internal.bindings.spellcheck.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellChecker = {};
-mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec = { $ : {} };
+mojo.internal.bindings.spellcheck.mojom.DecorationSpec = mojo.internal.bindings.spellcheck.mojom.DecorationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec = mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellChecker = mojo.internal.bindings.spellcheck.mojom.SpellChecker || {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec || { $ : {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec.$ = {};
 mojo.internal.bindings.spellcheck.mojom.SpellChecker.$interfaceName = 'spellcheck.mojom.SpellChecker';
-mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost = {};
-mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec = { $ : {} };
+mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost = mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost || {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec || { $ : {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostSpec.$ = {};
 mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost.$interfaceName = 'spellcheck.mojom.SpellCheckInitializationHost';
-mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost = {};
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec = { $ : {} };
+mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost || {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec || { $ : {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHostSpec.$ = {};
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost.$interfaceName = 'spellcheck.mojom.SpellCheckHost';
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = { $: {} };
-mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$ = {};
+mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

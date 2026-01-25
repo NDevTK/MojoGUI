@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.webui_examples = mojo.internal.bindings.webui_examples || {};
 mojo.internal.bindings.webui_examples.mojom = mojo.internal.bindings.webui_examples.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory = mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec = mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory.$interfaceName = 'webui_examples.mojom.PageHandlerFactory';
-mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.webui_examples.mojom.PageHandler = {};
-mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.webui_examples.mojom.PageHandler = mojo.internal.bindings.webui_examples.mojom.PageHandler || {};
+mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec = mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.webui_examples.mojom.PageHandler.$interfaceName = 'webui_examples.mojom.PageHandler';
-mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec = { $: {} };
-mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec = { $: {} };
-mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec = { $: {} };
+mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec = mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$ = {};
+mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec = mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$ = {};
+mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec = mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,51 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.KeyValueSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAreaObserver = {};
-mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.KeyValueSpec = mojo.internal.bindings.blink.mojom.KeyValueSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.KeyValueSpec.$.structSpec && mojo.internal.bindings.blink.mojom.KeyValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.KeyValueSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserver = mojo.internal.bindings.blink.mojom.StorageAreaObserver || {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.StorageAreaObserver.$interfaceName = 'blink.mojom.StorageAreaObserver';
-mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea = {};
-mojo.internal.bindings.blink.mojom.StorageAreaSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea = mojo.internal.bindings.blink.mojom.StorageArea || {};
+mojo.internal.bindings.blink.mojom.StorageAreaSpec = mojo.internal.bindings.blink.mojom.StorageAreaSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.StorageAreaSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAreaSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAreaSpec.$ = {};
 mojo.internal.bindings.blink.mojom.StorageArea.$interfaceName = 'blink.mojom.StorageArea';
-mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec.$ = {};
 
 mojo.internal.bindings.blink.mojom.kPerStorageAreaQuota = 10485760;
 

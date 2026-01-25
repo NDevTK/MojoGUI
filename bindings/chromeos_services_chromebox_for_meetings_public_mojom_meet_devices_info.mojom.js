@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,39 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.cfm = mojo.internal.bindings.chromeos.cfm || {};
 mojo.internal.bindings.chromeos.cfm.mojom = mojo.internal.bindings.chromeos.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo = {};
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec = mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec = mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo || {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesInfo';
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver = {};
-mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec = { $ : {} };
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver || {};
+mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec.$ = {};
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver.$interfaceName = 'chromeos.cfm.mojom.PolicyInfoObserver';
-mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$ = {};
 
 // Interface: MeetDevicesInfo
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver = class {

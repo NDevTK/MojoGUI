@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,33 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket = {};
-mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocketModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket = mojo.internal.bindings.network.mojom.RestrictedUDPSocket || {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedUDPSocket.$interfaceName = 'network.mojom.RestrictedUDPSocket';
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

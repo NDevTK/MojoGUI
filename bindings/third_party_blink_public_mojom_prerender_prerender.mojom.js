@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,22 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor = {};
-mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec = mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec = mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor || {};
+mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorSpec.$ = {};
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor.$interfaceName = 'blink.mojom.NoStatePrefetchProcessor';
-mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

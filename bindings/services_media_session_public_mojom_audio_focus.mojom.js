@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,48 +124,80 @@
  mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 mojo.internal.bindings.media_session.mojom = mojo.internal.bindings.media_session.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_session.mojom.EnforcementModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusObserver = {};
-mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec = { $ : {} };
+mojo.internal.bindings.media_session.mojom.EnforcementModeSpec = mojo.internal.bindings.media_session.mojom.EnforcementModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec = mojo.internal.bindings.media_session.mojom.AudioFocusTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestStateSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusObserver = mojo.internal.bindings.media_session.mojom.AudioFocusObserver || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec = mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusObserverSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.AudioFocusObserver.$interfaceName = 'media_session.mojom.AudioFocusObserver';
-mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient = {};
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec = { $ : {} };
+mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec || { $ : {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient.$interfaceName = 'media_session.mojom.AudioFocusRequestClient';
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager = {};
-mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = { $ : {} };
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager = mojo.internal.bindings.media_session.mojom.AudioFocusManager || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec || { $ : {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManager.$interfaceName = 'media_session.mojom.AudioFocusManager';
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug = {};
-mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec = { $ : {} };
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug || {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec || { $ : {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug.$interfaceName = 'media_session.mojom.AudioFocusManagerDebug';
-mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};

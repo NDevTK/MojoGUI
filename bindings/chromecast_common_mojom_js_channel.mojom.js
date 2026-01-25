@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,29 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.JsChannel = {};
-mojo.internal.bindings.chromecast.mojom.JsChannelSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.JsChannel = mojo.internal.bindings.chromecast.mojom.JsChannel || {};
+mojo.internal.bindings.chromecast.mojom.JsChannelSpec = mojo.internal.bindings.chromecast.mojom.JsChannelSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.JsChannel.$interfaceName = 'chromecast.mojom.JsChannel';
-mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.JsChannelClient = {};
-mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelClient = mojo.internal.bindings.chromecast.mojom.JsChannelClient || {};
+mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec = mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelClientSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.JsChannelClient.$interfaceName = 'chromecast.mojom.JsChannelClient';
-mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider = {};
-mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec = mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec = mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider = mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider || {};
+mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec = mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider.$interfaceName = 'chromecast.mojom.JsChannelBindingProvider';
-mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec = mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$ = {};
 
 // Interface: JsChannel
 mojo.internal.bindings.chromecast.mojom.JsChannelPendingReceiver = class {

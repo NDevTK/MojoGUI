@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,37 @@
 
  mojo.internal.bindings.contextual_tasks_internals = mojo.internal.bindings.contextual_tasks_internals || {};
 mojo.internal.bindings.contextual_tasks_internals.mojom = mojo.internal.bindings.contextual_tasks_internals.mojom || {};
-mojo.internal.bindings.contextual_tasks = mojo.internal.bindings.contextual_tasks || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.contextual_tasks = mojo.internal.bindings.contextual_tasks || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory = {};
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory || {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory';
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler = {};
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler || {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerSpec.$ = {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler';
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage = {};
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec = { $ : {} };
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage || {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec || { $ : {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$ = {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage.$interfaceName = 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage';
-mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.contextual_tasks = mojo.internal.bindings.contextual_tasks || {};

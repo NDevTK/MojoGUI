@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,27 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeculationHost = {};
-mojo.internal.bindings.blink.mojom.SpeculationHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SpeculationActionSpec = mojo.internal.bindings.blink.mojom.SpeculationActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec = mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec = mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec = mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec = mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeculationHost = mojo.internal.bindings.blink.mojom.SpeculationHost || {};
+mojo.internal.bindings.blink.mojom.SpeculationHostSpec = mojo.internal.bindings.blink.mojom.SpeculationHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SpeculationHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeculationHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeculationHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SpeculationHost.$interfaceName = 'blink.mojom.SpeculationHost';
-mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

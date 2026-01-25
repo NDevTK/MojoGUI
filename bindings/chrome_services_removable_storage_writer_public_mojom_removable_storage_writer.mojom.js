@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriter = {};
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriter = mojo.internal.bindings.chrome.mojom.RemovableStorageWriter || {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriterSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriter.$interfaceName = 'chrome.mojom.RemovableStorageWriter';
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient = {};
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient = mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient || {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient.$interfaceName = 'chrome.mojom.RemovableStorageWriterClient';
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

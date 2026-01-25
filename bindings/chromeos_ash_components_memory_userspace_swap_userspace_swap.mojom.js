@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,31 @@
 
  mojo.internal.bindings.userspace_swap = mojo.internal.bindings.userspace_swap || {};
 mojo.internal.bindings.userspace_swap.mojom = mojo.internal.bindings.userspace_swap.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization = {};
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec = { $ : {} };
+mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec = mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization || {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec || { $ : {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationSpec.$ = {};
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization.$interfaceName = 'userspace_swap.mojom.UserspaceSwapInitialization';
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap = {};
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec = { $ : {} };
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap || {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec || { $ : {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapSpec.$ = {};
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap.$interfaceName = 'userspace_swap.mojom.UserspaceSwap';
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = { $: {} };
-mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$ = {};
+mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$ = {};
 
 // Interface: UserspaceSwapInitialization
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,44 +124,74 @@
  mojo.internal.bindings.emoji_picker = mojo.internal.bindings.emoji_picker || {};
 mojo.internal.bindings.emoji_picker.mojom = mojo.internal.bindings.emoji_picker.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.tenor = mojo.internal.bindings.tenor || {};
 
-mojo.internal.bindings.emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.emoji_picker.mojom.FeatureSpec = mojo.internal.bindings.emoji_picker.mojom.FeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.emoji_picker.mojom.CategorySpec = mojo.internal.bindings.emoji_picker.mojom.CategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec = mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec = mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory = mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec = mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory.$interfaceName = 'emoji_picker.mojom.PageHandlerFactory';
-mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler = {};
-mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler = mojo.internal.bindings.emoji_picker.mojom.PageHandler || {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.emoji_picker.mojom.PageHandler.$interfaceName = 'emoji_picker.mojom.PageHandler';
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = { $: {} };
-mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$ = {};
+mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,37 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayProvider = {};
-mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec = mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayProvider = mojo.internal.bindings.media.mojom.AndroidOverlayProvider || {};
+mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec = mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayProviderSpec.$ = {};
 mojo.internal.bindings.media.mojom.AndroidOverlayProvider.$interfaceName = 'media.mojom.AndroidOverlayProvider';
-mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlay = {};
-mojo.internal.bindings.media.mojom.AndroidOverlaySpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlay = mojo.internal.bindings.media.mojom.AndroidOverlay || {};
+mojo.internal.bindings.media.mojom.AndroidOverlaySpec = mojo.internal.bindings.media.mojom.AndroidOverlaySpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlaySpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlaySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlaySpec.$ = {};
 mojo.internal.bindings.media.mojom.AndroidOverlay.$interfaceName = 'media.mojom.AndroidOverlay';
-mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayClient = {};
-mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClient = mojo.internal.bindings.media.mojom.AndroidOverlayClient || {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.AndroidOverlayClient.$interfaceName = 'media.mojom.AndroidOverlayClient';
-mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec = mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

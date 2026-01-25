@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,20 @@
  mojo.internal.bindings.ai = mojo.internal.bindings.ai || {};
 mojo.internal.bindings.ai.mojom = mojo.internal.bindings.ai.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ai.mojom.AIPrototypingService = {};
-mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec = { $ : {} };
+mojo.internal.bindings.ai.mojom.AIPrototypingService = mojo.internal.bindings.ai.mojom.AIPrototypingService || {};
+mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec = mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec.$.structSpec && mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.AIPrototypingServiceSpec.$ = {};
 mojo.internal.bindings.ai.mojom.AIPrototypingService.$interfaceName = 'ai.mojom.AIPrototypingService';
-mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = { $: {} };
-mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$ = {};
+mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$ = {};
+mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

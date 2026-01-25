@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,32 @@
  mojo.internal.bindings.action_chips = mojo.internal.bindings.action_chips || {};
 mojo.internal.bindings.action_chips.mojom = mojo.internal.bindings.action_chips.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.action_chips.mojom.TabInfoSpec = { $: {} };
-mojo.internal.bindings.action_chips.mojom.ActionChipSpec = { $: {} };
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandler = {};
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec = { $ : {} };
+mojo.internal.bindings.action_chips.mojom.ChipTypeSpec = mojo.internal.bindings.action_chips.mojom.ChipTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.action_chips.mojom.TabInfoSpec = mojo.internal.bindings.action_chips.mojom.TabInfoSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$ = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipSpec = mojo.internal.bindings.action_chips.mojom.ActionChipSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipSpec.$ = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandler = mojo.internal.bindings.action_chips.mojom.ActionChipsHandler || {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerSpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler.$interfaceName = 'action_chips.mojom.ActionChipsHandler';
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = { $: {} };
-mojo.internal.bindings.action_chips.mojom.Page = {};
-mojo.internal.bindings.action_chips.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$ = {};
+mojo.internal.bindings.action_chips.mojom.Page = mojo.internal.bindings.action_chips.mojom.Page || {};
+mojo.internal.bindings.action_chips.mojom.PageSpec = mojo.internal.bindings.action_chips.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.action_chips.mojom.PageSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.PageSpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.Page.$interfaceName = 'action_chips.mojom.Page';
-mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory = {};
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory || {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactorySpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory.$interfaceName = 'action_chips.mojom.ActionChipsHandlerFactory';
-mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,17 @@
 
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ui.mojom.ImeTextSpanSpec = { $: {} };
+mojo.internal.bindings.ui.mojom.TextInputModeSpec = mojo.internal.bindings.ui.mojom.TextInputModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.TextInputActionSpec = mojo.internal.bindings.ui.mojom.TextInputActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.TextInputTypeSpec = mojo.internal.bindings.ui.mojom.TextInputTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec = mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec = mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec = mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ui.mojom.ImeTextSpanSpec = mojo.internal.bindings.ui.mojom.ImeTextSpanSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.ImeTextSpanSpec.$.structSpec && mojo.internal.bindings.ui.mojom.ImeTextSpanSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.ImeTextSpanSpec.$ = {};
 
 // Enum: TextInputMode
 mojo.internal.bindings.ui.mojom.TextInputMode = {

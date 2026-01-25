@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DetectionArgsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OomInterventionHost = {};
-mojo.internal.bindings.blink.mojom.OomInterventionHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DetectionArgsSpec = mojo.internal.bindings.blink.mojom.DetectionArgsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OomInterventionHost = mojo.internal.bindings.blink.mojom.OomInterventionHost || {};
+mojo.internal.bindings.blink.mojom.OomInterventionHostSpec = mojo.internal.bindings.blink.mojom.OomInterventionHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.OomInterventionHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OomInterventionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OomInterventionHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.OomInterventionHost.$interfaceName = 'blink.mojom.OomInterventionHost';
-mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OomIntervention = {};
-mojo.internal.bindings.blink.mojom.OomInterventionSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OomIntervention = mojo.internal.bindings.blink.mojom.OomIntervention || {};
+mojo.internal.bindings.blink.mojom.OomInterventionSpec = mojo.internal.bindings.blink.mojom.OomInterventionSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.OomInterventionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OomInterventionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OomInterventionSpec.$ = {};
 mojo.internal.bindings.blink.mojom.OomIntervention.$interfaceName = 'blink.mojom.OomIntervention';
-mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec = mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$ = {};
 
 // Interface: OomInterventionHost
 mojo.internal.bindings.blink.mojom.OomInterventionHostPendingReceiver = class {

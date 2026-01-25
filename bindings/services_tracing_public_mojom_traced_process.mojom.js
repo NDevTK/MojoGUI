@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,19 @@
 
  mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.TracedProcess = {};
-mojo.internal.bindings.tracing.mojom.TracedProcessSpec = { $ : {} };
+mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec = mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.TracedProcess = mojo.internal.bindings.tracing.mojom.TracedProcess || {};
+mojo.internal.bindings.tracing.mojom.TracedProcessSpec = mojo.internal.bindings.tracing.mojom.TracedProcessSpec || { $ : {} };
+if (mojo.internal.bindings.tracing.mojom.TracedProcessSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracedProcessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracedProcessSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.TracedProcess.$interfaceName = 'tracing.mojom.TracedProcess';
-mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = { $: {} };
-mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec = mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$ = {};
 
 // Interface: TracedProcess
 mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver = class {

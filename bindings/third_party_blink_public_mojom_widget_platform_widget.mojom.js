@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,75 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.WidgetCompositor = {};
-mojo.internal.bindings.blink.mojom.WidgetCompositorSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WidgetCompositor = mojo.internal.bindings.blink.mojom.WidgetCompositor || {};
+mojo.internal.bindings.blink.mojom.WidgetCompositorSpec = mojo.internal.bindings.blink.mojom.WidgetCompositorSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WidgetCompositorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetCompositorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetCompositorSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WidgetCompositor.$interfaceName = 'blink.mojom.WidgetCompositor';
-mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost = {};
-mojo.internal.bindings.blink.mojom.WidgetHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost = mojo.internal.bindings.blink.mojom.WidgetHost || {};
+mojo.internal.bindings.blink.mojom.WidgetHostSpec = mojo.internal.bindings.blink.mojom.WidgetHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WidgetHost.$interfaceName = 'blink.mojom.WidgetHost';
-mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget = {};
-mojo.internal.bindings.blink.mojom.WidgetSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget = mojo.internal.bindings.blink.mojom.Widget || {};
+mojo.internal.bindings.blink.mojom.WidgetSpec = mojo.internal.bindings.blink.mojom.WidgetSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WidgetSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetSpec.$ = {};
 mojo.internal.bindings.blink.mojom.Widget.$interfaceName = 'blink.mojom.Widget';
-mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderInputRouterClient = {};
-mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderInputRouterClient = mojo.internal.bindings.blink.mojom.RenderInputRouterClient || {};
+mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec = mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderInputRouterClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RenderInputRouterClient.$interfaceName = 'blink.mojom.RenderInputRouterClient';
-mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

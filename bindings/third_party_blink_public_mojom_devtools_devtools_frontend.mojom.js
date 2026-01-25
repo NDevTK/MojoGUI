@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,22 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DevToolsFrontend = {};
-mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsFrontend = mojo.internal.bindings.blink.mojom.DevToolsFrontend || {};
+mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec = mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsFrontendSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsFrontend.$interfaceName = 'blink.mojom.DevToolsFrontend';
-mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsFrontendHost = {};
-mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsFrontendHost = mojo.internal.bindings.blink.mojom.DevToolsFrontendHost || {};
+mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec = mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsFrontendHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsFrontendHost.$interfaceName = 'blink.mojom.DevToolsFrontendHost';
-mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

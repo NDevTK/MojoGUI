@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,53 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver = {};
-mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec = mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SamlUserSessionPropertiesSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver = mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver || {};
+mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec = mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver.$interfaceName = 'crosapi.mojom.ExternalLogoutRequestObserver';
-mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login = {};
-mojo.internal.bindings.crosapi.mojom.LoginSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec = mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login = mojo.internal.bindings.crosapi.mojom.Login || {};
+mojo.internal.bindings.crosapi.mojom.LoginSpec = mojo.internal.bindings.crosapi.mojom.LoginSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.LoginSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LoginSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LoginSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.Login.$interfaceName = 'crosapi.mojom.Login';
-mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec.$ = {};
 
 // Interface: ExternalLogoutRequestObserver
 mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver = class {

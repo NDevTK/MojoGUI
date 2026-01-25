@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AIWriterToneSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIWriterFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIWriterLengthSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIWriter = {};
-mojo.internal.bindings.blink.mojom.AIWriterSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIWriterToneSpec = mojo.internal.bindings.blink.mojom.AIWriterToneSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIWriterFormatSpec = mojo.internal.bindings.blink.mojom.AIWriterFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIWriterLengthSpec = mojo.internal.bindings.blink.mojom.AIWriterLengthSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIWriterCreateOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIWriter = mojo.internal.bindings.blink.mojom.AIWriter || {};
+mojo.internal.bindings.blink.mojom.AIWriterSpec = mojo.internal.bindings.blink.mojom.AIWriterSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIWriterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIWriterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIWriterSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIWriter.$interfaceName = 'blink.mojom.AIWriter';
-mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec = mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec = mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

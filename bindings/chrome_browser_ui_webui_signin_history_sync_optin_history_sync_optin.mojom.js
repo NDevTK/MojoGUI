@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,40 @@
 
  mojo.internal.bindings.history_sync_optin = mojo.internal.bindings.history_sync_optin || {};
 mojo.internal.bindings.history_sync_optin.mojom = mojo.internal.bindings.history_sync_optin.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec = mojo.internal.bindings.history_sync_optin.mojom.LaunchContextSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec = mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec = mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory = mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory.$interfaceName = 'history_sync_optin.mojom.PageHandlerFactory';
-mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.PageHandler = {};
-mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandler = mojo.internal.bindings.history_sync_optin.mojom.PageHandler || {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.history_sync_optin.mojom.PageHandler.$interfaceName = 'history_sync_optin.mojom.PageHandler';
-mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.Page = {};
-mojo.internal.bindings.history_sync_optin.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.Page = mojo.internal.bindings.history_sync_optin.mojom.Page || {};
+mojo.internal.bindings.history_sync_optin.mojom.PageSpec = mojo.internal.bindings.history_sync_optin.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.PageSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.PageSpec.$ = {};
 mojo.internal.bindings.history_sync_optin.mojom.Page.$interfaceName = 'history_sync_optin.mojom.Page';
-mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = { $: {} };
+mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec = mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec && mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

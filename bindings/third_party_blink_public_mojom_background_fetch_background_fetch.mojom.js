@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,44 +123,72 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver = {};
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver || {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver.$interfaceName = 'blink.mojom.BackgroundFetchRegistrationObserver';
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService = {};
-mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService = mojo.internal.bindings.blink.mojom.BackgroundFetchService || {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BackgroundFetchService.$interfaceName = 'blink.mojom.BackgroundFetchService';
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService = {};
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService || {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService.$interfaceName = 'blink.mojom.BackgroundFetchRegistrationService';
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

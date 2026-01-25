@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,30 +125,46 @@
 mojo.internal.bindings.actor.ui = mojo.internal.bindings.actor.ui || {};
 mojo.internal.bindings.actor.ui.mojom = mojo.internal.bindings.actor.ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.actor.ui.mojom.ThemeSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.actor.ui.mojom.ThemeSpec = mojo.internal.bindings.actor.ui.mojom.ThemeSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory || {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler = {};
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler || {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec.$ = {};
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandler';
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage = {};
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec = { $ : {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage || {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec || { $ : {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec.$ = {};
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage.$interfaceName = 'actor.ui.mojom.ActorOverlayPage';
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = { $: {} };
-mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

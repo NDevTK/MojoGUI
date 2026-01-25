@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,35 +123,51 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.OsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.TrustTokenParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer = {};
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec = mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec = mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec = mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec = mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec = mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.OsSpec = mojo.internal.bindings.network.mojom.OsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec = mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.StatusSpec = mojo.internal.bindings.network.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatusSpec = mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TrustTokenParamsSpec = mojo.internal.bindings.network.mojom.TrustTokenParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec = mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec.$.structSpec && mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec.$ = {};
+mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec = mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec.$.structSpec && mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec = mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec = mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec.$ = {};
+mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec = mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec.$.structSpec && mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec.$ = {};
+mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec = mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec.$.structSpec && mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec = mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec.$ = {};
+mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec = mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec.$.structSpec && mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec.$ = {};
+mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec = mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec.$.structSpec && mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer || {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererSpec.$ = {};
 mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer.$interfaceName = 'network.mojom.TrustTokenQueryAnswerer';
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

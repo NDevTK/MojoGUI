@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,33 +124,54 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.help_app = mojo.internal.bindings.ash.help_app || {};
 mojo.internal.bindings.ash.help_app.mojom = mojo.internal.bindings.ash.help_app.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec = mojo.internal.bindings.ash.help_app.mojom.ActionTypeIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec = mojo.internal.bindings.ash.help_app.mojom.SettingsComponentSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec = mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.DeviceInfoSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory = mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory.$interfaceName = 'ash.help_app.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler = {};
-mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler = mojo.internal.bindings.ash.help_app.mojom.PageHandler || {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.help_app.mojom.PageHandler.$interfaceName = 'ash.help_app.mojom.PageHandler';
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

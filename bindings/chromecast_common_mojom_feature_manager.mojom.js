@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,12 +125,16 @@
 mojo.internal.bindings.chromecast.shell = mojo.internal.bindings.chromecast.shell || {};
 mojo.internal.bindings.chromecast.shell.mojom = mojo.internal.bindings.chromecast.shell.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.FeatureManager = {};
-mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec = { $ : {} };
+mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec = mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.FeatureManager = mojo.internal.bindings.chromecast.shell.mojom.FeatureManager || {};
+mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec = mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerSpec.$ = {};
 mojo.internal.bindings.chromecast.shell.mojom.FeatureManager.$interfaceName = 'chromecast.shell.mojom.FeatureManager';
-mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,22 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.Gpu = {};
-mojo.internal.bindings.viz.mojom.GpuSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.Gpu = mojo.internal.bindings.viz.mojom.Gpu || {};
+mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.GpuSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuSpec.$ = {};
 mojo.internal.bindings.viz.mojom.Gpu.$interfaceName = 'viz.mojom.Gpu';
-mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec = mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};

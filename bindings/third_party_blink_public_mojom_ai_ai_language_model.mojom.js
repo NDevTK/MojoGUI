@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,51 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient = {};
-mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec = mojo.internal.bindings.blink.mojom.AILanguageModelPromptRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec = mojo.internal.bindings.blink.mojom.AILanguageModelPromptTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec = mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelPromptContentSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelSamplingParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec = mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelInstanceInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec = mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelExpectedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec = mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelPromptSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelCreateOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient = mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient || {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient.$interfaceName = 'blink.mojom.AIManagerCreateLanguageModelClient';
-mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel = {};
-mojo.internal.bindings.blink.mojom.AILanguageModelSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel = mojo.internal.bindings.blink.mojom.AILanguageModel || {};
+mojo.internal.bindings.blink.mojom.AILanguageModelSpec = mojo.internal.bindings.blink.mojom.AILanguageModelSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModelSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModelSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AILanguageModel.$interfaceName = 'blink.mojom.AILanguageModel';
-mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,28 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec = { $: {} };
-mojo.internal.bindings.network.mojom.LockNameSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = { $: {} };
+mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec = mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageModifierMethodSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageValueArgumentSpec.$ = {};
+mojo.internal.bindings.network.mojom.LockNameSpec = mojo.internal.bindings.network.mojom.LockNameSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.LockNameSpec.$.structSpec && mojo.internal.bindings.network.mojom.LockNameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.LockNameSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec = mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageSetMethodSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec = mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageAppendMethodSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec = mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageDeleteMethodSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec = mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageClearMethodSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec = mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$.structSpec && mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder = {};
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = { $ : {} };
+mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec = mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder || {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec || { $ : {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder.$interfaceName = 'webnn.mojom.WebNNGraphBuilder';
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

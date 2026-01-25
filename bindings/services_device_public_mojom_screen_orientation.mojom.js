@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,27 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.ScreenOrientation = {};
-mojo.internal.bindings.device.mojom.ScreenOrientationSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.ScreenOrientation = mojo.internal.bindings.device.mojom.ScreenOrientation || {};
+mojo.internal.bindings.device.mojom.ScreenOrientationSpec = mojo.internal.bindings.device.mojom.ScreenOrientationSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientationSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientationSpec.$ = {};
 mojo.internal.bindings.device.mojom.ScreenOrientation.$interfaceName = 'device.mojom.ScreenOrientation';
-mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.ScreenOrientationListener = {};
-mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.ScreenOrientationListener = mojo.internal.bindings.device.mojom.ScreenOrientationListener || {};
+mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec = mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientationListenerSpec.$ = {};
 mojo.internal.bindings.device.mojom.ScreenOrientationListener.$interfaceName = 'device.mojom.ScreenOrientationListener';
-mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

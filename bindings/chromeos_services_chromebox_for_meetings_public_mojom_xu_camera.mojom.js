@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,42 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
 mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cfm.mojom.GetFnSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera = {};
-mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec = { $ : {} };
+mojo.internal.bindings.ash.cfm.mojom.GetFnSpec = mojo.internal.bindings.ash.cfm.mojom.GetFnSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec = mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.WebcamIdSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec = mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.CtrlTypeSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec = mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.MenuInfoSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec = mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.MenuEntriesSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec = mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.ControlMappingSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec = mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.ControlQuerySpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera = mojo.internal.bindings.ash.cfm.mojom.XuCamera || {};
+mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec = mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCameraSpec.$ = {};
 mojo.internal.bindings.ash.cfm.mojom.XuCamera.$interfaceName = 'ash.cfm.mojom.XuCamera';
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

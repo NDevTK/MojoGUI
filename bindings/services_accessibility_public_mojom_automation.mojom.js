@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,24 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ax.mojom.Automation = {};
-mojo.internal.bindings.ax.mojom.AutomationSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.Automation = mojo.internal.bindings.ax.mojom.Automation || {};
+mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom.AutomationSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AutomationSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AutomationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AutomationSpec.$ = {};
 mojo.internal.bindings.ax.mojom.Automation.$interfaceName = 'ax.mojom.Automation';
-mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec = mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

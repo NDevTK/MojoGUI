@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -123,18 +126,28 @@ mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
 mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
 mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = {};
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec = { $ : {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageSpec.$ = {};
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage.$interfaceName = 'ash.nearby.presence.mojom.NearbyPresenceCredentialStorage';
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

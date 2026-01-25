@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,28 @@
 
  mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService = {};
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec = { $ : {} };
+mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec = mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService || {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec || { $ : {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceSpec.$ = {};
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService.$interfaceName = 'payments.mojom.SecurePaymentConfirmationService';
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = { $: {} };
-mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$ = {};
+mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

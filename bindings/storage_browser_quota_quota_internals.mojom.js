@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,38 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.BucketTableEntrySpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler = {};
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.BucketTableEntrySpec = mojo.internal.bindings.storage.mojom.BucketTableEntrySpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BucketTableEntrySpec.$.structSpec && mojo.internal.bindings.storage.mojom.BucketTableEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BucketTableEntrySpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler || {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerSpec.$ = {};
 mojo.internal.bindings.storage.mojom.QuotaInternalsHandler.$interfaceName = 'storage.mojom.QuotaInternalsHandler';
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

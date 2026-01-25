@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,39 +124,64 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec = { $: {} };
-mojo.internal.bindings.network.mojom.FileEnumerator = {};
-mojo.internal.bindings.network.mojom.FileEnumeratorSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec = mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec.$.structSpec && mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec.$ = {};
+mojo.internal.bindings.network.mojom.FileEnumerator = mojo.internal.bindings.network.mojom.FileEnumerator || {};
+mojo.internal.bindings.network.mojom.FileEnumeratorSpec = mojo.internal.bindings.network.mojom.FileEnumeratorSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.FileEnumeratorSpec.$.structSpec && mojo.internal.bindings.network.mojom.FileEnumeratorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FileEnumeratorSpec.$ = {};
 mojo.internal.bindings.network.mojom.FileEnumerator.$interfaceName = 'network.mojom.FileEnumerator';
-mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations = {};
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec = mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations || {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsSpec.$ = {};
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations.$interfaceName = 'network.mojom.HttpCacheBackendFileOperations';
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory = {};
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec = { $ : {} };
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory || {};
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactorySpec.$ = {};
 mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory.$interfaceName = 'network.mojom.HttpCacheBackendFileOperationsFactory';
-mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec = mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

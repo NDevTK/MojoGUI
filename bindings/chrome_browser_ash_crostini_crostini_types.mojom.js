@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,13 @@
 
  mojo.internal.bindings.crostini = mojo.internal.bindings.crostini || {};
 mojo.internal.bindings.crostini.mojom = mojo.internal.bindings.crostini.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crostini.mojom.InstallerStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crostini.mojom.InstallerErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec = { $: {} };
+mojo.internal.bindings.crostini.mojom.InstallerStateSpec = mojo.internal.bindings.crostini.mojom.InstallerStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crostini.mojom.InstallerErrorSpec = mojo.internal.bindings.crostini.mojom.InstallerErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec = mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec || { $: {} };
+if (mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec.$.structSpec && mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec.$ = {};
 
 // Enum: InstallerState
 mojo.internal.bindings.crostini.mojom.InstallerState = {

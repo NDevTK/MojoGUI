@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,29 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.printing.mojom.PdfToEmfConverter = {};
-mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter = mojo.internal.bindings.printing.mojom.PdfToEmfConverter || {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PdfToEmfConverter.$interfaceName = 'printing.mojom.PdfToEmfConverter';
-mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory = {};
-mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory || {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactorySpec.$ = {};
 mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory.$interfaceName = 'printing.mojom.PdfToEmfConverterFactory';
-mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,34 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FindOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage = {};
-mojo.internal.bindings.blink.mojom.FindInPageSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.StopFindActionSpec = mojo.internal.bindings.blink.mojom.StopFindActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec = mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FindOptionsSpec = mojo.internal.bindings.blink.mojom.FindOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPage = mojo.internal.bindings.blink.mojom.FindInPage || {};
+mojo.internal.bindings.blink.mojom.FindInPageSpec = mojo.internal.bindings.blink.mojom.FindInPageSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FindInPageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPageSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FindInPage.$interfaceName = 'blink.mojom.FindInPage';
-mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPageClient = {};
-mojo.internal.bindings.blink.mojom.FindInPageClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPageClient = mojo.internal.bindings.blink.mojom.FindInPageClient || {};
+mojo.internal.bindings.blink.mojom.FindInPageClientSpec = mojo.internal.bindings.blink.mojom.FindInPageClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FindInPageClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPageClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPageClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FindInPageClient.$interfaceName = 'blink.mojom.FindInPageClient';
-mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,45 +123,68 @@
 
  mojo.internal.bindings.proxy_resolver = mojo.internal.bindings.proxy_resolver || {};
 mojo.internal.bindings.proxy_resolver.mojom = mojo.internal.bindings.proxy_resolver.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient = {};
-mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec = mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec = mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient = mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient || {};
+mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec = mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientSpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient.$interfaceName = 'proxy_resolver.mojom.HostResolverRequestClient';
-mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver = {};
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver || {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverSpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver.$interfaceName = 'proxy_resolver.mojom.ProxyResolver';
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient = {};
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient || {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientSpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient.$interfaceName = 'proxy_resolver.mojom.ProxyResolverRequestClient';
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory = {};
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory || {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactorySpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory.$interfaceName = 'proxy_resolver.mojom.ProxyResolverFactory';
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient = {};
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient || {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientSpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient.$interfaceName = 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient';
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver = {};
-mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec = { $ : {} };
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver || {};
+mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec || { $ : {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverSpec.$ = {};
 mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver.$interfaceName = 'proxy_resolver.mojom.SystemProxyResolver';
-mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

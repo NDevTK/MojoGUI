@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,44 +125,66 @@
 mojo.internal.bindings.ash.firmware_update = mojo.internal.bindings.ash.firmware_update || {};
 mojo.internal.bindings.ash.firmware_update.mojom = mojo.internal.bindings.ash.firmware_update.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver = {};
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdatePrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestKindSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec = mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.FirmwareUpdateSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec = mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.InstallationProgressSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver = mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver || {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateObserver';
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver = {};
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver || {};
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver.$interfaceName = 'ash.firmware_update.mojom.DeviceRequestObserver';
-mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver = {};
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver || {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateProgressObserver';
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider = {};
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider || {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider.$interfaceName = 'ash.firmware_update.mojom.UpdateProvider';
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.InstallController = {};
-mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallController = mojo.internal.bindings.ash.firmware_update.mojom.InstallController || {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec = mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.InstallController.$interfaceName = 'ash.firmware_update.mojom.InstallController';
-mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils = {};
-mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec = { $ : {} };
+mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils = mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils || {};
+mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec = mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec || { $ : {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsSpec.$ = {};
 mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils.$interfaceName = 'ash.firmware_update.mojom.SystemUtils';
-mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

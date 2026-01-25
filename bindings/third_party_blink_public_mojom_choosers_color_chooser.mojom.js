@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,35 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ColorSuggestionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ColorChooserFactory = {};
-mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ColorSuggestionSpec = mojo.internal.bindings.blink.mojom.ColorSuggestionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ColorSuggestionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorSuggestionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorSuggestionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ColorChooserFactory = mojo.internal.bindings.blink.mojom.ColorChooserFactory || {};
+mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec = mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorChooserFactorySpec.$ = {};
 mojo.internal.bindings.blink.mojom.ColorChooserFactory.$interfaceName = 'blink.mojom.ColorChooserFactory';
-mojo.internal.bindings.blink.mojom.ColorChooser = {};
-mojo.internal.bindings.blink.mojom.ColorChooserSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ColorChooser = mojo.internal.bindings.blink.mojom.ColorChooser || {};
+mojo.internal.bindings.blink.mojom.ColorChooserSpec = mojo.internal.bindings.blink.mojom.ColorChooserSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ColorChooserSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorChooserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorChooserSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ColorChooser.$interfaceName = 'blink.mojom.ColorChooser';
-mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ColorChooserClient = {};
-mojo.internal.bindings.blink.mojom.ColorChooserClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ColorChooserClient = mojo.internal.bindings.blink.mojom.ColorChooserClient || {};
+mojo.internal.bindings.blink.mojom.ColorChooserClientSpec = mojo.internal.bindings.blink.mojom.ColorChooserClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ColorChooserClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorChooserClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorChooserClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ColorChooserClient.$interfaceName = 'blink.mojom.ColorChooserClient';
-mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EyeDropperChooser = {};
-mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EyeDropperChooser = mojo.internal.bindings.blink.mojom.EyeDropperChooser || {};
+mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec = mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EyeDropperChooserSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EyeDropperChooser.$interfaceName = 'blink.mojom.EyeDropperChooser';
-mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec = mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$ = {};
 
 // Interface: ColorChooserFactory
 mojo.internal.bindings.blink.mojom.ColorChooserFactoryPendingReceiver = class {

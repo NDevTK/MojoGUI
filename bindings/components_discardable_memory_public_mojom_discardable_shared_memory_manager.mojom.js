@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,18 @@
  mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
 mojo.internal.bindings.discardable_memory.mojom = mojo.internal.bindings.discardable_memory.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager = {};
-mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = { $ : {} };
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager || {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec || { $ : {} };
+if (mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec.$.structSpec && mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerSpec.$ = {};
 mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager.$interfaceName = 'discardable_memory.mojom.DiscardableSharedMemoryManager';
-mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = { $: {} };
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec = mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

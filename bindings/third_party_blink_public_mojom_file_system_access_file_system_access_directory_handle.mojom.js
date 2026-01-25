@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,40 +123,71 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener = {};
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessHandleSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener.$interfaceName = 'blink.mojom.FileSystemAccessDirectoryEntriesListener';
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle = {};
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle || {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle.$interfaceName = 'blink.mojom.FileSystemAccessDirectoryHandle';
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

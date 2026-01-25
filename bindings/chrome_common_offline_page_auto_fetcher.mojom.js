@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher = {};
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher || {};
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher.$interfaceName = 'chrome.mojom.OfflinePageAutoFetcher';
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec.$ = {};
 
 // Enum: OfflinePageAutoFetcherScheduleResult
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResult = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,22 @@
 
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PaperSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.MediaTypeSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PageOutputQualitySpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec = mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PaperSpec = mojo.internal.bindings.printing.mojom.PaperSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PaperSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PaperSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PaperSpec.$ = {};
+mojo.internal.bindings.printing.mojom.MediaTypeSpec = mojo.internal.bindings.printing.mojom.MediaTypeSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.MediaTypeSpec.$.structSpec && mojo.internal.bindings.printing.mojom.MediaTypeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.MediaTypeSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec = mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PageOutputQualityAttributeSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PageOutputQualitySpec = mojo.internal.bindings.printing.mojom.PageOutputQualitySpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PageOutputQualitySpec.$.structSpec && mojo.internal.bindings.printing.mojom.PageOutputQualitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PageOutputQualitySpec.$ = {};
+mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec = mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrinterSemanticCapsAndDefaultsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

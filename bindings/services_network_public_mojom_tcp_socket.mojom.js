@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,40 +123,67 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPBoundSocket = {};
-mojo.internal.bindings.network.mojom.TCPBoundSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec = mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec = mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPServerSocketOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPBoundSocket = mojo.internal.bindings.network.mojom.TCPBoundSocket || {};
+mojo.internal.bindings.network.mojom.TCPBoundSocketSpec = mojo.internal.bindings.network.mojom.TCPBoundSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.TCPBoundSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPBoundSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPBoundSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.TCPBoundSocket.$interfaceName = 'network.mojom.TCPBoundSocket';
-mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket = {};
-mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec = mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec = mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket = mojo.internal.bindings.network.mojom.TCPConnectedSocket || {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.TCPConnectedSocket.$interfaceName = 'network.mojom.TCPConnectedSocket';
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SocketObserver = {};
-mojo.internal.bindings.network.mojom.SocketObserverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SocketObserver = mojo.internal.bindings.network.mojom.SocketObserver || {};
+mojo.internal.bindings.network.mojom.SocketObserverSpec = mojo.internal.bindings.network.mojom.SocketObserverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.SocketObserverSpec.$.structSpec && mojo.internal.bindings.network.mojom.SocketObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SocketObserverSpec.$ = {};
 mojo.internal.bindings.network.mojom.SocketObserver.$interfaceName = 'network.mojom.SocketObserver';
-mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPServerSocket = {};
-mojo.internal.bindings.network.mojom.TCPServerSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec = mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec = mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPServerSocket = mojo.internal.bindings.network.mojom.TCPServerSocket || {};
+mojo.internal.bindings.network.mojom.TCPServerSocketSpec = mojo.internal.bindings.network.mojom.TCPServerSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.TCPServerSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPServerSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPServerSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.TCPServerSocket.$interfaceName = 'network.mojom.TCPServerSocket';
-mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec = mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

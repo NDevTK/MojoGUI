@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,13 +125,16 @@
 mojo.internal.bindings.ntp.most_relevant_tab_resumption = mojo.internal.bindings.ntp.most_relevant_tab_resumption || {};
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec = { $: {} };
-mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = { $: {} };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.FormFactorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec.$ = {};
+mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec || { $: {} };
+if (mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$.structSpec && mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

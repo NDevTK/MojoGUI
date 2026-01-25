@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,30 @@
 
  mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec = { $: {} };
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec = { $: {} };
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver = {};
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec = { $ : {} };
+mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec = mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec || { $: {} };
+if (mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec.$.structSpec && mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec.$ = {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec || { $: {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec.$ = {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver || {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec || { $ : {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverSpec.$ = {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver.$interfaceName = 'cc.mojom.RenderFrameMetadataObserver';
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient = {};
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec = { $ : {} };
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient || {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec || { $ : {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientSpec.$ = {};
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient.$interfaceName = 'cc.mojom.RenderFrameMetadataObserverClient';
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = { $: {} };
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

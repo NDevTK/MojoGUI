@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,31 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.DataElementSpec = { $: {} };
-mojo.internal.bindings.network.mojom.EnabledClientHintsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLRequestSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLRequestBodySpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataElementBytesSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataElementFileSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataElementDataPipeSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SocketTagSpec = { $: {} };
+mojo.internal.bindings.network.mojom.DataElementSpec = mojo.internal.bindings.network.mojom.DataElementSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataElementSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataElementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataElementSpec.$ = {};
+mojo.internal.bindings.network.mojom.EnabledClientHintsSpec = mojo.internal.bindings.network.mojom.EnabledClientHintsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.EnabledClientHintsSpec.$.structSpec && mojo.internal.bindings.network.mojom.EnabledClientHintsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.EnabledClientHintsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec = mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TrustedUrlRequestParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec = mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebBundleTokenParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLRequestSpec = mojo.internal.bindings.network.mojom.URLRequestSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLRequestSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLRequestSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLRequestBodySpec = mojo.internal.bindings.network.mojom.URLRequestBodySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLRequestBodySpec.$.structSpec && mojo.internal.bindings.network.mojom.URLRequestBodySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLRequestBodySpec.$ = {};
+mojo.internal.bindings.network.mojom.DataElementBytesSpec = mojo.internal.bindings.network.mojom.DataElementBytesSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataElementBytesSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataElementBytesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataElementBytesSpec.$ = {};
+mojo.internal.bindings.network.mojom.DataElementFileSpec = mojo.internal.bindings.network.mojom.DataElementFileSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataElementFileSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataElementFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataElementFileSpec.$ = {};
+mojo.internal.bindings.network.mojom.DataElementDataPipeSpec = mojo.internal.bindings.network.mojom.DataElementDataPipeSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataElementDataPipeSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataElementDataPipeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataElementDataPipeSpec.$ = {};
+mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec = mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec.$.structSpec && mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DataElementChunkedDataPipeSpec.$ = {};
+mojo.internal.bindings.network.mojom.SocketTagSpec = mojo.internal.bindings.network.mojom.SocketTagSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SocketTagSpec.$.structSpec && mojo.internal.bindings.network.mojom.SocketTagSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SocketTagSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

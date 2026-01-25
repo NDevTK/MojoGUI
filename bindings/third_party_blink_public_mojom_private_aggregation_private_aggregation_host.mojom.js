@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DebugKeySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PrivateAggregationHost = {};
-mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DebugKeySpec = mojo.internal.bindings.blink.mojom.DebugKeySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DebugKeySpec.$.structSpec && mojo.internal.bindings.blink.mojom.DebugKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DebugKeySpec.$ = {};
+mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec = mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PrivateAggregationHost = mojo.internal.bindings.blink.mojom.PrivateAggregationHost || {};
+mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrivateAggregationHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PrivateAggregationHost.$interfaceName = 'blink.mojom.PrivateAggregationHost';
-mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec = mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,39 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.HitTestResponseSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibilityHost = {};
-mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.HitTestResponseSpec = mojo.internal.bindings.blink.mojom.HitTestResponseSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHost = mojo.internal.bindings.blink.mojom.RenderAccessibilityHost || {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec = mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibilityHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHost.$interfaceName = 'blink.mojom.RenderAccessibilityHost';
-mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility = {};
-mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility = mojo.internal.bindings.blink.mojom.RenderAccessibility || {};
+mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec = mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibilitySpec.$ = {};
 mojo.internal.bindings.blink.mojom.RenderAccessibility.$interfaceName = 'blink.mojom.RenderAccessibility';
-mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec = mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

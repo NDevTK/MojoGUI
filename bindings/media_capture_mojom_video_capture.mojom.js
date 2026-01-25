@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,53 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCaptureResultSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver = {};
-mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.VideoCaptureStateSpec = mojo.internal.bindings.media.mojom.VideoCaptureStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCaptureResultSpec = mojo.internal.bindings.media.mojom.VideoCaptureResultSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureResultSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureResultSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver = mojo.internal.bindings.media.mojom.VideoCaptureObserver || {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserverSpec.$ = {};
 mojo.internal.bindings.media.mojom.VideoCaptureObserver.$interfaceName = 'media.mojom.VideoCaptureObserver';
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost = {};
-mojo.internal.bindings.media.mojom.VideoCaptureHostSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost = mojo.internal.bindings.media.mojom.VideoCaptureHost || {};
+mojo.internal.bindings.media.mojom.VideoCaptureHostSpec = mojo.internal.bindings.media.mojom.VideoCaptureHostSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHostSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHostSpec.$ = {};
 mojo.internal.bindings.media.mojom.VideoCaptureHost.$interfaceName = 'media.mojom.VideoCaptureHost';
-mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec = mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.watermark = mojo.internal.bindings.watermark || {};
 mojo.internal.bindings.watermark.mojom = mojo.internal.bindings.watermark.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec = { $: {} };
-mojo.internal.bindings.watermark.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec = mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec || { $: {} };
+if (mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec.$.structSpec && mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec.$ = {};
+mojo.internal.bindings.watermark.mojom.PageHandlerFactory = mojo.internal.bindings.watermark.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec = mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.watermark.mojom.PageHandlerFactory.$interfaceName = 'watermark.mojom.PageHandlerFactory';
-mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.watermark.mojom.PageHandler = {};
-mojo.internal.bindings.watermark.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.watermark.mojom.PageHandler = mojo.internal.bindings.watermark.mojom.PageHandler || {};
+mojo.internal.bindings.watermark.mojom.PageHandlerSpec = mojo.internal.bindings.watermark.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.watermark.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.watermark.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.watermark.mojom.PageHandler.$interfaceName = 'watermark.mojom.PageHandler';
-mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = { $: {} };
-mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = { $: {} };
+mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$.structSpec && mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$ = {};
+mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec.$.structSpec && mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.watermark.mojom.PageHandlerFactoryPendingReceiver = class {

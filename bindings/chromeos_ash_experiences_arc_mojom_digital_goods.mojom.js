@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,41 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
-mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 
-mojo.internal.bindings.arc.mojom.PurchaseStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance = {};
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PurchaseStateSpec = mojo.internal.bindings.arc.mojom.PurchaseStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec = mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance || {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstance.$interfaceName = 'arc.mojom.DigitalGoodsInstance';
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

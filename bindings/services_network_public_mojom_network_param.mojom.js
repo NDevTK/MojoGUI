@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,36 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CertVerifyResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.X509CertificateSpec = { $: {} };
-mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HostPortPairSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyServerSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyChainSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxySchemeSpec = mojo.internal.bindings.network.mojom.ProxySchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.AuthCredentialsSpec = mojo.internal.bindings.network.mojom.AuthCredentialsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$.structSpec && mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CertVerifyResultSpec = mojo.internal.bindings.network.mojom.CertVerifyResultSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CertVerifyResultSpec.$.structSpec && mojo.internal.bindings.network.mojom.CertVerifyResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CertVerifyResultSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLInfoSpec = mojo.internal.bindings.network.mojom.SSLInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.X509CertificateSpec = mojo.internal.bindings.network.mojom.X509CertificateSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.X509CertificateSpec.$.structSpec && mojo.internal.bindings.network.mojom.X509CertificateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.X509CertificateSpec.$ = {};
+mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec = mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.AuthCredentialsSpec = mojo.internal.bindings.network.mojom.AuthCredentialsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$.structSpec && mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.AuthCredentialsSpec.$ = {};
+mojo.internal.bindings.network.mojom.HostPortPairSpec = mojo.internal.bindings.network.mojom.HostPortPairSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HostPortPairSpec.$.structSpec && mojo.internal.bindings.network.mojom.HostPortPairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HostPortPairSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyServerSpec = mojo.internal.bindings.network.mojom.ProxyServerSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyServerSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyServerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyServerSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyChainSpec = mojo.internal.bindings.network.mojom.ProxyChainSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyChainSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyChainSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyChainSpec.$ = {};
+mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec = mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.SSLInfoSpec = mojo.internal.bindings.network.mojom.SSLInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SSLInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

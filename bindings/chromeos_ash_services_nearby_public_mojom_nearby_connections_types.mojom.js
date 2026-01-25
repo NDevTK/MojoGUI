@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,29 +124,43 @@
  mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
 mojo.internal.bindings.nearby.connections = mojo.internal.bindings.nearby.connections || {};
 mojo.internal.bindings.nearby.connections.mojom = mojo.internal.bindings.nearby.connections.mojom || {};
-mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 
-mojo.internal.bindings.nearby.connections.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.StrategySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.PayloadStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.BandwidthQualitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.MediumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.PayloadSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec = { $: {} };
-mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec = { $: {} };
+mojo.internal.bindings.nearby.connections.mojom.StatusSpec = mojo.internal.bindings.nearby.connections.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.StrategySpec = mojo.internal.bindings.nearby.connections.mojom.StrategySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.PayloadStatusSpec = mojo.internal.bindings.nearby.connections.mojom.PayloadStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.BandwidthQualitySpec = mojo.internal.bindings.nearby.connections.mojom.BandwidthQualitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.MediumSpec = mojo.internal.bindings.nearby.connections.mojom.MediumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec = mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatusSpec = mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec = mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec = mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.ConnectionInfoSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec = mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.DiscoveredEndpointInfoSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec = mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.MediumSelectionSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec = mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.AdvertisingOptionsSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec = mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.DiscoveryOptionsSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec = mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.ConnectionOptionsSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec = mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.BytesPayloadSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec = mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.FilePayloadSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.PayloadSpec = mojo.internal.bindings.nearby.connections.mojom.PayloadSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.PayloadSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec = mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.PayloadTransferUpdateSpec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec = mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.InitialConnectionInfoV3Spec.$ = {};
+mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec = mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec || { $: {} };
+if (mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec.$.structSpec && mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.nearby.connections.mojom.BandwidthInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};

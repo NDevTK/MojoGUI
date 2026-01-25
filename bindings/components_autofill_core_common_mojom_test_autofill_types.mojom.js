@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,45 @@
 
  mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest = {};
-mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec = { $ : {} };
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest = mojo.internal.bindings.autofill.mojom.TypeTraitsTest || {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec || { $ : {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTestSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.TypeTraitsTest.$interfaceName = 'autofill.mojom.TypeTraitsTest';
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};

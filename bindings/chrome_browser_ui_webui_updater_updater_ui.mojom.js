@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,38 @@
 
  mojo.internal.bindings.updater_ui = mojo.internal.bindings.updater_ui || {};
 mojo.internal.bindings.updater_ui.mojom = mojo.internal.bindings.updater_ui.mojom || {};
-mojo.internal.bindings.updater = mojo.internal.bindings.updater || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.updater = mojo.internal.bindings.updater || {};
 
-mojo.internal.bindings.updater_ui.mojom.UpdaterScopeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.updater_ui.mojom.UpdaterScopeSpec = mojo.internal.bindings.updater_ui.mojom.UpdaterScopeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec = mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec = mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec = mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory = mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec = mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory.$interfaceName = 'updater_ui.mojom.PageHandlerFactory';
-mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.PageHandler = {};
-mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.PageHandler = mojo.internal.bindings.updater_ui.mojom.PageHandler || {};
+mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec = mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.updater_ui.mojom.PageHandler.$interfaceName = 'updater_ui.mojom.PageHandler';
-mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater_ui.mojom.Page = {};
-mojo.internal.bindings.updater_ui.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec = mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec = mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageHandler_ShowUpdaterDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.updater_ui.mojom.Page = mojo.internal.bindings.updater_ui.mojom.Page || {};
+mojo.internal.bindings.updater_ui.mojom.PageSpec = mojo.internal.bindings.updater_ui.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.updater_ui.mojom.PageSpec.$.structSpec && mojo.internal.bindings.updater_ui.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater_ui.mojom.PageSpec.$ = {};
 mojo.internal.bindings.updater_ui.mojom.Page.$interfaceName = 'updater_ui.mojom.Page';
 
 // External type stubs (from imports)

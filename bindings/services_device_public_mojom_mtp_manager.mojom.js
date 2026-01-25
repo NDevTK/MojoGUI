@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,39 +123,69 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.MtpManagerClient = {};
-mojo.internal.bindings.device.mojom.MtpManagerClientSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.MtpManagerClient = mojo.internal.bindings.device.mojom.MtpManagerClient || {};
+mojo.internal.bindings.device.mojom.MtpManagerClientSpec = mojo.internal.bindings.device.mojom.MtpManagerClientSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.MtpManagerClientSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManagerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManagerClientSpec.$ = {};
 mojo.internal.bindings.device.mojom.MtpManagerClient.$interfaceName = 'device.mojom.MtpManagerClient';
-mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager = {};
-mojo.internal.bindings.device.mojom.MtpManagerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager = mojo.internal.bindings.device.mojom.MtpManager || {};
+mojo.internal.bindings.device.mojom.MtpManagerSpec = mojo.internal.bindings.device.mojom.MtpManagerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.MtpManagerSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManagerSpec.$ = {};
 mojo.internal.bindings.device.mojom.MtpManager.$interfaceName = 'device.mojom.MtpManager';
-mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec = mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

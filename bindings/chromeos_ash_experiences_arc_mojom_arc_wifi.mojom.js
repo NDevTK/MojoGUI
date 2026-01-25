@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,41 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WifiScanResultSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost = {};
-mojo.internal.bindings.arc.mojom.ArcWifiHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WifiScanResultSpec = mojo.internal.bindings.arc.mojom.WifiScanResultSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WifiScanResultSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WifiScanResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WifiScanResultSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost = mojo.internal.bindings.arc.mojom.ArcWifiHost || {};
+mojo.internal.bindings.arc.mojom.ArcWifiHostSpec = mojo.internal.bindings.arc.mojom.ArcWifiHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ArcWifiHost.$interfaceName = 'arc.mojom.ArcWifiHost';
-mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiInstance = {};
-mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstance = mojo.internal.bindings.arc.mojom.ArcWifiInstance || {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec = mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ArcWifiInstance.$interfaceName = 'arc.mojom.ArcWifiInstance';
-mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,18 @@
 
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheTypeSpec = mojo.internal.bindings.gpu.mojom.GpuDiskCacheTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec = mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec = mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec = mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec = mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec.$ = {};
 
 // Enum: GpuDiskCacheType
 mojo.internal.bindings.gpu.mojom.GpuDiskCacheType = {

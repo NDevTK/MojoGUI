@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,36 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator = {};
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec = mojo.internal.bindings.crosapi.mojom.UserVerificationRequirementSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec = mojo.internal.bindings.crosapi.mojom.PasskeyCreationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAssertionErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec = mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyCreationResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec = mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyCreationRequestSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec = mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyCreationResponseSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAssertionRequestSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator || {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator.$interfaceName = 'crosapi.mojom.PasskeyAuthenticator';
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};

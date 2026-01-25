@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,32 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.StorageAccessHandle = {};
-mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.StorageAccessHandle = mojo.internal.bindings.blink.mojom.StorageAccessHandle || {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandleSpec.$ = {};
 mojo.internal.bindings.blink.mojom.StorageAccessHandle.$interfaceName = 'blink.mojom.StorageAccessHandle';
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec = mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

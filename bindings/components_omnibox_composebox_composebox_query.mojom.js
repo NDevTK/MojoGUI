@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,16 @@
 
  mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.composebox_query.mojom.ModelModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.composebox_query.mojom.ToolModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.composebox_query.mojom.InputTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.composebox_query.mojom.InputStateSpec = { $: {} };
+mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec = mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec = mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.ModelModeSpec = mojo.internal.bindings.composebox_query.mojom.ModelModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.ToolModeSpec = mojo.internal.bindings.composebox_query.mojom.ToolModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.InputTypeSpec = mojo.internal.bindings.composebox_query.mojom.InputTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.composebox_query.mojom.InputStateSpec = mojo.internal.bindings.composebox_query.mojom.InputStateSpec || { $: {} };
+if (mojo.internal.bindings.composebox_query.mojom.InputStateSpec.$.structSpec && mojo.internal.bindings.composebox_query.mojom.InputStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox_query.mojom.InputStateSpec.$ = {};
 
 // Enum: FileUploadStatus
 mojo.internal.bindings.composebox_query.mojom.FileUploadStatus = {

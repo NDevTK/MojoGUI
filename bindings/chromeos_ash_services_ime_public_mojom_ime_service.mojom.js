@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,27 +125,40 @@
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.ash.ime.mojom.InputEngineManager = {};
-mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.InputEngineManager = mojo.internal.bindings.ash.ime.mojom.InputEngineManager || {};
+mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec = mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputEngineManagerSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.InputEngineManager.$interfaceName = 'ash.ime.mojom.InputEngineManager';
-mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider = {};
-mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider = mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider || {};
+mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec = mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider.$interfaceName = 'ash.ime.mojom.PlatformAccessProvider';
-mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.ImeService = {};
-mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.ImeService = mojo.internal.bindings.ash.ime.mojom.ImeService || {};
+mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec = mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.ImeServiceSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.ImeService.$interfaceName = 'ash.ime.mojom.ImeService';
-mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,27 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
 mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.AccountSpec = { $: {} };
-mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec = mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec = mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec = mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec = mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec = mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec = mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec = mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec = mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec = mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec = mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.AccountSpec = mojo.internal.bindings.ash.projector.mojom.AccountSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.AccountSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.AccountSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.AccountSpec.$ = {};
+mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec = mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec.$.structSpec && mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec.$ = {};
 
 // Enum: NewScreencastPreconditionState
 mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionState = {

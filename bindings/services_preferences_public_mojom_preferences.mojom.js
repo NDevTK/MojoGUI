@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,21 @@
  mojo.internal.bindings.prefs = mojo.internal.bindings.prefs || {};
 mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.prefs.mojom.ValueTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = { $: {} };
-mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec = { $: {} };
-mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver = {};
-mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec = { $ : {} };
+mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec = mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec = mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.prefs.mojom.ValueTypeSpec = mojo.internal.bindings.prefs.mojom.ValueTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec = mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec || { $: {} };
+if (mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec.$.structSpec && mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec.$ = {};
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec = mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec || { $: {} };
+if (mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$.structSpec && mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$ = {};
+mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver = mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver || {};
+mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec = mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec || { $ : {} };
+if (mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec.$.structSpec && mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverSpec.$ = {};
 mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver.$interfaceName = 'prefs.mojom.ResetOnLoadObserver';
-mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = { $: {} };
+mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec = mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

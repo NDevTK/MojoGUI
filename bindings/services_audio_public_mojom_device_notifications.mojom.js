@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
 mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.audio.mojom.DeviceListener = {};
-mojo.internal.bindings.audio.mojom.DeviceListenerSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.DeviceListener = mojo.internal.bindings.audio.mojom.DeviceListener || {};
+mojo.internal.bindings.audio.mojom.DeviceListenerSpec = mojo.internal.bindings.audio.mojom.DeviceListenerSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.DeviceListenerSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DeviceListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DeviceListenerSpec.$ = {};
 mojo.internal.bindings.audio.mojom.DeviceListener.$interfaceName = 'audio.mojom.DeviceListener';
-mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.audio.mojom.DeviceNotifier = {};
-mojo.internal.bindings.audio.mojom.DeviceNotifierSpec = { $ : {} };
+mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.audio.mojom.DeviceNotifier = mojo.internal.bindings.audio.mojom.DeviceNotifier || {};
+mojo.internal.bindings.audio.mojom.DeviceNotifierSpec = mojo.internal.bindings.audio.mojom.DeviceNotifierSpec || { $ : {} };
+if (mojo.internal.bindings.audio.mojom.DeviceNotifierSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DeviceNotifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DeviceNotifierSpec.$ = {};
 mojo.internal.bindings.audio.mojom.DeviceNotifier.$interfaceName = 'audio.mojom.DeviceNotifier';
-mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec && mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$ = {};
 
 // Interface: DeviceListener
 mojo.internal.bindings.audio.mojom.DeviceListenerPendingReceiver = class {

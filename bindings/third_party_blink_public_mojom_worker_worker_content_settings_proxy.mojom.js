@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,29 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy = {};
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy || {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxySpec.$ = {};
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy.$interfaceName = 'blink.mojom.WorkerContentSettingsProxy';
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec.$ = {};
 
 // Interface: WorkerContentSettingsProxy
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyPendingReceiver = class {

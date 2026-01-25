@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider = {};
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec = { $ : {} };
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider || {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec || { $ : {} };
+if (mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderSpec.$ = {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider.$interfaceName = 'shape_detection.mojom.BarcodeDetectionProvider';
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};

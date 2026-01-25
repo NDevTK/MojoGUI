@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.history_clusters_internals = mojo.internal.bindings.history_clusters_internals || {};
 mojo.internal.bindings.history_clusters_internals.mojom = mojo.internal.bindings.history_clusters_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory = mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory.$interfaceName = 'history_clusters_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandler = {};
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandler = mojo.internal.bindings.history_clusters_internals.mojom.PageHandler || {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.history_clusters_internals.mojom.PageHandler.$interfaceName = 'history_clusters_internals.mojom.PageHandler';
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters_internals.mojom.Page = {};
-mojo.internal.bindings.history_clusters_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters_internals.mojom.Page = mojo.internal.bindings.history_clusters_internals.mojom.Page || {};
+mojo.internal.bindings.history_clusters_internals.mojom.PageSpec = mojo.internal.bindings.history_clusters_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.history_clusters_internals.mojom.Page.$interfaceName = 'history_clusters_internals.mojom.Page';
-mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,52 +123,87 @@
 
  mojo.internal.bindings.discards = mojo.internal.bindings.discards || {};
 mojo.internal.bindings.discards.mojom = mojo.internal.bindings.discards.mojom || {};
-mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.PageInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.FrameInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.ProcessInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.WorkerInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.FavIconInfoSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider = {};
-mojo.internal.bindings.discards.mojom.DetailsProviderSpec = { $ : {} };
+mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec = mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.discards.mojom.CanFreezeSpec = mojo.internal.bindings.discards.mojom.CanFreezeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec = mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.PageInfoSpec = mojo.internal.bindings.discards.mojom.PageInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.PageInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.PageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.PageInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.FrameInfoSpec = mojo.internal.bindings.discards.mojom.FrameInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.FrameInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.FrameInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.FrameInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.ProcessInfoSpec = mojo.internal.bindings.discards.mojom.ProcessInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.WorkerInfoSpec = mojo.internal.bindings.discards.mojom.WorkerInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.FavIconInfoSpec = mojo.internal.bindings.discards.mojom.FavIconInfoSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.FavIconInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.FavIconInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.FavIconInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider = mojo.internal.bindings.discards.mojom.DetailsProvider || {};
+mojo.internal.bindings.discards.mojom.DetailsProviderSpec = mojo.internal.bindings.discards.mojom.DetailsProviderSpec || { $ : {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProviderSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProviderSpec.$ = {};
 mojo.internal.bindings.discards.mojom.DetailsProvider.$interfaceName = 'discards.mojom.DetailsProvider';
-mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream = {};
-mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec = { $ : {} };
+mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream = mojo.internal.bindings.discards.mojom.GraphChangeStream || {};
+mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec = mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec || { $ : {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$ = {};
 mojo.internal.bindings.discards.mojom.GraphChangeStream.$interfaceName = 'discards.mojom.GraphChangeStream';
-mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphDump = {};
-mojo.internal.bindings.discards.mojom.GraphDumpSpec = { $ : {} };
+mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphDump = mojo.internal.bindings.discards.mojom.GraphDump || {};
+mojo.internal.bindings.discards.mojom.GraphDumpSpec = mojo.internal.bindings.discards.mojom.GraphDumpSpec || { $ : {} };
+if (mojo.internal.bindings.discards.mojom.GraphDumpSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphDumpSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphDumpSpec.$ = {};
 mojo.internal.bindings.discards.mojom.GraphDump.$interfaceName = 'discards.mojom.GraphDump';
-mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

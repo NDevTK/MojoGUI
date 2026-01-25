@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,24 @@
 
  mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.attribution_reporting.mojom.DataHost = {};
-mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = { $ : {} };
+mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec = mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsiteSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.attribution_reporting.mojom.DataHost = mojo.internal.bindings.attribution_reporting.mojom.DataHost || {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec || { $ : {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHostSpec.$ = {};
 mojo.internal.bindings.attribution_reporting.mojom.DataHost.$interfaceName = 'attribution_reporting.mojom.DataHost';
-mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = { $: {} };
-mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = { $: {} };
+mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$ = {};
+mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec && mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};

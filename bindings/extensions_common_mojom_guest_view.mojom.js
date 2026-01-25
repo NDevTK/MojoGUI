@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,35 @@
 
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.GuestView = {};
-mojo.internal.bindings.extensions.mojom.GuestViewSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.GuestView = mojo.internal.bindings.extensions.mojom.GuestView || {};
+mojo.internal.bindings.extensions.mojom.GuestViewSpec = mojo.internal.bindings.extensions.mojom.GuestViewSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.GuestViewSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.GuestViewSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.GuestViewSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.GuestView.$interfaceName = 'extensions.mojom.GuestView';
-mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager = {};
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec = mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager || {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager.$interfaceName = 'extensions.mojom.MimeHandlerViewContainerManager';
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec = mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost = {};
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec = { $ : {} };
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost || {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHostSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.ServiceWorkerHost.$interfaceName = 'extensions.mojom.ServiceWorkerHost';
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec = mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

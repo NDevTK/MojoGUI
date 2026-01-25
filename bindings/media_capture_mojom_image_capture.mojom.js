@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,40 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.MeteringModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RedEyeReductionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.FillLightModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.RangeSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PhotoStateSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Point2DSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PhotoSettingsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.BlobSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture = {};
-mojo.internal.bindings.media.mojom.ImageCaptureSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec = mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec = mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.MeteringModeSpec = mojo.internal.bindings.media.mojom.MeteringModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RedEyeReductionSpec = mojo.internal.bindings.media.mojom.RedEyeReductionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.FillLightModeSpec = mojo.internal.bindings.media.mojom.FillLightModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.RangeSpec = mojo.internal.bindings.media.mojom.RangeSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RangeSpec.$.structSpec && mojo.internal.bindings.media.mojom.RangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RangeSpec.$ = {};
+mojo.internal.bindings.media.mojom.PhotoStateSpec = mojo.internal.bindings.media.mojom.PhotoStateSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PhotoStateSpec.$.structSpec && mojo.internal.bindings.media.mojom.PhotoStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PhotoStateSpec.$ = {};
+mojo.internal.bindings.media.mojom.Point2DSpec = mojo.internal.bindings.media.mojom.Point2DSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Point2DSpec.$.structSpec && mojo.internal.bindings.media.mojom.Point2DSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Point2DSpec.$ = {};
+mojo.internal.bindings.media.mojom.PhotoSettingsSpec = mojo.internal.bindings.media.mojom.PhotoSettingsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$ = {};
+mojo.internal.bindings.media.mojom.BlobSpec = mojo.internal.bindings.media.mojom.BlobSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.BlobSpec.$.structSpec && mojo.internal.bindings.media.mojom.BlobSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.BlobSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture = mojo.internal.bindings.media.mojom.ImageCapture || {};
+mojo.internal.bindings.media.mojom.ImageCaptureSpec = mojo.internal.bindings.media.mojom.ImageCaptureSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.ImageCaptureSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCaptureSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCaptureSpec.$ = {};
 mojo.internal.bindings.media.mojom.ImageCapture.$interfaceName = 'media.mojom.ImageCapture';
-mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$ = {};
 
 // Enum: BackgroundBlurMode
 mojo.internal.bindings.media.mojom.BackgroundBlurMode = {

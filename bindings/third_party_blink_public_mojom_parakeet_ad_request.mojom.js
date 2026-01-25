@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,19 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.AdSignalsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AdPropertiesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdGeolocationSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdTargetingSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AdRequestConfigSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AdSignalsSpec = mojo.internal.bindings.blink.mojom.AdSignalsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AdPropertiesSpec = mojo.internal.bindings.blink.mojom.AdPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdPropertiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdPropertiesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdGeolocationSpec = mojo.internal.bindings.blink.mojom.AdGeolocationSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdGeolocationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdGeolocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdGeolocationSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdTargetingSpec = mojo.internal.bindings.blink.mojom.AdTargetingSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdTargetingSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdTargetingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdTargetingSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AdRequestConfigSpec = mojo.internal.bindings.blink.mojom.AdRequestConfigSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AdRequestConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AdRequestConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AdRequestConfigSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

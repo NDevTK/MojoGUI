@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,30 @@
  mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
 mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec = { $ : {} };
+mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec = mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory || {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactorySpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory';
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler = {};
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler || {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler';
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = { $: {} };
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$ = {};
+mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

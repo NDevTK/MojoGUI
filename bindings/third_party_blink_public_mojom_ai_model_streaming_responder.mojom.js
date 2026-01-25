@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ModelStreamingResponder = {};
-mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec = mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder = mojo.internal.bindings.blink.mojom.ModelStreamingResponder || {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder.$interfaceName = 'blink.mojom.ModelStreamingResponder';
-mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

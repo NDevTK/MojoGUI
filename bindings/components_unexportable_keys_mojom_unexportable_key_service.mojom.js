@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,31 @@
  mojo.internal.bindings.unexportable_keys = mojo.internal.bindings.unexportable_keys || {};
 mojo.internal.bindings.unexportable_keys.mojom = mojo.internal.bindings.unexportable_keys.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService = {};
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec = { $ : {} };
+mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec = mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec = mojo.internal.bindings.unexportable_keys.mojom.ServiceErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec = mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec = mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService || {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec || { $ : {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceSpec.$ = {};
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService.$interfaceName = 'unexportable_keys.mojom.UnexportableKeyService';
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec = { $: {} };
-mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = { $: {} };
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

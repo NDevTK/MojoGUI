@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,44 +125,70 @@
 mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
 mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec = mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec = mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec = mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec = mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver = mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver.$interfaceName = 'ash.diagnostics.mojom.BatteryChargeStatusObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver = mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver.$interfaceName = 'ash.diagnostics.mojom.BatteryHealthObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver = mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver.$interfaceName = 'ash.diagnostics.mojom.MemoryUsageObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver = {};
-mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver = mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver || {};
+mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec = mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver.$interfaceName = 'ash.diagnostics.mojom.CpuUsageObserver';
-mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider = {};
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider || {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderSpec.$ = {};
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider.$interfaceName = 'ash.diagnostics.mojom.SystemDataProvider';
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

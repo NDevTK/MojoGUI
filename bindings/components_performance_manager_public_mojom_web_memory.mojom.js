@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
 mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec = { $: {} };
+mojo.internal.bindings.performance_manager.mojom.ScopeSpec = mojo.internal.bindings.performance_manager.mojom.ScopeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.performance_manager.mojom.ModeSpec = mojo.internal.bindings.performance_manager.mojom.ModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec = mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec = mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec = mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

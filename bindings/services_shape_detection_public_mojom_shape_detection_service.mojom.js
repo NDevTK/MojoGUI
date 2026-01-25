@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService = {};
-mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec = { $ : {} };
+mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService || {};
+mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceSpec.$ = {};
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService.$interfaceName = 'shape_detection.mojom.ShapeDetectionService';
-mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = { $: {} };
+mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};

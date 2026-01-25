@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,15 @@
 
  mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec = { $: {} };
-mojo.internal.bindings.skia.mojom.SkColorSpaceSpec = { $: {} };
+mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec = mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$.structSpec && mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$ = {};
+mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec = mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec.$ = {};
+mojo.internal.bindings.skia.mojom.SkColorSpaceSpec = mojo.internal.bindings.skia.mojom.SkColorSpaceSpec || { $: {} };
+if (mojo.internal.bindings.skia.mojom.SkColorSpaceSpec.$.structSpec && mojo.internal.bindings.skia.mojom.SkColorSpaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skia.mojom.SkColorSpaceSpec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

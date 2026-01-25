@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,25 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.babelorca = mojo.internal.bindings.ash.babelorca || {};
 mojo.internal.bindings.ash.babelorca.mojom = mojo.internal.bindings.ash.babelorca.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec = { $: {} };
-mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec = { $: {} };
-mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec = { $: {} };
-mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService = {};
-mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec = { $ : {} };
+mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec = mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec = mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec || { $: {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec.$ = {};
+mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec = mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec || { $: {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec.$ = {};
+mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec = mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec || { $: {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec.$ = {};
+mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService || {};
+mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceSpec.$ = {};
 mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService.$interfaceName = 'ash.babelorca.mojom.TachyonParsingService';
-mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$ = {};
 
 // Enum: ParsingState
 mojo.internal.bindings.ash.babelorca.mojom.ParsingState = {

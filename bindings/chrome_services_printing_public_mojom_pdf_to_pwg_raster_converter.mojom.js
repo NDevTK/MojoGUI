@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,22 @@
  mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter = {};
-mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec = { $ : {} };
+mojo.internal.bindings.printing.mojom.TransformTypeSpec = mojo.internal.bindings.printing.mojom.TransformTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.DuplexModeSpec = mojo.internal.bindings.printing.mojom.DuplexModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec = mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter || {};
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec || { $ : {} };
+if (mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterSpec.$ = {};
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter.$interfaceName = 'printing.mojom.PdfToPwgRasterConverter';
-mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

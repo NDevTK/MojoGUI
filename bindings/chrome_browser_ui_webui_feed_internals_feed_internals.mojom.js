@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,52 @@
  mojo.internal.bindings.feed_internals = mojo.internal.bindings.feed_internals || {};
 mojo.internal.bindings.feed_internals.mojom = mojo.internal.bindings.feed_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.feed_internals.mojom.PropertiesSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler = {};
-mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec = mojo.internal.bindings.feed_internals.mojom.FeedOrderSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.feed_internals.mojom.PropertiesSpec = mojo.internal.bindings.feed_internals.mojom.PropertiesSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PropertiesSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PropertiesSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec = mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.LastFetchPropertiesSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler = mojo.internal.bindings.feed_internals.mojom.PageHandler || {};
+mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec = mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.feed_internals.mojom.PageHandler.$interfaceName = 'feed_internals.mojom.PageHandler';
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = { $: {} };
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec.$ = {};
+mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec = mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.structSpec && mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

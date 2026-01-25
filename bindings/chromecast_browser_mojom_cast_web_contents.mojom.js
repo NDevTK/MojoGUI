@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,43 +123,72 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
-mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url_rewrite = mojo.internal.bindings.url_rewrite || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver = {};
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.PageStateSpec = mojo.internal.bindings.chromecast.mojom.PageStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver || {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver.$interfaceName = 'chromecast.mojom.CastWebContentsObserver';
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents = {};
-mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents = mojo.internal.bindings.chromecast.mojom.CastWebContents || {};
+mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContentsSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.CastWebContents.$interfaceName = 'chromecast.mojom.CastWebContents';
-mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};

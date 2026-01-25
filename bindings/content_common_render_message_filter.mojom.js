@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RenderMessageFilter = {};
-mojo.internal.bindings.content.mojom.RenderMessageFilterSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec = mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$ = {};
+mojo.internal.bindings.content.mojom.RenderMessageFilter = mojo.internal.bindings.content.mojom.RenderMessageFilter || {};
+mojo.internal.bindings.content.mojom.RenderMessageFilterSpec = mojo.internal.bindings.content.mojom.RenderMessageFilterSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.RenderMessageFilterSpec.$.structSpec && mojo.internal.bindings.content.mojom.RenderMessageFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RenderMessageFilterSpec.$ = {};
 mojo.internal.bindings.content.mojom.RenderMessageFilter.$interfaceName = 'content.mojom.RenderMessageFilter';
-mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

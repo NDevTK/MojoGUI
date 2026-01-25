@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.download = mojo.internal.bindings.download || {};
 mojo.internal.bindings.download.mojom = mojo.internal.bindings.download.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec = { $: {} };
-mojo.internal.bindings.download.mojom.DownloadStreamClient = {};
-mojo.internal.bindings.download.mojom.DownloadStreamClientSpec = { $ : {} };
+mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec = mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec = mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec || { $: {} };
+if (mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec.$.structSpec && mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec.$ = {};
+mojo.internal.bindings.download.mojom.DownloadStreamClient = mojo.internal.bindings.download.mojom.DownloadStreamClient || {};
+mojo.internal.bindings.download.mojom.DownloadStreamClientSpec = mojo.internal.bindings.download.mojom.DownloadStreamClientSpec || { $ : {} };
+if (mojo.internal.bindings.download.mojom.DownloadStreamClientSpec.$.structSpec && mojo.internal.bindings.download.mojom.DownloadStreamClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.download.mojom.DownloadStreamClientSpec.$ = {};
 mojo.internal.bindings.download.mojom.DownloadStreamClient.$interfaceName = 'download.mojom.DownloadStreamClient';
-mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = { $: {} };
+mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$ = {};
 
 // Enum: NetworkRequestStatus
 mojo.internal.bindings.download.mojom.NetworkRequestStatus = {

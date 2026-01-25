@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.wallet = mojo.internal.bindings.wallet || {};
 mojo.internal.bindings.wallet.mojom = mojo.internal.bindings.wallet.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.wallet.mojom.ImageExtractor = {};
-mojo.internal.bindings.wallet.mojom.ImageExtractorSpec = { $ : {} };
+mojo.internal.bindings.wallet.mojom.ImageExtractor = mojo.internal.bindings.wallet.mojom.ImageExtractor || {};
+mojo.internal.bindings.wallet.mojom.ImageExtractorSpec = mojo.internal.bindings.wallet.mojom.ImageExtractorSpec || { $ : {} };
+if (mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$ = {};
 mojo.internal.bindings.wallet.mojom.ImageExtractor.$interfaceName = 'wallet.mojom.ImageExtractor';
-mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = { $: {} };
-mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec.$ = {};
+mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};

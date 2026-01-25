@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory = {};
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory = mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory || {};
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec = mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory.$interfaceName = 'lens.mojom.LensGhostLoaderPageHandlerFactory';
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPage = {};
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec = { $ : {} };
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec = mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPage = mojo.internal.bindings.lens.mojom.LensGhostLoaderPage || {};
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec = mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec || { $ : {} };
+if (mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensGhostLoaderPageSpec.$ = {};
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPage.$interfaceName = 'lens.mojom.LensGhostLoaderPage';
-mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$ = {};
 
 // Interface: LensGhostLoaderPageHandlerFactory
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {

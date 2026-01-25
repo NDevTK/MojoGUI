@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,20 @@
  mojo.internal.bindings.components = mojo.internal.bindings.components || {};
 mojo.internal.bindings.components.media_control = mojo.internal.bindings.components.media_control || {};
 mojo.internal.bindings.components.media_control.mojom = mojo.internal.bindings.components.media_control.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 
-mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions = {};
-mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec = { $ : {} };
+mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions || {};
+mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec || { $ : {} };
+if (mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec.$.structSpec && mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsSpec.$ = {};
 mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions.$interfaceName = 'components.media_control.mojom.MediaPlaybackOptions';
-mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = { $: {} };
-mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = { $: {} };
+mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.structSpec && mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$ = {};
+mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.structSpec && mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};

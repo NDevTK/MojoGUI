@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,47 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.ax.mojom.AssistiveTechnologyController = {};
-mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyController = mojo.internal.bindings.ax.mojom.AssistiveTechnologyController || {};
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec = mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerSpec.$ = {};
 mojo.internal.bindings.ax.mojom.AssistiveTechnologyController.$interfaceName = 'ax.mojom.AssistiveTechnologyController';
-mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityService = {};
-mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec = mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityService = mojo.internal.bindings.ax.mojom.AccessibilityService || {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceSpec.$ = {};
 mojo.internal.bindings.ax.mojom.AccessibilityService.$interfaceName = 'ax.mojom.AccessibilityService';
-mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient = {};
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient || {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClientSpec.$ = {};
 mojo.internal.bindings.ax.mojom.AccessibilityServiceClient.$interfaceName = 'ax.mojom.AccessibilityServiceClient';
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec = mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

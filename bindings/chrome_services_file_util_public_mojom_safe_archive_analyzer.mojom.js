@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,29 +124,48 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer = {};
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer || {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer.$interfaceName = 'chrome.mojom.SafeArchiveAnalyzer';
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TemporaryFileGetter = {};
-mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TemporaryFileGetter = mojo.internal.bindings.chrome.mojom.TemporaryFileGetter || {};
+mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec = mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetter.$interfaceName = 'chrome.mojom.TemporaryFileGetter';
-mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

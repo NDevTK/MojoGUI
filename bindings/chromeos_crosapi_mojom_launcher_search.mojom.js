@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,40 @@
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.crosapi.mojom.SearchStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.OmniboxTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.AnswerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TextTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.PageTransitionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.SearchResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher = {};
-mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.SearchStatusSpec = mojo.internal.bindings.crosapi.mojom.SearchStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.SearchResultTypeSpec = mojo.internal.bindings.crosapi.mojom.SearchResultTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec = mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.OmniboxTypeSpec = mojo.internal.bindings.crosapi.mojom.OmniboxTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec = mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.AnswerTypeSpec = mojo.internal.bindings.crosapi.mojom.AnswerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TextTypeSpec = mojo.internal.bindings.crosapi.mojom.TextTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.PageTransitionSpec = mojo.internal.bindings.crosapi.mojom.PageTransitionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.SearchResultSpec = mojo.internal.bindings.crosapi.mojom.SearchResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher = mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher || {};
+mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec = mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher.$interfaceName = 'crosapi.mojom.SearchResultsPublisher';
-mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.SearchController = {};
-mojo.internal.bindings.crosapi.mojom.SearchControllerSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec = mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.SearchController = mojo.internal.bindings.crosapi.mojom.SearchController || {};
+mojo.internal.bindings.crosapi.mojom.SearchControllerSpec = mojo.internal.bindings.crosapi.mojom.SearchControllerSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchControllerSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchControllerSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.SearchController.$interfaceName = 'crosapi.mojom.SearchController';
-mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.SearchResultConsumer = {};
-mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec = mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.SearchResultConsumer = mojo.internal.bindings.crosapi.mojom.SearchResultConsumer || {};
+mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec = mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchResultConsumerSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumer.$interfaceName = 'crosapi.mojom.SearchResultConsumer';
-mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec = mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

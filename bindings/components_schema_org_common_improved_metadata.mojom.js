@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,11 +125,15 @@
 mojo.internal.bindings.schema_org.improved = mojo.internal.bindings.schema_org.improved || {};
 mojo.internal.bindings.schema_org.improved.mojom = mojo.internal.bindings.schema_org.improved.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec = { $: {} };
-mojo.internal.bindings.schema_org.improved.mojom.PropertySpec = { $: {} };
-mojo.internal.bindings.schema_org.improved.mojom.EntitySpec = { $: {} };
+mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec = mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec || { $: {} };
+if (mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec.$.structSpec && mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec.$ = {};
+mojo.internal.bindings.schema_org.improved.mojom.PropertySpec = mojo.internal.bindings.schema_org.improved.mojom.PropertySpec || { $: {} };
+if (mojo.internal.bindings.schema_org.improved.mojom.PropertySpec.$.structSpec && mojo.internal.bindings.schema_org.improved.mojom.PropertySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.schema_org.improved.mojom.PropertySpec.$ = {};
+mojo.internal.bindings.schema_org.improved.mojom.EntitySpec = mojo.internal.bindings.schema_org.improved.mojom.EntitySpec || { $: {} };
+if (mojo.internal.bindings.schema_org.improved.mojom.EntitySpec.$.structSpec && mojo.internal.bindings.schema_org.improved.mojom.EntitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.schema_org.improved.mojom.EntitySpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

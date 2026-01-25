@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,44 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.StartOptionsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.StopOptionsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver = {};
-mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec = mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec.$.structSpec && mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec.$ = {};
+mojo.internal.bindings.ax.mojom.StartOptionsSpec = mojo.internal.bindings.ax.mojom.StartOptionsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.StartOptionsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.StartOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.StartOptionsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.StopOptionsSpec = mojo.internal.bindings.ax.mojom.StopOptionsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.StopOptionsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.StopOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.StopOptionsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver = mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver || {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverSpec.$ = {};
 mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver.$interfaceName = 'ax.mojom.SpeechRecognitionEventObserver';
-mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognition = {};
-mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognition = mojo.internal.bindings.ax.mojom.SpeechRecognition || {};
+mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec = mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognitionSpec.$ = {};
 mojo.internal.bindings.ax.mojom.SpeechRecognition.$interfaceName = 'ax.mojom.SpeechRecognition';
-mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

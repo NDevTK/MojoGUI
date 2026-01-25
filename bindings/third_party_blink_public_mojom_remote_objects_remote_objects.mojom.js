@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,39 +124,61 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectHost = {};
-mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec = mojo.internal.bindings.blink.mojom.SingletonJavaScriptValueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec = mojo.internal.bindings.blink.mojom.RemoteArrayTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteInvocationArgumentSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteInvocationResultValueSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec = mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteTypedArraySpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec = mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteInvocationResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectHost = mojo.internal.bindings.blink.mojom.RemoteObjectHost || {};
+mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec = mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RemoteObjectHost.$interfaceName = 'blink.mojom.RemoteObjectHost';
-mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject = {};
-mojo.internal.bindings.blink.mojom.RemoteObjectSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject = mojo.internal.bindings.blink.mojom.RemoteObject || {};
+mojo.internal.bindings.blink.mojom.RemoteObjectSpec = mojo.internal.bindings.blink.mojom.RemoteObjectSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RemoteObject.$interfaceName = 'blink.mojom.RemoteObject';
-mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory = {};
-mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory = mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory || {};
+mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec = mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactorySpec.$ = {};
 mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory.$interfaceName = 'blink.mojom.RemoteObjectGatewayFactory';
-mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectGateway = {};
-mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectGateway = mojo.internal.bindings.blink.mojom.RemoteObjectGateway || {};
+mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec = mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectGatewaySpec.$ = {};
 mojo.internal.bindings.blink.mojom.RemoteObjectGateway.$interfaceName = 'blink.mojom.RemoteObjectGateway';
-mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec = mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

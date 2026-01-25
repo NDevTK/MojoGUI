@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.storage.mojom.StorageService = {};
-mojo.internal.bindings.storage.mojom.StorageServiceSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.StorageService = mojo.internal.bindings.storage.mojom.StorageService || {};
+mojo.internal.bindings.storage.mojom.StorageServiceSpec = mojo.internal.bindings.storage.mojom.StorageServiceSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.StorageServiceSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageServiceSpec.$ = {};
 mojo.internal.bindings.storage.mojom.StorageService.$interfaceName = 'storage.mojom.StorageService';
-mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec = mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec = mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

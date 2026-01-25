@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,45 +124,71 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.TextDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PurposeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FormFactorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.EnctypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.LaunchTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ManifestMigrationBehaviorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.TabStripMemberVisibilitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.HomeTabUnionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LocaleSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestTabStripSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HomeTabParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ManifestErrorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextDirectionSpec = mojo.internal.bindings.blink.mojom.TextDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PurposeSpec = mojo.internal.bindings.blink.mojom.PurposeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FormFactorSpec = mojo.internal.bindings.blink.mojom.FormFactorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MethodSpec = mojo.internal.bindings.blink.mojom.MethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EnctypeSpec = mojo.internal.bindings.blink.mojom.EnctypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.LaunchTypeSpec = mojo.internal.bindings.blink.mojom.LaunchTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ManifestMigrationBehaviorSpec = mojo.internal.bindings.blink.mojom.ManifestMigrationBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.TabStripMemberVisibilitySpec = mojo.internal.bindings.blink.mojom.TabStripMemberVisibilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec = mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.HomeTabUnionSpec = mojo.internal.bindings.blink.mojom.HomeTabUnionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HomeTabUnionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HomeTabUnionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HomeTabUnionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestSpec = mojo.internal.bindings.blink.mojom.ManifestSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec = mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocaleSpec = mojo.internal.bindings.blink.mojom.LocaleSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocaleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocaleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocaleSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec = mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec = mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec = mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestScreenshotSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec = mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestFileFilterSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec = mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestProtocolHandlerSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec = mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestScopeExtensionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec = mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestLockScreenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec = mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestNoteTakingSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec = mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestRelatedApplicationSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec = mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestShareTargetParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec = mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestShareTargetSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec = mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestFileHandlerSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec = mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestTranslationItemSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec = mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestMigrateFromSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec = mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestMigrateToSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestTabStripSpec = mojo.internal.bindings.blink.mojom.ManifestTabStripSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestTabStripSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestTabStripSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestTabStripSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HomeTabParamsSpec = mojo.internal.bindings.blink.mojom.HomeTabParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HomeTabParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HomeTabParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HomeTabParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec = mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NewTabButtonParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec = mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ManifestErrorSpec = mojo.internal.bindings.blink.mojom.ManifestErrorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ManifestErrorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestErrorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec = mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayOverrideItemSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

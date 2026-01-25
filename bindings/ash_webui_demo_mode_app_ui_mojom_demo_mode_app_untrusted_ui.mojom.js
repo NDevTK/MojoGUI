@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.demo_mode = mojo.internal.bindings.ash.mojom.demo_mode || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory || {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandlerFactory';
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler = {};
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler || {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandler';
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$ = {};
 
 // Interface: UntrustedPageHandlerFactory
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {

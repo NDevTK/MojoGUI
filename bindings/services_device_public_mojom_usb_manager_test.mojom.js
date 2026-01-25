@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,28 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.device.mojom.TestDeviceInfoSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest = {};
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.TestDeviceInfoSpec = mojo.internal.bindings.device.mojom.TestDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.TestDeviceInfoSpec.$.structSpec && mojo.internal.bindings.device.mojom.TestDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.TestDeviceInfoSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest || {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec.$ = {};
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTest.$interfaceName = 'device.mojom.UsbDeviceManagerTest';
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

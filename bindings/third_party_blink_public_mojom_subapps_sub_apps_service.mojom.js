@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,36 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService = {};
-mojo.internal.bindings.blink.mojom.SubAppsServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec = mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService = mojo.internal.bindings.blink.mojom.SubAppsService || {};
+mojo.internal.bindings.blink.mojom.SubAppsServiceSpec = mojo.internal.bindings.blink.mojom.SubAppsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SubAppsService.$interfaceName = 'blink.mojom.SubAppsService';
-mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec.$ = {};
 
 // Enum: SubAppsServiceResultCode
 mojo.internal.bindings.blink.mojom.SubAppsServiceResultCode = {

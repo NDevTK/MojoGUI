@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,35 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.annotator = mojo.internal.bindings.ash.annotator || {};
 mojo.internal.bindings.ash.annotator.mojom = mojo.internal.bindings.ash.annotator.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage = {};
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec = { $ : {} };
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage || {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageSpec.$ = {};
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPage';
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler = {};
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler || {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandler';
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = {};
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory || {};
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory';
-mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

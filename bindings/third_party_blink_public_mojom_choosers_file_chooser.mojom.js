@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooserParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NativeFileInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooserResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooser = {};
-mojo.internal.bindings.blink.mojom.FileChooserSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ModeSpec = mojo.internal.bindings.blink.mojom.ModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec = mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooserParamsSpec = mojo.internal.bindings.blink.mojom.FileChooserParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooserParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooserParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooserParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NativeFileInfoSpec = mojo.internal.bindings.blink.mojom.NativeFileInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NativeFileInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NativeFileInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NativeFileInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec = mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooserResultSpec = mojo.internal.bindings.blink.mojom.FileChooserResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooser = mojo.internal.bindings.blink.mojom.FileChooser || {};
+mojo.internal.bindings.blink.mojom.FileChooserSpec = mojo.internal.bindings.blink.mojom.FileChooserSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.FileChooserSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooserSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FileChooser.$interfaceName = 'blink.mojom.FileChooser';
-mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

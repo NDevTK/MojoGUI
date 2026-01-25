@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,46 +125,79 @@
 mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
 mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.TextRangeSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.CandidateSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost = {};
-mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec = { $ : {} };
+mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec = mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec = mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec = mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec = mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec = mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec = mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.TextRangeSpec = mojo.internal.bindings.ash.ime.mojom.TextRangeSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.TextRangeSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.TextRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.TextRangeSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec = mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec = mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec = mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec = mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec = mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec = mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.CandidateSpec = mojo.internal.bindings.ash.ime.mojom.CandidateSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.CandidateSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.CandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.CandidateSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec = mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec = mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec = mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost = mojo.internal.bindings.ash.ime.mojom.InputMethodHost || {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec || { $ : {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHostSpec.$ = {};
 mojo.internal.bindings.ash.ime.mojom.InputMethodHost.$interfaceName = 'ash.ime.mojom.InputMethodHost';
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

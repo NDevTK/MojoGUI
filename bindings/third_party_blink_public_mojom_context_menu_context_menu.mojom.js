@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,32 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AcceleratorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FormRendererIdSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FieldRendererIdSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContextMenuClient = {};
-mojo.internal.bindings.blink.mojom.ContextMenuClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec = mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec = mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AcceleratorSpec = mojo.internal.bindings.blink.mojom.AcceleratorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AcceleratorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AcceleratorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AcceleratorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FormRendererIdSpec = mojo.internal.bindings.blink.mojom.FormRendererIdSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FormRendererIdSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FormRendererIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FormRendererIdSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FieldRendererIdSpec = mojo.internal.bindings.blink.mojom.FieldRendererIdSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FieldRendererIdSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FieldRendererIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FieldRendererIdSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec = mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec.$ = {};
+mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec = mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContextMenuClient = mojo.internal.bindings.blink.mojom.ContextMenuClient || {};
+mojo.internal.bindings.blink.mojom.ContextMenuClientSpec = mojo.internal.bindings.blink.mojom.ContextMenuClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ContextMenuClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContextMenuClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContextMenuClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ContextMenuClient.$interfaceName = 'blink.mojom.ContextMenuClient';
-mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

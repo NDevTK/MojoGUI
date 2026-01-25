@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,39 +124,59 @@
  mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};
 mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_worklet.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.auction_worklet.mojom.KAnonymityBidModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.KAnonymityStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.BidRoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.ReportingIdFieldSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient = {};
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.KAnonymityBidModeSpec = mojo.internal.bindings.auction_worklet.mojom.KAnonymityBidModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.KAnonymityStatusSpec = mojo.internal.bindings.auction_worklet.mojom.KAnonymityStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.BidRoleSpec = mojo.internal.bindings.auction_worklet.mojom.BidRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.ReportingIdFieldSpec = mojo.internal.bindings.auction_worklet.mojom.ReportingIdFieldSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec = mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.KAnonKeySpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorkletNonSharedParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorkletBidSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec = mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.PrioritySignalsDoubleSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidDependencyLatenciesSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderTimingMetricsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec = mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.PrivateModelTrainingRequestDataSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient = mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient || {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient.$interfaceName = 'auction_worklet.mojom.GenerateBidClient';
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer = {};
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer = mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer || {};
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer.$interfaceName = 'auction_worklet.mojom.GenerateBidFinalizer';
-mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet = {};
-mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec = { $ : {} };
+mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet || {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec || { $ : {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorkletSpec.$ = {};
 mojo.internal.bindings.auction_worklet.mojom.BidderWorklet.$interfaceName = 'auction_worklet.mojom.BidderWorklet';
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec = { $: {} };
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec = mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec.$.structSpec && mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.auction_worklet = mojo.internal.bindings.auction_worklet || {};

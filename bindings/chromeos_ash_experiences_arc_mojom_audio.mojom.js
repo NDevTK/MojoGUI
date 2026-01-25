@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,35 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AudioSwitchSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.AudioHost = {};
-mojo.internal.bindings.arc.mojom.AudioHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AudioSwitchSpec = mojo.internal.bindings.arc.mojom.AudioSwitchSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec = mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AudioHost = mojo.internal.bindings.arc.mojom.AudioHost || {};
+mojo.internal.bindings.arc.mojom.AudioHostSpec = mojo.internal.bindings.arc.mojom.AudioHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AudioHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AudioHost.$interfaceName = 'arc.mojom.AudioHost';
-mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance = {};
-mojo.internal.bindings.arc.mojom.AudioInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance = mojo.internal.bindings.arc.mojom.AudioInstance || {};
+mojo.internal.bindings.arc.mojom.AudioInstanceSpec = mojo.internal.bindings.arc.mojom.AudioInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AudioInstance.$interfaceName = 'arc.mojom.AudioInstance';
-mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec = mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$ = {};
 
 // Enum: AudioSwitch
 mojo.internal.bindings.arc.mojom.AudioSwitch = {

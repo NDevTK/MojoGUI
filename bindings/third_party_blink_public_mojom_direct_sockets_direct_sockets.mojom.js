@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,23 +124,37 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService = {};
-mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec = mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec = mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec = mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec = mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService = mojo.internal.bindings.blink.mojom.DirectSocketsService || {};
+mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec = mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DirectSocketsService.$interfaceName = 'blink.mojom.DirectSocketsService';
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

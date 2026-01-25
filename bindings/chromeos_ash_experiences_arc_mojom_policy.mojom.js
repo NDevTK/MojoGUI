@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,40 @@
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.InstallErrorReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.CommandResultTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PolicyHost = {};
-mojo.internal.bindings.arc.mojom.PolicyHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.InstallErrorReasonSpec = mojo.internal.bindings.arc.mojom.InstallErrorReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CommandResultTypeSpec = mojo.internal.bindings.arc.mojom.CommandResultTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PolicyHost = mojo.internal.bindings.arc.mojom.PolicyHost || {};
+mojo.internal.bindings.arc.mojom.PolicyHostSpec = mojo.internal.bindings.arc.mojom.PolicyHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PolicyHost.$interfaceName = 'arc.mojom.PolicyHost';
-mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyInstance = {};
-mojo.internal.bindings.arc.mojom.PolicyInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyInstance = mojo.internal.bindings.arc.mojom.PolicyInstance || {};
+mojo.internal.bindings.arc.mojom.PolicyInstanceSpec = mojo.internal.bindings.arc.mojom.PolicyInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PolicyInstance.$interfaceName = 'arc.mojom.PolicyInstance';
-mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

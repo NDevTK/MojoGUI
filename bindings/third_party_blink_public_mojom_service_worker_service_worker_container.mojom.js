@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,33 +124,54 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost = {};
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurposeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost.$interfaceName = 'blink.mojom.ServiceWorkerContainerHost';
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainer = {};
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_HintToUpdateServiceWorker_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_OnExecutionReady_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainer = mojo.internal.bindings.blink.mojom.ServiceWorkerContainer || {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerContainer.$interfaceName = 'blink.mojom.ServiceWorkerContainer';
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_SetController_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_PostMessageToClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerContainer_CountFeature_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

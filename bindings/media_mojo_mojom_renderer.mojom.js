@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,36 +124,59 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.media.mojom.Renderer = {};
-mojo.internal.bindings.media.mojom.RendererSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.Renderer = mojo.internal.bindings.media.mojom.Renderer || {};
+mojo.internal.bindings.media.mojom.RendererSpec = mojo.internal.bindings.media.mojom.RendererSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.RendererSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererSpec.$ = {};
 mojo.internal.bindings.media.mojom.Renderer.$interfaceName = 'media.mojom.Renderer';
-mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient = {};
-mojo.internal.bindings.media.mojom.RendererClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_Flush_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_SetVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_SetCdm_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec = mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_SetCdm_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec = mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.Renderer_SetLatencyHint_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient = mojo.internal.bindings.media.mojom.RendererClient || {};
+mojo.internal.bindings.media.mojom.RendererClientSpec = mojo.internal.bindings.media.mojom.RendererClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.RendererClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.RendererClient.$interfaceName = 'media.mojom.RendererClient';
-mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec = mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

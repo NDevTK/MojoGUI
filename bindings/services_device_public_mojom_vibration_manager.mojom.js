@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,27 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.VibrationManager = {};
-mojo.internal.bindings.device.mojom.VibrationManagerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.VibrationManager = mojo.internal.bindings.device.mojom.VibrationManager || {};
+mojo.internal.bindings.device.mojom.VibrationManagerSpec = mojo.internal.bindings.device.mojom.VibrationManagerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.VibrationManagerSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManagerSpec.$ = {};
 mojo.internal.bindings.device.mojom.VibrationManager.$interfaceName = 'device.mojom.VibrationManager';
-mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.VibrationManagerListener = {};
-mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec = mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec = mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec = mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec = mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.VibrationManagerListener = mojo.internal.bindings.device.mojom.VibrationManagerListener || {};
+mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec = mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManagerListenerSpec.$ = {};
 mojo.internal.bindings.device.mojom.VibrationManagerListener.$interfaceName = 'device.mojom.VibrationManagerListener';
-mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$ = {};
 
 // Interface: VibrationManager
 mojo.internal.bindings.device.mojom.VibrationManagerPendingReceiver = class {

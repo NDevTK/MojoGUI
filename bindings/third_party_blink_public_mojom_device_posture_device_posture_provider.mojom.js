@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,28 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DevicePostureProvider = {};
-mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec = mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DevicePostureProvider = mojo.internal.bindings.blink.mojom.DevicePostureProvider || {};
+mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec = mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProviderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevicePostureProvider.$interfaceName = 'blink.mojom.DevicePostureProvider';
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevicePostureClient = {};
-mojo.internal.bindings.blink.mojom.DevicePostureClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevicePostureClient = mojo.internal.bindings.blink.mojom.DevicePostureClient || {};
+mojo.internal.bindings.blink.mojom.DevicePostureClientSpec = mojo.internal.bindings.blink.mojom.DevicePostureClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevicePostureClient.$interfaceName = 'blink.mojom.DevicePostureClient';
-mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$ = {};
 
 // Enum: DevicePostureType
 mojo.internal.bindings.blink.mojom.DevicePostureType = {

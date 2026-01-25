@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,47 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.secure_channel = mojo.internal.bindings.ash.secure_channel || {};
 mojo.internal.bindings.ash.secure_channel.mojom = mojo.internal.bindings.ash.secure_channel.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener = {};
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener || {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener.$interfaceName = 'ash.secure_channel.mojom.NearbyConnectionStateListener';
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender = {};
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender || {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageSender';
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver = {};
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver || {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver.$interfaceName = 'ash.secure_channel.mojom.NearbyMessageReceiver';
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler = {};
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler = mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler || {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler.$interfaceName = 'ash.secure_channel.mojom.NearbyFilePayloadHandler';
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector = {};
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec = { $ : {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector || {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorSpec.$ = {};
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector.$interfaceName = 'ash.secure_channel.mojom.NearbyConnector';
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

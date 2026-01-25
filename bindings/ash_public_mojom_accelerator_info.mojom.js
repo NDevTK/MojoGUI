@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,28 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.ash.mojom.AcceleratorSourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.AcceleratorStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.AcceleratorLayoutStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.AcceleratorCategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.AcceleratorSubcategorySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.TextAcceleratorPartTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec = { $: {} };
-mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec = { $: {} };
+mojo.internal.bindings.ash.mojom.AcceleratorSourceSpec = mojo.internal.bindings.ash.mojom.AcceleratorSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec = mojo.internal.bindings.ash.mojom.AcceleratorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.AcceleratorStateSpec = mojo.internal.bindings.ash.mojom.AcceleratorStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.AcceleratorLayoutStyleSpec = mojo.internal.bindings.ash.mojom.AcceleratorLayoutStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.AcceleratorCategorySpec = mojo.internal.bindings.ash.mojom.AcceleratorCategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.AcceleratorSubcategorySpec = mojo.internal.bindings.ash.mojom.AcceleratorSubcategorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.TextAcceleratorPartTypeSpec = mojo.internal.bindings.ash.mojom.TextAcceleratorPartTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec = mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$.structSpec && mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec.$ = {};
+mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec = mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec.$.structSpec && mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.TextAcceleratorPartSpec.$ = {};
+mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec = mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec.$.structSpec && mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.TextAcceleratorPropertiesSpec.$ = {};
+mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec = mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec.$.structSpec && mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.StandardAcceleratorPropertiesSpec.$ = {};
+mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec = mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec.$.structSpec && mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec.$ = {};
+mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec = mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec.$.structSpec && mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

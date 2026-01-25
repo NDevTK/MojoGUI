@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,36 +124,61 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager = {};
-mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec = mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec = mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager = mojo.internal.bindings.blink.mojom.PeerConnectionManager || {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PeerConnectionManager.$interfaceName = 'blink.mojom.PeerConnectionManager';
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost = {};
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost || {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost.$interfaceName = 'blink.mojom.PeerConnectionTrackerHost';
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec = mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

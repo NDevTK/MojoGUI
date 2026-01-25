@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.feed = mojo.internal.bindings.feed || {};
 mojo.internal.bindings.feed.mojom = mojo.internal.bindings.feed.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.feed.mojom.RssLinksSpec = { $: {} };
-mojo.internal.bindings.feed.mojom.RssLinkReader = {};
-mojo.internal.bindings.feed.mojom.RssLinkReaderSpec = { $ : {} };
+mojo.internal.bindings.feed.mojom.RssLinksSpec = mojo.internal.bindings.feed.mojom.RssLinksSpec || { $: {} };
+if (mojo.internal.bindings.feed.mojom.RssLinksSpec.$.structSpec && mojo.internal.bindings.feed.mojom.RssLinksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed.mojom.RssLinksSpec.$ = {};
+mojo.internal.bindings.feed.mojom.RssLinkReader = mojo.internal.bindings.feed.mojom.RssLinkReader || {};
+mojo.internal.bindings.feed.mojom.RssLinkReaderSpec = mojo.internal.bindings.feed.mojom.RssLinkReaderSpec || { $ : {} };
+if (mojo.internal.bindings.feed.mojom.RssLinkReaderSpec.$.structSpec && mojo.internal.bindings.feed.mojom.RssLinkReaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed.mojom.RssLinkReaderSpec.$ = {};
 mojo.internal.bindings.feed.mojom.RssLinkReader.$interfaceName = 'feed.mojom.RssLinkReader';
-mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = { $: {} };
-mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec.$.structSpec && mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec.$ = {};
+mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

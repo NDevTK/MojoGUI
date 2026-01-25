@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,30 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameCountingDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.OverdrawDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder = {};
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec = mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameCountingDataSpec = mojo.internal.bindings.viz.mojom.FrameCountingDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.OverdrawDataSpec = mojo.internal.bindings.viz.mojom.OverdrawDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder || {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder.$interfaceName = 'viz.mojom.FrameSinksMetricsRecorder';
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

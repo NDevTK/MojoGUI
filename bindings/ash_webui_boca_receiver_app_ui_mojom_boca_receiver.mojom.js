@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,39 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.boca_receiver = mojo.internal.bindings.ash.boca_receiver || {};
 mojo.internal.bindings.ash.boca_receiver.mojom = mojo.internal.bindings.ash.boca_receiver.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.ash.boca_receiver.mojom.ConnectionClosedReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage = {};
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec = { $ : {} };
+mojo.internal.bindings.ash.boca_receiver.mojom.ConnectionClosedReasonSpec = mojo.internal.bindings.ash.boca_receiver.mojom.ConnectionClosedReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec = mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.ReceiverInfoSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UserInfoSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec = mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.DecodedAudioPacketSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage || {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageSpec.$ = {};
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPage';
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory = {};
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory || {};
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory.$interfaceName = 'ash.boca_receiver.mojom.UntrustedPageHandlerFactory';
-mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec = mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};

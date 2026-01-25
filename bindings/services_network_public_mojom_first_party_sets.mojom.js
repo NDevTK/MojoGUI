@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,21 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.SiteTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec = { $: {} };
-mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec = { $: {} };
-mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.SiteTypeSpec = mojo.internal.bindings.network.mojom.SiteTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec = mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec = mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetMetadataSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec = mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetEntryOverrideSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec = mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec.$ = {};
+mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec = mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec.$.structSpec && mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec.$ = {};
+mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec = mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec.$.structSpec && mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.GlobalFirstPartySetsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

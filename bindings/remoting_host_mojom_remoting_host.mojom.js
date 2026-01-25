@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,48 @@
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remoting.mojom.TransportRouteSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.RemotingHostControl = {};
-mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec = mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remoting.mojom.TransportRouteSpec = mojo.internal.bindings.remoting.mojom.TransportRouteSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.TransportRouteSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.TransportRouteSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.TransportRouteSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControl = mojo.internal.bindings.remoting.mojom.RemotingHostControl || {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.RemotingHostControl.$interfaceName = 'remoting.mojom.RemotingHostControl';
-mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents = {};
-mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec = mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents = mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents || {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents.$interfaceName = 'remoting.mojom.DesktopSessionConnectionEvents';
-mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver = {};
-mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver = mojo.internal.bindings.remoting.mojom.HostStatusObserver || {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserverSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.HostStatusObserver.$interfaceName = 'remoting.mojom.HostStatusObserver';
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec = mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

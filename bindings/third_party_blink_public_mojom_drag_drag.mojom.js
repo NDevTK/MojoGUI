@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,26 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.DragItemSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DragItemStringSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DragItemBinarySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DragDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DragItemSpec = mojo.internal.bindings.blink.mojom.DragItemSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragItemSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec = mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DragItemStringSpec = mojo.internal.bindings.blink.mojom.DragItemStringSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragItemStringSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragItemStringSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragItemStringSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DragItemBinarySpec = mojo.internal.bindings.blink.mojom.DragItemBinarySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$ = {};
+mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec = mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DragDataSpec = mojo.internal.bindings.blink.mojom.DragDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec = mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DragEventSourceInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

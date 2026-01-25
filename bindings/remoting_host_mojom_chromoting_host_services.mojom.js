@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.ChromotingHostServices = {};
-mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.ChromotingHostServices = mojo.internal.bindings.remoting.mojom.ChromotingHostServices || {};
+mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec = mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingHostServicesSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.ChromotingHostServices.$interfaceName = 'remoting.mojom.ChromotingHostServices';
-mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.ChromotingSessionServices = {};
-mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices || {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices.$interfaceName = 'remoting.mojom.ChromotingSessionServices';
-mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};

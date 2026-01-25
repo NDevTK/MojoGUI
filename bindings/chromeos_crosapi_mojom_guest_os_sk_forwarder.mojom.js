@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory = {};
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory || {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactorySpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory.$interfaceName = 'crosapi.mojom.GuestOsSkForwarderFactory';
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder = {};
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder || {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder.$interfaceName = 'crosapi.mojom.GuestOsSkForwarder';
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec.$ = {};
 
 // Interface: GuestOsSkForwarderFactory
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver = class {

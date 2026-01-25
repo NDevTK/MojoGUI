@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,28 @@
  mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.data_decoder.mojom.Gzipper = {};
-mojo.internal.bindings.data_decoder.mojom.GzipperSpec = { $ : {} };
+mojo.internal.bindings.data_decoder.mojom.Gzipper = mojo.internal.bindings.data_decoder.mojom.Gzipper || {};
+mojo.internal.bindings.data_decoder.mojom.GzipperSpec = mojo.internal.bindings.data_decoder.mojom.GzipperSpec || { $ : {} };
+if (mojo.internal.bindings.data_decoder.mojom.GzipperSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.GzipperSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.GzipperSpec.$ = {};
 mojo.internal.bindings.data_decoder.mojom.Gzipper.$interfaceName = 'data_decoder.mojom.Gzipper';
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

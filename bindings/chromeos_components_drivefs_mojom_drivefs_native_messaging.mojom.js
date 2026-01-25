@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.drivefs = mojo.internal.bindings.drivefs || {};
 mojo.internal.bindings.drivefs.mojom = mojo.internal.bindings.drivefs.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec = { $: {} };
-mojo.internal.bindings.drivefs.mojom.NativeMessagingPort = {};
-mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec = { $ : {} };
+mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec = mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec = mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec || { $: {} };
+if (mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec.$.structSpec && mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec.$ = {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingPort = mojo.internal.bindings.drivefs.mojom.NativeMessagingPort || {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec || { $ : {} };
+if (mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec.$.structSpec && mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drivefs.mojom.NativeMessagingPortSpec.$ = {};
 mojo.internal.bindings.drivefs.mojom.NativeMessagingPort.$interfaceName = 'drivefs.mojom.NativeMessagingPort';
-mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = { $: {} };
-mojo.internal.bindings.drivefs.mojom.NativeMessagingHost = {};
-mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec = { $ : {} };
+mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$ = {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingHost = mojo.internal.bindings.drivefs.mojom.NativeMessagingHost || {};
+mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec || { $ : {} };
+if (mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec.$.structSpec && mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drivefs.mojom.NativeMessagingHostSpec.$ = {};
 mojo.internal.bindings.drivefs.mojom.NativeMessagingHost.$interfaceName = 'drivefs.mojom.NativeMessagingHost';
-mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = { $: {} };
+mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec = mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$ = {};
 
 // Enum: ExtensionConnectionStatus
 mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatus = {

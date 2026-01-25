@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,31 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.KeyDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.LocationDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.GesturePinchDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.GestureDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.ScrollDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.PointerDetailsSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.MouseDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.TouchDataSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.EventSpec = { $: {} };
+mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec = mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec.$.structSpec && mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec.$ = {};
+mojo.internal.bindings.ui.mojom.KeyDataSpec = mojo.internal.bindings.ui.mojom.KeyDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.KeyDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.KeyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.KeyDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.LocationDataSpec = mojo.internal.bindings.ui.mojom.LocationDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.LocationDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.LocationDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.LocationDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.GesturePinchDataSpec = mojo.internal.bindings.ui.mojom.GesturePinchDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.GesturePinchDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.GesturePinchDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.GesturePinchDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec = mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.GestureSwipeDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.GestureDataSpec = mojo.internal.bindings.ui.mojom.GestureDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.GestureDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.GestureDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.GestureDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.ScrollDataSpec = mojo.internal.bindings.ui.mojom.ScrollDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.ScrollDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.ScrollDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.ScrollDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.PointerDetailsSpec = mojo.internal.bindings.ui.mojom.PointerDetailsSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.PointerDetailsSpec.$.structSpec && mojo.internal.bindings.ui.mojom.PointerDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.PointerDetailsSpec.$ = {};
+mojo.internal.bindings.ui.mojom.MouseDataSpec = mojo.internal.bindings.ui.mojom.MouseDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.MouseDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.MouseDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.MouseDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.TouchDataSpec = mojo.internal.bindings.ui.mojom.TouchDataSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.TouchDataSpec.$.structSpec && mojo.internal.bindings.ui.mojom.TouchDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.TouchDataSpec.$ = {};
+mojo.internal.bindings.ui.mojom.EventSpec = mojo.internal.bindings.ui.mojom.EventSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.EventSpec.$.structSpec && mojo.internal.bindings.ui.mojom.EventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.EventSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

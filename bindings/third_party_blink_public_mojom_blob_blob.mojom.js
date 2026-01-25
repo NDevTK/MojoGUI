@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,43 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.blink.mojom.BlobReaderClient = {};
-mojo.internal.bindings.blink.mojom.BlobReaderClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BlobReaderClient = mojo.internal.bindings.blink.mojom.BlobReaderClient || {};
+mojo.internal.bindings.blink.mojom.BlobReaderClientSpec = mojo.internal.bindings.blink.mojom.BlobReaderClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BlobReaderClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobReaderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobReaderClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.BlobReaderClient.$interfaceName = 'blink.mojom.BlobReaderClient';
-mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob = {};
-mojo.internal.bindings.blink.mojom.BlobSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec = mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob = mojo.internal.bindings.blink.mojom.Blob || {};
+mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.BlobSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlobSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlobSpec.$ = {};
 mojo.internal.bindings.blink.mojom.Blob.$interfaceName = 'blink.mojom.Blob';
-mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec = mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

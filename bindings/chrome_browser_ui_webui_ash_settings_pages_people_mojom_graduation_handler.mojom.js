@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,16 +125,23 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.graduation = mojo.internal.bindings.ash.settings.graduation || {};
 mojo.internal.bindings.ash.settings.graduation.mojom = mojo.internal.bindings.ash.settings.graduation.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler = {};
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler || {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler.$interfaceName = 'ash.settings.graduation.mojom.GraduationHandler';
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver = {};
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver || {};
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver.$interfaceName = 'ash.settings.graduation.mojom.GraduationObserver';
-mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$ = {};
 
 // Interface: GraduationHandler
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerPendingReceiver = class {

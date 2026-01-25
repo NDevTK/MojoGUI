@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,51 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mojo.internal.bindings.content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SyntheticPinchSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SyntheticTapSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector = {};
-mojo.internal.bindings.content.mojom.InputInjectorSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.GestureSourceTypeSpec = mojo.internal.bindings.content.mojom.GestureSourceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.PointerActionTypeSpec = mojo.internal.bindings.content.mojom.PointerActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.SyntheticButtonSpec = mojo.internal.bindings.content.mojom.SyntheticButtonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.InputEventPatternSpec = mojo.internal.bindings.content.mojom.InputEventPatternSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec = mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec.$ = {};
+mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec = mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec.$ = {};
+mojo.internal.bindings.content.mojom.SyntheticPinchSpec = mojo.internal.bindings.content.mojom.SyntheticPinchSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticPinchSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticPinchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticPinchSpec.$ = {};
+mojo.internal.bindings.content.mojom.SyntheticTapSpec = mojo.internal.bindings.content.mojom.SyntheticTapSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticTapSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticTapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticTapSpec.$ = {};
+mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec = mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec = mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec.$.structSpec && mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector = mojo.internal.bindings.content.mojom.InputInjector || {};
+mojo.internal.bindings.content.mojom.InputInjectorSpec = mojo.internal.bindings.content.mojom.InputInjectorSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.InputInjectorSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjectorSpec.$ = {};
 mojo.internal.bindings.content.mojom.InputInjector.$interfaceName = 'content.mojom.InputInjector';
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec = mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

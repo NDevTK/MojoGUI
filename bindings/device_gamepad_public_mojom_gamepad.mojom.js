@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,41 +124,65 @@
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.GamepadMappingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GamepadHandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GamepadHapticsResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.GamepadQuaternionSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadVectorSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadButtonSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadTouchSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadPoseSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadObserver = {};
-mojo.internal.bindings.device.mojom.GamepadObserverSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.GamepadMappingSpec = mojo.internal.bindings.device.mojom.GamepadMappingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHandSpec = mojo.internal.bindings.device.mojom.GamepadHandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec = mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec = mojo.internal.bindings.device.mojom.GamepadHapticEffectTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadHapticsResultSpec = mojo.internal.bindings.device.mojom.GamepadHapticsResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.GamepadQuaternionSpec = mojo.internal.bindings.device.mojom.GamepadQuaternionSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadQuaternionSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadQuaternionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadQuaternionSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadVectorSpec = mojo.internal.bindings.device.mojom.GamepadVectorSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadVectorSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadVectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadVectorSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadButtonSpec = mojo.internal.bindings.device.mojom.GamepadButtonSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadButtonSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadButtonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadButtonSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadTouchSpec = mojo.internal.bindings.device.mojom.GamepadTouchSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadTouchSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadTouchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadTouchSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadPoseSpec = mojo.internal.bindings.device.mojom.GamepadPoseSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadPoseSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadPoseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadPoseSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec = mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticActuatorSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadSpec = mojo.internal.bindings.device.mojom.GamepadSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec = mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadEffectParametersSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadObserver = mojo.internal.bindings.device.mojom.GamepadObserver || {};
+mojo.internal.bindings.device.mojom.GamepadObserverSpec = mojo.internal.bindings.device.mojom.GamepadObserverSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GamepadObserverSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadObserverSpec.$ = {};
 mojo.internal.bindings.device.mojom.GamepadObserver.$interfaceName = 'device.mojom.GamepadObserver';
-mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadMonitor = {};
-mojo.internal.bindings.device.mojom.GamepadMonitorSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadMonitor = mojo.internal.bindings.device.mojom.GamepadMonitor || {};
+mojo.internal.bindings.device.mojom.GamepadMonitorSpec = mojo.internal.bindings.device.mojom.GamepadMonitorSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitorSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitorSpec.$ = {};
 mojo.internal.bindings.device.mojom.GamepadMonitor.$interfaceName = 'device.mojom.GamepadMonitor';
-mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadHapticsManager = {};
-mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec = mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManager = mojo.internal.bindings.device.mojom.GamepadHapticsManager || {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec = mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticsManagerSpec.$ = {};
 mojo.internal.bindings.device.mojom.GamepadHapticsManager.$interfaceName = 'device.mojom.GamepadHapticsManager';
-mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

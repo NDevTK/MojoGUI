@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,31 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WallpaperHost = {};
-mojo.internal.bindings.arc.mojom.WallpaperHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WallpaperHost = mojo.internal.bindings.arc.mojom.WallpaperHost || {};
+mojo.internal.bindings.arc.mojom.WallpaperHostSpec = mojo.internal.bindings.arc.mojom.WallpaperHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.WallpaperHost.$interfaceName = 'arc.mojom.WallpaperHost';
-mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperInstance = {};
-mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperInstance = mojo.internal.bindings.arc.mojom.WallpaperInstance || {};
+mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec = mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.WallpaperInstance.$interfaceName = 'arc.mojom.WallpaperInstance';
-mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$ = {};
 
 // Interface: WallpaperHost
 mojo.internal.bindings.arc.mojom.WallpaperHostPendingReceiver = class {

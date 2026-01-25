@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -119,9 +122,12 @@
  };
 
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.extensions.KeepAlive = {};
-mojo.internal.bindings.extensions.KeepAliveSpec = { $ : {} };
+mojo.internal.bindings.extensions.KeepAlive = mojo.internal.bindings.extensions.KeepAlive || {};
+mojo.internal.bindings.extensions.KeepAliveSpec = mojo.internal.bindings.extensions.KeepAliveSpec || { $ : {} };
+if (mojo.internal.bindings.extensions.KeepAliveSpec.$.structSpec && mojo.internal.bindings.extensions.KeepAliveSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.KeepAliveSpec.$ = {};
 mojo.internal.bindings.extensions.KeepAlive.$interfaceName = 'extensions.KeepAlive';
 
 // Interface: KeepAlive

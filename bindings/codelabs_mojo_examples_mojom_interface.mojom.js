@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,39 @@
 
  mojo.internal.bindings.codelabs = mojo.internal.bindings.codelabs || {};
 mojo.internal.bindings.codelabs.mojom = mojo.internal.bindings.codelabs.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.codelabs.mojom.ObjectA = {};
-mojo.internal.bindings.codelabs.mojom.ObjectASpec = { $ : {} };
+mojo.internal.bindings.codelabs.mojom.ObjectA = mojo.internal.bindings.codelabs.mojom.ObjectA || {};
+mojo.internal.bindings.codelabs.mojom.ObjectASpec = mojo.internal.bindings.codelabs.mojom.ObjectASpec || { $ : {} };
+if (mojo.internal.bindings.codelabs.mojom.ObjectASpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.ObjectASpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.ObjectASpec.$ = {};
 mojo.internal.bindings.codelabs.mojom.ObjectA.$interfaceName = 'codelabs.mojom.ObjectA';
-mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec = { $: {} };
-mojo.internal.bindings.codelabs.mojom.ObjectB = {};
-mojo.internal.bindings.codelabs.mojom.ObjectBSpec = { $ : {} };
+mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec = mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec.$ = {};
+mojo.internal.bindings.codelabs.mojom.ObjectB = mojo.internal.bindings.codelabs.mojom.ObjectB || {};
+mojo.internal.bindings.codelabs.mojom.ObjectBSpec = mojo.internal.bindings.codelabs.mojom.ObjectBSpec || { $ : {} };
+if (mojo.internal.bindings.codelabs.mojom.ObjectBSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.ObjectBSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.ObjectBSpec.$ = {};
 mojo.internal.bindings.codelabs.mojom.ObjectB.$interfaceName = 'codelabs.mojom.ObjectB';
-mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec = { $: {} };
-mojo.internal.bindings.codelabs.mojom.AssociatedProcess = {};
-mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec = { $ : {} };
+mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec = mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec.$ = {};
+mojo.internal.bindings.codelabs.mojom.AssociatedProcess = mojo.internal.bindings.codelabs.mojom.AssociatedProcess || {};
+mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec = mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec || { $ : {} };
+if (mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.AssociatedProcessSpec.$ = {};
 mojo.internal.bindings.codelabs.mojom.AssociatedProcess.$interfaceName = 'codelabs.mojom.AssociatedProcess';
-mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = { $: {} };
-mojo.internal.bindings.codelabs.mojom.GenericInterface = {};
-mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec = { $ : {} };
+mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec = mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$ = {};
+mojo.internal.bindings.codelabs.mojom.GenericInterface = mojo.internal.bindings.codelabs.mojom.GenericInterface || {};
+mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec = mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec.$ = {};
 mojo.internal.bindings.codelabs.mojom.GenericInterface.$interfaceName = 'codelabs.mojom.GenericInterface';
-mojo.internal.bindings.codelabs.mojom.Process = {};
-mojo.internal.bindings.codelabs.mojom.ProcessSpec = { $ : {} };
+mojo.internal.bindings.codelabs.mojom.Process = mojo.internal.bindings.codelabs.mojom.Process || {};
+mojo.internal.bindings.codelabs.mojom.ProcessSpec = mojo.internal.bindings.codelabs.mojom.ProcessSpec || { $ : {} };
+if (mojo.internal.bindings.codelabs.mojom.ProcessSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.ProcessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.ProcessSpec.$ = {};
 mojo.internal.bindings.codelabs.mojom.Process.$interfaceName = 'codelabs.mojom.Process';
-mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec = { $: {} };
-mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = { $: {} };
+mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec = mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec.$ = {};
+mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$ = {};
 
 // Interface: ObjectA
 mojo.internal.bindings.codelabs.mojom.ObjectAPendingReceiver = class {

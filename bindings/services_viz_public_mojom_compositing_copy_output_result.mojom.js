@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,16 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.CopyOutputResultErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.CopyOutputResultSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec = mojo.internal.bindings.viz.mojom.CopyOutputResultFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec = mojo.internal.bindings.viz.mojom.CopyOutputResultDestinationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.CopyOutputResultErrorSpec = mojo.internal.bindings.viz.mojom.CopyOutputResultErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.CopyOutputResultSpec = mojo.internal.bindings.viz.mojom.CopyOutputResultSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CopyOutputResultSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CopyOutputResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CopyOutputResultSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

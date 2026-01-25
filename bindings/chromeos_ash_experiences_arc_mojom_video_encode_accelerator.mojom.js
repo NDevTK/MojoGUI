@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,36 +123,59 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.ErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.BitrateSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ConstantBitrateSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VariableBitrateSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator = {};
-mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec = mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ErrorSpec = mojo.internal.bindings.arc.mojom.ErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.ResultSpec = mojo.internal.bindings.arc.mojom.ResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.BitrateSpec = mojo.internal.bindings.arc.mojom.BitrateSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BitrateSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BitrateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BitrateSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec = mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ConstantBitrateSpec = mojo.internal.bindings.arc.mojom.ConstantBitrateSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ConstantBitrateSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ConstantBitrateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ConstantBitrateSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VariableBitrateSpec = mojo.internal.bindings.arc.mojom.VariableBitrateSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VariableBitrateSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VariableBitrateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VariableBitrateSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator || {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorSpec.$ = {};
 mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator.$interfaceName = 'arc.mojom.VideoEncodeAccelerator';
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeClient = {};
-mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeClient = mojo.internal.bindings.arc.mojom.VideoEncodeClient || {};
+mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec = mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec.$ = {};
 mojo.internal.bindings.arc.mojom.VideoEncodeClient.$interfaceName = 'arc.mojom.VideoEncodeClient';
-mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

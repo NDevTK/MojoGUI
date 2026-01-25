@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,53 +123,83 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mac_notifications = mojo.internal.bindings.mac_notifications || {};
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 
-mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.FeatureStateSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim = {};
-mojo.internal.bindings.chrome.mojom.AppShimSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec = mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec = mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec = mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec = mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec = mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec = mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec = mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimInfoSpec = mojo.internal.bindings.chrome.mojom.AppShimInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimInfoSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimInfoSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.FeatureStateSpec = mojo.internal.bindings.chrome.mojom.FeatureStateSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FeatureStateSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FeatureStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FeatureStateSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim = mojo.internal.bindings.chrome.mojom.AppShim || {};
+mojo.internal.bindings.chrome.mojom.AppShimSpec = mojo.internal.bindings.chrome.mojom.AppShimSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShim.$interfaceName = 'chrome.mojom.AppShim';
-mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost = {};
-mojo.internal.bindings.chrome.mojom.AppShimHostSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost = mojo.internal.bindings.chrome.mojom.AppShimHost || {};
+mojo.internal.bindings.chrome.mojom.AppShimHostSpec = mojo.internal.bindings.chrome.mojom.AppShimHostSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHostSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHostSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShimHost.$interfaceName = 'chrome.mojom.AppShimHost';
-mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap = {};
-mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap || {};
+mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap.$interfaceName = 'chrome.mojom.AppShimHostBootstrap';
-mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

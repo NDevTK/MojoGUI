@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,46 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.KeyTagSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec = mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec = mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec = mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec = mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeyTagSpec = mojo.internal.bindings.crosapi.mojom.KeyTagSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec = mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec = mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.ChallengeAttestationOnlyKeystoreResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec = mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.KeystoreBinaryResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetCertificatesResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.KeystoreSelectClientCertificatesResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec = mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetKeyStoresResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec = mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetPublicKeyResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec = mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetKeyTagsResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DEPRECATED_ExtensionKeystoreBinaryResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetPublicKeyResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetKeyStoresResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DEPRECATED_GetCertificatesResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec = mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DEPRECATED_KeystoreStringResultSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec = mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec = mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec = mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};

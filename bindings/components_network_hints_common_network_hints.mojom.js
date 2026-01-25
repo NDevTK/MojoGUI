@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.network_hints = mojo.internal.bindings.network_hints || {};
 mojo.internal.bindings.network_hints.mojom = mojo.internal.bindings.network_hints.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler = {};
-mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec = { $ : {} };
+mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler || {};
+mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec.$.structSpec && mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerSpec.$ = {};
 mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler.$interfaceName = 'network_hints.mojom.NetworkHintsHandler';
-mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = { $: {} };
-mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = { $: {} };
+mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$.structSpec && mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$ = {};
+mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

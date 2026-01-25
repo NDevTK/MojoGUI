@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ImpressionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AttributionHost = {};
-mojo.internal.bindings.blink.mojom.AttributionHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ImpressionSpec = mojo.internal.bindings.blink.mojom.ImpressionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ImpressionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ImpressionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ImpressionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AttributionHost = mojo.internal.bindings.blink.mojom.AttributionHost || {};
+mojo.internal.bindings.blink.mojom.AttributionHostSpec = mojo.internal.bindings.blink.mojom.AttributionHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AttributionHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AttributionHost.$interfaceName = 'blink.mojom.AttributionHost';
-mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attribution_reporting || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -123,41 +126,65 @@ mojo.internal.bindings.ash.nearby = mojo.internal.bindings.ash.nearby || {};
 mojo.internal.bindings.ash.nearby.presence = mojo.internal.bindings.ash.nearby.presence || {};
 mojo.internal.bindings.ash.nearby.presence.mojom = mojo.internal.bindings.ash.nearby.presence.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession = {};
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec = { $ : {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.PublicCredentialTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec = mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec = mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec = mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec = mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec = mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec = mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec = mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession = mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec || { $ : {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionSpec.$ = {};
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanSession.$interfaceName = 'ash.nearby.presence.mojom.ScanSession';
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver = {};
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver = mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverSpec.$ = {};
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver.$interfaceName = 'ash.nearby.presence.mojom.ScanObserver';
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence = {};
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec = { $ : {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence || {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceSpec.$ = {};
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence.$interfaceName = 'ash.nearby.presence.mojom.NearbyPresence';
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,36 +123,58 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 
-mojo.internal.bindings.viz.mojom.GpuHost = {};
-mojo.internal.bindings.viz.mojom.GpuHostSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.GpuHost = mojo.internal.bindings.viz.mojom.GpuHost || {};
+mojo.internal.bindings.viz.mojom.GpuHostSpec = mojo.internal.bindings.viz.mojom.GpuHostSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.GpuHostSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHostSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuHost.$interfaceName = 'viz.mojom.GpuHost';
-mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

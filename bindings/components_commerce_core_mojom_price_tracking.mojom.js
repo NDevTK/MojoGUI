@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,33 +125,54 @@
 mojo.internal.bindings.commerce.price_tracking = mojo.internal.bindings.commerce.price_tracking || {};
 mojo.internal.bindings.commerce.price_tracking.mojom = mojo.internal.bindings.commerce.price_tracking.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler = {};
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec = { $ : {} };
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler || {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerSpec.$ = {};
 mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler.$interfaceName = 'commerce.price_tracking.mojom.PriceTrackingHandler';
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.Page = {};
-mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.Page = mojo.internal.bindings.commerce.price_tracking.mojom.Page || {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PageSpec.$ = {};
 mojo.internal.bindings.commerce.price_tracking.mojom.Page.$interfaceName = 'commerce.price_tracking.mojom.Page';
-mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory = {};
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory || {};
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactorySpec.$ = {};
 mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory.$interfaceName = 'commerce.price_tracking.mojom.PriceTrackingHandlerFactory';
-mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec = mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.commerce = mojo.internal.bindings.commerce || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager = {};
-mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager = mojo.internal.bindings.arc.mojom.ProtectedBufferManager || {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManagerSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ProtectedBufferManager.$interfaceName = 'arc.mojom.ProtectedBufferManager';
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

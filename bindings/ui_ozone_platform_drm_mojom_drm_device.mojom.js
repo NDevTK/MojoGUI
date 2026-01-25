@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,41 +125,72 @@
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice = {};
-mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec = { $ : {} };
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice = mojo.internal.bindings.ui.ozone.mojom.DrmDevice || {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec || { $ : {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDeviceSpec.$ = {};
 mojo.internal.bindings.ui.ozone.mojom.DrmDevice.$interfaceName = 'ui.ozone.mojom.DrmDevice';
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};

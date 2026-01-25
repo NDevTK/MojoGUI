@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,17 @@
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService = {};
-mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec = { $ : {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService || {};
+mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec || { $ : {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService.$interfaceName = 'tabs_api.mojom.TabStripExperimentService';
-mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,45 +123,70 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver = {};
-mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec = mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec = mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.StateSpec = mojo.internal.bindings.crosapi.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventCategoryEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryUsbEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchPointInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadTouchEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadConnectedEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenTouchEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryTouchscreenConnectedEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchPointInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryStylusTouchEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec = mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryStylusConnectedEventInfoSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver = mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver.$interfaceName = 'crosapi.mojom.TelemetryEventObserver';
-mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventService = {};
-mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventService = mojo.internal.bindings.crosapi.mojom.TelemetryEventService || {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.TelemetryEventService.$interfaceName = 'crosapi.mojom.TelemetryEventService';
-mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};

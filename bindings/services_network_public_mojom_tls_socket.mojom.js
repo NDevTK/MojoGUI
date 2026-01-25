@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,14 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.TLSClientSocket = {};
-mojo.internal.bindings.network.mojom.TLSClientSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec = mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.TLSClientSocket = mojo.internal.bindings.network.mojom.TLSClientSocket || {};
+mojo.internal.bindings.network.mojom.TLSClientSocketSpec = mojo.internal.bindings.network.mojom.TLSClientSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.TLSClientSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.TLSClientSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TLSClientSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.TLSClientSocket.$interfaceName = 'network.mojom.TLSClientSocket';
 
 // External type stubs (from imports)

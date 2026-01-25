@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,49 @@
 
  mojo.internal.bindings.unzip = mojo.internal.bindings.unzip || {};
 mojo.internal.bindings.unzip.mojom = mojo.internal.bindings.unzip.mojom || {};
-mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.InfoSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.UnzipFilter = {};
-mojo.internal.bindings.unzip.mojom.UnzipFilterSpec = { $ : {} };
+mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec = mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.InfoSpec = mojo.internal.bindings.unzip.mojom.InfoSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.InfoSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.InfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.InfoSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.UnzipFilter = mojo.internal.bindings.unzip.mojom.UnzipFilter || {};
+mojo.internal.bindings.unzip.mojom.UnzipFilterSpec = mojo.internal.bindings.unzip.mojom.UnzipFilterSpec || { $ : {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipFilterSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipFilterSpec.$ = {};
 mojo.internal.bindings.unzip.mojom.UnzipFilter.$interfaceName = 'unzip.mojom.UnzipFilter';
-mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.UnzipListener = {};
-mojo.internal.bindings.unzip.mojom.UnzipListenerSpec = { $ : {} };
+mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.UnzipListener = mojo.internal.bindings.unzip.mojom.UnzipListener || {};
+mojo.internal.bindings.unzip.mojom.UnzipListenerSpec = mojo.internal.bindings.unzip.mojom.UnzipListenerSpec || { $ : {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipListenerSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipListenerSpec.$ = {};
 mojo.internal.bindings.unzip.mojom.UnzipListener.$interfaceName = 'unzip.mojom.UnzipListener';
-mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper = {};
-mojo.internal.bindings.unzip.mojom.UnzipperSpec = { $ : {} };
+mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec = mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper = mojo.internal.bindings.unzip.mojom.Unzipper || {};
+mojo.internal.bindings.unzip.mojom.UnzipperSpec = mojo.internal.bindings.unzip.mojom.UnzipperSpec || { $ : {} };
+if (mojo.internal.bindings.unzip.mojom.UnzipperSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.UnzipperSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.UnzipperSpec.$ = {};
 mojo.internal.bindings.unzip.mojom.Unzipper.$interfaceName = 'unzip.mojom.Unzipper';
-mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec = { $: {} };
-mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$ = {};
+mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

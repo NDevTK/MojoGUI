@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,27 +124,43 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.CookieMatchTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CookiesResponseSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager = {};
-mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.CookieMatchTypeSpec = mojo.internal.bindings.network.mojom.CookieMatchTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec = mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CookiesResponseSpec = mojo.internal.bindings.network.mojom.CookiesResponseSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CookiesResponseSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookiesResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookiesResponseSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager = mojo.internal.bindings.network.mojom.RestrictedCookieManager || {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManagerSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCookieManager.$interfaceName = 'network.mojom.RestrictedCookieManager';
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

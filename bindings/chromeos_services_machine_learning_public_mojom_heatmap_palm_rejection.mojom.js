@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,15 +125,21 @@
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapProcessedEventSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClientSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient.$interfaceName = 'chromeos.machine_learning.mojom.HeatmapPalmRejectionClient';
-mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

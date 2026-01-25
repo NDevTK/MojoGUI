@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,47 @@
 
  mojo.internal.bindings.theme_color_picker = mojo.internal.bindings.theme_color_picker || {};
 mojo.internal.bindings.theme_color_picker.mojom = mojo.internal.bindings.theme_color_picker.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec = mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory || {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactorySpec.$ = {};
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory';
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler = {};
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec = { $ : {} };
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler || {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerSpec.$ = {};
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandler';
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = { $: {} };
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient = {};
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec = { $ : {} };
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$ = {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient || {};
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec || { $ : {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientSpec.$ = {};
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerClient';
-mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = { $: {} };
+mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};

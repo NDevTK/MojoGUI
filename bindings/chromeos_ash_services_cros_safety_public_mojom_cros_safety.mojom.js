@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,23 +125,34 @@
 mojo.internal.bindings.ash.cros_safety = mojo.internal.bindings.ash.cros_safety || {};
 mojo.internal.bindings.ash.cros_safety.mojom = mojo.internal.bindings.ash.cros_safety.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession = {};
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec = { $ : {} };
+mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec = mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec = mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession || {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionSpec.$ = {};
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession.$interfaceName = 'ash.cros_safety.mojom.CloudSafetySession';
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession = {};
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = { $ : {} };
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession || {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionSpec.$ = {};
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession.$interfaceName = 'ash.cros_safety.mojom.OnDeviceSafetySession';
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

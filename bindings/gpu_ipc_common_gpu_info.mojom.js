@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,29 @@
  mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 
-mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.OverlaySupportSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.GpuDeviceSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.OverlayInfoSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.GpuInfoSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec = mojo.internal.bindings.gpu.mojom.SkiaBackendTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec = mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec = mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec = mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSubsamplingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.OverlaySupportSpec = mojo.internal.bindings.gpu.mojom.OverlaySupportSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu.mojom.GpuDeviceSpec = mojo.internal.bindings.gpu.mojom.GpuDeviceSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuDeviceSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec = mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorSupportedProfileSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec = mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VideoDecodeAcceleratorCapabilitiesSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec = mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.VideoEncodeAcceleratorSupportedProfileSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec = mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.ImageDecodeAcceleratorSupportedProfileSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.OverlayInfoSpec = mojo.internal.bindings.gpu.mojom.OverlayInfoSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.OverlayInfoSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.OverlayInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.OverlayInfoSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuInfoSpec = mojo.internal.bindings.gpu.mojom.GpuInfoSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

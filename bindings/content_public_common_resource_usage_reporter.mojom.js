@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.ResourceTypeStatSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ResourceUsageDataSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ResourceUsageReporter = {};
-mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.ResourceTypeStatSpec = mojo.internal.bindings.content.mojom.ResourceTypeStatSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$ = {};
+mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec = mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ResourceUsageDataSpec = mojo.internal.bindings.content.mojom.ResourceUsageDataSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ResourceUsageDataSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceUsageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceUsageDataSpec.$ = {};
+mojo.internal.bindings.content.mojom.ResourceUsageReporter = mojo.internal.bindings.content.mojom.ResourceUsageReporter || {};
+mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec = mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceUsageReporterSpec.$ = {};
 mojo.internal.bindings.content.mojom.ResourceUsageReporter.$interfaceName = 'content.mojom.ResourceUsageReporter';
-mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$ = {};
 
 // Interface: ResourceUsageReporter
 mojo.internal.bindings.content.mojom.ResourceUsageReporterPendingReceiver = class {

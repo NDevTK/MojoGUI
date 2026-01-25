@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,30 +123,47 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundSyncStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundSyncEventLastChanceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService = {};
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec = mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncStateSpec = mojo.internal.bindings.blink.mojom.BackgroundSyncStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncEventLastChanceSpec = mojo.internal.bindings.blink.mojom.BackgroundSyncEventLastChanceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec = mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec = mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec = mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService || {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService.$interfaceName = 'blink.mojom.OneShotBackgroundSyncService';
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService = {};
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService || {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService.$interfaceName = 'blink.mojom.PeriodicBackgroundSyncService';
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$ = {};
 
 // Enum: BackgroundSyncError
 mojo.internal.bindings.blink.mojom.BackgroundSyncError = {

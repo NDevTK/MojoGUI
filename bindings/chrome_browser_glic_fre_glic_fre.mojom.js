@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,41 @@
 
  mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.glic.mojom.FreWebUiStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.FrePageHandlerFactory = {};
-mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.glic.mojom.FreWebUiStateSpec = mojo.internal.bindings.glic.mojom.FreWebUiStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.FrePageHandlerFactory = mojo.internal.bindings.glic.mojom.FrePageHandlerFactory || {};
+mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec = mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.glic.mojom.FrePageHandlerFactory.$interfaceName = 'glic.mojom.FrePageHandlerFactory';
-mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler = {};
-mojo.internal.bindings.glic.mojom.FrePageHandlerSpec = { $ : {} };
+mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler = mojo.internal.bindings.glic.mojom.FrePageHandler || {};
+mojo.internal.bindings.glic.mojom.FrePageHandlerSpec = mojo.internal.bindings.glic.mojom.FrePageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandlerSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandlerSpec.$ = {};
 mojo.internal.bindings.glic.mojom.FrePageHandler.$interfaceName = 'glic.mojom.FrePageHandler';
-mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = { $: {} };
-mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec = mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

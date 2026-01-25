@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,43 +124,72 @@
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SourceProfileSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
-mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ImportItemSpec = mojo.internal.bindings.chrome.mojom.ImportItemSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.SchemeSpec = mojo.internal.bindings.chrome.mojom.SchemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.SourceProfileSpec = mojo.internal.bindings.chrome.mojom.SourceProfileSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.SourceProfileSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.SourceProfileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.SourceProfileSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver = mojo.internal.bindings.chrome.mojom.ProfileImportObserver || {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImport = {};
-mojo.internal.bindings.chrome.mojom.ProfileImportSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImport = mojo.internal.bindings.chrome.mojom.ProfileImport || {};
+mojo.internal.bindings.chrome.mojom.ProfileImportSpec = mojo.internal.bindings.chrome.mojom.ProfileImportSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImportSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImportSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.ProfileImport.$interfaceName = 'chrome.mojom.ProfileImport';
-mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};

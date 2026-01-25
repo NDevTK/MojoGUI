@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,37 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.TimingStepPositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.AnimationDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.AnimationFillModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.TimingFunctionSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TransformOperationSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LinearEasingPointSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AxisAngleSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnimationSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnimationTimelineSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.TimingStepPositionSpec = mojo.internal.bindings.viz.mojom.TimingStepPositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.AnimationDirectionSpec = mojo.internal.bindings.viz.mojom.AnimationDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.AnimationFillModeSpec = mojo.internal.bindings.viz.mojom.AnimationFillModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.TimingFunctionSpec = mojo.internal.bindings.viz.mojom.TimingFunctionSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TimingFunctionSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TimingFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TimingFunctionSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TransformOperationSpec = mojo.internal.bindings.viz.mojom.TransformOperationSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TransformOperationSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TransformOperationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TransformOperationSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec = mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnimationKeyframeValueSpec.$ = {};
+mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec = mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec.$.structSpec && mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.CubicBezierTimingFunctionSpec.$ = {};
+mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec = mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec.$.structSpec && mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.StepsTimingFunctionSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LinearEasingPointSpec = mojo.internal.bindings.viz.mojom.LinearEasingPointSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LinearEasingPointSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LinearEasingPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LinearEasingPointSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AxisAngleSpec = mojo.internal.bindings.viz.mojom.AxisAngleSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AxisAngleSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AxisAngleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AxisAngleSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec = mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnimationKeyframeSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec = mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnimationKeyframeModelSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnimationSpec = mojo.internal.bindings.viz.mojom.AnimationSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnimationSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnimationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnimationSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnimationTimelineSpec = mojo.internal.bindings.viz.mojom.AnimationTimelineSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnimationTimelineSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnimationTimelineSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnimationTimelineSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

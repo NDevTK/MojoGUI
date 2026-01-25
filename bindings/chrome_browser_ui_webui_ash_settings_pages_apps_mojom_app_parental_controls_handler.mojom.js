@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,30 +125,50 @@
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.app_parental_controls = mojo.internal.bindings.ash.settings.app_parental_controls || {};
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom = mojo.internal.bindings.ash.settings.app_parental_controls.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = {};
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler || {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler';
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = {};
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver || {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver.$interfaceName = 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver';
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec = mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec.$ = {};
 
 // Enum: PinValidationResult
 mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResult = {

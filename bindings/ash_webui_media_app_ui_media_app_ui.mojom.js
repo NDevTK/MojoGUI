@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,30 +124,49 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.media_app_ui = mojo.internal.bindings.ash.media_app_ui || {};
 mojo.internal.bindings.ash.media_app_ui.mojom = mojo.internal.bindings.ash.media_app_ui.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory.$interfaceName = 'ash.media_app_ui.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler = {};
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler || {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler.$interfaceName = 'ash.media_app_ui.mojom.PageHandler';
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,14 @@
 
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.native = mojo.internal.bindings.mojo.native || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mojo.native.SerializedHandleSpec = { $: {} };
-mojo.internal.bindings.mojo.native.NativeStructSpec = { $: {} };
+mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec = mojo.internal.bindings.mojo.native.SerializedHandleTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mojo.native.SerializedHandleSpec = mojo.internal.bindings.mojo.native.SerializedHandleSpec || { $: {} };
+if (mojo.internal.bindings.mojo.native.SerializedHandleSpec.$.structSpec && mojo.internal.bindings.mojo.native.SerializedHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.native.SerializedHandleSpec.$ = {};
+mojo.internal.bindings.mojo.native.NativeStructSpec = mojo.internal.bindings.mojo.native.NativeStructSpec || { $: {} };
+if (mojo.internal.bindings.mojo.native.NativeStructSpec.$.structSpec && mojo.internal.bindings.mojo.native.NativeStructSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.native.NativeStructSpec.$ = {};
 
 // Enum: SerializedHandleType
 mojo.internal.bindings.mojo.native.SerializedHandleType = {

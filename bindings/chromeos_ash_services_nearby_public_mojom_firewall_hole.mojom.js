@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.sharing.mojom.FirewallHole = {};
-mojo.internal.bindings.sharing.mojom.FirewallHoleSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.FirewallHole = mojo.internal.bindings.sharing.mojom.FirewallHole || {};
+mojo.internal.bindings.sharing.mojom.FirewallHoleSpec = mojo.internal.bindings.sharing.mojom.FirewallHoleSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.FirewallHoleSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FirewallHoleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FirewallHoleSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.FirewallHole.$interfaceName = 'sharing.mojom.FirewallHole';
-mojo.internal.bindings.sharing.mojom.FirewallHoleFactory = {};
-mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.FirewallHoleFactory = mojo.internal.bindings.sharing.mojom.FirewallHoleFactory || {};
+mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec = mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FirewallHoleFactorySpec.$ = {};
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactory.$interfaceName = 'sharing.mojom.FirewallHoleFactory';
-mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec = mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.commerce = mojo.internal.bindings.commerce || {};
 mojo.internal.bindings.commerce.price_insights = mojo.internal.bindings.commerce.price_insights || {};
 mojo.internal.bindings.commerce.price_insights.mojom = mojo.internal.bindings.commerce.price_insights.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler = {};
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec = { $ : {} };
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler || {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec.$.structSpec && mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerSpec.$ = {};
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler.$interfaceName = 'commerce.price_insights.mojom.PriceInsightsHandler';
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory = {};
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory || {};
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec.$.structSpec && mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactorySpec.$ = {};
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory.$interfaceName = 'commerce.price_insights.mojom.PriceInsightsHandlerFactory';
-mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$ = {};
 
 // Interface: PriceInsightsHandler
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerPendingReceiver = class {

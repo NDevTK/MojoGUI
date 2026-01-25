@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.system_media_controls = mojo.internal.bindings.system_media_controls || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remote_cocoa.mojom.StubInterface = {};
-mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec = mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remote_cocoa.mojom.StubInterface = mojo.internal.bindings.remote_cocoa.mojom.StubInterface || {};
+mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec = mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.StubInterface.$interfaceName = 'remote_cocoa.mojom.StubInterface';
-mojo.internal.bindings.remote_cocoa.mojom.Application = {};
-mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.Application = mojo.internal.bindings.remote_cocoa.mojom.Application || {};
+mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec = mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.ApplicationSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.Application.$interfaceName = 'remote_cocoa.mojom.Application';
-mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};

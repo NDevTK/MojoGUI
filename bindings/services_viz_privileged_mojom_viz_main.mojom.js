@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,33 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain = {};
-mojo.internal.bindings.viz.mojom.VizMainSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec = mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain = mojo.internal.bindings.viz.mojom.VizMain || {};
+mojo.internal.bindings.viz.mojom.VizMainSpec = mojo.internal.bindings.viz.mojom.VizMainSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.VizMainSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMainSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMainSpec.$ = {};
 mojo.internal.bindings.viz.mojom.VizMain.$interfaceName = 'viz.mojom.VizMain';
-mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec = mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};

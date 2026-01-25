@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,39 @@
 
  mojo.internal.bindings.signout_confirmation = mojo.internal.bindings.signout_confirmation || {};
 mojo.internal.bindings.signout_confirmation.mojom = mojo.internal.bindings.signout_confirmation.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec = mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec = mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory = mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory.$interfaceName = 'signout_confirmation.mojom.PageHandlerFactory';
-mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler = {};
-mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler = mojo.internal.bindings.signout_confirmation.mojom.PageHandler || {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.signout_confirmation.mojom.PageHandler.$interfaceName = 'signout_confirmation.mojom.PageHandler';
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.signout_confirmation.mojom.Page = {};
-mojo.internal.bindings.signout_confirmation.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.signout_confirmation.mojom.Page = mojo.internal.bindings.signout_confirmation.mojom.Page || {};
+mojo.internal.bindings.signout_confirmation.mojom.PageSpec = mojo.internal.bindings.signout_confirmation.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.PageSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.PageSpec.$ = {};
 mojo.internal.bindings.signout_confirmation.mojom.Page.$interfaceName = 'signout_confirmation.mojom.Page';
-mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = { $: {} };
+mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec && mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryPendingReceiver = class {

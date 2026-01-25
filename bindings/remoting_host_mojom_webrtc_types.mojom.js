@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,22 @@
 
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopFrameSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopRectSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopSizeSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.DesktopVectorSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.MouseCursorSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.DesktopCaptureResultSpec = mojo.internal.bindings.remoting.mojom.DesktopCaptureResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec = mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopFrameSpec = mojo.internal.bindings.remoting.mojom.DesktopFrameSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopFrameSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopFrameSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopRectSpec = mojo.internal.bindings.remoting.mojom.DesktopRectSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopRectSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopRectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopRectSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopSizeSpec = mojo.internal.bindings.remoting.mojom.DesktopSizeSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopSizeSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSizeSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.DesktopVectorSpec = mojo.internal.bindings.remoting.mojom.DesktopVectorSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.DesktopVectorSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopVectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopVectorSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.MouseCursorSpec = mojo.internal.bindings.remoting.mojom.MouseCursorSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.MouseCursorSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.MouseCursorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.MouseCursorSpec.$ = {};
 
 // Enum: DesktopCaptureResult
 mojo.internal.bindings.remoting.mojom.DesktopCaptureResult = {

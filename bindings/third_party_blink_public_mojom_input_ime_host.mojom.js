@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost = {};
-mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec = mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec = mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec = mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost || {};
+mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost.$interfaceName = 'blink.mojom.ImeRenderWidgetHost';
-mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

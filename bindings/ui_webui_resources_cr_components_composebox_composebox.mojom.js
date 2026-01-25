@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,36 @@
 
  mojo.internal.bindings.composebox = mojo.internal.bindings.composebox || {};
 mojo.internal.bindings.composebox.mojom = mojo.internal.bindings.composebox.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.composebox.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.composebox.mojom.PageHandlerFactory = mojo.internal.bindings.composebox.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec = mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.composebox.mojom.PageHandlerFactory.$interfaceName = 'composebox.mojom.PageHandlerFactory';
-mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler = {};
-mojo.internal.bindings.composebox.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler = mojo.internal.bindings.composebox.mojom.PageHandler || {};
+mojo.internal.bindings.composebox.mojom.PageHandlerSpec = mojo.internal.bindings.composebox.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.composebox.mojom.PageHandler.$interfaceName = 'composebox.mojom.PageHandler';
-mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.composebox.mojom.Page = {};
-mojo.internal.bindings.composebox.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.composebox.mojom.Page = mojo.internal.bindings.composebox.mojom.Page || {};
+mojo.internal.bindings.composebox.mojom.PageSpec = mojo.internal.bindings.composebox.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.composebox.mojom.PageSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageSpec.$ = {};
 mojo.internal.bindings.composebox.mojom.Page.$interfaceName = 'composebox.mojom.Page';
 
 // External type stubs (from imports)

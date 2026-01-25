@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,39 +123,63 @@
 
  mojo.internal.bindings.app_home = mojo.internal.bindings.app_home || {};
 mojo.internal.bindings.app_home.mojom = mojo.internal.bindings.app_home.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.web_app = mojo.internal.bindings.web_app || {};
 
-mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.app_home.mojom.AppInfoSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.ClickEventSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec = mojo.internal.bindings.app_home.mojom.RunOnOsLoginModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_home.mojom.AppTypeSpec = mojo.internal.bindings.app_home.mojom.AppTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.app_home.mojom.AppInfoSpec = mojo.internal.bindings.app_home.mojom.AppInfoSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.AppInfoSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.AppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.AppInfoSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.ClickEventSpec = mojo.internal.bindings.app_home.mojom.ClickEventSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.ClickEventSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.ClickEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.ClickEventSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandlerFactory = mojo.internal.bindings.app_home.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec = mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.app_home.mojom.PageHandlerFactory.$interfaceName = 'app_home.mojom.PageHandlerFactory';
-mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler = {};
-mojo.internal.bindings.app_home.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler = mojo.internal.bindings.app_home.mojom.PageHandler || {};
+mojo.internal.bindings.app_home.mojom.PageHandlerSpec = mojo.internal.bindings.app_home.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.app_home.mojom.PageHandler.$interfaceName = 'app_home.mojom.PageHandler';
-mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.Page = {};
-mojo.internal.bindings.app_home.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_GetApps_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec = mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.Page = mojo.internal.bindings.app_home.mojom.Page || {};
+mojo.internal.bindings.app_home.mojom.PageSpec = mojo.internal.bindings.app_home.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.app_home.mojom.PageSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.PageSpec.$ = {};
 mojo.internal.bindings.app_home.mojom.Page.$interfaceName = 'app_home.mojom.Page';
-mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec = { $: {} };
+mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec = mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.Page_AddApp_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec = mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.Page_RemoveApp_ParamsSpec.$ = {};
+mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec = mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec.$.structSpec && mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.app_home.mojom.Page_UpdateApp_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

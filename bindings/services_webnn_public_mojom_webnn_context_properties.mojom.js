@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.SupportedRanksSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec = mojo.internal.bindings.webnn.mojom.InputOperandLayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec = mojo.internal.bindings.webnn.mojom.Resample2DAxesSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec = mojo.internal.bindings.webnn.mojom.BatchNormalizationAxisSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec = mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.SupportedRanksSpec = mojo.internal.bindings.webnn.mojom.SupportedRanksSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.SupportedRanksSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.SupportedRanksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.SupportedRanksSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec = mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec = mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec.$ = {};
 
 // Enum: InputOperandLayout
 mojo.internal.bindings.webnn.mojom.InputOperandLayout = {

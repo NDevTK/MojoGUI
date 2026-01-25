@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,21 +125,34 @@
 mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
 mojo.internal.bindings.ash.cros_healthd.internal = mojo.internal.bindings.ash.cros_healthd.internal || {};
 mojo.internal.bindings.ash.cros_healthd.internal.mojom = mojo.internal.bindings.ash.cros_healthd.internal.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector = {};
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec = { $ : {} };
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector || {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorSpec.$ = {};
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector.$interfaceName = 'ash.cros_healthd.internal.mojom.ChromiumDataCollector';
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec.$ = {};
 
 // Enum: ConnectionType
 mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionType = {

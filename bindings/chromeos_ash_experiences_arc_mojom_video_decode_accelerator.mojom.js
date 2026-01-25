@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,57 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.arc.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.BitstreamBufferSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PictureSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.BufferModifierSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator = {};
-mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ResultSpec = mojo.internal.bindings.arc.mojom.ResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.BitstreamBufferSpec = mojo.internal.bindings.arc.mojom.BitstreamBufferSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BitstreamBufferSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BitstreamBufferSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BitstreamBufferSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PictureSpec = mojo.internal.bindings.arc.mojom.PictureSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PictureSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PictureSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PictureSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec = mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec.$ = {};
+mojo.internal.bindings.arc.mojom.BufferModifierSpec = mojo.internal.bindings.arc.mojom.BufferModifierSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BufferModifierSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BufferModifierSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BufferModifierSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator || {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorSpec.$ = {};
 mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator.$interfaceName = 'arc.mojom.VideoDecodeAccelerator';
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeClient = {};
-mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeClient = mojo.internal.bindings.arc.mojom.VideoDecodeClient || {};
+mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec = mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec.$ = {};
 mojo.internal.bindings.arc.mojom.VideoDecodeClient.$interfaceName = 'arc.mojom.VideoDecodeClient';
-mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec = mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

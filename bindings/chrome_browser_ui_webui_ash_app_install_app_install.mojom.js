@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,34 +124,53 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.app_install = mojo.internal.bindings.ash.app_install || {};
 mojo.internal.bindings.ash.app_install.mojom = mojo.internal.bindings.ash.app_install.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.AppInfoActions = {};
-mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec = { $ : {} };
+mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec = mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec = mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec = mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions = mojo.internal.bindings.ash.app_install.mojom.AppInfoActions || {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec || { $ : {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec.$ = {};
 mojo.internal.bindings.ash.app_install.mojom.AppInfoActions.$interfaceName = 'ash.app_install.mojom.AppInfoActions';
-mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions = {};
-mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec = { $ : {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions || {};
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec || { $ : {} };
+if (mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec.$ = {};
 mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions.$interfaceName = 'ash.app_install.mojom.ConnectionErrorActions';
-mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory.$interfaceName = 'ash.app_install.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.PageHandler = {};
-mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandler = mojo.internal.bindings.ash.app_install.mojom.PageHandler || {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec = mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.app_install.mojom.PageHandler.$interfaceName = 'ash.app_install.mojom.PageHandler';
-mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

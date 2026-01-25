@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,34 +124,55 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.audio_config = mojo.internal.bindings.ash.audio_config || {};
 mojo.internal.bindings.ash.audio_config.mojom = mojo.internal.bindings.ash.audio_config.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver = {};
-mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec = mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec = mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver = mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver || {};
+mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverSpec.$ = {};
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver.$interfaceName = 'ash.audio_config.mojom.AudioSystemPropertiesObserver';
-mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig = {};
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec = { $ : {} };
+mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig || {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec || { $ : {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigSpec.$ = {};
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig.$interfaceName = 'ash.audio_config.mojom.CrosAudioConfig';
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$ = {};
 
 // Enum: AudioDeviceType
 mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceType = {

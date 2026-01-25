@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,54 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
-mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.media_session = mojo.internal.bindings.media_session || {};
 
-mojo.internal.bindings.crosapi.mojom.Crosapi = {};
-mojo.internal.bindings.crosapi.mojom.CrosapiSpec = { $ : {} };
+mojo.internal.bindings.crosapi.mojom.Crosapi = mojo.internal.bindings.crosapi.mojom.Crosapi || {};
+mojo.internal.bindings.crosapi.mojom.CrosapiSpec = mojo.internal.bindings.crosapi.mojom.CrosapiSpec || { $ : {} };
+if (mojo.internal.bindings.crosapi.mojom.CrosapiSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.CrosapiSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.CrosapiSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.Crosapi.$interfaceName = 'crosapi.mojom.Crosapi';
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindHidManager_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

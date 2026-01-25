@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,22 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.ModifierSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PatternTemplateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FixedPatternSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WildcardPatternSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ModifierSpec = mojo.internal.bindings.blink.mojom.ModifierSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PatternTemplateSpec = mojo.internal.bindings.blink.mojom.PatternTemplateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PatternTemplateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PatternTemplateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PatternTemplateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec = mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FixedPatternSpec = mojo.internal.bindings.blink.mojom.FixedPatternSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FixedPatternSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FixedPatternSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FixedPatternSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WildcardPatternSpec = mojo.internal.bindings.blink.mojom.WildcardPatternSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec = mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec = mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

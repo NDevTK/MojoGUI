@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,75 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks = {};
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec = mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec = mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VideoCaptureSubTargetSpec.$ = {};
+mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec = mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec.$.structSpec && mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks || {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks.$interfaceName = 'viz.mojom.FrameSinkVideoConsumerFrameCallbacks';
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer = {};
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer || {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer.$interfaceName = 'viz.mojom.FrameSinkVideoConsumer';
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer = {};
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer || {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerSpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer.$interfaceName = 'viz.mojom.FrameSinkVideoCapturer';
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay = {};
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay = mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay || {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlaySpec.$ = {};
 mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay.$interfaceName = 'viz.mojom.FrameSinkVideoCaptureOverlay';
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec = mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

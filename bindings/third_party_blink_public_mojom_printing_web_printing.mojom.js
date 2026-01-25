@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,52 +123,79 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.WebPrintingMultipleDocumentHandlingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintingSidesSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintQualitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintColorModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintingOrientationRequestedSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrinterStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrinterStateReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintJobStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.GetPrintersErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrinterFetchErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.GetPrintersResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver = {};
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPrintingMultipleDocumentHandlingSpec = mojo.internal.bindings.blink.mojom.WebPrintingMultipleDocumentHandlingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintingSidesSpec = mojo.internal.bindings.blink.mojom.WebPrintingSidesSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintQualitySpec = mojo.internal.bindings.blink.mojom.WebPrintQualitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintColorModeSpec = mojo.internal.bindings.blink.mojom.WebPrintColorModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintingOrientationRequestedSpec = mojo.internal.bindings.blink.mojom.WebPrintingOrientationRequestedSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrinterStateSpec = mojo.internal.bindings.blink.mojom.WebPrinterStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrinterStateReasonSpec = mojo.internal.bindings.blink.mojom.WebPrinterStateReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintJobStateSpec = mojo.internal.bindings.blink.mojom.WebPrintJobStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.GetPrintersErrorSpec = mojo.internal.bindings.blink.mojom.GetPrintersErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrinterFetchErrorSpec = mojo.internal.bindings.blink.mojom.WebPrinterFetchErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintErrorSpec = mojo.internal.bindings.blink.mojom.WebPrintErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec = mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.GetPrintersResultSpec = mojo.internal.bindings.blink.mojom.GetPrintersResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.GetPrintersResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.GetPrintersResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.GetPrintersResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec = mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinterFetchResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintResultSpec = mojo.internal.bindings.blink.mojom.WebPrintResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec = mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinterInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec = mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingRangeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec = mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec = mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec = mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinterAttributesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec = mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingMediaCollectionRequestedSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec = mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobTemplateAttributesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec = mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec = mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver || {};
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver.$interfaceName = 'blink.mojom.WebPrintJobStateObserver';
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintJobController = {};
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintJobController = mojo.internal.bindings.blink.mojom.WebPrintJobController || {};
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec = mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobControllerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPrintJobController.$interfaceName = 'blink.mojom.WebPrintJobController';
-mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinter = {};
-mojo.internal.bindings.blink.mojom.WebPrinterSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinter = mojo.internal.bindings.blink.mojom.WebPrinter || {};
+mojo.internal.bindings.blink.mojom.WebPrinterSpec = mojo.internal.bindings.blink.mojom.WebPrinterSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinterSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPrinter.$interfaceName = 'blink.mojom.WebPrinter';
-mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingService = {};
-mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingService = mojo.internal.bindings.blink.mojom.WebPrintingService || {};
+mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec = mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebPrintingService.$interfaceName = 'blink.mojom.WebPrintingService';
-mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

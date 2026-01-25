@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,14 +124,21 @@
  mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
 mojo.internal.bindings.ntp.calendar = mojo.internal.bindings.ntp.calendar || {};
 mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler = {};
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler || {};
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerSpec.$ = {};
 mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler.$interfaceName = 'ntp.calendar.mojom.GoogleCalendarPageHandler';
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = { $: {} };
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec = mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};

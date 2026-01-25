@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,34 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.VideoDecoderTracker = {};
-mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.VideoDecoderTracker = mojo.internal.bindings.media.mojom.VideoDecoderTracker || {};
+mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec = mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoDecoderTrackerSpec.$ = {};
 mojo.internal.bindings.media.mojom.VideoDecoderTracker.$interfaceName = 'media.mojom.VideoDecoderTracker';
-mojo.internal.bindings.media.mojom.InterfaceFactory = {};
-mojo.internal.bindings.media.mojom.InterfaceFactorySpec = { $ : {} };
+mojo.internal.bindings.media.mojom.InterfaceFactory = mojo.internal.bindings.media.mojom.InterfaceFactory || {};
+mojo.internal.bindings.media.mojom.InterfaceFactorySpec = mojo.internal.bindings.media.mojom.InterfaceFactorySpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactorySpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactorySpec.$ = {};
 mojo.internal.bindings.media.mojom.InterfaceFactory.$interfaceName = 'media.mojom.InterfaceFactory';
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,30 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.Model = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.Model = mojo.internal.bindings.chromeos.machine_learning.mojom.Model || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.ModelSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.Model.$interfaceName = 'chromeos.machine_learning.mojom.Model';
-mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,29 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.NetBenchmarking = {};
-mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.NetBenchmarking = mojo.internal.bindings.chrome.mojom.NetBenchmarking || {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarkingSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.NetBenchmarking.$interfaceName = 'chrome.mojom.NetBenchmarking';
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec.$ = {};
 
 // Interface: NetBenchmarking
 mojo.internal.bindings.chrome.mojom.NetBenchmarkingPendingReceiver = class {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chrome.mojom.NetworkEasterEgg = {};
-mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.NetworkEasterEgg = mojo.internal.bindings.chrome.mojom.NetworkEasterEgg || {};
+mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec = mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkEasterEggSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.NetworkEasterEgg.$interfaceName = 'chrome.mojom.NetworkEasterEgg';
-mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$ = {};
 
 // Interface: NetworkEasterEgg
 mojo.internal.bindings.chrome.mojom.NetworkEasterEggPendingReceiver = class {

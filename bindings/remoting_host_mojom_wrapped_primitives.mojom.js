@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,17 @@
 
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.BoolSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.FloatSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.Int32Spec = { $: {} };
-mojo.internal.bindings.remoting.mojom.UInt32Spec = { $: {} };
+mojo.internal.bindings.remoting.mojom.BoolSpec = mojo.internal.bindings.remoting.mojom.BoolSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.BoolSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.BoolSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.BoolSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.FloatSpec = mojo.internal.bindings.remoting.mojom.FloatSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.FloatSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.FloatSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.FloatSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.Int32Spec = mojo.internal.bindings.remoting.mojom.Int32Spec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.Int32Spec.$.structSpec && mojo.internal.bindings.remoting.mojom.Int32Spec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.Int32Spec.$ = {};
+mojo.internal.bindings.remoting.mojom.UInt32Spec = mojo.internal.bindings.remoting.mojom.UInt32Spec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.UInt32Spec.$.structSpec && mojo.internal.bindings.remoting.mojom.UInt32Spec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.UInt32Spec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

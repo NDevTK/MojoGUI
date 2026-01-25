@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.metrics_reporter = mojo.internal.bindings.metrics_reporter || {};
 mojo.internal.bindings.metrics_reporter.mojom = mojo.internal.bindings.metrics_reporter.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost = {};
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec = { $ : {} };
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost || {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec || { $ : {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostSpec.$ = {};
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost.$interfaceName = 'metrics_reporter.mojom.PageMetricsHost';
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetrics = {};
-mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec = { $ : {} };
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetrics = mojo.internal.bindings.metrics_reporter.mojom.PageMetrics || {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec || { $ : {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetricsSpec.$ = {};
 mojo.internal.bindings.metrics_reporter.mojom.PageMetrics.$interfaceName = 'metrics_reporter.mojom.PageMetrics';
-mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = { $: {} };
+mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.chrome.mojom.FileUtilService = {};
-mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec = { $ : {} };
+mojo.internal.bindings.chrome.mojom.FileUtilService = mojo.internal.bindings.chrome.mojom.FileUtilService || {};
+mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec = mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec || { $ : {} };
+if (mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FileUtilServiceSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.FileUtilService.$interfaceName = 'chrome.mojom.FileUtilService';
-mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec = mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec = mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec = mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};

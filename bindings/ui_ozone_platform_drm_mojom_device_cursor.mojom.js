@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,14 +125,18 @@
 mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
 mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ui.ozone.mojom.DeviceCursor = {};
-mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec = { $ : {} };
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor = mojo.internal.bindings.ui.ozone.mojom.DeviceCursor || {};
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec || { $ : {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DeviceCursorSpec.$ = {};
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursor.$interfaceName = 'ui.ozone.mojom.DeviceCursor';
-mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = { $: {} };
-mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$ = {};
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec && mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

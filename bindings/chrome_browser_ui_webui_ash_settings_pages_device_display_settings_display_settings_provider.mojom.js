@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,44 +124,70 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.settings = mojo.internal.bindings.ash.settings || {};
 mojo.internal.bindings.ash.settings.mojom = mojo.internal.bindings.ash.settings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.TabletModeObserver = {};
-mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.TabletModeObserver = mojo.internal.bindings.ash.settings.mojom.TabletModeObserver || {};
+mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec = mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.TabletModeObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserver.$interfaceName = 'ash.settings.mojom.TabletModeObserver';
-mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver = {};
-mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver = mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver || {};
+mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec = mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver.$interfaceName = 'ash.settings.mojom.DisplayConfigurationObserver';
-mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver = {};
-mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver = mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver || {};
+mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec = mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver.$interfaceName = 'ash.settings.mojom.DisplayBrightnessSettingsObserver';
-mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver = {};
-mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver = mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver || {};
+mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec = mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverSpec.$ = {};
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver.$interfaceName = 'ash.settings.mojom.AmbientLightSensorObserver';
-mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider = {};
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider || {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderSpec.$ = {};
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider.$interfaceName = 'ash.settings.mojom.DisplaySettingsProvider';
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$ = {};
 
 // Enum: DisplaySettingsType
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsType = {

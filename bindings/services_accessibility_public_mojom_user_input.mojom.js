@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,24 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInput = {};
-mojo.internal.bindings.ax.mojom.UserInputSpec = { $ : {} };
+mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec = mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec = mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec.$ = {};
+mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec = mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec.$.structSpec && mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInput = mojo.internal.bindings.ax.mojom.UserInput || {};
+mojo.internal.bindings.ax.mojom.UserInputSpec = mojo.internal.bindings.ax.mojom.UserInputSpec || { $ : {} };
+if (mojo.internal.bindings.ax.mojom.UserInputSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInputSpec.$ = {};
 mojo.internal.bindings.ax.mojom.UserInput.$interfaceName = 'ax.mojom.UserInput';
-mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

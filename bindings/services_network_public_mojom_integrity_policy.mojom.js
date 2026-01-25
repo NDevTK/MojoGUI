@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,13 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.DestinationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SourceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.IntegrityPolicySpec = { $: {} };
+mojo.internal.bindings.network.mojom.DestinationSpec = mojo.internal.bindings.network.mojom.DestinationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SourceSpec = mojo.internal.bindings.network.mojom.SourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.IntegrityPolicySpec = mojo.internal.bindings.network.mojom.IntegrityPolicySpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$.structSpec && mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$ = {};
 
 // Enum: Destination
 mojo.internal.bindings.network.mojom.Destination = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,27 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.VideoCodecInfoSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmCapabilitySpec = { $: {} };
-mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec = { $: {} };
-mojo.internal.bindings.media.mojom.KeySystemSupportObserver = {};
-mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec = mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.VideoCodecInfoSpec = mojo.internal.bindings.media.mojom.VideoCodecInfoSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.VideoCodecInfoSpec.$.structSpec && mojo.internal.bindings.media.mojom.VideoCodecInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.VideoCodecInfoSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmCapabilitySpec = mojo.internal.bindings.media.mojom.CdmCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$ = {};
+mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec = mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$.structSpec && mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$ = {};
+mojo.internal.bindings.media.mojom.KeySystemSupportObserver = mojo.internal.bindings.media.mojom.KeySystemSupportObserver || {};
+mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec = mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec.$.structSpec && mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.KeySystemSupportObserverSpec.$ = {};
 mojo.internal.bindings.media.mojom.KeySystemSupportObserver.$interfaceName = 'media.mojom.KeySystemSupportObserver';
-mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.KeySystemSupport = {};
-mojo.internal.bindings.media.mojom.KeySystemSupportSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec = mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.KeySystemSupport = mojo.internal.bindings.media.mojom.KeySystemSupport || {};
+mojo.internal.bindings.media.mojom.KeySystemSupportSpec = mojo.internal.bindings.media.mojom.KeySystemSupportSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.KeySystemSupportSpec.$.structSpec && mojo.internal.bindings.media.mojom.KeySystemSupportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.KeySystemSupportSpec.$ = {};
 mojo.internal.bindings.media.mojom.KeySystemSupport.$interfaceName = 'media.mojom.KeySystemSupport';
-mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec = mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

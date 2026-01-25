@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,39 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.BlobDataItemSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobDataItemReader = {};
-mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec = mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec = mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.BlobDataItemSpec = mojo.internal.bindings.storage.mojom.BlobDataItemSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReader = mojo.internal.bindings.storage.mojom.BlobDataItemReader || {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec = mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemReaderSpec.$ = {};
 mojo.internal.bindings.storage.mojom.BlobDataItemReader.$interfaceName = 'storage.mojom.BlobDataItemReader';
-mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobStorageContext = {};
-mojo.internal.bindings.storage.mojom.BlobStorageContextSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContext = mojo.internal.bindings.storage.mojom.BlobStorageContext || {};
+mojo.internal.bindings.storage.mojom.BlobStorageContextSpec = mojo.internal.bindings.storage.mojom.BlobStorageContextSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContextSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContextSpec.$ = {};
 mojo.internal.bindings.storage.mojom.BlobStorageContext.$interfaceName = 'storage.mojom.BlobStorageContext';
-mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec = mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

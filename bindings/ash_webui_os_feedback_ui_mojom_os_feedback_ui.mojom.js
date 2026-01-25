@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,44 +125,71 @@
 mojo.internal.bindings.ash.os_feedback_ui = mojo.internal.bindings.ash.os_feedback_ui || {};
 mojo.internal.bindings.ash.os_feedback_ui.mojom = mojo.internal.bindings.ash.os_feedback_ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.SendReportStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider = {};
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentTypeSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.SendReportStatusSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.SendReportStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchRequestSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.SearchResponseSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackContextSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.AttachedFileSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.ReportSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider || {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderSpec.$ = {};
 mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider.$interfaceName = 'ash.os_feedback_ui.mojom.HelpContentProvider';
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider = {};
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider || {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderSpec.$ = {};
 mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider.$interfaceName = 'ash.os_feedback_ui.mojom.FeedbackServiceProvider';
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

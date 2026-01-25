@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,31 @@
 
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lens.mojom.AlignmentSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lens.mojom.TextSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.TextLayoutSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.WordSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.LineSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.TranslatedLineSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.ParagraphSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.FormulaMetadataSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.WritingDirectionSpec = mojo.internal.bindings.lens.mojom.WritingDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.AlignmentSpec = mojo.internal.bindings.lens.mojom.AlignmentSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.TextSpec = mojo.internal.bindings.lens.mojom.TextSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.TextSpec.$.structSpec && mojo.internal.bindings.lens.mojom.TextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.TextSpec.$ = {};
+mojo.internal.bindings.lens.mojom.TextLayoutSpec = mojo.internal.bindings.lens.mojom.TextLayoutSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.TextLayoutSpec.$.structSpec && mojo.internal.bindings.lens.mojom.TextLayoutSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.TextLayoutSpec.$ = {};
+mojo.internal.bindings.lens.mojom.WordSpec = mojo.internal.bindings.lens.mojom.WordSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.WordSpec.$.structSpec && mojo.internal.bindings.lens.mojom.WordSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.WordSpec.$ = {};
+mojo.internal.bindings.lens.mojom.LineSpec = mojo.internal.bindings.lens.mojom.LineSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.LineSpec.$.structSpec && mojo.internal.bindings.lens.mojom.LineSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.LineSpec.$ = {};
+mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec = mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec.$.structSpec && mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec.$ = {};
+mojo.internal.bindings.lens.mojom.TranslatedLineSpec = mojo.internal.bindings.lens.mojom.TranslatedLineSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.TranslatedLineSpec.$.structSpec && mojo.internal.bindings.lens.mojom.TranslatedLineSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.TranslatedLineSpec.$ = {};
+mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec = mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec.$.structSpec && mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec.$ = {};
+mojo.internal.bindings.lens.mojom.ParagraphSpec = mojo.internal.bindings.lens.mojom.ParagraphSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.ParagraphSpec.$.structSpec && mojo.internal.bindings.lens.mojom.ParagraphSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.ParagraphSpec.$ = {};
+mojo.internal.bindings.lens.mojom.FormulaMetadataSpec = mojo.internal.bindings.lens.mojom.FormulaMetadataSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.FormulaMetadataSpec.$.structSpec && mojo.internal.bindings.lens.mojom.FormulaMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.FormulaMetadataSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

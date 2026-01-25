@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,39 +123,60 @@
 
  mojo.internal.bindings.paint_preview = mojo.internal.bindings.paint_preview || {};
 mojo.internal.bindings.paint_preview.mojom = mojo.internal.bindings.paint_preview.mojom || {};
-mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.FrameDataSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor = {};
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec = { $ : {} };
+mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec = mojo.internal.bindings.paint_preview.mojom.BeginCompositeStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec = mojo.internal.bindings.paint_preview.mojom.BitmapStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec = mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.SubframeClipRectSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.FrameDataSpec = mojo.internal.bindings.paint_preview.mojom.FrameDataSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.FrameDataSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.FrameDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.FrameDataSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor || {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec || { $ : {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorSpec.$ = {};
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositor';
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection = {};
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec = { $ : {} };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection || {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec || { $ : {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionSpec.$ = {};
 mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositorCollection';
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = { $: {} };
-mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$ = {};
+mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.discardable_memory = mojo.internal.bindings.discardable_memory || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,53 +123,86 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.AIPageContentAttributeTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentClickabilityReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentInteractionDisabledReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentTextSizeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentAnchorRelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentTableRowTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentRedactionDecisionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentAgent = {};
-mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AIPageContentAttributeTypeSpec = mojo.internal.bindings.blink.mojom.AIPageContentAttributeTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec = mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentClickabilityReasonSpec = mojo.internal.bindings.blink.mojom.AIPageContentClickabilityReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentInteractionDisabledReasonSpec = mojo.internal.bindings.blink.mojom.AIPageContentInteractionDisabledReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentTextSizeSpec = mojo.internal.bindings.blink.mojom.AIPageContentTextSizeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentAnchorRelSpec = mojo.internal.bindings.blink.mojom.AIPageContentAnchorRelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ReasonSpec = mojo.internal.bindings.blink.mojom.ReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentTableRowTypeSpec = mojo.internal.bindings.blink.mojom.AIPageContentTableRowTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentRedactionDecisionSpec = mojo.internal.bindings.blink.mojom.AIPageContentRedactionDecisionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentModeSpec = mojo.internal.bindings.blink.mojom.AIPageContentModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec = mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec = mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentGeometrySpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec = mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentSelectionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentPageInteractionInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentFrameInteractionInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentNodeInteractionInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentScrollerInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec = mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTextStyleSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTextInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentAnchorDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec = mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentSvgRootDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentCanvasDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentVideoDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec = mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentMetaSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentFrameDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec = mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec = mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentFormControlDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec = mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentAttributesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec = mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentNodeSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec = mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentPopupSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentSpec = mojo.internal.bindings.blink.mojom.AIPageContentSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec = mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentAgent = mojo.internal.bindings.blink.mojom.AIPageContentAgent || {};
+mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec = mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentAgentSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIPageContentAgent.$interfaceName = 'blink.mojom.AIPageContentAgent';
-mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

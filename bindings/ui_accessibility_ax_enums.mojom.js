@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,52 +123,54 @@
 
  mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ax.mojom.EventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.RoleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.MutationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ListStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.CommandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextAlignSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextPositionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.HasPopupSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.IsPopupSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.RestrictionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.NameFromSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.EventFromSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.GestureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.EventSpec = mojo.internal.bindings.ax.mojom.EventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.RoleSpec = mojo.internal.bindings.ax.mojom.RoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.StateSpec = mojo.internal.bindings.ax.mojom.StateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ActionSpec = mojo.internal.bindings.ax.mojom.ActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ActionFlagsSpec = mojo.internal.bindings.ax.mojom.ActionFlagsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec = mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec = mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec = mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.MutationSpec = mojo.internal.bindings.ax.mojom.MutationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.StringAttributeSpec = mojo.internal.bindings.ax.mojom.StringAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.IntAttributeSpec = mojo.internal.bindings.ax.mojom.IntAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.FloatAttributeSpec = mojo.internal.bindings.ax.mojom.FloatAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.BoolAttributeSpec = mojo.internal.bindings.ax.mojom.BoolAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.IntListAttributeSpec = mojo.internal.bindings.ax.mojom.IntListAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.StringListAttributeSpec = mojo.internal.bindings.ax.mojom.StringListAttributeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ListStyleSpec = mojo.internal.bindings.ax.mojom.ListStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.MarkerTypeSpec = mojo.internal.bindings.ax.mojom.MarkerTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.HighlightTypeSpec = mojo.internal.bindings.ax.mojom.HighlightTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.MoveDirectionSpec = mojo.internal.bindings.ax.mojom.MoveDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.CommandSpec = mojo.internal.bindings.ax.mojom.CommandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.InputEventTypeSpec = mojo.internal.bindings.ax.mojom.InputEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextBoundarySpec = mojo.internal.bindings.ax.mojom.TextBoundarySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextAlignSpec = mojo.internal.bindings.ax.mojom.TextAlignSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.WritingDirectionSpec = mojo.internal.bindings.ax.mojom.WritingDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextPositionSpec = mojo.internal.bindings.ax.mojom.TextPositionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextStyleSpec = mojo.internal.bindings.ax.mojom.TextStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextDecorationStyleSpec = mojo.internal.bindings.ax.mojom.TextDecorationStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.AriaCurrentStateSpec = mojo.internal.bindings.ax.mojom.AriaCurrentStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.HasPopupSpec = mojo.internal.bindings.ax.mojom.HasPopupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.IsPopupSpec = mojo.internal.bindings.ax.mojom.IsPopupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.InvalidStateSpec = mojo.internal.bindings.ax.mojom.InvalidStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.RestrictionSpec = mojo.internal.bindings.ax.mojom.RestrictionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.CheckedStateSpec = mojo.internal.bindings.ax.mojom.CheckedStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.SortDirectionSpec = mojo.internal.bindings.ax.mojom.SortDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.NameFromSpec = mojo.internal.bindings.ax.mojom.NameFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.DescriptionFromSpec = mojo.internal.bindings.ax.mojom.DescriptionFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.DetailsFromSpec = mojo.internal.bindings.ax.mojom.DetailsFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.EventFromSpec = mojo.internal.bindings.ax.mojom.EventFromSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.GestureSpec = mojo.internal.bindings.ax.mojom.GestureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TextAffinitySpec = mojo.internal.bindings.ax.mojom.TextAffinitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.TreeOrderSpec = mojo.internal.bindings.ax.mojom.TreeOrderSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.AXTreeIDTypeSpec = mojo.internal.bindings.ax.mojom.AXTreeIDTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.ImageAnnotationStatusSpec = mojo.internal.bindings.ax.mojom.ImageAnnotationStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.AriaNotificationInterruptSpec = mojo.internal.bindings.ax.mojom.AriaNotificationInterruptSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ax.mojom.AriaNotificationPrioritySpec = mojo.internal.bindings.ax.mojom.AriaNotificationPrioritySpec || { $: mojo.internal.Enum().$ };
 
 // Enum: Event
 mojo.internal.bindings.ax.mojom.Event = {

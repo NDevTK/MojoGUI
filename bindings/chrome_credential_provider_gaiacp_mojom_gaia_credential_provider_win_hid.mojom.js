@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,16 @@
  mojo.internal.bindings.gcpw_hid = mojo.internal.bindings.gcpw_hid || {};
 mojo.internal.bindings.gcpw_hid.mojom = mojo.internal.bindings.gcpw_hid.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker = {};
-mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec = { $ : {} };
+mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker || {};
+mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec || { $ : {} };
+if (mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec.$.structSpec && mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerSpec.$ = {};
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker.$interfaceName = 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker';
-mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

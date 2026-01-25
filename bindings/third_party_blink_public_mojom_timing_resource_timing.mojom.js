@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,15 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.CacheStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.CacheStateSpec = mojo.internal.bindings.blink.mojom.CacheStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec = mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec = mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ResourceTimingInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

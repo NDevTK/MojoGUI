@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,27 @@
  mojo.internal.bindings.metrics = mojo.internal.bindings.metrics || {};
 mojo.internal.bindings.metrics.dwa = mojo.internal.bindings.metrics.dwa || {};
 mojo.internal.bindings.metrics.dwa.mojom = mojo.internal.bindings.metrics.dwa.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec = { $: {} };
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface = {};
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec = { $ : {} };
+mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec = mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec || { $: {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec.$ = {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface || {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceSpec.$ = {};
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderClientInterface';
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface = {};
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec = { $ : {} };
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface || {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceSpec.$ = {};
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderInterface';
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = { $: {} };
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory = {};
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec = { $ : {} };
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$ = {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory || {};
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec || { $ : {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec.$ = {};
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory.$interfaceName = 'metrics.dwa.mojom.DwaRecorderFactory';
-mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = { $: {} };
+mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.structSpec && mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$ = {};
 
 // Interface: DwaRecorderClientInterface
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver = class {

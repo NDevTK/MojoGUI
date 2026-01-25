@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,44 +124,76 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.WebTransportErrorSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportStatsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport = {};
-mojo.internal.bindings.network.mojom.WebTransportSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebTransportErrorSpec = mojo.internal.bindings.network.mojom.WebTransportErrorSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec = mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec = mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportStatsSpec = mojo.internal.bindings.network.mojom.WebTransportStatsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport = mojo.internal.bindings.network.mojom.WebTransport || {};
+mojo.internal.bindings.network.mojom.WebTransportSpec = mojo.internal.bindings.network.mojom.WebTransportSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebTransportSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransport.$interfaceName = 'network.mojom.WebTransport';
-mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient = {};
-mojo.internal.bindings.network.mojom.WebTransportClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient = mojo.internal.bindings.network.mojom.WebTransportClient || {};
+mojo.internal.bindings.network.mojom.WebTransportClientSpec = mojo.internal.bindings.network.mojom.WebTransportClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransportClient.$interfaceName = 'network.mojom.WebTransportClient';
-mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportHandshakeClient = {};
-mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClient = mojo.internal.bindings.network.mojom.WebTransportHandshakeClient || {};
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec = mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportHandshakeClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransportHandshakeClient.$interfaceName = 'network.mojom.WebTransportHandshakeClient';
-mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

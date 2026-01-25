@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,26 +123,41 @@
 
  mojo.internal.bindings.enterprise_reporting = mojo.internal.bindings.enterprise_reporting || {};
 mojo.internal.bindings.enterprise_reporting.mojom = mojo.internal.bindings.enterprise_reporting.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec = mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec = mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec = mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory = mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory.$interfaceName = 'enterprise_reporting.mojom.PageHandlerFactory';
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler = {};
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler || {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandler.$interfaceName = 'enterprise_reporting.mojom.PageHandler';
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_reporting.mojom.Page = {};
-mojo.internal.bindings.enterprise_reporting.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_reporting.mojom.Page = mojo.internal.bindings.enterprise_reporting.mojom.Page || {};
+mojo.internal.bindings.enterprise_reporting.mojom.PageSpec = mojo.internal.bindings.enterprise_reporting.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.PageSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.PageSpec.$ = {};
 mojo.internal.bindings.enterprise_reporting.mojom.Page.$interfaceName = 'enterprise_reporting.mojom.Page';
-mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = { $: {} };
+mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$ = {};
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver = class {

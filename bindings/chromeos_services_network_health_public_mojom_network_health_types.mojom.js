@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,19 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.network_health = mojo.internal.bindings.chromeos.network_health || {};
 mojo.internal.bindings.chromeos.network_health.mojom = mojo.internal.bindings.chromeos.network_health.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec = { $: {} };
-mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec = { $: {} };
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec = mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec = mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$ = {};
+mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec = mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec.$.structSpec && mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

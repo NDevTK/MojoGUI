@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,32 +123,46 @@
 
  mojo.internal.bindings.recording = mojo.internal.bindings.recording || {};
 mojo.internal.bindings.recording.mojom = mojo.internal.bindings.recording.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.recording.mojom.RecordingStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate = {};
-mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec = { $ : {} };
+mojo.internal.bindings.recording.mojom.RecordingStatusSpec = mojo.internal.bindings.recording.mojom.RecordingStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate = mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate || {};
+mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec = mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec.$.structSpec && mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateSpec.$ = {};
 mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate.$interfaceName = 'recording.mojom.DriveFsQuotaDelegate';
-mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingServiceClient = {};
-mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec = { $ : {} };
+mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec = mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec = mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingServiceClient = mojo.internal.bindings.recording.mojom.RecordingServiceClient || {};
+mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec = mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec || { $ : {} };
+if (mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingServiceClientSpec.$ = {};
 mojo.internal.bindings.recording.mojom.RecordingServiceClient.$interfaceName = 'recording.mojom.RecordingServiceClient';
-mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService = {};
-mojo.internal.bindings.recording.mojom.RecordingServiceSpec = { $ : {} };
+mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService = mojo.internal.bindings.recording.mojom.RecordingService || {};
+mojo.internal.bindings.recording.mojom.RecordingServiceSpec = mojo.internal.bindings.recording.mojom.RecordingServiceSpec || { $ : {} };
+if (mojo.internal.bindings.recording.mojom.RecordingServiceSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingServiceSpec.$ = {};
 mojo.internal.bindings.recording.mojom.RecordingService.$interfaceName = 'recording.mojom.RecordingService';
-mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec = mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

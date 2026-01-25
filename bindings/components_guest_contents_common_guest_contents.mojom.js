@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,17 @@
  mojo.internal.bindings.guest_contents = mojo.internal.bindings.guest_contents || {};
 mojo.internal.bindings.guest_contents.mojom = mojo.internal.bindings.guest_contents.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.guest_contents.mojom.GuestContentsHost = {};
-mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec = { $ : {} };
+mojo.internal.bindings.guest_contents.mojom.GuestContentsHost = mojo.internal.bindings.guest_contents.mojom.GuestContentsHost || {};
+mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec = mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec || { $ : {} };
+if (mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec.$.structSpec && mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_contents.mojom.GuestContentsHostSpec.$ = {};
 mojo.internal.bindings.guest_contents.mojom.GuestContentsHost.$interfaceName = 'guest_contents.mojom.GuestContentsHost';
-mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = { $: {} };
-mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.structSpec && mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$ = {};
+mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

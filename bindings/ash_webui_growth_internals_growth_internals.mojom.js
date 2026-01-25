@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,13 +124,19 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.growth = mojo.internal.bindings.ash.growth || {};
 mojo.internal.bindings.ash.growth.mojom = mojo.internal.bindings.ash.growth.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.growth.mojom.PageHandler = {};
-mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.growth.mojom.PageHandler = mojo.internal.bindings.ash.growth.mojom.PageHandler || {};
+mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec = mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.growth.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.growth.mojom.PageHandler.$interfaceName = 'ash.growth.mojom.PageHandler';
-mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec.$ = {};
 
 // Interface: PageHandler
 mojo.internal.bindings.ash.growth.mojom.PageHandlerPendingReceiver = class {

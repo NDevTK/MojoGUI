@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,9 +124,12 @@
  mojo.internal.bindings.sqlite_vfs = mojo.internal.bindings.sqlite_vfs || {};
 mojo.internal.bindings.sqlite_vfs.mojom = mojo.internal.bindings.sqlite_vfs.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec = { $: {} };
-mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec = { $: {} };
+mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec = mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec || { $: {} };
+if (mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec.$.structSpec && mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sqlite_vfs.mojom.PendingReadOnlyFileSetSpec.$ = {};
+mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec = mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec || { $: {} };
+if (mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec.$.structSpec && mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sqlite_vfs.mojom.PendingReadWriteFileSetSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

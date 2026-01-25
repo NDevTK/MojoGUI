@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,44 @@
 
  mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
 mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mantis.mojom.MantisResultSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.TouchPointSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor = {};
-mojo.internal.bindings.mantis.mojom.MantisProcessorSpec = { $ : {} };
+mojo.internal.bindings.mantis.mojom.MantisErrorSpec = mojo.internal.bindings.mantis.mojom.MantisErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec = mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.SegmentationModeSpec = mojo.internal.bindings.mantis.mojom.SegmentationModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.MantisResultSpec = mojo.internal.bindings.mantis.mojom.MantisResultSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisResultSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisResultSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.TouchPointSpec = mojo.internal.bindings.mantis.mojom.TouchPointSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.TouchPointSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.TouchPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.TouchPointSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor = mojo.internal.bindings.mantis.mojom.MantisProcessor || {};
+mojo.internal.bindings.mantis.mojom.MantisProcessorSpec = mojo.internal.bindings.mantis.mojom.MantisProcessorSpec || { $ : {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessorSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessorSpec.$ = {};
 mojo.internal.bindings.mantis.mojom.MantisProcessor.$interfaceName = 'mantis.mojom.MantisProcessor';
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};

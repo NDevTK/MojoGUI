@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,23 +123,33 @@
 
  mojo.internal.bindings.customize_buttons = mojo.internal.bindings.customize_buttons || {};
 mojo.internal.bindings.customize_buttons.mojom = mojo.internal.bindings.customize_buttons.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
 
-mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec = mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory || {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactorySpec.$ = {};
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandlerFactory';
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler = {};
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec = { $ : {} };
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler || {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerSpec.$ = {};
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsHandler';
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument = {};
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec = { $ : {} };
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument || {};
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec || { $ : {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentSpec.$ = {};
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument.$interfaceName = 'customize_buttons.mojom.CustomizeButtonsDocument';
-mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};

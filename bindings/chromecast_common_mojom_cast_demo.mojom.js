@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,32 +125,54 @@
 mojo.internal.bindings.chromecast.shell = mojo.internal.bindings.chromecast.shell || {};
 mojo.internal.bindings.chromecast.shell.mojom = mojo.internal.bindings.chromecast.shell.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
-mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec = { $ : {} };
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver = mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver || {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverSpec.$ = {};
 mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver.$interfaceName = 'chromecast.shell.mojom.CastDemoVolumeChangeObserver';
-mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo = {};
-mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec = { $ : {} };
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo = mojo.internal.bindings.chromecast.shell.mojom.CastDemo || {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemoSpec.$ = {};
 mojo.internal.bindings.chromecast.shell.mojom.CastDemo.$interfaceName = 'chromecast.shell.mojom.CastDemo';
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

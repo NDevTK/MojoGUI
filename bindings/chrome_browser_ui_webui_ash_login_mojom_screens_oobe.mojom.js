@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,44 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.screens_oobe = mojo.internal.bindings.ash.screens_oobe || {};
 mojo.internal.bindings.ash.screens_oobe.mojom = mojo.internal.bindings.ash.screens_oobe.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler = {};
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler || {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler.$interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePageHandler';
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage = {};
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage || {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePageSpec.$ = {};
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage.$interfaceName = 'ash.screens_oobe.mojom.ConsumerUpdatePage';
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler = {};
-mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler = mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler || {};
+mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec = mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler.$interfaceName = 'ash.screens_oobe.mojom.PackagedLicensePageHandler';
-mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec = mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$ = {};
 
 // Enum: ConsumerUpdateStep
 mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStep = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,41 +123,69 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.IdleStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost = {};
-mojo.internal.bindings.arc.mojom.PowerHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec = mojo.internal.bindings.arc.mojom.CpuRestrictionStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec = mojo.internal.bindings.arc.mojom.DisplayWakeLockTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.WakefulnessModeSpec = mojo.internal.bindings.arc.mojom.WakefulnessModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.IdleStateSpec = mojo.internal.bindings.arc.mojom.IdleStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec = mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec.$.structSpec && mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.BatterySaverModeStateSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost = mojo.internal.bindings.arc.mojom.PowerHost || {};
+mojo.internal.bindings.arc.mojom.PowerHostSpec = mojo.internal.bindings.arc.mojom.PowerHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PowerHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PowerHost.$interfaceName = 'arc.mojom.PowerHost';
-mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance = {};
-mojo.internal.bindings.arc.mojom.PowerInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance = mojo.internal.bindings.arc.mojom.PowerInstance || {};
+mojo.internal.bindings.arc.mojom.PowerInstanceSpec = mojo.internal.bindings.arc.mojom.PowerInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PowerInstance.$interfaceName = 'arc.mojom.PowerInstance';
-mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec = mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

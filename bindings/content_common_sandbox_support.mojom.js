@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,20 +124,30 @@
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.SandboxSupport = {};
-mojo.internal.bindings.content.mojom.SandboxSupportSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.LcTypeStringSpec = mojo.internal.bindings.content.mojom.LcTypeStringSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.LcTypeStringsSpec = mojo.internal.bindings.content.mojom.LcTypeStringsSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.SandboxSupport = mojo.internal.bindings.content.mojom.SandboxSupport || {};
+mojo.internal.bindings.content.mojom.SandboxSupportSpec = mojo.internal.bindings.content.mojom.SandboxSupportSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupportSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupportSpec.$ = {};
 mojo.internal.bindings.content.mojom.SandboxSupport.$interfaceName = 'content.mojom.SandboxSupport';
-mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,42 +123,69 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FacingModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost = {};
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec = mojo.internal.bindings.blink.mojom.MediaDeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FacingModeSpec = mojo.internal.bindings.blink.mojom.FacingModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec = mojo.internal.bindings.blink.mojom.AudioOutputStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec = mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDeviceInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec = mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.VideoInputDeviceCapabilitiesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec = mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SelectAudioOutputResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec = mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioInputDeviceCapabilitiesSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost || {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost.$interfaceName = 'blink.mojom.MediaDevicesDispatcherHost';
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MediaDevicesListener = {};
-mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MediaDevicesListener = mojo.internal.bindings.blink.mojom.MediaDevicesListener || {};
+mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec = mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesListenerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.MediaDevicesListener.$interfaceName = 'blink.mojom.MediaDevicesListener';
-mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

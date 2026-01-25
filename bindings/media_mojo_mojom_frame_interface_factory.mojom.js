@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,33 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.media.mojom.MuteStateObserver = {};
-mojo.internal.bindings.media.mojom.MuteStateObserverSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MuteStateObserver = mojo.internal.bindings.media.mojom.MuteStateObserver || {};
+mojo.internal.bindings.media.mojom.MuteStateObserverSpec = mojo.internal.bindings.media.mojom.MuteStateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.MuteStateObserverSpec.$.structSpec && mojo.internal.bindings.media.mojom.MuteStateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MuteStateObserverSpec.$ = {};
 mojo.internal.bindings.media.mojom.MuteStateObserver.$interfaceName = 'media.mojom.MuteStateObserver';
-mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory = {};
-mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec = mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory = mojo.internal.bindings.media.mojom.FrameInterfaceFactory || {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactorySpec.$ = {};
 mojo.internal.bindings.media.mojom.FrameInterfaceFactory.$interfaceName = 'media.mojom.FrameInterfaceFactory';
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec = mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

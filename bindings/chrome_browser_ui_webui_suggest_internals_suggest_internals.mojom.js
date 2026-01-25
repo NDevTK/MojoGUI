@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,32 @@
  mojo.internal.bindings.suggest_internals = mojo.internal.bindings.suggest_internals || {};
 mojo.internal.bindings.suggest_internals.mojom = mojo.internal.bindings.suggest_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.suggest_internals.mojom.RequestSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.PageHandler = {};
-mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec = mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.suggest_internals.mojom.RequestSpec = mojo.internal.bindings.suggest_internals.mojom.RequestSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.PageHandler = mojo.internal.bindings.suggest_internals.mojom.PageHandler || {};
+mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec = mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.suggest_internals.mojom.PageHandler.$interfaceName = 'suggest_internals.mojom.PageHandler';
-mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.Page = {};
-mojo.internal.bindings.suggest_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec = mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.Page = mojo.internal.bindings.suggest_internals.mojom.Page || {};
+mojo.internal.bindings.suggest_internals.mojom.PageSpec = mojo.internal.bindings.suggest_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.suggest_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.suggest_internals.mojom.Page.$interfaceName = 'suggest_internals.mojom.Page';
-mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = { $: {} };
+mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec = mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec = mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec = mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$.structSpec && mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

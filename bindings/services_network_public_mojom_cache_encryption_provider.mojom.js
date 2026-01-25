@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,22 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};
 
-mojo.internal.bindings.network.mojom.CacheEncryptionProvider = {};
-mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.CacheEncryptionProvider = mojo.internal.bindings.network.mojom.CacheEncryptionProvider || {};
+mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec = mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec.$.structSpec && mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CacheEncryptionProviderSpec.$ = {};
 mojo.internal.bindings.network.mojom.CacheEncryptionProvider.$interfaceName = 'network.mojom.CacheEncryptionProvider';
-mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec = mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec = mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec = mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec = mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptedCacheEncryptionKey_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async || {};

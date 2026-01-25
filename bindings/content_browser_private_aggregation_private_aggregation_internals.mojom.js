@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,47 @@
 
  mojo.internal.bindings.private_aggregation_internals = mojo.internal.bindings.private_aggregation_internals || {};
 mojo.internal.bindings.private_aggregation_internals.mojom = mojo.internal.bindings.private_aggregation_internals.mojom || {};
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Observer = {};
-mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec = { $ : {} };
+mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec = mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec = mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec = mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Observer = mojo.internal.bindings.private_aggregation_internals.mojom.Observer || {};
+mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec = mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec || { $ : {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.ObserverSpec.$ = {};
 mojo.internal.bindings.private_aggregation_internals.mojom.Observer.$interfaceName = 'private_aggregation_internals.mojom.Observer';
-mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler = {};
-mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec = { $ : {} };
+mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler = mojo.internal.bindings.private_aggregation_internals.mojom.Handler || {};
+mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec = mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec || { $ : {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.HandlerSpec.$ = {};
 mojo.internal.bindings.private_aggregation_internals.mojom.Handler.$interfaceName = 'private_aggregation_internals.mojom.Handler';
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.private_aggregation_internals.mojom.Factory = {};
-mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec = { $ : {} };
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.private_aggregation_internals.mojom.Factory = mojo.internal.bindings.private_aggregation_internals.mojom.Factory || {};
+mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec = mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec || { $ : {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.FactorySpec.$ = {};
 mojo.internal.bindings.private_aggregation_internals.mojom.Factory.$interfaceName = 'private_aggregation_internals.mojom.Factory';
-mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec = { $: {} };
+mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec = mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.structSpec && mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

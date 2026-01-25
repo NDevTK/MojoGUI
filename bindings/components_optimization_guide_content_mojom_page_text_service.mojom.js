@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_guide || {};
 mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimization_guide.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer = {};
-mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec = mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer = mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer || {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer.$interfaceName = 'optimization_guide.mojom.PageTextConsumer';
-mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = { $: {} };
-mojo.internal.bindings.optimization_guide.mojom.PageTextService = {};
-mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec = { $ : {} };
+mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$ = {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextService = mojo.internal.bindings.optimization_guide.mojom.PageTextService || {};
+mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec || { $ : {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextServiceSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.PageTextService.$interfaceName = 'optimization_guide.mojom.PageTextService';
-mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = { $: {} };
+mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

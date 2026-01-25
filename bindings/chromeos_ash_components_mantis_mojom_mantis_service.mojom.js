@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,30 @@
 
  mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
 mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
-mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 
-mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver = {};
-mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec = { $ : {} };
+mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec = mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.InitializeResultSpec = mojo.internal.bindings.mantis.mojom.InitializeResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver || {};
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec || { $ : {} };
+if (mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec.$ = {};
 mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver.$interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
-mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisService = {};
-mojo.internal.bindings.mantis.mojom.MantisServiceSpec = { $ : {} };
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisService = mojo.internal.bindings.mantis.mojom.MantisService || {};
+mojo.internal.bindings.mantis.mojom.MantisServiceSpec = mojo.internal.bindings.mantis.mojom.MantisServiceSpec || { $ : {} };
+if (mojo.internal.bindings.mantis.mojom.MantisServiceSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisServiceSpec.$ = {};
 mojo.internal.bindings.mantis.mojom.MantisService.$interfaceName = 'mantis.mojom.MantisService';
-mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec = { $: {} };
-mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec = mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$ = {};
+mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec = mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};

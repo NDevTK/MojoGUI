@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,57 @@
 
  mojo.internal.bindings.lobster = mojo.internal.bindings.lobster || {};
 mojo.internal.bindings.lobster.mojom = mojo.internal.bindings.lobster.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lobster.mojom.ResponseSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.CandidateSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.ErrorSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler = {};
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.lobster.mojom.StatusCodeSpec = mojo.internal.bindings.lobster.mojom.StatusCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec = mojo.internal.bindings.lobster.mojom.WebUIMetricEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lobster.mojom.ResponseSpec = mojo.internal.bindings.lobster.mojom.ResponseSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.ResponseSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.ResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.ResponseSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.CandidateSpec = mojo.internal.bindings.lobster.mojom.CandidateSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.CandidateSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.CandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.CandidateSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.ErrorSpec = mojo.internal.bindings.lobster.mojom.ErrorSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.ErrorSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.ErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.ErrorSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec = mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.FeedbackPreviewSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler || {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerSpec.$ = {};
 mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler.$interfaceName = 'lobster.mojom.UntrustedLobsterPageHandler';
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = { $: {} };
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.lobster = mojo.internal.bindings.lobster || {};

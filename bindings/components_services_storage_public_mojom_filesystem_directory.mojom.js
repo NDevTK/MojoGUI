@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,40 +124,66 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.storage.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.FileOpenModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.FileReadAccessSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.FileWriteAccessSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.StrictRelativePathSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.PathAccessInfoSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.FileLock = {};
-mojo.internal.bindings.storage.mojom.FileLockSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.GetEntriesModeSpec = mojo.internal.bindings.storage.mojom.GetEntriesModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileOpenModeSpec = mojo.internal.bindings.storage.mojom.FileOpenModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileReadAccessSpec = mojo.internal.bindings.storage.mojom.FileReadAccessSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FileWriteAccessSpec = mojo.internal.bindings.storage.mojom.FileWriteAccessSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.StrictRelativePathSpec = mojo.internal.bindings.storage.mojom.StrictRelativePathSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$.structSpec && mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.StrictRelativePathSpec.$ = {};
+mojo.internal.bindings.storage.mojom.PathAccessInfoSpec = mojo.internal.bindings.storage.mojom.PathAccessInfoSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.PathAccessInfoSpec.$.structSpec && mojo.internal.bindings.storage.mojom.PathAccessInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.PathAccessInfoSpec.$ = {};
+mojo.internal.bindings.storage.mojom.FileLock = mojo.internal.bindings.storage.mojom.FileLock || {};
+mojo.internal.bindings.storage.mojom.FileLockSpec = mojo.internal.bindings.storage.mojom.FileLockSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.FileLockSpec.$.structSpec && mojo.internal.bindings.storage.mojom.FileLockSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.FileLockSpec.$ = {};
 mojo.internal.bindings.storage.mojom.FileLock.$interfaceName = 'storage.mojom.FileLock';
-mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory = {};
-mojo.internal.bindings.storage.mojom.DirectorySpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec = mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory = mojo.internal.bindings.storage.mojom.Directory || {};
+mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.DirectorySpec.$.structSpec && mojo.internal.bindings.storage.mojom.DirectorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.DirectorySpec.$ = {};
 mojo.internal.bindings.storage.mojom.Directory.$interfaceName = 'storage.mojom.Directory';
-mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec = mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

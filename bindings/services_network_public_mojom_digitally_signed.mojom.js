@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,13 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.HashAlgorithmSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.DigitallySignedSpec = { $: {} };
+mojo.internal.bindings.network.mojom.HashAlgorithmSpec = mojo.internal.bindings.network.mojom.HashAlgorithmSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec = mojo.internal.bindings.network.mojom.SignatureAlgorithmSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.DigitallySignedSpec = mojo.internal.bindings.network.mojom.DigitallySignedSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DigitallySignedSpec.$.structSpec && mojo.internal.bindings.network.mojom.DigitallySignedSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DigitallySignedSpec.$ = {};
 
 // Enum: HashAlgorithm
 mojo.internal.bindings.network.mojom.HashAlgorithm = {

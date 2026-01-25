@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,32 +124,50 @@
  mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
 mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side_panel.customize_chrome || {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom = mojo.internal.bindings.side_panel.customize_chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactorySpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandlerSpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient = {};
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec = { $ : {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec || { $ : {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClientSpec.$ = {};
 mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient.$interfaceName = 'side_panel.customize_chrome.mojom.CustomizeToolbarClient';
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec = { $: {} };
-mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec = mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

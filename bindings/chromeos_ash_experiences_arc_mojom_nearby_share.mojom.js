@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,40 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.arc.mojom.FileInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.NearbyShareSessionHost = {};
-mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.FileInfoSpec = mojo.internal.bindings.arc.mojom.FileInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.FileInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.FileInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.FileInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec = mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.NearbyShareSessionHost = mojo.internal.bindings.arc.mojom.NearbyShareSessionHost || {};
+mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec = mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareSessionHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.NearbyShareSessionHost.$interfaceName = 'arc.mojom.NearbyShareSessionHost';
-mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance = {};
-mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance = mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance || {};
+mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec = mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance.$interfaceName = 'arc.mojom.NearbyShareSessionInstance';
-mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.NearbyShareHost = {};
-mojo.internal.bindings.arc.mojom.NearbyShareHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec = mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.NearbyShareHost = mojo.internal.bindings.arc.mojom.NearbyShareHost || {};
+mojo.internal.bindings.arc.mojom.NearbyShareHostSpec = mojo.internal.bindings.arc.mojom.NearbyShareHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.NearbyShareHost.$interfaceName = 'arc.mojom.NearbyShareHost';
-mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.NearbyShareInstance = {};
-mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.NearbyShareInstance = mojo.internal.bindings.arc.mojom.NearbyShareInstance || {};
+mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec = mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.NearbyShareInstance.$interfaceName = 'arc.mojom.NearbyShareInstance';
-mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

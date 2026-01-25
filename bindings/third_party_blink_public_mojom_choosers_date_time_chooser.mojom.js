@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,23 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DateTimeChooser = {};
-mojo.internal.bindings.blink.mojom.DateTimeChooserSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec = mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec = mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DateTimeChooser = mojo.internal.bindings.blink.mojom.DateTimeChooser || {};
+mojo.internal.bindings.blink.mojom.DateTimeChooserSpec = mojo.internal.bindings.blink.mojom.DateTimeChooserSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeChooserSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeChooserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeChooserSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DateTimeChooser.$interfaceName = 'blink.mojom.DateTimeChooser';
-mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec = mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

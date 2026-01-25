@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,47 +123,79 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.PermissionNameSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionObserver = {};
-mojo.internal.bindings.blink.mojom.PermissionObserverSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PermissionNameSpec = mojo.internal.bindings.blink.mojom.PermissionNameSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlResultSpec = mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec = mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec = mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlDescriptorExtensionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec = mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec = mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec = mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InstallEmbeddedPermissionRequestDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec = mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionObserver = mojo.internal.bindings.blink.mojom.PermissionObserver || {};
+mojo.internal.bindings.blink.mojom.PermissionObserverSpec = mojo.internal.bindings.blink.mojom.PermissionObserverSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PermissionObserverSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionObserverSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PermissionObserver.$interfaceName = 'blink.mojom.PermissionObserver';
-mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient = {};
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient = mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient || {};
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec = mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient.$interfaceName = 'blink.mojom.EmbeddedPermissionControlClient';
-mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService = {};
-mojo.internal.bindings.blink.mojom.PermissionServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService = mojo.internal.bindings.blink.mojom.PermissionService || {};
+mojo.internal.bindings.blink.mojom.PermissionServiceSpec = mojo.internal.bindings.blink.mojom.PermissionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.PermissionServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PermissionService.$interfaceName = 'blink.mojom.PermissionService';
-mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec = mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

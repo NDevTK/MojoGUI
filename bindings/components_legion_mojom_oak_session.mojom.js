@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,32 @@
 
  mojo.internal.bindings.legion = mojo.internal.bindings.legion || {};
 mojo.internal.bindings.legion.mojom = mojo.internal.bindings.legion.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.legion.mojom.HandshakeMessageSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession = {};
-mojo.internal.bindings.legion.mojom.OakSessionSpec = { $ : {} };
+mojo.internal.bindings.legion.mojom.HandshakeMessageSpec = mojo.internal.bindings.legion.mojom.HandshakeMessageSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$.structSpec && mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession = mojo.internal.bindings.legion.mojom.OakSession || {};
+mojo.internal.bindings.legion.mojom.OakSessionSpec = mojo.internal.bindings.legion.mojom.OakSessionSpec || { $ : {} };
+if (mojo.internal.bindings.legion.mojom.OakSessionSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSessionSpec.$ = {};
 mojo.internal.bindings.legion.mojom.OakSession.$interfaceName = 'legion.mojom.OakSession';
-mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec = { $: {} };
-mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec.$ = {};
+mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec = mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec.$ = {};
 
 // Interface: OakSession
 mojo.internal.bindings.legion.mojom.OakSessionPendingReceiver = class {

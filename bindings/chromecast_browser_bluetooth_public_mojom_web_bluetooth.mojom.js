@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,23 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider = {};
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider || {};
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider.$interfaceName = 'chromecast.mojom.BluetoothDeviceAccessProvider';
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient = {};
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient || {};
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient.$interfaceName = 'chromecast.mojom.BluetoothDeviceAccessProviderClient';
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec.$ = {};
 
 // Interface: BluetoothDeviceAccessProvider
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver = class {

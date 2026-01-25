@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,37 +124,64 @@
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost = {};
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost || {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHostSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.TextInputHost.$interfaceName = 'remote_cocoa.mojom.TextInputHost';
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

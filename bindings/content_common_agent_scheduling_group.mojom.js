@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,28 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost = {};
-mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost = mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost || {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec.$ = {};
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost.$interfaceName = 'content.mojom.AgentSchedulingGroupHost';
-mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.AgentSchedulingGroup = {};
-mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroup = mojo.internal.bindings.content.mojom.AgentSchedulingGroup || {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroupSpec.$ = {};
 mojo.internal.bindings.content.mojom.AgentSchedulingGroup.$interfaceName = 'content.mojom.AgentSchedulingGroup';
-mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

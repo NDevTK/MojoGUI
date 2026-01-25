@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,18 @@
  mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.extensions.mojom.APIPermissionSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec = { $: {} };
-mojo.internal.bindings.extensions.mojom.PermissionSetSpec = { $: {} };
+mojo.internal.bindings.extensions.mojom.APIPermissionSpec = mojo.internal.bindings.extensions.mojom.APIPermissionSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.APIPermissionSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.APIPermissionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.APIPermissionSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec = mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec = mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec = mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.PermissionSetSpec = mojo.internal.bindings.extensions.mojom.PermissionSetSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.PermissionSetSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};

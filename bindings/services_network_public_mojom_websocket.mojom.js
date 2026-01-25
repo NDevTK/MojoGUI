@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,35 +123,55 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.HttpHeaderSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler = {};
-mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec = mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.HttpHeaderSpec = mojo.internal.bindings.network.mojom.HttpHeaderSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpHeaderSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpHeaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpHeaderSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler = mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler || {};
+mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec = mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler.$interfaceName = 'network.mojom.WebSocketAuthenticationHandler';
-mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketHandshakeClient = {};
-mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClient = mojo.internal.bindings.network.mojom.WebSocketHandshakeClient || {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebSocketHandshakeClient.$interfaceName = 'network.mojom.WebSocketHandshakeClient';
-mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketClient = {};
-mojo.internal.bindings.network.mojom.WebSocketClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketClient = mojo.internal.bindings.network.mojom.WebSocketClient || {};
+mojo.internal.bindings.network.mojom.WebSocketClientSpec = mojo.internal.bindings.network.mojom.WebSocketClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebSocketClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebSocketClient.$interfaceName = 'network.mojom.WebSocketClient';
-mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocket = {};
-mojo.internal.bindings.network.mojom.WebSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocket = mojo.internal.bindings.network.mojom.WebSocket || {};
+mojo.internal.bindings.network.mojom.WebSocketSpec = mojo.internal.bindings.network.mojom.WebSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.WebSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebSocket.$interfaceName = 'network.mojom.WebSocket';
-mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec = mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

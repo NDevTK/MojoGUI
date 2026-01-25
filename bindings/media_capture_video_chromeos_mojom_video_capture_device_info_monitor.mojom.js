@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver = {};
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver || {};
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverSpec.$ = {};
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoObserver';
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor = {};
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor || {};
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorSpec.$ = {};
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoMonitor';
-mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$ = {};
 
 // Interface: VideoCaptureDeviceInfoObserver
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver = class {

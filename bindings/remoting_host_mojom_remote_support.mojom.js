@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,41 @@
  mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver = {};
-mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec = { $ : {} };
+mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec = mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec = mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec = mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec = mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec = mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver = mojo.internal.bindings.remoting.mojom.SupportHostObserver || {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec || { $ : {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserverSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.SupportHostObserver.$interfaceName = 'remoting.mojom.SupportHostObserver';
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec = { $: {} };
-mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec = mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,36 +124,55 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DevToolsMessageSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgent = {};
-mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec = mojo.internal.bindings.blink.mojom.DevToolsExecutionContextTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DevToolsMessageSpec = mojo.internal.bindings.blink.mojom.DevToolsMessageSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsMessageSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsMessageSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec = mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgent = mojo.internal.bindings.blink.mojom.DevToolsAgent || {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsAgent.$interfaceName = 'blink.mojom.DevToolsAgent';
-mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgentHost = {};
-mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHost = mojo.internal.bindings.blink.mojom.DevToolsAgentHost || {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsAgentHost.$interfaceName = 'blink.mojom.DevToolsAgentHost';
-mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsSession = {};
-mojo.internal.bindings.blink.mojom.DevToolsSessionSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsSession = mojo.internal.bindings.blink.mojom.DevToolsSession || {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionSpec = mojo.internal.bindings.blink.mojom.DevToolsSessionSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSessionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSessionSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsSession.$interfaceName = 'blink.mojom.DevToolsSession';
-mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsSessionHost = {};
-mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionHost = mojo.internal.bindings.blink.mojom.DevToolsSessionHost || {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec = mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevToolsSessionHost.$interfaceName = 'blink.mojom.DevToolsSessionHost';
-mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec = mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

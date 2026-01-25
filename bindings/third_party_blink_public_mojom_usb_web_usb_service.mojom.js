@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,32 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService = {};
-mojo.internal.bindings.blink.mojom.WebUsbServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec = mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService = mojo.internal.bindings.blink.mojom.WebUsbService || {};
+mojo.internal.bindings.blink.mojom.WebUsbServiceSpec = mojo.internal.bindings.blink.mojom.WebUsbServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebUsbService.$interfaceName = 'blink.mojom.WebUsbService';
-mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec = mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

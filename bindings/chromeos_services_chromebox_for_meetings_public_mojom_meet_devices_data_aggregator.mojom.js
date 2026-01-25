@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,30 +124,48 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.cfm = mojo.internal.bindings.ash.cfm || {};
 mojo.internal.bindings.ash.cfm.mojom = mojo.internal.bindings.ash.cfm.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataWatchDog = {};
-mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec = { $ : {} };
+mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec = mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec = mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataWatchDog = mojo.internal.bindings.ash.cfm.mojom.DataWatchDog || {};
+mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec = mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataWatchDogSpec.$ = {};
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDog.$interfaceName = 'ash.cfm.mojom.DataWatchDog';
-mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataSource = {};
-mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec = { $ : {} };
+mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSource = mojo.internal.bindings.ash.cfm.mojom.DataSource || {};
+mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec = mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSourceSpec.$ = {};
 mojo.internal.bindings.ash.cfm.mojom.DataSource.$interfaceName = 'ash.cfm.mojom.DataSource';
-mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator = {};
-mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec = { $ : {} };
+mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator = mojo.internal.bindings.ash.cfm.mojom.DataAggregator || {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec || { $ : {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregatorSpec.$ = {};
 mojo.internal.bindings.ash.cfm.mojom.DataAggregator.$interfaceName = 'ash.cfm.mojom.DataAggregator';
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec.$ = {};
 
 // Enum: FilterType
 mojo.internal.bindings.ash.cfm.mojom.FilterType = {

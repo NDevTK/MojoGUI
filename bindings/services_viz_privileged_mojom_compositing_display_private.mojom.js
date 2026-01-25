@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,38 +123,61 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate = {};
-mojo.internal.bindings.viz.mojom.DisplayPrivateSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec = mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec.$.structSpec && mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.FrameRateVelocityPointSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec = mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AdaptiveRefreshRateInfoSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate = mojo.internal.bindings.viz.mojom.DisplayPrivate || {};
+mojo.internal.bindings.viz.mojom.DisplayPrivateSpec = mojo.internal.bindings.viz.mojom.DisplayPrivateSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivateSpec.$ = {};
 mojo.internal.bindings.viz.mojom.DisplayPrivate.$interfaceName = 'viz.mojom.DisplayPrivate';
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayClient = {};
-mojo.internal.bindings.viz.mojom.DisplayClientSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayClient = mojo.internal.bindings.viz.mojom.DisplayClient || {};
+mojo.internal.bindings.viz.mojom.DisplayClientSpec = mojo.internal.bindings.viz.mojom.DisplayClientSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.DisplayClientSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayClientSpec.$ = {};
 mojo.internal.bindings.viz.mojom.DisplayClient.$interfaceName = 'viz.mojom.DisplayClient';
-mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec = mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.display = mojo.internal.bindings.display || {};

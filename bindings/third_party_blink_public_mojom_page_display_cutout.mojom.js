@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,25 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DisplayCutoutHost = {};
-mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ViewportFitSpec = mojo.internal.bindings.blink.mojom.ViewportFitSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DisplayCutoutHost = mojo.internal.bindings.blink.mojom.DisplayCutoutHost || {};
+mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec = mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayCutoutHostSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DisplayCutoutHost.$interfaceName = 'blink.mojom.DisplayCutoutHost';
-mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DisplayCutoutClient = {};
-mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DisplayCutoutClient = mojo.internal.bindings.blink.mojom.DisplayCutoutClient || {};
+mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec = mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayCutoutClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DisplayCutoutClient.$interfaceName = 'blink.mojom.DisplayCutoutClient';
-mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

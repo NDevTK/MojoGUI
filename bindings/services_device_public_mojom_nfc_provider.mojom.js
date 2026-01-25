@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,19 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.NFCProvider = {};
-mojo.internal.bindings.device.mojom.NFCProviderSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.NFCProvider = mojo.internal.bindings.device.mojom.NFCProvider || {};
+mojo.internal.bindings.device.mojom.NFCProviderSpec = mojo.internal.bindings.device.mojom.NFCProviderSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.NFCProviderSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCProviderSpec.$ = {};
 mojo.internal.bindings.device.mojom.NFCProvider.$interfaceName = 'device.mojom.NFCProvider';
-mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

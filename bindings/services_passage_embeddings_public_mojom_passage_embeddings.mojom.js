@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,22 +124,32 @@
  mojo.internal.bindings.passage_embeddings = mojo.internal.bindings.passage_embeddings || {};
 mojo.internal.bindings.passage_embeddings.mojom = mojo.internal.bindings.passage_embeddings.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder = {};
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec = { $ : {} };
+mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec = mojo.internal.bindings.passage_embeddings.mojom.PassagePrioritySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsResultSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsLoadModelsParamsSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderParamsSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder || {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec || { $ : {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderSpec.$ = {};
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder.$interfaceName = 'passage_embeddings.mojom.PassageEmbedder';
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService = {};
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec = { $ : {} };
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService || {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceSpec.$ = {};
 mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService.$interfaceName = 'passage_embeddings.mojom.PassageEmbeddingsService';
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = { $: {} };
-mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$ = {};
+mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

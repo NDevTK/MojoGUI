@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,27 @@
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
 mojo.internal.bindings.mojom.app_service_internals = mojo.internal.bindings.mojom.app_service_internals || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler = {};
-mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec = mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec = mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec = mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec = mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec = mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler = mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler || {};
+mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec = mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerSpec.$ = {};
 mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler.$interfaceName = 'mojom.app_service_internals.AppServiceInternalsPageHandler';
-mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec.$ = {};
 
 // Interface: AppServiceInternalsPageHandler
 mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {

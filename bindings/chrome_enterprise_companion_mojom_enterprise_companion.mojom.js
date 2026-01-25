@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,23 @@
 
  mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_companion || {};
 mojo.internal.bindings.enterprise_companion.mojom = mojo.internal.bindings.enterprise_companion.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.enterprise_companion.mojom.StatusSpec = { $: {} };
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion = {};
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec = { $ : {} };
+mojo.internal.bindings.enterprise_companion.mojom.StatusSpec = mojo.internal.bindings.enterprise_companion.mojom.StatusSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.StatusSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.StatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.StatusSpec.$ = {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion || {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec || { $ : {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionSpec.$ = {};
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion.$interfaceName = 'enterprise_companion.mojom.EnterpriseCompanion';
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = { $: {} };
-mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$ = {};
+mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_companion || {};

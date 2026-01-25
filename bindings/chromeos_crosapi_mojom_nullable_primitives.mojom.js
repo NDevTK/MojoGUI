@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,23 @@
 
  mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
 mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.crosapi.mojom.DoubleValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.Int64ValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec = { $: {} };
-mojo.internal.bindings.crosapi.mojom.BoolValueSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.DoubleValueSpec = mojo.internal.bindings.crosapi.mojom.DoubleValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DoubleValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.Int64ValueSpec = mojo.internal.bindings.crosapi.mojom.Int64ValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.Int64ValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.Int64ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.Int64ValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.UInt8ValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.UInt16ValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec = mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec.$ = {};
+mojo.internal.bindings.crosapi.mojom.BoolValueSpec = mojo.internal.bindings.crosapi.mojom.BoolValueSpec || { $: {} };
+if (mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.BoolValueSpec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

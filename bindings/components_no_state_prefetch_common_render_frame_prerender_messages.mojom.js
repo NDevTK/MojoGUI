@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.prerender = mojo.internal.bindings.prerender || {};
 mojo.internal.bindings.prerender.mojom = mojo.internal.bindings.prerender.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages = {};
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec = { $ : {} };
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages = mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages || {};
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec = mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec || { $ : {} };
+if (mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec.$.structSpec && mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesSpec.$ = {};
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages.$interfaceName = 'prerender.mojom.NoStatePrefetchMessages';
-mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = { $: {} };
+mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$.structSpec && mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$ = {};
 
 // Interface: NoStatePrefetchMessages
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesPendingReceiver = class {

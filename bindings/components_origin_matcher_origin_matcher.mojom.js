@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,10 +123,15 @@
 
  mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher || {};
 mojo.internal.bindings.origin_matcher.mojom = mojo.internal.bindings.origin_matcher.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec = { $: {} };
-mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec = { $: {} };
-mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec = { $: {} };
+mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec = mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec || { $: {} };
+if (mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec.$.structSpec && mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec.$ = {};
+mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec = mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec || { $: {} };
+if (mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec.$.structSpec && mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec.$ = {};
+mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec = mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec || { $: {} };
+if (mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec.$.structSpec && mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

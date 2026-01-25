@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,35 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.focus_mode = mojo.internal.bindings.ash.focus_mode || {};
 mojo.internal.bindings.ash.focus_mode.mojom = mojo.internal.bindings.ash.focus_mode.mojom || {};
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.MediaClient = {};
-mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec = { $ : {} };
+mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec = mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec = mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.MediaClient = mojo.internal.bindings.ash.focus_mode.mojom.MediaClient || {};
+mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec = mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec || { $ : {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.MediaClientSpec.$ = {};
 mojo.internal.bindings.ash.focus_mode.mojom.MediaClient.$interfaceName = 'ash.focus_mode.mojom.MediaClient';
-mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider = {};
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec = { $ : {} };
+mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider || {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec || { $ : {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderSpec.$ = {};
 mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider.$interfaceName = 'ash.focus_mode.mojom.TrackProvider';
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec = mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

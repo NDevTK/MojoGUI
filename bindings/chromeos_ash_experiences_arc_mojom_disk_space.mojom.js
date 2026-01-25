@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,57 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.QuotaSpacesSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost = {};
-mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec = mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceSpec = mojo.internal.bindings.arc.mojom.DiskSpaceSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceSpec.$ = {};
+mojo.internal.bindings.arc.mojom.QuotaSpacesSpec = mojo.internal.bindings.arc.mojom.QuotaSpacesSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.QuotaSpacesSpec.$.structSpec && mojo.internal.bindings.arc.mojom.QuotaSpacesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.QuotaSpacesSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost = mojo.internal.bindings.arc.mojom.DiskSpaceHost || {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.DiskSpaceHost.$interfaceName = 'arc.mojom.DiskSpaceHost';
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance = {};
-mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance = mojo.internal.bindings.arc.mojom.DiskSpaceInstance || {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.DiskSpaceInstance.$interfaceName = 'arc.mojom.DiskSpaceInstance';
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec = mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$ = {};
 
 // Interface: DiskSpaceHost
 mojo.internal.bindings.arc.mojom.DiskSpaceHostPendingReceiver = class {

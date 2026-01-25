@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder = {};
-mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderSpec.$ = {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder.$interfaceName = 'media.mojom.SpeechRecognitionAudioForwarder';
-mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

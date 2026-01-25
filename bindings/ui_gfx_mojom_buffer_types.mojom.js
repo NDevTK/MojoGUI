@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = { $: {} };
+mojo.internal.bindings.gfx.mojom.BufferFormatSpec = mojo.internal.bindings.gfx.mojom.BufferFormatSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx.mojom.BufferUsageSpec = mojo.internal.bindings.gfx.mojom.BufferUsageSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

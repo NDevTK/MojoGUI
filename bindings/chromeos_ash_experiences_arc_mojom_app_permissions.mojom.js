@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,15 +123,21 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.AppPermissionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PermissionStateSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppPermissionsInstance = {};
-mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.AppPermissionSpec = mojo.internal.bindings.arc.mojom.AppPermissionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec = mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PermissionStateSpec = mojo.internal.bindings.arc.mojom.PermissionStateSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PermissionStateSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PermissionStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PermissionStateSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppPermissionsInstance = mojo.internal.bindings.arc.mojom.AppPermissionsInstance || {};
+mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec = mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppPermissionsInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.AppPermissionsInstance.$interfaceName = 'arc.mojom.AppPermissionsInstance';
-mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec = mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec = mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$ = {};
 
 // Enum: AppPermission
 mojo.internal.bindings.arc.mojom.AppPermission = {

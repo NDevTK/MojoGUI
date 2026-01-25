@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,42 +124,67 @@
  mojo.internal.bindings.pdf = mojo.internal.bindings.pdf || {};
 mojo.internal.bindings.pdf.mojom = mojo.internal.bindings.pdf.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler = {};
-mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec = { $ : {} };
+mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec = mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec = mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec = mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler = mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler || {};
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec = mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler.$interfaceName = 'pdf.mojom.SaveDataBufferHandler';
-mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener = {};
-mojo.internal.bindings.pdf.mojom.PdfListenerSpec = { $ : {} };
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener = mojo.internal.bindings.pdf.mojom.PdfListener || {};
+mojo.internal.bindings.pdf.mojom.PdfListenerSpec = mojo.internal.bindings.pdf.mojom.PdfListenerSpec || { $ : {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListenerSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListenerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListenerSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfListener.$interfaceName = 'pdf.mojom.PdfListener';
-mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost = {};
-mojo.internal.bindings.pdf.mojom.PdfHostSpec = { $ : {} };
+mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost = mojo.internal.bindings.pdf.mojom.PdfHost || {};
+mojo.internal.bindings.pdf.mojom.PdfHostSpec = mojo.internal.bindings.pdf.mojom.PdfHostSpec || { $ : {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHostSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHostSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfHost.$interfaceName = 'pdf.mojom.PdfHost';
-mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = { $: {} };
-mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = { $: {} };
+mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

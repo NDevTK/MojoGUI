@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,30 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService = {};
-mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec = mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService = mojo.internal.bindings.media.mojom.CdmDocumentService || {};
+mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec = mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
-mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

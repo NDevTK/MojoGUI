@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,19 +124,29 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy = {};
-mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy = mojo.internal.bindings.blink.mojom.ReportingServiceProxy || {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxySpec.$ = {};
 mojo.internal.bindings.blink.mojom.ReportingServiceProxy.$interfaceName = 'blink.mojom.ReportingServiceProxy';
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec = mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

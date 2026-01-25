@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,47 +124,70 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.InspectorIssueCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.HeavyAdResolutionStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.HeavyAdReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AttributionReportingIssueTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.MixedContentResolutionStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.ContentSecurityPolicyViolationTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CookieOperationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CookieExclusionReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.CookieWarningReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequestResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.PartitioningBlobURLInfoSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.GenericIssueErrorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.DeprecationIssueTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.UserReidentificationIssueTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.AffectedCookieSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AffectedRequestSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AffectedFrameSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AffectedLocationSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.InspectorIssueCodeSpec = mojo.internal.bindings.blink.mojom.InspectorIssueCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.HeavyAdResolutionStatusSpec = mojo.internal.bindings.blink.mojom.HeavyAdResolutionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.HeavyAdReasonSpec = mojo.internal.bindings.blink.mojom.HeavyAdReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AttributionReportingIssueTypeSpec = mojo.internal.bindings.blink.mojom.AttributionReportingIssueTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.MixedContentResolutionStatusSpec = mojo.internal.bindings.blink.mojom.MixedContentResolutionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.ContentSecurityPolicyViolationTypeSpec = mojo.internal.bindings.blink.mojom.ContentSecurityPolicyViolationTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CookieOperationSpec = mojo.internal.bindings.blink.mojom.CookieOperationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CookieExclusionReasonSpec = mojo.internal.bindings.blink.mojom.CookieExclusionReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.CookieWarningReasonSpec = mojo.internal.bindings.blink.mojom.CookieWarningReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueTypeSpec = mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FederatedAuthRequestResultSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequestResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestResultSpec = mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PartitioningBlobURLInfoSpec = mojo.internal.bindings.blink.mojom.PartitioningBlobURLInfoSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.GenericIssueErrorTypeSpec = mojo.internal.bindings.blink.mojom.GenericIssueErrorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.DeprecationIssueTypeSpec = mojo.internal.bindings.blink.mojom.DeprecationIssueTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.UserReidentificationIssueTypeSpec = mojo.internal.bindings.blink.mojom.UserReidentificationIssueTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AffectedCookieSpec = mojo.internal.bindings.blink.mojom.AffectedCookieSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AffectedCookieSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AffectedCookieSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AffectedCookieSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AffectedRequestSpec = mojo.internal.bindings.blink.mojom.AffectedRequestSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AffectedRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AffectedRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AffectedRequestSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AffectedFrameSpec = mojo.internal.bindings.blink.mojom.AffectedFrameSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AffectedFrameSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AffectedFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AffectedFrameSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AffectedLocationSpec = mojo.internal.bindings.blink.mojom.AffectedLocationSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AffectedLocationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AffectedLocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AffectedLocationSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec = mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BlockedByResponseIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec = mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HeavyAdIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec = mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AttributionReportingIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec = mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.MixedContentIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec = mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentSecurityPolicyIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec = mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CookieIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec = mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedArrayBufferIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec = mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LowTextContrastIssueSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthRequestIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec = mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedAuthUserInfoRequestIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec = mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.BounceTrackingIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec = mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PartitioningBlobURLIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec = mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CookieDeprecationMetadataIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec = mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.GenericIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec = mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeprecationIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec = mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.UserReidentificationIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec = mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InspectorIssueDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec = mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InspectorIssueInfoSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,41 @@
 
  mojo.internal.bindings.mahi = mojo.internal.bindings.mahi || {};
 mojo.internal.bindings.mahi.mojom = mojo.internal.bindings.mahi.mojom || {};
-mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
-mojo.internal.bindings.mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionService = {};
-mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec = { $ : {} };
+mojo.internal.bindings.mahi.mojom.ResponseStatusSpec = mojo.internal.bindings.mahi.mojom.ResponseStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec = mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec = mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec = mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec = mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionService = mojo.internal.bindings.mahi.mojom.ContentExtractionService || {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec || { $ : {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec.$ = {};
 mojo.internal.bindings.mahi.mojom.ContentExtractionService.$interfaceName = 'mahi.mojom.ContentExtractionService';
-mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory = {};
-mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec = { $ : {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory || {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec || { $ : {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactorySpec.$ = {};
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory.$interfaceName = 'mahi.mojom.ContentExtractionServiceFactory';
-mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = { $: {} };
-mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$ = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec && mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};

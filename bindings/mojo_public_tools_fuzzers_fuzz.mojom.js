@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,29 +123,48 @@
 
  mojo.internal.bindings.fuzz = mojo.internal.bindings.fuzz || {};
 mojo.internal.bindings.fuzz.mojom = mojo.internal.bindings.fuzz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzStructSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface = {};
-mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec = { $ : {} };
+mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec = mojo.internal.bindings.fuzz.mojom.FuzzEnumSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec = mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzUnionSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec = mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzDummyStructSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzStructSpec = mojo.internal.bindings.fuzz.mojom.FuzzStructSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzStructSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzStructSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzStructSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface = mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface || {};
+mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec = mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceSpec.$ = {};
 mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface.$interfaceName = 'fuzz.mojom.FuzzDummyInterface';
-mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface = {};
-mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec = { $ : {} };
+mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface = mojo.internal.bindings.fuzz.mojom.FuzzInterface || {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec || { $ : {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterfaceSpec.$ = {};
 mojo.internal.bindings.fuzz.mojom.FuzzInterface.$interfaceName = 'fuzz.mojom.FuzzInterface';
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = { $: {} };
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.structSpec && mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.fuzz = mojo.internal.bindings.fuzz || {};

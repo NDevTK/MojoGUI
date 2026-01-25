@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestService = {};
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec = { $ : {} };
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestService = mojo.internal.bindings.gfx.mojom.ImageTraitsTestService || {};
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec = mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec || { $ : {} };
+if (mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceSpec.$ = {};
 mojo.internal.bindings.gfx.mojom.ImageTraitsTestService.$interfaceName = 'gfx.mojom.ImageTraitsTestService';
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

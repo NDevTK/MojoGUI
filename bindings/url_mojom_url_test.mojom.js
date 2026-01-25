@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.url.mojom.UrlTest = {};
-mojo.internal.bindings.url.mojom.UrlTestSpec = { $ : {} };
+mojo.internal.bindings.url.mojom.UrlTest = mojo.internal.bindings.url.mojom.UrlTest || {};
+mojo.internal.bindings.url.mojom.UrlTestSpec = mojo.internal.bindings.url.mojom.UrlTestSpec || { $ : {} };
+if (mojo.internal.bindings.url.mojom.UrlTestSpec.$.structSpec && mojo.internal.bindings.url.mojom.UrlTestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url.mojom.UrlTestSpec.$ = {};
 mojo.internal.bindings.url.mojom.UrlTest.$interfaceName = 'url.mojom.UrlTest';
-mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec = { $: {} };
-mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec = mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec = mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec.$.structSpec && mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec.$ = {};
+mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

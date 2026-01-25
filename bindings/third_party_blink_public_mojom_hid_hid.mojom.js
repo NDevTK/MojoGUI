@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,40 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.UsageFilterSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.VendorAndProductSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService = {};
-mojo.internal.bindings.blink.mojom.HidServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec = mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DeviceIdFilterSpec.$ = {};
+mojo.internal.bindings.blink.mojom.UsageFilterSpec = mojo.internal.bindings.blink.mojom.UsageFilterSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.UsageFilterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.UsageFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.UsageFilterSpec.$ = {};
+mojo.internal.bindings.blink.mojom.VendorAndProductSpec = mojo.internal.bindings.blink.mojom.VendorAndProductSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.VendorAndProductSpec.$.structSpec && mojo.internal.bindings.blink.mojom.VendorAndProductSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.VendorAndProductSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec = mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidDeviceFilterSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService = mojo.internal.bindings.blink.mojom.HidService || {};
+mojo.internal.bindings.blink.mojom.HidServiceSpec = mojo.internal.bindings.blink.mojom.HidServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.HidServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.HidService.$interfaceName = 'blink.mojom.HidService';
-mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec = mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec = mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec = mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec = mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec = mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,22 +123,39 @@
 
  mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.PointSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.PointFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.Point3FSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.SizeSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.SizeFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.RectSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.RectFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.InsetsSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.InsetsFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.Vector2dSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.Vector2dFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.Vector3dFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.QuaternionSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.QuadFSpec = { $: {} };
-mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec = { $: {} };
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.PointSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.PointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.PointSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.PointFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.PointFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.PointFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.Point3FSpec = mojo.internal.bindings.gfx.mojom.Point3FSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.Point3FSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.Point3FSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.Point3FSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.SizeSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.SizeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.SizeSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.SizeFSpec = mojo.internal.bindings.gfx.mojom.SizeFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.SizeFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.SizeFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.SizeFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.RectSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.RectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.RectSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.RectFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.RectFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.RectFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.InsetsSpec = mojo.internal.bindings.gfx.mojom.InsetsSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.InsetsSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.InsetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.InsetsSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.InsetsFSpec = mojo.internal.bindings.gfx.mojom.InsetsFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.InsetsFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.InsetsFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.InsetsFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.Vector2dSpec = mojo.internal.bindings.gfx.mojom.Vector2dSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.Vector2dSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.Vector2dSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.Vector2dSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojom.Vector2dFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.Vector3dFSpec = mojo.internal.bindings.gfx.mojom.Vector3dFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.Vector3dFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.Vector3dFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.Vector3dFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.QuaternionSpec = mojo.internal.bindings.gfx.mojom.QuaternionSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.QuaternionSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.QuaternionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.QuaternionSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.QuadFSpec = mojo.internal.bindings.gfx.mojom.QuadFSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.QuadFSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.QuadFSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.QuadFSpec.$ = {};
+mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec = mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec || { $: {} };
+if (mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec.$ = {};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

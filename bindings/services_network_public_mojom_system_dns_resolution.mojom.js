@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.SystemDnsResolver = {};
-mojo.internal.bindings.network.mojom.SystemDnsResolverSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.SystemDnsResolver = mojo.internal.bindings.network.mojom.SystemDnsResolver || {};
+mojo.internal.bindings.network.mojom.SystemDnsResolverSpec = mojo.internal.bindings.network.mojom.SystemDnsResolverSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.SystemDnsResolverSpec.$.structSpec && mojo.internal.bindings.network.mojom.SystemDnsResolverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SystemDnsResolverSpec.$ = {};
 mojo.internal.bindings.network.mojom.SystemDnsResolver.$interfaceName = 'network.mojom.SystemDnsResolver';
-mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec = mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

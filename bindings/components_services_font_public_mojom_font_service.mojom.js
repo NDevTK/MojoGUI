@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,29 +124,48 @@
  mojo.internal.bindings.font_service = mojo.internal.bindings.font_service || {};
 mojo.internal.bindings.font_service.mojom = mojo.internal.bindings.font_service.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontIdentitySpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService = {};
-mojo.internal.bindings.font_service.mojom.FontServiceSpec = { $ : {} };
+mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec = mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec = mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec = mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontIdentitySpec = mojo.internal.bindings.font_service.mojom.FontIdentitySpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontIdentitySpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontIdentitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontIdentitySpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec = mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService = mojo.internal.bindings.font_service.mojom.FontService || {};
+mojo.internal.bindings.font_service.mojom.FontServiceSpec = mojo.internal.bindings.font_service.mojom.FontServiceSpec || { $ : {} };
+if (mojo.internal.bindings.font_service.mojom.FontServiceSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontServiceSpec.$ = {};
 mojo.internal.bindings.font_service.mojom.FontService.$interfaceName = 'font_service.mojom.FontService';
-mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec.$ = {};
+mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

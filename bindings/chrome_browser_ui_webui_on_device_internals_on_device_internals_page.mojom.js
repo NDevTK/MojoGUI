@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,41 +124,68 @@
  mojo.internal.bindings.on_device_internals = mojo.internal.bindings.on_device_internals || {};
 mojo.internal.bindings.on_device_internals.mojom = mojo.internal.bindings.on_device_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.on_device_internals.mojom.PageDataSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.on_device_internals.mojom.PageDataSpec = mojo.internal.bindings.on_device_internals.mojom.PageDataSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec = mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec = mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec = mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec = mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory = mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory.$interfaceName = 'on_device_internals.mojom.PageHandlerFactory';
-mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler = mojo.internal.bindings.on_device_internals.mojom.PageHandler || {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler.$interfaceName = 'on_device_internals.mojom.PageHandler';
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.Page = {};
-mojo.internal.bindings.on_device_internals.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.Page = mojo.internal.bindings.on_device_internals.mojom.Page || {};
+mojo.internal.bindings.on_device_internals.mojom.PageSpec = mojo.internal.bindings.on_device_internals.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.Page.$interfaceName = 'on_device_internals.mojom.Page';
-mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

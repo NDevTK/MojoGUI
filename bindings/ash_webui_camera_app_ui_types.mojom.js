@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,10 +124,12 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
 mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec = { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec = mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec = mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec = mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: WifiSecurityType
 mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityType = {

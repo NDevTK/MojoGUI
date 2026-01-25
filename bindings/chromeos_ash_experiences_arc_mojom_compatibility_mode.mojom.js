@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,20 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.CompatibilityModeInstance = {};
-mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec = mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.CompatibilityModeInstance = mojo.internal.bindings.arc.mojom.CompatibilityModeInstance || {};
+mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec = mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstance.$interfaceName = 'arc.mojom.CompatibilityModeInstance';
-mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$ = {};
 
 // Enum: ArcResizeLockState
 mojo.internal.bindings.arc.mojom.ArcResizeLockState = {

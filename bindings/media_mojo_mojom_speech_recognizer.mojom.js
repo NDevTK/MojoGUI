@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,37 +123,60 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media.mojom.AvailabilityStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognizer = {};
-mojo.internal.bindings.media.mojom.SpeechRecognizerSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.AvailabilityStatusSpec = mojo.internal.bindings.media.mojom.AvailabilityStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec = mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognizer = mojo.internal.bindings.media.mojom.SpeechRecognizer || {};
+mojo.internal.bindings.media.mojom.SpeechRecognizerSpec = mojo.internal.bindings.media.mojom.SpeechRecognizerSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognizerSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognizerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognizerSpec.$ = {};
 mojo.internal.bindings.media.mojom.SpeechRecognizer.$interfaceName = 'media.mojom.SpeechRecognizer';
-mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition = {};
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition || {};
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec.$.structSpec && mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionSpec.$ = {};
 mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition.$interfaceName = 'media.mojom.OnDeviceSpeechRecognition';
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSession = {};
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSession = mojo.internal.bindings.media.mojom.SpeechRecognitionSession || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionSpec.$ = {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionSession.$interfaceName = 'media.mojom.SpeechRecognitionSession';
-mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient = {};
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient || {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientSpec.$ = {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient.$interfaceName = 'media.mojom.SpeechRecognitionSessionClient';
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec = mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,8 +123,11 @@
 
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.lens.mojom.OverlayObjectSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.OverlayObjectSpec = mojo.internal.bindings.lens.mojom.OverlayObjectSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.OverlayObjectSpec.$.structSpec && mojo.internal.bindings.lens.mojom.OverlayObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.OverlayObjectSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};

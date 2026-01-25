@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,33 +124,54 @@
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.storage.mojom.FailClassSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.FailMethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.storage.mojom.MockFailureInjector = {};
-mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.FailClassSpec = mojo.internal.bindings.storage.mojom.FailClassSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.FailMethodSpec = mojo.internal.bindings.storage.mojom.FailMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.storage.mojom.MockFailureInjector = mojo.internal.bindings.storage.mojom.MockFailureInjector || {};
+mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec = mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec.$.structSpec && mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.MockFailureInjectorSpec.$ = {};
 mojo.internal.bindings.storage.mojom.MockFailureInjector.$interfaceName = 'storage.mojom.MockFailureInjector';
-mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest = {};
-mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest = mojo.internal.bindings.storage.mojom.IndexedDBControlTest || {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTestSpec.$ = {};
 mojo.internal.bindings.storage.mojom.IndexedDBControlTest.$interfaceName = 'storage.mojom.IndexedDBControlTest';
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

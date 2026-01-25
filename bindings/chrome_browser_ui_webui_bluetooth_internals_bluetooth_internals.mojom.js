@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -119,34 +122,56 @@
  };
 
  mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
 
-mojo.internal.bindings.mojom.DebugLogsChangeHandler = {};
-mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec = { $ : {} };
+mojo.internal.bindings.mojom.DebugLogsChangeHandler = mojo.internal.bindings.mojom.DebugLogsChangeHandler || {};
+mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec = mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec.$.structSpec && mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.DebugLogsChangeHandlerSpec.$ = {};
 mojo.internal.bindings.mojom.DebugLogsChangeHandler.$interfaceName = 'mojom.DebugLogsChangeHandler';
-mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler = {};
-mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec = { $ : {} };
+mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec = mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler = mojo.internal.bindings.mojom.BluetoothInternalsHandler || {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandlerSpec.$ = {};
 mojo.internal.bindings.mojom.BluetoothInternalsHandler.$interfaceName = 'mojom.BluetoothInternalsHandler';
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothBtsnoop = {};
-mojo.internal.bindings.mojom.BluetoothBtsnoopSpec = { $ : {} };
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothBtsnoop = mojo.internal.bindings.mojom.BluetoothBtsnoop || {};
+mojo.internal.bindings.mojom.BluetoothBtsnoopSpec = mojo.internal.bindings.mojom.BluetoothBtsnoopSpec || { $ : {} };
+if (mojo.internal.bindings.mojom.BluetoothBtsnoopSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothBtsnoopSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothBtsnoopSpec.$ = {};
 mojo.internal.bindings.mojom.BluetoothBtsnoop.$interfaceName = 'mojom.BluetoothBtsnoop';
-mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec = { $: {} };
-mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec = mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};

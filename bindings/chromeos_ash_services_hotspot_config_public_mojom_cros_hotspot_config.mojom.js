@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,38 +124,58 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.hotspot_config = mojo.internal.bindings.ash.hotspot_config || {};
 mojo.internal.bindings.ash.hotspot_config.mojom = mojo.internal.bindings.ash.hotspot_config.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig = {};
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec = { $ : {} };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec = mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec = mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec = mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec = mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig || {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec || { $ : {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigSpec.$ = {};
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfig';
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver = {};
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver || {};
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverSpec.$ = {};
 mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver.$interfaceName = 'ash.hotspot_config.mojom.CrosHotspotConfigObserver';
-mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver = {};
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver || {};
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverSpec.$ = {};
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver.$interfaceName = 'ash.hotspot_config.mojom.HotspotEnabledStateObserver';
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec = mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$ = {};
 
 // Enum: HotspotState
 mojo.internal.bindings.ash.hotspot_config.mojom.HotspotState = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,24 +124,36 @@
  mojo.internal.bindings.remote_cocoa = mojo.internal.bindings.remote_cocoa || {};
 mojo.internal.bindings.remote_cocoa.mojom = mojo.internal.bindings.remote_cocoa.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.MenuHost = {};
-mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec = mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec = mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuHost = mojo.internal.bindings.remote_cocoa.mojom.MenuHost || {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuHostSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.MenuHost.$interfaceName = 'remote_cocoa.mojom.MenuHost';
-mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Menu = {};
-mojo.internal.bindings.remote_cocoa.mojom.MenuSpec = { $ : {} };
+mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Menu = mojo.internal.bindings.remote_cocoa.mojom.Menu || {};
+mojo.internal.bindings.remote_cocoa.mojom.MenuSpec = mojo.internal.bindings.remote_cocoa.mojom.MenuSpec || { $ : {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.MenuSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.MenuSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.MenuSpec.$ = {};
 mojo.internal.bindings.remote_cocoa.mojom.Menu.$interfaceName = 'remote_cocoa.mojom.Menu';
-mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = { $: {} };
+mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.structSpec && mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

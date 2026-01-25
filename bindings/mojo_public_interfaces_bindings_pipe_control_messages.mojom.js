@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,21 @@
 
  mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo.pipe_control = mojo.internal.bindings.mojo.pipe_control || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec = { $: {} };
-mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec = { $: {} };
-mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec = { $: {} };
-mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = { $: {} };
-mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec = { $: {} };
-mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec = { $: {} };
+mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec.$ = {};
+mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec = mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec.$ = {};
+mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec = mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec.$ = {};
+mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec = mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec.$ = {};
+mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec = mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec.$ = {};
+mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec = mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec || { $: {} };
+if (mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec.$.structSpec && mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};

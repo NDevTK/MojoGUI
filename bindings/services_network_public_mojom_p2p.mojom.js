@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,41 +124,65 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PPortRangeSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSendPacketSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient = {};
-mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = mojo.internal.bindings.network.mojom.P2PSocketTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = mojo.internal.bindings.network.mojom.P2PSocketOptionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.EcnMarkingSpec = mojo.internal.bindings.network.mojom.EcnMarkingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = mojo.internal.bindings.network.mojom.P2PPacketInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PPacketInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PPacketInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PPacketInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PPortRangeSpec = mojo.internal.bindings.network.mojom.P2PPortRangeSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PPortRangeSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PPortRangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PPortRangeSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec = mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSendPacketSpec = mojo.internal.bindings.network.mojom.P2PSendPacketSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSendPacketSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSendPacketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSendPacketSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient = mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient || {};
+mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec = mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient.$interfaceName = 'network.mojom.P2PNetworkNotificationClient';
-mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketManager = {};
-mojo.internal.bindings.network.mojom.P2PSocketManagerSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec = mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketManager = mojo.internal.bindings.network.mojom.P2PSocketManager || {};
+mojo.internal.bindings.network.mojom.P2PSocketManagerSpec = mojo.internal.bindings.network.mojom.P2PSocketManagerSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketManagerSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketManagerSpec.$ = {};
 mojo.internal.bindings.network.mojom.P2PSocketManager.$interfaceName = 'network.mojom.P2PSocketManager';
-mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocket = {};
-mojo.internal.bindings.network.mojom.P2PSocketSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocket = mojo.internal.bindings.network.mojom.P2PSocket || {};
+mojo.internal.bindings.network.mojom.P2PSocketSpec = mojo.internal.bindings.network.mojom.P2PSocketSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketSpec.$ = {};
 mojo.internal.bindings.network.mojom.P2PSocket.$interfaceName = 'network.mojom.P2PSocket';
-mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketClient = {};
-mojo.internal.bindings.network.mojom.P2PSocketClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketClient = mojo.internal.bindings.network.mojom.P2PSocketClient || {};
+mojo.internal.bindings.network.mojom.P2PSocketClientSpec = mojo.internal.bindings.network.mojom.P2PSocketClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.P2PSocketClient.$interfaceName = 'network.mojom.P2PSocketClient';
-mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec = mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

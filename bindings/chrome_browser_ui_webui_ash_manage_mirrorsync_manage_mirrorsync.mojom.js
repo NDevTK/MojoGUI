@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -122,19 +125,27 @@
 mojo.internal.bindings.ash.manage_mirrorsync = mojo.internal.bindings.ash.manage_mirrorsync || {};
 mojo.internal.bindings.ash.manage_mirrorsync.mojom = mojo.internal.bindings.ash.manage_mirrorsync.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory.$interfaceName = 'ash.manage_mirrorsync.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler = {};
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler || {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler.$interfaceName = 'ash.manage_mirrorsync.mojom.PageHandler';
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,48 +124,78 @@
  mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.on_device_model.mojom.ModelFileSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver = {};
-mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec = { $ : {} };
+mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec = mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec = mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.ModelFileSpec = mojo.internal.bindings.on_device_model.mojom.ModelFileSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.ModelFileSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.ModelFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.ModelFileSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec = mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec = mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec = mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec = mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec = mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver || {};
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver.$interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
-mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService = {};
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec = { $ : {} };
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService || {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService.$interfaceName = 'on_device_model.mojom.OnDeviceModelService';
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService = {};
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec = { $ : {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService || {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec || { $ : {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService.$interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

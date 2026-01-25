@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.lens.mojom.VertexOrderingSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.lens.mojom.PolygonSpec = { $: {} };
-mojo.internal.bindings.lens.mojom.VertexSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.VertexOrderingSpec = mojo.internal.bindings.lens.mojom.VertexOrderingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.CoordinateTypeSpec = mojo.internal.bindings.lens.mojom.CoordinateTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.lens.mojom.PolygonSpec = mojo.internal.bindings.lens.mojom.PolygonSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.PolygonSpec.$.structSpec && mojo.internal.bindings.lens.mojom.PolygonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.PolygonSpec.$ = {};
+mojo.internal.bindings.lens.mojom.VertexSpec = mojo.internal.bindings.lens.mojom.VertexSpec || { $: {} };
+if (mojo.internal.bindings.lens.mojom.VertexSpec.$.structSpec && mojo.internal.bindings.lens.mojom.VertexSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.lens.mojom.VertexSpec.$ = {};
 
 // Enum: VertexOrdering
 mojo.internal.bindings.lens.mojom.VertexOrdering = {

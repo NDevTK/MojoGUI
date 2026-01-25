@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,47 +124,77 @@
  mojo.internal.bindings.history_clusters = mojo.internal.bindings.history_clusters || {};
 mojo.internal.bindings.history_clusters.mojom = mojo.internal.bindings.history_clusters.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.VisitActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.history_clusters.mojom.QueryResultSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler = {};
-mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec = mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec = mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.VisitActionSpec = mojo.internal.bindings.history_clusters.mojom.VisitActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec = mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history_clusters.mojom.QueryResultSpec = mojo.internal.bindings.history_clusters.mojom.QueryResultSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler = mojo.internal.bindings.history_clusters.mojom.PageHandler || {};
+mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec = mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.history_clusters.mojom.PageHandler.$interfaceName = 'history_clusters.mojom.PageHandler';
-mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page = {};
-mojo.internal.bindings.history_clusters.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page = mojo.internal.bindings.history_clusters.mojom.Page || {};
+mojo.internal.bindings.history_clusters.mojom.PageSpec = mojo.internal.bindings.history_clusters.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.history_clusters.mojom.PageSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.PageSpec.$ = {};
 mojo.internal.bindings.history_clusters.mojom.Page.$interfaceName = 'history_clusters.mojom.Page';
-mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = { $: {} };
-mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = { $: {} };
+mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$ = {};
+mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec = mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.structSpec && mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

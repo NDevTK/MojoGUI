@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,28 +123,44 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 
-mojo.internal.bindings.blink.mojom.SurfaceEmbedder = {};
-mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SurfaceEmbedder = mojo.internal.bindings.blink.mojom.SurfaceEmbedder || {};
+mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec = mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SurfaceEmbedderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SurfaceEmbedder.$interfaceName = 'blink.mojom.SurfaceEmbedder';
-mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient = {};
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec = mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient || {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient.$interfaceName = 'blink.mojom.EmbeddedFrameSinkClient';
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider = {};
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider || {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider.$interfaceName = 'blink.mojom.EmbeddedFrameSinkProvider';
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec = mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};

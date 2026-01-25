@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,32 @@
 
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder = {};
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec = { $ : {} };
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder || {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec || { $ : {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorderSpec.$ = {};
 mojo.internal.bindings.media.mojom.PlaybackEventsRecorder.$interfaceName = 'media.mojom.PlaybackEventsRecorder';
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec = mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

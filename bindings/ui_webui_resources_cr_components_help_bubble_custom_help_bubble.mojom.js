@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,16 +123,22 @@
 
  mojo.internal.bindings.custom_help_bubble = mojo.internal.bindings.custom_help_bubble || {};
 mojo.internal.bindings.custom_help_bubble.mojom = mojo.internal.bindings.custom_help_bubble.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory || {};
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec.$.structSpec && mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactorySpec.$ = {};
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.$interfaceName = 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory';
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler = {};
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec = { $ : {} };
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler || {};
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec.$.structSpec && mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerSpec.$ = {};
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler.$interfaceName = 'custom_help_bubble.mojom.CustomHelpBubbleHandler';
-mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$.structSpec && mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$ = {};
 
 // Enum: CustomHelpBubbleUserAction
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserAction = {

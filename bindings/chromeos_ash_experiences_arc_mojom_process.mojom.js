@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,29 +123,48 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
 
-mojo.internal.bindings.arc.mojom.ProcessStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.PressureLevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance = {};
-mojo.internal.bindings.arc.mojom.ProcessInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.ProcessStateSpec = mojo.internal.bindings.arc.mojom.ProcessStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.PressureLevelSpec = mojo.internal.bindings.arc.mojom.PressureLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec = mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.RunningAppProcessInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec = mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ArcMemoryDumpSpec.$ = {};
+mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec = mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.LowMemoryKillCountsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance = mojo.internal.bindings.arc.mojom.ProcessInstance || {};
+mojo.internal.bindings.arc.mojom.ProcessInstanceSpec = mojo.internal.bindings.arc.mojom.ProcessInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.ProcessInstance.$interfaceName = 'arc.mojom.ProcessInstance';
-mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec.$ = {};
 
 // Enum: ProcessState
 mojo.internal.bindings.arc.mojom.ProcessState = {

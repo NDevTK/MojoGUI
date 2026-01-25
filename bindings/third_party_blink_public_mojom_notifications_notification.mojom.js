@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,19 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.NotificationDirectionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.NotificationActionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.NotificationScenarioSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.NotificationActionSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationDataSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.NotificationResourcesSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.NotificationDirectionSpec = mojo.internal.bindings.blink.mojom.NotificationDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NotificationActionTypeSpec = mojo.internal.bindings.blink.mojom.NotificationActionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NotificationScenarioSpec = mojo.internal.bindings.blink.mojom.NotificationScenarioSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.NotificationActionSpec = mojo.internal.bindings.blink.mojom.NotificationActionSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationActionSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationActionSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationDataSpec = mojo.internal.bindings.blink.mojom.NotificationDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.NotificationResourcesSpec = mojo.internal.bindings.blink.mojom.NotificationResourcesSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.NotificationResourcesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NotificationResourcesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NotificationResourcesSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

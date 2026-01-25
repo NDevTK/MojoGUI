@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,34 +123,56 @@
 
  mojo.internal.bindings.cast_streaming = mojo.internal.bindings.cast_streaming || {};
 mojo.internal.bindings.cast_streaming.mojom = mojo.internal.bindings.cast_streaming.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester = {};
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec = { $ : {} };
+mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec = mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec = mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec = mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec = mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec = mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec = mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester || {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec || { $ : {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec.$ = {};
 mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester.$interfaceName = 'cast_streaming.mojom.AudioBufferRequester';
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester = {};
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec = { $ : {} };
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester || {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec || { $ : {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec.$ = {};
 mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester.$interfaceName = 'cast_streaming.mojom.VideoBufferRequester';
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector = {};
-mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec = { $ : {} };
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector || {};
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorSpec.$ = {};
 mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector.$interfaceName = 'cast_streaming.mojom.DemuxerConnector';
-mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = { $: {} };
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cast_streaming = mojo.internal.bindings.cast_streaming || {};

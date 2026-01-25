@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,24 +123,38 @@
 
  mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.tabs_api.mojom.AlertStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.tabs_api.mojom.NetworkStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.tabs_api.mojom.LayoutSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.tabs_api.mojom.DataSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.ImageSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabStripSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabGroupSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.SplitTabSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.ContainerSpec = { $: {} };
-mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.AlertStateSpec = mojo.internal.bindings.tabs_api.mojom.AlertStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs_api.mojom.NetworkStateSpec = mojo.internal.bindings.tabs_api.mojom.NetworkStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs_api.mojom.LayoutSpec = mojo.internal.bindings.tabs_api.mojom.LayoutSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.tabs_api.mojom.DataSpec = mojo.internal.bindings.tabs_api.mojom.DataSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.DataSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.DataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.DataSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.ImageSpec = mojo.internal.bindings.tabs_api.mojom.ImageSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.ImageSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.ImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.ImageSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabSpec = mojo.internal.bindings.tabs_api.mojom.TabSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripSpec = mojo.internal.bindings.tabs_api.mojom.TabStripSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabStripSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabStripSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabStripSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec = mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.PinnedTabsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec = mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.UnpinnedTabsSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabGroupSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabGroupSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabGroupSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.SplitTabSpec = mojo.internal.bindings.tabs_api.mojom.SplitTabSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.SplitTabSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.SplitTabSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.SplitTabSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec = mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.SplitTabVisualDataSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.ContainerSpec = mojo.internal.bindings.tabs_api.mojom.ContainerSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};

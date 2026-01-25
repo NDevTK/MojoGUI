@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,51 @@
 
  mojo.internal.bindings.search = mojo.internal.bindings.search || {};
 mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
-mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
-mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
-mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = { $ : {} };
+mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$.structSpec && mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$ = {};
+mojo.internal.bindings.search.mojom.NtpThemeSpec = mojo.internal.bindings.search.mojom.NtpThemeSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.NtpThemeSpec.$.structSpec && mojo.internal.bindings.search.mojom.NtpThemeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.NtpThemeSpec.$ = {};
+mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$.structSpec && mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = mojo.internal.bindings.search.mojom.EmbeddedSearchConnector || {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec || { $ : {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec.$ = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
-mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearch = {};
-mojo.internal.bindings.search.mojom.EmbeddedSearchSpec = { $ : {} };
+mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearch = mojo.internal.bindings.search.mojom.EmbeddedSearch || {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchSpec || { $ : {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchSpec.$ = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearch.$interfaceName = 'search.mojom.EmbeddedSearch';
-mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient = {};
-mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec = { $ : {} };
+mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient = mojo.internal.bindings.search.mojom.EmbeddedSearchClient || {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec || { $ : {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec.$ = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient.$interfaceName = 'search.mojom.EmbeddedSearchClient';
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

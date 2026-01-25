@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,37 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.ChooserEventTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooser = {};
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.ChooserEventTypeSpec = mojo.internal.bindings.content.mojom.ChooserEventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooser = mojo.internal.bindings.content.mojom.FakeBluetoothChooser || {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserSpec.$ = {};
 mojo.internal.bindings.content.mojom.FakeBluetoothChooser.$interfaceName = 'content.mojom.FakeBluetoothChooser';
-mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory = {};
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec = { $ : {} };
+mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory = mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory || {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactorySpec.$ = {};
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory.$interfaceName = 'content.mojom.FakeBluetoothChooserFactory';
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient = {};
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient = mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient || {};
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientSpec.$ = {};
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient.$interfaceName = 'content.mojom.FakeBluetoothChooserClient';
-mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec = mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,24 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyListSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyRulesSpec = { $: {} };
-mojo.internal.bindings.network.mojom.DnsProbeConditionSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec = { $: {} };
-mojo.internal.bindings.network.mojom.ProxyConfigSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec = mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec = mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicySpec = mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec = mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyListSpec = mojo.internal.bindings.network.mojom.ProxyListSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyListSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyListSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyListSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyRulesSpec = mojo.internal.bindings.network.mojom.ProxyRulesSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyRulesSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyRulesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyRulesSpec.$ = {};
+mojo.internal.bindings.network.mojom.DnsProbeConditionSpec = mojo.internal.bindings.network.mojom.DnsProbeConditionSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DnsProbeConditionSpec.$.structSpec && mojo.internal.bindings.network.mojom.DnsProbeConditionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DnsProbeConditionSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec = mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec.$ = {};
+mojo.internal.bindings.network.mojom.ProxyConfigSpec = mojo.internal.bindings.network.mojom.ProxyConfigSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.ProxyConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.ProxyConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ProxyConfigSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,33 +123,58 @@
 
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.viz.mojom.LayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.RarePropertiesSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.LayerSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.TransformNodeSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ClipNodeSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.EffectNodeSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ScrollNodeSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.LayerExtraSpec = mojo.internal.bindings.viz.mojom.LayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.RarePropertiesSpec = mojo.internal.bindings.viz.mojom.RarePropertiesSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.RarePropertiesSpec.$.structSpec && mojo.internal.bindings.viz.mojom.RarePropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.RarePropertiesSpec.$ = {};
+mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec = mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec = mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec = mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec = mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec = mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec = mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec = mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec = mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec = mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec = mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec = mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec.$.structSpec && mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec = mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerGeneralPropertiesSpec.$ = {};
+mojo.internal.bindings.viz.mojom.LayerSpec = mojo.internal.bindings.viz.mojom.LayerSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.LayerSpec.$.structSpec && mojo.internal.bindings.viz.mojom.LayerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.LayerSpec.$ = {};
+mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec = mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec = mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec.$.structSpec && mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec = mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.TransformNodeSpec = mojo.internal.bindings.viz.mojom.TransformNodeSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.TransformNodeSpec.$.structSpec && mojo.internal.bindings.viz.mojom.TransformNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.TransformNodeSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ClipNodeSpec = mojo.internal.bindings.viz.mojom.ClipNodeSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ClipNodeSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ClipNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ClipNodeSpec.$ = {};
+mojo.internal.bindings.viz.mojom.EffectNodeSpec = mojo.internal.bindings.viz.mojom.EffectNodeSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.EffectNodeSpec.$.structSpec && mojo.internal.bindings.viz.mojom.EffectNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.EffectNodeSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec = mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ScrollNodeSpec = mojo.internal.bindings.viz.mojom.ScrollNodeSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ScrollNodeSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ScrollNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ScrollNodeSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};

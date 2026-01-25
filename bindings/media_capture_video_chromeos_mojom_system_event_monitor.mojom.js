@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,31 +124,45 @@
  mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
 mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.cros.mojom.LidStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.cros.mojom.CrosDisplayObserver = {};
-mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.LidStateSpec = mojo.internal.bindings.cros.mojom.LidStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.DeviceTypeSpec = mojo.internal.bindings.cros.mojom.DeviceTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec = mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver = mojo.internal.bindings.cros.mojom.CrosDisplayObserver || {};
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec = mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CrosDisplayObserver.$interfaceName = 'cros.mojom.CrosDisplayObserver';
-mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosLidObserver = {};
-mojo.internal.bindings.cros.mojom.CrosLidObserverSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosLidObserver = mojo.internal.bindings.cros.mojom.CrosLidObserver || {};
+mojo.internal.bindings.cros.mojom.CrosLidObserverSpec = mojo.internal.bindings.cros.mojom.CrosLidObserverSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CrosLidObserverSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosLidObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosLidObserverSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CrosLidObserver.$interfaceName = 'cros.mojom.CrosLidObserver';
-mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosPowerObserver = {};
-mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosPowerObserver = mojo.internal.bindings.cros.mojom.CrosPowerObserver || {};
+mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec = mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CrosPowerObserver.$interfaceName = 'cros.mojom.CrosPowerObserver';
-mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor = {};
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec = { $ : {} };
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec = mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor || {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec || { $ : {} };
+if (mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorSpec.$ = {};
 mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor.$interfaceName = 'cros.mojom.CrosSystemEventMonitor';
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$ = {};
 
 // Enum: LidState
 mojo.internal.bindings.cros.mojom.LidState = {

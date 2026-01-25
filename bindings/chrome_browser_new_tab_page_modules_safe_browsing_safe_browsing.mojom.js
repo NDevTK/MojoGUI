@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,15 +124,23 @@
  mojo.internal.bindings.ntp = mojo.internal.bindings.ntp || {};
 mojo.internal.bindings.ntp.safe_browsing = mojo.internal.bindings.ntp.safe_browsing || {};
 mojo.internal.bindings.ntp.safe_browsing.mojom = mojo.internal.bindings.ntp.safe_browsing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler = {};
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec = { $ : {} };
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler || {};
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerSpec.$ = {};
 mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler.$interfaceName = 'ntp.safe_browsing.mojom.SafeBrowsingHandler';
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = { $: {} };
-mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = { $: {} };
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec = mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec.$ = {};
 
 // Interface: SafeBrowsingHandler
 mojo.internal.bindings.ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver = class {

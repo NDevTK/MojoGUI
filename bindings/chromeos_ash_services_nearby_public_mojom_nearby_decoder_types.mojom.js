@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,41 @@
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
-mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.nearby_share = mojo.internal.bindings.nearby_share || {};
 
-mojo.internal.bindings.sharing.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.SecurityTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sharing.mojom.FrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.V1FrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.AdvertisementSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.FileMetadataSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.TextMetadataSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.PublicCertificateSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.CancelFrameSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.TypeSpec = mojo.internal.bindings.sharing.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.TypeSpec = mojo.internal.bindings.sharing.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.SecurityTypeSpec = mojo.internal.bindings.sharing.mojom.SecurityTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.StatusSpec = mojo.internal.bindings.sharing.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.StatusSpec = mojo.internal.bindings.sharing.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sharing.mojom.FrameSpec = mojo.internal.bindings.sharing.mojom.FrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.FrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.V1FrameSpec = mojo.internal.bindings.sharing.mojom.V1FrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.V1FrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.V1FrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.V1FrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.AdvertisementSpec = mojo.internal.bindings.sharing.mojom.AdvertisementSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.AdvertisementSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.AdvertisementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.AdvertisementSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec = mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.FileMetadataSpec = mojo.internal.bindings.sharing.mojom.FileMetadataSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.TextMetadataSpec = mojo.internal.bindings.sharing.mojom.TextMetadataSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec = mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec = mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec = mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec = mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec = mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.PublicCertificateSpec = mojo.internal.bindings.sharing.mojom.PublicCertificateSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.CancelFrameSpec = mojo.internal.bindings.sharing.mojom.CancelFrameSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

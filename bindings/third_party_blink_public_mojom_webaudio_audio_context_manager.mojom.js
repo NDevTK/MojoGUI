@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,21 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.AudioContextManager = {};
-mojo.internal.bindings.blink.mojom.AudioContextManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.AudioContextManager = mojo.internal.bindings.blink.mojom.AudioContextManager || {};
+mojo.internal.bindings.blink.mojom.AudioContextManagerSpec = mojo.internal.bindings.blink.mojom.AudioContextManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.AudioContextManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioContextManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioContextManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AudioContextManager.$interfaceName = 'blink.mojom.AudioContextManager';
-mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec = mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec = mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec = mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec = mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$ = {};
 
 // Interface: AudioContextManager
 mojo.internal.bindings.blink.mojom.AudioContextManagerPendingReceiver = class {

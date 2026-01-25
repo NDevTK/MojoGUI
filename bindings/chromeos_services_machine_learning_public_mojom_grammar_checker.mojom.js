@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,26 @@
  mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
 mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker = {};
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec = { $ : {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec || { $ : {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerSpec.$ = {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker.$interfaceName = 'chromeos.machine_learning.mojom.GrammarChecker';
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec.$ = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$ = {};
 
 // Enum: Status
 mojo.internal.bindings.chromeos.machine_learning.mojom.Status = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,44 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.crostini_installer = mojo.internal.bindings.ash.crostini_installer || {};
 mojo.internal.bindings.ash.crostini_installer.mojom = mojo.internal.bindings.ash.crostini_installer.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.crostini = mojo.internal.bindings.crostini || {};
 
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.crostini_installer.mojom.PageHandlerFactory';
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler = {};
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler || {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler.$interfaceName = 'ash.crostini_installer.mojom.PageHandler';
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.Page = {};
-mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.Page = mojo.internal.bindings.ash.crostini_installer.mojom.Page || {};
+mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec = mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.PageSpec.$ = {};
 mojo.internal.bindings.ash.crostini_installer.mojom.Page.$interfaceName = 'ash.crostini_installer.mojom.Page';
-mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec = mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crostini = mojo.internal.bindings.crostini || {};

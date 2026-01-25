@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,38 +123,59 @@
 
  mojo.internal.bindings.dlp_internals = mojo.internal.bindings.dlp_internals || {};
 mojo.internal.bindings.dlp_internals.mojom = mojo.internal.bindings.dlp_internals.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.LevelSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.ComponentSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.ModeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.ReportingObserver = {};
-mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec = { $ : {} };
+mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec = mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec = mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.LevelSpec = mojo.internal.bindings.dlp_internals.mojom.LevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ComponentSpec = mojo.internal.bindings.dlp_internals.mojom.ComponentSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec = mojo.internal.bindings.dlp_internals.mojom.RestrictionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.ModeSpec = mojo.internal.bindings.dlp_internals.mojom.ModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec = mojo.internal.bindings.dlp_internals.mojom.UserTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec = mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec = mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec = mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec = mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec = mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.EventDestinationSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec = mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec = mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.ReportingObserver = mojo.internal.bindings.dlp_internals.mojom.ReportingObserver || {};
+mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec = mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec || { $ : {} };
+if (mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.ReportingObserverSpec.$ = {};
 mojo.internal.bindings.dlp_internals.mojom.ReportingObserver.$interfaceName = 'dlp_internals.mojom.ReportingObserver';
-mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler = {};
-mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler = mojo.internal.bindings.dlp_internals.mojom.PageHandler || {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.dlp_internals.mojom.PageHandler.$interfaceName = 'dlp_internals.mojom.PageHandler';
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = { $: {} };
-mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$ = {};
+mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

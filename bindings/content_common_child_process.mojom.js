@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,49 @@
 
  mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
-mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
 mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
 
-mojo.internal.bindings.content.mojom.ChildProcessHost = {};
-mojo.internal.bindings.content.mojom.ChildProcessHostSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.ChildProcessHost = mojo.internal.bindings.content.mojom.ChildProcessHost || {};
+mojo.internal.bindings.content.mojom.ChildProcessHostSpec = mojo.internal.bindings.content.mojom.ChildProcessHostSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.ChildProcessHostSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcessHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcessHostSpec.$ = {};
 mojo.internal.bindings.content.mojom.ChildProcessHost.$interfaceName = 'content.mojom.ChildProcessHost';
-mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess = {};
-mojo.internal.bindings.content.mojom.ChildProcessSpec = { $ : {} };
+mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec = mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess = mojo.internal.bindings.content.mojom.ChildProcess || {};
+mojo.internal.bindings.content.mojom.ChildProcessSpec = mojo.internal.bindings.content.mojom.ChildProcessSpec || { $ : {} };
+if (mojo.internal.bindings.content.mojom.ChildProcessSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcessSpec.$ = {};
 mojo.internal.bindings.content.mojom.ChildProcess.$interfaceName = 'content.mojom.ChildProcess';
-mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = { $: {} };
-mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

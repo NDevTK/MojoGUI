@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,12 +123,17 @@
 
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration = {};
-mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration || {};
+mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration.$interfaceName = 'chromecast.mojom.ActivityUrlFilterConfiguration';
-mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$ = {};
 
 // Interface: ActivityUrlFilterConfiguration
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {

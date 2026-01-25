@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,30 @@
 
  mojo.internal.bindings.sensor = mojo.internal.bindings.sensor || {};
 mojo.internal.bindings.sensor.mojom = mojo.internal.bindings.sensor.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec = { $: {} };
-mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec = { $: {} };
-mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec = { $: {} };
-mojo.internal.bindings.sensor.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.sensor.mojom.SensorTypeSpec = mojo.internal.bindings.sensor.mojom.SensorTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec = mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec.$ = {};
+mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec = mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec.$ = {};
+mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec = mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec.$ = {};
+mojo.internal.bindings.sensor.mojom.PageHandlerFactory = mojo.internal.bindings.sensor.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec = mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.sensor.mojom.PageHandlerFactory.$interfaceName = 'sensor.mojom.PageHandlerFactory';
-mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.sensor.mojom.PageHandler = {};
-mojo.internal.bindings.sensor.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.sensor.mojom.PageHandler = mojo.internal.bindings.sensor.mojom.PageHandler || {};
+mojo.internal.bindings.sensor.mojom.PageHandlerSpec = mojo.internal.bindings.sensor.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.sensor.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.sensor.mojom.PageHandler.$interfaceName = 'sensor.mojom.PageHandler';
-mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = { $: {} };
-mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = { $: {} };
+mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$ = {};
+mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$ = {};
 
 // Enum: SensorType
 mojo.internal.bindings.sensor.mojom.SensorType = {

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,39 +124,64 @@
  mojo.internal.bindings.performance_manager = mojo.internal.bindings.performance_manager || {};
 mojo.internal.bindings.performance_manager.mojom = mojo.internal.bindings.performance_manager.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit = {};
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec = { $ : {} };
+mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec = mojo.internal.bindings.performance_manager.mojom.CoordinationUnitTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit || {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec || { $ : {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitSpec.$ = {};
 mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit.$interfaceName = 'performance_manager.mojom.DocumentCoordinationUnit';
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit = {};
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec = { $ : {} };
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit || {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec || { $ : {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitSpec.$ = {};
 mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ProcessCoordinationUnit';
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit = {};
-mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec = { $ : {} };
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit = mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit || {};
+mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec = mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec || { $ : {} };
+if (mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitSpec.$ = {};
 mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit.$interfaceName = 'performance_manager.mojom.ChildProcessCoordinationUnit';
-mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = { $: {} };
-mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec = mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$ = {};
+mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.WebMemoryMeasurement = mojo.internal.bindings.WebMemoryMeasurement || {};

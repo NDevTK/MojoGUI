@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,42 +123,71 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.device.mojom.ScanResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.FingerprintErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.BiometricTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.FingerprintMessageSpec = { $: {} };
-mojo.internal.bindings.device.mojom.FingerprintObserver = {};
-mojo.internal.bindings.device.mojom.FingerprintObserverSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.ScanResultSpec = mojo.internal.bindings.device.mojom.ScanResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.FingerprintErrorSpec = mojo.internal.bindings.device.mojom.FingerprintErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.BiometricTypeSpec = mojo.internal.bindings.device.mojom.BiometricTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec = mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.FingerprintMessageSpec = mojo.internal.bindings.device.mojom.FingerprintMessageSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintMessageSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintMessageSpec.$ = {};
+mojo.internal.bindings.device.mojom.FingerprintObserver = mojo.internal.bindings.device.mojom.FingerprintObserver || {};
+mojo.internal.bindings.device.mojom.FingerprintObserverSpec = mojo.internal.bindings.device.mojom.FingerprintObserverSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserverSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserverSpec.$ = {};
 mojo.internal.bindings.device.mojom.FingerprintObserver.$interfaceName = 'device.mojom.FingerprintObserver';
-mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint = {};
-mojo.internal.bindings.device.mojom.FingerprintSpec = { $ : {} };
+mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec = mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec = mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec = mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec = mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec = mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint = mojo.internal.bindings.device.mojom.Fingerprint || {};
+mojo.internal.bindings.device.mojom.FingerprintSpec = mojo.internal.bindings.device.mojom.FingerprintSpec || { $ : {} };
+if (mojo.internal.bindings.device.mojom.FingerprintSpec.$.structSpec && mojo.internal.bindings.device.mojom.FingerprintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.FingerprintSpec.$ = {};
 mojo.internal.bindings.device.mojom.Fingerprint.$interfaceName = 'device.mojom.Fingerprint';
-mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec = { $: {} };
-mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec = mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};

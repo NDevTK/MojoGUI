@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,41 @@
  mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoader = {};
-mojo.internal.bindings.network.mojom.URLLoaderSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoader = mojo.internal.bindings.network.mojom.URLLoader || {};
+mojo.internal.bindings.network.mojom.URLLoaderSpec = mojo.internal.bindings.network.mojom.URLLoaderSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderSpec.$ = {};
 mojo.internal.bindings.network.mojom.URLLoader.$interfaceName = 'network.mojom.URLLoader';
-mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient = {};
-mojo.internal.bindings.network.mojom.URLLoaderClientSpec = { $ : {} };
+mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient = mojo.internal.bindings.network.mojom.URLLoaderClient || {};
+mojo.internal.bindings.network.mojom.URLLoaderClientSpec = mojo.internal.bindings.network.mojom.URLLoaderClientSpec || { $ : {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClientSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClientSpec.$ = {};
 mojo.internal.bindings.network.mojom.URLLoaderClient.$interfaceName = 'network.mojom.URLLoaderClient';
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

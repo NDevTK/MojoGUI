@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,32 @@
 
  mojo.internal.bindings.subresource_filter = mojo.internal.bindings.subresource_filter || {};
 mojo.internal.bindings.subresource_filter.mojom = mojo.internal.bindings.subresource_filter.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent = {};
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec = { $ : {} };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent || {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec || { $ : {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgentSpec.$ = {};
 mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent.$interfaceName = 'subresource_filter.mojom.SubresourceFilterAgent';
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost = {};
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec = { $ : {} };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost || {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec || { $ : {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHostSpec.$ = {};
 mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost.$interfaceName = 'subresource_filter.mojom.SubresourceFilterHost';
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec = { $: {} };
-mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec = { $: {} };
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$ = {};
+mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec = mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.structSpec && mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

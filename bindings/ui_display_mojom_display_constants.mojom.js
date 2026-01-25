@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,14 +123,17 @@
 
  mojo.internal.bindings.display = mojo.internal.bindings.display || {};
 mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.HDCPStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.PanelOrientationSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.display.mojom.ModesetFlagsSpec = { $: {} };
+mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec = mojo.internal.bindings.display.mojom.DisplayConnectionTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.HDCPStateSpec = mojo.internal.bindings.display.mojom.HDCPStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec = mojo.internal.bindings.display.mojom.ContentProtectionMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.PanelOrientationSpec = mojo.internal.bindings.display.mojom.PanelOrientationSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec = mojo.internal.bindings.display.mojom.PrivacyScreenStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec = mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.display.mojom.ModesetFlagsSpec = mojo.internal.bindings.display.mojom.ModesetFlagsSpec || { $: {} };
+if (mojo.internal.bindings.display.mojom.ModesetFlagsSpec.$.structSpec && mojo.internal.bindings.display.mojom.ModesetFlagsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.display.mojom.ModesetFlagsSpec.$ = {};
 
 // Enum: DisplayConnectionType
 mojo.internal.bindings.display.mojom.DisplayConnectionType = {

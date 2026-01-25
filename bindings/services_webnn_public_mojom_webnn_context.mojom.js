@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,29 @@
 
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContext = {};
-mojo.internal.bindings.webnn.mojom.WebNNContextSpec = { $ : {} };
+mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec = mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec = mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContext = mojo.internal.bindings.webnn.mojom.WebNNContext || {};
+mojo.internal.bindings.webnn.mojom.WebNNContextSpec = mojo.internal.bindings.webnn.mojom.WebNNContextSpec || { $ : {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContextSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContextSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNContext.$interfaceName = 'webnn.mojom.WebNNContext';
-mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

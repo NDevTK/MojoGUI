@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,13 +123,18 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.InstalledAppProvider = {};
-mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.InstalledAppProvider = mojo.internal.bindings.blink.mojom.InstalledAppProvider || {};
+mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec = mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InstalledAppProviderSpec.$ = {};
 mojo.internal.bindings.blink.mojom.InstalledAppProvider.$interfaceName = 'blink.mojom.InstalledAppProvider';
-mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

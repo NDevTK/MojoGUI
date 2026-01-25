@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,23 @@
 
  mojo.internal.bindings.IPC = mojo.internal.bindings.IPC || {};
 mojo.internal.bindings.IPC.mojom = mojo.internal.bindings.IPC.mojom || {};
-mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
 
-mojo.internal.bindings.IPC.mojom.MessageSpec = { $: {} };
-mojo.internal.bindings.IPC.mojom.Channel = {};
-mojo.internal.bindings.IPC.mojom.ChannelSpec = { $ : {} };
+mojo.internal.bindings.IPC.mojom.MessageSpec = mojo.internal.bindings.IPC.mojom.MessageSpec || { $: {} };
+if (mojo.internal.bindings.IPC.mojom.MessageSpec.$.structSpec && mojo.internal.bindings.IPC.mojom.MessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.IPC.mojom.MessageSpec.$ = {};
+mojo.internal.bindings.IPC.mojom.Channel = mojo.internal.bindings.IPC.mojom.Channel || {};
+mojo.internal.bindings.IPC.mojom.ChannelSpec = mojo.internal.bindings.IPC.mojom.ChannelSpec || { $ : {} };
+if (mojo.internal.bindings.IPC.mojom.ChannelSpec.$.structSpec && mojo.internal.bindings.IPC.mojom.ChannelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.IPC.mojom.ChannelSpec.$ = {};
 mojo.internal.bindings.IPC.mojom.Channel.$interfaceName = 'IPC.mojom.Channel';
-mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec = { $: {} };
-mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = { $: {} };
-mojo.internal.bindings.IPC.mojom.ChannelBootstrap = {};
-mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec = { $ : {} };
+mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec = mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.structSpec && mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec.$ = {};
+mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$.structSpec && mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$ = {};
+mojo.internal.bindings.IPC.mojom.ChannelBootstrap = mojo.internal.bindings.IPC.mojom.ChannelBootstrap || {};
+mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec = mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec || { $ : {} };
+if (mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec.$.structSpec && mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec.$ = {};
 mojo.internal.bindings.IPC.mojom.ChannelBootstrap.$interfaceName = 'IPC.mojom.ChannelBootstrap';
 
 // External type stubs (from imports)

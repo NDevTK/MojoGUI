@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,19 +123,30 @@
 
  mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.QuotaClient = {};
-mojo.internal.bindings.storage.mojom.QuotaClientSpec = { $ : {} };
+mojo.internal.bindings.storage.mojom.QuotaClient = mojo.internal.bindings.storage.mojom.QuotaClient || {};
+mojo.internal.bindings.storage.mojom.QuotaClientSpec = mojo.internal.bindings.storage.mojom.QuotaClientSpec || { $ : {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClientSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClientSpec.$ = {};
 mojo.internal.bindings.storage.mojom.QuotaClient.$interfaceName = 'storage.mojom.QuotaClient';
-mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = { $: {} };
-mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$ = {};
+mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec = mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

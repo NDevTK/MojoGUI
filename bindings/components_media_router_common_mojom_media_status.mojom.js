@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,16 +124,21 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.media_router.mojom.PlayStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.media_router.mojom.MediaImageSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaStatusSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaStatusObserver = {};
-mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec = { $ : {} };
+mojo.internal.bindings.media_router.mojom.PlayStateSpec = mojo.internal.bindings.media_router.mojom.PlayStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media_router.mojom.MediaImageSpec = mojo.internal.bindings.media_router.mojom.MediaImageSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaImageSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaImageSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaStatusSpec = mojo.internal.bindings.media_router.mojom.MediaStatusSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaStatusSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaStatusSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaStatusObserver = mojo.internal.bindings.media_router.mojom.MediaStatusObserver || {};
+mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec = mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec || { $ : {} };
+if (mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaStatusObserverSpec.$ = {};
 mojo.internal.bindings.media_router.mojom.MediaStatusObserver.$interfaceName = 'media_router.mojom.MediaStatusObserver';
-mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

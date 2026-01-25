@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,25 @@
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.IdleStateSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdleMonitor = {};
-mojo.internal.bindings.blink.mojom.IdleMonitorSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec = mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.IdleStateSpec = mojo.internal.bindings.blink.mojom.IdleStateSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdleStateSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleStateSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdleMonitor = mojo.internal.bindings.blink.mojom.IdleMonitor || {};
+mojo.internal.bindings.blink.mojom.IdleMonitorSpec = mojo.internal.bindings.blink.mojom.IdleMonitorSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.IdleMonitorSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleMonitorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleMonitorSpec.$ = {};
 mojo.internal.bindings.blink.mojom.IdleMonitor.$interfaceName = 'blink.mojom.IdleMonitor';
-mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdleManager = {};
-mojo.internal.bindings.blink.mojom.IdleManagerSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec = mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdleManager = mojo.internal.bindings.blink.mojom.IdleManager || {};
+mojo.internal.bindings.blink.mojom.IdleManagerSpec = mojo.internal.bindings.blink.mojom.IdleManagerSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.IdleManagerSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleManagerSpec.$ = {};
 mojo.internal.bindings.blink.mojom.IdleManager.$interfaceName = 'blink.mojom.IdleManager';
-mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec = mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

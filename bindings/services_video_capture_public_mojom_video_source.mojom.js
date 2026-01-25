@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,31 +123,51 @@
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription = {};
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec = mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription || {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription.$interfaceName = 'video_capture.mojom.PushVideoStreamSubscription';
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSource = {};
-mojo.internal.bindings.video_capture.mojom.VideoSourceSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSource = mojo.internal.bindings.video_capture.mojom.VideoSource || {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.VideoSource.$interfaceName = 'video_capture.mojom.VideoSource';
-mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

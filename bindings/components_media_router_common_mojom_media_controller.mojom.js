@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,17 +124,26 @@
  mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
 mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.media_router.mojom.MediaController = {};
-mojo.internal.bindings.media_router.mojom.MediaControllerSpec = { $ : {} };
+mojo.internal.bindings.media_router.mojom.MediaController = mojo.internal.bindings.media_router.mojom.MediaController || {};
+mojo.internal.bindings.media_router.mojom.MediaControllerSpec = mojo.internal.bindings.media_router.mojom.MediaControllerSpec || { $ : {} };
+if (mojo.internal.bindings.media_router.mojom.MediaControllerSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaControllerSpec.$ = {};
 mojo.internal.bindings.media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
-mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec = { $: {} };
-mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec.$ = {};
+mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec = mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec && mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

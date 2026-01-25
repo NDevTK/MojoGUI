@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,26 @@
  mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController = {};
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameController = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController || {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerSpec.$ = {};
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameController.$interfaceName = 'viz.mojom.ExternalBeginFrameController';
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient = {};
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec = { $ : {} };
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient || {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec || { $ : {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientSpec.$ = {};
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient.$interfaceName = 'viz.mojom.ExternalBeginFrameControllerClient';
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = { $: {} };
-mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

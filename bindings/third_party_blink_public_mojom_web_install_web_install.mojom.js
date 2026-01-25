@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.InstallOptionsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebInstallService = {};
-mojo.internal.bindings.blink.mojom.WebInstallServiceSpec = { $ : {} };
+mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec = mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.InstallOptionsSpec = mojo.internal.bindings.blink.mojom.InstallOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.InstallOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.InstallOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.InstallOptionsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService = mojo.internal.bindings.blink.mojom.WebInstallService || {};
+mojo.internal.bindings.blink.mojom.WebInstallServiceSpec = mojo.internal.bindings.blink.mojom.WebInstallServiceSpec || { $ : {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebInstallService.$interfaceName = 'blink.mojom.WebInstallService';
-mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = { $: {} };
-mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

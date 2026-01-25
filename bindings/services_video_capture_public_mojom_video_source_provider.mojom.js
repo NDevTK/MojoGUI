@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,33 @@
 
  mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
 mojo.internal.bindings.video_capture.mojom = mojo.internal.bindings.video_capture.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 
-mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider = {};
-mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = { $ : {} };
+mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec = mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider || {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec || { $ : {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec.$ = {};
 mojo.internal.bindings.video_capture.mojom.VideoSourceProvider.$interfaceName = 'video_capture.mojom.VideoSourceProvider';
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = { $: {} };
-mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec = mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,12 +124,17 @@
  mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec = { $: {} };
-mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec = { $: {} };
+mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec = mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$.structSpec && mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$ = {};
+mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec = mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec.$.structSpec && mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec.$ = {};
+mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec = mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec.$.structSpec && mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec.$ = {};
+mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec = mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec || { $: {} };
+if (mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec.$.structSpec && mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,26 @@
 
  mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection || {};
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.shape_detection.mojom.LandmarkSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.FaceDetection = {};
-mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec = { $ : {} };
+mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec = mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.shape_detection.mojom.LandmarkSpec = mojo.internal.bindings.shape_detection.mojom.LandmarkSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.LandmarkSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.LandmarkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.LandmarkSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetection = mojo.internal.bindings.shape_detection.mojom.FaceDetection || {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec || { $ : {} };
+if (mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.FaceDetectionSpec.$ = {};
 mojo.internal.bindings.shape_detection.mojom.FaceDetection.$interfaceName = 'shape_detection.mojom.FaceDetection';
-mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec = { $: {} };
-mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec.$ = {};
+mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

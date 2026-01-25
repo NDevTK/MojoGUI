@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,26 +124,38 @@
  mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
 mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.chromecast.mojom.MessageCallback = {};
-mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.MessageCallback = mojo.internal.bindings.chromecast.mojom.MessageCallback || {};
+mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec = mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.MessageCallbackSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.MessageCallback.$interfaceName = 'chromecast.mojom.MessageCallback';
-mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.WebUi = {};
-mojo.internal.bindings.chromecast.mojom.WebUiSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec = mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.WebUi = mojo.internal.bindings.chromecast.mojom.WebUi || {};
+mojo.internal.bindings.chromecast.mojom.WebUiSpec = mojo.internal.bindings.chromecast.mojom.WebUiSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUiSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUiSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUiSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.WebUi.$interfaceName = 'chromecast.mojom.WebUi';
-mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.Resources = {};
-mojo.internal.bindings.chromecast.mojom.ResourcesSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec = mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec = mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.Resources = mojo.internal.bindings.chromecast.mojom.Resources || {};
+mojo.internal.bindings.chromecast.mojom.ResourcesSpec = mojo.internal.bindings.chromecast.mojom.ResourcesSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.ResourcesSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.ResourcesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.ResourcesSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.Resources.$interfaceName = 'chromecast.mojom.Resources';
-mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.WebUiClient = {};
-mojo.internal.bindings.chromecast.mojom.WebUiClientSpec = { $ : {} };
+mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.WebUiClient = mojo.internal.bindings.chromecast.mojom.WebUiClient || {};
+mojo.internal.bindings.chromecast.mojom.WebUiClientSpec = mojo.internal.bindings.chromecast.mojom.WebUiClientSpec || { $ : {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUiClientSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUiClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUiClientSpec.$ = {};
 mojo.internal.bindings.chromecast.mojom.WebUiClient.$interfaceName = 'chromecast.mojom.WebUiClient';
-mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec = { $: {} };
-mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec = mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$ = {};
+mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec = mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec && mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

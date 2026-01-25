@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,26 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WebApkInfoSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WebApkInstance = {};
-mojo.internal.bindings.arc.mojom.WebApkInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec = mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec = mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WebApkInfoSpec = mojo.internal.bindings.arc.mojom.WebApkInfoSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInfoSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInfoSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WebApkInstance = mojo.internal.bindings.arc.mojom.WebApkInstance || {};
+mojo.internal.bindings.arc.mojom.WebApkInstanceSpec = mojo.internal.bindings.arc.mojom.WebApkInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.WebApkInstance.$interfaceName = 'arc.mojom.WebApkInstance';
-mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$ = {};
 
 // Enum: WebApkInstallResult
 mojo.internal.bindings.arc.mojom.WebApkInstallResult = {

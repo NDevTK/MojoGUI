@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,21 +124,32 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.enhanced_network_tts = mojo.internal.bindings.ash.enhanced_network_tts || {};
 mojo.internal.bindings.ash.enhanced_network_tts.mojom = mojo.internal.bindings.ash.enhanced_network_tts.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec = { $ : {} };
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts = mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts || {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec || { $ : {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsSpec.$ = {};
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts.$interfaceName = 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts';
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver = {};
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver = mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver || {};
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverSpec.$ = {};
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver.$interfaceName = 'ash.enhanced_network_tts.mojom.AudioDataObserver';
-mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

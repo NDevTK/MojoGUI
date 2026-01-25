@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,41 @@
 
  mojo.internal.bindings.bookmark_bar = mojo.internal.bindings.bookmark_bar || {};
 mojo.internal.bindings.bookmark_bar.mojom = mojo.internal.bindings.bookmark_bar.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec = mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec = mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory = mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory.$interfaceName = 'bookmark_bar.mojom.PageHandlerFactory';
-mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.PageHandler = {};
-mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandler = mojo.internal.bindings.bookmark_bar.mojom.PageHandler || {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.bookmark_bar.mojom.PageHandler.$interfaceName = 'bookmark_bar.mojom.PageHandler';
-mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.Page = {};
-mojo.internal.bindings.bookmark_bar.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.Page = mojo.internal.bindings.bookmark_bar.mojom.Page || {};
+mojo.internal.bindings.bookmark_bar.mojom.PageSpec = mojo.internal.bindings.bookmark_bar.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.PageSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.PageSpec.$ = {};
 mojo.internal.bindings.bookmark_bar.mojom.Page.$interfaceName = 'bookmark_bar.mojom.Page';
-mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec = { $: {} };
-mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec = { $: {} };
+mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec.$ = {};
+mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec = mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec.$.structSpec && mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};

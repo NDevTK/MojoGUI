@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,21 +123,33 @@
 
  mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsHost = {};
-mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec = mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemSpec = mojo.internal.bindings.arc.mojom.PrivacyItemSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsHost = mojo.internal.bindings.arc.mojom.PrivacyItemsHost || {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsHostSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrivacyItemsHost.$interfaceName = 'arc.mojom.PrivacyItemsHost';
-mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsInstance = {};
-mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec = { $ : {} };
+mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstance = mojo.internal.bindings.arc.mojom.PrivacyItemsInstance || {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec || { $ : {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceSpec.$ = {};
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstance.$interfaceName = 'arc.mojom.PrivacyItemsInstance';
-mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};

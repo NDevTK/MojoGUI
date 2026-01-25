@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,11 +123,15 @@
 
  mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.device.mojom.XRHandJointSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.device.mojom.XRHandJointDataSpec = { $: {} };
-mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec = { $: {} };
+mojo.internal.bindings.device.mojom.XRHandJointSpec = mojo.internal.bindings.device.mojom.XRHandJointSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.device.mojom.XRHandJointDataSpec = mojo.internal.bindings.device.mojom.XRHandJointDataSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XRHandJointDataSpec.$.structSpec && mojo.internal.bindings.device.mojom.XRHandJointDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XRHandJointDataSpec.$ = {};
+mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec = mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec.$.structSpec && mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};

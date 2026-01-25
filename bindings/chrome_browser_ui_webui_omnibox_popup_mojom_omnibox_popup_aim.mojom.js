@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,27 +123,39 @@
 
  mojo.internal.bindings.omnibox_popup_aim = mojo.internal.bindings.omnibox_popup_aim || {};
 mojo.internal.bindings.omnibox_popup_aim.mojom = mojo.internal.bindings.omnibox_popup_aim.mojom || {};
-mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory = {};
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory || {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory.$interfaceName = 'omnibox_popup_aim.mojom.PageHandlerFactory';
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler = {};
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler || {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler.$interfaceName = 'omnibox_popup_aim.mojom.PageHandler';
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page = {};
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec = { $ : {} };
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page = mojo.internal.bindings.omnibox_popup_aim.mojom.Page || {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec || { $ : {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageSpec.$ = {};
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page.$interfaceName = 'omnibox_popup_aim.mojom.Page';
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = { $: {} };
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};

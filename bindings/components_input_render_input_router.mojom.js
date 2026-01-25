@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,44 @@
  mojo.internal.bindings.input = mojo.internal.bindings.input || {};
 mojo.internal.bindings.input.mojom = mojo.internal.bindings.input.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec = { $: {} };
-mojo.internal.bindings.input.mojom.TouchTransferStateSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate = {};
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec = { $ : {} };
+mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec = mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec.$ = {};
+mojo.internal.bindings.input.mojom.TouchTransferStateSpec = mojo.internal.bindings.input.mojom.TouchTransferStateSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.TouchTransferStateSpec.$.structSpec && mojo.internal.bindings.input.mojom.TouchTransferStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.TouchTransferStateSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate || {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec || { $ : {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateSpec.$ = {};
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegate.$interfaceName = 'input.mojom.RenderInputRouterDelegate';
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient = {};
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec = { $ : {} };
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient || {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec || { $ : {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientSpec.$ = {};
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient.$interfaceName = 'input.mojom.RenderInputRouterDelegateClient';
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = { $: {} };
-mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$ = {};
+mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

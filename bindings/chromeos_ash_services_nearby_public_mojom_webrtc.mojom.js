@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,29 @@
 
  mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
-mojo.internal.bindings.sharing.mojom.IceServerSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.IceConfigFetcher = {};
-mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.IceServerSpec = mojo.internal.bindings.sharing.mojom.IceServerSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IceServerSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IceServerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IceServerSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec = mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.IceConfigFetcher = mojo.internal.bindings.sharing.mojom.IceConfigFetcher || {};
+mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec = mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IceConfigFetcherSpec.$ = {};
 mojo.internal.bindings.sharing.mojom.IceConfigFetcher.$interfaceName = 'sharing.mojom.IceConfigFetcher';
-mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.sharing.mojom.MdnsResponderFactory = {};
-mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec = { $ : {} };
+mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.sharing.mojom.MdnsResponderFactory = mojo.internal.bindings.sharing.mojom.MdnsResponderFactory || {};
+mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec = mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec || { $ : {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsResponderFactorySpec.$ = {};
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactory.$interfaceName = 'sharing.mojom.MdnsResponderFactory';
-mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.structSpec && mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};

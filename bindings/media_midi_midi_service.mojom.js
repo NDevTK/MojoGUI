@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,28 +124,42 @@
  mojo.internal.bindings.midi = mojo.internal.bindings.midi || {};
 mojo.internal.bindings.midi.mojom = mojo.internal.bindings.midi.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.midi.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.midi.mojom.PortStateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.midi.mojom.PortInfoSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient = {};
-mojo.internal.bindings.midi.mojom.MidiSessionClientSpec = { $ : {} };
+mojo.internal.bindings.midi.mojom.ResultSpec = mojo.internal.bindings.midi.mojom.ResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.midi.mojom.PortStateSpec = mojo.internal.bindings.midi.mojom.PortStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.midi.mojom.PortInfoSpec = mojo.internal.bindings.midi.mojom.PortInfoSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.PortInfoSpec.$.structSpec && mojo.internal.bindings.midi.mojom.PortInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.PortInfoSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient = mojo.internal.bindings.midi.mojom.MidiSessionClient || {};
+mojo.internal.bindings.midi.mojom.MidiSessionClientSpec = mojo.internal.bindings.midi.mojom.MidiSessionClientSpec || { $ : {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClientSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClientSpec.$ = {};
 mojo.internal.bindings.midi.mojom.MidiSessionClient.$interfaceName = 'midi.mojom.MidiSessionClient';
-mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSessionProvider = {};
-mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec = { $ : {} };
+mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSessionProvider = mojo.internal.bindings.midi.mojom.MidiSessionProvider || {};
+mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec = mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec || { $ : {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionProviderSpec.$ = {};
 mojo.internal.bindings.midi.mojom.MidiSessionProvider.$interfaceName = 'midi.mojom.MidiSessionProvider';
-mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = { $: {} };
-mojo.internal.bindings.midi.mojom.MidiSession = {};
-mojo.internal.bindings.midi.mojom.MidiSessionSpec = { $ : {} };
+mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$ = {};
+mojo.internal.bindings.midi.mojom.MidiSession = mojo.internal.bindings.midi.mojom.MidiSession || {};
+mojo.internal.bindings.midi.mojom.MidiSessionSpec = mojo.internal.bindings.midi.mojom.MidiSessionSpec || { $ : {} };
+if (mojo.internal.bindings.midi.mojom.MidiSessionSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSessionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSessionSpec.$ = {};
 mojo.internal.bindings.midi.mojom.MidiSession.$interfaceName = 'midi.mojom.MidiSession';
-mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec = { $: {} };
+mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec = mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec.$.structSpec && mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

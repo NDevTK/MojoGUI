@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,25 +123,37 @@
 
  mojo.internal.bindings.browser_controls_api = mojo.internal.bindings.browser_controls_api || {};
 mojo.internal.bindings.browser_controls_api.mojom = mojo.internal.bindings.browser_controls_api.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory = {};
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec = { $ : {} };
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory || {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec || { $ : {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactorySpec.$ = {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory.$interfaceName = 'browser_controls_api.mojom.BrowserControlsFactory';
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver = {};
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec = { $ : {} };
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsFactory_CreateBrowserControls_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver || {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec || { $ : {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverSpec.$ = {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver.$interfaceName = 'browser_controls_api.mojom.BrowserControlsObserver';
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService = {};
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec = { $ : {} };
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService || {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec || { $ : {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$ = {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService.$interfaceName = 'browser_controls_api.mojom.BrowserControlsService';
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec = { $: {} };
-mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec = { $: {} };
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_StopLoad_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ShowContextMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_OnPageInitialized_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_ReloadFromClick_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browser_controls_api = mojo.internal.bindings.browser_controls_api || {};

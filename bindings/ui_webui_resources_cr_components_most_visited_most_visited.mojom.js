@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,45 +123,74 @@
 
  mojo.internal.bindings.most_visited = mojo.internal.bindings.most_visited || {};
 mojo.internal.bindings.most_visited.mojom = mojo.internal.bindings.most_visited.mojom || {};
-mojo.internal.bindings.ntp_tiles = mojo.internal.bindings.ntp_tiles || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.ntp_tiles = mojo.internal.bindings.ntp_tiles || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory = {};
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec = { $ : {} };
+mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory || {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec || { $ : {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory.$interfaceName = 'most_visited.mojom.MostVisitedPageHandlerFactory';
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler = {};
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec = { $ : {} };
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler || {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerSpec.$ = {};
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler.$interfaceName = 'most_visited.mojom.MostVisitedPageHandler';
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPage = {};
-mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec = { $ : {} };
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPage = mojo.internal.bindings.most_visited.mojom.MostVisitedPage || {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec || { $ : {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPageSpec.$ = {};
 mojo.internal.bindings.most_visited.mojom.MostVisitedPage.$interfaceName = 'most_visited.mojom.MostVisitedPage';
-mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = { $: {} };
+mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec = mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$.structSpec && mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};

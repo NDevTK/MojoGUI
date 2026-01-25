@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,18 +124,26 @@
  mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
 mojo.internal.bindings.ash.common = mojo.internal.bindings.ash.common || {};
 mojo.internal.bindings.ash.common.mojom = mojo.internal.bindings.ash.common.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver = {};
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec = { $ : {} };
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver || {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec || { $ : {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverSpec.$ = {};
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver.$interfaceName = 'ash.common.mojom.AcceleratorFetcherObserver';
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher = {};
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec = { $ : {} };
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher || {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec || { $ : {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherSpec.$ = {};
 mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher.$interfaceName = 'ash.common.mojom.AcceleratorFetcher';
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = { $: {} };
-mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec = mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};

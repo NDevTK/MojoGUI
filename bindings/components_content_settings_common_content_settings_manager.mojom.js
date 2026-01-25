@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,18 +123,25 @@
 
  mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManager = {};
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = { $ : {} };
+mojo.internal.bindings.content_settings.mojom.StorageTypeSpec = mojo.internal.bindings.content_settings.mojom.StorageTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManager = mojo.internal.bindings.content_settings.mojom.ContentSettingsManager || {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec || { $ : {} };
+if (mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec.$.structSpec && mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerSpec.$ = {};
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManager.$interfaceName = 'content_settings.mojom.ContentSettingsManager';
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = { $: {} };
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec && mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$ = {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec && mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

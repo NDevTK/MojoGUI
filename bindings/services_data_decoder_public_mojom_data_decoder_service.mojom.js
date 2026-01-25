@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,20 +123,30 @@
 
  mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};
 mojo.internal.bindings.data_decoder.mojom = mojo.internal.bindings.data_decoder.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.web_package = mojo.internal.bindings.web_package || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService = {};
-mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec = { $ : {} };
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService = mojo.internal.bindings.data_decoder.mojom.DataDecoderService || {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec || { $ : {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceSpec.$ = {};
 mojo.internal.bindings.data_decoder.mojom.DataDecoderService.$interfaceName = 'data_decoder.mojom.DataDecoderService';
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = { $: {} };
-mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = { $: {} };
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$ = {};
+mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.structSpec && mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.data_decoder = mojo.internal.bindings.data_decoder || {};

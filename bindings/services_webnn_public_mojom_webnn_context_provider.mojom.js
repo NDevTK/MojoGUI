@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -120,17 +123,25 @@
 
  mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webnn.mojom.CreateContextResultSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContextProvider = {};
-mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = { $ : {} };
+mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec = mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.webnn.mojom.CreateContextResultSpec = mojo.internal.bindings.webnn.mojom.CreateContextResultSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateContextResultSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateContextResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateContextResultSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec = mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProvider = mojo.internal.bindings.webnn.mojom.WebNNContextProvider || {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec || { $ : {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContextProviderSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNContextProvider.$interfaceName = 'webnn.mojom.WebNNContextProvider';
-mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = { $: {} };
-mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};

@@ -102,6 +102,9 @@
    $: {
      structSpec: { name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{version: 0, packedSize: 8}] },
      encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
      },
      encodeNull: function(encoder, byteOffset) { },
@@ -121,25 +124,42 @@
  mojo.internal.bindings.browsing_topics = mojo.internal.bindings.browsing_topics || {};
 mojo.internal.bindings.browsing_topics.mojom = mojo.internal.bindings.browsing_topics.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler = {};
-mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec = { $ : {} };
+mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIGetModelInfoResultSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec = mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUITopicSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIEpochSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIBrowsingTopicsStateSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec = mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.WebUIModelInfoSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler = mojo.internal.bindings.browsing_topics.mojom.PageHandler || {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec || { $ : {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.browsing_topics.mojom.PageHandler.$interfaceName = 'browsing_topics.mojom.PageHandler';
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = { $: {} };
-mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$ = {};
+mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browsing_topics = mojo.internal.bindings.browsing_topics || {};
