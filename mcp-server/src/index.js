@@ -652,6 +652,33 @@ server.tool(
 );
 
 server.tool(
+  "write_data_pipe",
+  "Write data to a Mojo data pipe producer handle.",
+  {
+    id: z.union([z.string(), z.number()]).describe("The trackable handle ID of the producer"),
+    data: z.string().describe("The data to write (UTF-8 string)"),
+  },
+  async ({ id, data }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                const handle = MojoHandleRegistry.get(${JSON.stringify(id)});
+                if (!handle) throw new Error('Handle not found');
+                
+                const encoder = new TextEncoder();
+                const buffer = encoder.encode(${JSON.stringify(data)});
+                const result = handle.writeData(buffer);
+                return { success: true, bytesWritten: buffer.length, result };
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  }
+);
+
+server.tool(
   "inspect_object",
   "Get detailed information about a registered object or handle (methods, properties, constructor).",
   {
