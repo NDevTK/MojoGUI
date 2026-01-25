@@ -40,8 +40,9 @@
         try {
           // InterfaceRemoteBase expects a RAW MojoHandle, not an Endpoint.
           // If we got an Endpoint, we must unwrap it or the remote will have null endpoint_
-          const rawForRemote = (handleOrEndpoint && handleOrEndpoint.router_) ? 
-                                handleOrEndpoint.router_.handle : handleOrEndpoint;
+          const ep = handleOrEndpoint;
+          const rawForRemote = (ep && (ep.router_ || ep.router)) ? 
+                                (ep.router_ || ep.router).handle : handleOrEndpoint;
           this.realRemote = new comps.Remote(rawForRemote);
         } catch (e) {
           console.error(
@@ -309,13 +310,13 @@
           let result = undefined;
 
           if (this.realRemote) {
-            const func = this.realRemote[methodName] || this.realRemote.$[methodName];
+            const func = this.realRemote[methodName] || (this.realRemote.$ && this.realRemote.$[methodName]);
             if (typeof func === "function") {
-              const res = func.apply(this.realRemote.$ || this.realRemote, bridgedArgs);
+              // Context MUST be the Remote instance so 'this.proxy' works
+              const res = func.apply(this.realRemote, bridgedArgs);
               if (res && typeof res.then === "function") {
                 result = await res;
               } else {
-                console.warn(`[MojoProxy] Method ${methodName} did not return a promise.`);
                 result = res;
               }
             }
