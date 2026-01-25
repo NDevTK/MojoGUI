@@ -157,46 +157,49 @@ server.tool(
             })()
         `;
     const result = await executeInMojoGUI(code);
-    
+
     // Generate Research Summary
-    const summary = SelfImprovement.getInterfaceSummary(name, result.methodCount);
+    const summary = SelfImprovement.getInterfaceSummary(
+      name,
+      result.methodCount,
+    );
     let summaryNote = "";
-    
+
     if (summary) {
-        summaryNote = `\n🛡️ SECURITY RESEARCH SUMMARY: ${name}\n`;
-        
-        // Add Component Context
-        if (summary.moduleFindingCount > 0) {
-            const warningIcon = summary.hasModuleVulnerabilities ? "⚠️" : "ℹ️";
-            summaryNote += `${warningIcon} Component Context: ${summary.moduleName} has ${summary.moduleFindingCount} other findings in this session.\n`;
-        }
+      summaryNote = `\n🛡️ SECURITY RESEARCH SUMMARY: ${name}\n`;
 
-        summaryNote += `📊 Coverage: ${summary.coverage} methods tested\n\n`;
-        
-        for (const [method, findings] of Object.entries(summary.findings)) {
-            summaryNote += `[${method}]\n`;
-            findings.forEach(f => {
-                const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
-                summaryNote += `  ${icon} ${f.result} (ID: ${f.id})\n`;
-                summaryNote += `     Technical Context: ${f.notes}\n`;
-            });
-        }
+      // Add Component Context
+      if (summary.moduleFindingCount > 0) {
+        const warningIcon = summary.hasModuleVulnerabilities ? "⚠️" : "ℹ️";
+        summaryNote += `${warningIcon} Component Context: ${summary.moduleName} has ${summary.moduleFindingCount} other findings in this session.\n`;
+      }
 
-        if (summary.gaps.length > 0) {
-            summaryNote += `\n⚠️ KNOWN CAPABILITY GAPS:\n`;
-            summary.gaps.forEach(g => {
-                summaryNote += `  - ${g.gap} (Impact: ${g.impact})\n`;
-            });
-        }
-        summaryNote += `\n--------------------------------------------\n`;
+      summaryNote += `📊 Coverage: ${summary.coverage} methods tested\n\n`;
+
+      for (const [method, findings] of Object.entries(summary.findings)) {
+        summaryNote += `[${method}]\n`;
+        findings.forEach((f) => {
+          const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
+          summaryNote += `  ${icon} ${f.result} (ID: ${f.id})\n`;
+          summaryNote += `     Technical Context: ${f.notes}\n`;
+        });
+      }
+
+      if (summary.gaps.length > 0) {
+        summaryNote += `\n⚠️ KNOWN CAPABILITY GAPS:\n`;
+        summary.gaps.forEach((g) => {
+          summaryNote += `  - ${g.gap} (Impact: ${g.impact})\n`;
+        });
+      }
+      summaryNote += `\n--------------------------------------------\n`;
     } else {
-        summaryNote = `\n🆕 INTERFACE NOT YET RESEARCHED: ${name}\n`;
-        // Even for new interfaces, show if the module has findings
-        const moduleResearch = SelfImprovement.getInterfaceSummary(name);
-        if (moduleResearch && moduleResearch.moduleFindingCount > 0) {
-             summaryNote += `⚠️  NOTE: Other interfaces in module '${moduleResearch.moduleName}' HAVE been researched.\n`;
-        }
-        summaryNote += `--------------------------------------------\n`;
+      summaryNote = `\n🆕 INTERFACE NOT YET RESEARCHED: ${name}\n`;
+      // Even for new interfaces, show if the module has findings
+      const moduleResearch = SelfImprovement.getInterfaceSummary(name);
+      if (moduleResearch && moduleResearch.moduleFindingCount > 0) {
+        summaryNote += `⚠️  NOTE: Other interfaces in module '${moduleResearch.moduleName}' HAVE been researched.\n`;
+      }
+      summaryNote += `--------------------------------------------\n`;
     }
 
     return {
@@ -323,26 +326,26 @@ server.tool(
             })()
         `;
     const result = await executeInMojoGUI(code, 0, { userGesture });
-    
+
     // Check for history to remind the agent
     let warning = "";
     const name = iface || "";
     const summary = SelfImprovement.getInterfaceSummary(name);
-    
-    if (summary && summary.findings[method]) {
-        warning = `\n📜 PREVIOUS FINDINGS FOR ${method}:\n`;
-        summary.findings[method].forEach(f => {
-            const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
-            warning += `  ${icon} ${f.result} (ID: ${f.id})\n`;
-            warning += `     Technical Context: ${f.notes}\n`;
-        });
-        
-        if (summary.hasModuleVulnerabilities) {
-            warning += `⚠️  Module '${summary.moduleName}' has a history of high-impact vulnerabilities.\n`;
-        }
 
-        warning += `\n💡 Hint: Use 'update_research_finding' to add details to these existing entries instead of creating a duplicate.\n`;
-        warning += `--------------------------------------------\n\n`;
+    if (summary && summary.findings[method]) {
+      warning = `\n📜 PREVIOUS FINDINGS FOR ${method}:\n`;
+      summary.findings[method].forEach((f) => {
+        const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
+        warning += `  ${icon} ${f.result} (ID: ${f.id})\n`;
+        warning += `     Technical Context: ${f.notes}\n`;
+      });
+
+      if (summary.hasModuleVulnerabilities) {
+        warning += `⚠️  Module '${summary.moduleName}' has a history of high-impact vulnerabilities.\n`;
+      }
+
+      warning += `\n💡 Hint: Use 'update_research_finding' to add details to these existing entries instead of creating a duplicate.\n`;
+      warning += `--------------------------------------------\n\n`;
     }
 
     return { content: [{ type: "text", text: warning + (result || "{}") }] };
@@ -485,7 +488,11 @@ server.tool(
   "bind_mock_listener",
   "Create a Mojo handle that acts as a sink for a specific listener interface. Incoming calls to this handle will be logged to the traffic log. Useful for methods that require a callback/listener handle.",
   {
-    interface: z.string().describe('The listener interface name (e.g. "blink.mojom.FileSystemAccessDirectoryEntriesListener")'),
+    interface: z
+      .string()
+      .describe(
+        'The listener interface name (e.g. "blink.mojom.FileSystemAccessDirectoryEntriesListener")',
+      ),
   },
   async ({ interface: iface }) => {
     const code = `
@@ -705,8 +712,13 @@ server.tool(
   "read_data_pipe",
   "Read data from a Mojo data pipe consumer handle.",
   {
-    id: z.union([z.string(), z.number()]).describe("The trackable handle ID of the consumer"),
-    encoding: z.enum(["utf8", "hex", "base64"]).optional().describe("Optional text encoding for the result"),
+    id: z
+      .union([z.string(), z.number()])
+      .describe("The trackable handle ID of the consumer"),
+    encoding: z
+      .enum(["utf8", "hex", "base64"])
+      .optional()
+      .describe("Optional text encoding for the result"),
   },
   async ({ id, encoding }) => {
     const code = `
@@ -727,7 +739,9 @@ server.tool(
   "write_data_pipe",
   "Write data to a Mojo data pipe producer handle.",
   {
-    id: z.union([z.string(), z.number()]).describe("The trackable handle ID of the producer"),
+    id: z
+      .union([z.string(), z.number()])
+      .describe("The trackable handle ID of the producer"),
     data: z.string().describe("The data to write (UTF-8 string)"),
   },
   async ({ id, data }) => {
@@ -747,14 +761,16 @@ server.tool(
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "inspect_object",
   "Get detailed information about a registered object or handle (methods, properties, constructor).",
   {
-    id: z.union([z.string(), z.number()]).describe("The ID of the object (obj_N) or handle to inspect"),
+    id: z
+      .union([z.string(), z.number()])
+      .describe("The ID of the object (obj_N) or handle to inspect"),
   },
   async ({ id }) => {
     const code = `
@@ -1025,7 +1041,7 @@ server.tool(
 );
 
 server.tool(
-  "run_javascript",
+  "run_javascript_fragile",
   'Execute arbitrary JavaScript in the MojoGUI context. DANGER: This tool is highly fragile due to complex Mojo binding environments and should ONLY be used as a LAST RESORT for complex logic that cannot be accomplished with native tools (like call_method, bind_interface, etc.). NEVER use it as a replacement for existing specific tools. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
   {
     code: z.string().describe("The JavaScript code to execute"),
@@ -1107,30 +1123,42 @@ server.tool(
   "log_capability_gap",
   "Record a failure or missing feature in the current tooling to prioritize future improvements.",
   {
-    task: z.string().describe("The task that was being attempted (e.g. 'Reading Blob data')"),
-    gap: z.string().describe("Description of what is missing or broken (e.g. 'MojoHandle conversion fails in ReadAll')"),
-    impact: z.string().describe("How this affects research (e.g. 'Prevents confirming file content leakage')"),
+    task: z
+      .string()
+      .describe("The task that was being attempted (e.g. 'Reading Blob data')"),
+    gap: z
+      .string()
+      .describe(
+        "Description of what is missing or broken (e.g. 'MojoHandle conversion fails in ReadAll')",
+      ),
+    impact: z
+      .string()
+      .describe(
+        "How this affects research (e.g. 'Prevents confirming file content leakage')",
+      ),
   },
   async ({ task, gap, impact }) => {
     const result = SelfImprovement.logGap(task, gap, impact);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "close_capability_gap",
   "Mark a capability gap as closed after it has been fixed or mitigated.",
   {
-    id: z.string().describe("The ID of the gap to close (from get_research_progress)"),
+    id: z
+      .string()
+      .describe("The ID of the gap to close (from get_research_progress)"),
   },
   async ({ id }) => {
     const result = SelfImprovement.closeGap(id);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
@@ -1139,23 +1167,39 @@ server.tool(
   {
     interface: z.string().describe("The interface name"),
     method: z.string().describe("The method name"),
-    result: z.string().describe("Summary of the outcome (e.g. 'Confirmed Bypass', 'Crashed', 'Permission Denied')"),
+    result: z
+      .string()
+      .describe(
+        "Summary of the outcome (e.g. 'Confirmed Bypass', 'Crashed', 'Permission Denied')",
+      ),
     notes: z.string().describe("Detailed observations or exploit details"),
-    force: z.boolean().optional().default(false).describe("If true, bypass duplicate detection and force logging"),
+    force: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe("If true, bypass duplicate detection and force logging"),
   },
   async ({ interface: iface, method, result, notes, force }) => {
-    const res = SelfImprovement.logResearch(iface, method, result, notes, force);
+    const res = SelfImprovement.logResearch(
+      iface,
+      method,
+      result,
+      notes,
+      force,
+    );
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "update_research_finding",
   "Update an existing research finding by ID. Useful for correcting mistakes or adding detail to previous logs.",
   {
-    id: z.string().describe("The ID of the finding to update (from get_research_progress)"),
+    id: z
+      .string()
+      .describe("The ID of the finding to update (from get_research_progress)"),
     result: z.string().optional().describe("New summary of the outcome"),
     notes: z.string().optional().describe("New detailed notes"),
   },
@@ -1164,53 +1208,73 @@ server.tool(
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "delete_research_finding",
   "Delete a research finding by ID. Use this to remove duplicate or erroneous entries.",
   {
-    id: z.string().describe("The ID of the finding to delete (from get_research_progress)"),
+    id: z
+      .string()
+      .describe("The ID of the finding to delete (from get_research_progress)"),
   },
   async ({ id }) => {
     const res = SelfImprovement.deleteResearch(id);
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "check_research_idea",
   "Check a research idea (interface, method, or concept) against previous findings and known capability gaps to avoid duplicate work.",
   {
-    idea: z.string().describe("The research idea or interface/method name to check"),
+    idea: z
+      .string()
+      .describe("The research idea or interface/method name to check"),
   },
   async ({ idea }) => {
     const result = SelfImprovement.checkIdea(idea);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(
   "get_research_progress",
   "Retrieve filtered history of Mojo interface research and identified capability gaps.",
   {
-    interface: z.string().optional().describe("Filter research by interface name (regex supported)"),
-    result: z.string().optional().describe("Filter research by result status (e.g. 'Bypass', 'Crashed')"),
-    status: z.enum(["Open", "Closed"]).optional().describe("Filter capability gaps by status"),
-    search: z.string().optional().describe("Global text search in notes, tasks, and impacts"),
-    limit: z.number().optional().default(50).describe("Maximum number of entries to return per category"),
+    interface: z
+      .string()
+      .optional()
+      .describe("Filter research by interface name (regex supported)"),
+    result: z
+      .string()
+      .optional()
+      .describe("Filter research by result status (e.g. 'Bypass', 'Crashed')"),
+    status: z
+      .enum(["Open", "Closed"])
+      .optional()
+      .describe("Filter capability gaps by status"),
+    search: z
+      .string()
+      .optional()
+      .describe("Global text search in notes, tasks, and impacts"),
+    limit: z
+      .number()
+      .optional()
+      .default(50)
+      .describe("Maximum number of entries to return per category"),
   },
   async (filters) => {
     const data = SelfImprovement.getProgress(filters);
     return {
       content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
     };
-  }
+  },
 );
 
 // Start the server
