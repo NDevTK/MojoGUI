@@ -371,7 +371,8 @@
     inflateStruct,
     inflateBigString,
     inflateString16,
-    decodeBigString
+    decodeBigString,
+    decorateHandle
   };
 
   global.MojoUtils = MojoUtils;
