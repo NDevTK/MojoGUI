@@ -76,6 +76,34 @@
   }
 
   /**
+   * Decorates a raw MojoHandle with properties that make it look like a
+   * Remote/Receiver wrapper for compatibility with MojoJS's internal unbind() calls.
+   * This is a unified approach using Object.defineProperty.
+   */
+  function decorateHandle(realHandle, isPendingAssociation = false) {
+    if (!realHandle || typeof realHandle !== "object") return realHandle;
+
+    const mockEndpoint = {
+      releasePipe: () => realHandle,
+      handle: realHandle,
+      isPendingAssociation: isPendingAssociation
+    };
+
+    // Use defineProperty to avoid potential issues with read-only properties on native handles
+    if (!realHandle.hasOwnProperty('handle')) {
+      Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
+    }
+    if (!realHandle.hasOwnProperty('proxy')) {
+      Object.defineProperty(realHandle, 'proxy', { value: { unbind: () => mockEndpoint }, configurable: true });
+    }
+    if (!realHandle.hasOwnProperty('unbind')) {
+      Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
+    }
+
+    return realHandle;
+  }
+
+  /**
    * Restores 'arg_' prefixes and processes Handle descriptors.
    */
   function reconcileKeys(edited, original, useHeuristics = true) {
@@ -97,24 +125,7 @@
           entry.remote,
         );
         if (realHandle) {
-          // Decorate the raw handle with properties that make it look like a Remote/Receiver wrapper
-          // for compatibility with MojoJS's internal unbind() calls.
-          const mockEndpoint = {
-            releasePipe: () => realHandle,
-            handle: realHandle,
-          };
-          
-          if (!realHandle.hasOwnProperty('handle')) {
-            Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
-          }
-          if (!realHandle.hasOwnProperty('proxy')) {
-            Object.defineProperty(realHandle, 'proxy', { value: { unbind: () => mockEndpoint }, configurable: true });
-          }
-          if (!realHandle.hasOwnProperty('unbind')) {
-            Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
-          }
-
-          return realHandle;
+          return decorateHandle(realHandle);
         }
       }
       return original;
@@ -130,26 +141,9 @@
       if (action === "close") return null;
       if (action === "new_pipe") {
         const { handle0, handle1 } = Mojo.createMessagePipe();
-        const realHandle = handle0;
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
-        const mockEndpoint = {
-          releasePipe: () => realHandle,
-          handle: realHandle,
-          isPendingAssociation: true
-        };
-        
-        if (!realHandle.hasOwnProperty('handle')) {
-          Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
-        }
-        if (!realHandle.hasOwnProperty('proxy')) {
-          Object.defineProperty(realHandle, 'proxy', { value: { unbind: () => mockEndpoint }, configurable: true });
-        }
-        if (!realHandle.hasOwnProperty('unbind')) {
-          Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
-        }
-
-        return realHandle;
+        return decorateHandle(handle0, true);
       }
       if (action === "use_handle") {
         const handleInput = handleData.customHandle;
@@ -167,26 +161,7 @@
         }
 
         if (!realHandle) return original;
-
-        // Decorate the raw handle with properties that make it look like a Remote/Receiver wrapper
-        // for compatibility with MojoJS's internal unbind() calls.
-        const mockEndpoint = {
-          releasePipe: () => realHandle,
-          handle: realHandle,
-        };
-        
-        // Use defineProperty to avoid potential issues with read-only properties on native handles
-        if (!realHandle.hasOwnProperty('handle')) {
-          Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
-        }
-        if (!realHandle.hasOwnProperty('proxy')) {
-          Object.defineProperty(realHandle, 'proxy', { value: { unbind: () => mockEndpoint }, configurable: true });
-        }
-        if (!realHandle.hasOwnProperty('unbind')) {
-          Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
-        }
-
-        return realHandle;
+        return decorateHandle(realHandle);
       }
       return original;
     }
