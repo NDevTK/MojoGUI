@@ -104,6 +104,44 @@ export const SelfImprovement = {
     return { gaps, research, count: { gaps: gaps.length, research: research.length }, path: PROGRESS_FILE };
   },
 
+  /**
+   * Check a research idea against existing findings and gaps.
+   * Useful for avoiding duplicate work and identifying known blockers.
+   */
+  checkIdea(idea) {
+    const { gaps, research } = this._read();
+    const q = idea.toLowerCase();
+
+    // Find direct matches or high-similarity keywords
+    const relevantResearch = research.filter(r => 
+      r.interface.toLowerCase().includes(q) || 
+      r.method.toLowerCase().includes(q) ||
+      r.notes.toLowerCase().includes(q)
+    );
+
+    const relevantGaps = gaps.filter(g => 
+      g.task.toLowerCase().includes(q) || 
+      g.gap.toLowerCase().includes(q) || 
+      g.impact.toLowerCase().includes(q)
+    );
+
+    // Identify patterns (e.g. "Renderer crashed" or "User Gesture Bypass")
+    const outcomePatterns = {};
+    relevantResearch.forEach(r => {
+      outcomePatterns[r.result] = (outcomePatterns[r.result] || 0) + 1;
+    });
+
+    return {
+      idea,
+      alreadyResearched: relevantResearch.length > 0,
+      knownBlockers: relevantGaps.filter(g => g.status === "Open").length > 0,
+      findings: relevantResearch.slice(0, 10), // Limit to top 10 relevant findings
+      gaps: relevantGaps.slice(0, 10),
+      patterns: outcomePatterns,
+      summary: `Found ${relevantResearch.length} relevant research entries and ${relevantGaps.length} gaps.`
+    };
+  },
+
   _read() {
     this.init();
     try {

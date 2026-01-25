@@ -1087,6 +1087,20 @@ server.tool(
 );
 
 server.tool(
+  "check_research_idea",
+  "Check a research idea (interface, method, or concept) against previous findings and known capability gaps to avoid duplicate work.",
+  {
+    idea: z.string().describe("The research idea or interface/method name to check"),
+  },
+  async ({ idea }) => {
+    const result = SelfImprovement.checkIdea(idea);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  }
+);
+
+server.tool(
   "get_research_progress",
   "Retrieve filtered history of Mojo interface research and identified capability gaps.",
   {
