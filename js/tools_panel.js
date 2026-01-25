@@ -150,11 +150,13 @@
 
     refreshHandles(domId) {
       const sel = document.getElementById(domId);
+      const safe = window.safeHTML || ((s) => s);
       if (sel && window.renderHandleOptions) {
         const current = sel.value;
-        sel.innerHTML =
+        sel.innerHTML = safe(
           '<option value="" disabled>Select handle...</option>' +
-          window.renderHandleOptions();
+            window.renderHandleOptions(),
+        );
         if (current) sel.value = current;
       }
     },

@@ -3827,133 +3827,111 @@
     ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName),
   };
 
-  // Start
-  init();
-})();
-// ========================================
-// Global Helpers for UI interactions
-// ========================================
-window.renderRegistryOptions = function (selectedInterface) {
-  if (!window.MojoObjectRegistry)
-    return '<option value="" disabled>Registry unavailable</option>';
-  const ids = window.MojoObjectRegistry.list();
-  if (ids.length === 0)
-    return '<option value="" disabled>No registered objects</option>';
+  // ========================================
+  // Global Helpers for UI interactions (Moved inside IIFE scope)
+  // ========================================
 
-  // Sort: Exact matches first
-  ids.sort((a, b) => {
-    const entryA = window.MojoObjectRegistry.get(a);
-    const entryB = window.MojoObjectRegistry.get(b);
-    const aMatch = entryA.type === selectedInterface;
-    const bMatch = entryB.type === selectedInterface;
-    if (aMatch && !bMatch) return -1;
-    if (!aMatch && bMatch) return 1;
-    return 0;
-  });
+  // Export safeHTML for external use (Tools Panel)
+  window.safeHTML = safeHTML;
 
-  return ids
-    .map((id) => {
-      const entry = window.MojoObjectRegistry.get(id);
-      const isMatch = selectedInterface && entry.type === selectedInterface;
-      const label = `${id} (${entry.type}) ${isMatch ? "★" : ""}`;
-      return `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`;
-    })
-    .join("");
-};
+  window.renderRegistryOptions = function (selectedInterface) {
+    if (!window.MojoObjectRegistry)
+      return '<option value="" disabled>Registry unavailable</option>';
+    const ids = window.MojoObjectRegistry.list();
+    if (ids.length === 0)
+      return '<option value="" disabled>No registered objects</option>';
 
-window.renderHandleOptions = function () {
-  if (!window.MojoHandleRegistry)
-    return '<option value="" disabled>Registry unavailable</option>';
-  const ids = window.MojoHandleRegistry.list();
-  if (ids.length === 0)
-    return '<option value="" disabled>No raw handles</option>';
-  return ids
-    .map((id) => `<option value="${id}">Handle ${id}</option>`)
-    .join("");
-};
+    // Sort: Exact matches first
+    ids.sort((a, b) => {
+      const entryA = window.MojoObjectRegistry.get(a);
+      const entryB = window.MojoObjectRegistry.get(b);
+      const aMatch = entryA.type === selectedInterface;
+      const bMatch = entryB.type === selectedInterface;
+      if (aMatch && !bMatch) return -1;
+      if (!aMatch && bMatch) return 1;
+      return 0;
+    });
 
-window.updateTargetType = function (value) {
-  state.targetType = value;
-  const input = document.getElementById("instanceTargetInput");
-  if (input) {
-    input.style.display = value === "instance" ? "block" : "none";
-    // Auto-refresh list if showing
-    if (value === "instance") {
-      const select = document.getElementById("targetObjectId");
-      if (select && select.tagName === "SELECT") {
-        // Refresh options
-        const currentVal = select.value;
-        select.innerHTML =
-          '<option value="" disabled selected>Select an object...</option>' +
-          window.renderRegistryOptions(
-            state.selectedInterface
-              ? state.selectedInterface.module +
-                  "." +
-                  state.selectedInterface.name
-              : null,
+    return ids
+      .map((id) => {
+        const entry = window.MojoObjectRegistry.get(id);
+        const isMatch = selectedInterface && entry.type === selectedInterface;
+        const label = `${id} (${entry.type}) ${isMatch ? "★" : ""}`;
+        return `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`;
+      })
+      .join("");
+  };
+
+  window.renderHandleOptions = function () {
+    if (!window.MojoHandleRegistry)
+      return '<option value="" disabled>Registry unavailable</option>';
+    const ids = window.MojoHandleRegistry.list();
+    if (ids.length === 0)
+      return '<option value="" disabled>No raw handles</option>';
+    return ids
+      .map((id) => `<option value="${id}">Handle ${id}</option>`)
+      .join("");
+  };
+
+  window.updateTargetType = function (value) {
+    state.targetType = value;
+    const input = document.getElementById("instanceTargetInput");
+    if (input) {
+      input.style.display = value === "instance" ? "block" : "none";
+      // Auto-refresh list if showing
+      if (value === "instance") {
+        const select = document.getElementById("targetObjectId");
+        if (select && select.tagName === "SELECT") {
+          // Refresh options
+          const currentVal = select.value;
+          select.innerHTML = safeHTML(
+            '<option value="" disabled selected>Select an object...</option>' +
+              window.renderRegistryOptions(
+                state.selectedInterface
+                  ? state.selectedInterface.module +
+                      "." +
+                      state.selectedInterface.name
+                  : null,
+              ),
           );
-        if (currentVal) select.value = currentVal;
+          if (currentVal) select.value = currentVal;
+        }
       }
     }
-  }
-  updateGeneratedCode();
-};
+    updateGeneratedCode();
+  };
 
-window.useHandle = async function (ifaceName, ifaceId, refId) {
-  console.log(`[Use Handle] ${ifaceName} (ID: ${ifaceId}, Ref: ${refId})`);
+  window.useHandle = async function (ifaceName, ifaceId, refId) {
+    console.log(`[Use Handle] ${ifaceName} (ID: ${ifaceId}, Ref: ${refId})`);
 
-  // 1. Find the interface by name in state.interfaces
-  if (!state.interfaces) return;
+    // 1. Find the interface by name in state.interfaces
+    if (!state.interfaces) return;
 
-  // Try resolving namespace if ifaceName is simple
-  // We look for name match or name+module match
-  // If ifaceName is fully qualified "blink.mojom.Foo", we try to split?
-  // State interfaces have "name" (Foo) and "module" (blink.mojom).
+    // Try resolving namespace if ifaceName is simple
+    let targetIface = state.interfaces.find(
+      (i) => i.module + "." + i.name === ifaceName || i.name === ifaceName,
+    );
 
-  let targetIface = state.interfaces.find(
-    (i) => i.module + "." + i.name === ifaceName || i.name === ifaceName,
-  );
+    if (!targetIface) {
+      showToast(`Interface definition for ${ifaceName} not found.`, "warning");
+      return;
+    }
 
-  if (!targetIface) {
-    showToast(`Interface definition for ${ifaceName} not found.`, "warning");
-    return;
-  }
+    // 2. Select Interface
+    await selectInterface(targetIface.name, targetIface.module);
 
-  // 2. Select Interface
-  await selectInterface(targetIface.name, targetIface.module);
+    // 3. Set Target Mode
+    state.targetType = "instance";
+    state.targetObjectId = refId || ifaceId; // Prefer obj_N (refId) if available
 
-  // 3. Set Target Mode
-  state.targetType = "instance";
-  state.targetObjectId = refId || ifaceId; // Prefer obj_N (refId) if available
+    // 4. Force UI update for the target controls
+    // When the user eventually selects a method, renderTargetControl will run.
+    showToast(
+      `Selected ${ifaceName}. Choose a method to use handle ${state.targetObjectId}.`,
+      "success",
+    );
+  };
 
-  // 4. Force UI update for the target controls
-  // If we are currently viewing the method list, the target control is NOT visible yet.
-  // We need to wait for the user to select a method later?
-  // Or we can pre-set the state so when they select a method, it defaults to Instance mode.
-
-  // Update UI if we are already in a method view (unlikely after selectInterface clears method)
-  // But selectInterface clears state.selectedMethod.
-  // So renderParamsForm(null) is called. Target control is hidden.
-
-  // When the user eventually selects a method, renderTargetControl will run.
-  // We need to persist state.targetType and state.targetObjectId across selectInterface?
-  // selectInterface resets state.paramValues, but we should probably preserve target info if we just set it?
-  // Actually, selectInterface CLEARS selectedMethod.
-
-  showToast(
-    `Selected ${ifaceName}. Choose a method to use handle ${state.targetObjectId}.`,
-    "success",
-  );
-};
-
-// Ensure target state persists or is defaulted
-const originalSelectInterface = selectInterface;
-// We don't want to override selectInterface logic too much, but we need to ensure our state set in useHandle survives.
-// Actually, selectInterface implementation above:
-// state.selectedInterface = iface;
-// state.selectedMethod = null;
-// state.paramValues = {};
-
-// It does NOT clear state.targetType or state.targetObjectId explicitly in the code I read.
-// EXCEPT: it's not defined in the initial state object in the code I read, so it persists on 'state' object.
-// Check initializing state object!
+  // Start initialization
+  init();
+})();
