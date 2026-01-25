@@ -104,6 +104,69 @@
   }
 
   /**
+   * Inflates a string into a String16 struct { arg_data: [charCodes] }.
+   */
+  function inflateString16(value) {
+    if (typeof value !== "string") return value;
+    const data = [];
+    for (let i = 0; i < value.length; i++) {
+      data.push(value.charCodeAt(i));
+    }
+    return { arg_data: data };
+  }
+
+  /**
+   * Inflates a string into a BigString/BigString16 struct.
+   */
+  function inflateBigString(value, is16 = false) {
+    if (typeof value !== "string") return value;
+    let bytes;
+    if (is16) {
+      const arr = new Uint16Array(value.length);
+      for (let i = 0; i < value.length; i++) arr[i] = value.charCodeAt(i);
+      bytes = new Uint8Array(arr.buffer);
+    } else {
+      bytes = new TextEncoder().encode(value);
+    }
+    // BigString has field 'data' (union BigBuffer) with tag 'bytes'
+    return { arg_data: { arg_bytes: bytes } };
+  }
+
+  /**
+   * Decodes a BigString/BigString16 struct back into a string.
+   */
+  function decodeBigString(value, is16 = false) {
+    if (!value) return "";
+    
+    // Check if it's already a string
+    if (typeof value === "string") return value;
+
+    const bigBuffer = value.arg_data || value.data;
+    if (!bigBuffer) {
+      // Fallback for raw array (string16)
+      if (Array.isArray(value)) {
+        if (is16) return String.fromCharCode(...value);
+        return new TextDecoder().decode(new Uint8Array(value));
+      }
+      return "";
+    }
+
+    let arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
+    if (!arrayData && Array.isArray(bigBuffer)) {
+      arrayData = bigBuffer;
+    }
+
+    if (!arrayData) return "";
+
+    try {
+      const u8 = arrayData instanceof Uint8Array ? arrayData : new Uint8Array(arrayData);
+      return new TextDecoder(is16 ? "utf-16le" : "utf-8").decode(u8);
+    } catch (e) {
+      return "[Decoding Error]";
+    }
+  }
+
+  /**
    * Restores 'arg_' prefixes and processes Handle descriptors.
    */
   function reconcileKeys(edited, original, useHeuristics = true) {
@@ -208,6 +271,15 @@
     if (value === null || value === undefined) return value;
     if (!spec) return value;
 
+    // Special case: BigString / BigString16 inflation from string
+    if (typeof value === "string") {
+      const name = spec.name || "";
+      if (name.endsWith(".BigString") || name.endsWith(".BigString16") || name === "BigString" || name === "BigString16") {
+        console.log(`[MojoUtils] Inflating string to struct ${name}`, value);
+        return inflateBigString(value, name.includes("String16"));
+      }
+    }
+
     // 1. If it's already an object that looks like the struct, just ensure arg_ prefixes
     if (typeof value === "object" && !Array.isArray(value)) {
       const inflated = {};
@@ -244,23 +316,7 @@
   function inflateType(value, typeInfo) {
     if (value === null || value === undefined) return null;
     if (!typeInfo) return value;
-    if (typeInfo.structSpec) {
-      // Special case: BigString / BigString16 inflation
-      const name = typeInfo.structSpec.name || "";
-      if (typeof value === "string" && (name.includes("BigString") || name.includes("BigString16"))) {
-        const is16 = name.includes("String16");
-        let bytes;
-        if (is16) {
-          const arr = new Uint16Array(value.length);
-          for (let i = 0; i < value.length; i++) arr[i] = value.charCodeAt(i);
-          bytes = new Uint8Array(arr.buffer);
-        } else {
-          bytes = new TextEncoder().encode(value);
-        }
-        return { arg_data: { arg_bytes: bytes } };
-      }
-      return inflateStruct(value, typeInfo.structSpec);
-    }
+    if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
     if (typeInfo.unionSpec) {
       // For unions, if it's not already a union-wrapped object, we might need a default tag
       if (
@@ -302,6 +358,9 @@
     sanitizeKeys,
     reconcileKeys,
     inflateStruct,
+    inflateBigString,
+    inflateString16,
+    decodeBigString
   };
 
   global.MojoUtils = MojoUtils;

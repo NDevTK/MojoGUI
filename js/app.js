@@ -918,48 +918,7 @@
     }
 
     if (effectiveType === "string16") {
-      let displayValue = value;
-      const arrayData = value ? value.arg_data || value.data : null;
-
-      // Handle BigBuffer union wrap if incorrectly tagged as string16
-      let realBytes = arrayData;
-      if (
-        arrayData &&
-        typeof arrayData === "object" &&
-        !Array.isArray(arrayData)
-      ) {
-        realBytes = arrayData.arg_bytes || arrayData.bytes;
-      }
-
-      if (
-        realBytes &&
-        (Array.isArray(realBytes) ||
-          (realBytes.length !== undefined && typeof realBytes !== "string"))
-      ) {
-        try {
-          let u8;
-          if (realBytes instanceof Uint8Array) {
-            u8 = realBytes;
-          } else if (realBytes instanceof Uint16Array) {
-            u8 = new Uint8Array(
-              realBytes.buffer,
-              realBytes.byteOffset,
-              realBytes.byteLength,
-            );
-          } else {
-            // Regular array
-            u8 = new Uint8Array(new Uint16Array(realBytes).buffer);
-          }
-          displayValue = new TextDecoder("utf-16le").decode(u8);
-        } catch (e) {
-          displayValue = Array.isArray(realBytes)
-            ? String.fromCharCode(...realBytes)
-            : safeStringify(sanitizeKeys(value), 2);
-        }
-      } else if (typeof value === "object" && value !== null) {
-        displayValue = safeStringify(sanitizeKeys(value), 2);
-      }
-
+      const displayValue = MojoUtils.decodeBigString(value, true);
       return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
@@ -979,39 +938,7 @@
     }
 
     if (effectiveType === "bigstring16") {
-      let displayValue = value;
-      const bigBuffer = value ? value.arg_data || value.data : null;
-      let arrayData = null;
-
-      if (bigBuffer) {
-        if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
-        else if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
-        else if (typeof bigBuffer === "object" && !Array.isArray(bigBuffer)) {
-          // Fallback for nested wrap
-          arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
-        } else if (Array.isArray(bigBuffer)) {
-          arrayData = bigBuffer;
-        }
-      }
-
-      if (
-        arrayData &&
-        (Array.isArray(arrayData) ||
-          (arrayData.length !== undefined && typeof arrayData !== "string"))
-      ) {
-        try {
-          const u8 =
-            arrayData instanceof Uint8Array
-              ? arrayData
-              : new Uint8Array(arrayData);
-          displayValue = new TextDecoder("utf-16le").decode(u8);
-        } catch (e) {
-          displayValue = safeStringify(sanitizeKeys(value), 2);
-        }
-      } else if (typeof value === "object" && value !== null) {
-        displayValue = safeStringify(sanitizeKeys(value), 2);
-      }
-
+      const displayValue = MojoUtils.decodeBigString(value, true);
       return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
@@ -1031,34 +958,7 @@
     }
 
     if (effectiveType === "bigstring") {
-      let displayValue = value;
-      const bigBuffer = value ? value.arg_data || value.data : null;
-      let arrayData = null;
-
-      if (bigBuffer) {
-        if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
-        else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
-      }
-
-      if (
-        arrayData &&
-        (Array.isArray(arrayData) ||
-          (arrayData.length !== undefined && typeof arrayData !== "string"))
-      ) {
-        try {
-          const u8 =
-            arrayData instanceof Uint8Array
-              ? arrayData
-              : new Uint8Array(arrayData);
-          // Decode using TextDecoder (utf-8 for BigString)
-          displayValue = new TextDecoder("utf-8").decode(u8);
-        } catch (e) {
-          displayValue = safeStringify(sanitizeKeys(value), 2);
-        }
-      } else if (typeof value === "object" && value !== null) {
-        displayValue = safeStringify(sanitizeKeys(value), 2);
-      }
-
+      const displayValue = MojoUtils.decodeBigString(value, false);
       return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
@@ -1697,30 +1597,12 @@
     } else if (type === "url_wrapped") {
       val = { arg_url: val };
     } else if (type === "string16") {
-      // Convert string to array of char codes (uint16)
-      const data = [];
-      for (let i = 0; i < val.length; i++) {
-        data.push(val.charCodeAt(i));
-      }
-      val = { arg_data: data };
+      val = MojoUtils.inflateString16(val);
     } else if (type === "bigstring16") {
-      // Convert to Little Endian Uint16 bytes
-      const bytes = [];
-      for (let i = 0; i < val.length; i++) {
-        const code = val.charCodeAt(i);
-        bytes.push(code & 0xff);
-        bytes.push((code >> 8) & 0xff);
-      }
-      // BigString16 struct wraps BigBuffer union
-      val = { arg_data: { arg_bytes: bytes } };
+      val = MojoUtils.inflateBigString(val, true);
     } else if (type === "enum") {
     } else if (type === "bigstring") {
-      // Convert to UTF-8 bytes
-      const encoder = new TextEncoder(); // defaults to utf-8
-      const u8 = encoder.encode(val);
-      // Array.from needed because Mojo expects regular array, not TypedArray sometimes?
-      // Or TypedArray is fine. Let's send regular array to be safe.
-      val = { arg_data: { arg_bytes: Array.from(u8) } };
+      val = MojoUtils.inflateBigString(val, false);
     }
     return val;
   };
