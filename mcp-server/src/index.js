@@ -144,12 +144,20 @@ server.tool(
                 const details = await api.getInterfaceDetails(${JSON.stringify(name)});
                 if (!details) throw new Error('Interface not found: ${name}');
                 
-                return details;
+                const cache = new WeakSet();
+                return JSON.stringify(details, (key, value) => {
+                    if (typeof value === 'object' && value !== null) {
+                        if (cache.has(value)) return '[Circular]';
+                        cache.add(value);
+                    }
+                    if (typeof value === 'bigint') return value.toString() + 'n';
+                    return value;
+                }, 2);
             })()
         `;
     const result = await executeInMojoGUI(code);
     return {
-      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      content: [{ type: "text", text: result }],
     };
   },
 );

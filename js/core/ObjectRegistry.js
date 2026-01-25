@@ -58,7 +58,7 @@
            // Heuristic: if it's bigstring16, bytes will be roughly 2x length of a typical string?
            // Actually, let's just try decode and see if it looks like ASCII/UTF
            // Better: Use typeNameSuggestion if it contains "String"
-           const is16 = typeNameSuggestion.includes("String16");
+           const is16 = typeNameSuggestion.toLowerCase().includes("string16");
            return MojoUtils.decodeBigString(value, is16);
         }
       }

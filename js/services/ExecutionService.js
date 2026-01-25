@@ -130,10 +130,21 @@
       }
 
       // 5. Auto-register result and return combined status
-      const registeredResult = MojoObjectRegistry.autoRegister(
-        result,
-        interfaceName + "Result",
-      );
+      let registeredResult;
+      if (result && typeof result === "object" && methodDef && methodDef.responseParams) {
+        // Map response fields to their specs
+        registeredResult = {};
+        for (const p of methodDef.responseParams) {
+          if (result.hasOwnProperty(p.name)) {
+            registeredResult[p.name] = MojoObjectRegistry.autoRegister(result[p.name], p.type || "Unknown");
+          }
+        }
+      } else {
+        registeredResult = MojoObjectRegistry.autoRegister(
+          result,
+          interfaceName + "Result",
+        );
+      }
 
       return {
         result: registeredResult !== undefined ? registeredResult : null,
