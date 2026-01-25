@@ -36,14 +36,17 @@
       this.activeBridges = new Set();
       this.pendingMessages = new Map();
 
-      if (comps && comps.Remote) {
+      if (comps && comps.Remote && handleOrEndpoint) {
         try {
           // InterfaceRemoteBase expects a RAW MojoHandle, not an Endpoint.
           // If we got an Endpoint, we must unwrap it or the remote will have null endpoint_
           const ep = handleOrEndpoint;
-          const rawForRemote = (ep && (ep.router_ || ep.router)) ? 
-                                (ep.router_ || ep.router).handle : handleOrEndpoint;
-          this.realRemote = new comps.Remote(rawForRemote);
+          const router = ep.router_ || ep.router;
+          const rawForRemote = router ? (router.handle || router.pipe || router.pipe_) : handleOrEndpoint;
+          
+          if (rawForRemote) {
+            this.realRemote = new comps.Remote(rawForRemote);
+          }
         } catch (e) {
           console.error(
             `[MojoProxy] Error instantiating Remote for ${interfaceName}:`,
