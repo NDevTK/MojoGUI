@@ -1742,8 +1742,8 @@
                   <label>Object ID (obj_N)</label>
                   <div style="display: flex; gap: 8px;">
                       <select id="targetObjectId" class="param-input" style="flex: 1;" onchange="state.targetObjectId = this.value; updateGeneratedCode();">
-                          <option value="" disabled selected>Select an object...</option>
-                          ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null) : ""}
+                          <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
+                          ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
                       </select>
                       <button class="btn btn-secondary btn-small" onclick="window.updateTargetType('instance')" title="Refresh List">🔄</button>
                   </div>
@@ -3775,7 +3775,7 @@
   window.safeHTML = safeHTML;
   window.showToast = showToast;
 
-  window.renderRegistryOptions = function (selectedInterface) {
+  window.renderRegistryOptions = function (selectedInterface, currentId) {
     if (!window.MojoObjectRegistry)
       return '<option value="" disabled>Registry unavailable</option>';
     const ids = window.MojoObjectRegistry.list();
@@ -3797,8 +3797,9 @@
       .map((id) => {
         const entry = window.MojoObjectRegistry.get(id);
         const isMatch = selectedInterface && entry.type === selectedInterface;
+        const isSelected = currentId && id === currentId;
         const label = `${id} (${entry.type}) ${isMatch ? "★" : ""}`;
-        return `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`;
+        return `<option value="${escapeHtml(id)}" ${isSelected ? "selected" : ""}>${escapeHtml(label)}</option>`;
       })
       .join("");
   };
@@ -3826,13 +3827,14 @@
           // Refresh options
           const currentVal = select.value;
           select.innerHTML = safeHTML(
-            '<option value="" disabled selected>Select an object...</option>' +
+            `<option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>` +
               window.renderRegistryOptions(
                 state.selectedInterface
                   ? state.selectedInterface.module +
                       "." +
                       state.selectedInterface.name
                   : null,
+                state.targetObjectId,
               ),
           );
           if (currentVal) select.value = currentVal;
