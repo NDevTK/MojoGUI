@@ -271,6 +271,8 @@
     if (value === null || value === undefined) return value;
     if (!spec) return value;
 
+    console.log(`[MojoUtils] inflateStruct for ${spec.name}`, { value, spec });
+
     // Special case: BigString / BigString16 inflation from string
     if (typeof value === "string") {
       const name = spec.name || "";
