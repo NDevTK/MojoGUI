@@ -38,7 +38,11 @@
 
       if (comps && comps.Remote) {
         try {
-          this.realRemote = new comps.Remote(handleOrEndpoint);
+          // InterfaceRemoteBase expects a RAW MojoHandle, not an Endpoint.
+          // If we got an Endpoint, we must unwrap it or the remote will have null endpoint_
+          const rawForRemote = (handleOrEndpoint && handleOrEndpoint.router_) ? 
+                                handleOrEndpoint.router_.handle : handleOrEndpoint;
+          this.realRemote = new comps.Remote(rawForRemote);
         } catch (e) {
           console.error(
             `[MojoProxy] Error instantiating Remote for ${interfaceName}:`,
@@ -72,6 +76,7 @@
               tryFindMethod(target.realRemote, prop) ||
               tryFindMethod(target.realRemote.$, prop);
             if (found) {
+              // ALWAYS route through the remote's instance to maintain correct context ($)
               return (...args) => target.interceptCall(prop, args);
             }
           }
@@ -260,10 +265,12 @@
             const mockEndpoint = {
               releasePipe: () => bridgedHandle,
               handle: bridgedHandle,
+              watch: (...args) => bridgedHandle.watch(...args),
             };
             const mockRemote = {
               unbind: () => mockEndpoint,
               proxy: { unbind: () => mockEndpoint },
+              watch: (...args) => bridgedHandle.watch(...args),
             };
             mockRemote.proxy.proxy = mockRemote.proxy;
             return mockRemote;
@@ -300,11 +307,22 @@
         try {
           const bridgedArgs = this.processArgs(args);
           let result = undefined;
-          
+
           if (this.realRemote) {
-            result = await this.realRemote[methodName](...bridgedArgs);
+            const func = this.realRemote[methodName] || this.realRemote.$[methodName];
+            if (typeof func === "function") {
+              const res = func.apply(this.realRemote.$ || this.realRemote, bridgedArgs);
+              if (res && typeof res.then === "function") {
+                result = await res;
+              } else {
+                console.warn(`[MojoProxy] Method ${methodName} did not return a promise.`);
+                result = res;
+              }
+            }
           } else {
-            console.log(`[MojoProxy] Sink received ${this.interfaceName}.${methodName}`);
+            console.log(
+              `[MojoProxy] Sink received ${this.interfaceName}.${methodName}`,
+            );
           }
 
           // Auto-register any returned handles/proxies
