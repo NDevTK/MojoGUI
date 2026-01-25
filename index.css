@@ -624,6 +624,7 @@ body::before {
   gap: var(--space-md);
   flex: 1;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .form-group {

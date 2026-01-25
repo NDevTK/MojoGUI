@@ -87,7 +87,10 @@
     let raw = realHandle;
     if (realHandle.nativeHandle) {
       raw = realHandle.nativeHandle;
-    } else if (realHandle.handle && typeof realHandle.handle.releasePipe === 'function') {
+    } else if (
+      realHandle.handle &&
+      typeof realHandle.handle.releasePipe === "function"
+    ) {
       raw = realHandle.handle.releasePipe();
     }
 
@@ -95,10 +98,10 @@
     const mockEndpoint = {
       releasePipe: () => raw,
       handle: raw,
-      isPendingAssociation: isPendingAssociation
+      isPendingAssociation: isPendingAssociation,
     };
 
-    // 3. Return a wrapper object. 
+    // 3. Return a wrapper object.
     // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
       proxy: { unbind: () => mockEndpoint },
@@ -106,11 +109,15 @@
       handle: mockEndpoint,
       nativeHandle: raw,
       // For convenience, forward common handle methods
-      writeMessage: raw.writeMessage ? (...args) => raw.writeMessage(...args) : undefined,
-      readMessage: raw.readMessage ? (...args) => raw.readMessage(...args) : undefined,
+      writeMessage: raw.writeMessage
+        ? (...args) => raw.writeMessage(...args)
+        : undefined,
+      readMessage: raw.readMessage
+        ? (...args) => raw.readMessage(...args)
+        : undefined,
       close: raw.close ? () => raw.close() : undefined,
       // Metadata for GUI
-      $: { interfaceName: "PendingInterface" }
+      $: { interfaceName: "PendingInterface" },
     };
 
     return wrapper;
@@ -161,19 +168,24 @@
       return "";
     }
 
-    const isBig = data.hasOwnProperty('arg_bytes') || data.hasOwnProperty('arg_shared_memory') || data.hasOwnProperty('bytes') || data.hasOwnProperty('shared_memory');
-    let arrayData = isBig ? (data.arg_bytes || data.bytes) : data;
+    const isBig =
+      data.hasOwnProperty("arg_bytes") ||
+      data.hasOwnProperty("arg_shared_memory") ||
+      data.hasOwnProperty("bytes") ||
+      data.hasOwnProperty("shared_memory");
+    let arrayData = isBig ? data.arg_bytes || data.bytes : data;
     if (!arrayData) return "";
 
     try {
-      const u8 = arrayData instanceof Uint8Array ? arrayData : new Uint8Array(arrayData);
-      
+      const u8 =
+        arrayData instanceof Uint8Array ? arrayData : new Uint8Array(arrayData);
+
       // Heuristic: If it's a byte stream and every other byte is 0, it's almost certainly UTF-16LE
       let looksLikeUTF16 = is16;
       if (!looksLikeUTF16 && u8.length >= 2 && u8.length % 2 === 0) {
         let nulls = 0;
         for (let i = 1; i < u8.length; i += 2) if (u8[i] === 0) nulls++;
-        if (nulls > (u8.length / 4)) looksLikeUTF16 = true;
+        if (nulls > u8.length / 4) looksLikeUTF16 = true;
       }
 
       if (looksLikeUTF16) {
@@ -202,27 +214,27 @@
       } catch (e) {}
     }
 
-    // 1. Resolve Object Registry References ($ref)
-    if (handleData && typeof handleData === "object" && handleData.$ref) {
-      const entry = window.MojoObjectRegistry.get(handleData.$ref);
-      if (entry && entry.remote) {
-        const realHandle = window.MojoProxy.getRawHandleFromMojoObject(
-          entry.remote,
-        );
-        if (realHandle) {
-          return decorateHandle(realHandle);
-        }
-      }
-      return original;
-    }
-
+    // 1. Handle Form Data (JSON with __mojoType="Handle")
     if (
       handleData &&
       typeof handleData === "object" &&
       handleData.__mojoType === "Handle"
     ) {
       const action = handleData.action || "preserve";
-      if (action === "preserve") return original;
+      if (action === "preserve") {
+        if (handleData.$ref) {
+          const entry = window.MojoObjectRegistry.get(handleData.$ref);
+          if (entry && entry.remote) {
+            const realHandle = window.MojoProxy.getRawHandleFromMojoObject(
+              entry.remote,
+            );
+            if (realHandle) {
+              return decorateHandle(realHandle);
+            }
+          }
+        }
+        return original;
+      }
       if (action === "close") return null;
       if (action === "new_pipe") {
         const { handle0, handle1 } = Mojo.createMessagePipe();
@@ -247,6 +259,20 @@
 
         if (!realHandle) return original;
         return decorateHandle(realHandle);
+      }
+      return original;
+    }
+
+    // 2. Resolve Object Registry References ($ref)
+    if (handleData && typeof handleData === "object" && handleData.$ref) {
+      const entry = window.MojoObjectRegistry.get(handleData.$ref);
+      if (entry && entry.remote) {
+        const realHandle = window.MojoProxy.getRawHandleFromMojoObject(
+          entry.remote,
+        );
+        if (realHandle) {
+          return decorateHandle(realHandle);
+        }
       }
       return original;
     }
@@ -313,7 +339,9 @@
       const name = spec.name || "";
       if (name.includes("String16")) {
         console.log(`[MojoUtils] Inflating string to ${name}`, value);
-        return name.includes("Big") ? inflateBigString(value, true) : inflateString16(value);
+        return name.includes("Big")
+          ? inflateBigString(value, true)
+          : inflateString16(value);
       }
       if (name.includes("Url") || name === "Url") {
         return { arg_url: value };
@@ -360,8 +388,11 @@
     if (value === null || value === undefined) return null;
 
     // Handle auto-decoration
-    if (typeof value === 'number') {
-      const handle = typeof MojoHandleRegistry !== 'undefined' ? MojoHandleRegistry.get(value) : null;
+    if (typeof value === "number") {
+      const handle =
+        typeof MojoHandleRegistry !== "undefined"
+          ? MojoHandleRegistry.get(value)
+          : null;
       if (handle) return decorateHandle(handle);
     }
 
@@ -411,7 +442,7 @@
     inflateBigString,
     inflateString16,
     decodeBigString,
-    decorateHandle
+    decorateHandle,
   };
 
   global.MojoUtils = MojoUtils;

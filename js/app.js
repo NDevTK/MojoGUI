@@ -221,7 +221,7 @@
           MojoBindings.loadBinding("mojo_public_mojom_base_string16.mojom.js"),
           MojoBindings.loadBinding("url_mojom_url.mojom.js"),
           MojoBindings.loadBinding("mojo_public_mojom_base_time.mojom.js"),
-          MojoBindings.loadBinding("skia_public_mojom_bitmap.mojom.js")
+          MojoBindings.loadBinding("skia_public_mojom_bitmap.mojom.js"),
         ]);
         console.log("[MojoGUI] Core base bindings loaded.");
       } catch (e) {
@@ -594,9 +594,14 @@
             </label>
             <div id="associatedInputs" style="display: none; margin-top: 8px; padding: 8px; background: var(--bg-input); border-radius: 4px;">
                 <div style="margin-bottom: 8px;">
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle ID (from Interceptor or card)</label>
-                    <input type="text" id="masterHandleInput" placeholder="e.g. 1001" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
-                    <div style="font-size: 0.7em; color: var(--text-muted); margin-top: 4px;">Check the Activity log or console for Handle IDs.</div>
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle ID</label>
+                    <div style="display: flex; gap: 8px;">
+                        <select id="masterHandleInput" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                             <option value="" disabled selected>Select a master handle...</option>
+                             ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
+                        </select>
+                        <button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('masterHandleInput').innerHTML = window.renderHandleOptions();" title="Refresh Handles">🔄</button>
+                    </div>
                 </div>
                 <div>
                     <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Interface ID (Ordinal)</label>
@@ -617,7 +622,7 @@
       updateGeneratedCode();
     });
 
-    masterInput.addEventListener("input", (e) => {
+    masterInput.addEventListener("change", (e) => {
       state.masterHandleId = e.target.value;
       updateGeneratedCode();
     });
@@ -670,7 +675,8 @@
     elements.selectedMethodName.textContent = `${methodName}()`;
 
     // Get method params (demo data)
-    const fqn = state.selectedInterface.module + "." + state.selectedInterface.name;
+    const fqn =
+      state.selectedInterface.module + "." + state.selectedInterface.name;
     const params = getMethodParams(fqn, methodName);
     renderParamsForm(params);
     updateGeneratedCode();
@@ -1000,7 +1006,11 @@
       (typeof effectiveType === "object" &&
         effectiveType.type === "mojo_handle") ||
       effectiveType === "mojo_handle" ||
-      typeString === "mojo_handle";
+      typeString === "mojo_handle" ||
+      typeString === "pending_remote" ||
+      typeString === "pending_receiver" ||
+      typeString === "pending_associated_remote" ||
+      typeString === "pending_associated_receiver";
     const isHandleValue =
       (value && value.__mojoType === "Handle") ||
       (value && value.$ && value.proxy && typeof value.$ === "object") ||
@@ -1013,14 +1023,17 @@
       let typeLabel = "Mojo Handle";
       let currentAction = "preserve";
       let isReceiver = false;
+      let refId = undefined;
 
       if (value && value.$ref) {
         ifaceName = value.type || "Unknown";
         ifaceId = value.$ref;
+        refId = value.$ref;
         typeLabel = "Mojo Object";
       } else if (value && value.__mojoType === "Handle") {
         ifaceName = value.interface;
         ifaceId = value.interfaceId;
+        refId = value.$ref;
         typeLabel = value.isReceiver ? "Pending Receiver" : "Mojo Remote";
         currentAction = value.action || "preserve";
         isReceiver = !!value.isReceiver;
@@ -1096,35 +1109,46 @@
                             <select class="handle-action-select" onchange="
                                 const card = this.closest('.mojo-handle-card');
                                 const icon = card.querySelector('.handle-icon');
-                                const customInput = card.querySelector('.handle-custom-input');
+                                const customContainer = card.querySelector('.handle-custom-container');
+                                const customInput = customContainer.querySelector('.handle-custom-input');
+                                
                                 card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : (this.value === 'use_handle' ? 'custom' : '')));
                                 icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : (this.value === 'use_handle' ? '🔢' : '🔌')));
-                                customInput.style.display = this.value === 'use_handle' ? 'block' : 'none';
+                                customContainer.style.display = this.value === 'use_handle' ? 'block' : 'none';
                                 
                                 // Update hidden input
                                 const updateHidden = () => {
-                                    const hiddenInput = this.nextElementSibling;
+                                    const hiddenInput = card.querySelector('.param-input'); // Fixed lookup
                                     hiddenInput.value = JSON.stringify({
                                         __mojoType: 'Handle',
                                         interface: '${escapeHtml(ifaceName)}',
                                         interfaceId: '${escapeHtml(ifaceId)}',
                                         isReceiver: ${isReceiver},
                                         action: this.value,
+                                        $ref: '${escapeHtml(refId || "")}' || undefined,
                                         customHandle: customInput.value
                                     });
-                                    // Dispatch on hidden input to avoid recursion on select
                                     hiddenInput.dispatchEvent(new Event('change', {bubbles: true}));
                                 };
                                 updateHidden();
-                                customInput.oninput = updateHidden;
+                                customInput.onchange = updateHidden; // select uses onchange
                             ">
                                 <option value="preserve" ${currentAction === "preserve" ? "selected" : ""}>Keep Original</option>
                                 <option value="close" ${currentAction === "close" ? "selected" : ""}>Close Handle</option>
                                 <option value="new_pipe" ${currentAction === "new_pipe" ? "selected" : ""}>New Pipe</option>
                                 <option value="use_handle" ${currentAction === "use_handle" ? "selected" : ""}>Use Handle ID</option>
                             </select>
-                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction }))}'>
-                            <input type="number" class="handle-custom-input" placeholder="Handle ID" style="display:none; width: 100%; margin-top: 5px; padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
+                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction, $ref: refId || undefined }))}'>
+                            <div class="handle-custom-container" style="display:none; margin-top: 5px;">
+                                <div style="display: flex; gap: 4px;">
+                                    <select class="handle-custom-input" style="flex: 1; padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
+                                        <option value="" disabled selected>Select a handle...</option>
+                                        ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
+                                    </select>
+                                    <button type="button" class="btn btn-secondary btn-small" onclick="const sel = this.previousElementSibling; sel.innerHTML = window.renderHandleOptions();" title="Refresh Handles">🔄</button>
+                                </div>
+                            </div>
+                            ${ifaceName !== "Unknown" ? `<button type="button" class="btn btn-secondary btn-small" style="margin-top: 4px; width: 100%;" onclick="window.useHandle('${escapeHtml(ifaceName)}', '${escapeHtml(ifaceId)}', '${escapeHtml(refId || "")}')">Use Interface</button>` : ""}
                         </div>
                     </div>
                 </div>
@@ -1754,21 +1778,64 @@
     return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
   }
 
+  function renderTargetControl() {
+    // Only show if we have parameters or it's a method call
+    if (!state.selectedMethod) return "";
+
+    const isInstance = state.targetType === "instance";
+    return `
+      <div class="target-control-group" style="margin-bottom: 20px; padding: 12px; background: var(--bg-hover); border-radius: 6px; border: 1px solid var(--border-subtle);">
+          <div style="margin-bottom: 8px; font-weight: 500;">Execution Target:</div>
+          <div style="display: flex; gap: 16px; margin-bottom: 8px;">
+              <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                  <span>⚡ New Interface (Static)</span>
+              </label>
+              <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                  <span>🧩 Existing Instance</span>
+              </label>
+          </div>
+          
+          <div id="instanceTargetInput" style="display: ${isInstance ? "block" : "none"}; margin-top: 8px;">
+               <div class="form-group">
+                  <label>Object ID (obj_N)</label>
+                  <div style="display: flex; gap: 8px;">
+                      <select id="targetObjectId" class="param-input" style="flex: 1;" onchange="state.targetObjectId = this.value; updateGeneratedCode();">
+                          <option value="" disabled selected>Select an object...</option>
+                          ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null) : ""}
+                      </select>
+                      <button class="btn btn-secondary btn-small" onclick="window.updateTargetType('instance')" title="Refresh List">🔄</button>
+                  </div>
+                  <!-- Allow manual entry fallback just in case -->
+                  <div style="font-size: 0.8em; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
+                     <span style="color: var(--text-muted);">Or type manual ID:</span>
+                     <input type="text" style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--text-main); font-family: monospace;" 
+                            placeholder="obj_..." onchange="document.getElementById('targetObjectId').value = ''; state.targetObjectId = this.value; updateGeneratedCode();">
+                  </div>
+               </div>
+          </div>
+      </div>
+    `;
+  }
+
   function renderParamsForm(params) {
     if (!params || params.length === 0) {
       elements.paramsForm.innerHTML = safeHTML(`
-                    <p>This method has no parameters</p>
+                    ${renderTargetControl()}
+                    <p style="margin-top:10px;">This method has no parameters</p>
                 </div>
             `);
       return;
     }
 
     elements.paramsForm.innerHTML = safeHTML(
-      params
-        .map((param) => {
-          return renderInput(param, undefined, { isInterceptor: false });
-        })
-        .join(""),
+      renderTargetControl() +
+        params
+          .map((param) => {
+            return renderInput(param, undefined, { isInterceptor: false });
+          })
+          .join(""),
     );
 
     // Initialize state from default values in DOM
@@ -1845,7 +1912,12 @@
     code += `// Get remote for the interface\n`;
     code += `let ${remoteName};\n`;
 
-    if (state.isAssociated) {
+    if (state.targetType === "instance" && state.targetObjectId) {
+      code += `// Use existing instance from Registry\n`;
+      code += `const entry = window.MojoObjectRegistry.get("${state.targetObjectId}");\n`;
+      code += `if (!entry || !entry.remote) throw new Error("Object ${state.targetObjectId} not found");\n`;
+      code += `${remoteName} = entry.remote;\n`;
+    } else if (state.isAssociated) {
       const masterHandleId =
         state.masterHandleId || "/* INSERT_MASTER_HANDLE_ID */";
       const interfaceId = state.interfaceId || "/* INSERT_INTERFACE_ID */";
@@ -2057,13 +2129,18 @@
     }
 
     try {
+      const target = {
+        interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
+        masterHandleId: state.masterHandleId,
+      };
+
+      // Support Instance Calls
+      if (state.targetType === "instance" && state.targetObjectId) {
+        target.objectId = state.targetObjectId;
+      }
+
       const result = await window.MojoExecutionService.call(
-        {
-          interface: iface.module
-            ? `${iface.module}.${iface.name}`
-            : iface.name,
-          masterHandleId: state.masterHandleId,
-        },
+        target,
         method,
         params,
         {
@@ -2088,11 +2165,9 @@
   function resetParams() {
     state.paramValues = {};
     if (state.selectedMethod) {
-      const fqn = state.selectedInterface.module + "." + state.selectedInterface.name;
-      const params = getMethodParams(
-        fqn,
-        state.selectedMethod,
-      );
+      const fqn =
+        state.selectedInterface.module + "." + state.selectedInterface.name;
+      const params = getMethodParams(fqn, state.selectedMethod);
       renderParamsForm(params);
       updateGeneratedCode();
     }
@@ -3580,7 +3655,10 @@
         const query = handle.queryData();
         if (query.result !== Mojo.RESULT_OK) return { result: query.result };
         if (query.numBytes === 0)
-          return { result: Mojo.RESULT_OK, data: encoding === "utf8" ? "" : [] };
+          return {
+            result: Mojo.RESULT_OK,
+            data: encoding === "utf8" ? "" : [],
+          };
 
         // Allocate buffer and read
         const buffer = new Uint8Array(query.numBytes);
@@ -3721,3 +3799,130 @@
   // Start
   init();
 })();
+// ========================================
+// Global Helpers for UI interactions
+// ========================================
+window.renderRegistryOptions = function (selectedInterface) {
+  if (!window.MojoObjectRegistry)
+    return '<option value="" disabled>Registry unavailable</option>';
+  const ids = window.MojoObjectRegistry.list();
+  if (ids.length === 0)
+    return '<option value="" disabled>No registered objects</option>';
+
+  // Sort: Exact matches first
+  ids.sort((a, b) => {
+    const entryA = window.MojoObjectRegistry.get(a);
+    const entryB = window.MojoObjectRegistry.get(b);
+    const aMatch = entryA.type === selectedInterface;
+    const bMatch = entryB.type === selectedInterface;
+    if (aMatch && !bMatch) return -1;
+    if (!aMatch && bMatch) return 1;
+    return 0;
+  });
+
+  return ids
+    .map((id) => {
+      const entry = window.MojoObjectRegistry.get(id);
+      const isMatch = selectedInterface && entry.type === selectedInterface;
+      const label = `${id} (${entry.type}) ${isMatch ? "★" : ""}`;
+      return `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`;
+    })
+    .join("");
+};
+
+window.renderHandleOptions = function () {
+  if (!window.MojoHandleRegistry)
+    return '<option value="" disabled>Registry unavailable</option>';
+  const ids = window.MojoHandleRegistry.list();
+  if (ids.length === 0)
+    return '<option value="" disabled>No raw handles</option>';
+  return ids
+    .map((id) => `<option value="${id}">Handle ${id}</option>`)
+    .join("");
+};
+
+window.updateTargetType = function (value) {
+  state.targetType = value;
+  const input = document.getElementById("instanceTargetInput");
+  if (input) {
+    input.style.display = value === "instance" ? "block" : "none";
+    // Auto-refresh list if showing
+    if (value === "instance") {
+      const select = document.getElementById("targetObjectId");
+      if (select && select.tagName === "SELECT") {
+        // Refresh options
+        const currentVal = select.value;
+        select.innerHTML =
+          '<option value="" disabled selected>Select an object...</option>' +
+          window.renderRegistryOptions(
+            state.selectedInterface
+              ? state.selectedInterface.module +
+                  "." +
+                  state.selectedInterface.name
+              : null,
+          );
+        if (currentVal) select.value = currentVal;
+      }
+    }
+  }
+  updateGeneratedCode();
+};
+
+window.useHandle = async function (ifaceName, ifaceId, refId) {
+  console.log(`[Use Handle] ${ifaceName} (ID: ${ifaceId}, Ref: ${refId})`);
+
+  // 1. Find the interface by name in state.interfaces
+  if (!state.interfaces) return;
+
+  // Try resolving namespace if ifaceName is simple
+  // We look for name match or name+module match
+  // If ifaceName is fully qualified "blink.mojom.Foo", we try to split?
+  // State interfaces have "name" (Foo) and "module" (blink.mojom).
+
+  let targetIface = state.interfaces.find(
+    (i) => i.module + "." + i.name === ifaceName || i.name === ifaceName,
+  );
+
+  if (!targetIface) {
+    showToast(`Interface definition for ${ifaceName} not found.`, "warning");
+    return;
+  }
+
+  // 2. Select Interface
+  await selectInterface(targetIface.name, targetIface.module);
+
+  // 3. Set Target Mode
+  state.targetType = "instance";
+  state.targetObjectId = refId || ifaceId; // Prefer obj_N (refId) if available
+
+  // 4. Force UI update for the target controls
+  // If we are currently viewing the method list, the target control is NOT visible yet.
+  // We need to wait for the user to select a method later?
+  // Or we can pre-set the state so when they select a method, it defaults to Instance mode.
+
+  // Update UI if we are already in a method view (unlikely after selectInterface clears method)
+  // But selectInterface clears state.selectedMethod.
+  // So renderParamsForm(null) is called. Target control is hidden.
+
+  // When the user eventually selects a method, renderTargetControl will run.
+  // We need to persist state.targetType and state.targetObjectId across selectInterface?
+  // selectInterface resets state.paramValues, but we should probably preserve target info if we just set it?
+  // Actually, selectInterface CLEARS selectedMethod.
+
+  showToast(
+    `Selected ${ifaceName}. Choose a method to use handle ${state.targetObjectId}.`,
+    "success",
+  );
+};
+
+// Ensure target state persists or is defaulted
+const originalSelectInterface = selectInterface;
+// We don't want to override selectInterface logic too much, but we need to ensure our state set in useHandle survives.
+// Actually, selectInterface implementation above:
+// state.selectedInterface = iface;
+// state.selectedMethod = null;
+// state.paramValues = {};
+
+// It does NOT clear state.targetType or state.targetObjectId explicitly in the code I read.
+// EXCEPT: it's not defined in the initial state object in the code I read, so it persists on 'state' object.
+// Check initializing state object!

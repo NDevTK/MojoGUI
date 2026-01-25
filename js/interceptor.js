@@ -25,9 +25,14 @@
   // ========================================
   class MojoProxy {
     constructor(interfaceName, handleOrEndpoint, comps) {
-      // Register handle if it's a raw handle, or just assign a GUI ID if it's an endpoint
+      // Register handle if it's a raw handle, or extract handle from endpoint
       if (handleOrEndpoint) {
-        MojoHandleRegistry.register(handleOrEndpoint);
+        let raw = handleOrEndpoint;
+        if (handleOrEndpoint.router || handleOrEndpoint.router_) {
+          const r = handleOrEndpoint.router || handleOrEndpoint.router_;
+          raw = r.handle || r.pipe || r.pipe_;
+        }
+        if (raw) MojoHandleRegistry.register(raw);
       }
 
       this.interfaceName = interfaceName;
@@ -39,13 +44,14 @@
 
       if (comps && comps.Remote && handleOrEndpoint) {
         try {
-          // InterfaceRemoteBase expects a RAW MojoHandle, not an Endpoint.
-          // If we got an Endpoint, we must unwrap it or the remote will have null endpoint_
-          const ep = handleOrEndpoint;
-          const router = ep.router_ || ep.router;
-          const rawForRemote = router ? (router.handle || router.pipe || router.pipe_) : handleOrEndpoint;
-          
-          if (rawForRemote) {
+          // Check if it's an Endpoint (for Associated Interfaces)
+          if (handleOrEndpoint.router || handleOrEndpoint.router_) {
+            this.realRemote = new comps.Remote(handleOrEndpoint);
+          } else {
+            // Standard Handle: Pass directly
+            // Note: Previous logic tried to unwrap 'ep' here, but if it's not an endpoint (checked above), it's a handle.
+            // But just in case it's some other wrapper, we keep robust logic.
+            const rawForRemote = handleOrEndpoint;
             this.realRemote = new comps.Remote(rawForRemote);
           }
         } catch (e) {
@@ -78,16 +84,25 @@
             };
 
             // 1. Try realRemote instance
-            let found = target.realRemote ? (tryFindMethod(target.realRemote, prop) || tryFindMethod(target.realRemote.$, prop)) : null;
-            
+            let found = target.realRemote
+              ? tryFindMethod(target.realRemote, prop) ||
+                tryFindMethod(target.realRemote.$, prop)
+              : null;
+
             // 2. Fallback: Check components for method existence if realRemote is null (Sink Mode)
             if (!found && target.comps) {
-               // Check Remote prototype or static Interface info
-               const remoteProto = target.comps.Remote ? target.comps.Remote.prototype : null;
-               const callHandlerProto = (target.comps.Remote && target.comps.Remote.prototype.$) ? 
-                                         target.comps.Remote.prototype.$.constructor.prototype : null;
-               
-               found = tryFindMethod(remoteProto, prop) || tryFindMethod(callHandlerProto, prop);
+              // Check Remote prototype or static Interface info
+              const remoteProto = target.comps.Remote
+                ? target.comps.Remote.prototype
+                : null;
+              const callHandlerProto =
+                target.comps.Remote && target.comps.Remote.prototype.$
+                  ? target.comps.Remote.prototype.$.constructor.prototype
+                  : null;
+
+              found =
+                tryFindMethod(remoteProto, prop) ||
+                tryFindMethod(callHandlerProto, prop);
             }
 
             if (found) {
@@ -325,7 +340,9 @@
           let result = undefined;
 
           if (this.realRemote) {
-            const func = this.realRemote[methodName] || (this.realRemote.$ && this.realRemote.$[methodName]);
+            const func =
+              this.realRemote[methodName] ||
+              (this.realRemote.$ && this.realRemote.$[methodName]);
             if (typeof func === "function") {
               // Context MUST be the Remote instance so 'this.proxy' works
               const res = func.apply(this.realRemote, bridgedArgs);
