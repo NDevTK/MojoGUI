@@ -43,7 +43,9 @@
       const container = document.querySelector(".tools-container");
       if (!container) return;
 
-      container.innerHTML = `
+      const safe = window.safeHTML || ((s) => s);
+
+      container.innerHTML = safe(`
                 <!-- Message Pipe Tool -->
                 <div class="tool-card">
                     <h4>🔌 Message Pipe</h4>
@@ -113,7 +115,7 @@
                          <div id="io-write-output" class="code-block" style="display:none; margin-top: 4px; font-size: 0.75rem;"></div>
                     </div>
                 </div>
-            `;
+            `);
 
       // Initial populate
       this.refreshHandles("io-read-handle");

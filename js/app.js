@@ -35,6 +35,7 @@
   // ========================================
   // Uses shared policy from MojoUtils
   const safeHTML = MojoUtils.safeHTML;
+  const safeScriptURL = MojoUtils.safeScriptURL;
 
   const safeStringify = MojoUtils.safeStringify;
 
@@ -120,11 +121,7 @@
           const script = document.createElement("script");
           const scriptUrl = `./bindings/${filename}`;
 
-          if (trustedPolicy) {
-            script.src = trustedPolicy.createScriptURL(scriptUrl);
-          } else {
-            script.src = scriptUrl;
-          }
+          script.src = safeScriptURL(scriptUrl);
 
           script.onload = () => {
             console.log(`[MojoGUI] Loaded ${filename}`);

@@ -465,10 +465,18 @@
     return html;
   }
 
+  function safeScriptURL(url) {
+    if (trustedPolicy) {
+      return trustedPolicy.createScriptURL(url);
+    }
+    return url;
+  }
+
   const MojoUtils = {
     safeStringify,
     safeParse,
     safeHTML,
+    safeScriptURL,
     sanitizeKeys,
     reconcileKeys,
     inflateStruct,
@@ -479,5 +487,6 @@
   };
 
   global.MojoUtils = MojoUtils;
-  global.safeHTML = safeHTML; // Export globally for convenience
+  global.safeHTML = safeHTML;
+  global.safeScriptURL = safeScriptURL;
 })(this);
