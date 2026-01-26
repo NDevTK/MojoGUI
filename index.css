@@ -329,7 +329,7 @@ body::before {
 .sidebar-tabs {
   display: flex;
   border-bottom: 1px solid var(--border-subtle);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-tab {
@@ -1511,6 +1511,18 @@ body::before {
 .params-form-container .form-group:has(.params-editor) {
   flex: 1;
   min-height: 0;
+}
+
+.result-section {
+  margin-bottom: var(--space-md);
+}
+
+.result-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .result-code,

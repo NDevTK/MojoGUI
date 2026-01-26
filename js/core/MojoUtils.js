@@ -254,6 +254,35 @@
       }
       if (action === "close") return null;
       if (action === "new_pipe") {
+        if (
+          handleData.type === "data_pipe_consumer" ||
+          handleData.type === "data_pipe_producer"
+        ) {
+          const { producer, consumer } = Mojo.createDataPipe({
+            elementNumBytes: 1,
+            capacityNumBytes: 1024 * 1024,
+          });
+          let handleToPass, handleToWatch;
+          if (handleData.type === "data_pipe_producer") {
+            handleToPass = producer;
+            handleToWatch = consumer;
+          } else {
+            handleToPass = consumer;
+            handleToWatch = producer;
+          }
+
+          MojoHandleRegistry.register(handleToPass);
+          MojoHandleRegistry.register(handleToWatch);
+
+          // We bridge by watching the end the GUI keeps.
+          // If browser wants a producer (to write to), we watch the local consumer to log bytes.
+          if (handleData.type === "data_pipe_producer") {
+            new MojoDataPipeProxy(handleToWatch, "consumer");
+          }
+
+          return decorateHandle(handleToPass, true, handleData.type);
+        }
+
         const { handle0, handle1 } = Mojo.createMessagePipe();
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);

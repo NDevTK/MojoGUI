@@ -381,6 +381,10 @@
     }
 
     // 2. Mojo Handles: Special Card UI
+    const isDataPipe =
+      typeString === "data_pipe_consumer" ||
+      typeString === "data_pipe_producer";
+
     const isHandleType =
       (typeof effectiveType === "object" &&
         effectiveType.type === "mojo_handle") ||
@@ -389,7 +393,8 @@
       typeString === "pending_remote" ||
       typeString === "pending_receiver" ||
       typeString === "pending_associated_remote" ||
-      typeString === "pending_associated_receiver";
+      typeString === "pending_associated_receiver" ||
+      isDataPipe;
     const isHandleValue =
       (value && value.__mojoType === "Handle") ||
       (value && value.$ && value.proxy && typeof value.$ === "object") ||
@@ -461,6 +466,11 @@
         // Manual Mode, no value yet.
         if (param.interface) {
           ifaceName = param.interface;
+        } else if (isDataPipe) {
+          ifaceName =
+            typeString === "data_pipe_consumer"
+              ? "Data Pipe Consumer"
+              : "Data Pipe Producer";
         } else if (
           typeof effectiveType === "object" &&
           effectiveType.interface
@@ -469,8 +479,14 @@
         } else if (param.structSpec?.name) {
           ifaceName = param.structSpec.name;
         }
-        typeLabel = "Mojo Handle";
-        currentAction = "new_pipe";
+
+        if (isDataPipe) {
+          typeLabel = "Data Pipe";
+          currentAction = "new_pipe";
+        } else {
+          typeLabel = "Mojo Handle";
+          currentAction = "new_pipe";
+        }
       }
 
       const displayName = escapeHtml(
@@ -496,7 +512,7 @@
                                 <option value="new_pipe" ${currentAction === "new_pipe" ? "selected" : ""}>New Pipe</option>
                                 <option value="use_handle" ${currentAction === "use_handle" ? "selected" : ""}>Use Handle ID</option>
                             </select>
-                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction, $ref: refId || undefined }))}'>
+                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction, type: typeString, $ref: refId || undefined }))}'>
                             <div class="handle-custom-container" style="display:none; margin-top: 5px;">
                                 <div style="display: flex; gap: 4px;">
                                     <select class="handle-custom-input" style="flex: 1; padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">

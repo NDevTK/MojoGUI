@@ -21,6 +21,96 @@
   const MojoHandleRegistry = global.MojoHandleRegistry;
 
   // ========================================
+  // MojoDataPipeProxy
+  // ========================================
+  /**
+   * MojoDataPipeProxy
+   * Transparently bridges a data pipe to capture data in the traffic log.
+   */
+  class MojoDataPipeProxy {
+    constructor(handle, type = "consumer") {
+      this.handle = handle;
+      this.type = type; // "consumer" or "producer"
+      this.pair = null; // The other end of the bridge
+      this.isClosed = false;
+      this.id = window.MojoHandleRegistry.register(handle);
+
+      if (this.type === "consumer") {
+        this.startWatching();
+      }
+    }
+
+    static createBridge(originalHandle, type) {
+      // type is what the BROWSER/TARGET expects (e.g. consumer if we are AsBlob)
+      const { producer, consumer } = Mojo.createDataPipe({
+        elementNumBytes: 1,
+        capacityNumBytes: 1024 * 1024,
+      });
+
+      if (type === "consumer") {
+        // We ('the GUI') keep 'producer' to forward data from the ORIGINAL consumer.
+        const proxy = new MojoDataPipeProxy(originalHandle, "consumer");
+        proxy.pair = producer;
+        return { proxy, handleToPass: consumer };
+      } else {
+        // We ('the GUI') keep 'consumer' to forward data to the ORIGINAL producer.
+        const proxy = new MojoDataPipeProxy(consumer, "consumer");
+        proxy.pair = originalHandle;
+        return { proxy, handleToPass: producer };
+      }
+    }
+
+    startWatching() {
+      if (this.isClosed || !this.handle || !this.handle.watch) return;
+
+      this.handle.watch({ readable: true }, (result) => {
+        if (result === Mojo.RESULT_OK) {
+          this.readAndForward();
+        } else if (result === Mojo.RESULT_FAILED_PRECONDITION) {
+          this.close();
+        }
+      });
+    }
+
+    readAndForward() {
+      if (this.isClosed || !this.handle) return;
+
+      const result = this.handle.readData();
+      if (result.result === Mojo.RESULT_OK) {
+        const data = result.buffer;
+
+        // 1. Log the data
+        if (window.MojoGUI_API && window.MojoGUI_API.addDataActivity) {
+          window.MojoGUI_API.addDataActivity(this.id, data);
+        }
+
+        // 2. Forward the data
+        if (this.pair && this.pair.writeData) {
+          this.pair.writeData(data);
+        }
+
+        // Check for more data immediately
+        this.readAndForward();
+      } else if (result.result === Mojo.RESULT_SHOULD_WAIT) {
+        // Handled by watch
+      } else {
+        this.close();
+      }
+    }
+
+    close() {
+      if (this.isClosed) return;
+      this.isClosed = true;
+      try {
+        if (this.handle && this.handle.close) this.handle.close();
+      } catch (e) {}
+      try {
+        if (this.pair && this.pair.close) this.pair.close();
+      } catch (e) {}
+    }
+  }
+
+  // ========================================
   // MojoProxy
   // ========================================
   class MojoProxy {
@@ -672,4 +762,5 @@
 
   global.InterceptorManager = InterceptorManager;
   global.MojoProxy = MojoProxy;
+  global.MojoDataPipeProxy = MojoDataPipeProxy;
 })(this);

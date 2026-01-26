@@ -142,6 +142,7 @@
     let typeIcon = "📡";
     if (type === "MANUAL") typeIcon = "🛠️";
     if (type === "SYSTEM") typeIcon = "⚠️";
+    if (type === "DATA") typeIcon = "💧";
 
     let displayStatus = status;
     let statusClass =
@@ -283,6 +284,42 @@
 
     const methodDef = findMethodDefinition(iface, method);
     let paramsHtml;
+
+    // Special handling for Data Stream
+    if (detail.type === "DATA") {
+      const data = detail.result; // Raw data
+      const safeData = data ? new Uint8Array(data) : null;
+      const hex = safeData
+        ? Array.from(safeData.slice(0, 1024))
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join(" ")
+        : "(Empty)";
+      const text = safeData
+        ? new TextDecoder().decode(safeData.slice(0, 1024))
+        : "(Empty)";
+
+      const dataContentHtml = `
+                <div class="details-column" style="margin-top:10px; flex: 1; display: flex; flex-direction: column;">
+                    <h5>Data Stream (${safeData ? safeData.length : 0} bytes)</h5>
+                    <div class="result-section">
+                        <div class="result-section-title">Text (Preview)</div>
+                        <div class="result-code" style="background: var(--bg-primary); border-color: var(--accent-primary); white-space: pre-wrap; font-family: monospace; padding: 8px;">${escapeHtml(text)}</div>
+                    </div>
+                    <div class="result-section" style="margin-top:10px;">
+                        <div class="result-section-title">Hex (Preview)</div>
+                        <div class="result-code" style="font-family: monospace; font-size: 0.9em; opacity: 0.8; padding: 8px;">${escapeHtml(hex)}</div>
+                    </div>
+                </div>
+            `;
+
+      getElements().interceptorDetails.innerHTML = safeHTML(`
+                <div class="interceptor-actions">
+                    <h4>Data Stream</h4>
+                </div>
+                ${dataContentHtml}
+            `);
+      return;
+    }
 
     // Special handling for Script interface (Job-like data)
     if (iface === "Script") {

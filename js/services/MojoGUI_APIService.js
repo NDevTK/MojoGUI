@@ -212,6 +212,33 @@
       return id;
     },
     /**
+     * Log raw data captured from a Data Pipe
+     * @param {string|number} handleId - Handle ID
+     * @param {Uint8Array} data - Raw byte chunk
+     */
+    addDataActivity: (handleId, data) => {
+      const { addActivityRow } = global.TrafficUIService || {};
+      if (addActivityRow) {
+        addActivityRow({
+          type: "DATA",
+          interface: "Data Pipe",
+          method: "Stream",
+          params: {
+            handle: handleId.toString().startsWith("obj_")
+              ? handleId
+              : "h_" + handleId,
+            bytes: data.length,
+          },
+          result: data, // Store the raw Uint8Array
+          status: "Logged",
+          objectId: handleId.toString().startsWith("obj_")
+            ? handleId
+            : "h_" + handleId,
+          timestamp: Date.now(),
+        });
+      }
+    },
+    /**
      * Update an existing activity in the traffic log
      * @param {string} id - Activity ID
      * @param {string} status - New status
