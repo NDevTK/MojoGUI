@@ -7,6 +7,7 @@
 
   const objects = new Map(); // Map<string, { remote: Object, type: String }>
   let nextId = 1;
+  let onupdate = null;
 
   const MojoObjectRegistry = {
     /**
@@ -18,6 +19,8 @@
     register(remote, typeName) {
       const id = `obj_${nextId++}`;
       objects.set(id, { remote, type: typeName });
+      if (typeof MojoObjectRegistry.onupdate === "function")
+        MojoObjectRegistry.onupdate(id, { remote, type: typeName });
       return id;
     },
 
@@ -165,6 +168,13 @@
         result[key] = this.autoRegister(value[key]);
       }
       return result;
+    },
+
+    get onupdate() {
+      return onupdate;
+    },
+    set onupdate(val) {
+      onupdate = val;
     },
   };
 

@@ -9,6 +9,7 @@
     handles: new Map(),
     handleToId: new WeakMap(),
     nextId: 1000,
+    onupdate: null,
 
     /**
      * Register a raw MojoHandle and assign a GUI ID
@@ -31,9 +32,10 @@
         handle.value !== undefined && typeof handle.value === "number"
           ? handle.value
           : this.nextId++;
-      
+
       this.handleToId.set(handle, id);
       this.handles.set(id, handle);
+      if (typeof this.onupdate === "function") this.onupdate(id, handle);
       return id;
     },
 

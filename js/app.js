@@ -348,10 +348,58 @@
 
     // No Scramble Toggle
     if (elements.noScrambleToggle) {
+      elements.noScrambleToggle.checked = !!window.mojoNoScramble;
       elements.noScrambleToggle.addEventListener("change", (e) => {
         window.mojoNoScramble = e.target.checked;
-        showToast(`Force No Scramble: ${window.mojoNoScramble ? "ON" : "OFF"}`);
+        showToast(
+          "No Scramble set to " + (e.target.checked ? "ON" : "OFF"),
+          "info",
+        );
       });
+    }
+
+    // Automatic Registry Dropdown Updates
+    if (window.MojoHandleRegistry) {
+      const originalUpdate = window.MojoHandleRegistry.onupdate;
+      window.MojoHandleRegistry.onupdate = (id, h) => {
+        if (typeof originalUpdate === "function") originalUpdate(id, h);
+        const masterInput = document.getElementById("masterHandleInput");
+        if (masterInput) {
+          const currentVal = masterInput.value;
+          masterInput.innerHTML = safeHTML(
+            '<option value="" disabled ' +
+              (!currentVal ? "selected" : "") +
+              ">Select a master handle...</option>" +
+              window.renderHandleOptions(),
+          );
+          if (currentVal) masterInput.value = currentVal;
+        }
+      };
+    }
+
+    if (window.MojoObjectRegistry) {
+      const originalUpdate = window.MojoObjectRegistry.onupdate;
+      window.MojoObjectRegistry.onupdate = (id, o) => {
+        if (typeof originalUpdate === "function") originalUpdate(id, o);
+        const select = document.getElementById("targetObjectId");
+        if (select && select.tagName === "SELECT") {
+          const currentVal = select.value || state.targetObjectId;
+          select.innerHTML = safeHTML(
+            '<option value="" disabled ' +
+              (!currentVal ? "selected" : "") +
+              ">Select an object...</option>" +
+              window.renderRegistryOptions(
+                state.selectedInterface
+                  ? state.selectedInterface.module +
+                      "." +
+                      state.selectedInterface.name
+                  : null,
+                state.targetObjectId,
+              ),
+          );
+          if (currentVal) select.value = currentVal;
+        }
+      };
     }
 
     // Intercept Responses Toggle
@@ -548,9 +596,6 @@
       }
     }
 
-    // Render "Associated" toggle
-    renderAssociatedToggle();
-
     renderMethods(iface);
     renderParamsForm(null);
     updateGeneratedCode();
@@ -559,61 +604,6 @@
     if (state.panelVisible) {
       showInterceptorPanel(false);
     }
-  }
-
-  function renderAssociatedToggle() {
-    const header = elements.interfacePanel.querySelector(".panel-title");
-    // Remove existing toggle if present
-    const existing = header.querySelector(".associated-toggle");
-    if (existing) existing.remove();
-
-    const toggle = document.createElement("div");
-    toggle.className = "associated-toggle";
-    toggle.style.marginTop = "8px";
-    toggle.innerHTML = safeHTML(`
-            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer;">
-                <input type="checkbox" id="associatedInterfaceToggle">
-                Associated Interface (requires Master Handle)
-            </label>
-            <div id="associatedInputs" style="display: none; margin-top: 8px; padding: 8px; background: var(--bg-input); border-radius: 4px;">
-                <div style="margin-bottom: 8px;">
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle ID</label>
-                    <div style="display: flex; gap: 8px;">
-                        <select id="masterHandleInput" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
-                             <option value="" disabled selected>Select a master handle...</option>
-                             ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
-                        </select>
-                        <button type="button" class="btn btn-secondary btn-small" onclick="document.getElementById('masterHandleInput').innerHTML = window.renderHandleOptions();" title="Refresh Handles">🔄</button>
-                    </div>
-                </div>
-                <div>
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Interface ID (Ordinal)</label>
-                    <input type="number" id="interfaceIdInput" placeholder="0" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
-                </div>
-            </div>
-        `);
-    header.appendChild(toggle);
-
-    const checkbox = toggle.querySelector("#associatedInterfaceToggle");
-    const inputs = toggle.querySelector("#associatedInputs");
-    const masterInput = toggle.querySelector("#masterHandleInput");
-    const idInput = toggle.querySelector("#interfaceIdInput");
-
-    checkbox.addEventListener("change", (e) => {
-      inputs.style.display = e.target.checked ? "block" : "none";
-      state.isAssociated = e.target.checked;
-      updateGeneratedCode();
-    });
-
-    masterInput.addEventListener("change", (e) => {
-      state.masterHandleId = e.target.value;
-      updateGeneratedCode();
-    });
-
-    idInput.addEventListener("input", (e) => {
-      state.interfaceId = e.target.value;
-      updateGeneratedCode();
-    });
   }
 
   function renderMethods(iface) {
@@ -1719,41 +1709,61 @@
   }
 
   function renderTargetControl() {
-    // Only show if we have parameters or it's a method call
     if (!state.selectedMethod) return "";
 
     const isInstance = state.targetType === "instance";
+    const isAssociated = state.isAssociated;
+
     return `
-      <div class="target-control-group" style="margin-bottom: 20px; padding: 12px; background: var(--bg-hover); border-radius: 6px; border: 1px solid var(--border-subtle);">
-          <div style="margin-bottom: 8px; font-weight: 500;">Execution Target:</div>
-          <div style="display: flex; gap: 16px; margin-bottom: 8px;">
-              <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                  <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
-                  <span>⚡ New Interface (Static)</span>
-              </label>
-              <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                  <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
-                  <span>🧩 Existing Instance</span>
-              </label>
+      <div class="target-control-group" style="margin-bottom: 20px; padding: 12px; background: var(--bg-hover); border-radius: 8px; border: 1px solid var(--border-subtle);">
+          <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-weight: 600; font-size: 0.9em; color: var(--accent);">TARGET CONFIGURATION</span>
+          </div>
+
+          <div style="margin-bottom: 12px;">
+              <div style="font-size: 0.8em; color: var(--text-muted); margin-bottom: 6px;">Receiver Type</div>
+              <div style="display: flex; gap: 12px;">
+                  <label class="radio-tab ${!isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
+                      <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                      <span>⚡ New Interface</span>
+                  </label>
+                  <label class="radio-tab ${isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
+                      <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                      <span>🧩 Existing Instance</span>
+                  </label>
+              </div>
           </div>
           
-          <div id="instanceTargetInput" style="display: ${isInstance ? "block" : "none"}; margin-top: 8px;">
-               <div class="form-group">
-                  <label>Object ID (obj_N)</label>
-                  <div style="display: flex; gap: 8px;">
-                       <select id="targetObjectId" class="param-input" style="flex: 1;" onchange="window.updateTargetObjectId(this.value)">
-                          <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
-                          ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
-                      </select>
-                      <button class="btn btn-secondary btn-small" onclick="window.updateTargetType('instance')" title="Refresh List">🔄</button>
-                  </div>
-                  <!-- Allow manual entry fallback just in case -->
-                  <div style="font-size: 0.8em; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
-                     <span style="color: var(--text-muted);">Or type manual ID:</span>
-                     <input type="text" style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--text-main); font-family: monospace;" 
-                            placeholder="obj_..." onchange="document.getElementById('targetObjectId').value = ''; window.updateTargetObjectId(this.value)">
-                  </div>
+          <div id="instanceTargetInput" style="display: ${isInstance ? "block" : "none"}; margin-bottom: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
+               <div class="form-group" style="margin-bottom: 0;">
+                  <label style="font-size: 0.8em; display: block; margin-bottom: 4px;">Object Registry ID</label>
+                  <select id="targetObjectId" class="param-input" style="width: 100%; border: 1px solid var(--border-subtle);" onchange="window.updateTargetObjectId(this.value)">
+                      <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
+                      ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
+                  </select>
                </div>
+          </div>
+
+          <div class="associated-section" style="border-top: 1px solid var(--border-subtle); padding-top: 12px;">
+             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer; color: var(--text-main);">
+                 <input type="checkbox" id="associatedInterfaceToggle" ${isAssociated ? "checked" : ""} onchange="window.updateIsAssociated(this.checked)">
+                 <span style="font-weight: 500;">Associated Interface</span>
+                 <span style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(Multiplexing)</span>
+             </label>
+             
+             <div id="associatedInputs" style="display: ${isAssociated ? "block" : "none"}; margin-top: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
+                <div style="margin-bottom: 10px;">
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Master Pipe Handle</label>
+                    <select id="masterHandleInput" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;" onchange="window.updateMasterHandle(this.value)">
+                         <option value="" disabled ${!state.masterHandleId ? "selected" : ""}>Select handle...</option>
+                         ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Interface ID (Ordinal)</label>
+                    <input type="number" id="interfaceIdInput" value="${state.interfaceId || 0}" placeholder="0" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;" oninput="window.updateInterfaceId(this.value)">
+                </div>
+             </div>
           </div>
       </div>
     `;
@@ -3831,7 +3841,6 @@
       if (value === "instance") {
         const select = document.getElementById("targetObjectId");
         if (select && select.tagName === "SELECT") {
-          // Refresh options
           const currentVal = select.value || state.targetObjectId;
           select.innerHTML = safeHTML(
             `<option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>` +
@@ -3848,6 +3857,25 @@
         }
       }
     }
+    updateGeneratedCode();
+  };
+
+  window.updateIsAssociated = function (value) {
+    state.isAssociated = value;
+    const inputs = document.getElementById("associatedInputs");
+    if (inputs) {
+      inputs.style.display = value ? "block" : "none";
+    }
+    updateGeneratedCode();
+  };
+
+  window.updateMasterHandle = function (value) {
+    state.masterHandleId = value;
+    updateGeneratedCode();
+  };
+
+  window.updateInterfaceId = function (value) {
+    state.interfaceId = value;
     updateGeneratedCode();
   };
 
