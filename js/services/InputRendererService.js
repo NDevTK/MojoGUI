@@ -67,6 +67,13 @@
         return;
       }
 
+      // Handle Type Change
+      if (target.matches(".handle-type-select")) {
+        const card = target.closest(".mojo-handle-card");
+        updateHiddenHandleInput(card);
+        return;
+      }
+
       // Handle Custom Input Change
       if (target.matches(".handle-custom-input")) {
         const card = target.closest(".mojo-handle-card");
@@ -107,6 +114,7 @@
   const updateHiddenHandleInput = (card) => {
     const customInput = card.querySelector(".handle-custom-input");
     const select = card.querySelector(".handle-action-select");
+    const typeSelect = card.querySelector(".handle-type-select");
     const hiddenInput = card.querySelector(".param-input");
 
     // Parse current JSON to preserve static fields
@@ -119,6 +127,7 @@
       ...current,
       __mojoType: "Handle",
       action: select.value,
+      type: typeSelect ? typeSelect.value : current.type,
       customHandle: customInput.value,
     };
 
@@ -493,6 +502,29 @@
         param.name ? param.name.replace(/^arg_/, "") : "",
       );
 
+      // Handle Type Selection Template
+      let handleTypeSelector = "";
+      if (
+        effectiveType === "mojo_handle" ||
+        typeString === "mojo_handle" ||
+        (!isDataPipe &&
+          typeString !== "pending_remote" &&
+          typeString !== "pending_receiver" &&
+          typeString !== "pending_associated_remote" &&
+          typeString !== "pending_associated_receiver")
+      ) {
+        handleTypeSelector = `
+          <div style="margin-bottom: 8px;">
+            <label style="font-size: 0.8em; color: var(--text-muted); display: block; margin-bottom: 2px;">Internal Type:</label>
+            <select class="handle-type-select" style="width: 100%; padding: 4px; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-main); border-radius: 4px;">
+              <option value="mojo_handle" ${typeString === "mojo_handle" ? "selected" : ""}>Message Pipe</option>
+              <option value="data_pipe_producer" ${typeString === "data_pipe_producer" ? "selected" : ""}>Data Pipe (Producer)</option>
+              <option value="data_pipe_consumer" ${typeString === "data_pipe_consumer" ? "selected" : ""}>Data Pipe (Consumer)</option>
+            </select>
+          </div>
+        `;
+      }
+
       return `
                 <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
@@ -506,6 +538,7 @@
                             <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
                         </div>
                         <div class="handle-actions">
+                            ${handleTypeSelector}
                             <select class="handle-action-select">
                                 <option value="preserve" ${currentAction === "preserve" ? "selected" : ""}>Keep Original</option>
                                 <option value="close" ${currentAction === "close" ? "selected" : ""}>Close Handle</option>
