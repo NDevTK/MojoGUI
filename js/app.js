@@ -254,8 +254,9 @@
       elements.paramsForm.addEventListener("input", handleParamChange);
 
       // Initialize Delegated Events for dynamic buttons (Add/Remove items, etc)
+      // Bind to document.body to ensure it works for dynamic panels (Traffic Log, etc.)
       if (window.InputRendererService && window.InputRendererService.init) {
-        InputRendererService.init(elements.paramsForm);
+        InputRendererService.init(document.body);
       }
       elements.paramsForm.addEventListener("change", handleParamChange);
     }
