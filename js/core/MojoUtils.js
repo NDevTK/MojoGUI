@@ -92,7 +92,11 @@
    * Remote/Receiver wrapper for compatibility with MojoJS's internal unbind() calls.
    * This version returns a clean wrapper and does NOT pollute the original handle.
    */
-  function decorateHandle(realHandle, isPendingAssociation = false) {
+  function decorateHandle(
+    realHandle,
+    isPendingAssociation = false,
+    interfaceName = null,
+  ) {
     if (!realHandle || typeof realHandle !== "object") return realHandle;
 
     // 1. Extract the underlying raw handle if it's already wrapped
@@ -116,9 +120,10 @@
     // 3. Return a wrapper object.
     // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
-      proxy: { unbind: () => mockEndpoint },
+      proxy: { unbind: () => mockEndpoint, handle: mockEndpoint, handle_: raw },
       unbind: () => mockEndpoint,
       handle: mockEndpoint,
+      handle_: raw,
       nativeHandle: raw,
       // For convenience, forward common handle methods
       writeMessage: raw.writeMessage
@@ -129,7 +134,7 @@
         : undefined,
       close: raw.close ? () => raw.close() : undefined,
       // Metadata for GUI
-      $: { interfaceName: "PendingInterface" },
+      $: { interfaceName: interfaceName || "PendingInterface" },
     };
 
     return wrapper;
@@ -252,7 +257,7 @@
         const { handle0, handle1 } = Mojo.createMessagePipe();
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
-        return decorateHandle(handle0, true);
+        return decorateHandle(handle0, true, handleData.interface);
       }
       if (action === "use_handle") {
         const handleInput = handleData.customHandle;

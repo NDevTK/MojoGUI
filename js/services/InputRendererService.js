@@ -459,7 +459,12 @@
         typeLabel = "Handle";
       } else if (isHandleType) {
         // Manual Mode, no value yet.
-        if (typeof effectiveType === "object" && effectiveType.interface) {
+        if (param.interface) {
+          ifaceName = param.interface;
+        } else if (
+          typeof effectiveType === "object" &&
+          effectiveType.interface
+        ) {
           ifaceName = effectiveType.interface;
         } else if (param.structSpec?.name) {
           ifaceName = param.structSpec.name;

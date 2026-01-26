@@ -177,7 +177,17 @@
         ) {
           const spec = f.type.$ || f.type;
           interfaceName =
-            spec.remoteClass?.name || spec.receiverClass?.name || spec.name;
+            spec.name ||
+            spec.remoteClass?.name ||
+            spec.receiverClass?.name ||
+            (f.type.name && !f.type.name.includes("_Spec")
+              ? f.type.name
+              : null);
+
+          // If it's a template function like InterfaceRequest(Spec), the name might be on the spec
+          if (!interfaceName && f.type.name === "" && f.type.$) {
+            interfaceName = f.type.$.name;
+          }
         }
 
         return {
@@ -253,14 +263,28 @@
 
       if (spec.decode) {
         const decStr = spec.decode.toString();
-        if (decStr.includes("decodeInterfaceProxy")) return "pending_remote";
-        if (decStr.includes("decodeInterfaceRequest"))
+        if (
+          decStr.includes("decodeInterfaceProxy") ||
+          decStr.includes("PendingRemote")
+        )
+          return "pending_remote";
+        if (
+          decStr.includes("decodeInterfaceRequest") ||
+          decStr.includes("PendingReceiver")
+        )
           return "pending_receiver";
-        if (decStr.includes("decodeAssociatedInterfaceProxy"))
+        if (
+          decStr.includes("decodeAssociatedInterfaceProxy") ||
+          decStr.includes("PendingAssociatedRemote")
+        )
           return "pending_associated_remote";
-        if (decStr.includes("decodeAssociatedInterfaceRequest"))
+        if (
+          decStr.includes("decodeAssociatedInterfaceRequest") ||
+          decStr.includes("PendingAssociatedReceiver")
+        )
           return "pending_associated_receiver";
-        if (decStr.includes("decodeHandle")) return "mojo_handle";
+        if (decStr.includes("decodeHandle") || decStr.includes("ScopedHandle"))
+          return "mojo_handle";
       }
 
       return "any";

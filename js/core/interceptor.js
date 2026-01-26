@@ -140,6 +140,15 @@
         return obj;
       }
 
+      // 2b. Check for nativeHandle / handle properties (for our decorated wrappers)
+      if (obj.nativeHandle)
+        return MojoProxy.getRawHandleFromMojoObject(obj.nativeHandle);
+      if (obj.handle && obj.handle.writeMessage) return obj.handle;
+      if (obj.handle && obj.handle.router_)
+        return MojoProxy.getRawHandleFromMojoObject(obj.handle);
+      if (obj.realRemote)
+        return MojoProxy.getRawHandleFromMojoObject(obj.realRemote);
+
       const getFromRouter = (r) => {
         if (!r) return null;
         // Handle various router property names across versions
@@ -305,11 +314,18 @@
             const mockEndpoint = {
               releasePipe: () => bridgedHandle,
               handle: bridgedHandle,
+              handle_: bridgedHandle,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             const mockRemote = {
               unbind: () => mockEndpoint,
-              proxy: { unbind: () => mockEndpoint },
+              proxy: {
+                unbind: () => mockEndpoint,
+                handle: mockEndpoint,
+                handle_: bridgedHandle,
+              },
+              handle: mockEndpoint,
+              handle_: bridgedHandle,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             mockRemote.proxy.proxy = mockRemote.proxy;
