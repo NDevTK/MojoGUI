@@ -538,9 +538,9 @@
     }
 
     static resolveInterface(name) {
-      if (global.MojoBindings && global.MojoBindings._indexData) {
+      if (global.MojoBindingLoader && global.MojoBindingLoader._indexData) {
         const isFQN = name.includes(".");
-        let iface = global.MojoBindings._indexData.interfaces.find(
+        let iface = global.MojoBindingLoader._indexData.interfaces.find(
           (i) =>
             (isFQN && i.module + "." + i.name === name) ||
             (!isFQN && i.name === name),

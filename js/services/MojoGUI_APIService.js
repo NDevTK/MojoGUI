@@ -64,9 +64,9 @@
       );
       if (!iface) return null;
       // Load binding if available
-      if (iface.file && typeof MojoBindings !== "undefined") {
+      if (iface.file && typeof MojoBindingLoader !== "undefined") {
         try {
-          await MojoBindings.loadBinding(iface.file);
+          await MojoBindingLoader.loadBinding(iface.file);
         } catch (e) {
           console.warn("[MojoGUI_API] Failed to load binding:", e);
         }

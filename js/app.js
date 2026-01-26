@@ -50,104 +50,6 @@
   } = MojoUtils;
 
   // ========================================
-  // Mojo Dependency Loader Patch
-  // ========================================
-  // Ensure we take control of dependency loading to prevent race conditions and 404s
-  if (typeof mojo !== "undefined" && mojo.config) {
-    mojo.config.autoLoadMojomDeps = false;
-    console.log(
-      "[MojoGUI] Disabled autoLoadMojomDeps to handle dependencies manually.",
-    );
-  }
-
-  // Overwrite MojoBindings.loadBinding to be more robust
-  if (typeof MojoBindings !== "undefined") {
-    const originalLoadBinding = MojoBindings.loadBinding;
-
-    MojoBindings.loadBinding = async function (filename) {
-      if (this._loadedModules[filename]) {
-        return this._loadedModules[filename];
-      }
-
-      this._loadedModules[filename] = (async () => {
-        // Load index to resolve dependencies
-        const data = await this.loadIndex();
-        const fileEntry = data.files.find((f) => f.filename === filename);
-
-        if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
-          const loadPromises = fileEntry.imports.map(async (importPath) => {
-            // Improved matching logic:
-            // 1. Exact match
-            // 2. Ends with match (handling relative paths)
-            // 3. Handle 'skia' vs 'skia.public' discrepancies if needed
-
-            let importEntry = data.files.find((f) => f.source === importPath);
-
-            if (!importEntry) {
-              // Try looser matching
-              importEntry = data.files.find(
-                (f) =>
-                  f.source.endsWith(importPath) ||
-                  f.source.endsWith("/" + importPath),
-              );
-            }
-
-            if (importEntry) {
-              console.log(
-                `[MojoGUI] Resolving ${importPath} -> ${importEntry.filename}`,
-              );
-              try {
-                await this.loadBinding(importEntry.filename);
-              } catch (e) {
-                console.error(
-                  `[MojoGUI] Failed to load dependency ${importEntry.filename}`,
-                  e,
-                );
-                throw e;
-              }
-            } else {
-              console.warn(
-                `[MojoGUI] Import not found in index: ${importPath}. This may cause undefined types.`,
-              );
-            }
-          });
-
-          try {
-            await Promise.all(loadPromises);
-          } catch (e) {
-            console.error(
-              `[MojoGUI] Dependency loading failed for ${filename}`,
-              e,
-            );
-            // We continue anyway, hoping for the best? Or fail hard?
-            // Fail hard is safer to avoid confusing TypeErrors.
-            throw e;
-          }
-        }
-
-        return new Promise((resolve, reject) => {
-          const script = document.createElement("script");
-          const scriptUrl = `./bindings/${filename}`;
-
-          script.src = safeScriptURL(scriptUrl);
-
-          script.onload = () => {
-            console.log(`[MojoGUI] Loaded ${filename}`);
-            resolve(true);
-          };
-          script.onerror = () => {
-            console.error(`[MojoGUI] Failed to load script: ${filename}`);
-            reject(new Error(`Failed to load binding: ${filename}`));
-          };
-          document.head.appendChild(script);
-        });
-      })();
-
-      return this._loadedModules[filename];
-    };
-  }
-
-  // ========================================
   // DOM Elements
   // ========================================
   const elements = {
@@ -205,15 +107,16 @@
     checkMojoAvailability();
 
     // Pre-load core base bindings to prevent stub pollution
-    if (typeof MojoBindings !== "undefined") {
+    // Pre-load core base bindings to prevent stub pollution
+    if (typeof MojoLoader !== "undefined") {
       try {
         console.log("[MojoGUI] Pre-loading core base bindings...");
         // Use Promise.all to load them in parallel
         await Promise.all([
-          MojoBindings.loadBinding("mojo_public_mojom_base_string16.mojom.js"),
-          MojoBindings.loadBinding("url_mojom_url.mojom.js"),
-          MojoBindings.loadBinding("mojo_public_mojom_base_time.mojom.js"),
-          MojoBindings.loadBinding("skia_public_mojom_bitmap.mojom.js"),
+          MojoLoader.loadBinding("mojo_public_mojom_base_string16.mojom.js"),
+          MojoLoader.loadBinding("url_mojom_url.mojom.js"),
+          MojoLoader.loadBinding("mojo_public_mojom_base_time.mojom.js"),
+          MojoLoader.loadBinding("skia_public_mojom_bitmap.mojom.js"),
         ]);
         console.log("[MojoGUI] Core base bindings loaded.");
       } catch (e) {
@@ -246,8 +149,8 @@
 
     // Initialize Welcome/Update Manager
     let trackerVersion = window.mojoVersion;
-    if (typeof MojoBindings !== "undefined" && MojoBindings.getMetadata) {
-      const meta = MojoBindings.getMetadata();
+    if (typeof MojoLoader !== "undefined" && MojoLoader.getMetadata) {
+      const meta = MojoLoader.getMetadata();
       if (meta && meta.version) {
         trackerVersion = meta.version;
         console.log("[MojoGUI] Bindings Version:", trackerVersion);
@@ -286,8 +189,8 @@
   async function loadInterfaces() {
     try {
       // Try to load from bindings index
-      if (typeof MojoBindings !== "undefined") {
-        const interfaces = await MojoBindings.getInterfaces();
+      if (typeof MojoLoader !== "undefined") {
+        const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
           renderInterfaceList(interfaces);
@@ -592,10 +495,10 @@
     elements.selectedModule.textContent = iface.module;
 
     // Auto-load the binding file
-    if (iface.file && typeof MojoBindings !== "undefined") {
+    if (iface.file && typeof MojoLoader !== "undefined") {
       try {
         elements.selectedModule.textContent = iface.module + " (loading...)";
-        await MojoBindings.loadBinding(iface.file);
+        await MojoLoader.loadBinding(iface.file);
         elements.selectedModule.textContent = iface.module + " ✓";
         showToast(`Loaded binding: ${iface.file}`, "success");
       } catch (error) {
@@ -947,7 +850,7 @@
       keyword:
         /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue|typeof|instanceof|void|delete)\b/,
       builtin:
-        /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoObjectRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
+        /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoObjectRegistry|MojoProxy|MojoLoader|JSON|Math|Date|Promise|Error)\b/,
       const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
       number:
         /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,

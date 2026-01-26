@@ -8,6 +8,8 @@
   const MojoLoader = {
     _loaded: new Set(),
     _interfaces: [], // Cache of available interface metadata
+    _indexData: null,
+    _loadedModules: {},
 
     /**
      * Initialize the loader with interface metadata
@@ -15,6 +17,84 @@
      */
     init(interfaces) {
       this._interfaces = interfaces;
+    },
+
+    async loadIndex() {
+      if (this._indexData) return this._indexData;
+      const response = await fetch("bindings/index.json");
+      this._indexData = await response.json();
+      return this._indexData;
+    },
+
+    async getInterfaces() {
+      const data = await this.loadIndex();
+      return data.interfaces;
+    },
+
+    async searchInterfaces(query) {
+      const interfaces = await this.getInterfaces();
+      const q = query.toLowerCase();
+      return interfaces.filter(
+        (i) =>
+          i.name.toLowerCase().includes(q) ||
+          i.module.toLowerCase().includes(q),
+      );
+    },
+
+    loadBinding(filename) {
+      if (this._loadedModules[filename]) {
+        return this._loadedModules[filename];
+      }
+
+      this._loadedModules[filename] = (async () => {
+        // Load index to resolve dependencies
+        const data = await this.loadIndex();
+        const fileEntry = data.files.find((f) => f.filename === filename);
+
+        if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+          const loadPromises = fileEntry.imports.map(async (importPath) => {
+            // Find the file entry that matches this import source
+            const importEntry = data.files.find((f) => {
+              const s1 = f.source.replace(/\\/g, "/").toLowerCase();
+              const s2 = importPath.replace(/\\/g, "/").toLowerCase();
+              return (
+                s1 === s2 || s1.endsWith("/" + s2) || s2.endsWith("/" + s1)
+              );
+            });
+            if (importEntry) {
+              console.log(
+                `[MojoLoader] Dependency: ${importPath} -> ${importEntry.filename}`,
+              );
+              await this.loadBinding(importEntry.filename);
+            } else {
+              console.warn(`[MojoLoader] Import not found: ${importPath}`);
+            }
+          });
+          await Promise.all(loadPromises);
+        }
+
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          const scriptUrl = `bindings/${filename}`;
+
+          // Simplified script injection - Trusted Types policy creation moved to init or ignored for now as it was local
+          script.src = scriptUrl;
+
+          script.onload = () => {
+            resolve(true);
+          };
+          script.onerror = () => {
+            reject(new Error(`Failed to load binding: ${filename}`));
+          };
+          document.head.appendChild(script);
+        });
+      })();
+
+      return this._loadedModules[filename];
+    },
+
+    getMetadata() {
+      return this._indexData;
     },
 
     /**
@@ -50,9 +130,9 @@
         return fqn;
       }
 
-      if (iface && iface.file && typeof MojoBindings !== "undefined") {
+      if (iface && iface.file) {
         try {
-          await MojoBindings.loadBinding(iface.file);
+          await this.loadBinding(iface.file);
           console.log(`[MojoLoader] Loaded ${iface.file} for ${fqn}`);
           this._loaded.add(fqn);
           return fqn;
