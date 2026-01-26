@@ -76,34 +76,29 @@
       if (this.isClosed || !this.handle) return;
 
       try {
-        const query = this.handle.queryData();
-        if (query.result === Mojo.RESULT_OK && query.numBytes > 0) {
-          const buffer = new Uint8Array(query.numBytes);
-          const read = this.handle.readData(buffer);
+        const data = MojoUtils.readDataPipeAvailable(this.handle);
+        if (data) {
+          // 1. Log the data
+          if (window.MojoGUI_API && window.MojoGUI_API.addDataActivity) {
+            window.MojoGUI_API.addDataActivity(this.id, data);
+          }
 
-          if (read.result === Mojo.RESULT_OK) {
-            const data = buffer.slice(0, read.numBytes);
+          // 2. Forward the data
+          if (this.pair) {
+            MojoUtils.writeDataPipe(this.pair, data);
+          }
 
-            // 1. Log the data
-            if (window.MojoGUI_API && window.MojoGUI_API.addDataActivity) {
-              window.MojoGUI_API.addDataActivity(this.id, data);
-            }
-
-            // 2. Forward the data
-            if (this.pair && this.pair.writeData) {
-              this.pair.writeData(data);
-            }
-
-            // Check for more data immediately
-            this.readAndForward();
-          } else if (read.result !== Mojo.RESULT_SHOULD_WAIT) {
+          // Check for more data immediately
+          this.readAndForward();
+        } else {
+          // No data currently or error.
+          const query = this.handle.queryData();
+          if (
+            query.result !== Mojo.RESULT_OK &&
+            query.result !== Mojo.RESULT_SHOULD_WAIT
+          ) {
             this.close();
           }
-        } else if (
-          query.result !== Mojo.RESULT_OK &&
-          query.result !== Mojo.RESULT_SHOULD_WAIT
-        ) {
-          this.close();
         }
       } catch (e) {
         console.error("[MojoDataPipeProxy] readAndForward FAILED:", e);

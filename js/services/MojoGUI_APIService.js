@@ -522,44 +522,35 @@
         return { error: "Registry not available" };
       const handle = MojoHandleRegistry.get(id);
       if (!handle) return { error: "Handle not found" };
-      try {
-        // First query how much data is available
-        const query = handle.queryData();
-        if (query.result !== Mojo.RESULT_OK) return { result: query.result };
-        if (query.numBytes === 0)
-          return {
-            result: Mojo.RESULT_OK,
-            data: encoding === "utf8" ? "" : [],
-          };
 
-        // Allocate buffer and read
-        const buffer = new Uint8Array(query.numBytes);
-        const read = handle.readData(buffer);
-        const data = buffer.slice(0, read.numBytes);
-
-        if (encoding === "utf8") {
-          return { result: read.result, data: new TextDecoder().decode(data) };
-        } else if (encoding === "hex") {
-          return {
-            result: read.result,
-            data: Array.from(data)
-              .map((b) => b.toString(16).padStart(2, "0"))
-              .join(""),
-          };
-        } else if (encoding === "base64") {
-          return {
-            result: read.result,
-            data: btoa(String.fromCharCode(...data)),
-          };
-        }
-
+      const data = MojoUtils.readDataPipeAvailable(handle);
+      if (!data) {
         return {
-          result: read.result,
-          data: Array.from(data),
+          result: Mojo.RESULT_OK,
+          data: encoding === "utf8" ? "" : [],
         };
-      } catch (e) {
-        return { error: e.message };
       }
+
+      if (encoding === "utf8") {
+        return { result: Mojo.RESULT_OK, data: new TextDecoder().decode(data) };
+      } else if (encoding === "hex") {
+        return {
+          result: Mojo.RESULT_OK,
+          data: Array.from(data)
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join(""),
+        };
+      } else if (encoding === "base64") {
+        return {
+          result: Mojo.RESULT_OK,
+          data: btoa(String.fromCharCode(...data)),
+        };
+      }
+
+      return {
+        result: Mojo.RESULT_OK,
+        data: Array.from(data),
+      };
     },
     /**
      * Write data to a Mojo data pipe producer handle
@@ -573,24 +564,16 @@
       const handle = MojoHandleRegistry.get(id);
       if (!handle) return { error: "Handle not found" };
 
-      try {
-        let buffer;
-        if (typeof data === "string") {
-          buffer = new TextEncoder().encode(data);
-        } else if (data instanceof Uint8Array) {
-          buffer = data;
-        } else {
-          return { error: "Invalid data format" };
-        }
-
-        const result = handle.writeData(buffer);
-        return {
-          result: result,
-          bytesWritten: result === Mojo.RESULT_OK ? buffer.length : 0,
-        };
-      } catch (e) {
-        return { error: e.message };
-      }
+      const result = MojoUtils.writeDataPipe(handle, data);
+      return {
+        result: result,
+        bytesWritten:
+          result === Mojo.RESULT_OK
+            ? typeof data === "string"
+              ? new TextEncoder().encode(data).length
+              : data.length
+            : 0,
+      };
     },
     /**
      * Inspect a registered object or handle

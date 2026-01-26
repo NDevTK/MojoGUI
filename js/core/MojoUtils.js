@@ -525,6 +525,48 @@
     return url;
   }
 
+  /**
+   * Helper to read all available data from a Mojo data pipe.
+   * @param {MojoHandle} handle - The consumer handle.
+   * @returns {Uint8Array|null} The data read, or null if no data/error.
+   */
+  function readDataPipeAvailable(handle) {
+    if (!handle || !handle.queryData || !handle.readData) return null;
+    try {
+      const query = handle.queryData();
+      if (query.result !== Mojo.RESULT_OK || query.numBytes === 0) return null;
+
+      const buffer = new Uint8Array(query.numBytes);
+      const read = handle.readData(buffer);
+      if (read.result !== Mojo.RESULT_OK) return null;
+
+      return buffer.slice(0, read.numBytes);
+    } catch (e) {
+      console.warn("[MojoUtils] readDataPipeAvailable failed:", e);
+      return null;
+    }
+  }
+
+  /**
+   * Helper to write data to a Mojo data pipe.
+   * @param {MojoHandle} handle - The producer handle.
+   * @param {Uint8Array|string} data - Data to write.
+   * @returns {number} Mojo result code.
+   */
+  function writeDataPipe(handle, data) {
+    if (!handle || !handle.writeData) return Mojo.RESULT_INVALID_ARGUMENT;
+    try {
+      let buffer = data;
+      if (typeof data === "string") {
+        buffer = new TextEncoder().encode(data);
+      }
+      return handle.writeData(buffer);
+    } catch (e) {
+      console.warn("[MojoUtils] writeDataPipe failed:", e);
+      return Mojo.RESULT_UNKNOWN;
+    }
+  }
+
   const MojoUtils = {
     safeStringify,
     safeParse,
@@ -538,6 +580,8 @@
     decodeBigString,
     decorateHandle,
     escapeHtml,
+    readDataPipeAvailable,
+    writeDataPipe,
   };
 
   global.MojoUtils = MojoUtils;
