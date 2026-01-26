@@ -5,6 +5,18 @@
 (function (global) {
   "use strict";
 
+  // Create trusted types policy for script URLs
+  let trustedPolicy = null;
+  if (typeof window.trustedTypes !== "undefined") {
+    try {
+      trustedPolicy = window.trustedTypes.createPolicy("mojoBindings", {
+        createScriptURL: (input) => input,
+      });
+    } catch (e) {
+      console.warn("Could not create trusted types policy:", e);
+    }
+  }
+
   const MojoLoader = {
     _loaded: new Set(),
     _interfaces: [], // Cache of available interface metadata
@@ -77,8 +89,11 @@
           const script = document.createElement("script");
           const scriptUrl = `bindings/${filename}`;
 
-          // Simplified script injection - Trusted Types policy creation moved to init or ignored for now as it was local
-          script.src = scriptUrl;
+          if (trustedPolicy) {
+            script.src = trustedPolicy.createScriptURL(scriptUrl);
+          } else {
+            script.src = scriptUrl;
+          }
 
           script.onload = () => {
             resolve(true);
