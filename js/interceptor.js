@@ -44,15 +44,24 @@
 
       if (comps && comps.Remote && handleOrEndpoint) {
         try {
+          // If it's already a Remote instance (Lite bindings have $ and proxy)
+          if (
+            handleOrEndpoint.$ &&
+            (handleOrEndpoint.proxy ||
+              handleOrEndpoint.bindNewPipeAndPassReceiver)
+          ) {
+            this.realRemote = handleOrEndpoint;
+          }
+          // Check if it's already a MojoProxy or a wrapper with realRemote
+          else if (handleOrEndpoint.realRemote) {
+            this.realRemote = handleOrEndpoint.realRemote;
+          }
           // Check if it's an Endpoint (for Associated Interfaces)
-          if (handleOrEndpoint.router || handleOrEndpoint.router_) {
+          else if (handleOrEndpoint.router || handleOrEndpoint.router_) {
             this.realRemote = new comps.Remote(handleOrEndpoint);
           } else {
-            // Standard Handle: Pass directly
-            // Note: Previous logic tried to unwrap 'ep' here, but if it's not an endpoint (checked above), it's a handle.
-            // But just in case it's some other wrapper, we keep robust logic.
-            const rawForRemote = handleOrEndpoint;
-            this.realRemote = new comps.Remote(rawForRemote);
+            // Standard handle
+            this.realRemote = new comps.Remote(handleOrEndpoint);
           }
         } catch (e) {
           console.error(

@@ -51,15 +51,16 @@
 
       // Deep search fallback: Only use as last resort for known patterns
       const lastPart = parts[parts.length - 1];
-      if (lastPart !== "mojom") { // Avoid matching generic 'mojom' properties
-          for (const root of roots) {
-            for (const key in root) {
-              if (key === lastPart) return root[key];
-              if (typeof root[key] === "object" && root[key] !== null) {
-                if (root[key][lastPart]) return root[key][lastPart];
-              }
+      if (lastPart !== "mojom") {
+        // Avoid matching generic 'mojom' properties
+        for (const root of roots) {
+          for (const key in root) {
+            if (key === lastPart) return root[key];
+            if (typeof root[key] === "object" && root[key] !== null) {
+              if (root[key][lastPart]) return root[key][lastPart];
             }
           }
+        }
       }
 
       return null;
@@ -71,19 +72,21 @@
     findMethodDefinition(interfaceName, methodName) {
       // Prioritize FQN match to avoid ambiguity
       let iface = MojoLoader._interfaces.find(
-        (i) => i.module + "." + i.name === interfaceName
+        (i) => i.module + "." + i.name === interfaceName,
       );
-      
+
       // Fallback to simple name match
       if (!iface) {
-          iface = MojoLoader._interfaces.find((i) => i.name === interfaceName);
+        iface = MojoLoader._interfaces.find((i) => i.name === interfaceName);
       }
 
       if (!iface || !iface.module) return null;
 
       const namespace = this.resolveNamespace(iface.module);
       if (!namespace) {
-        console.warn(`[ReflectionService] Could not resolve namespace for module: ${iface.module}`);
+        console.warn(
+          `[ReflectionService] Could not resolve namespace for module: ${iface.module}`,
+        );
         return null;
       }
 
@@ -126,14 +129,23 @@
 
       return fieldsArray.map((f) => {
         let type = this.inferType(f.type);
-        console.log(`[ReflectionService] Mapping field ${f.name}, type inferred: ${type}`, f);
+        console.log(
+          `[ReflectionService] Mapping field ${f.name}, type inferred: ${type}`,
+          f,
+        );
         let structSpec = null;
         let elementSpec = null;
         let mapSpec = null;
         let enumOptions = null;
 
         const spec = f.type.$ || f.type;
-        if (type === "struct" || type === "union" || type === "bigstring" || type === "bigstring16" || type === "string16") {
+        if (
+          type === "struct" ||
+          type === "union" ||
+          type === "bigstring" ||
+          type === "bigstring16" ||
+          type === "string16"
+        ) {
           structSpec = spec.structSpec || spec.unionSpec;
         } else if (type === "array") {
           elementSpec =
@@ -156,9 +168,22 @@
           }
         }
 
+        let interfaceName = null;
+        if (
+          type === "pending_remote" ||
+          type === "pending_receiver" ||
+          type === "pending_associated_remote" ||
+          type === "pending_associated_receiver"
+        ) {
+          const spec = f.type.$ || f.type;
+          interfaceName =
+            spec.remoteClass?.name || spec.receiverClass?.name || spec.name;
+        }
+
         return {
           name: f.name,
           type: enumOptions ? { type: "enum", options: enumOptions } : type,
+          interface: interfaceName,
           rawType: f.type,
           structSpec,
           elementSpec,
@@ -229,9 +254,12 @@
       if (spec.decode) {
         const decStr = spec.decode.toString();
         if (decStr.includes("decodeInterfaceProxy")) return "pending_remote";
-        if (decStr.includes("decodeInterfaceRequest")) return "pending_receiver";
-        if (decStr.includes("decodeAssociatedInterfaceProxy")) return "pending_associated_remote";
-        if (decStr.includes("decodeAssociatedInterfaceRequest")) return "pending_associated_receiver";
+        if (decStr.includes("decodeInterfaceRequest"))
+          return "pending_receiver";
+        if (decStr.includes("decodeAssociatedInterfaceProxy"))
+          return "pending_associated_remote";
+        if (decStr.includes("decodeAssociatedInterfaceRequest"))
+          return "pending_associated_receiver";
         if (decStr.includes("decodeHandle")) return "mojo_handle";
       }
 

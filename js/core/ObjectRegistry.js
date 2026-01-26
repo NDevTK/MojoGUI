@@ -47,19 +47,26 @@
 
       // Special case: BigString / BigString16 decoding
       // If it looks like a BigString struct, decode it
-      if (value.hasOwnProperty('data') || value.hasOwnProperty('arg_data')) {
-        // We can't be 100% sure it's a BigString without the spec here, 
+      if (value.hasOwnProperty("data") || value.hasOwnProperty("arg_data")) {
+        // We can't be 100% sure it's a BigString without the spec here,
         // but it's a very common pattern for these "Big" types.
         // Let's try to decode if it's a string-like suggestion or we see bytes
         const data = value.arg_data || value.data;
-        const bytes = data ? (data.arg_bytes || data.bytes || (Array.isArray(data) ? data : null)) : null;
-        
-        if (bytes && (Array.isArray(bytes) || bytes instanceof Uint8Array || bytes instanceof Uint16Array)) {
-           // Heuristic: if it's bigstring16, bytes will be roughly 2x length of a typical string?
-           // Actually, let's just try decode and see if it looks like ASCII/UTF
-           // Better: Use typeNameSuggestion if it contains "String"
-           const is16 = typeNameSuggestion.toLowerCase().includes("string16");
-           return MojoUtils.decodeBigString(value, is16);
+        const bytes = data
+          ? data.arg_bytes || data.bytes || (Array.isArray(data) ? data : null)
+          : null;
+
+        if (
+          bytes &&
+          (Array.isArray(bytes) ||
+            bytes instanceof Uint8Array ||
+            bytes instanceof Uint16Array)
+        ) {
+          // Heuristic: if it's bigstring16, bytes will be roughly 2x length of a typical string?
+          // Actually, let's just try decode and see if it looks like ASCII/UTF
+          // Better: Use typeNameSuggestion if it contains "String"
+          const is16 = typeNameSuggestion.toLowerCase().includes("string16");
+          return MojoUtils.decodeBigString(value, is16);
         }
       }
 
@@ -75,7 +82,9 @@
       if (isProxy || isRemote) {
         let typeName = isProxy
           ? value.interfaceName
-          : value.$.interfaceName || value.interfaceName;
+          : value.$
+            ? value.$.interfaceName || value.interfaceName
+            : value.interfaceName || "Unknown";
 
         if (
           !typeName &&
@@ -84,11 +93,66 @@
         ) {
           typeName = value.constructor.$interfaceName;
         }
+        if (!typeName || typeName === "Unknown") typeName = typeNameSuggestion;
 
-        if (!typeName) typeName = typeNameSuggestion;
+        // Ensure it's proxied for visibility in traffic log
+        if (
+          global.MojoProxy &&
+          !isProxy &&
+          typeName &&
+          typeName !== "Unknown"
+        ) {
+          const genericTypes = [
+            "any",
+            "mojo_handle",
+            "pending_remote",
+            "pending_receiver",
+            "pending_associated_remote",
+            "pending_associated_receiver",
+          ];
+          if (!genericTypes.includes(typeName)) {
+            const comps = global.MojoProxy.getInterfaceComponents(typeName);
+            if (comps && comps.Remote) {
+              // Wrap securely - MojoProxy constructor now handles Remote instances!
+              value = new global.MojoProxy(typeName, value, comps);
+            }
+          }
+        }
 
         const id = this.register(value, typeName);
         return { $ref: id, type: typeName };
+      }
+
+      // Detect if it's a raw handle (MojoHandle) and we have a specific interface name
+      if (
+        value.writeMessage &&
+        typeof value.writeMessage === "function" &&
+        typeNameSuggestion !== "Unknown"
+      ) {
+        const genericTypes = [
+          "any",
+          "mojo_handle",
+          "pending_remote",
+          "pending_receiver",
+          "pending_associated_remote",
+          "pending_associated_receiver",
+        ];
+        if (!genericTypes.includes(typeNameSuggestion)) {
+          // It's a specific interface! Wrap it in a Proxy if possible.
+          if (global.MojoProxy) {
+            const comps =
+              global.MojoProxy.getInterfaceComponents(typeNameSuggestion);
+            if (comps && comps.Remote) {
+              const proxy = new global.MojoProxy(
+                typeNameSuggestion,
+                value,
+                comps,
+              );
+              // Registering is handled by MojoProxy constructor, but we return the ref
+              return { $ref: proxy.id, type: typeNameSuggestion };
+            }
+          }
+        }
       }
 
       // Recurse into arrays/objects to find nested remotes

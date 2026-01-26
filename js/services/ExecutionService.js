@@ -13,10 +13,21 @@
       // 1. Resolve Target
       if (target.objectId) {
         const entry = MojoObjectRegistry.get(target.objectId);
-        if (!entry) throw new Error(`Object ${target.objectId} not found`);
-        remote = entry.remote;
-        interfaceName = entry.type;
-      } else if (target.interface) {
+        if (entry) {
+          remote = entry.remote;
+          interfaceName = entry.type;
+        } else {
+          // If objectId is numeric, treat as handleId fallback
+          const hid = Number(target.objectId);
+          if (!isNaN(hid)) {
+            target.handleId = hid;
+          } else {
+            throw new Error(`Object ${target.objectId} not found`);
+          }
+        }
+      }
+
+      if (!remote && target.interface) {
         const fqn = await MojoLoader.ensureBinding(target.interface);
         interfaceName = fqn || target.interface;
 
@@ -42,15 +53,18 @@
           const handle = MojoHandleRegistry.get(target.handleId);
           if (!handle)
             throw new Error(`Handle ${target.handleId} not found in registry`);
-          remote = new comps.Remote(handle);
+          // Use MojoProxy so it's logged!
+          remote = new MojoProxy(interfaceName, handle, comps);
         } else {
-          remote = new comps.Remote();
-          const receiver = remote.bindNewPipeAndPassReceiver();
-          const rawHandle =
-            MojoProxy.getRawHandleFromMojoObject(receiver) ||
-            receiver.handle ||
-            receiver;
-          Mojo.bindInterface(interfaceName, rawHandle);
+          // Standard creation
+          const { handle0, handle1 } = Mojo.createMessagePipe();
+          MojoHandleRegistry.register(handle0);
+          MojoHandleRegistry.register(handle1);
+
+          Mojo.bindInterface(interfaceName, handle1);
+
+          // Wrap handle0 in a MojoProxy so it's logged.
+          remote = new MojoProxy(interfaceName, handle0, comps);
         }
       }
 
@@ -78,9 +92,17 @@
             val = reconciledParams[p.name];
           }
 
-          // Auto-wrap raw handle IDs if they exist in the registry. 
-          // We do this for all types because Reflection might label interfaces as 'any'.
-          if (typeof val === 'number') {
+          // Auto-wrap raw handle IDs if they exist in the registry.
+          // We only do this if the type is explicitly a handle or 'any' to avoid
+          // incorrectly converting enums (numbers) into handles.
+          if (
+            typeof val === "number" &&
+            (!p ||
+              p.type === "mojo_handle" ||
+              p.type === "any" ||
+              p.type === "pending_remote" ||
+              p.type === "pending_receiver")
+          ) {
             const handle = MojoHandleRegistry.get(val);
             if (handle) {
               val = MojoUtils.decorateHandle(handle);
@@ -92,32 +114,47 @@
           }
 
           // Auto-decorate/wrap objects passed as handles
-          if (val !== null && val !== undefined && typeof val === 'object') {
+          if (val !== null && val !== undefined && typeof val === "object") {
             const rawVal = val.nativeHandle || val;
-            const isNativeHandle = rawVal.writeMessage && typeof rawVal.writeMessage === 'function';
+            const isNativeHandle =
+              rawVal.writeMessage && typeof rawVal.writeMessage === "function";
 
             if (isNativeHandle) {
               MojoHandleRegistry.register(rawVal);
 
               const spec = p.rawType?.$ || p.rawType;
-              if (spec && (p.type === 'pending_remote' || p.type === 'pending_associated_remote') && spec.remoteClass) {
+              if (
+                spec &&
+                (p.type === "pending_remote" ||
+                  p.type === "pending_associated_remote") &&
+                spec.remoteClass
+              ) {
                 try {
                   val = new spec.remoteClass(rawVal);
-                  console.log(`[ExecutionService] Wrapped handle in official Remote: ${spec.remoteClass.name}`);
+                  console.log(
+                    `[ExecutionService] Wrapped handle in official Remote: ${spec.remoteClass.name}`,
+                  );
                 } catch (e) {
                   val = MojoUtils.decorateHandle(rawVal);
                 }
-              } else if (spec && (p.type === 'pending_receiver' || p.type === 'pending_associated_receiver') && spec.receiverClass) {
+              } else if (
+                spec &&
+                (p.type === "pending_receiver" ||
+                  p.type === "pending_associated_receiver") &&
+                spec.receiverClass
+              ) {
                 try {
                   val = new spec.receiverClass(rawVal);
-                  console.log(`[ExecutionService] Wrapped handle in official Receiver: ${spec.receiverClass.name}`);
+                  console.log(
+                    `[ExecutionService] Wrapped handle in official Receiver: ${spec.receiverClass.name}`,
+                  );
                 } catch (e) {
                   val = MojoUtils.decorateHandle(rawVal);
                 }
-              } else if (p.type === 'mojo_handle') {
+              } else if (p.type === "mojo_handle") {
                 // If the method expects a RAW handle, pass it UNWRAPPED
                 val = rawVal;
-              } else if (p.type === 'any') {
+              } else if (p.type === "any") {
                 val = MojoUtils.decorateHandle(rawVal);
               }
             }
@@ -172,12 +209,20 @@
 
       // 5. Auto-register result and return combined status
       let registeredResult;
-      if (result && typeof result === "object" && methodDef && methodDef.responseParams) {
+      if (
+        result &&
+        typeof result === "object" &&
+        methodDef &&
+        methodDef.responseParams
+      ) {
         // Map response fields to their specs
         registeredResult = {};
         for (const p of methodDef.responseParams) {
           if (result.hasOwnProperty(p.name)) {
-            registeredResult[p.name] = MojoObjectRegistry.autoRegister(result[p.name], p.type || "Unknown");
+            registeredResult[p.name] = MojoObjectRegistry.autoRegister(
+              result[p.name],
+              p.interface || p.type || "Unknown",
+            );
           }
         }
       } else {
