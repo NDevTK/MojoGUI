@@ -167,9 +167,10 @@
       const ids = ["io-read-handle", "io-write-handle"];
       ids.forEach((id) => {
         const sel = document.getElementById(id);
+        const safe = window.safeHTML || ((s) => s);
         if (sel && window.renderHandleOptions) {
           const current = sel.value;
-          sel.innerHTML = window.renderHandleOptions();
+          sel.innerHTML = safe(window.renderHandleOptions());
           if (current) sel.value = current;
         }
       });
@@ -177,9 +178,10 @@
 
     refreshObjectDropdowns() {
       const sel = document.getElementById("inspect-object-select");
+      const safe = window.safeHTML || ((s) => s);
       if (sel && window.renderRegistryOptions) {
         const current = sel.value;
-        sel.innerHTML = window.renderRegistryOptions();
+        sel.innerHTML = safe(window.renderRegistryOptions());
         if (current) sel.value = current;
       }
     },
@@ -188,6 +190,7 @@
       const sel = document.getElementById("mock-iface-select");
       if (!sel || !window.MojoGUI_API) return;
 
+      const safe = window.safeHTML || ((s) => s);
       const current = sel.value;
       const interfaces = await window.MojoGUI_API.getInterfaces();
       const options = interfaces
@@ -198,11 +201,12 @@
         .sort()
         .join("");
 
-      sel.innerHTML =
+      sel.innerHTML = safe(
         '<option value="" disabled ' +
-        (current ? "" : "selected") +
-        ">Select Interface...</option>" +
-        options;
+          (current ? "" : "selected") +
+          ">Select Interface...</option>" +
+          options,
+      );
       if (current) sel.value = current;
     },
 
