@@ -75,25 +75,38 @@
     readAndForward() {
       if (this.isClosed || !this.handle) return;
 
-      const result = this.handle.readData();
-      if (result.result === Mojo.RESULT_OK) {
-        const data = result.buffer;
+      try {
+        const query = this.handle.queryData();
+        if (query.result === Mojo.RESULT_OK && query.numBytes > 0) {
+          const buffer = new Uint8Array(query.numBytes);
+          const read = this.handle.readData(buffer);
 
-        // 1. Log the data
-        if (window.MojoGUI_API && window.MojoGUI_API.addDataActivity) {
-          window.MojoGUI_API.addDataActivity(this.id, data);
+          if (read.result === Mojo.RESULT_OK) {
+            const data = buffer.slice(0, read.numBytes);
+
+            // 1. Log the data
+            if (window.MojoGUI_API && window.MojoGUI_API.addDataActivity) {
+              window.MojoGUI_API.addDataActivity(this.id, data);
+            }
+
+            // 2. Forward the data
+            if (this.pair && this.pair.writeData) {
+              this.pair.writeData(data);
+            }
+
+            // Check for more data immediately
+            this.readAndForward();
+          } else if (read.result !== Mojo.RESULT_SHOULD_WAIT) {
+            this.close();
+          }
+        } else if (
+          query.result !== Mojo.RESULT_OK &&
+          query.result !== Mojo.RESULT_SHOULD_WAIT
+        ) {
+          this.close();
         }
-
-        // 2. Forward the data
-        if (this.pair && this.pair.writeData) {
-          this.pair.writeData(data);
-        }
-
-        // Check for more data immediately
-        this.readAndForward();
-      } else if (result.result === Mojo.RESULT_SHOULD_WAIT) {
-        // Handled by watch
-      } else {
+      } catch (e) {
+        console.error("[MojoDataPipeProxy] readAndForward FAILED:", e);
         this.close();
       }
     }
