@@ -11,9 +11,9 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 ## Features
 
 - 🔍 **Interface Browser** - Search and browse all available Mojo interfaces
-- �️ **Mojo Workbench** - Dedicated tools for raw Message Pipe, Data Pipe, and Listener operations
+- 🛠 **Mojo Workbench** - Dedicated tools for raw Message Pipe, Data Pipe, and Listener operations
 - 🧩 **Object Inspector** - Live inspection of registered Mojo objects and their internal state
-- �📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
+- 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
 - 🕵️ **Mojo Interceptor** - Block, Log, and Modify requests and responses
 - 🚥 **Traffic Control** - Toggle between "Blocking" (halt execution) and "Logging" (passive monitor) modes
 - 🏢 **Associated Interface Support** - Multiplex associated interfaces via Master Handles

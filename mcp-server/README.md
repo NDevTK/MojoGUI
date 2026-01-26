@@ -169,7 +169,6 @@ This is the most common crash when fuzzing Mojo interfaces. It occurs when:
 - Missing required fields
 
 > ⚠️ **This is NOT a security vulnerability** - it means Mojo validation is working correctly.
-> ⚠️ **Warning**: Only enable MojoJS for security research. Do not browse untrusted websites with this flag enabled.
 
 The MCP server handles this gracefully:
 
