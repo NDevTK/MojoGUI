@@ -63,8 +63,22 @@
 
           Mojo.bindInterface(interfaceName, handle1);
 
-          // Wrap handle0 in a MojoProxy so it's logged.
-          remote = new MojoProxy(interfaceName, handle0, comps);
+          // Check if Global Interceptor is already active for this interface.
+          // If so, it will log the event via handle1 (Receiver), so we don't need to double-log via handle0 (Remote).
+          const isGlobalIntercept =
+            typeof InterceptorManager !== "undefined" &&
+            InterceptorManager.isActive(interfaceName);
+
+          if (isGlobalIntercept) {
+            // Use standard Remote without Proxy wrapper to avoid duplicate events
+            remote = new comps.Remote(handle0);
+            console.log(
+              `[ExecutionService] Global Interceptor active for ${interfaceName}. Skipping local Proxy to avoid duplicates.`,
+            );
+          } else {
+            // Wrap handle0 in a MojoProxy so it's logged locally
+            remote = new MojoProxy(interfaceName, handle0, comps);
+          }
         }
       }
 
