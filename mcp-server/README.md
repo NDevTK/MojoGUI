@@ -57,7 +57,7 @@ npm start
 | --------------------------- | ---------------------------------------------------------------- |
 | `list_interfaces`           | Search/list available Mojo interfaces                            |
 | `get_interface_details`     | Get methods and parameters for an interface                      |
-| `call_method`               | Execute a Mojo method with parameters                            |
+| `call_method`               | Execute a Mojo method (supports new/existing/assoc targets)      |
 | `run_javascript`            | Execute arbitrary JavaScript in the page (supports `async`)      |
 | `generate_code`             | Generate MojoJS code for a method call                           |
 | `set_interceptor_mode`      | Set INTERCEPT (blocking) or LOG (passive) mode                   |
@@ -69,6 +69,8 @@ npm start
 | `get_traffic_stats`         | Get intercepted traffic statistics                               |
 | `get_version_info`          | Get browser/Chromium version info                                |
 | `get_console_logs`          | Retrieve browser console logs and crash info                     |
+| `inspect_object`            | Inspect a registered object (obj_N) or handle                    |
+| `get_handle_details`        | Get low-level details about a Mojo handle                        |
 | `take_browser_screenshot`   | Capture entire browser window via `capture_chrome.py`            |
 
 ## Example Usage
@@ -99,10 +101,24 @@ This is useful when the method is expected to be intercepted, which would normal
 {
   "name": "call_method",
   "arguments": {
-    "interface": "BatteryMonitor",
     "method": "QueryNextStatus",
+    "objectId": "obj_0",
     "params": {},
     "userGesture": true
+  }
+}
+```
+
+### Call a method on a specific handle
+
+```json
+{
+  "name": "call_method",
+  "arguments": {
+    "interface": "blink.mojom.FileSystemAccessDirectoryHandle",
+    "method": "GetEntries",
+    "handleId": 4,
+    "params": {}
   }
 }
 ```

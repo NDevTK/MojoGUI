@@ -11,15 +11,17 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 ## Features
 
 - 🔍 **Interface Browser** - Search and browse all available Mojo interfaces
-- 📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
+- �️ **Mojo Workbench** - Dedicated tools for raw Message Pipe, Data Pipe, and Listener operations
+- 🧩 **Object Inspector** - Live inspection of registered Mojo objects and their internal state
+- �📝 **No-Code Parameter Forms** - Auto-generated forms for method parameters
 - 🕵️ **Mojo Interceptor** - Block, Log, and Modify requests and responses
 - 🚥 **Traffic Control** - Toggle between "Blocking" (halt execution) and "Logging" (passive monitor) modes
-- 📈 **Version Tracker** - Detect and log interface changes across Chrome versions
+- 🏢 **Associated Interface Support** - Multiplex associated interfaces via Master Handles
 - ⚡ **Live Code Generation** - See valid MojoJS code in real-time
+- 🔄 **Automated Registries** - Real-time updates for newly created handles and objects
 - 📋 **One-Click Copy** - Copy generated code to clipboard
 - 🚀 **Execute in Browser** - Run code directly when MojoJS is enabled
 - 👋 **Interactive Guide** - Built-in welcome and setup assistance for researchers
-- 🔄 **Auto-Updated Bindings** - GitHub Action keeps bindings up-to-date
 
 ## Quick Start
 
@@ -55,13 +57,21 @@ Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 
 1. **Select an Interface** - Use the sidebar to browse or search for interfaces
 2. **Choose a Method** - Click on a method to see its parameters
-3. **Configure Parameters** - Fill in the auto-generated form fields
-4. **Intercept Traffic**:
+3. **Configure Target**:
+   - **⚡ New Interface**: Create a fresh connection (standard or associated).
+   - **🧩 Existing Instance**: Call a method on a handle/object you already have (captured from a result).
+4. **Configure Parameters** - Fill in the auto-generated form fields
+5. **Intercept Traffic**:
    - **Blocking Mode**: Halts execution, allowing you to modify parameters before **Resuming** or **Dropping**.
    - **Logging Mode**: Passively logs traffic to the history without blocking.
    - **Response Interception**: Enable this to pause execution when a response is received, allowing you to modify return values.
-5. **Replay Requests** - Re-send captured requests with modified parameters
-6. **Copy or Execute** - Get the generated code or run it directly
+6. **Mojo Workbench (Tools Tab)**:
+   - Create raw Message Pipes or Data Pipes.
+   - Read/Write directly to handles.
+   - Create **Mock Listeners** to capture callbacks from the browser.
+   - Inspect the state of any registered `obj_N` using the **Object Inspector**.
+7. **Replay Requests** - Re-send captured requests with modified parameters
+8. **Copy or Execute** - Get the generated code or run it directly
 
 ## Vulnerability Research Workflow
 
