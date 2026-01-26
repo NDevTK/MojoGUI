@@ -161,6 +161,10 @@
       WelcomeManager.init(state.interfaces, safeHTML, trackerVersion);
     }
 
+    if (window.ToolsPanel) {
+      ToolsPanel.init();
+    }
+
     setupEventListeners();
   }
 
@@ -248,6 +252,11 @@
         }
       };
       elements.paramsForm.addEventListener("input", handleParamChange);
+
+      // Initialize Delegated Events for dynamic buttons (Add/Remove items, etc)
+      if (window.InputRendererService && window.InputRendererService.init) {
+        InputRendererService.init(elements.paramsForm);
+      }
       elements.paramsForm.addEventListener("change", handleParamChange);
     }
 

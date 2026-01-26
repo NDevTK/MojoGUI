@@ -7,7 +7,7 @@
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline';
+        script-src 'self';
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data: blob:;
@@ -412,68 +412,10 @@
     <!-- Mojo runtime (order matters: mojo_bindings.js defines mojo namespace first) -->
     <script src="bindings/mojo_bindings.js"></script>
     <script src="bindings/bindings_lite.js"></script>
-    <script>
-      // Core polyfills needed by mojom dependencies
-      if (typeof mojo !== "undefined") {
-        mojo.internal = mojo.internal || {};
-        mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
-        mojo.internal.Union = function (objectToBlessAsType, name, fields) {
-          const unionSpec = { name, fields };
-          objectToBlessAsType.$ = {
-            unionSpec: unionSpec,
-            encode: function (value, encoder, byteOffset, bitOffset, nullable) {
-              encoder.encodeUnion(unionSpec, byteOffset, value);
-            },
-            decode: function (decoder, byteOffset, bitOffset, nullable) {
-              return decoder.decodeUnion(unionSpec, byteOffset);
-            },
-            computeDimensions: function (value, nullable) {
-              return mojo.internal.computeUnionDimensions(
-                unionSpec,
-                nullable,
-                value,
-              );
-            },
-            arrayElementSize: (nullable) => (nullable ? 8 : 16),
-            encodeNull: function (encoder, byteOffset) {},
-            isValidObjectKeyType: false,
-          };
-        };
-      }
-    </script>
+    <script src="js/core/init_polyfills.js"></script>
     <script src="bindings/mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"></script>
     <script src="bindings/mojo_public_interfaces_bindings_interface_control_messages.mojom.js"></script>
-    <script>
-      // Post-load aliasing (bridges internal Mojom paths to short names expected by interface_support.js)
-      if (typeof mojo !== "undefined") {
-        const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
-
-        // Pipe Control
-        if (b && b.pipe_control) {
-          mojo.pipeControl = b.pipe_control;
-          mojo.pipeControl.RUN_OR_CLOSE_PIPE_MESSAGE_ID =
-            b.pipe_control.kRunOrClosePipeMessageId || 0xfffffffe;
-        } else {
-          mojo.pipeControl = mojo.pipeControl || {
-            RUN_OR_CLOSE_PIPE_MESSAGE_ID: 0xfffffffe,
-          };
-        }
-
-        // Interface Control
-        if (b && b.interface_control) {
-          mojo.interfaceControl = b.interface_control;
-          mojo.interfaceControl.RUN_MESSAGE_ID =
-            b.interface_control.kRunMessageId || 0xffffffff;
-          mojo.interfaceControl.RUN_OUTPUT_MESSAGE_ID =
-            b.interface_control.kRunMessageId || 0xffffffff;
-        } else {
-          mojo.interfaceControl = mojo.interfaceControl || {
-            RUN_MESSAGE_ID: 0xffffffff,
-            RUN_OUTPUT_MESSAGE_ID: 0xffffffff,
-          };
-        }
-      }
-    </script>
+    <script src="js/core/init_aliasing.js"></script>
     <script src="bindings/interface_support.js"></script>
     <!-- Core Registries -->
     <script src="js/core/HandleRegistry.js"></script>

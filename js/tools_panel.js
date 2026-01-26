@@ -12,6 +12,53 @@
       this.renderTools();
     },
 
+    bindTools() {
+      const container = document.querySelector(".tools-container");
+      if (!container) return;
+
+      // Object Inspector
+      const inspectSelect = container.querySelector("#inspect-object-select");
+      if (inspectSelect) {
+        inspectSelect.addEventListener("change", (e) =>
+          this.inspectSelectedObject(e.target.value),
+        );
+      }
+
+      // Message Pipe
+      const createMpBtn = container.querySelector('[data-action="create-mp"]');
+      if (createMpBtn) {
+        createMpBtn.addEventListener("click", () => this.createMessagePipe());
+      }
+
+      // Data Pipe
+      const createDpBtn = container.querySelector('[data-action="create-dp"]');
+      if (createDpBtn) {
+        createDpBtn.addEventListener("click", () => this.createDataPipe());
+      }
+
+      // Mock Listener
+      const bindListenerBtn = container.querySelector(
+        '[data-action="bind-listener"]',
+      );
+      if (bindListenerBtn) {
+        bindListenerBtn.addEventListener("click", () =>
+          this.createMockListener(),
+        );
+      }
+
+      // IO Read
+      const readBtn = container.querySelector('[data-action="read-pipe"]');
+      if (readBtn) {
+        readBtn.addEventListener("click", () => this.readPipe());
+      }
+
+      // IO Write
+      const writeBtn = container.querySelector('[data-action="write-pipe"]');
+      if (writeBtn) {
+        writeBtn.addEventListener("click", () => this.writePipe());
+      }
+    },
+
     bindTabs() {
       const tabs = document.querySelectorAll(".sidebar-tab");
       tabs.forEach((tab) => {
@@ -68,7 +115,7 @@
                     <h4 style="color: var(--accent);">🧩 Object Inspector</h4>
                     <div class="desc">View properties and methods of registered objects.</div>
                     <div class="form-group">
-                        <select id="inspect-object-select" style="width: 100%;" onchange="window.ToolsPanel.inspectSelectedObject(this.value)">
+                        <select id="inspect-object-select" style="width: 100%;">
                             <option value="" disabled selected>Select an object...</option>
                         </select>
                     </div>
@@ -79,7 +126,7 @@
                 <div class="tool-card">
                     <h4>🔌 Message Pipe</h4>
                     <div class="desc">Create a raw message pipe pair (MP).</div>
-                    <button class="btn btn-secondary btn-small" style="width: 100%;" onclick="window.ToolsPanel.createMessagePipe()">Create New Pair</button>
+                    <button class="btn btn-secondary btn-small" style="width: 100%;" data-action="create-mp">Create New Pair</button>
                     <div id="mp-result" class="code-block" style="display:none; margin-top: 8px; font-size: 0.75rem;"></div>
                 </div>
 
@@ -89,7 +136,7 @@
                     <div class="desc">Create a raw data pipe (DP) for bulk data.</div>
                     <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                         <input type="number" id="dp-capacity" placeholder="Capacity" value="65536" style="flex: 1; font-size: 0.8rem; padding: 4px; background: var(--bg-input); border: 1px solid var(--border-subtle); color: white;">
-                        <button class="btn btn-secondary btn-small" onclick="window.ToolsPanel.createDataPipe()">Create DP</button>
+                        <button class="btn btn-secondary btn-small" data-action="create-dp">Create DP</button>
                     </div>
                     <div id="dp-result" class="code-block" style="display:none; font-size: 0.75rem;"></div>
                 </div>
@@ -104,7 +151,7 @@
                             ${this.renderInterfaceOptions()}
                         </select>
                     </div>
-                    <button class="btn btn-secondary btn-small" style="width: 100%;" onclick="window.ToolsPanel.createMockListener()">Bind Listener</button>
+                    <button class="btn btn-secondary btn-small" style="width: 100%;" data-action="bind-listener">Bind Listener</button>
                     <div id="mock-result" class="code-block" style="display:none; margin-top: 8px; font-size: 0.75rem;"></div>
                 </div>
 
@@ -126,7 +173,7 @@
                                  <option value="base64">B64</option>
                              </select>
                         </div>
-                        <button class="btn btn-primary btn-small" style="width: 100%;" onclick="window.ToolsPanel.readPipe()">Read from Pipe</button>
+                        <button class="btn btn-primary btn-small" style="width: 100%;" data-action="read-pipe">Read from Pipe</button>
                         <div id="io-read-output" class="code-block" style="display:none; margin-top: 8px; font-size: 0.75rem; max-height: 100px;"></div>
                     </div>
 
@@ -139,13 +186,14 @@
                             </select>
                             <textarea id="io-write-data" placeholder="Data to write..." style="width:100%; height: 60px; font-size:0.8rem; padding:6px; background:var(--bg-input); border:1px solid var(--border-subtle); color:white; border-radius: 4px; resize: vertical;"></textarea>
                         </div>
-                        <button class="btn btn-primary btn-small" style="width:100%;" onclick="window.ToolsPanel.writePipe()">Write to Pipe</button>
+                        <button class="btn btn-primary btn-small" style="width:100%;" data-action="write-pipe">Write to Pipe</button>
                          <div id="io-write-output" class="code-block" style="display:none; margin-top: 8px; font-size: 0.75rem;"></div>
                     </div>
                 </div>
             `);
 
       this.refreshAllDropdowns();
+      this.bindTools();
     },
 
     renderInterfaceOptions() {

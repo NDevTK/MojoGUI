@@ -12,7 +12,119 @@
   const mapFieldsToUIParams = (fields, ns) =>
     MojoReflectionService.mapFieldsToParams(fields, ns);
 
-  // Helper for Array rendering
+  // Initialize Event Delegation
+  const init = (container) => {
+    if (!container) return;
+
+    container.addEventListener("click", (e) => {
+      const target = e.target;
+
+      // Remove Item
+      const removeBtn = target.closest('[data-action="remove-item"]');
+      if (removeBtn) {
+        window.removeArrayItem(removeBtn, removeBtn.dataset.prefix);
+        return;
+      }
+
+      // Add Item
+      const addBtn = target.closest('[data-action="add-item"]');
+      if (addBtn) {
+        window.addArrayItem(addBtn, addBtn.dataset.hasKey === "true");
+        return;
+      }
+
+      // Toggle Visibility (Label)
+      const label = target.closest('[data-action="toggle-visibility"]');
+      if (label) {
+        const content = label.nextElementSibling;
+        if (content) content.hidden = !content.hidden;
+        return;
+      }
+
+      // Refresh Handles
+      const refreshBtn = target.closest('[data-action="refresh-handles"]');
+      if (refreshBtn) {
+        const sel = refreshBtn.previousElementSibling;
+        if (sel) sel.innerHTML = window.renderHandleOptions();
+        return;
+      }
+
+      // Use Handle Interface
+      const useBtn = target.closest('[data-action="use-interface"]');
+      if (useBtn) {
+        const { interface: iface, id, ref } = useBtn.dataset;
+        window.useHandle(iface, id, ref);
+        return;
+      }
+    });
+
+    container.addEventListener("change", (e) => {
+      const target = e.target;
+
+      // Handle Action Change
+      if (target.matches(".handle-action-select")) {
+        handleActionChange(target);
+        return;
+      }
+
+      // Handle Custom Input Change
+      if (target.matches(".handle-custom-input")) {
+        const card = target.closest(".mojo-handle-card");
+        updateHiddenHandleInput(card);
+        return;
+      }
+    });
+  };
+
+  const handleActionChange = (select) => {
+    const card = select.closest(".mojo-handle-card");
+    const icon = card.querySelector(".handle-icon");
+    const customContainer = card.querySelector(".handle-custom-container");
+
+    card.className =
+      "mojo-handle-card " +
+      (select.value === "close"
+        ? "closed"
+        : select.value === "new_pipe"
+          ? "new"
+          : select.value === "use_handle"
+            ? "custom"
+            : "");
+    icon.textContent =
+      select.value === "close"
+        ? "❌"
+        : select.value === "new_pipe"
+          ? "🆕"
+          : select.value === "use_handle"
+            ? "🔢"
+            : "🔌";
+    customContainer.style.display =
+      select.value === "use_handle" ? "block" : "none";
+
+    updateHiddenHandleInput(card);
+  };
+
+  const updateHiddenHandleInput = (card) => {
+    const customInput = card.querySelector(".handle-custom-input");
+    const select = card.querySelector(".handle-action-select");
+    const hiddenInput = card.querySelector(".param-input");
+
+    // Parse current JSON to preserve static fields
+    let current = {};
+    try {
+      current = JSON.parse(hiddenInput.value);
+    } catch (e) {}
+
+    const newVal = {
+      ...current,
+      __mojoType: "Handle",
+      action: select.value,
+      customHandle: customInput.value,
+    };
+
+    hiddenInput.value = JSON.stringify(newVal);
+    hiddenInput.dispatchEvent(new Event("change", { bubbles: true }));
+  };
   window.reindexArrayItems = function (container, prefix) {
     if (!container) return;
     Array.from(container.children).forEach((item, index) => {
@@ -131,7 +243,7 @@
 
     // If templateHtml is just the input, we wrapper it.
     wrapper.innerHTML = safeHTML(`<div class="item-content">${newItemHtml}</div>
-                        <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ""}')">&times;</button>`);
+                        <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}">&times;</button>`);
 
     container.appendChild(wrapper);
     updateContainerCount(container);
@@ -373,33 +485,7 @@
                             <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
                         </div>
                         <div class="handle-actions">
-                            <select class="handle-action-select" onchange="
-                                const card = this.closest('.mojo-handle-card');
-                                const icon = card.querySelector('.handle-icon');
-                                const customContainer = card.querySelector('.handle-custom-container');
-                                const customInput = customContainer.querySelector('.handle-custom-input');
-                                
-                                card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : (this.value === 'use_handle' ? 'custom' : '')));
-                                icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : (this.value === 'use_handle' ? '🔢' : '🔌')));
-                                customContainer.style.display = this.value === 'use_handle' ? 'block' : 'none';
-                                
-                                // Update hidden input
-                                const updateHidden = () => {
-                                    const hiddenInput = card.querySelector('.param-input'); // Fixed lookup
-                                    hiddenInput.value = JSON.stringify({
-                                        __mojoType: 'Handle',
-                                        interface: '${escapeHtml(ifaceName)}',
-                                        interfaceId: '${escapeHtml(ifaceId)}',
-                                        isReceiver: ${isReceiver},
-                                        action: this.value,
-                                        $ref: '${escapeHtml(refId || "")}' || undefined,
-                                        customHandle: customInput.value
-                                    });
-                                    hiddenInput.dispatchEvent(new Event('change', {bubbles: true}));
-                                };
-                                updateHidden();
-                                customInput.onchange = updateHidden; // select uses onchange
-                            ">
+                            <select class="handle-action-select">
                                 <option value="preserve" ${currentAction === "preserve" ? "selected" : ""}>Keep Original</option>
                                 <option value="close" ${currentAction === "close" ? "selected" : ""}>Close Handle</option>
                                 <option value="new_pipe" ${currentAction === "new_pipe" ? "selected" : ""}>New Pipe</option>
@@ -412,10 +498,10 @@
                                         <option value="" disabled selected>Select a handle...</option>
                                         ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
                                     </select>
-                                    <button type="button" class="btn btn-secondary btn-small" onclick="const sel = this.previousElementSibling; sel.innerHTML = window.renderHandleOptions();" title="Refresh Handles">🔄</button>
+                                    <button type="button" class="btn btn-secondary btn-small" data-action="refresh-handles" title="Refresh Handles">🔄</button>
                                 </div>
                             </div>
-                            ${ifaceName !== "Unknown" ? `<button type="button" class="btn btn-secondary btn-small" style="margin-top: 4px; width: 100%;" onclick="window.useHandle('${escapeHtml(ifaceName)}', '${escapeHtml(ifaceId)}', '${escapeHtml(refId || "")}')">Use Interface</button>` : ""}
+                            ${ifaceName !== "Unknown" ? `<button type="button" class="btn btn-secondary btn-small" style="margin-top: 4px; width: 100%;" data-action="use-interface" data-interface="${escapeHtml(ifaceName)}" data-id="${escapeHtml(ifaceId)}" data-ref="${escapeHtml(refId || "")}">Use Interface</button>` : ""}
                         </div>
                     </div>
                 </div>
@@ -446,7 +532,7 @@
                 <div class="form-group struct-group" 
                      data-type="struct" 
                      data-original-name="${escapeHtml(param.name)}">
-                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                    <label style="cursor: pointer;" data-action="toggle-visibility">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Struct</span>
@@ -499,7 +585,7 @@
           (val, i) => `
                 <div class="array-item">
                     <div class="item-content">${renderItemHtml(val, i)}</div>
-                    <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ""}')">&times;</button>
+                    <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}">&times;</button>
                 </div>
             `,
         )
@@ -535,7 +621,7 @@
                      data-type="array" 
                      data-original-name="${escapeHtml(param.name)}"
                      data-prefix="${escapeHtml(prefix)}">
-                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                    <label style="cursor: pointer;" data-action="toggle-visibility">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
@@ -547,7 +633,7 @@
                         </div>
                         <template class="item-template">${templateHtml}</template>
                         <button type="button" class="btn btn-secondary btn-small add-item-btn" 
-                                onclick="addArrayItem(this)">+ Add Item</button>
+                                data-action="add-item" data-has-key="false">+ Add Item</button>
                     </div>
                 </div>`;
     }
@@ -626,7 +712,7 @@
           (entry, i) => `
                     <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
                         <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
-                        <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                        <button type="button" class="remove-item-btn" data-action="remove-item" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
                     </div>
                 `,
         )
@@ -643,7 +729,7 @@
                      data-original-name="${escapeHtml(param.name)}"
                      data-prefix="${escapeHtml(prefix)}"
                      style="margin-bottom: 8px;">
-                    <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
+                    <label style="cursor: pointer;" data-action="toggle-visibility">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.keySpec)}, ${inferTypeFromMojomType(param.mapSpec.valueSpec)}&gt;</span>
@@ -655,7 +741,7 @@
                         </div>
                         <template class="item-template">${templateHtml}</template>
                         <button type="button" class="btn btn-secondary btn-small add-item-btn" 
-                                onclick="addArrayItem(this, true)">+ Add Entry</button>
+                                data-action="add-item" data-has-key="true">+ Add Entry</button>
                     </div>
                 </div>`;
     }
@@ -1056,5 +1142,6 @@
     getInterceptorFormValues,
     convertParamsObjectToArray,
     renderInterceptorForm,
+    init,
   };
 })(this);

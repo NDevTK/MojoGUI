@@ -47,7 +47,7 @@ const WelcomeManager = (function () {
             <p><strong>MojoGUI</strong> uses the <code>MojoInterfaceInterceptor</code> API to capture interface requests relative to the current context. This allows us to:</p>
             <ul>
                 <li><strong>Log:</strong> See every message sent between the page and the browser.</li>
-                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly (<a href="#" onclick="alert('Proxies are created dynamically!')">Dynamic Proxying</a>).</li>
+                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly (<span title="Proxies are created dynamically!">Dynamic Proxying</span>).</li>
                 <li><strong>Fuzz:</strong> Send custom messages to test browser security.</li>
             </ul>
         </div>

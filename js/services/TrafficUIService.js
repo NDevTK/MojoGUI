@@ -191,7 +191,9 @@
                           }
                         }
 
-                        return `<button class="btn btn-small ${isBtnActive ? "active" : ""}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? "Blocking" : "Logging"}</button>`;
+                        return `<button class="btn btn-small ${isBtnActive ? "active" : ""}" data-action="toggle-intercept">
+                          ${isBtnActive ? "Blocking" : "Logging"}
+                        </button>`;
                       })()
                     : ""
                 }
@@ -201,6 +203,15 @@
     // Attach full details for the details view
     row.__details = data;
     row.addEventListener("click", () => showInterceptDetails(row.__details));
+
+    // Attach Toggle Listener
+    const toggleBtn = row.querySelector('[data-action="toggle-intercept"]');
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.toggleInterceptFromLog(iface, method);
+      });
+    }
 
     getElements().interceptorTableBody.prepend(row);
   }
@@ -390,20 +401,20 @@
                   isPending && !isManual
                     ? `
                 <div class="action-buttons">
-                    <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Resume</button>
-                    <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
+                    <button class="btn btn-primary btn-small" data-action="resume" data-drop="false">Resume</button>
+                    <button class="btn btn-small" data-action="resume" data-drop="true">Drop</button>
                 </div>
                 `
                     : !isPending && detail.status !== "Response Edit"
                       ? `
                 <div class="action-buttons">
-                    <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Replay</button>
+                    <button class="btn btn-primary btn-small" data-action="replay">Replay</button>
                 </div>
                 `
                       : detail.status === "Response Edit"
                         ? `
                 <div class="action-buttons">
-                    <button class="btn btn-primary btn-small" onclick="sendResponse('${id}')">Send Response</button>
+                    <button class="btn btn-primary btn-small" data-action="send-response">Send Response</button>
                     <!-- Maybe Drop Response? Proxy doesn't support dropResponse explicitly, but we could just drop connection? For now just Send. -->
                 </div>
                 `
@@ -412,6 +423,25 @@
             </div>
             ${contentHtml}
         `);
+
+    // Attach Action Listeners
+    const container = getElements().interceptorDetails;
+    const resumeBtns = container.querySelectorAll('[data-action="resume"]');
+    resumeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        window.resumeIntercept(id, btn.dataset.drop === "true");
+      });
+    });
+
+    const replayBtn = container.querySelector('[data-action="replay"]');
+    if (replayBtn) {
+      replayBtn.addEventListener("click", () => window.replayIntercept(id));
+    }
+
+    const sendBtn = container.querySelector('[data-action="send-response"]');
+    if (sendBtn) {
+      sendBtn.addEventListener("click", () => window.sendResponse(id));
+    }
   }
 
   // Modify request function (globally accessible for onclick)
