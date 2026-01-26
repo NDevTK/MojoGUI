@@ -6,13 +6,27 @@
   "use strict";
 
   const state = window.MojoGUI_State;
-  const safeHTML = MojoUtils.safeHTML;
-  const sanitizeKeys = MojoUtils.sanitizeKeys;
-  const reconcileKeys = MojoUtils.reconcileKeys;
-  const escapeHtml = MojoUtils.escapeHtml;
+  const {
+    safeHTML,
+    escapeHtml,
+    safeStringify,
+    safeParse,
+    sanitizeKeys,
+    reconcileKeys,
+  } = MojoUtils;
+
+  const {
+    renderInterceptorForm,
+    getInterceptorFormValues,
+    convertParamsObjectToArray,
+  } = InputRendererService;
+
+  // Internal function redirects
+  const getInternal = () => window.__MojoGUI_Internal || {};
+  const findMethodDefinition = (...args) =>
+    getInternal().findMethodDefinition?.(...args);
 
   // Use global elements object (initialized in app.js)
-  // We use a getter or check each time because it's initialized late
   const getElements = () => window.MojoGUI_Elements || {};
 
   // Helper for Traffic Log Buttons

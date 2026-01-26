@@ -6,10 +6,11 @@
   "use strict";
 
   const state = window.MojoGUI_State;
-  const safeHTML = MojoUtils.safeHTML;
-  const escapeHtml = MojoUtils.escapeHtml;
-  const inferTypeFromMojomType = MojoReflectionService.inferType;
-  const mapFieldsToUIParams = MojoReflectionService.mapFieldsToParams;
+  const { safeHTML, escapeHtml, safeStringify, sanitizeKeys } = MojoUtils;
+  const inferTypeFromMojomType = (type) =>
+    MojoReflectionService.inferType(type);
+  const mapFieldsToUIParams = (fields, ns) =>
+    MojoReflectionService.mapFieldsToParams(fields, ns);
 
   // Helper for Array rendering
   window.reindexArrayItems = function (container, prefix) {
@@ -1000,6 +1001,50 @@
     return result;
   };
 
+  function getInterceptorFormValues(id) {
+    const formContainer = document.getElementById(`interceptForm_${id}`);
+    if (!formContainer) return {};
+    // Intercept params are named arguments, so return Object
+    return collectFormData(formContainer, false);
+  }
+
+  function convertParamsObjectToArray(paramsObj, methodDef) {
+    if (!methodDef || !methodDef.parameters) return [];
+    return methodDef.parameters.map((p) => {
+      // paramsObj keys match p.name exactly (including arg_ prefix if present in mojom)
+      // collectFormData uses dataset.originalName which is exact param.name
+      return paramsObj[p.name];
+    });
+  }
+
+  function renderInterceptorForm(paramsDef, values, interceptId) {
+    if (!paramsDef || paramsDef.length === 0) {
+      return `<div class="empty-state small"><p>No parameters</p></div>`;
+    }
+
+    const inputs = paramsDef
+      .map((param, index) => {
+        let value;
+        if (Array.isArray(values)) {
+          value = values[index];
+        } else if (values && typeof values === "object") {
+          // Try exact name, then name without arg_ prefix (since values might be sanitized)
+          value = values[param.name];
+          if (value === undefined && param.name.startsWith("arg_")) {
+            value = values[param.name.substring(4)];
+          }
+        }
+        return renderInput(param, value, {
+          isInterceptor: true,
+          index,
+          interceptId,
+        });
+      })
+      .join("");
+
+    return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
+  }
+
   global.InputRendererService = {
     renderInput,
     addArrayItem,
@@ -1008,5 +1053,8 @@
     updateContainerCount,
     parseInputValue,
     collectFormData,
+    getInterceptorFormValues,
+    convertParamsObjectToArray,
+    renderInterceptorForm,
   };
 })(this);
