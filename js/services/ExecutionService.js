@@ -87,7 +87,6 @@
         finalArgs = methodDef.parameters.map((p, i) => {
           let val = paramsArray[i];
 
-          // If params is an object but we are here, reconciledParams was an object
           if (!Array.isArray(reconciledParams)) {
             val = reconciledParams[p.name];
           }

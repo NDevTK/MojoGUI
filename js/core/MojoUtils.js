@@ -5,6 +5,18 @@
 (function (global) {
   "use strict";
 
+  // Shared Application State
+  window.MojoGUI_State = window.MojoGUI_State || {
+    interfaces: [],
+    selectedInterface: null,
+    selectedMethod: null,
+    paramValues: {},
+    mojoAvailable: false,
+    panelVisible: false,
+    trafficCount: 0,
+    interceptResponses: false,
+  };
+
   function safeStringify(value, space) {
     return JSON.stringify(
       value,
@@ -465,6 +477,13 @@
     return html;
   }
 
+  function escapeHtml(str) {
+    if (typeof str !== "string") return str;
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   function safeScriptURL(url) {
     if (trustedPolicy) {
       return trustedPolicy.createScriptURL(url);
@@ -484,9 +503,11 @@
     inflateString16,
     decodeBigString,
     decorateHandle,
+    escapeHtml,
   };
 
   global.MojoUtils = MojoUtils;
   global.safeHTML = safeHTML;
   global.safeScriptURL = safeScriptURL;
+  global.escapeHtml = escapeHtml;
 })(this);
