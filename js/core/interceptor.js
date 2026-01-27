@@ -396,6 +396,70 @@
       return args.map((arg, idx) => {
         if (!arg || typeof arg !== "object") return arg;
         if (arg.__skipInterceptor) return arg;
+
+        // 1. Detect and Bridge Data Pipes
+        // We look for raw handles that look like data pipes (no writeMessage, but valid handles)
+        try {
+          const rawHandle =
+            arg.handle ||
+            arg.nativeHandle ||
+            (arg instanceof MojoHandle ? arg : null);
+
+          // Heuristic: If it has writeMessage, it's a Message Pipe (Interface).
+          // If it doesn't, checks signals to see if it's a Data Pipe.
+          if (
+            rawHandle &&
+            (!rawHandle.writeMessage ||
+              typeof rawHandle.writeMessage !== "function")
+          ) {
+            // Check for Data Pipe Consumer
+            try {
+              const query = rawHandle.queryData();
+              // If queryData exists and returns a valid result (OK or SHOULD_WAIT), it's a Consumer
+              if (
+                query &&
+                (query.result === Mojo.RESULT_OK ||
+                  query.result === Mojo.RESULT_SHOULD_WAIT)
+              ) {
+                const { proxy, handleToPass } = MojoDataPipeProxy.createBridge(
+                  rawHandle,
+                  "consumer",
+                );
+                handleToPass.__mojoDataPipeProxy = proxy;
+                return handleToPass;
+              }
+            } catch (e) {
+              // Not a consumer or query failed
+            }
+
+            // Check for Data Pipe Producer
+            try {
+              // Try writing 0 bytes. If it works or waits, it's a Producer.
+              const writeOptions = { allOrNone: true }; // check options support if needed
+              // actually writeData takes (buffer, options).
+              // We can try checking if writeData function exists and behaves like a producer.
+              // But strictly calling it might have side effects if we actually write.
+              // writing empty buffer?
+              if (
+                rawHandle.writeData &&
+                typeof rawHandle.writeData === "function"
+              ) {
+                // There isn't a non-destructive "queryWrite" for producer in the IDL.
+                // However, we verified it lacks `writeMessage` (MessagePipe).
+                // So if it has `writeData` and `queryData` failed, it's likely a Producer.
+                // We can just assume it is if it has the method.
+                const { proxy, handleToPass } = MojoDataPipeProxy.createBridge(
+                  rawHandle,
+                  "producer",
+                );
+                handleToPass.__mojoDataPipeProxy = proxy;
+                return handleToPass;
+              }
+            } catch (e) {}
+          }
+        } catch (e) {}
+
+        // 2. Detect and Bridge Interfaces (existing logic)
         const isMojo =
           typeof arg.unbind === "function" ||
           (arg.proxy && typeof arg.proxy.unbind === "function");
@@ -410,6 +474,7 @@
               : MojoProxy.getRawHandleFromMojoObject(h) || h;
           if (rawHandle && rawHandle.writeMessage) {
             const bridgedHandle = this.bridgeHandle(rawHandle, `Arg${idx}`);
+            // Re-wrap into an endpoint/remote structure that Mojo expects
             const mockEndpoint = {
               releasePipe: () => bridgedHandle,
               handle: bridgedHandle,

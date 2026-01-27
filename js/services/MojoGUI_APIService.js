@@ -458,6 +458,34 @@
     }),
     // ---- Handle Management ----
     /**
+     * Bind a Mojo interface with interception enabled.
+     * @param {string} ifaceName - The interface name
+     * @returns {Object} { objectId, type }
+     */
+    bindInterceptedInterface: async (ifaceName) => {
+      const fqn = await MojoLoader.ensureBinding(ifaceName);
+      const name = fqn || ifaceName;
+
+      const comps = MojoProxy.getInterfaceComponents(name);
+      if (!comps.Remote) throw new Error("No Remote found for " + name);
+
+      // 1. Create Proxy (creates a pipe internal to the proxy)
+      // We want: Remote (Agent) -> Proxy -> Browser Implementation
+      const { handle0, handle1 } = Mojo.createMessagePipe();
+
+      // 2. Bind handle1 to the browser (The actual implementation)
+      Mojo.bindInterface(name, handle1);
+
+      // 3. Create Proxy wrapping handle0
+      // The Proxy will use handle0 to send messages to the browser.
+      const proxyImpl = new MojoProxy(name, handle0, comps);
+
+      // 4. Register the Proxy (Reference is kept by registry)
+
+      return { objectId: proxyImpl.id, type: name };
+    },
+
+    /**
      * Bind a mock listener (sink) for an interface and return a handleId.
      * Incoming calls will be logged to the Interceptor.
      * @param {string} ifaceName - The listener interface name

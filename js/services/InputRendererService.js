@@ -518,27 +518,26 @@
       );
 
       // Handle Type Selection Template
+      // Simplified: We now only show a 'New Pipe' option in the action dropdown.
+      // The internal type is inferred or set by default.
       let handleTypeSelector = "";
       if (
-        effectiveType === "mojo_handle" ||
-        typeString === "mojo_handle" ||
-        (!isDataPipe &&
-          typeString !== "pending_remote" &&
-          typeString !== "pending_receiver" &&
-          typeString !== "pending_associated_remote" &&
-          typeString !== "pending_associated_receiver")
+        (effectiveType === "mojo_handle" || typeString === "mojo_handle") &&
+        !isDataPipe
       ) {
-        handleTypeSelector = `
-          <div style="margin-bottom: 8px;">
-            <label style="font-size: 0.8em; color: var(--text-muted); display: block; margin-bottom: 2px;">Internal Type:</label>
-            <select class="handle-type-select" style="width: 100%; padding: 4px; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-main); border-radius: 4px;">
-              <option value="mojo_handle" ${typeString === "mojo_handle" ? "selected" : ""}>Message Pipe</option>
-              <option value="data_pipe_producer" ${typeString === "data_pipe_producer" ? "selected" : ""}>Data Pipe (Producer)</option>
-              <option value="data_pipe_consumer" ${typeString === "data_pipe_consumer" ? "selected" : ""}>Data Pipe (Consumer)</option>
-            </select>
-          </div>
-        `;
+        // Only show specific type selector if it's a generic mojo_handle and we want to let user force it?
+        // Actually user asked to reduce options. Let's just hide it if it's generic,
+        // defaulting to Message Pipe unless context says otherwise.
+        // If they need a data pipe they can use the 'New Pipe' action which we will make smart.
+        // Or we can just keep it for generic handles but hide it for specific data pipes.
       }
+
+      // If it is a specific Data Pipe Type, we don't need a selector, we know what it is.
+      // If it is a generic Mojo Handle, we default to MessagePipe.
+
+      // Let's remove the extra selector as per user request "only needs a single 'New pipe' dropdown option".
+      // This likely means removing the "Internal Type" selector which had (Message Pipe, Data Pipe Producer, Data Pipe Consumer).
+      // We will infer it from the param type if possible.
 
       return `
                 <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
