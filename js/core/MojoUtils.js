@@ -448,15 +448,39 @@
     if (!typeInfo) return value;
     if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
     if (typeInfo.unionSpec) {
-      // For unions, if it's not already a union-wrapped object, we might need a default tag
+      // For unions, if it's already a union-wrapped object, we might need a default tag
       if (
         typeof value === "object" &&
         !Array.isArray(value) &&
         Object.keys(value).length === 1
       ) {
-        return value;
+        // If the key is one of the union fields, it's already correctly formatted
+        const key = Object.keys(value)[0];
+        if (typeInfo.unionSpec.fields[key] || typeInfo.unionSpec.fields["arg_" + key]) {
+           return value;
+        }
       }
-      // Heuristic: wrap in first tag
+
+      // Try to find a matching field by type
+      for (const [tag, field] of Object.entries(typeInfo.unionSpec.fields)) {
+          const fieldType = field.type.$ || field.type;
+          
+          // Match simple types
+          if (typeof value === "string" && (fieldType === mojo.internal.String || (fieldType.name && fieldType.name.includes("String")))) {
+              return { [tag]: value };
+          }
+          if (typeof value === "number" && (fieldType === mojo.internal.Int32 || fieldType === mojo.internal.Uint32 || fieldType === mojo.internal.Int8 || fieldType === mojo.internal.Uint8)) {
+              return { [tag]: value };
+          }
+          if (typeof value === "bigint" && (fieldType === mojo.internal.Int64 || fieldType === mojo.internal.Uint64)) {
+              return { [tag]: value };
+          }
+          if (typeof value === "boolean" && fieldType === mojo.internal.Bool) {
+              return { [tag]: value };
+          }
+      }
+
+      // Heuristic fallback: wrap in first tag
       const firstTag = Object.keys(typeInfo.unionSpec.fields)[0];
       return { [firstTag]: value };
     }

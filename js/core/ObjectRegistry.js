@@ -74,15 +74,16 @@
       }
 
       // Detect if this is a Mojo Remote (usually has $ property or bindNewPipeAndPassReceiver)
-      // Or if it's a MojoProxy instance
+      // Or if it's a MojoProxy instance, or a Mojo Endpoint (for associated interfaces)
       const isProxy =
         value.interfaceName !== undefined && value.interceptCall !== undefined;
       const isRemote =
         (value.$ && value.proxy) ||
         (value.bindNewPipeAndPassReceiver &&
           typeof value.bindNewPipeAndPassReceiver === "function");
+      const isEndpoint = !!(value.router_ || value.router || value.endpoint_ || value.endpoint);
 
-      if (isProxy || isRemote) {
+      if (isProxy || isRemote || isEndpoint) {
         let typeName = isProxy
           ? value.interfaceName
           : value.$
@@ -116,14 +117,23 @@
           if (!genericTypes.includes(typeName)) {
             const comps = global.MojoProxy.getInterfaceComponents(typeName);
             if (comps && comps.Remote) {
-              // Wrap securely - MojoProxy constructor now handles Remote instances!
-              value = new global.MojoProxy(typeName, value, comps);
+              try {
+                // Wrap securely - MojoProxy constructor now handles Remote instances and Endpoints!
+                value = new global.MojoProxy(typeName, value, comps);
+              } catch (e) {
+                console.warn(`[ObjectRegistry] Failed to wrap ${typeName} in MojoProxy:`, e);
+              }
             }
           }
         }
 
         const id = this.register(value, typeName);
         return { $ref: id, type: typeName };
+      }
+
+      // Do not recurse into other Mojo internals (like Routers) that aren't Endpoints/Remotes
+      if (value.connector_ || value.messageReceiver_ || value.handle_ || value.pipe_) {
+          return "[MojoInternal]";
       }
 
       // Detect if it's a raw handle (MojoHandle) and we have a specific interface name
@@ -146,13 +156,17 @@
             const comps =
               global.MojoProxy.getInterfaceComponents(typeNameSuggestion);
             if (comps && comps.Remote) {
-              const proxy = new global.MojoProxy(
-                typeNameSuggestion,
-                value,
-                comps,
-              );
-              // Registering is handled by MojoProxy constructor, but we return the ref
-              return { $ref: proxy.id, type: typeNameSuggestion };
+              try {
+                const proxy = new global.MojoProxy(
+                  typeNameSuggestion,
+                  value,
+                  comps,
+                );
+                // Registering is handled by MojoProxy constructor, but we return the ref
+                return { $ref: proxy.id, type: typeNameSuggestion };
+              } catch (e) {
+                console.warn(`[ObjectRegistry] Failed to wrap handle in MojoProxy for ${typeNameSuggestion}:`, e);
+              }
             }
           }
         }
@@ -163,9 +177,15 @@
         return value.map((v) => this.autoRegister(v));
       }
 
+      // Only recurse into plain objects to avoid touching internal state of complex objects
+      const isPlainObject = value.constructor === Object || !value.constructor;
+      if (!isPlainObject) return "[ComplexObject]";
+
       const result = {};
       for (const key in value) {
-        result[key] = this.autoRegister(value[key]);
+        if (value.hasOwnProperty(key)) {
+          result[key] = this.autoRegister(value[key]);
+        }
       }
       return result;
     },
