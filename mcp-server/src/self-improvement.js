@@ -12,95 +12,51 @@ const PROGRESS_FILE = path.join(DATA_DIR, "PROGRESS.json");
  */
 export const SelfImprovement = {
   /**
-   * Log a capability gap.
+   * Consolidate tracking: handle research findings, targets, and gaps in one tool.
    */
-  logGap(task, gap, impact) {
+  track({ interface: iface, method, result, notes, type = "research", priority = "Medium", task, gap, impact }) {
     const data = this._read();
-    data.gaps.push({
-      id: Math.random().toString(36).substr(2, 9),
-      timestamp: new Date().toISOString(),
-      task,
-      gap,
-      impact,
-      status: "Open"
-    });
-    this._write(data);
-    return { success: true, message: "Capability gap logged to " + PROGRESS_FILE };
-  },
+    const id = Math.random().toString(36).substr(2, 9);
+    const timestamp = new Date().toISOString();
 
-  /**
-   * Add a research target.
-   */
-  addTarget(interfaceName, priority, notes) {
-    const data = this._read();
-    if (!data.targets) data.targets = [];
-    
-    const existing = data.targets.find(t => t.interface === interfaceName);
-    if (existing) {
+    if (type === "research") {
+      // Log finding
+      data.research.push({ id, timestamp, interface: iface, method, result, notes });
+      
+      // Auto-update target if it exists
+      if (data.targets) {
+        const target = data.targets.find(t => t.interface === iface);
+        if (target) {
+          target.status = "Completed";
+          target.updatedAt = timestamp;
+        }
+      }
+      this._write(data);
+      return { success: true, id, message: `Research logged for ${iface}.${method}` };
+    }
+
+    if (type === "target") {
+      if (!data.targets) data.targets = [];
+      const existing = data.targets.find(t => t.interface === iface);
+      if (existing) {
         existing.priority = priority;
         existing.notes = notes;
-        existing.updatedAt = new Date().toISOString();
-    } else {
-        data.targets.push({
-            id: Math.random().toString(36).substr(2, 9),
-            timestamp: new Date().toISOString(),
-            interface: interfaceName,
-            priority,
-            notes,
-            status: "Pending"
-        });
-    }
-    this._write(data);
-    return { success: true, message: `Target ${interfaceName} added/updated.` };
-  },
-
-  /**
-   * Remove a research target.
-   */
-  removeTarget(id) {
-    const data = this._read();
-    if (!data.targets) return { success: false, message: "No targets found." };
-    const initialLength = data.targets.length;
-    data.targets = data.targets.filter(t => t.id !== id && t.interface !== id);
-    if (data.targets.length < initialLength) {
+        existing.updatedAt = timestamp;
         this._write(data);
-        return { success: true, message: `Target removed.` };
-    }
-    return { success: false, message: `Target ${id} not found.` };
-  },
-
-  /**
-   * Log research progress.
-   */
-  logResearch(interfaceName, method, result, notes, force = false) {
-    const data = this._read();
-    
-    // Check for duplicates
-    if (!force) {
-        const existing = data.research.find(r => 
-            r.interface === interfaceName && 
-            r.method === method
-        );
-        
-        if (existing) {
-            return { 
-                success: false, 
-                message: `This interface and method (${interfaceName}.${method}) have already been researched (ID: ${existing.id}). Use 'update_research_finding' to add details or 'force=true' to create a new entry anyway.`,
-                duplicateId: existing.id
-            };
-        }
+        return { success: true, message: `Target ${iface} updated.` };
+      }
+      data.targets.push({ id, timestamp, interface: iface, priority, notes, status: "Pending" });
+      this._write(data);
+      return { success: true, id, message: `Target ${iface} added.` };
     }
 
-    data.research.push({
-      id: Math.random().toString(36).substr(2, 9),
-      timestamp: new Date().toISOString(),
-      interface: interfaceName,
-      method,
-      result,
-      notes
-    });
-    this._write(data);
-    return { success: true, message: "Research progress logged to " + PROGRESS_FILE };
+    if (type === "gap") {
+      data.gaps.push({ id, timestamp, task, gap, impact, status: "Open" });
+      this._write(data);
+      return { success: true, id, message: "Capability gap logged." };
+    }
+
+    return { success: false, message: "Invalid track type." };
   },
 
   /**

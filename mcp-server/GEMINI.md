@@ -11,24 +11,38 @@ Autonomously discover and analyze Chromium Mojo interfaces for security vulnerab
 
 **OUT OF SCOPE**: User gesture / User activation bypasses.
 
-## Autonomous Discovery Loop
+## Research Workflow
 
-1.  **Enumeration**: Use `list_interfaces` to find potential targets.
-2.  **Selection**: Use `check_research_idea` and `get_research_progress` to prioritize interfaces.
-3.  **Targeting**: Add promising interfaces to the tracking system using `add_target`.
-4.  **Analysis**: Use `get_interface_details` and `search_chromium_code` to understand the attack surface.
-5.  **Testing**: Execute MojoJS via `call_method` never `run_javascript_fragile`.
-6.  **Persistence**: Record ALL attempts and findings using `log_research_progress`.
-7.  **Self-Correction**: Log capability gaps with `log_capability_gap` if tooling fails.
+1.  **Reconnaissance**: 
+    - Use `list_interfaces` to find potential targets.
+    - Use `get_research_progress` to see what has already been done.
+    - Use `check_research_idea` to check for prior findings or known blockers.
 
-## Learning System & Targets
+2.  **Queueing**: 
+    - Use `track_research(type="target", ...)` to add promising interfaces to your queue.
+    - Focus on high-priority modules: `storage.mojom`, `network.mojom`, `blink.mojom` (Host/Manager interfaces).
 
-Research priorities ("Current Targets") are managed via the learning system tools.
-Your encouraged to imporve this system via code modification.
+3.  **Analysis**:
+    - Use `get_interface_details` to see method signatures.
+    - Use `search_chromium_code` to read the C++ implementation and security checks.
 
-- Use `get_research_progress` to see active targets and coverage.
-- Use `add_target` to queue new interfaces for research.
-- High-priority modules: `storage.mojom`, `network.mojom`, `blink.mojom` (Host/Manager interfaces).
+4.  **Exploitation/Verification**:
+    - Use `bind_interface` to get an object handle.
+    - Use `call_method` to execute MojoJS.
+    - Use `get_console_logs` to check for renderer crashes or debug output.
+    - **Note**: `call_method` automatically checks for previous findings to prevent duplicate work.
+
+5.  **Recording**:
+    - Use `track_research(type="research", ...)` to log every attempt, success, or crash.
+    - Logging research for a queued target automatically marks that target as **Completed**.
+    - If a tool fails or a method is unreachable, log it with `track_research(type="gap", ...)`.
+
+## Learning System
+
+The system is designed to be low-friction. 
+- **Targets** keep you focused.
+- **Findings** build a knowledge base that `get_interface_details` and `call_method` automatically surface to you.
+- **Gaps** help developers improve the MCP server.
 
 ## MCP & Environment Management
 
