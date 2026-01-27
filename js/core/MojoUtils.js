@@ -116,6 +116,7 @@
     const mockEndpoint = {
       releasePipe: () => raw,
       handle: raw,
+      handle_: raw,
       isPendingAssociation: isPendingAssociation,
       interfaceId: realHandle.interfaceId_ !== undefined ? realHandle.interfaceId_ : 0,
       router: realHandle.router_ || realHandle.router || null
@@ -124,11 +125,18 @@
     // 3. Return a wrapper object.
     // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
-      proxy: { unbind: () => mockEndpoint, handle: mockEndpoint, handle_: raw },
+      proxy: { 
+        unbind: () => mockEndpoint, 
+        handle: mockEndpoint, 
+        handle_: raw,
+        endpoint: mockEndpoint
+      },
       unbind: () => mockEndpoint,
       handle: mockEndpoint,
+      endpoint: mockEndpoint,
       handle_: raw,
       nativeHandle: raw,
+      isPendingAssociation: isPendingAssociation,
       // For convenience, forward common handle methods
       writeMessage: raw.writeMessage
         ? (...args) => raw.writeMessage(...args)

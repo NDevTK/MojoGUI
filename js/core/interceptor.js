@@ -416,6 +416,7 @@
               releasePipe: () => bridgedHandle,
               handle: bridgedHandle,
               handle_: bridgedHandle,
+              isPendingAssociation: true,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             const mockRemote = {
@@ -424,9 +425,13 @@
                 unbind: () => mockEndpoint,
                 handle: mockEndpoint,
                 handle_: bridgedHandle,
+                endpoint: mockEndpoint,
+                isPendingAssociation: true
               },
               handle: mockEndpoint,
+              endpoint: mockEndpoint,
               handle_: bridgedHandle,
+              isPendingAssociation: true,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             mockRemote.proxy.proxy = mockRemote.proxy;
