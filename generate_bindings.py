@@ -1783,6 +1783,88 @@ def main():
     # Build the per-interface scramble map
     build_interface_scramble_map([item['data'] for item in all_parsed], mojom_file_scramble)
 
+    # Pass 1.5: Analyze usage patterns (Associated vs Direct receivers)
+    print("Analyzing interface usage patterns...")
+    interface_usage_stats = {} # { fqn: { 'associated': 0, 'direct': 0 } }
+    
+    # Helper to resolve type to FQN
+    def resolve_type_fqn(type_name, current_module, imports):
+        base_type = type_name.strip().replace('?', '')
+        # Handle array detection if needed, but usually receivers are simple types
+        
+        # 1. Check if already FQN
+        if base_type in global_kind_map and global_kind_map[base_type] == 'interface':
+            return base_type
+            
+        # 2. Check local module
+        local_fqn = f"{current_module}.{base_type}"
+        if local_fqn in global_kind_map and global_kind_map[local_fqn] == 'interface':
+            return local_fqn
+            
+        # 3. Check imports
+        # Heuristic: Scan global map for ending with .base_type and module matching an import
+        # This is expensive but necessary since we don't have perfect symbol tables here
+        for candidate_fqn, kind in global_kind_map.items():
+            if kind == 'interface' and candidate_fqn.endswith(f".{base_type}"):
+                # Check if the module part matches an import
+                cand_mod = candidate_fqn.rsplit('.', 1)[0]
+                if cand_mod in imports: # Exact module import
+                    return candidate_fqn
+                # Check file-based imports (path -> module)
+                # This is tricky without the reverse map of import-path -> module available easily here
+                # But we have file_to_module. 
+                # Let's rely on the suffix match if it's unique enough or just try best effort
+                pass
+        
+        # 4. Aggressive suffix match (if unique)
+        matches = [k for k,v in global_kind_map.items() if v == 'interface' and k.endswith(f".{base_type}")]
+        if len(matches) == 1:
+            return matches[0]
+            
+        return None
+
+    for item in all_parsed:
+        parsed = item['data']
+        if not parsed: continue
+        
+        mod = parsed.get('module', '')
+        imports = parsed.get('imports', [])
+        # Resolve imports to module names for better matching
+        resolved_imports = set()
+        for imp in imports:
+            if imp in file_to_module:
+                resolved_imports.add(file_to_module[imp])
+                
+        for interface in parsed.get('interfaces', []):
+            for method in interface.get('methods', []):
+                for param in method.get('params', []):
+                    p_type = param['type']
+                    
+                    is_assoc = False
+                    is_direct = False
+                    
+                    target_type = None
+                    
+                    if 'pending_associated_receiver<' in p_type:
+                        is_assoc = True
+                        match = re.search(r'pending_associated_receiver<([^>]+)>', p_type)
+                        if match: target_type = match.group(1)
+                    elif 'pending_receiver<' in p_type:
+                        is_direct = True
+                        match = re.search(r'pending_receiver<([^>]+)>', p_type)
+                        if match: target_type = match.group(1)
+                        
+                    if target_type:
+                        fqn = resolve_type_fqn(target_type, mod, resolved_imports)
+                        if fqn:
+                            if fqn not in interface_usage_stats:
+                                interface_usage_stats[fqn] = {'associated': 0, 'direct': 0}
+                            
+                            if is_assoc:
+                                interface_usage_stats[fqn]['associated'] += 1
+                            if is_direct:
+                                interface_usage_stats[fqn]['direct'] += 1
+
     # Pass 2: Generate Bindings
     for item in all_parsed:
         mojom_path = item['path']
@@ -1799,12 +1881,20 @@ def main():
                     f.write(js_code)
                 success_count += 1
                 
+                
+                # Analyze usage for this specific file's interfaces
                 for interface in parsed['interfaces']:
+                    fqn = f"{parsed['module']}.{interface['name']}"
+                    usage = interface_usage_stats.get(fqn, {'associated': 0, 'direct': 0})
+                    
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],
                         'file': out_filename,
-                        'methods': [m['name'] for m in interface.get('methods', [])]
+                        'methods': [m['name'] for m in interface.get('methods', [])],
+                        'metadata': {
+                            'usage': usage
+                        }
                     })
                 
                 index_data['files'].append({
