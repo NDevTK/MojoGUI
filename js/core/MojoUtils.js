@@ -400,10 +400,17 @@
       }
     }
 
-    // 1. If it's already an object that looks like the struct, just ensure arg_ prefixes
+    // 1. If it's already an object that looks like the struct/union, just ensure arg_ prefixes
     if (typeof value === "object" && !Array.isArray(value)) {
       const inflated = {};
-      for (const field of spec.fields) {
+      const fields = Array.isArray(spec.fields)
+        ? spec.fields
+        : Object.entries(spec.fields).map(([name, f]) => ({
+            name,
+            ...f,
+          }));
+
+      for (const field of fields) {
         let val = value[field.name];
         if (val === undefined && field.name.startsWith("arg_")) {
           val = value[field.name.substring(4)];
@@ -411,7 +418,9 @@
 
         if (val !== undefined) {
           inflated[field.name] = inflateType(val, field.type.$ || field.type);
-        } else if (field.defaultValue !== null) {
+          // If it's a union, we only need one field.
+          if (!Array.isArray(spec.fields)) return inflated;
+        } else if (field.defaultValue !== null && field.defaultValue !== undefined) {
           inflated[field.name] = field.defaultValue;
         } else if (field.nullable) {
           inflated[field.name] = null;
