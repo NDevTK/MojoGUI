@@ -32,6 +32,7 @@
         const { loadInterfaces } = getInternal();
         if (loadInterfaces) await loadInterfaces();
       }
+
       return state.interfaces;
     },
     /**
@@ -215,15 +216,14 @@
      * Log raw data captured from a Data Pipe
      * @param {string|number} handleId - Handle ID
      * @param {Uint8Array} data - Raw byte chunk
-     * @param {string} method - Activity method label (default: "Stream")
      */
-    addDataActivity: (handleId, data, method = "Stream") => {
+    addDataActivity: (handleId, data) => {
       const { addActivityRow } = global.TrafficUIService || {};
       if (addActivityRow) {
         addActivityRow({
           type: "DATA",
           interface: "Data Pipe",
-          method: method,
+          method: "Stream",
           params: {
             handle: handleId.toString().startsWith("obj_")
               ? handleId
@@ -501,12 +501,39 @@
      */
     createDataPipe: (options = {}) => {
       if (typeof Mojo === "undefined") return { error: "Mojo not available" };
+      // Ensure MojoDataPipeProxy is available (it's global from interceptor.js)
+      if (typeof window.MojoDataPipeProxy === "undefined") {
+        // Fallback if proxy not found (shouldn't happen in full env)
+        try {
+          const { producer, consumer } = Mojo.createDataPipe(options);
+          const pId = MojoHandleRegistry.register(producer);
+          const cId = MojoHandleRegistry.register(consumer);
+          return { producer: pId, consumer: cId };
+        } catch (e) {
+          return { error: e.message };
+        }
+      }
+
       try {
-        const { producer, consumer } = Mojo.createDataPipe(options);
-        const pId = MojoHandleRegistry.register(producer);
-        const cId = MojoHandleRegistry.register(consumer);
+        // 1. Create the Real Pipe (User -> Internal)
+        const { producer: p_real, consumer: c_real } =
+          Mojo.createDataPipe(options);
+
+        // 2. Create the Forwarding Pipe (Internal -> User)
+        // We generally match the options (capacity etc)
+        const { producer: p_fwd, consumer: c_fwd } =
+          Mojo.createDataPipe(options);
+
+        // 3. Create Proxy Bridge (Intersects c_real, forwards to p_fwd)
+        const proxy = new window.MojoDataPipeProxy(c_real, "consumer");
+        proxy.pair = p_fwd;
+
+        // 4. Register the ends we give to the user
+        const pId = MojoHandleRegistry.register(p_real);
+        const cId = MojoHandleRegistry.register(c_fwd);
+
         console.log(
-          `[MojoGUI_API] Created data pipe: ${pId} (P) <-> ${cId} (C)`,
+          `[MojoGUI_API] Created bridged data pipe: ${pId} (P) -> [Proxy] -> ${cId} (C)`,
         );
         return { producer: pId, consumer: cId };
       } catch (e) {
@@ -534,15 +561,8 @@
       }
 
       if (encoding === "utf8") {
-        const decoded = new TextDecoder().decode(data);
-        if (window.MojoGUI_API.addDataActivity) {
-          window.MojoGUI_API.addDataActivity(id, data, "Read");
-        }
-        return { result: Mojo.RESULT_OK, data: decoded };
+        return { result: Mojo.RESULT_OK, data: new TextDecoder().decode(data) };
       } else if (encoding === "hex") {
-        if (window.MojoGUI_API.addDataActivity) {
-          window.MojoGUI_API.addDataActivity(id, data, "Read");
-        }
         return {
           result: Mojo.RESULT_OK,
           data: Array.from(data)
@@ -550,18 +570,12 @@
             .join(""),
         };
       } else if (encoding === "base64") {
-        if (window.MojoGUI_API.addDataActivity) {
-          window.MojoGUI_API.addDataActivity(id, data, "Read");
-        }
         return {
           result: Mojo.RESULT_OK,
           data: btoa(String.fromCharCode(...data)),
         };
       }
 
-      if (window.MojoGUI_API.addDataActivity) {
-        window.MojoGUI_API.addDataActivity(id, data, "Read");
-      }
       return {
         result: Mojo.RESULT_OK,
         data: Array.from(data),
@@ -581,18 +595,15 @@
 
       const result = MojoUtils.writeDataPipe(handle, data);
 
-      if (result === Mojo.RESULT_OK && window.MojoGUI_API.addDataActivity) {
-        const buffer =
-          typeof data === "string" ? new TextEncoder().encode(data) : data;
-        window.MojoGUI_API.addDataActivity(id, buffer, "Write");
-      }
+      // MojoUtils.writeDataPipe handles string encoding internally.
+      // We rely on the Proxy Bridge (if active) to handle logging.
 
       return {
         result: result,
         bytesWritten:
           result === Mojo.RESULT_OK
             ? typeof data === "string"
-              ? new TextEncoder().encode(data).length
+              ? new TextEncoder().encode(data).length // Estimate length
               : data.length
             : 0,
       };
