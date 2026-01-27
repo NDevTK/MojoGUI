@@ -180,6 +180,8 @@
             spec.name ||
             spec.remoteClass?.name ||
             spec.receiverClass?.name ||
+            spec.type?.$interfaceName ||
+            spec.type?.name ||
             (f.type.name && !f.type.name.includes("_Spec")
               ? f.type.name
               : null);

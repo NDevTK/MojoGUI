@@ -99,83 +99,106 @@
           ? reconciledParams
           : [reconciledParams];
 
-        finalArgs = methodDef.parameters.map((p, i) => {
-          let val = paramsArray[i];
+        finalArgs = await Promise.all(
+          methodDef.parameters.map(async (p, i) => {
+            let val = paramsArray[i];
 
-          if (!Array.isArray(reconciledParams)) {
-            val = reconciledParams[p.name];
-          }
-
-          // Auto-wrap raw handle IDs if they exist in the registry.
-          // We only do this if the type is explicitly a handle or 'any' to avoid
-          // incorrectly converting enums (numbers) into handles.
-          if (
-            typeof val === "number" &&
-            (!p ||
-              p.type === "mojo_handle" ||
-              p.type === "any" ||
-              p.type === "pending_remote" ||
-              p.type === "pending_receiver")
-          ) {
-            const handle = MojoHandleRegistry.get(val);
-            if (handle) {
-              val = MojoUtils.decorateHandle(handle);
+            if (!Array.isArray(reconciledParams)) {
+              val = reconciledParams[p.name];
             }
-          }
 
-          if (p.structSpec) {
-            return MojoUtils.inflateStruct(val, p.structSpec);
-          }
-
-          // Auto-decorate/wrap objects passed as handles
-          if (val !== null && val !== undefined && typeof val === "object") {
-            const rawVal = val.nativeHandle || val;
-            const isNativeHandle =
-              rawVal.writeMessage && typeof rawVal.writeMessage === "function";
-
-            if (isNativeHandle) {
-              MojoHandleRegistry.register(rawVal);
-
-              const spec = p.rawType?.$ || p.rawType;
-              if (
-                spec &&
-                (p.type === "pending_remote" ||
-                  p.type === "pending_associated_remote") &&
-                spec.remoteClass
-              ) {
-                try {
-                  val = new spec.remoteClass(rawVal);
-                  console.log(
-                    `[ExecutionService] Wrapped handle in official Remote: ${spec.remoteClass.name}`,
-                  );
-                } catch (e) {
-                  val = MojoUtils.decorateHandle(rawVal);
+            // Handle explicit Bind Listener request
+            if (
+              val &&
+              val.__mojoType === "Handle" &&
+              val.action === "bind_listener"
+            ) {
+              try {
+                const { handleId } = await window.MojoGUI_API.bindMockListener(
+                  val.interface,
+                );
+                const h = MojoHandleRegistry.get(handleId);
+                if (h) {
+                  val = MojoUtils.decorateHandle(h);
+                  val.__skipInterceptor = true;
                 }
-              } else if (
-                spec &&
-                (p.type === "pending_receiver" ||
-                  p.type === "pending_associated_receiver") &&
-                spec.receiverClass
-              ) {
-                try {
-                  val = new spec.receiverClass(rawVal);
-                  console.log(
-                    `[ExecutionService] Wrapped handle in official Receiver: ${spec.receiverClass.name}`,
-                  );
-                } catch (e) {
-                  val = MojoUtils.decorateHandle(rawVal);
-                }
-              } else if (p.type === "mojo_handle") {
-                // If the method expects a RAW handle, pass it UNWRAPPED
-                val = rawVal;
-              } else if (p.type === "any") {
-                val = MojoUtils.decorateHandle(rawVal);
+              } catch (e) {
+                console.error("[ExecutionService] bind_listener failed", e);
               }
             }
-          }
 
-          return val;
-        });
+            // Auto-wrap raw handle IDs if they exist in the registry.
+            // We only do this if the type is explicitly a handle or 'any' to avoid
+            // incorrectly converting enums (numbers) into handles.
+            if (
+              typeof val === "number" &&
+              (!p ||
+                p.type === "mojo_handle" ||
+                p.type === "any" ||
+                p.type === "pending_remote" ||
+                p.type === "pending_receiver")
+            ) {
+              const handle = MojoHandleRegistry.get(val);
+              if (handle) {
+                val = MojoUtils.decorateHandle(handle);
+              }
+            }
+
+            if (p.structSpec) {
+              return MojoUtils.inflateStruct(val, p.structSpec);
+            }
+
+            // Auto-decorate/wrap objects passed as handles
+            if (val !== null && val !== undefined && typeof val === "object") {
+              const rawVal = val.nativeHandle || val;
+              const isNativeHandle =
+                rawVal.writeMessage &&
+                typeof rawVal.writeMessage === "function";
+
+              if (isNativeHandle) {
+                MojoHandleRegistry.register(rawVal);
+
+                const spec = p.rawType?.$ || p.rawType;
+                if (
+                  spec &&
+                  (p.type === "pending_remote" ||
+                    p.type === "pending_associated_remote") &&
+                  spec.remoteClass
+                ) {
+                  try {
+                    val = new spec.remoteClass(rawVal);
+                    console.log(
+                      `[ExecutionService] Wrapped handle in official Remote: ${spec.remoteClass.name}`,
+                    );
+                  } catch (e) {
+                    val = MojoUtils.decorateHandle(rawVal);
+                  }
+                } else if (
+                  spec &&
+                  (p.type === "pending_receiver" ||
+                    p.type === "pending_associated_receiver") &&
+                  spec.receiverClass
+                ) {
+                  try {
+                    val = new spec.receiverClass(rawVal);
+                    console.log(
+                      `[ExecutionService] Wrapped handle in official Receiver: ${spec.receiverClass.name}`,
+                    );
+                  } catch (e) {
+                    val = MojoUtils.decorateHandle(rawVal);
+                  }
+                } else if (p.type === "mojo_handle") {
+                  // If the method expects a RAW handle, pass it UNWRAPPED
+                  val = rawVal;
+                } else if (p.type === "any") {
+                  val = MojoUtils.decorateHandle(rawVal);
+                }
+              }
+            }
+
+            return val;
+          }),
+        );
       } else if (reconciledParams) {
         finalArgs = Array.isArray(reconciledParams)
           ? reconciledParams

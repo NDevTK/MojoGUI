@@ -306,6 +306,9 @@
         if (!realHandle) return original;
         return decorateHandle(realHandle);
       }
+      if (action === "bind_listener") {
+        return handleData;
+      }
       return original;
     }
 

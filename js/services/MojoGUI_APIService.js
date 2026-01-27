@@ -471,7 +471,8 @@
 
       const { handle0, handle1 } = Mojo.createMessagePipe();
       const proxyImpl = new MojoProxy(name, null, comps); // realRemote is null (Sink)
-      new comps.Receiver(proxyImpl).bind(handle0);
+      proxyImpl.receiver = new comps.Receiver(proxyImpl);
+      proxyImpl.receiver.bind(handle0);
 
       const hId = MojoHandleRegistry.register(handle1);
       return { handleId: hId, proxyId: proxyImpl.id };

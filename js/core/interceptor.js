@@ -395,6 +395,7 @@
       if (!args) return args;
       return args.map((arg, idx) => {
         if (!arg || typeof arg !== "object") return arg;
+        if (arg.__skipInterceptor) return arg;
         const isMojo =
           typeof arg.unbind === "function" ||
           (arg.proxy && typeof arg.proxy.unbind === "function");

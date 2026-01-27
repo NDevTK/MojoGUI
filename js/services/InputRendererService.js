@@ -492,6 +492,9 @@
         if (isDataPipe) {
           typeLabel = "Data Pipe";
           currentAction = "new_pipe";
+        } else if (typeString === "pending_remote" && ifaceName !== "Unknown") {
+          typeLabel = "Mojo Handle";
+          currentAction = "bind_listener";
         } else {
           typeLabel = "Mojo Handle";
           currentAction = "new_pipe";
@@ -543,6 +546,7 @@
                                 <option value="preserve" ${currentAction === "preserve" ? "selected" : ""}>Keep Original</option>
                                 <option value="close" ${currentAction === "close" ? "selected" : ""}>Close Handle</option>
                                 <option value="new_pipe" ${currentAction === "new_pipe" ? "selected" : ""}>New Pipe</option>
+                                <option value="bind_listener" ${currentAction === "bind_listener" ? "selected" : ""}>Bind Mock Listener</option>
                                 <option value="use_handle" ${currentAction === "use_handle" ? "selected" : ""}>Use Handle ID</option>
                             </select>
                             <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction, type: typeString, $ref: refId || undefined }))}'>
