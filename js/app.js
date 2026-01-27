@@ -258,6 +258,38 @@
       if (window.InputRendererService && window.InputRendererService.init) {
         InputRendererService.init(document.body);
       }
+      elements.paramsForm.addEventListener("change", (e) => {
+        const target = e.target;
+        // Target Configuration Handlers (Delegated)
+        if (target.name === "targetType") {
+          window.updateTargetType(target.value);
+          return;
+        }
+        if (target.id === "targetObjectId") {
+          window.updateTargetObjectId(target.value);
+          return;
+        }
+        if (target.id === "associatedInterfaceToggle") {
+          window.updateIsAssociated(target.checked);
+          return;
+        }
+        if (target.id === "masterHandleInput") {
+          window.updateMasterHandle(target.value);
+          return;
+        }
+        // Interface ID is oninput usually, but change is fine too
+      });
+
+      elements.paramsForm.addEventListener("input", (e) => {
+        const target = e.target;
+        if (target.id === "interfaceIdInput") {
+          window.updateInterfaceId(target.value);
+          return;
+        }
+      });
+
+      // Existing Generic Handler
+      elements.paramsForm.addEventListener("input", handleParamChange);
       elements.paramsForm.addEventListener("change", handleParamChange);
     }
 
@@ -613,11 +645,11 @@
               <div style="font-size: 0.8em; color: var(--text-muted); margin-bottom: 6px;">Receiver Type</div>
               <div style="display: flex; gap: 12px;">
                   <label class="radio-tab ${!isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
-                      <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                      <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""}>
                       <span>⚡ New Interface</span>
                   </label>
                   <label class="radio-tab ${isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
-                      <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""} onchange="window.updateTargetType(this.value)">
+                      <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""}>
                       <span>🧩 Existing Instance</span>
                   </label>
               </div>
@@ -626,7 +658,7 @@
           <div id="instanceTargetInput" style="display: ${isInstance ? "block" : "none"}; margin-bottom: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
                <div class="form-group" style="margin-bottom: 0;">
                   <label style="font-size: 0.8em; display: block; margin-bottom: 4px;">Object Registry ID</label>
-                  <select id="targetObjectId" class="param-input" style="width: 100%; border: 1px solid var(--border-subtle);" onchange="window.updateTargetObjectId(this.value)">
+                  <select id="targetObjectId" class="param-input" style="width: 100%; border: 1px solid var(--border-subtle);">
                       <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
                       ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
                   </select>
@@ -635,7 +667,7 @@
 
           <div class="associated-section" style="border-top: 1px solid var(--border-subtle); padding-top: 12px;">
              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer; color: var(--text-main);">
-                 <input type="checkbox" id="associatedInterfaceToggle" ${isAssociated ? "checked" : ""} onchange="window.updateIsAssociated(this.checked)">
+                 <input type="checkbox" id="associatedInterfaceToggle" ${isAssociated ? "checked" : ""}>
                  <span style="font-weight: 500;">Associated Interface</span>
                  <span style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(Multiplexing)</span>
              </label>
@@ -643,14 +675,14 @@
              <div id="associatedInputs" style="display: ${isAssociated ? "block" : "none"}; margin-top: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
                 <div style="margin-bottom: 10px;">
                     <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Master Pipe Handle</label>
-                    <select id="masterHandleInput" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;" onchange="window.updateMasterHandle(this.value)">
+                    <select id="masterHandleInput" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
                          <option value="" disabled ${!state.masterHandleId ? "selected" : ""}>Select handle...</option>
                          ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
                     </select>
                 </div>
                 <div>
                     <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Interface ID (Ordinal)</label>
-                    <input type="number" id="interfaceIdInput" value="${state.interfaceId || 0}" placeholder="0" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;" oninput="window.updateInterfaceId(this.value)">
+                    <input type="number" id="interfaceIdInput" value="${state.interfaceId || 0}" placeholder="0" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
                 </div>
              </div>
           </div>

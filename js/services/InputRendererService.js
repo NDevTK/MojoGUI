@@ -80,6 +80,18 @@
         updateHiddenHandleInput(card);
         return;
       }
+
+      // Handle Union Discriminator Change (Delegated)
+      if (target.matches(".union-discriminator")) {
+        const group = target.closest(".union-group");
+        const tag = target.value;
+        group
+          .querySelectorAll(".union-field")
+          .forEach((el) => (el.hidden = el.dataset.tag !== tag));
+        // The original logic fired a new change event on the group, but the select's change event bubbles anyway.
+        // Explicitly ensuring main form updates if needed.
+        return;
+      }
     });
   };
 
@@ -864,13 +876,7 @@
                      </label>
                      <div style="margin-bottom: 6px;">
                         <span class="badget">Active Member:</span>
-                        <select class="union-discriminator" onchange="
-                            const group = this.closest('.union-group');
-                            const tag = this.value;
-                            group.querySelectorAll('.union-field').forEach(el => el.hidden = (el.dataset.tag !== tag));
-                            // Trigger change to update state
-                            group.dispatchEvent(new Event('change', {bubbles: true}));
-                        " style="padding: 2px 4px; border: 1px solid var(--border-subtle); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
+                        <select class="union-discriminator" style="padding: 2px 4px; border: 1px solid var(--border-subtle); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
                             ${options}
                         </select>
                      </div>
