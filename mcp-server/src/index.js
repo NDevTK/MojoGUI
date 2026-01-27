@@ -38,6 +38,8 @@ const server = new McpServer({
 // Helper to execute code in MojoGUI via worker (non-blocking)
 async function executeInMojoGUI(code, retryCount = 0, options = {}) {
   let pool;
+  const executionContext = options.executionContext;
+
   try {
     pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
   } catch (error) {
@@ -51,10 +53,38 @@ async function executeInMojoGUI(code, retryCount = 0, options = {}) {
 
   try {
     const result = await pool.evaluate(code, options);
+
+    // Auto-log success for call_method
+    if (executionContext && executionContext.type === "call_method") {
+      SelfImprovement.autoLogResearch({
+        interface: executionContext.interface,
+        method: executionContext.method,
+        result: "Accessible / Functional",
+        notes: `Automatically logged: Method call returned successfully. Response: ${JSON.stringify(result).substring(0, 100)}...`,
+      });
+    }
+
     return result;
   } catch (error) {
     // If renderer crashed, try to get last logs and reset
     if (error.crashed) {
+      // Auto-log crash attribution
+      if (executionContext) {
+        const crashType =
+          executionContext.type === "bind_interface" ? "Bind" : "Call";
+        const resultText =
+          error.crashInfo?.codeName === "RESULT_CODE_KILLED_BAD_MESSAGE"
+            ? "Correctly Restricted (Crash)"
+            : `Renderer Crashed (${error.crashInfo?.codeName || "Unknown"})`;
+
+        SelfImprovement.autoLogResearch({
+          interface: executionContext.interface,
+          method: executionContext.method || "Bind",
+          result: resultText,
+          notes: `Automatically logged: Renderer crashed with ${error.crashInfo?.codeName || "unknown code"} during ${crashType}. This indicates proper server-side validation.`,
+        });
+      }
+
       let logs = [];
       try {
         // Get last 10 logs for context
@@ -239,7 +269,9 @@ server.tool(
                 return { objectId: id, type: name };
             })()
         `;
-    const result = await executeInMojoGUI(code);
+    const result = await executeInMojoGUI(code, 0, {
+      executionContext: { type: "bind_interface", interface: iface },
+    });
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
@@ -325,7 +357,10 @@ server.tool(
                 return utils.safeStringify(res, 2);
             })()
         `;
-    const result = await executeInMojoGUI(code, 0, { userGesture });
+    const result = await executeInMojoGUI(code, 0, {
+      userGesture,
+      executionContext: { type: "call_method", interface: iface, method },
+    });
 
     // Check for history to remind the agent
     let warning = "";
@@ -349,6 +384,49 @@ server.tool(
     }
 
     return { content: [{ type: "text", text: warning + (result || "{}") }] };
+  },
+);
+
+server.tool(
+  "verify_finding",
+  "Automatically re-execute the call associated with a finding ID to verify if it is still reproducible.",
+  {
+    id: z.string().describe("The finding ID to verify"),
+  },
+  async ({ id }) => {
+    const { research } = SelfImprovement.getProgress();
+    const entry = research.find((r) => r.id === id);
+    if (!entry) {
+      return {
+        content: [{ type: "text", text: `Finding ${id} not found.` }],
+        isError: true,
+      };
+    }
+
+    // Try to reconstruct the call
+    // This is a basic implementation; more complex calls might need activity replaying
+    const code = `
+            (async () => {
+                const executor = window.MojoExecutionService;
+                if (!executor) throw new Error('MojoExecutionService not available');
+                
+                // We use generateCode logic to find the method and params if we had them saved
+                // For now, we search the activity log if available
+                const api = window.MojoGUI_API;
+                const calls = api.getInterceptedCalls();
+                const call = calls.find(c => c.interface === ${JSON.stringify(entry.interface)} && c.method === ${JSON.stringify(entry.method)});
+                
+                if (call) {
+                    return await api.replayCall(call.id);
+                }
+                
+                return "Could not find original call in activity log to replay. Please use call_method manually.";
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
   },
 );
 server.tool(

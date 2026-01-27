@@ -34,6 +34,21 @@ export class CDPClient {
     this.crashListeners = [];
     this.consoleLogs = [];
     this.maxLogs = options.maxLogs || 1000;
+    this.currentExecutionContext = null;
+  }
+
+  /**
+   * Set the current execution context for crash attribution
+   */
+  setExecutionContext(context) {
+    this.currentExecutionContext = context;
+  }
+
+  /**
+   * Get the current execution context
+   */
+  getExecutionContext() {
+    return this.currentExecutionContext;
   }
 
   /**

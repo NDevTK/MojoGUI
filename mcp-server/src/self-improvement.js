@@ -60,6 +60,53 @@ export const SelfImprovement = {
   },
 
   /**
+   * Automatically log a research finding if it doesn't already exist.
+   * Prevents duplicate automatic logs while ensuring coverage is tracked.
+   */
+  autoLogResearch({ interface: iface, method, result, notes }) {
+    const { research } = this._read();
+    
+    // Check if we already have a finding for this specific interface/method/result combo
+    const existing = research.find(r => 
+      r.interface === iface && 
+      r.method === method && 
+      (r.result === result || this._getSimilarity(r.notes, notes) > 0.8)
+    );
+
+    if (existing) return { success: false, message: "Finding already exists." };
+
+    return this.track({
+      type: "research",
+      interface: iface,
+      method: method,
+      result: result,
+      notes: notes
+    });
+  },
+
+  /**
+   * Automatically log a capability gap.
+   */
+  autoLogGap({ task, gap, impact }) {
+    const { gaps } = this._read();
+    
+    // Check if we already have this gap
+    const existing = gaps.find(g => 
+      g.status === "Open" && 
+      (this._getSimilarity(g.gap, gap) > 0.8 || this._getSimilarity(g.task, task) > 0.8)
+    );
+
+    if (existing) return { success: false, message: "Gap already exists." };
+
+    return this.track({
+      type: "gap",
+      task,
+      gap,
+      impact
+    });
+  },
+
+  /**
    * Update an existing research entry.
    */
   updateResearch(id, { result, notes }) {
