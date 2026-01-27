@@ -417,6 +417,7 @@
               handle: bridgedHandle,
               handle_: bridgedHandle,
               isPendingAssociation: true,
+              localPeer_: arg.localPeer_ || (arg.proxy && arg.proxy.endpoint && arg.proxy.endpoint.localPeer_) || null,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             const mockRemote = {

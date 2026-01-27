@@ -99,6 +99,12 @@
   ) {
     if (!realHandle || typeof realHandle !== "object") return realHandle;
 
+    console.log(`[MojoUtils] decorateHandle for ${interfaceName}`, { 
+        isPendingAssociation, 
+        hasLocalPeer: !!realHandle.localPeer_,
+        hasRouter: !!realHandle.router_ || !!realHandle.router
+    });
+
     // 1. Extract the underlying raw handle if it's already wrapped
     let raw = realHandle;
     if (realHandle.nativeHandle) {
@@ -118,18 +124,19 @@
       handle: raw,
       handle_: raw,
       isPendingAssociation: isPendingAssociation,
+      localPeer_: realHandle.localPeer_ || null,
       interfaceId: realHandle.interfaceId_ !== undefined ? realHandle.interfaceId_ : 0,
       router: realHandle.router_ || realHandle.router || null
     };
 
     // 3. Return a wrapper object.
-    // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
       proxy: { 
         unbind: () => mockEndpoint, 
         handle: mockEndpoint, 
         handle_: raw,
-        endpoint: mockEndpoint
+        endpoint: mockEndpoint,
+        isPendingAssociation: isPendingAssociation
       },
       unbind: () => mockEndpoint,
       handle: mockEndpoint,
@@ -137,6 +144,7 @@
       handle_: raw,
       nativeHandle: raw,
       isPendingAssociation: isPendingAssociation,
+      localPeer_: realHandle.localPeer_ || null,
       // For convenience, forward common handle methods
       writeMessage: raw.writeMessage
         ? (...args) => raw.writeMessage(...args)
@@ -148,6 +156,15 @@
       // Metadata for GUI
       $: { interfaceName: interfaceName || "PendingInterface" },
     };
+
+    console.log(`[MojoUtils] Created wrapper for ${interfaceName}`, {
+        wrapperHasEndpoint: !!wrapper.endpoint,
+        proxyHasEndpoint: !!wrapper.proxy.endpoint,
+        endpointHasLocalPeer: !!wrapper.endpoint.localPeer_
+    });
+
+    return wrapper;
+  }
 
     return wrapper;
   }
@@ -296,7 +313,9 @@
         }
 
         if (handleData.isAssociated) {
+            console.log(`[MojoUtils] Creating associated pair for ${handleData.interface}`);
             const { endpoint0, endpoint1 } = mojo.internal.interfaceSupport.Endpoint.createAssociatedPair();
+            console.log(`[MojoUtils] Pair created. endpoint1.localPeer_ exists: ${!!endpoint1.localPeer_}`);
             // endpoint0 is what we keep, endpoint1 is what we pass
             return decorateHandle(endpoint1, true, handleData.interface);
         }
