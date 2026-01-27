@@ -1115,6 +1115,36 @@ server.tool(
   },
 );
 
+server.tool(
+  "add_target",
+  "Add or update a research target interface.",
+  {
+    interface: z.string().describe("The interface name"),
+    priority: z.enum(["High", "Medium", "Low"]).default("Medium"),
+    notes: z.string().describe("Why this is a target"),
+  },
+  async ({ interface: iface, priority, notes }) => {
+    const result = SelfImprovement.addTarget(iface, priority, notes);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "remove_target",
+  "Remove a research target by ID or interface name.",
+  {
+    id: z.string().describe("The ID or interface name to remove"),
+  },
+  async ({ id }) => {
+    const result = SelfImprovement.removeTarget(id);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
 // ---- Self-Improvement Tools ----
 
 server.tool(

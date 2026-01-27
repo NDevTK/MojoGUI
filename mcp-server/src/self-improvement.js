@@ -29,6 +29,47 @@ export const SelfImprovement = {
   },
 
   /**
+   * Add a research target.
+   */
+  addTarget(interfaceName, priority, notes) {
+    const data = this._read();
+    if (!data.targets) data.targets = [];
+    
+    const existing = data.targets.find(t => t.interface === interfaceName);
+    if (existing) {
+        existing.priority = priority;
+        existing.notes = notes;
+        existing.updatedAt = new Date().toISOString();
+    } else {
+        data.targets.push({
+            id: Math.random().toString(36).substr(2, 9),
+            timestamp: new Date().toISOString(),
+            interface: interfaceName,
+            priority,
+            notes,
+            status: "Pending"
+        });
+    }
+    this._write(data);
+    return { success: true, message: `Target ${interfaceName} added/updated.` };
+  },
+
+  /**
+   * Remove a research target.
+   */
+  removeTarget(id) {
+    const data = this._read();
+    if (!data.targets) return { success: false, message: "No targets found." };
+    const initialLength = data.targets.length;
+    data.targets = data.targets.filter(t => t.id !== id && t.interface !== id);
+    if (data.targets.length < initialLength) {
+        this._write(data);
+        return { success: true, message: `Target removed.` };
+    }
+    return { success: false, message: `Target ${id} not found.` };
+  },
+
+  /**
    * Log research progress.
    */
   logResearch(interfaceName, method, result, notes, force = false) {
@@ -123,11 +164,12 @@ export const SelfImprovement = {
    * Get filtered progress data.
    */
   getProgress(filters = {}) {
-    let { gaps, research } = this._read();
+    let { gaps, research, targets = [] } = this._read();
 
     if (filters.interface) {
       const regex = new RegExp(filters.interface, 'i');
       research = research.filter(r => regex.test(r.interface));
+      targets = targets.filter(t => regex.test(t.interface));
     }
 
     if (filters.result) {
@@ -136,6 +178,7 @@ export const SelfImprovement = {
 
     if (filters.status) {
       gaps = gaps.filter(g => g.status.toLowerCase() === filters.status.toLowerCase());
+      targets = targets.filter(t => t.status.toLowerCase() === filters.status.toLowerCase());
     }
 
     if (filters.search) {
@@ -149,18 +192,24 @@ export const SelfImprovement = {
         g.gap.toLowerCase().includes(q) || 
         g.impact.toLowerCase().includes(q)
       );
+      targets = targets.filter(t => 
+        t.interface.toLowerCase().includes(q) || 
+        t.notes.toLowerCase().includes(q)
+      );
     }
 
     // Sort by newest first
     research.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     gaps.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    targets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
     if (filters.limit) {
       research = research.slice(0, filters.limit);
       gaps = gaps.slice(0, filters.limit);
+      targets = targets.slice(0, filters.limit);
     }
 
-    return { gaps, research, count: { gaps: gaps.length, research: research.length }, path: PROGRESS_FILE };
+    return { gaps, research, targets, count: { gaps: gaps.length, research: research.length, targets: targets.length }, path: PROGRESS_FILE };
   },
 
   /**
@@ -267,7 +316,7 @@ export const SelfImprovement = {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     if (!fs.existsSync(PROGRESS_FILE)) {
-      fs.writeFileSync(PROGRESS_FILE, JSON.stringify({ gaps: [], research: [] }, null, 2));
+      fs.writeFileSync(PROGRESS_FILE, JSON.stringify({ gaps: [], research: [], targets: [] }, null, 2));
     }
   }
 };
