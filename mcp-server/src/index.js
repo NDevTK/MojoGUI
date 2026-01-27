@@ -137,7 +137,8 @@ server.tool(
                 if (q) {
                     interfaces = interfaces.filter(i => 
                         i.name.toLowerCase().includes(q) ||
-                        i.module.toLowerCase().includes(q)
+                        i.module.toLowerCase().includes(q) ||
+                        (i.module + '.' + i.name).toLowerCase().includes(q)
                     );
                 }
                 
@@ -150,8 +151,38 @@ server.tool(
             })()
         `;
     const result = await executeInMojoGUI(code);
+    
+    // Augment with research data
+    const progress = SelfImprovement.getProgress();
+    const augmented = result.map(iface => {
+        const fqn = `${iface.module}.${iface.name}`;
+        const interfaceResearch = progress.research.filter(r => r.interface === fqn || r.interface === iface.name);
+        const target = progress.targets.find(t => t.interface === fqn || t.interface === iface.name);
+        
+        const findingCount = interfaceResearch.length;
+        const criticalCount = interfaceResearch.filter(r => 
+            ['leak', 'bypass', 'exploit', 'pwned', 'escalation', 'critical'].some(k => 
+                r.result.toLowerCase().includes(k) || r.notes.toLowerCase().includes(k)
+            )
+        ).length;
+
+        let status = "🆕 New";
+        if (findingCount > 0) status = "🔍 Researched";
+        else if (target) status = target.status === "Completed" ? "✅ Done" : "🎯 Target";
+
+        const highImpactIcon = criticalCount > 0 ? " 🔴" : "";
+        const priorityIcon = target?.priority === "High" ? " 🔥" : "";
+
+        return {
+            ...iface,
+            status: `${status}${highImpactIcon}${priorityIcon}`,
+            findings: findingCount > 0 ? `${findingCount} (${criticalCount} Critical)` : 0,
+            priority: target?.priority || "None"
+        };
+    });
+
     return {
-      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      content: [{ type: "text", text: JSON.stringify(augmented, null, 2) }],
     };
   },
 );
@@ -589,7 +620,7 @@ server.tool(
 
 server.tool(
   "get_intercepted_calls",
-  "Get list of intercepted Mojo calls. Returns call details including interface, method, parameters, and status.",
+  "Get list of intercepted Mojo calls with security context. Can filter by status, interface, method, or search in parameters.",
   {
     status: z
       .enum([
@@ -608,13 +639,15 @@ server.tool(
       .default("all")
       .describe("Filter by status"),
     interface: z.string().optional().describe("Optional interface name filter"),
+    method: z.string().optional().describe("Optional method name filter"),
+    query: z.string().optional().describe("Search string for parameters or results"),
     limit: z
       .number()
       .optional()
       .default(20)
       .describe("Maximum number of calls to return"),
   },
-  async ({ status = "all", interface: ifaceFilter, limit = 20 }) => {
+  async ({ status = "all", interface: ifaceFilter, method: methodFilter, query, limit = 20 }) => {
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -630,13 +663,64 @@ server.tool(
                     const q = ${JSON.stringify(ifaceFilter || "")}.toLowerCase();
                     calls = calls.filter(c => c.interface?.toLowerCase().includes(q));
                 }
+
+                if (${JSON.stringify(methodFilter || null)}) {
+                    const q = ${JSON.stringify(methodFilter || "")}.toLowerCase();
+                    calls = calls.filter(c => c.method?.toLowerCase().includes(q));
+                }
+
+                if (${JSON.stringify(query || null)}) {
+                    const q = ${JSON.stringify(query || "")}.toLowerCase();
+                    calls = calls.filter(c => 
+                        JSON.stringify(c.params).toLowerCase().includes(q) ||
+                        JSON.stringify(c.result).toLowerCase().includes(q)
+                    );
+                }
                 
-                return calls.slice(0, ${limit});
+                return {
+                    calls: calls.slice(0, ${limit}),
+                    totalMatched: calls.length,
+                    stats: {
+                        pending: calls.filter(c => c.status === 'Pending').length,
+                        errors: calls.filter(c => c.status === 'Error').length
+                    }
+                };
             })()
         `;
     const result = await executeInMojoGUI(code);
+    
+    // Augment with security context
+    const progress = SelfImprovement.getProgress();
+    const augmentedCalls = result.calls.map(call => {
+        const interfaceResearch = progress.research.filter(r => r.interface === call.interface);
+        const methodResearch = interfaceResearch.filter(r => r.method === call.method);
+        
+        const hasCritical = interfaceResearch.some(r => 
+            ['leak', 'bypass', 'exploit', 'pwned', 'escalation', 'critical'].some(k => 
+                r.result.toLowerCase().includes(k) || r.notes.toLowerCase().includes(k)
+            )
+        );
+
+        let securityNote = null;
+        if (methodResearch.length > 0) {
+            securityNote = `⚠️ Known findings exist for this method (${methodResearch[0].result})`;
+        } else if (interfaceResearch.length > 0) {
+            securityNote = `ℹ️ Interface has other findings. Method not yet validated.`;
+        }
+
+        return {
+            ...call,
+            securityStatus: hasCritical ? "🚨 CRITICAL MODULE" : (interfaceResearch.length > 0 ? "🔍 Researched" : "🆕 New"),
+            securityNote
+        };
+    });
+
     return {
-      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      content: [{ type: "text", text: JSON.stringify({ 
+          stats: result.stats,
+          totalMatched: result.totalMatched,
+          calls: augmentedCalls 
+      }, null, 2) }],
     };
   },
 );
