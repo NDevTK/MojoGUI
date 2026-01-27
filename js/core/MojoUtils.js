@@ -130,13 +130,15 @@
     };
 
     // 3. Return a wrapper object.
+    // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
       proxy: { 
         unbind: () => mockEndpoint, 
         handle: mockEndpoint, 
         handle_: raw,
         endpoint: mockEndpoint,
-        isPendingAssociation: isPendingAssociation
+        isPendingAssociation: isPendingAssociation,
+        localPeer_: realHandle.localPeer_ || null
       },
       unbind: () => mockEndpoint,
       handle: mockEndpoint,
@@ -162,9 +164,6 @@
         proxyHasEndpoint: !!wrapper.proxy.endpoint,
         endpointHasLocalPeer: !!wrapper.endpoint.localPeer_
     });
-
-    return wrapper;
-  }
 
     return wrapper;
   }
