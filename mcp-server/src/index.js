@@ -146,39 +146,53 @@ server.tool(
                     name: i.name,
                     module: i.module,
                     methods: i.methods?.length || 0,
-                    filename: i.filename
+                    filename: i.filename,
+                    metadata: i.metadata // Expose full metadata including usage
                 }));
             })()
         `;
     const result = await executeInMojoGUI(code);
-    
+
     // Augment with research data
     const progress = SelfImprovement.getProgress();
-    const augmented = result.map(iface => {
-        const fqn = `${iface.module}.${iface.name}`;
-        const interfaceResearch = progress.research.filter(r => r.interface === fqn || r.interface === iface.name);
-        const target = progress.targets.find(t => t.interface === fqn || t.interface === iface.name);
-        
-        const findingCount = interfaceResearch.length;
-        const criticalCount = interfaceResearch.filter(r => 
-            ['leak', 'bypass', 'exploit', 'pwned', 'escalation', 'critical'].some(k => 
-                r.result.toLowerCase().includes(k) || r.notes.toLowerCase().includes(k)
-            )
-        ).length;
+    const augmented = result.map((iface) => {
+      const fqn = `${iface.module}.${iface.name}`;
+      const interfaceResearch = progress.research.filter(
+        (r) => r.interface === fqn || r.interface === iface.name,
+      );
+      const target = progress.targets.find(
+        (t) => t.interface === fqn || t.interface === iface.name,
+      );
 
-        let status = "🆕 New";
-        if (findingCount > 0) status = "🔍 Researched";
-        else if (target) status = target.status === "Completed" ? "✅ Done" : "🎯 Target";
+      const findingCount = interfaceResearch.length;
+      const criticalCount = interfaceResearch.filter((r) =>
+        ["leak", "bypass", "exploit", "pwned", "escalation", "critical"].some(
+          (k) =>
+            r.result.toLowerCase().includes(k) ||
+            r.notes.toLowerCase().includes(k),
+        ),
+      ).length;
 
-        const highImpactIcon = criticalCount > 0 ? " 🔴" : "";
-        const priorityIcon = target?.priority === "High" ? " 🔥" : "";
+      const isAssociated = iface.metadata?.usage?.associated?.length > 0;
 
-        return {
-            ...iface,
-            status: `${status}${highImpactIcon}${priorityIcon}`,
-            findings: findingCount > 0 ? `${findingCount} (${criticalCount} Critical)` : 0,
-            priority: target?.priority || "None"
-        };
+      let status = "🆕 New";
+      if (findingCount > 0) status = "🔍 Researched";
+      else if (target)
+        status = target.status === "Completed" ? "✅ Done" : "🎯 Target";
+
+      // Oversee status if it's strictly associated
+      if (isAssociated) status = "🔗 Associated";
+
+      const highImpactIcon = criticalCount > 0 ? " 🔴" : "";
+      const priorityIcon = target?.priority === "High" ? " 🔥" : "";
+
+      return {
+        ...iface,
+        status: `${status}${highImpactIcon}${priorityIcon}`,
+        findings:
+          findingCount > 0 ? `${findingCount} (${criticalCount} Critical)` : 0,
+        priority: target?.priority || "None",
+      };
     });
 
     return {
@@ -288,7 +302,31 @@ server.tool(
                 // We can call a non-existent method and catch, or just return the remote info.
                 
                 // Safer: Use a helper or just return the object registry ID.
-                const fqn = await window.MojoLoader.ensureBinding(${JSON.stringify(iface)});
+                // SAFETY CHECK: Associated Interface
+                const targetIface = await window.MojoLoader.ensureBinding(${JSON.stringify(iface)});
+                const meta = window.MojoLoader.getMetadata();
+                const ifaceData = meta?.interfaces?.find(i => 
+                   i.name === ${JSON.stringify(iface)} || (i.module + '.' + i.name) === ${JSON.stringify(iface)} || i.name === targetIface
+                );
+
+                if (ifaceData && ifaceData.metadata?.usage?.associated?.length > 0) {
+                   // It is associated. Check if it is ALSO direct (rare, but possible if binders exist)
+                   // But generally, if it's heavily associated, we shouldn't direct bind without being sure.
+                   // The crash "RESULT_CODE_KILLED_BAD_MESSAGE" is painful, so we fail fast.
+                   if (!ifaceData.metadata.usage.direct || ifaceData.metadata.usage.direct.length === 0) {
+                       const parent = ifaceData.metadata.usage.associated[0];
+                       return {
+                           status: "Error",
+                           message: \`SAFETY LOCK: Cannot bind '\${iface}' directly. It is an Associated Interface.\`,
+                           hint: \`This interface must be obtained via a parent interface.\`,
+                           suggested_parent: parent,
+                           instruction: \`Please bind the parent interface (e.g., '\${parent.split('.').slice(0,-1).join('.')}') and call the method '\${parent.split('.').pop()}' to get this remote.\`
+                       };
+                   }
+                }
+
+                // Proceed with binding if safe
+                const fqn = targetIface;
                 const name = fqn || ${JSON.stringify(iface)};
                 const comps = window.MojoProxy.getInterfaceComponents(name);
                 const remote = new comps.Remote();
@@ -297,7 +335,7 @@ server.tool(
                 Mojo.bindInterface(name, rawHandle);
                 
                 const id = window.MojoObjectRegistry.register(remote, name);
-                return { objectId: id, type: name };
+                return { objectId: id, type: name, status: "Success" };
             })()
         `;
     const result = await executeInMojoGUI(code, 0, {
@@ -640,14 +678,23 @@ server.tool(
       .describe("Filter by status"),
     interface: z.string().optional().describe("Optional interface name filter"),
     method: z.string().optional().describe("Optional method name filter"),
-    query: z.string().optional().describe("Search string for parameters or results"),
+    query: z
+      .string()
+      .optional()
+      .describe("Search string for parameters or results"),
     limit: z
       .number()
       .optional()
       .default(20)
       .describe("Maximum number of calls to return"),
   },
-  async ({ status = "all", interface: ifaceFilter, method: methodFilter, query, limit = 20 }) => {
+  async ({
+    status = "all",
+    interface: ifaceFilter,
+    method: methodFilter,
+    query,
+    limit = 20,
+  }) => {
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -688,39 +735,58 @@ server.tool(
             })()
         `;
     const result = await executeInMojoGUI(code);
-    
+
     // Augment with security context
     const progress = SelfImprovement.getProgress();
-    const augmentedCalls = result.calls.map(call => {
-        const interfaceResearch = progress.research.filter(r => r.interface === call.interface);
-        const methodResearch = interfaceResearch.filter(r => r.method === call.method);
-        
-        const hasCritical = interfaceResearch.some(r => 
-            ['leak', 'bypass', 'exploit', 'pwned', 'escalation', 'critical'].some(k => 
-                r.result.toLowerCase().includes(k) || r.notes.toLowerCase().includes(k)
-            )
-        );
+    const augmentedCalls = result.calls.map((call) => {
+      const interfaceResearch = progress.research.filter(
+        (r) => r.interface === call.interface,
+      );
+      const methodResearch = interfaceResearch.filter(
+        (r) => r.method === call.method,
+      );
 
-        let securityNote = null;
-        if (methodResearch.length > 0) {
-            securityNote = `⚠️ Known findings exist for this method (${methodResearch[0].result})`;
-        } else if (interfaceResearch.length > 0) {
-            securityNote = `ℹ️ Interface has other findings. Method not yet validated.`;
-        }
+      const hasCritical = interfaceResearch.some((r) =>
+        ["leak", "bypass", "exploit", "pwned", "escalation", "critical"].some(
+          (k) =>
+            r.result.toLowerCase().includes(k) ||
+            r.notes.toLowerCase().includes(k),
+        ),
+      );
 
-        return {
-            ...call,
-            securityStatus: hasCritical ? "🚨 CRITICAL MODULE" : (interfaceResearch.length > 0 ? "🔍 Researched" : "🆕 New"),
-            securityNote
-        };
+      let securityNote = null;
+      if (methodResearch.length > 0) {
+        securityNote = `⚠️ Known findings exist for this method (${methodResearch[0].result})`;
+      } else if (interfaceResearch.length > 0) {
+        securityNote = `ℹ️ Interface has other findings. Method not yet validated.`;
+      }
+
+      return {
+        ...call,
+        securityStatus: hasCritical
+          ? "🚨 CRITICAL MODULE"
+          : interfaceResearch.length > 0
+            ? "🔍 Researched"
+            : "🆕 New",
+        securityNote,
+      };
     });
 
     return {
-      content: [{ type: "text", text: JSON.stringify({ 
-          stats: result.stats,
-          totalMatched: result.totalMatched,
-          calls: augmentedCalls 
-      }, null, 2) }],
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(
+            {
+              stats: result.stats,
+              totalMatched: result.totalMatched,
+              calls: augmentedCalls,
+            },
+            null,
+            2,
+          ),
+        },
+      ],
     };
   },
 );
@@ -1281,22 +1347,49 @@ server.tool(
   "track_research",
   "Consolidated tool for managing research progress. Use this to add targets, log findings, or record capability gaps.",
   {
-    type: z.enum(["target", "research", "gap"]).describe("Type of information to track"),
-    interface: z.string().optional().describe("Mojo interface name (required for 'target' and 'research')"),
-    method: z.string().optional().describe("Method name (required for 'research')"),
-    result: z.string().optional().describe("Outcome/Finding (required for 'research')"),
-    notes: z.string().optional().describe("Detailed notes or target justification"),
-    priority: z.enum(["High", "Medium", "Low"]).optional().default("Medium").describe("Target priority"),
-    task: z.string().optional().describe("Task being attempted (required for 'gap')"),
-    gap: z.string().optional().describe("Technical gap description (required for 'gap')"),
-    impact: z.string().optional().describe("Impact on research (required for 'gap')"),
+    type: z
+      .enum(["target", "research", "gap"])
+      .describe("Type of information to track"),
+    interface: z
+      .string()
+      .optional()
+      .describe("Mojo interface name (required for 'target' and 'research')"),
+    method: z
+      .string()
+      .optional()
+      .describe("Method name (required for 'research')"),
+    result: z
+      .string()
+      .optional()
+      .describe("Outcome/Finding (required for 'research')"),
+    notes: z
+      .string()
+      .optional()
+      .describe("Detailed notes or target justification"),
+    priority: z
+      .enum(["High", "Medium", "Low"])
+      .optional()
+      .default("Medium")
+      .describe("Target priority"),
+    task: z
+      .string()
+      .optional()
+      .describe("Task being attempted (required for 'gap')"),
+    gap: z
+      .string()
+      .optional()
+      .describe("Technical gap description (required for 'gap')"),
+    impact: z
+      .string()
+      .optional()
+      .describe("Impact on research (required for 'gap')"),
   },
   async (params) => {
     const result = SelfImprovement.track(params);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
-  }
+  },
 );
 
 server.tool(

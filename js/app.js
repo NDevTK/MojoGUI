@@ -487,9 +487,15 @@
           const isSynced =
             window.MojoLearnedProtocols &&
             window.MojoLearnedProtocols.has(iface.name);
+
+          const isAssociated = iface.metadata?.usage?.associated?.length > 0;
+          const assocBadge = isAssociated
+            ? '<span class="badge warning" title="Associated Interface">🔗</span>'
+            : "";
+
           return `
             <div class="interface-item" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
-                <span class="name">${escapeHtml(iface.name)}</span>
+                <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
@@ -641,6 +647,31 @@
             <span style="font-weight: 600; font-size: 0.9em; color: var(--accent);">TARGET CONFIGURATION</span>
           </div>
 
+          ${(() => {
+            // Safety/Hint Logic
+            const iface = state.selectedInterface;
+            const meta = iface?.metadata?.usage;
+            if (
+              meta?.associated?.length > 0 &&
+              (!meta.direct || meta.direct.length === 0)
+            ) {
+              // It's purely associated
+              const parentInfo = meta.associated[0];
+              return `
+                    <div style="background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); border-radius: 6px; padding: 10px; margin-bottom: 15px;">
+                        <div style="color: #ffb74d; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">⚠️ Associated Interface</div>
+                        <div style="font-size: 0.85em; color: var(--text-main); opacity: 0.9;">
+                            This interface cannot be bound directly from the browser process. It must be retrieved via a parent interface.
+                        </div>
+                        <div style="margin-top: 8px; font-size: 0.85em;">
+                            Derived from: <code style="background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">${parentInfo}</code>
+                        </div>
+                    </div>
+                  `;
+            }
+            return "";
+          })()}
+
           <div style="margin-bottom: 12px;">
               <div style="font-size: 0.8em; color: var(--text-muted); margin-bottom: 6px;">Receiver Type</div>
               <div style="display: flex; gap: 12px;">
@@ -750,14 +781,34 @@
       code += `const root = mojo.internal.bindings.${namespace};\n\n`;
 
       code += `let ${iface.name.toLowerCase()}Remote;\n`;
-      code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-      code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
-      code += `} else {\n`;
-      code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
-      code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
-      code += `    const handle = receiver.handle || receiver;\n`;
-      code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
-      code += `}\n`;
+
+      // Check Metadata for Warning
+      const meta = iface.metadata?.usage;
+      const isAssociated =
+        meta?.associated?.length > 0 &&
+        (!meta.direct || meta.direct.length === 0);
+
+      if (isAssociated) {
+        code += `// ⚠️ WARNING: ${iface.name} is an ASSOCIATED INTERFACE.\n`;
+        code += `// It cannot be bound directly using Mojo.bindInterface.\n`;
+        code += `// You must obtain it by calling a method on a parent interface (e.g. ${meta.associated[0]}).\n`;
+        code += `//\n`;
+        code += `// Example Flow:\n`;
+        code += `// 1. Bind Parent Interface\n`;
+        code += `// 2. Call parent.Get${iface.name}(...)\n`;
+        code += `// 3. Use the resulting remote.\n`;
+        code += `\n`;
+        code += `throw new Error("Cannot bind ${iface.name} directly - it is an associated interface.");\n`;
+      } else {
+        code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+        code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
+        code += `} else {\n`;
+        code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
+        code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+        code += `    const handle = receiver.handle || receiver;\n`;
+        code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
+        code += `}\n`;
+      }
       code += `// Select a method to see the full call...`;
       return code;
     }
