@@ -283,10 +283,24 @@
           return decorateHandle(handleToPass, true, handleData.type);
         }
 
+        if (handleData.isAssociated) {
+            const { endpoint0, endpoint1 } = mojo.internal.interfaceSupport.Endpoint.createAssociatedPair();
+            // endpoint0 is what we keep, endpoint1 is what we pass
+            return decorateHandle(endpoint1, true, handleData.interface);
+        }
+
         const { handle0, handle1 } = Mojo.createMessagePipe();
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
         return decorateHandle(handle0, true, handleData.interface);
+      }
+      if (action === "bind_associated") {
+          // Manually bind an associated interface to a master handle
+          const masterHandle = MojoHandleRegistry.get(handleData.masterHandleId);
+          if (!masterHandle) return original;
+          const router = new mojo.internal.interfaceSupport.Router(masterHandle);
+          const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, handleData.interfaceId || 0);
+          return decorateHandle(endpoint, true, handleData.interface);
       }
       if (action === "use_handle") {
         const handleInput = handleData.customHandle;
