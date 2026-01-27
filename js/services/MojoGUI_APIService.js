@@ -215,14 +215,15 @@
      * Log raw data captured from a Data Pipe
      * @param {string|number} handleId - Handle ID
      * @param {Uint8Array} data - Raw byte chunk
+     * @param {string} method - Activity method label (default: "Stream")
      */
-    addDataActivity: (handleId, data) => {
+    addDataActivity: (handleId, data, method = "Stream") => {
       const { addActivityRow } = global.TrafficUIService || {};
       if (addActivityRow) {
         addActivityRow({
           type: "DATA",
           interface: "Data Pipe",
-          method: "Stream",
+          method: method,
           params: {
             handle: handleId.toString().startsWith("obj_")
               ? handleId
@@ -533,8 +534,15 @@
       }
 
       if (encoding === "utf8") {
-        return { result: Mojo.RESULT_OK, data: new TextDecoder().decode(data) };
+        const decoded = new TextDecoder().decode(data);
+        if (window.MojoGUI_API.addDataActivity) {
+          window.MojoGUI_API.addDataActivity(id, data, "Read");
+        }
+        return { result: Mojo.RESULT_OK, data: decoded };
       } else if (encoding === "hex") {
+        if (window.MojoGUI_API.addDataActivity) {
+          window.MojoGUI_API.addDataActivity(id, data, "Read");
+        }
         return {
           result: Mojo.RESULT_OK,
           data: Array.from(data)
@@ -542,12 +550,18 @@
             .join(""),
         };
       } else if (encoding === "base64") {
+        if (window.MojoGUI_API.addDataActivity) {
+          window.MojoGUI_API.addDataActivity(id, data, "Read");
+        }
         return {
           result: Mojo.RESULT_OK,
           data: btoa(String.fromCharCode(...data)),
         };
       }
 
+      if (window.MojoGUI_API.addDataActivity) {
+        window.MojoGUI_API.addDataActivity(id, data, "Read");
+      }
       return {
         result: Mojo.RESULT_OK,
         data: Array.from(data),
@@ -566,6 +580,13 @@
       if (!handle) return { error: "Handle not found" };
 
       const result = MojoUtils.writeDataPipe(handle, data);
+
+      if (result === Mojo.RESULT_OK && window.MojoGUI_API.addDataActivity) {
+        const buffer =
+          typeof data === "string" ? new TextEncoder().encode(data) : data;
+        window.MojoGUI_API.addDataActivity(id, buffer, "Write");
+      }
+
       return {
         result: result,
         bytesWritten:
