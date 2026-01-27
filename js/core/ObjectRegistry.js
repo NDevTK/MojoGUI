@@ -131,9 +131,10 @@
         return { $ref: id, type: typeName };
       }
 
-      // Do not recurse into other Mojo internals (like Routers) that aren't Endpoints/Remotes
+      // Do not recurse into Mojo internals (like Routers) that aren't Endpoints/Remotes
+      // We return the value as-is to avoid breaking Mojo's internal state
       if (value.connector_ || value.messageReceiver_ || value.handle_ || value.pipe_) {
-          return "[MojoInternal]";
+          return value;
       }
 
       // Detect if it's a raw handle (MojoHandle) and we have a specific interface name
@@ -179,7 +180,7 @@
 
       // Only recurse into plain objects to avoid touching internal state of complex objects
       const isPlainObject = value.constructor === Object || !value.constructor;
-      if (!isPlainObject) return "[ComplexObject]";
+      if (!isPlainObject) return value;
 
       const result = {};
       for (const key in value) {

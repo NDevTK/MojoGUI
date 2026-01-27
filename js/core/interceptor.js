@@ -169,9 +169,7 @@
         }
       }
 
-      this.id = window.MojoObjectRegistry.register(this, interfaceName);
-
-      return new Proxy(this, {
+      const proxy = new Proxy(this, {
         get: (target, prop, receiver) => {
           if (prop in target) return target[prop];
           if (typeof prop === "string") {
@@ -197,6 +195,7 @@
               : null;
 
             // 2. Fallback: Check components for method existence if realRemote is null (Sink Mode)
+            // Or if method not found on instance yet (could be on prototype or lazy)
             if (!found && target.comps) {
               // Check Remote prototype or static Interface info
               const remoteProto = target.comps.Remote
@@ -221,6 +220,9 @@
           return Reflect.get(target, prop, receiver);
         },
       });
+
+      this.id = window.MojoObjectRegistry.register(proxy, interfaceName);
+      return proxy;
     }
 
     static getRawHandleFromMojoObject(obj) {
