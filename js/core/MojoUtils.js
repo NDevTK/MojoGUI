@@ -108,6 +108,8 @@
       typeof realHandle.handle.releasePipe === "function"
     ) {
       raw = realHandle.handle.releasePipe();
+    } else if (realHandle.router && realHandle.router.pipe) {
+        raw = realHandle.router.pipe;
     }
 
     // 2. Create the mock endpoint that returns the RAW handle
@@ -115,6 +117,8 @@
       releasePipe: () => raw,
       handle: raw,
       isPendingAssociation: isPendingAssociation,
+      interfaceId: realHandle.interfaceId_ !== undefined ? realHandle.interfaceId_ : 0,
+      router: realHandle.router_ || realHandle.router || null
     };
 
     // 3. Return a wrapper object.
