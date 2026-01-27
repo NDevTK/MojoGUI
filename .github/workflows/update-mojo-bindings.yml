@@ -125,7 +125,6 @@ jobs:
           # Only add generated binding files - NOT core runtime files
           # Core files (bindings_lite.js, interface_support.js, etc.) should not be modified
           git add bindings/*.mojom.js
-          git add bindings/index.js
           git add bindings/index.json
 
           # Show what will be committed

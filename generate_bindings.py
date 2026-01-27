@@ -1785,7 +1785,7 @@ def main():
 
     # Pass 1.5: Analyze usage patterns (Associated vs Direct receivers)
     print("Analyzing interface usage patterns...")
-    interface_usage_stats = {} # { fqn: { 'associated': 0, 'direct': 0 } }
+    interface_usage_stats = {} # { fqn: { 'associated': [], 'direct': [] } }
     
     # Helper to resolve type to FQN
     def resolve_type_fqn(type_name, current_module, imports):
@@ -1858,12 +1858,14 @@ def main():
                         fqn = resolve_type_fqn(target_type, mod, resolved_imports)
                         if fqn:
                             if fqn not in interface_usage_stats:
-                                interface_usage_stats[fqn] = {'associated': 0, 'direct': 0}
+                                interface_usage_stats[fqn] = {'associated': [], 'direct': []}
+                            
+                            source_info = f"{mod}.{interface['name']}.{method['name']}"
                             
                             if is_assoc:
-                                interface_usage_stats[fqn]['associated'] += 1
+                                interface_usage_stats[fqn]['associated'].append(source_info)
                             if is_direct:
-                                interface_usage_stats[fqn]['direct'] += 1
+                                interface_usage_stats[fqn]['direct'].append(source_info)
 
     # Pass 2: Generate Bindings
     for item in all_parsed:
@@ -1885,7 +1887,7 @@ def main():
                 # Analyze usage for this specific file's interfaces
                 for interface in parsed['interfaces']:
                     fqn = f"{parsed['module']}.{interface['name']}"
-                    usage = interface_usage_stats.get(fqn, {'associated': 0, 'direct': 0})
+                    usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
                     
                     index_data['interfaces'].append({
                         'name': interface['name'],
