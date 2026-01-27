@@ -217,11 +217,26 @@ server.tool(
   },
   async ({ interface: iface }) => {
     const code = `
-                const api = window.MojoGUI_API;
-                if (!api) throw new Error('MojoGUI API not available');
+            (async () => {
+                const executor = window.MojoExecutionService;
+                if (!executor) throw new Error('MojoExecutionService not available');
                 
-                // Use the new bindInterceptedInterface API to ensure traffic log capturing
-                return await api.bindInterceptedInterface(${JSON.stringify(iface)});
+                // We call a dummy method or just rely on the side effect of 'call' resolving the target
+                // Actually, let's just implement a minimal bind in ExecutionService or here.
+                // ExecutionService.call handles binding if objectId is missing.
+                // We can call a non-existent method and catch, or just return the remote info.
+                
+                // Safer: Use a helper or just return the object registry ID.
+                const fqn = await window.MojoLoader.ensureBinding(${JSON.stringify(iface)});
+                const name = fqn || ${JSON.stringify(iface)};
+                const comps = window.MojoProxy.getInterfaceComponents(name);
+                const remote = new comps.Remote();
+                const receiver = remote.bindNewPipeAndPassReceiver();
+                const rawHandle = window.MojoProxy.getRawHandleFromMojoObject(receiver) || receiver.handle || receiver;
+                Mojo.bindInterface(name, rawHandle);
+                
+                const id = window.MojoObjectRegistry.register(remote, name);
+                return { objectId: id, type: name };
             })()
         `;
     const result = await executeInMojoGUI(code);
