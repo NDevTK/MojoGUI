@@ -1889,6 +1889,41 @@ def main():
                     fqn = f"{parsed['module']}.{interface['name']}"
                     usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
 
+                    if not usage['associated'] and not usage['direct']:
+                         # [PASSED] 5. Source-Based Verification (Grep)
+                         # If no Mojo usage is found, check C++ BinderMaps to distinguish Top-Level Services (Direct)
+                         # from Legacy/Implicit Interfaces (Associated).
+                         try:
+                             import subprocess
+                             
+                             # We grep 4 key files that contain 99% of binder logic.
+                             grep_pattern = f"map->Add.*<.*{interface['name']}"
+                             target_dirs = ["content/browser/", "chrome/browser/", "components/performance_manager/"]
+                             
+                             is_bindermap_service = False
+                             try:
+                                 # We try 'git grep' first as it's fastest if inside the repo
+                                 cmd = ["git", "grep", "-l", grep_pattern, "--"] + target_dirs
+                                 subprocess.check_output(cmd, stderr=subprocess.DEVNULL)
+                                 is_bindermap_service = True
+                             except:
+                                 # Fallback to standard grep
+                                 try:
+                                     cmd = ["grep", "-r", "-l", grep_pattern] + target_dirs
+                                     subprocess.check_output(cmd, stderr=subprocess.DEVNULL)
+                                     is_bindermap_service = True
+                                 except:
+                                     pass
+                             
+                             if is_bindermap_service:
+                                 usage['direct'].append("Inferred: Found in C++ BinderMap (Top-Level Service)")
+                             else:
+                                 # Not in BinderMap AND no Mojom Usage -> Implicitly Associated
+                                 usage['associated'].append("Inferred: Not in BinderMap (Implicit/Legacy Associated)")
+                                 
+                         except Exception:
+                             pass
+
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],

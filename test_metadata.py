@@ -24,8 +24,9 @@ def main():
     
     targets = [
         "device.mojom.XREnvironmentIntegrationProvider", # Explicitly Associated
-        "blink.mojom.LocalFrameHost",                   # Implicitly Associated (Inferred)
-        "device.mojom.BatteryMonitor"                   # Control: Direct Usage
+        "blink.mojom.LocalFrameHost",               # Inferred Associated (Not in BinderMap)
+        "blink.mojom.ShareService",                 # Direct (Found in BinderMap)
+        "device.mojom.BatteryMonitor"               # Control: Direct Usage
     ]
     
     print("\nVerifying Targets:")
