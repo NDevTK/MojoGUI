@@ -1960,11 +1960,6 @@ def main():
                         if not usage['associated']:
                              usage['associated'].append("Inferred: Not in Desktop BinderMap")
 
-                    # 3. Handle CodeCacheHost & other edge cases manually
-                    if 'CodeCacheHost' in interface['name']:
-                        usage['direct'] = []
-                        usage['associated'].append("Restricted: Context Sensitive Host")
-
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],
