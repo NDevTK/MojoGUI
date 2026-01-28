@@ -199,16 +199,14 @@ body::before {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: var(--transition-bounce);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
 .logo:hover .logo-icon {
   transform: scale(1.05) rotate(5deg);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.7);
-}
-
-.logo-icon svg {
-  width: 20px;
-  height: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  border-color: rgba(0, 255, 255, 0.3);
 }
 
 .logo h1 {
