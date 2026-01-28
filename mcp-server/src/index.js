@@ -421,7 +421,6 @@ server.tool(
     isAssociated = false,
     masterHandleId,
     interfaceId = 0,
-    interfaceId = 0,
     userGesture = false,
   }) => {
     // VALIDATION: Associated Interfaces require a Master Handle
