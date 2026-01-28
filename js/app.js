@@ -485,6 +485,7 @@
                 justify-content: center;
                 gap: 6px;
                 padding: 8px 10px;
+                white-space: nowrap;
                 background: var(--bg-secondary);
                 border: 1px solid var(--border-color);
                 border-radius: 4px;
