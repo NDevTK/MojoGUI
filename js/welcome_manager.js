@@ -33,34 +33,56 @@ const WelcomeManager = (function () {
         </div>
     `;
 
-  const WELCOME_HTML = `
+  function getWelcomeHtml(interfaces, browserVersion) {
+    let directCount = 0;
+    let associatedCount = 0;
+    interfaces.forEach((i) => {
+      const isDirect = i.metadata?.usage?.direct?.length > 0;
+      if (isDirect) directCount++;
+      else associatedCount++;
+    });
+    const total = directCount + associatedCount;
+
+    return `
         <h3>👋 Welcome to MojoGUI</h3>
-        <p>A premium interface for exploring and intercepting MojoJS IPC messages in Chromium. <br>Bindings are generated for <strong>Chrome {VERSION}</strong>.</p>
+        <p>Bindings generated for <strong>Chrome ${
+          browserVersion ? escapeHtml(browserVersion) : "Canary"
+        }</strong>.</p>
         
+        <div class="stats-container" style="display: flex; gap: 10px; margin: 15px 0;">
+            <div style="flex: 1; text-align: center; padding: 12px; background: var(--bg-secondary, #f5f5f5); border-radius: 8px;">
+                <div style="font-size: 1.8em; font-weight: bold;">${total}</div>
+                <div style="font-size: 0.8em; opacity: 0.7;">Total Interfaces</div>
+            </div>
+             <div style="flex: 1; text-align: center; padding: 12px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
+                <div style="font-size: 1.8em; font-weight: bold; color: #4caf50;">${directCount}</div>
+                <div style="font-size: 0.8em; opacity: 0.7; color: #4caf50;">✓ Direct (Safe)</div>
+            </div>
+             <div style="flex: 1; text-align: center; padding: 12px; background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 8px;">
+                <div style="font-size: 1.8em; font-weight: bold; color: #ff9800;">${associatedCount}</div>
+                <div style="font-size: 0.8em; opacity: 0.7; color: #ff9800;">🔗 Associated</div>
+            </div>
+        </div>
+
         <div class="step-card">
-            <h4><span class="step-number">?</span> What is Mojo?</h4>
-            <p>Mojo is Chromium's IPC (Inter-Process Communication) system. It allows different processes (Browser, Renderer, GPU) to talk to each other using strongly-typed interfaces defined in <code>.mojom</code> files.</p>
+            <h4><span class="step-number">🛡️</span> Security Posture</h4>
+            <p style="font-size: 0.9em; margin-bottom: 0;">
+                We have detected <strong>${associatedCount} restricted interfaces</strong> (e.g. WebUI handlers, platform-specific services). 
+                These are marked as <strong>Associated</strong> to prevent accidental <code>BAD_MESSAGE</code> terminations when binding from the global scope.
+            </p>
         </div>
 
         <div class="step-card">
             <h4><span class="step-number">⚡</span> How this Tool Works</h4>
-            <p><strong>MojoGUI</strong> uses the <code>MojoInterfaceInterceptor</code> API to capture interface requests relative to the current context. This allows us to:</p>
+            <p><strong>MojoGUI</strong> uses the <code>MojoInterfaceInterceptor</code> API to capture interface requests relative to the current context.</p>
             <ul>
                 <li><strong>Log:</strong> See every message sent between the page and the browser.</li>
-                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly (<span title="Proxies are created dynamically!">Dynamic Proxying</span>).</li>
+                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly.</li>
                 <li><strong>Fuzz:</strong> Send custom messages to test browser security.</li>
             </ul>
         </div>
-        
-        <div class="step-card">
-            <h4><span class="step-number">🚀</span> Quick Start</h4>
-            <ol>
-                <li>Select an <strong>Interface</strong> on the left.</li>
-                <li>Check the <strong>"Traffic Log"</strong> to see live messages.</li>
-                <li>Toggle <strong>Status</strong> to "Blocking" to intercept requests.</li>
-            </ol>
-        </div>
     `;
+  }
 
   function buildWhatsNewHtml(diff) {
     let html = "<h3>Changes detected since your last visit:</h3>";
@@ -72,9 +94,14 @@ const WelcomeManager = (function () {
     if (diff.added && diff.added.length > 0) {
       html += `<h4>New Interfaces (${diff.added.length})</h4><div class="step-card">`;
       diff.added.forEach((item) => {
+        const badgeClass =
+          item.type === "Direct" ? "badge success" : "badge warning";
+        const badgeLabel = item.type === "Direct" ? "Direct" : "Assoc";
+
         html += `
                     <div class="whats-new-item">
                          <span class="whats-new-badge badge-new">New</span>
+                         <span class="${badgeClass}" style="font-size: 0.7em; margin-right: 6px; padding: 2px 6px;">${badgeLabel}</span>
                          <strong>${escapeHtml(item.name)}</strong>
                          <span style="opacity:0.7">(${item.module})</span>
                     </div>`;
@@ -85,11 +112,16 @@ const WelcomeManager = (function () {
     if (diff.changed && diff.changed.length > 0) {
       html += `<h4>Changed Interfaces (${diff.changed.length})</h4><div class="step-card">`;
       diff.changed.forEach((item) => {
+        let changeText = `Methods: ${item.oldMethods} &rarr; ${item.newMethods}`;
+        if (item.oldType !== item.newType) {
+          changeText += ` | Type: ${item.oldType} &rarr; ${item.newType}`;
+        }
+
         html += `
                     <div class="whats-new-item">
                         <span class="whats-new-badge badge-changed">Mod</span>
                         <strong>${escapeHtml(item.name)}</strong>
-                        <span style="font-size:0.8em">Methods: ${item.oldMethods} &rarr; ${item.newMethods}</span>
+                        <span style="font-size:0.8em">${changeText}</span>
                     </div>`;
       });
       html += "</div>";
@@ -201,11 +233,11 @@ const WelcomeManager = (function () {
 
       if (updates) {
         if (updates.isFirstVisit) {
-          const welcomeHtml = WELCOME_HTML.replace(
-            "{VERSION}",
-            browserVersion ? escapeHtml(browserVersion) : "Canary",
+          // Dynamic Welcome
+          createModal(
+            "👋 Welcome to MojoGUI",
+            getWelcomeHtml(interfaces, browserVersion),
           );
-          createModal("👋 Welcome to MojoGUI", welcomeHtml);
         } else if (updates.added || updates.changed || updates.removed) {
           createModal("⚡ What's New", buildWhatsNewHtml(updates));
         }

@@ -8,14 +8,20 @@ const VersionTracker = (function () {
   /**
    * Creates a snapshot of the current interfaces.
    * @param {Array} interfaces - List of interface objects from the parser.
-   * @returns {Object} map of interface name -> { module, methodCount }
+   * @returns {Object} map of interface name -> { module, methodCount, type }
    */
   function createSnapshot(interfaces) {
     const snapshot = {};
     interfaces.forEach((iface) => {
+      // Determine Type from metadata
+      const usage = iface.metadata?.usage;
+      const isDirect = usage?.direct?.length > 0;
+      const type = isDirect ? "Direct" : "Associated";
+
       snapshot[iface.name] = {
         module: iface.module,
         methodCount: iface.methods ? iface.methods.length : 0,
+        type: type,
       };
     });
     return snapshot;
@@ -40,11 +46,16 @@ const VersionTracker = (function () {
         added.push({ name, ...info });
       } else {
         const oldInfo = oldSnapshot[name];
-        if (oldInfo.methodCount !== info.methodCount) {
+        if (
+          oldInfo.methodCount !== info.methodCount ||
+          oldInfo.type !== info.type
+        ) {
           changed.push({
             name,
             oldMethods: oldInfo.methodCount,
             newMethods: info.methodCount,
+            oldType: oldInfo.type,
+            newType: info.type,
             module: info.module,
           });
         }
