@@ -1888,13 +1888,6 @@ def main():
                 for interface in parsed['interfaces']:
                     fqn = f"{parsed['module']}.{interface['name']}"
                     usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
-                    
-                    # INFERENCE BY OMISSION:
-                    # If an interface is never used as a 'pending_receiver<T>' in any Mojom file,
-                    # it implies it cannot be bound using the standard Mojo.bindInterface() flow.
-                    # We infer it is either explicitly associated, or implicitly associated (legacy/internal).
-                    if not usage['associated'] and not usage['direct']:
-                         usage['associated'].append("Inferred: No Direct Mojom Usage")
 
                     index_data['interfaces'].append({
                         'name': interface['name'],
