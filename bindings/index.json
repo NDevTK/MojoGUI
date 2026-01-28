@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-28T02:19:21.213827Z",
+  "generated_at": "2026-01-28T02:26:09.849004Z",
   "version": "146.0.7654.0",
   "interfaces": [
     {
@@ -33,10 +33,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -66,10 +66,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -242,10 +242,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -1304,10 +1304,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -2310,10 +2310,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -2945,10 +2945,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -3083,10 +3083,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -3819,10 +3819,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -3835,10 +3835,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -3927,10 +3927,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -4085,10 +4085,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -4186,10 +4186,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -4334,10 +4334,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -4382,10 +4382,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -4414,10 +4414,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5036,10 +5036,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5367,10 +5367,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5419,10 +5419,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5628,10 +5628,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5809,10 +5809,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -5965,10 +5965,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6039,10 +6039,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6326,10 +6326,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6444,10 +6444,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6546,10 +6546,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6632,10 +6632,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6756,10 +6756,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6813,10 +6813,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6862,10 +6862,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6920,10 +6920,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -6954,10 +6954,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7090,10 +7090,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7210,10 +7210,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7464,10 +7464,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7514,10 +7514,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7566,10 +7566,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7618,10 +7618,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7686,10 +7686,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7777,10 +7777,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7858,10 +7858,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7906,10 +7906,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -7953,10 +7953,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8001,10 +8001,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8183,10 +8183,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8235,10 +8235,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8272,10 +8272,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8374,10 +8374,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8851,10 +8851,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -8867,10 +8867,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -9720,10 +9720,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -9856,10 +9856,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -10003,10 +10003,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -11079,10 +11079,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -11131,10 +11131,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -11972,10 +11972,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -12788,10 +12788,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -14156,10 +14156,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -16352,10 +16352,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -16848,10 +16848,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -17637,10 +17637,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -17705,10 +17705,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -17861,10 +17861,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -18665,10 +18665,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19079,10 +19079,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19138,10 +19138,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19341,10 +19341,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19392,10 +19392,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19411,10 +19411,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19530,10 +19530,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19704,10 +19704,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -19845,10 +19845,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20282,10 +20282,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20299,10 +20299,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20384,10 +20384,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20521,10 +20521,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20572,10 +20572,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20666,10 +20666,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20687,10 +20687,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20703,10 +20703,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -20851,10 +20851,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -21049,10 +21049,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -21999,10 +21999,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22170,10 +22170,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22408,10 +22408,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22432,10 +22432,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22466,10 +22466,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22487,10 +22487,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22504,10 +22504,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22538,10 +22538,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22560,10 +22560,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22576,10 +22576,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22627,10 +22627,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22645,10 +22645,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22736,10 +22736,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22762,10 +22762,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22851,10 +22851,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22915,10 +22915,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -22988,10 +22988,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -23232,10 +23232,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24197,10 +24197,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24320,10 +24320,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24433,10 +24433,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24450,10 +24450,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24649,10 +24649,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24826,10 +24826,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24842,10 +24842,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24942,10 +24942,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -24970,10 +24970,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -25099,10 +25099,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -25135,10 +25135,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -25158,10 +25158,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -25410,10 +25410,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -25442,10 +25442,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26003,10 +26003,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26694,10 +26694,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26711,10 +26711,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26782,10 +26782,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26818,10 +26818,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26923,10 +26923,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26953,10 +26953,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -26969,10 +26969,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27118,10 +27118,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27346,10 +27346,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27402,10 +27402,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27471,10 +27471,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27523,10 +27523,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27556,10 +27556,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27573,10 +27573,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27630,10 +27630,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27854,10 +27854,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27870,10 +27870,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -27886,10 +27886,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -29031,10 +29031,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -29528,10 +29528,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -29915,10 +29915,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -30276,10 +30276,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -30360,10 +30360,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -31528,10 +31528,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -32188,10 +32188,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -32297,10 +32297,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -33080,10 +33080,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -33351,10 +33351,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34284,10 +34284,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34374,10 +34374,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34523,10 +34523,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34812,10 +34812,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34849,10 +34849,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34867,10 +34867,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -34884,10 +34884,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35034,10 +35034,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35066,10 +35066,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35178,10 +35178,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35223,10 +35223,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35296,10 +35296,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35312,10 +35312,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35344,10 +35344,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35361,10 +35361,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35378,10 +35378,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35448,10 +35448,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35480,10 +35480,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35512,10 +35512,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35628,10 +35628,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35681,10 +35681,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35715,10 +35715,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35751,10 +35751,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35768,10 +35768,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35786,10 +35786,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35933,10 +35933,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35949,10 +35949,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -35968,10 +35968,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36149,10 +36149,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36179,10 +36179,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36212,10 +36212,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36393,10 +36393,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36529,10 +36529,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36545,10 +36545,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36711,10 +36711,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36727,10 +36727,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -36792,10 +36792,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37089,10 +37089,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37138,10 +37138,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37158,10 +37158,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37206,10 +37206,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37504,10 +37504,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37622,10 +37622,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37654,10 +37654,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37706,10 +37706,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37724,10 +37724,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37746,10 +37746,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37803,10 +37803,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37821,10 +37821,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37911,10 +37911,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -37963,10 +37963,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38080,10 +38080,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38112,10 +38112,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38151,10 +38151,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38210,10 +38210,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38275,10 +38275,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38379,10 +38379,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38412,10 +38412,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38478,10 +38478,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38635,10 +38635,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38722,10 +38722,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38740,10 +38740,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38791,10 +38791,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38863,10 +38863,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38879,10 +38879,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38930,10 +38930,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38966,10 +38966,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -38983,10 +38983,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39025,10 +39025,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39125,10 +39125,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39161,10 +39161,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39177,10 +39177,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39264,10 +39264,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39284,10 +39284,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39323,10 +39323,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39339,10 +39339,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39359,10 +39359,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39477,10 +39477,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39519,10 +39519,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39860,10 +39860,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39877,10 +39877,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39895,10 +39895,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39953,10 +39953,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39976,10 +39976,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -39994,10 +39994,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40010,10 +40010,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40030,10 +40030,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40046,10 +40046,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40063,10 +40063,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40099,10 +40099,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40121,10 +40121,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40139,10 +40139,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40164,10 +40164,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40180,10 +40180,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40196,10 +40196,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40212,10 +40212,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40306,10 +40306,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40338,10 +40338,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40372,10 +40372,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40464,10 +40464,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40876,10 +40876,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40908,10 +40908,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -40959,10 +40959,10 @@
       "methods": [],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41056,10 +41056,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41072,10 +41072,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41156,10 +41156,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41208,10 +41208,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41246,10 +41246,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
@@ -41413,10 +41413,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in BinderMap (Implicit/Legacy Associated)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Inferred: Found in C++ BinderMap (Top-Level Service)"
+          ]
         }
       }
     },
