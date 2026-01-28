@@ -479,7 +479,12 @@
       btn.innerHTML = safeHTML(f.icon ? `${f.icon} ${f.label}` : f.label);
       btn.style.cssText = `
                 flex: 1;
-                padding: 6px 10px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 8px 10px;
                 background: var(--bg-secondary);
                 border: 1px solid var(--border-color);
                 border-radius: 4px;
@@ -512,12 +517,17 @@
       container.appendChild(btn);
     });
 
-    // Insert after search input
-    if (elements.interfaceSearch && elements.interfaceSearch.parentNode) {
-      elements.interfaceSearch.parentNode.insertBefore(
-        container,
-        elements.interfaceSearch.nextSibling,
-      );
+    // Insert AFTER the .search-box container to avoid breaking icon positioning
+    if (elements.interfaceSearch) {
+      const searchBox = elements.interfaceSearch.closest(".search-box");
+      if (searchBox && searchBox.parentNode) {
+        // Insert after searchBox
+        searchBox.parentNode.insertBefore(container, searchBox.nextSibling);
+
+        // Add some margin to separate from the list
+        container.style.marginBottom = "10px";
+        container.style.padding = "0 16px"; // Match Sidebar padding
+      }
     }
   }
 
