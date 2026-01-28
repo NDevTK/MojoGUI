@@ -1889,68 +1889,81 @@ def main():
                     fqn = f"{parsed['module']}.{interface['name']}"
                     usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
 
-                    if not usage['associated'] and not usage['direct']:
-                         # [Pass 2.5] Source-Based Ground Truth Verification
-                         # We parse the actual C++ binder files to determine availability.
-                         
-                         # 1. Define sets if not already done (lazy init)
-                         if 'global_binders' not in locals():
-                             global_binders = set()
-                             webui_binders = set()
-                             
-                             def extract_interfaces(file_path, pattern):
-                                 found = set()
-                                 if not os.path.exists(file_path): return found
-                                 try:
-                                     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                                         c = f.read()
-                                         # Matches map->Add<blink::mojom::Foo>
-                                         # Matches RegisterWebUIControllerInterfaceBinder<blink::mojom::Foo
-                                         for m in re.finditer(pattern, c):
-                                             # detected C++ name: blink::mojom::Foo
-                                             cpp_name = m.group(1).replace('::', '.')
-                                             if cpp_name.startswith('.'): cpp_name = cpp_name[1:]
-                                             found.add(cpp_name)
-                                 except: pass
-                                 return found
+                    # [Pass 2.5] Source-Based Ground Truth Verification
+                    # We parse the actual C++ binder files to determine availability.
+                    # This runs UNCONDITIONALLY to override any heuristic artifacts.
+                    
+                    # 1. Define sets if not already done (lazy init)
+                    if 'global_binders' not in locals():
+                        global_binders = set()
+                        webui_binders = set()
+                        
+                        def extract_interfaces(file_path, pattern):
+                            found = set()
+                            if not os.path.exists(file_path): return found
+                            try:
+                                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                                    c = f.read()
+                                    # Matches map->Add<blink::mojom::Foo>
+                                    # Matches RegisterWebUIControllerInterfaceBinder<blink::mojom::Foo
+                                    for m in re.finditer(pattern, c):
+                                        # detected C++ name: blink::mojom::Foo
+                                        cpp_name = m.group(1).replace('::', '.')
+                                        if cpp_name.startswith('.'): cpp_name = cpp_name[1:]
+                                        found.add(cpp_name)
+                            except: pass
+                            return found
 
-                             # A. Global Binders (Directly Callable)
-                             global_files = [
-                                 os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
-                                 os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
-                                 os.path.join(ROOT_DIR, "components/performance_manager/binders.cc")
-                             ]
-                             for gf in global_files:
-                                 global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
+                        # A. Global Binders (Directly Callable)
+                        global_files = [
+                            os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
+                            os.path.join(ROOT_DIR, "components/performance_manager/binders.cc")
+                        ]
+                        for gf in global_files:
+                            global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
 
-                             # B. WebUI Binders (Restricted/Associated)
-                             webui_files = [
-                                 os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc")
-                             ]
-                             for wf in webui_files:
-                                 # Matches RegisterWebUIControllerInterfaceBinder<...
-                                 webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
+                        # B. WebUI Binders (Restricted/Associated)
+                        webui_files = [
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc")
+                        ]
+                        for wf in webui_files:
+                            # Matches RegisterWebUIControllerInterfaceBinder<...
+                            webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
 
-                         # 2. Apply Ground Truth Logic
-                         if fqn in webui_binders:
-                             # RESTRICTED: Found in WebUI binders -> Force Associated
-                             usage['direct'] = [] # Clear any potential false positives
-                             usage['associated'].append("Restricted: WebUI Interface (PageHandler)")
-                         
-                         elif fqn in global_binders:
-                             # ALLOWED: Found in Global binders -> Mark Direct
-                             usage['direct'].append("Source: BrowserInterfaceBroker (Global)")
+                    # 2. Apply Ground Truth Logic
+                    # Logic: If it's in Global Binders, it's Direct.
+                    #        If it's in WebUI, it's Associated.
+                    #        If it's in NEITHER, it's NOT Direct (downgrade matches).
+                    
+                    if fqn in webui_binders:
+                        # RESTRICTED: Found in WebUI binders -> Force Associated
+                        usage['direct'] = [] # Clear any potential false positives
+                        usage['associated'].append("Restricted: WebUI Interface (PageHandler)")
+                    
+                    elif fqn in global_binders:
+                        # ALLOWED: Found in Global binders -> Mark Direct
+                        if "Source: BrowserInterfaceBroker (Global)" not in usage['direct']:
+                            usage['direct'].insert(0, "Source: BrowserInterfaceBroker (Global)")
 
-                         # 3. Handle CodeCacheHost & other edge cases manually
-                         if 'CodeCacheHost' in interface['name']:
-                             usage['direct'] = []
-                             usage['associated'].append("Restricted: Context Sensitive Host")
-
-                         # 4. Fallback for things not found in either (Android/Ash/Internal)
-                         # If we haven't confirmed it's direct, and we have no other info, treat as associated/hidden
-                         if not usage['direct'] and not usage['associated']:
-                             # It's an orphan interface (likely platform specific or internal)
+                    else:
+                        # UNKNOWN/PLATFORM-SPECIFIC
+                        # If heuristic said "Direct" (e.g. pending_receiver used in Factory),
+                        # but it's not in the Global Binder Map, then it's not a ROOT service.
+                        # We downgrade it to Associated/Internal.
+                        if usage['direct']:
+                            # Move direct entries to associated to preserve info but change category
+                            for d_reason in usage['direct']:
+                                usage['associated'].append(f"Internal: {d_reason}")
+                            usage['direct'] = [] # STRICTLY EMPTY if not in Global Set
+                        
+                        if not usage['associated']:
                              usage['associated'].append("Inferred: Not in Desktop BinderMap")
+
+                    # 3. Handle CodeCacheHost & other edge cases manually
+                    if 'CodeCacheHost' in interface['name']:
+                        usage['direct'] = []
+                        usage['associated'].append("Restricted: Context Sensitive Host")
 
                     index_data['interfaces'].append({
                         'name': interface['name'],
