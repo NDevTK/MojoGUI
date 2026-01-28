@@ -580,7 +580,15 @@
 
     // 3. Structs: Recursive Rendering
     if (param.type === "struct" && param.structSpec) {
-      const childParams = mapFieldsToUIParams(param.structSpec.fields);
+      const nsName =
+        param.structSpec.name && param.structSpec.name.includes(".")
+          ? param.structSpec.name.substring(
+              0,
+              param.structSpec.name.lastIndexOf("."),
+            )
+          : null;
+      const ns = nsName ? MojoReflectionService.resolveNamespace(nsName) : null;
+      const childParams = mapFieldsToUIParams(param.structSpec.fields, ns);
       const childValues = value && typeof value === "object" ? value : {};
 
       const renderedFields = childParams
@@ -818,7 +826,15 @@
 
     // 6. Unions: Discriminator + Active Field
     if (param.type === "union" && param.structSpec) {
-      const unionFields = mapFieldsToUIParams(param.structSpec.fields);
+      const nsName =
+        param.structSpec.name && param.structSpec.name.includes(".")
+          ? param.structSpec.name.substring(
+              0,
+              param.structSpec.name.lastIndexOf("."),
+            )
+          : null;
+      const ns = nsName ? MojoReflectionService.resolveNamespace(nsName) : null;
+      const unionFields = mapFieldsToUIParams(param.structSpec.fields, ns);
 
       if (!unionFields || unionFields.length === 0) {
         return `<div class="form-group error-state">Union ${escapeHtml(param.name)} has no fields.</div>`;

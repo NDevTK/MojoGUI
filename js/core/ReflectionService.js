@@ -157,13 +157,52 @@
             ? f.type
             : f.type.$?.mapSpec || f.type.$;
           mapSpec = { key: source.keyType, value: source.valueType };
-        } else if (type === "enum" && namespace) {
-          // Try to find enum values
-          // If spec is 'MyEnumSpec', the values are in 'MyEnum'
-          for (const key in namespace) {
-            if (namespace[key + "Spec"] === f.type) {
-              enumOptions = namespace[key];
-              break;
+        } else if (type === "enum") {
+          // Attempt to resolve namespace if missing
+          if (!namespace && structSpec && structSpec.name) {
+            const moduleName = structSpec.name.substring(
+              0,
+              structSpec.name.lastIndexOf("."),
+            );
+            namespace = this.resolveNamespace(moduleName);
+            console.log(
+              `[ReflectionService] Inferred namespace ${moduleName} for enum lookup`,
+            );
+          }
+
+          if (namespace) {
+            // Try to find enum values
+            // If spec is 'MyEnumSpec', the values are in 'MyEnum'
+            for (const key in namespace) {
+              const spec = namespace[key + "Spec"];
+
+              // Check identity or structural similarity ($)
+              const isMatch =
+                spec === f.type ||
+                (spec?.$ && f.type?.$ && spec.$ === f.type.$);
+
+              if (isMatch) {
+                enumOptions = namespace[key];
+                console.log(
+                  `[ReflectionService] Resolved enum options for field ${f.name} via ${key}`,
+                );
+                break;
+              }
+            }
+
+            // Fallback: Name-based lookup if spec says it's an Enum
+            if (!enumOptions) {
+              const innerSpec = f.type.$ || f.type;
+              const enumName = innerSpec.name || innerSpec.enumSpec?.name;
+              if (enumName) {
+                const simpleName = enumName.split(".").pop();
+                if (namespace[simpleName]) {
+                  enumOptions = namespace[simpleName];
+                  console.log(
+                    `[ReflectionService] Resolved enum options for field ${f.name} via name fallback: ${simpleName}`,
+                  );
+                }
+              }
             }
           }
         }
