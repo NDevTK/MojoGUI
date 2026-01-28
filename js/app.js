@@ -476,7 +476,7 @@
       const btn = document.createElement("button");
       btn.className = `filter-btn ${f.id === "ALL" ? "active" : ""}`;
       btn.dataset.filter = f.id;
-      btn.innerHTML = f.icon ? `${f.icon} ${f.label}` : f.label;
+      btn.innerHTML = safeHTML(f.icon ? `${f.icon} ${f.label}` : f.label);
       btn.style.cssText = `
                 flex: 1;
                 padding: 6px 10px;
