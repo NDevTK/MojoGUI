@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-28T10:21:10.612339Z",
+  "generated_at": "2026-01-28T16:51:42.568085Z",
   "version": "146.0.7655.0",
   "interfaces": [
     {
@@ -37824,10 +37824,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Restricted: Context Sensitive Host"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global)"
+          ]
         }
       }
     },
