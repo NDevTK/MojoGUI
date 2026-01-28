@@ -99,10 +99,10 @@
   ) {
     if (!realHandle || typeof realHandle !== "object") return realHandle;
 
-    console.log(`[MojoUtils] decorateHandle for ${interfaceName}`, { 
-        isPendingAssociation, 
-        hasLocalPeer: !!realHandle.localPeer_,
-        hasRouter: !!realHandle.router_ || !!realHandle.router
+    console.log(`[MojoUtils] decorateHandle for ${interfaceName}`, {
+      isPendingAssociation,
+      hasLocalPeer: !!realHandle.localPeer_,
+      hasRouter: !!realHandle.router_ || !!realHandle.router,
     });
 
     // 1. Extract the underlying raw handle if it's already wrapped
@@ -115,7 +115,7 @@
     ) {
       raw = realHandle.handle.releasePipe();
     } else if (realHandle.router && realHandle.router.pipe) {
-        raw = realHandle.router.pipe;
+      raw = realHandle.router.pipe;
     }
 
     // 2. Create the mock endpoint that returns the RAW handle
@@ -125,20 +125,21 @@
       handle_: raw,
       isPendingAssociation: isPendingAssociation,
       localPeer_: realHandle.localPeer_ || null,
-      interfaceId: realHandle.interfaceId_ !== undefined ? realHandle.interfaceId_ : 0,
-      router: realHandle.router_ || realHandle.router || null
+      interfaceId:
+        realHandle.interfaceId_ !== undefined ? realHandle.interfaceId_ : 0,
+      router: realHandle.router_ || realHandle.router || null,
     };
 
     // 3. Return a wrapper object.
     // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
     const wrapper = {
-      proxy: { 
-        unbind: () => mockEndpoint, 
-        handle: mockEndpoint, 
+      proxy: {
+        unbind: () => mockEndpoint,
+        handle: mockEndpoint,
         handle_: raw,
         endpoint: mockEndpoint,
         isPendingAssociation: isPendingAssociation,
-        localPeer_: realHandle.localPeer_ || null
+        localPeer_: realHandle.localPeer_ || null,
       },
       unbind: () => mockEndpoint,
       handle: mockEndpoint,
@@ -160,9 +161,9 @@
     };
 
     console.log(`[MojoUtils] Created wrapper for ${interfaceName}`, {
-        wrapperHasEndpoint: !!wrapper.endpoint,
-        proxyHasEndpoint: !!wrapper.proxy.endpoint,
-        endpointHasLocalPeer: !!wrapper.endpoint.localPeer_
+      wrapperHasEndpoint: !!wrapper.endpoint,
+      proxyHasEndpoint: !!wrapper.proxy.endpoint,
+      endpointHasLocalPeer: !!wrapper.endpoint.localPeer_,
     });
 
     return wrapper;
@@ -204,7 +205,7 @@
     if (!value) return "";
     if (typeof value === "string") return value;
 
-    const data = value.arg_data || value.data;
+    const data = value.arg_data || value.data || value.arg_path || value.path;
     if (!data) {
       if (Array.isArray(value)) {
         if (is16) return String.fromCharCode(...value);
@@ -312,11 +313,16 @@
         }
 
         if (handleData.isAssociated) {
-            console.log(`[MojoUtils] Creating associated pair for ${handleData.interface}`);
-            const { endpoint0, endpoint1 } = mojo.internal.interfaceSupport.Endpoint.createAssociatedPair();
-            console.log(`[MojoUtils] Pair created. endpoint1.localPeer_ exists: ${!!endpoint1.localPeer_}`);
-            // endpoint0 is what we keep, endpoint1 is what we pass
-            return decorateHandle(endpoint1, true, handleData.interface);
+          console.log(
+            `[MojoUtils] Creating associated pair for ${handleData.interface}`,
+          );
+          const { endpoint0, endpoint1 } =
+            mojo.internal.interfaceSupport.Endpoint.createAssociatedPair();
+          console.log(
+            `[MojoUtils] Pair created. endpoint1.localPeer_ exists: ${!!endpoint1.localPeer_}`,
+          );
+          // endpoint0 is what we keep, endpoint1 is what we pass
+          return decorateHandle(endpoint1, true, handleData.interface);
         }
 
         const { handle0, handle1 } = Mojo.createMessagePipe();
@@ -325,12 +331,15 @@
         return decorateHandle(handle0, true, handleData.interface);
       }
       if (action === "bind_associated") {
-          // Manually bind an associated interface to a master handle
-          const masterHandle = MojoHandleRegistry.get(handleData.masterHandleId);
-          if (!masterHandle) return original;
-          const router = new mojo.internal.interfaceSupport.Router(masterHandle);
-          const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, handleData.interfaceId || 0);
-          return decorateHandle(endpoint, true, handleData.interface);
+        // Manually bind an associated interface to a master handle
+        const masterHandle = MojoHandleRegistry.get(handleData.masterHandleId);
+        if (!masterHandle) return original;
+        const router = new mojo.internal.interfaceSupport.Router(masterHandle);
+        const endpoint = new mojo.internal.interfaceSupport.Endpoint(
+          router,
+          handleData.interfaceId || 0,
+        );
+        return decorateHandle(endpoint, true, handleData.interface);
       }
       if (action === "use_handle") {
         const handleInput = handleData.customHandle;
@@ -439,6 +448,9 @@
       if (name.includes("Url") || name === "Url") {
         return { arg_url: value };
       }
+      if (name.includes("FilePath")) {
+        return { arg_path: value };
+      }
       if (name.includes("BigString") && !name.includes("16")) {
         return inflateBigString(value, false);
       }
@@ -464,7 +476,10 @@
           inflated[field.name] = inflateType(val, field.type.$ || field.type);
           // If it's a union, we only need one field.
           if (!Array.isArray(spec.fields)) return inflated;
-        } else if (field.defaultValue !== null && field.defaultValue !== undefined) {
+        } else if (
+          field.defaultValue !== null &&
+          field.defaultValue !== undefined
+        ) {
           inflated[field.name] = field.defaultValue;
         } else if (field.nullable) {
           inflated[field.name] = null;
@@ -509,28 +524,45 @@
       ) {
         // If the key is one of the union fields, it's already correctly formatted
         const key = Object.keys(value)[0];
-        if (typeInfo.unionSpec.fields[key] || typeInfo.unionSpec.fields["arg_" + key]) {
-           return value;
+        if (
+          typeInfo.unionSpec.fields[key] ||
+          typeInfo.unionSpec.fields["arg_" + key]
+        ) {
+          return value;
         }
       }
 
       // Try to find a matching field by type
       for (const [tag, field] of Object.entries(typeInfo.unionSpec.fields)) {
-          const fieldType = field.type.$ || field.type;
-          
-          // Match simple types
-          if (typeof value === "string" && (fieldType === mojo.internal.String || (fieldType.name && fieldType.name.includes("String")))) {
-              return { [tag]: value };
-          }
-          if (typeof value === "number" && (fieldType === mojo.internal.Int32 || fieldType === mojo.internal.Uint32 || fieldType === mojo.internal.Int8 || fieldType === mojo.internal.Uint8)) {
-              return { [tag]: value };
-          }
-          if (typeof value === "bigint" && (fieldType === mojo.internal.Int64 || fieldType === mojo.internal.Uint64)) {
-              return { [tag]: value };
-          }
-          if (typeof value === "boolean" && fieldType === mojo.internal.Bool) {
-              return { [tag]: value };
-          }
+        const fieldType = field.type.$ || field.type;
+
+        // Match simple types
+        if (
+          typeof value === "string" &&
+          (fieldType === mojo.internal.String ||
+            (fieldType.name && fieldType.name.includes("String")))
+        ) {
+          return { [tag]: value };
+        }
+        if (
+          typeof value === "number" &&
+          (fieldType === mojo.internal.Int32 ||
+            fieldType === mojo.internal.Uint32 ||
+            fieldType === mojo.internal.Int8 ||
+            fieldType === mojo.internal.Uint8)
+        ) {
+          return { [tag]: value };
+        }
+        if (
+          typeof value === "bigint" &&
+          (fieldType === mojo.internal.Int64 ||
+            fieldType === mojo.internal.Uint64)
+        ) {
+          return { [tag]: value };
+        }
+        if (typeof value === "boolean" && fieldType === mojo.internal.Bool) {
+          return { [tag]: value };
+        }
       }
 
       // Heuristic fallback: wrap in first tag

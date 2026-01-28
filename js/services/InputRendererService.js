@@ -210,7 +210,15 @@
       const spec = window.MojoTemplateRegistry[group.id];
       if (spec) {
         let itemType = inferTypeFromMojomType(spec.elementSpec);
-        if (itemType !== "string16" && spec.structSpec) {
+        // Protect specialized types from being overridden to generic struct
+        const isSpecializedStruct = [
+          "string16",
+          "bigstring",
+          "bigstring16",
+          "Url",
+          "filepath",
+        ].includes(itemType);
+        if (!isSpecializedStruct && spec.structSpec) {
           itemType = "struct";
         }
         const itemParam = {
@@ -339,6 +347,32 @@
           }
         }
       }
+    }
+
+    if (effectiveType === "filepath") {
+      const displayValue = MojoUtils.decodeBigString(value, true);
+      const displayName = escapeHtml(
+        param.name ? param.name.replace(/^arg_/, "") : "",
+      );
+      return `
+                <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                    <label>
+                        ${displayName}
+                        <span class="type">FilePath</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
+                    </label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <span style="font-size: 1.25em; filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));">📁</span>
+                        <input type="text" 
+                               class="intercept-input param-input" 
+                               data-id="${interceptId}" 
+                               data-index="${index}" 
+                               data-type="filepath" 
+                               value="${escapeHtml(displayValue)}" 
+                               placeholder="C:\\path\\to\\file"
+                               style="flex: 1; font-family: 'Cascadia Code', 'Consolas', monospace; background: var(--bg-dark); color: #81a1c1; border: 1px solid var(--border-subtle); padding: 8px 12px; border-radius: 6px;">
+                    </div>
+                </div>`;
     }
 
     if (effectiveType === "string16") {
@@ -636,8 +670,15 @@
             ? param.elementSpec.$.structSpec
             : null;
 
-        // Prioritize string16, but upgrade generic strings to struct if available
-        if (itemType !== "string16" && itemStructSpec) {
+        // Protect specialized types from being overridden to generic struct
+        const isSpecializedStruct = [
+          "string16",
+          "bigstring",
+          "bigstring16",
+          "Url",
+          "filepath",
+        ].includes(itemType);
+        if (!isSpecializedStruct && itemStructSpec) {
           itemType = "struct";
         }
 
@@ -1078,6 +1119,8 @@
     } else if (type === "enum") {
     } else if (type === "bigstring") {
       val = MojoUtils.inflateBigString(val, false);
+    } else if (type === "filepath") {
+      // Treat as string, inflation happens in MojoUtils.inflateStruct
     }
     return val;
   };

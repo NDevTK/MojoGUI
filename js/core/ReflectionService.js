@@ -144,7 +144,8 @@
           type === "union" ||
           type === "bigstring" ||
           type === "bigstring16" ||
-          type === "string16"
+          type === "string16" ||
+          type === "filepath"
         ) {
           structSpec = spec.structSpec || spec.unionSpec;
         } else if (type === "array") {
@@ -272,9 +273,10 @@
           return "number";
       }
 
-      const spec = mojomType.$ || mojomType;
+      // Unwrap spec if passed a wrapper (common in array elements)
+      const spec = mojomType?.$ || mojomType;
+      if (!spec) return "unknown";
 
-      // Check for Enum
       if (
         spec.enumSpec ||
         (spec.isValueType &&
@@ -294,6 +296,7 @@
       if (name.includes("String16")) return "string16";
       if (name.includes("BigString")) return "bigstring";
       if (name.includes("Url")) return "Url";
+      if (name.includes("FilePath")) return "filepath";
 
       if (spec.structSpec) return "struct";
       if (spec.unionSpec) return "union";
