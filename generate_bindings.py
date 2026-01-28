@@ -1890,35 +1890,36 @@ def main():
                     usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
 
                     if not usage['associated'] and not usage['direct']:
-                         # [PASSED] 5. Source-Based Verification (Grep)
-                         # If no Mojo usage is found, check C++ BinderMaps to distinguish Top-Level Services (Direct)
-                         # from Legacy/Implicit Interfaces (Associated).
+                         # [PASSED] 5. Source-Based Verification (Native Python)
+                         # It reads the files directly to see if the interface is registered in a BinderMap.
                          try:
-                             import subprocess
+                             import os
                              
-                             # We grep 4 key files that contain 99% of binder logic.
-                             grep_pattern = f"map->Add.*<.*{interface['name']}"
-                             target_dirs = ["content/browser/", "chrome/browser/", "components/performance_manager/"]
+                             target_files = [
+                                 "content/browser/browser_interface_binders.cc",
+                                 "chrome/browser/chrome_browser_interface_binders.cc",
+                                 "chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc",
+                                 "components/performance_manager/binders.cc"
+                             ]
                              
                              is_bindermap_service = False
-                             try:
-                                 # We try 'git grep' first as it's fastest if inside the repo
-                                 cmd = ["git", "grep", "-l", grep_pattern, "--"] + target_dirs
-                                 subprocess.check_output(cmd, stderr=subprocess.DEVNULL)
-                                 is_bindermap_service = True
-                             except:
-                                 # Fallback to standard grep
+                             for tf in target_files:
                                  try:
-                                     cmd = ["grep", "-r", "-l", grep_pattern] + target_dirs
-                                     subprocess.check_output(cmd, stderr=subprocess.DEVNULL)
-                                     is_bindermap_service = True
+                                     with open(tf, 'r', encoding='utf-8', errors='ignore') as f:
+                                         content = f.read()
+                                         # Simple robust check: Is the interface name present in the binder file?
+                                         # These files are specific enough that presence implies registration.
+                                         # matches things like map->Add<...InterfaceName...
+                                         if interface['name'] in content:
+                                             is_bindermap_service = True
+                                             break
                                  except:
                                      pass
                              
                              if is_bindermap_service:
                                  usage['direct'].append("Inferred: Found in C++ BinderMap (Top-Level Service)")
                              else:
-                                 # Not in BinderMap AND no Mojom Usage -> Implicitly Associated
+                                 # We have the source, but it wasn't valid -> Associated
                                  usage['associated'].append("Inferred: Not in BinderMap (Implicit/Legacy Associated)")
                                  
                          except Exception:
