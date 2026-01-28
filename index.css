@@ -569,8 +569,8 @@ body::before {
   flex-direction: column;
   gap: var(--space-md);
   padding: var(--space-md);
-  overflow-y: auto;
   min-width: 0;
+  min-height: 0;
 }
 
 .panel {
@@ -621,6 +621,7 @@ body::before {
 
 /* Interface Panel */
 .interface-panel {
+  flex: 1;
   min-height: 200px;
   display: flex;
   flex-direction: column;
