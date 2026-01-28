@@ -1895,10 +1895,10 @@ def main():
                          try:
                              
                              target_files = [
-                                 "content/browser/browser_interface_binders.cc",
-                                 "chrome/browser/chrome_browser_interface_binders.cc",
-                                 "chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc",
-                                 "components/performance_manager/binders.cc"
+                                 os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
+                                 os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
+                                 os.path.join(ROOT_DIR, "chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc"),
+                                 os.path.join(ROOT_DIR, "components/performance_manager/binders.cc")
                              ]
                              
                              is_bindermap_service = False
