@@ -261,8 +261,13 @@ export const SelfImprovement = {
     const interfaceResearch = research.filter(r => r.interface === interfaceName);
     
     // Also look for module-level context
-    const moduleName = interfaceName.split('.').slice(0, -1).join('.');
-    const moduleResearch = research.filter(r => r.interface.startsWith(moduleName) && r.interface !== interfaceName);
+    const moduleName = interfaceName ? interfaceName.split('.').slice(0, -1).join('.') : "";
+    const moduleResearch = research.filter(r => 
+        r.interface && 
+        moduleName && 
+        r.interface.startsWith(moduleName) && 
+        r.interface !== interfaceName
+    );
 
     const researchedMethods = new Set(interfaceResearch.map(r => r.method));
     const coverage = totalMethods > 0 ? `${researchedMethods.size}/${totalMethods}` : researchedMethods.size;
