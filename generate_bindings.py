@@ -1893,7 +1893,6 @@ def main():
                          # [PASSED] 5. Source-Based Verification (Native Python)
                          # It reads the files directly to see if the interface is registered in a BinderMap.
                          try:
-                             import os
                              
                              target_files = [
                                  "content/browser/browser_interface_binders.cc",
