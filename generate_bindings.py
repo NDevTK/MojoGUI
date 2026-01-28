@@ -1906,10 +1906,11 @@ def main():
                                  try:
                                      with open(tf, 'r', encoding='utf-8', errors='ignore') as f:
                                          content = f.read()
-                                         # Simple robust check: Is the interface name present in the binder file?
-                                         # These files are specific enough that presence implies registration.
-                                         # matches things like map->Add<...InterfaceName...
-                                         if interface['name'] in content:
+                                         # specific enough that presence implies registration.
+                                         # matches things like map->Add<...::InterfaceName...
+                                         # We prepend "::" to avoid partial matches (e.g. "LocalFrameHost" matching "NonAssociatedLocalFrameHost")
+                                         # All binder map entries use fully qualified names (e.g. blink::mojom::ShareService).
+                                         if f"::{interface['name']}" in content:
                                              is_bindermap_service = True
                                              break
                                  except:
