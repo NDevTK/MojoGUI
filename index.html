@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <meta
       http-equiv="Content-Security-Policy"
       content="
@@ -118,54 +119,56 @@
         <aside class="sidebar">
           <!-- Sidebar Tabs -->
           <div class="sidebar-tabs">
-             <button class="sidebar-tab active" data-tab="interfaces">Interfaces</button>
-             <button class="sidebar-tab" data-tab="tools">Tools</button>
+            <button class="sidebar-tab active" data-tab="interfaces">
+              Interfaces
+            </button>
+            <button class="sidebar-tab" data-tab="tools">Tools</button>
           </div>
 
           <!-- Interfaces Tab Content -->
           <div id="tab-interfaces" class="sidebar-tab-content active">
-              <div class="sidebar-header">
-                <h2>Interfaces</h2>
-                <div style="display: flex; gap: 8px">
-                  <span class="interface-count" id="interfaceCount">0</span>
-                </div>
+            <div class="sidebar-header">
+              <h2>Interfaces</h2>
+              <div style="display: flex; gap: 8px">
+                <span class="interface-count" id="interfaceCount">0</span>
               </div>
+            </div>
 
-              <div class="search-box">
-                <svg
-                  class="search-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="M21 21l-4.35-4.35" />
-                </svg>
-                <input
-                  type="text"
-                  id="interfaceSearch"
-                  placeholder="Search interfaces..."
-                  autocomplete="off"
-                />
-              </div>
+            <div class="search-box">
+              <svg
+                class="search-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+              <input
+                type="text"
+                id="interfaceSearch"
+                placeholder="Search interfaces..."
+                autocomplete="off"
+              />
+            </div>
 
-              <div class="interface-list" id="interfaceList">
-                <div class="loading-state">
-                  <div class="spinner"></div>
-                  <p>Loading interfaces...</p>
-                </div>
+            <div class="interface-list" id="interfaceList">
+              <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading interfaces...</p>
               </div>
+            </div>
           </div>
 
           <!-- Tools Tab Content -->
-          <div id="tab-tools" class="sidebar-tab-content" style="display: none;">
-             <div class="tools-container">
-                 <!-- Injected by js/tools_panel.js -->
-                 <div class="loading-state">
-                    <p>Loading tools...</p>
-                 </div>
-             </div>
+          <div id="tab-tools" class="sidebar-tab-content" style="display: none">
+            <div class="tools-container">
+              <!-- Injected by js/tools_panel.js -->
+              <div class="loading-state">
+                <p>Loading tools...</p>
+              </div>
+            </div>
           </div>
         </aside>
 
