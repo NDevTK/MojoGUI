@@ -191,15 +191,13 @@ body::before {
 }
 
 .logo-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-gradient);
   border-radius: var(--radius-md);
-  color: white;
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  overflow: hidden;
   transition: var(--transition-bounce);
 }
 
