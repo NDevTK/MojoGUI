@@ -1890,40 +1890,67 @@ def main():
                     usage = interface_usage_stats.get(fqn, {'associated': [], 'direct': []})
 
                     if not usage['associated'] and not usage['direct']:
-                         # [PASSED] 5. Source-Based Verification (Native Python)
-                         # It reads the files directly to see if the interface is registered in a BinderMap.
-                         try:
+                         # [Pass 2.5] Source-Based Ground Truth Verification
+                         # We parse the actual C++ binder files to determine availability.
+                         
+                         # 1. Define sets if not already done (lazy init)
+                         if 'global_binders' not in locals():
+                             global_binders = set()
+                             webui_binders = set()
                              
-                             target_files = [
+                             def extract_interfaces(file_path, pattern):
+                                 found = set()
+                                 if not os.path.exists(file_path): return found
+                                 try:
+                                     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                                         c = f.read()
+                                         # Matches map->Add<blink::mojom::Foo>
+                                         # Matches RegisterWebUIControllerInterfaceBinder<blink::mojom::Foo
+                                         for m in re.finditer(pattern, c):
+                                             # detected C++ name: blink::mojom::Foo
+                                             cpp_name = m.group(1).replace('::', '.')
+                                             if cpp_name.startswith('.'): cpp_name = cpp_name[1:]
+                                             found.add(cpp_name)
+                                 except: pass
+                                 return found
+
+                             # A. Global Binders (Directly Callable)
+                             global_files = [
                                  os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
                                  os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
-                                 os.path.join(ROOT_DIR, "chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc"),
                                  os.path.join(ROOT_DIR, "components/performance_manager/binders.cc")
                              ]
-                             
-                             is_bindermap_service = False
-                             for tf in target_files:
-                                 try:
-                                     with open(tf, 'r', encoding='utf-8', errors='ignore') as f:
-                                         content = f.read()
-                                         # specific enough that presence implies registration.
-                                         # matches things like map->Add<...::InterfaceName...
-                                         # We prepend "::" to avoid partial matches (e.g. "LocalFrameHost" matching "NonAssociatedLocalFrameHost")
-                                         # All binder map entries use fully qualified names (e.g. blink::mojom::ShareService).
-                                         if f"::{interface['name']}" in content:
-                                             is_bindermap_service = True
-                                             break
-                                 except:
-                                     pass
-                             
-                             if is_bindermap_service:
-                                 usage['direct'].append("Inferred: Found in C++ BinderMap (Top-Level Service)")
-                             else:
-                                 # We have the source, but it wasn't valid -> Associated
-                                 usage['associated'].append("Inferred: Not in BinderMap (Implicit/Legacy Associated)")
-                                 
-                         except Exception:
-                             pass
+                             for gf in global_files:
+                                 global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
+
+                             # B. WebUI Binders (Restricted/Associated)
+                             webui_files = [
+                                 os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc")
+                             ]
+                             for wf in webui_files:
+                                 # Matches RegisterWebUIControllerInterfaceBinder<...
+                                 webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
+
+                         # 2. Apply Ground Truth Logic
+                         if fqn in webui_binders:
+                             # RESTRICTED: Found in WebUI binders -> Force Associated
+                             usage['direct'] = [] # Clear any potential false positives
+                             usage['associated'].append("Restricted: WebUI Interface (PageHandler)")
+                         
+                         elif fqn in global_binders:
+                             # ALLOWED: Found in Global binders -> Mark Direct
+                             usage['direct'].append("Source: BrowserInterfaceBroker (Global)")
+
+                         # 3. Handle CodeCacheHost & other edge cases manually
+                         if 'CodeCacheHost' in interface['name']:
+                             usage['direct'] = []
+                             usage['associated'].append("Restricted: Context Sensitive Host")
+
+                         # 4. Fallback for things not found in either (Android/Ash/Internal)
+                         # If we haven't confirmed it's direct, and we have no other info, treat as associated/hidden
+                         if not usage['direct'] and not usage['associated']:
+                             # It's an orphan interface (likely platform specific or internal)
+                             usage['associated'].append("Inferred: Not in Desktop BinderMap")
 
                     index_data['interfaces'].append({
                         'name': interface['name'],
