@@ -100,8 +100,8 @@
       getElements().viewTrafficBtn?.classList.remove("active");
 
       // Show standard panels
-      getElements().interfacePanel.style.display = "block";
-      getElements().paramsPanel.style.display = "block";
+      getElements().interfacePanel.style.display = "flex";
+      getElements().paramsPanel.style.display = "flex";
 
       // Hide Interceptor Panel
       getElements().interceptorPanel.style.display = "none";

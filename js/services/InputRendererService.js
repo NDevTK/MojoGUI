@@ -449,6 +449,7 @@
       typeString === "pending_receiver" ||
       typeString === "pending_associated_remote" ||
       typeString === "pending_associated_receiver" ||
+      typeString === "handle<platform>" ||
       isDataPipe;
     const isHandleValue =
       (value && value.__mojoType === "Handle") ||
@@ -460,6 +461,9 @@
       let ifaceName = "Unknown";
       let ifaceId = "0";
       let typeLabel = "Mojo Handle";
+      if (typeString === "handle<platform>") {
+        typeLabel = "Platform Handle";
+      }
       let currentAction = "preserve";
       let isReceiver = false;
       let refId = undefined;
@@ -515,12 +519,16 @@
           typeof MojoHandleRegistry !== "undefined"
             ? MojoHandleRegistry.register(value)
             : value.value || "0";
-        ifaceName = "MojoHandle";
-        typeLabel = "Handle";
+        ifaceName =
+          typeString === "handle<platform>" ? "File Descriptor" : "MojoHandle";
+        typeLabel =
+          typeString === "handle<platform>" ? "Platform Handle" : "Handle";
       } else if (isHandleType) {
         // Manual Mode, no value yet.
-        if (param.interface) {
+        if (param.interface && typeString !== "handle<platform>") {
           ifaceName = param.interface;
+        } else if (typeString === "handle<platform>") {
+          ifaceName = "File Descriptor";
         } else if (isDataPipe) {
           ifaceName =
             typeString === "data_pipe_consumer"
@@ -539,10 +547,16 @@
           typeLabel = "Data Pipe";
           currentAction = "new_pipe";
         } else if (typeString === "pending_remote" && ifaceName !== "Unknown") {
-          typeLabel = "Mojo Handle";
+          typeLabel =
+            typeString === "handle<platform>"
+              ? "Platform Handle"
+              : "Mojo Handle";
           currentAction = "bind_listener";
         } else {
-          typeLabel = "Mojo Handle";
+          typeLabel =
+            typeString === "handle<platform>"
+              ? "Platform Handle"
+              : "Mojo Handle";
           currentAction = "new_pipe";
         }
       }
@@ -554,13 +568,13 @@
       // Handle Type Selection Template
       let handleTypeSelector = "";
       if (
-        effectiveType === "mojo_handle" ||
-        typeString === "mojo_handle" ||
-        (!isDataPipe &&
-          typeString !== "pending_remote" &&
-          typeString !== "pending_receiver" &&
-          typeString !== "pending_associated_remote" &&
-          typeString !== "pending_associated_receiver")
+        (effectiveType === "mojo_handle" || typeString === "mojo_handle") &&
+        !isDataPipe &&
+        typeString !== "handle<platform>" &&
+        typeString !== "pending_remote" &&
+        typeString !== "pending_receiver" &&
+        typeString !== "pending_associated_remote" &&
+        typeString !== "pending_associated_receiver"
       ) {
         handleTypeSelector = `
           <div style="margin-bottom: 8px;">
@@ -581,7 +595,17 @@
                         <span class="type">${typeLabel}</span>
                     </label>
                     <div class="mojo-handle-card ${currentAction === "close" ? "closed" : currentAction === "new_pipe" ? "new" : ""}">
-                        <div class="handle-icon">${currentAction === "close" ? "❌" : currentAction === "new_pipe" ? "🆕" : "🔌"}</div>
+                        <div class="handle-icon">
+                          ${
+                            currentAction === "close"
+                              ? "❌"
+                              : typeString === "handle<platform>"
+                                ? "📁"
+                                : currentAction === "new_pipe"
+                                  ? "🆕"
+                                  : "🔌"
+                          }
+                        </div>
                         <div class="handle-info">
                             <div class="handle-interface">${escapeHtml(ifaceName)}</div>
                             <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
@@ -605,7 +629,7 @@
                                     <button type="button" class="btn btn-secondary btn-small" data-action="refresh-handles" title="Refresh Handles">🔄</button>
                                 </div>
                             </div>
-                            ${ifaceName !== "Unknown" ? `<button type="button" class="btn btn-secondary btn-small" style="margin-top: 4px; width: 100%;" data-action="use-interface" data-interface="${escapeHtml(ifaceName)}" data-id="${escapeHtml(ifaceId)}" data-ref="${escapeHtml(refId || "")}">Use Interface</button>` : ""}
+                            ${ifaceName !== "Unknown" && typeString !== "handle<platform>" ? `<button type="button" class="btn btn-secondary btn-small" style="margin-top: 4px; width: 100%;" data-action="use-interface" data-interface="${escapeHtml(ifaceName)}" data-id="${escapeHtml(ifaceId)}" data-ref="${escapeHtml(refId || "")}">Use Interface</button>` : ""}
                         </div>
                     </div>
                 </div>

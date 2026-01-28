@@ -128,7 +128,7 @@
             .sort((a, b) => (a.ordinal || 0) - (b.ordinal || 0));
 
       return fieldsArray.map((f) => {
-        let type = this.inferType(f.type);
+        let type = this.inferType(f.type, f.name);
         console.log(
           `[ReflectionService] Mapping field ${f.name}, type inferred: ${type}`,
           f,
@@ -246,7 +246,7 @@
       });
     },
 
-    inferType(mojomType) {
+    inferType(mojomType, fieldName = "") {
       if (!mojomType) return "any";
       const mojoLib = typeof mojo !== "undefined" ? mojo : null;
 
@@ -327,8 +327,20 @@
           decStr.includes("PendingAssociatedReceiver")
         )
           return "pending_associated_receiver";
-        if (decStr.includes("decodeHandle") || decStr.includes("ScopedHandle"))
+        if (
+          decStr.includes("decodeHandle") ||
+          decStr.includes("ScopedHandle")
+        ) {
+          // Heuristic for platform handles (often used for FDs)
+          if (
+            fieldName === "fd" ||
+            fieldName.endsWith("_fd") ||
+            decStr.includes("PLATFORM_HANDLE")
+          ) {
+            return "handle<platform>";
+          }
           return "mojo_handle";
+        }
       }
 
       return "any";

@@ -828,7 +828,6 @@
       elements.paramsForm.innerHTML = safeHTML(`
                     ${renderTargetControl()}
                     <p style="margin-top:10px;">This method has no parameters</p>
-                </div>
             `);
       return;
     }
