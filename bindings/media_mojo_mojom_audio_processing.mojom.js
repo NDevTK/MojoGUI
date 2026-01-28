@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -315,10 +315,10 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRequest = mojo.internal
 // Struct: AudioProcessingStats
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, 'media.mojom.AudioProcessingStats', [
-      mojo.internal.StructField('arg_has_echo_return_loss', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_echo_return_loss_enhancement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_return_loss', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_return_loss_enhancement', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_return_loss_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_echo_return_loss_$value', originalFieldName: 'arg_echo_return_loss' }),
+      mojo.internal.StructField('arg_echo_return_loss_enhancement_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_echo_return_loss_enhancement_$value', originalFieldName: 'arg_echo_return_loss_enhancement' }),
+      mojo.internal.StructField('arg_echo_return_loss_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_echo_return_loss_$flag', originalFieldName: 'arg_echo_return_loss' }),
+      mojo.internal.StructField('arg_echo_return_loss_enhancement_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_echo_return_loss_enhancement_$flag', originalFieldName: 'arg_echo_return_loss_enhancement' }),
     ],
     [[0, 32]]);
 

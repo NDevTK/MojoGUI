@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,8 +131,6 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec = mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec = mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec = mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Renderer = mojo.internal.bindings.content.mojom.Renderer || {};
@@ -149,12 +147,6 @@ mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsS
 if (mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec = mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec || { $: {} };
@@ -203,9 +195,6 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupPendingReceiver = mojo.
 mojo.internal.bindings.content = mojo.internal.bindings.content || {};
 mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
 mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec = mojo.internal.bindings.content.mojom.NetworkConnectionTypeSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.content = mojo.internal.bindings.content || {};
-mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
-mojo.internal.bindings.content.mojom.ScrollerStyleSpec = mojo.internal.bindings.content.mojom.ScrollerStyleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec = mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec || { $: mojo.internal.Enum().$ };
@@ -273,15 +262,6 @@ mojo.internal.bindings.content.mojom.RendererRemote = class {
   onNetworkQualityChanged(arg_effective_connection_type, arg_http_rtt, arg_transport_rtt, arg_bandwidth_kbps) {
     return this.$.onNetworkQualityChanged(arg_effective_connection_type, arg_http_rtt, arg_transport_rtt, arg_bandwidth_kbps);
   }
-  setWebKitSharedTimersSuspended(arg_suspend) {
-    return this.$.setWebKitSharedTimersSuspended(arg_suspend);
-  }
-  updateScrollbarTheme(arg_params) {
-    return this.$.updateScrollbarTheme(arg_params);
-  }
-  onSystemColorsChanged(arg_aqua_color_variant) {
-    return this.$.onSystemColorsChanged(arg_aqua_color_variant);
-  }
   updateSystemColorInfo(arg_params) {
     return this.$.updateSystemColorInfo(arg_params);
   }
@@ -318,9 +298,6 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.Renderer', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -384,36 +361,9 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
       false);
   }
 
-  setWebKitSharedTimersSuspended(arg_suspend) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
-      null,
-      [arg_suspend],
-      false);
-  }
-
-  updateScrollbarTheme(arg_params) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
-      null,
-      [arg_params],
-      false);
-  }
-
-  onSystemColorsChanged(arg_aqua_color_variant) {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
-      null,
-      [arg_aqua_color_variant],
-      false);
-  }
-
   updateSystemColorInfo(arg_params) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
       null,
       [arg_params],
@@ -422,7 +372,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   purgePluginListCache() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec,
       null,
       [],
@@ -431,7 +381,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   purgeResourceCache() {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
       mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec,
       [],
@@ -440,7 +390,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   setProcessState(arg_process_priority, arg_visible_state) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec,
       null,
       [arg_process_priority, arg_visible_state],
@@ -449,7 +399,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   setIsLockedToSite() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
       null,
       [],
@@ -458,7 +408,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   writeClangProfilingProfile() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec,
       [],
@@ -467,7 +417,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   setIsWebSecurityDisabled(arg_value) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
       null,
       [arg_value],
@@ -476,7 +426,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   setIsIsolatedContext(arg_value) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
       null,
       [arg_value],
@@ -485,7 +435,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   setWebUIResourceUrlToCodeCacheMap(arg_resource_map) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
       null,
       [arg_resource_map],
@@ -494,7 +444,7 @@ mojo.internal.bindings.content.mojom.RendererRemoteCallHandler = class {
 
   initializeRenderer(arg_user_agent, arg_metadata, arg_cors_exempt_header_list, arg_origin_trials_settings, arg_cpu_performance_tier, arg_trace_id) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec,
       null,
       [arg_user_agent, arg_metadata, arg_cors_exempt_header_list, arg_origin_trials_settings, arg_cpu_performance_tier, arg_trace_id],
@@ -519,9 +469,6 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.Renderer', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -617,40 +564,19 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setWebKitSharedTimersSuspended');
-          const result = this.impl.setWebKitSharedTimersSuspended(params.arg_suspend);
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateScrollbarTheme');
-          const result = this.impl.updateScrollbarTheme(params.arg_params);
-          break;
-        }
-        case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSystemColorsChanged');
-          const result = this.impl.onSystemColorsChanged(params.arg_aqua_color_variant);
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSystemColorInfo');
           const result = this.impl.updateSystemColorInfo(params.arg_params);
           break;
         }
-        case 9: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgePluginListCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.purgePluginListCache');
           const result = this.impl.purgePluginListCache();
           break;
         }
-        case 10: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_PurgeResourceCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.purgeResourceCache');
@@ -667,21 +593,21 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcessState');
           const result = this.impl.setProcessState(params.arg_process_priority, params.arg_visible_state);
           break;
         }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsLockedToSite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsLockedToSite');
           const result = this.impl.setIsLockedToSite();
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeClangProfilingProfile');
@@ -698,28 +624,28 @@ mojo.internal.bindings.content.mojom.RendererReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsWebSecurityDisabled');
           const result = this.impl.setIsWebSecurityDisabled(params.arg_value);
           break;
         }
-        case 15: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsIsolatedContext');
           const result = this.impl.setIsIsolatedContext(params.arg_value);
           break;
         }
-        case 16: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebUIResourceUrlToCodeCacheMap');
           const result = this.impl.setWebUIResourceUrlToCodeCacheMap(params.arg_resource_map);
           break;
         }
-        case 17: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Renderer_InitializeRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeRenderer');
@@ -741,20 +667,6 @@ mojo.internal.bindings.content.mojom.RendererRequest = mojo.internal.bindings.co
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
-
-// Struct: UpdateScrollbarThemeParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec, 'content.mojom.UpdateScrollbarThemeParams', [
-      mojo.internal.StructField('arg_has_initial_button_delay', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_autoscroll_button_delay', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_jump_on_track_click', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_redraw', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_view_rubber_banding', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_initial_button_delay', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autoscroll_button_delay', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_scroller_style', 12, 0, mojo.internal.bindings.content.mojom.ScrollerStyleSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
 
 // Struct: UpdateSystemColorInfoParams
 mojo.internal.Struct(
@@ -796,24 +708,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_bandwidth_kbps', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec, 'content.mojom.Renderer_SetWebKitSharedTimersSuspended_Params', [
-      mojo.internal.StructField('arg_suspend', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec, 'content.mojom.Renderer_UpdateScrollbarTheme_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec, 'content.mojom.Renderer_OnSystemColorsChanged_Params', [
-      mojo.internal.StructField('arg_aqua_color_variant', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec, 'content.mojom.Renderer_UpdateSystemColorInfo_Params', [

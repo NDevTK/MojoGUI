@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -311,8 +311,8 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemote = class {
   createVideoEncodeAcceleratorProvider(arg_vea_provider) {
     return this.$.createVideoEncodeAcceleratorProvider(arg_vea_provider);
   }
-  bindWebNNContextProvider(arg_receiver, arg_client_id) {
-    return this.$.bindWebNNContextProvider(arg_receiver, arg_client_id);
+  bindWebNNContextProvider(arg_receiver, arg_client_id, arg_is_incognito) {
+    return this.$.bindWebNNContextProvider(arg_receiver, arg_client_id, arg_is_incognito);
   }
   getVideoMemoryUsageStats() {
     return this.$.getVideoMemoryUsageStats();
@@ -490,12 +490,12 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       false);
   }
 
-  bindWebNNContextProvider(arg_receiver, arg_client_id) {
+  bindWebNNContextProvider(arg_receiver, arg_client_id, arg_is_incognito) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec,
       null,
-      [arg_receiver, arg_client_id],
+      [arg_receiver, arg_client_id, arg_is_incognito],
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebNNContextProvider');
-          const result = this.impl.bindWebNNContextProvider(params.arg_receiver, params.arg_client_id);
+          const result = this.impl.bindWebNNContextProvider(params.arg_receiver, params.arg_client_id, params.arg_is_incognito);
           break;
         }
         case 10: {
@@ -1132,8 +1132,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec, 'viz.mojom.GpuService_BindWebNNContextProvider_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver), null, true, 0, undefined),
       mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_incognito', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec, 'viz.mojom.GpuService_GetVideoMemoryUsageStats_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -889,6 +889,7 @@ mojo.internal.bindings.glic.mojom.Platform = {
   kWindows: 2,
   kLinux: 3,
   kChromeOS: 4,
+  kAndroid: 5,
 };
 
 // Enum: ScrollToErrorReason
@@ -5996,9 +5997,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_hotkey', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_chrome_version', 40, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_capabilities', 48, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.HostCapabilitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_skill_previews', 56, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SkillPreviewSpec, false), null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: GetTabContextOptions
 mojo.internal.Struct(

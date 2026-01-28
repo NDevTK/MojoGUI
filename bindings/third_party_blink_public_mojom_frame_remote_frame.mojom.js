@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -318,9 +318,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec = mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ReferrerSpec = mojo.internal.bindings.blink.mojom.ReferrerSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -2179,20 +2176,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_should_replace_current_entry', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_user_gesture', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_unfenced_top_navigation', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_container_initiated', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_rel_opener', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_started_by_ad', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_container_initiated', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_rel_opener', 64, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_disposition', 68, 0, mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_triggering_event_info', 72, 0, mojo.internal.bindings.blink.mojom.TriggeringEventInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_blob_url_token', 76, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_initiator_activation_and_ad_status', 84, 0, mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 84, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_href_translate', 88, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_impression', 96, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_download_policy', 104, 0, mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_location', 112, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_initiator_navigation_state_keep_alive_handle', 120, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.NavigationStateKeepAliveHandleRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_access_api_status', 128, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, 0, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 136]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec, 'blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_Params', [
       mojo.internal.StructField('arg_touch_action', 0, 0, mojo.internal.bindings.cc.mojom.TouchActionSpec, null, false, 0, undefined),

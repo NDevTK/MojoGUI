@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -343,9 +343,6 @@ mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom ||
 mojo.internal.bindings.remoting.mojom.BeginFileWriteResultSpec = mojo.internal.bindings.remoting.mojom.BeginFileWriteResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
-mojo.internal.bindings.remoting.mojom.BoolSpec = mojo.internal.bindings.remoting.mojom.BoolSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
-mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.CaptureResultSpec = mojo.internal.bindings.remoting.mojom.CaptureResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
@@ -362,12 +359,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSizeSpec = mojo.internal.bindings.r
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.DesktopVectorSpec = mojo.internal.bindings.remoting.mojom.DesktopVectorSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
-mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
-mojo.internal.bindings.remoting.mojom.FloatSpec = mojo.internal.bindings.remoting.mojom.FloatSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
-mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
-mojo.internal.bindings.remoting.mojom.Int32Spec = mojo.internal.bindings.remoting.mojom.Int32Spec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec = mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -2757,28 +2748,39 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.KeyEventSpec, 'remoting.mojom.KeyEvent', [
       mojo.internal.StructField('arg_pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_caps_lock_state_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_caps_lock_state_$value', originalFieldName: 'arg_caps_lock_state' }),
+      mojo.internal.StructField('arg_caps_lock_state_$value', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_caps_lock_state_$flag', originalFieldName: 'arg_caps_lock_state' }),
+      mojo.internal.StructField('arg_num_lock_state_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_lock_state_$value', originalFieldName: 'arg_num_lock_state' }),
+      mojo.internal.StructField('arg_num_lock_state_$value', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_lock_state_$flag', originalFieldName: 'arg_num_lock_state' }),
       mojo.internal.StructField('arg_usb_keycode', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_lock_states', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_caps_lock_state', 16, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_num_lock_state', 24, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 // Struct: MouseEvent
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.MouseEventSpec, 'remoting.mojom.MouseEvent', [
-      mojo.internal.StructField('arg_x', 0, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.remoting.mojom.MouseButtonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button_down', 24, 0, mojo.internal.bindings.remoting.mojom.BoolSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_x', 32, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_y', 40, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_ticks_x', 48, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wheel_ticks_y', 56, 0, mojo.internal.bindings.remoting.mojom.FloatSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delta_x', 64, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delta_y', 72, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_x_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_x_$value', originalFieldName: 'arg_x' }),
+      mojo.internal.StructField('arg_y_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_y_$value', originalFieldName: 'arg_y' }),
+      mojo.internal.StructField('arg_button_down_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_button_down_$value', originalFieldName: 'arg_button_down' }),
+      mojo.internal.StructField('arg_button_down_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_button_down_$flag', originalFieldName: 'arg_button_down' }),
+      mojo.internal.StructField('arg_wheel_delta_x_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_wheel_delta_x_$value', originalFieldName: 'arg_wheel_delta_x' }),
+      mojo.internal.StructField('arg_wheel_delta_y_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_wheel_delta_y_$value', originalFieldName: 'arg_wheel_delta_y' }),
+      mojo.internal.StructField('arg_wheel_ticks_x_$flag', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_wheel_ticks_x_$value', originalFieldName: 'arg_wheel_ticks_x' }),
+      mojo.internal.StructField('arg_wheel_ticks_y_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_wheel_ticks_y_$value', originalFieldName: 'arg_wheel_ticks_y' }),
+      mojo.internal.StructField('arg_delta_x_$flag', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_delta_x_$value', originalFieldName: 'arg_delta_x' }),
+      mojo.internal.StructField('arg_delta_y_$flag', 1, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_delta_y_$value', originalFieldName: 'arg_delta_y' }),
+      mojo.internal.StructField('arg_x_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_x_$flag', originalFieldName: 'arg_x' }),
+      mojo.internal.StructField('arg_y_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_y_$flag', originalFieldName: 'arg_y' }),
+      mojo.internal.StructField('arg_button', 12, 0, mojo.internal.bindings.remoting.mojom.MouseButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wheel_delta_x_$value', 16, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_wheel_delta_x_$flag', originalFieldName: 'arg_wheel_delta_x' }),
+      mojo.internal.StructField('arg_wheel_delta_y_$value', 20, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_wheel_delta_y_$flag', originalFieldName: 'arg_wheel_delta_y' }),
+      mojo.internal.StructField('arg_wheel_ticks_x_$value', 24, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_wheel_ticks_x_$flag', originalFieldName: 'arg_wheel_ticks_x' }),
+      mojo.internal.StructField('arg_wheel_ticks_y_$value', 28, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_wheel_ticks_y_$flag', originalFieldName: 'arg_wheel_ticks_y' }),
+      mojo.internal.StructField('arg_delta_x_$value', 32, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_delta_x_$flag', originalFieldName: 'arg_delta_x' }),
+      mojo.internal.StructField('arg_delta_y_$value', 36, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_delta_y_$flag', originalFieldName: 'arg_delta_y' }),
     ],
-    [[0, 88]]);
+    [[0, 48]]);
 
 // Struct: TextEvent
 mojo.internal.Struct(
@@ -2839,8 +2841,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.FileTransferErrorSpec, 'remoting.mojom.FileTransferError', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_api_error_code', 8, 0, mojo.internal.bindings.remoting.mojom.Int32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_api_error_code_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_api_error_code_$value', originalFieldName: 'arg_api_error_code' }),
+      mojo.internal.StructField('arg_api_error_code_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_api_error_code_$flag', originalFieldName: 'arg_api_error_code' }),
+      mojo.internal.StructField('arg_line_number', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_function', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_file', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-28T05:03:50.998089Z",
-  "version": "146.0.7654.0",
+  "generated_at": "2026-01-28T10:21:10.612339Z",
+  "version": "146.0.7655.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7119,6 +7119,7 @@
       "file": "chrome_browser_ui_webui_side_panel_bookmarks_bookmarks.mojom.js",
       "methods": [
         "BookmarkCurrentTabInFolder",
+        "CanOpenBookmarksInIncognitoWindow",
         "CreateFolder",
         "DropBookmarks",
         "ExecuteEditCommand",
@@ -18733,7 +18734,8 @@
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
       "methods": [
         "OnDevToolsStatusChanged",
-        "OnNavigationStatusChanged"
+        "OnNavigationStatusChanged",
+        "OnContextMenuStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -23216,9 +23218,6 @@
         "TransferSharedLastForegroundTime",
         "OnNetworkConnectionChanged",
         "OnNetworkQualityChanged",
-        "SetWebKitSharedTimersSuspended",
-        "UpdateScrollbarTheme",
-        "OnSystemColorsChanged",
         "UpdateSystemColorInfo",
         "PurgePluginListCache",
         "PurgeResourceCache",
@@ -40098,7 +40097,6 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_web_launch_web_launch.mojom.js",
       "methods": [
-        "SetLaunchFiles",
         "EnqueueLaunchParams"
       ],
       "metadata": {
@@ -44627,8 +44625,7 @@
       "module": "arc.mojom",
       "imports": [
         "chromeos/ash/experiences/arc/mojom/gfx.mojom",
-        "chromeos/ash/experiences/arc/mojom/video_common.mojom",
-        "ui/gfx/mojom/buffer_types.mojom"
+        "chromeos/ash/experiences/arc/mojom/video_common.mojom"
       ]
     },
     {
@@ -47806,7 +47803,6 @@
         "third_party/blink/public/mojom/loader/url_loader_factory_bundle.mojom",
         "third_party/blink/public/mojom/messaging/transferable_message.mojom",
         "third_party/blink/public/mojom/navigation/navigation_params.mojom",
-        "third_party/blink/public/mojom/navigation/navigation_initiator_activation_and_ad_status.mojom",
         "third_party/blink/public/mojom/page/page.mojom",
         "third_party/blink/public/mojom/page/prerender_page_param.mojom",
         "third_party/blink/public/mojom/picture_in_picture_window_options/picture_in_picture_window_options.mojom",
@@ -50057,7 +50053,6 @@
         "mojo/public/mojom/base/shared_memory.mojom",
         "remoting/host/mojom/keyboard_layout.mojom",
         "remoting/host/mojom/webrtc_types.mojom",
-        "remoting/host/mojom/wrapped_primitives.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -50110,12 +50105,6 @@
     {
       "filename": "remoting_host_mojom_webrtc_types.mojom.js",
       "source": "remoting/host/mojom/webrtc_types.mojom",
-      "module": "remoting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "remoting_host_mojom_wrapped_primitives.mojom.js",
-      "source": "remoting/host/mojom/wrapped_primitives.mojom",
       "module": "remoting.mojom",
       "imports": []
     },
@@ -51328,6 +51317,7 @@
         "services/network/public/mojom/cors_origin_pattern.mojom",
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
         "services/network/public/mojom/ct_policy.mojom",
+        "services/network/public/mojom/originating_process.mojom",
         "services/network/public/mojom/default_credentials.mojom",
         "services/network/public/mojom/device_bound_sessions.mojom",
         "services/network/public/mojom/devtools_observer.mojom",
@@ -51536,6 +51526,12 @@
         "services/network/public/mojom/trust_tokens.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "services_network_public_mojom_originating_process.mojom.js",
+      "source": "services/network/public/mojom/originating_process.mojom",
+      "module": "network.mojom",
+      "imports": []
     },
     {
       "filename": "services_network_public_mojom_p2p.mojom.js",
@@ -54577,7 +54573,6 @@
         "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
-        "third_party/blink/public/mojom/navigation/navigation_initiator_activation_and_ad_status.mojom",
         "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
         "third_party/blink/public/mojom/frame/frame_visual_properties.mojom",
         "third_party/blink/public/mojom/frame/fullscreen.mojom",
@@ -55384,12 +55379,6 @@
       ]
     },
     {
-      "filename": "third_party_blink_public_mojom_navigation_navigation_initiator_activation_and_ad_status.mojom.js",
-      "source": "third_party/blink/public/mojom/navigation/navigation_initiator_activation_and_ad_status.mojom",
-      "module": "blink.mojom",
-      "imports": []
-    },
-    {
       "filename": "third_party_blink_public_mojom_navigation_navigation_params.mojom.js",
       "source": "third_party/blink/public/mojom/navigation/navigation_params.mojom",
       "module": "blink.mojom",
@@ -55421,7 +55410,6 @@
         "third_party/blink/public/mojom/loader/referrer.mojom",
         "third_party/blink/public/mojom/messaging/task_attribution_id.mojom",
         "third_party/blink/public/mojom/navigation/navigation_api_history_entry_arrays.mojom",
-        "third_party/blink/public/mojom/navigation/navigation_initiator_activation_and_ad_status.mojom",
         "third_party/blink/public/mojom/navigation/navigation_policy.mojom",
         "third_party/blink/public/mojom/navigation/prefetched_signed_exchange_info.mojom",
         "third_party/blink/public/mojom/navigation/renderer_content_settings.mojom",

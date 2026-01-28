@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -304,10 +304,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_instance_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_window_exposed_by_default', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_window_exposed_by_default', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_instance_id_$value', originalFieldName: 'arg_instance_id' }),
+      mojo.internal.StructField('arg_window_exposed_by_default_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_window_exposed_by_default_$value', originalFieldName: 'arg_window_exposed_by_default' }),
+      mojo.internal.StructField('arg_window_exposed_by_default_$value', 16, 2, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_window_exposed_by_default_$flag', originalFieldName: 'arg_window_exposed_by_default' }),
+      mojo.internal.StructField('arg_instance_id_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_instance_id_$flag', originalFieldName: 'arg_instance_id' }),
       mojo.internal.StructField('arg_window_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);

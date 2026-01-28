@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.gfx.mojom.BufferFormatSpec = mojo.internal.bindings.gfx.mojom.BufferFormatSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx.mojom.BufferUsageSpec = mojo.internal.bindings.gfx.mojom.BufferUsageSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec || { $: {} };
 if (mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$.structSpec && mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec.$ = {};
@@ -137,27 +136,6 @@ if (mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$.structSpec && m
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec = mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
-
-// Enum: BufferFormat
-mojo.internal.bindings.gfx.mojom.BufferFormat = {
-  R_8: 0,
-  R_16: 1,
-  RG_88: 2,
-  RG_1616: 3,
-  BGR_565: 4,
-  RGBA_4444: 5,
-  RGBX_8888: 6,
-  RGBA_8888: 7,
-  BGRX_8888: 8,
-  BGRA_1010102: 9,
-  RGBA_1010102: 10,
-  BGRA_8888: 11,
-  RGBA_F16: 12,
-  YVU_420: 13,
-  YUV_420_BIPLANAR: 14,
-  YUVA_420_TRIPLANAR: 15,
-  P010: 16,
-};
 
 // Enum: BufferUsage
 mojo.internal.bindings.gfx.mojom.BufferUsage = {

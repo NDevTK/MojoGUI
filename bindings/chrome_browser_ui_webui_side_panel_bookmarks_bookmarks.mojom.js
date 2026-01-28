@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,10 @@ if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerSpec.$.structSpe
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler.$interfaceName = 'side_panel.mojom.BookmarksPageHandler';
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec.$ = {};
+mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$ = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec || { $: {} };
@@ -411,6 +415,9 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemote = class {
   bookmarkCurrentTabInFolder(arg_folder_id) {
     return this.$.bookmarkCurrentTabInFolder(arg_folder_id);
   }
+  canOpenBookmarksInIncognitoWindow(arg_side_panel_ids) {
+    return this.$.canOpenBookmarksInIncognitoWindow(arg_side_panel_ids);
+  }
   createFolder(arg_folder_id, arg_title) {
     return this.$.createFolder(arg_folder_id, arg_title);
   }
@@ -506,6 +513,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -518,9 +526,18 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       false);
   }
 
-  createFolder(arg_folder_id, arg_title) {
+  canOpenBookmarksInIncognitoWindow(arg_side_panel_ids) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec,
+      mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec,
+      [arg_side_panel_ids],
+      false);
+  }
+
+  createFolder(arg_folder_id, arg_title) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
       [arg_folder_id, arg_title],
@@ -529,7 +546,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   dropBookmarks(arg_folder_id) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec,
       [arg_folder_id],
@@ -538,7 +555,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeEditCommand(arg_node_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
       [arg_node_ids, arg_source],
@@ -547,7 +564,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeMoveCommand(arg_node_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
       [arg_node_ids, arg_source],
@@ -556,7 +573,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeOpenInNewTabCommand(arg_side_panel_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
       [arg_side_panel_ids, arg_source],
@@ -565,7 +582,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeOpenInNewWindowCommand(arg_side_panel_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
       [arg_side_panel_ids, arg_source],
@@ -574,7 +591,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeOpenInIncognitoWindowCommand(arg_side_panel_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
       [arg_side_panel_ids, arg_source],
@@ -583,7 +600,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeOpenInNewTabGroupCommand(arg_side_panel_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
       [arg_side_panel_ids, arg_source],
@@ -592,7 +609,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeOpenInSplitViewCommand(arg_node_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
       [arg_node_ids, arg_source],
@@ -601,7 +618,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeAddToBookmarksBarCommand(arg_node_id, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
       [arg_node_id, arg_source],
@@ -610,7 +627,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeRemoveFromBookmarksBarCommand(arg_node_id, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
       [arg_node_id, arg_source],
@@ -619,7 +636,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   executeDeleteCommand(arg_node_ids, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
       [arg_node_ids, arg_source],
@@ -628,7 +645,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   openBookmark(arg_node_id, arg_parent_folder_depth, arg_click_modifiers, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
       [arg_node_id, arg_parent_folder_depth, arg_click_modifiers, arg_source],
@@ -637,7 +654,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   undo() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
       [],
@@ -646,7 +663,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   renameBookmark(arg_node_id, arg_new_title) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
       [arg_node_id, arg_new_title],
@@ -655,7 +672,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   moveBookmark(arg_node_id, arg_folder_id) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
       [arg_node_id, arg_folder_id],
@@ -664,7 +681,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   removeBookmarks(arg_node_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec,
       [arg_node_ids],
@@ -673,7 +690,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   setSortOrder(arg_sort_order) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
       [arg_sort_order],
@@ -682,7 +699,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   setViewType(arg_view_type) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
       [arg_view_type],
@@ -691,7 +708,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   showContextMenu(arg_id, arg_point, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
       [arg_id, arg_point, arg_source],
@@ -700,7 +717,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   showUI() {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
       [],
@@ -709,7 +726,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   getAllBookmarks() {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
       [],
@@ -734,6 +751,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('side_panel.mojom.BookmarksPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -809,6 +827,24 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.canOpenBookmarksInIncognitoWindow');
+          const result = this.impl.canOpenBookmarksInIncognitoWindow(params.arg_side_panel_ids);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_can_open_in_incognito' in response) ? response['arg_can_open_in_incognito'] : response;
+              const resp_obj = { 'arg_can_open_in_incognito': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] canOpenBookmarksInIncognitoWindow FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFolder');
           const result = this.impl.createFolder(params.arg_folder_id, params.arg_title);
@@ -825,7 +861,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dropBookmarks');
@@ -842,105 +878,105 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeEditCommand');
           const result = this.impl.executeEditCommand(params.arg_node_ids, params.arg_source);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeMoveCommand');
           const result = this.impl.executeMoveCommand(params.arg_node_ids, params.arg_source);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewTabCommand');
           const result = this.impl.executeOpenInNewTabCommand(params.arg_side_panel_ids, params.arg_source);
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewWindowCommand');
           const result = this.impl.executeOpenInNewWindowCommand(params.arg_side_panel_ids, params.arg_source);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInIncognitoWindowCommand');
           const result = this.impl.executeOpenInIncognitoWindowCommand(params.arg_side_panel_ids, params.arg_source);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInNewTabGroupCommand');
           const result = this.impl.executeOpenInNewTabGroupCommand(params.arg_side_panel_ids, params.arg_source);
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOpenInSplitViewCommand');
           const result = this.impl.executeOpenInSplitViewCommand(params.arg_node_ids, params.arg_source);
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeAddToBookmarksBarCommand');
           const result = this.impl.executeAddToBookmarksBarCommand(params.arg_node_id, params.arg_source);
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeRemoveFromBookmarksBarCommand');
           const result = this.impl.executeRemoveFromBookmarksBarCommand(params.arg_node_id, params.arg_source);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeDeleteCommand');
           const result = this.impl.executeDeleteCommand(params.arg_node_ids, params.arg_source);
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBookmark');
           const result = this.impl.openBookmark(params.arg_node_id, params.arg_parent_folder_depth, params.arg_click_modifiers, params.arg_source);
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameBookmark');
           const result = this.impl.renameBookmark(params.arg_node_id, params.arg_new_title);
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveBookmark');
           const result = this.impl.moveBookmark(params.arg_node_id, params.arg_folder_id);
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBookmarks');
@@ -957,35 +993,35 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSortOrder');
           const result = this.impl.setSortOrder(params.arg_sort_order);
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewType');
           const result = this.impl.setViewType(params.arg_view_type);
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.arg_id, params.arg_point, params.arg_source);
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllBookmarks');
@@ -1264,6 +1300,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_Params', [
       mojo.internal.StructField('arg_folder_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_Params', [
+      mojo.internal.StructField('arg_side_panel_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParamsSpec, 'side_panel.mojom.BookmarksPageHandler_CanOpenBookmarksInIncognitoWindow_ResponseParams', [
+      mojo.internal.StructField('arg_can_open_in_incognito', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

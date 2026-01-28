@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.browser_controls_api.mojom.ClickDispositionFlagSpec = mojo.internal.bindings.browser_controls_api.mojom.ClickDispositionFlagSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser_controls_api.mojom.ContextMenuTypeSpec = mojo.internal.bindings.browser_controls_api.mojom.ContextMenuTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser_controls_api.mojom.ContextMenuStateSpec = mojo.internal.bindings.browser_controls_api.mojom.ContextMenuStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser_controls_api.mojom.DevToolsStateSpec = mojo.internal.bindings.browser_controls_api.mojom.DevToolsStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser_controls_api.mojom.NavigationStateSpec = mojo.internal.bindings.browser_controls_api.mojom.NavigationStateSpec || { $: mojo.internal.Enum().$ };
 
@@ -143,6 +144,13 @@ mojo.internal.bindings.browser_controls_api.mojom.ClickDispositionFlag = {
 mojo.internal.bindings.browser_controls_api.mojom.ContextMenuType = {
   kUnspecified: 0,
   kReload: 1,
+};
+
+// Enum: ContextMenuState
+mojo.internal.bindings.browser_controls_api.mojom.ContextMenuState = {
+  kUnspecified: 0,
+  kVisible: 1,
+  kHidden: 2,
 };
 
 // Enum: DevToolsState

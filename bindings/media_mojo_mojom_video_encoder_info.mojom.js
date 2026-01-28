@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,8 +158,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoEncoderInfoSpec, 'media.mojom.VideoEncoderInfo', [
       mojo.internal.StructField('arg_implementation_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_frame_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_input_capacity', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_delay_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frame_delay_$value', originalFieldName: 'arg_frame_delay' }),
+      mojo.internal.StructField('arg_input_capacity_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_input_capacity_$value', originalFieldName: 'arg_input_capacity' }),
       mojo.internal.StructField('arg_supports_native_handle', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_trusted_rate_controller', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_hardware_accelerated', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
@@ -168,8 +168,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_apply_alignment_to_all_simulcast_layers', 8, 7, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_supports_frame_size_change', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_supports_gpu_shared_images', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_delay', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_capacity', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_delay_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_delay_$flag', originalFieldName: 'arg_frame_delay' }),
+      mojo.internal.StructField('arg_input_capacity_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_input_capacity_$flag', originalFieldName: 'arg_input_capacity' }),
       mojo.internal.StructField('arg_requested_resolution_alignment', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_manual_reference_buffers', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fps_allocation', 32, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),

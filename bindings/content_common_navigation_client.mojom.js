@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,7 +129,6 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.content.mojom.NavigationGestureSpec = mojo.internal.bindings.content.mojom.NavigationGestureSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.PageTransitionSpec = mojo.internal.bindings.content.mojom.PageTransitionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.content.mojom.PageStateSpec = mojo.internal.bindings.content.mojom.PageStateSpec || { $: {} };
@@ -259,10 +258,6 @@ mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.O
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
-
-// Enum: NavigationGesture
-mojo.internal.bindings.content.mojom.NavigationGesture = {
-};
 
 // Enum: PageTransition
 mojo.internal.bindings.content.mojom.PageTransition = {

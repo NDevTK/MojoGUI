@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,8 +131,6 @@ mojo.internal.bindings.blink.mojom.WebLaunchService = mojo.internal.bindings.bli
 mojo.internal.bindings.blink.mojom.WebLaunchServiceSpec = mojo.internal.bindings.blink.mojom.WebLaunchServiceSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.WebLaunchServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebLaunchServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebLaunchServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebLaunchService.$interfaceName = 'blink.mojom.WebLaunchService';
-mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec = mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec = mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$ = {};
 
@@ -177,11 +175,8 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  setLaunchFiles(arg_files) {
-    return this.$.setLaunchFiles(arg_files);
-  }
-  enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started) {
-    return this.$.enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started);
+  enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started, arg_files) {
+    return this.$.enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started, arg_files);
   }
 };
 
@@ -190,25 +185,15 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceRemoteCallHandler = class {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebLaunchService', [
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
-  setLaunchFiles(arg_files) {
+  enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started, arg_files) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
-      null,
-      [arg_files],
-      false);
-  }
-
-  enqueueLaunchParams(arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
-      [arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started],
+      [arg_launch_url, arg_time_navigation_started_in_browser, arg_navigation_started, arg_files],
       false);
   }
 
@@ -230,7 +215,6 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebLaunchService', [
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -277,16 +261,9 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setLaunchFiles');
-          const result = this.impl.setLaunchFiles(params.arg_files);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enqueueLaunchParams');
-          const result = this.impl.enqueueLaunchParams(params.arg_launch_url, params.arg_time_navigation_started_in_browser, params.arg_navigation_started);
+          const result = this.impl.enqueueLaunchParams(params.arg_launch_url, params.arg_time_navigation_started_in_browser, params.arg_navigation_started, params.arg_files);
           break;
         }
       }
@@ -305,16 +282,11 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceRequest = mojo.internal.bindi
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec, 'blink.mojom.WebLaunchService_SetLaunchFiles_Params', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec, 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params', [
       mojo.internal.StructField('arg_launch_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_time_navigation_started_in_browser', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_started', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 

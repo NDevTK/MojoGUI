@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -519,8 +519,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_max_framerate_fps', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_pixels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_require_mapped_frame', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_frame_id', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_frame_id_$value', originalFieldName: 'arg_frame_id' }),
+      mojo.internal.StructField('arg_frame_id_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_id_$flag', originalFieldName: 'arg_frame_id' }),
       mojo.internal.StructField('arg_DEPRECATED_mapped_sizes', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, true, 0, undefined),
     ],
     [[0, 40]]);

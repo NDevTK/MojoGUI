@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -319,9 +319,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec = mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec = mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.NavigationStateKeepAliveHandleSpec = mojo.internal.bindings.blink.mojom.NavigationStateKeepAliveHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1863,6 +1860,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_opener_suppressed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_form_submission', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_consumes_user_activation', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_started_with_transient_activation', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_started_by_ad', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_window_container_type', 4, 0, mojo.internal.bindings.content.mojom.WindowContainerTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_storage_namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_clone_from_session_storage_namespace_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
@@ -1870,7 +1869,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_form_submission_post_data', 32, 0, mojo.internal.bindings.network.mojom.URLRequestBodySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_form_submission_post_content_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_disposition', 48, 0, mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initiator_activation_and_ad_status', 52, 0, mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame_interface_broker', 52, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_target_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_referrer', 64, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_features', 72, 0, mojo.internal.bindings.blink.mojom.WindowFeaturesSpec, null, false, 0, undefined),
@@ -1879,12 +1878,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pip_options', 96, 0, mojo.internal.bindings.blink.mojom.PictureInPictureWindowOptionsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_frame_remote', 104, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FrameRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_page_broadcast_remote', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_frame_interface_broker', 120, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_associated_interface_provider', 124, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_widget_host', 128, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetHostPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_widget', 132, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_widget_host', 140, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetHostPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_widget', 144, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_associated_interface_provider', 120, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget_host', 124, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetHostPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget', 128, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_widget_host', 136, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetHostPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_widget', 140, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
     ],
     [[0, 160]]);
 

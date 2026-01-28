@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1250,9 +1250,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoEncodeOptionsSpec, 'media.mojom.VideoEncodeOptions', [
       mojo.internal.StructField('arg_force_keyframe', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_update_buffer_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_update_buffer_$value', originalFieldName: 'arg_update_buffer' }),
+      mojo.internal.StructField('arg_quantizer_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_quantizer_$value', originalFieldName: 'arg_quantizer' }),
+      mojo.internal.StructField('arg_update_buffer_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_update_buffer_$value', originalFieldName: 'arg_update_buffer' }),
       mojo.internal.StructField('arg_update_buffer_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_update_buffer_$flag', originalFieldName: 'arg_update_buffer' }),
-      mojo.internal.StructField('arg_quantizer', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_quantizer_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_quantizer_$flag', originalFieldName: 'arg_quantizer' }),
       mojo.internal.StructField('arg_reference_buffers', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

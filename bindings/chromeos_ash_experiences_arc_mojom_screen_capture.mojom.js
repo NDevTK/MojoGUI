@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,8 +125,8 @@
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
+mojo.internal.bindings.arc.mojom.BufferFormatSpec = mojo.internal.bindings.arc.mojom.BufferFormatSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc.mojom.ScreenCaptureHost = mojo.internal.bindings.arc.mojom.ScreenCaptureHost || {};
 mojo.internal.bindings.arc.mojom.ScreenCaptureHostSpec = mojo.internal.bindings.arc.mojom.ScreenCaptureHostSpec || { $ : {} };
 if (mojo.internal.bindings.arc.mojom.ScreenCaptureHostSpec.$.structSpec && mojo.internal.bindings.arc.mojom.ScreenCaptureHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.arc.mojom.ScreenCaptureHostSpec.$ = {};
@@ -172,9 +172,26 @@ if (mojo.internal.bindings.arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_Pa
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.SizeSpec = mojo.internal.bindings.arc.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.BufferFormatSpec = mojo.internal.bindings.gfx.mojom.BufferFormatSpec || { $: mojo.internal.Enum().$ };
+
+// Enum: BufferFormat
+mojo.internal.bindings.arc.mojom.BufferFormat = {
+  R_8: 0,
+  R_16: 1,
+  RG_88: 2,
+  RG_1616: 3,
+  BGR_565: 4,
+  RGBA_4444: 5,
+  RGBX_8888: 6,
+  RGBA_8888: 7,
+  BGRX_8888: 8,
+  BGRA_1010102: 9,
+  RGBA_1010102: 10,
+  BGRA_8888: 11,
+  RGBA_F16: 12,
+  YVU_420: 13,
+  YUV_420_BIPLANAR: 14,
+  P010: 15,
+};
 
 // Interface: ScreenCaptureHost
 mojo.internal.bindings.arc.mojom.ScreenCaptureHostPendingReceiver = class {
@@ -880,7 +897,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
       mojo.internal.StructField('arg_graphics_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_format', 4, 0, mojo.internal.bindings.gfx.mojom.BufferFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_format', 4, 0, mojo.internal.bindings.arc.mojom.BufferFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_format_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

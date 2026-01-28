@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7654.0';
+        const versionStr = window.mojoVersion || '146.0.7655.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,6 +142,8 @@ mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevT
 if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnDevToolsStatusChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService || {};
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec = mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec || { $ : {} };
 if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$.structSpec && mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsServiceSpec.$ = {};
@@ -159,6 +161,9 @@ if (mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsService_Rel
 mojo.internal.bindings.browser_controls_api = mojo.internal.bindings.browser_controls_api || {};
 mojo.internal.bindings.browser_controls_api.mojom = mojo.internal.bindings.browser_controls_api.mojom || {};
 mojo.internal.bindings.browser_controls_api.mojom.ClickDispositionFlagSpec = mojo.internal.bindings.browser_controls_api.mojom.ClickDispositionFlagSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser_controls_api = mojo.internal.bindings.browser_controls_api || {};
+mojo.internal.bindings.browser_controls_api.mojom = mojo.internal.bindings.browser_controls_api.mojom || {};
+mojo.internal.bindings.browser_controls_api.mojom.ContextMenuStateSpec = mojo.internal.bindings.browser_controls_api.mojom.ContextMenuStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser_controls_api = mojo.internal.bindings.browser_controls_api || {};
 mojo.internal.bindings.browser_controls_api.mojom = mojo.internal.bindings.browser_controls_api.mojom || {};
 mojo.internal.bindings.browser_controls_api.mojom.ContextMenuTypeSpec = mojo.internal.bindings.browser_controls_api.mojom.ContextMenuTypeSpec || { $: mojo.internal.Enum().$ };
@@ -346,12 +351,16 @@ mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverRemote 
   onNavigationStatusChanged(arg_state) {
     return this.$.onNavigationStatusChanged(arg_state);
   }
+  onContextMenuStateChanged(arg_menu_type, arg_state) {
+    return this.$.onContextMenuStateChanged(arg_menu_type, arg_state);
+  }
 };
 
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser_controls_api.mojom.BrowserControlsObserver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -375,6 +384,15 @@ mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverRemoteC
       false);
   }
 
+  onContextMenuStateChanged(arg_menu_type, arg_state) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec,
+      null,
+      [arg_menu_type, arg_state],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver.getRemote = function() {
@@ -393,6 +411,7 @@ mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverReceive
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser_controls_api.mojom.BrowserControlsObserver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -450,6 +469,13 @@ mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserverReceive
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNavigationStatusChanged');
           const result = this.impl.onNavigationStatusChanged(params.arg_state);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onContextMenuStateChanged');
+          const result = this.impl.onContextMenuStateChanged(params.arg_menu_type, params.arg_state);
           break;
         }
       }
@@ -681,6 +707,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_ParamsSpec, 'browser_controls_api.mojom.BrowserControlsObserver_OnNavigationStatusChanged_Params', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.browser_controls_api.mojom.NavigationStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_ParamsSpec, 'browser_controls_api.mojom.BrowserControlsObserver_OnContextMenuStateChanged_Params', [
+      mojo.internal.StructField('arg_menu_type', 0, 0, mojo.internal.bindings.browser_controls_api.mojom.ContextMenuTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.browser_controls_api.mojom.ContextMenuStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
