@@ -292,12 +292,21 @@
 
     // Special Handling for Common Mojo Types
     // 1. URL: Unwrap { arg_url: "..." } to simple string
-    if (
-      typeString === "Url" ||
-      typeString.endsWith(".Url") ||
-      (typeof value === "object" && value && (value.arg_url || value.url))
-    ) {
-      const urlVal = value ? value.arg_url || value.url || "" : "";
+    // We check for Url type string OR the presence of arg_url/url property in a SIMPLE object
+    const isUrlType = typeString === "Url" || typeString.endsWith(".Url");
+    const isUrlValue =
+      value &&
+      typeof value === "object" &&
+      (Object.keys(value).length === 1 ||
+        (Object.keys(value).length === 2 && value.__mojoType)) &&
+      (value.arg_url || value.url);
+
+    if (isUrlType || isUrlValue) {
+      const urlVal = value
+        ? typeof value === "string"
+          ? value
+          : value.arg_url || value.url || ""
+        : "";
       return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
