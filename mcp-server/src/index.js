@@ -124,8 +124,13 @@ server.tool(
       .optional()
       .default(50)
       .describe("Maximum number of interfaces to return"),
+    type: z
+      .string()
+      .optional()
+      .default("all")
+      .describe('Filter by type: "all" (default), "direct", or "associated"'),
   },
-  async ({ query = "", limit = 50 }) => {
+  async ({ query = "", limit = 50, type = "all" }) => {
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -133,20 +138,36 @@ server.tool(
                 
                 let interfaces = await api.getInterfaces();
                 
+                // 1. Filter by Name/Module
                 const q = ${JSON.stringify(query)}.toLowerCase();
                 if (q) {
                     interfaces = interfaces.filter(i => 
                         i.name.toLowerCase().includes(q) ||
                         i.module.toLowerCase().includes(q) ||
-                        (i.module + '.' + i.name).toLowerCase().includes(q)
+                        (i.metadata && i.metadata.methods && i.metadata.methods.some(m => m.toLowerCase().includes(q)))
                     );
                 }
-                
+
+                // 2. Filter by Type (Direct/Associated)
+                const filterType = ${JSON.stringify(type)}.toLowerCase();
+                if (filterType !== "all") {
+                    interfaces = interfaces.filter(iface => {
+                        const usage = iface.metadata?.usage;
+                        const isDirect = usage?.direct?.length > 0;
+                        const isAssociated = 
+                            usage?.associated?.length > 0 || 
+                            (!isDirect && (!usage || !usage.direct)); // Inference by omission
+
+                        if (filterType === "direct") return isDirect;
+                        if (filterType === "associated") return isAssociated;
+                        return true;
+                    });
+                }
+
                 return interfaces.slice(0, ${limit}).map(i => ({
                     name: i.name,
                     module: i.module,
-                    methods: i.methods?.length || 0,
-                    filename: i.filename,
+                    method_count: i.metadata?.methods?.length || 0,
                     metadata: i.metadata // Expose full metadata including usage
                 }));
             })()
@@ -400,8 +421,19 @@ server.tool(
     isAssociated = false,
     masterHandleId,
     interfaceId = 0,
+    interfaceId = 0,
     userGesture = false,
   }) => {
+    // VALIDATION: Associated Interfaces require a Master Handle
+    if (isAssociated && !masterHandleId) {
+      return {
+        status: "Error",
+        message: "Missing 'masterHandleId' for Associated Interface call.",
+        instruction:
+          "When calling an associated interface (isAssociated=true), you MUST provide the 'masterHandleId' of the associated message pipe.",
+      };
+    }
+
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;

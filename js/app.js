@@ -166,6 +166,7 @@
     }
 
     setupEventListeners();
+    renderSearchFilters();
   }
 
   function checkMojoAvailability() {
@@ -454,15 +455,105 @@
     // Update UI if needed
   }
 
+  // ========================================
+  // Search Filters
+  // ========================================
+  function renderSearchFilters() {
+    const container = document.createElement("div");
+    container.className = "search-filters";
+    container.style.cssText =
+      "display: flex; gap: 8px; margin: 10px 0; padding: 0 5px;";
+
+    const filters = [
+      { id: "ALL", label: "All", icon: "" },
+      { id: "DIRECT", label: "Direct", icon: "" },
+      { id: "ASSOCIATED", label: "Associated", icon: "🔗" },
+    ];
+
+    state.filterType = "ALL";
+
+    filters.forEach((f) => {
+      const btn = document.createElement("button");
+      btn.className = `filter-btn ${f.id === "ALL" ? "active" : ""}`;
+      btn.dataset.filter = f.id;
+      btn.innerHTML = f.icon ? `${f.icon} ${f.label}` : f.label;
+      btn.style.cssText = `
+                flex: 1;
+                padding: 6px 10px;
+                background: var(--bg-secondary);
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.85em;
+                color: var(--text-secondary);
+                transition: all 0.2s;
+            `;
+
+      btn.addEventListener("click", () => {
+        // Update State
+        state.filterType = f.id;
+
+        // Update UI
+        container.querySelectorAll(".filter-btn").forEach((b) => {
+          b.style.background = "var(--bg-secondary)";
+          b.style.color = "var(--text-secondary)";
+          b.style.borderColor = "var(--border-color)";
+        });
+        btn.style.background = "rgba(100, 181, 246, 0.15)";
+        btn.style.color = "#64b5f6";
+        btn.style.borderColor = "#64b5f6";
+
+        // Trigger Search
+        // Create a fake event or just call filter logic
+        const query = elements.interfaceSearch.value;
+        performSearch(query);
+      });
+
+      container.appendChild(btn);
+    });
+
+    // Insert after search input
+    if (elements.interfaceSearch && elements.interfaceSearch.parentNode) {
+      elements.interfaceSearch.parentNode.insertBefore(
+        container,
+        elements.interfaceSearch.nextSibling,
+      );
+    }
+  }
+
   function handleSearch(e) {
-    const query = e.target.value.toLowerCase();
-    const filtered = state.interfaces.filter(
-      (iface) =>
+    performSearch(e.target.value);
+  }
+
+  function performSearch(query) {
+    query = query.toLowerCase();
+    const filtered = state.interfaces.filter((iface) => {
+      // 1. Text Match
+      const matchesText =
         iface.name.toLowerCase().includes(query) ||
         iface.module.toLowerCase().includes(query) ||
         (iface.methods &&
-          iface.methods.some((m) => m.toLowerCase().includes(query))),
-    );
+          iface.methods.some((m) => m.toLowerCase().includes(query)));
+
+      if (!matchesText) return false;
+
+      // 2. Type Match
+      if (state.filterType === "ALL") return true;
+
+      // Check metadata for association
+      // Logic: Associated = (associated > 0) OR (direct == 0 [Inferred])
+      //        Direct     = (direct > 0)
+      const usage = iface.metadata?.usage;
+      const isDirect = usage?.direct?.length > 0;
+      const isAssociated =
+        usage?.associated?.length > 0 ||
+        (!isDirect && (!usage || !usage.direct)); // Inference fallback
+
+      if (state.filterType === "DIRECT") return isDirect;
+      if (state.filterType === "ASSOCIATED") return isAssociated;
+
+      return true;
+    });
     renderInterfaceList(filtered);
   }
 
