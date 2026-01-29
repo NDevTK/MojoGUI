@@ -128,7 +128,9 @@ server.tool(
       .string()
       .optional()
       .default("all")
-      .describe('Filter by type: "all" (default), "direct", or "associated"'),
+      .describe(
+        'Filter by type: "all" (default), "direct", "internal", or "associated"',
+      ),
   },
   async ({ query = "", limit = 50, type = "all" }) => {
     const code = `
@@ -148,17 +150,21 @@ server.tool(
                     );
                 }
 
-                // 2. Filter by Type (Direct/Associated)
+                // 2. Filter by Type (Direct/Internal/Associated)
                 const filterType = ${JSON.stringify(type)}.toLowerCase();
                 if (filterType !== "all") {
                     interfaces = interfaces.filter(iface => {
                         const usage = iface.metadata?.usage;
-                        const isDirect = usage?.direct?.length > 0;
-                        const isAssociated = 
-                            usage?.associated?.length > 0 || 
-                            (!isDirect && (!usage || !usage.direct)); // Inference by omission
+                        
+                        const directList = usage?.direct || [];
+                        const associatedList = usage?.associated || [];
+                        
+                        const isInternal = directList.some(s => s.includes("Internal Interface"));
+                        const isDirect = directList.length > 0 && !isInternal;
+                        const isAssociated = associatedList.length > 0 || (!isDirect && !isInternal && directList.length === 0);
 
                         if (filterType === "direct") return isDirect;
+                        if (filterType === "internal") return isInternal;
                         if (filterType === "associated") return isAssociated;
                         return true;
                     });

@@ -2005,37 +2005,50 @@ def main():
 
                     # 2. Apply Ground Truth Logic
                     scope = "context"
+                    leaf_name = fqn.split('.')[-1]
                     
-                    if fqn in associated_binders or fqn in webui_binders:
+                    # Logic: Check for direct binders first, then associated.
+                    # Use both FQN and leaf_name (since C++ often uses mojom::Interface)
+                    
+                    is_in_global = fqn in global_binders or leaf_name in global_binders
+                    is_in_context = fqn in context_binders or leaf_name in context_binders
+                    is_in_process = fqn in process_binders or leaf_name in process_binders
+                    is_in_webui = fqn in webui_binders or leaf_name in webui_binders
+                    is_in_assoc = fqn in associated_binders or leaf_name in associated_binders
+                    
+                    # PRIORITY 1: Associated (If it's multiplexed, it's ALWAYS multiplexed)
+                    if is_in_assoc:
                         usage['direct'] = [] 
-                        if fqn in webui_binders:
-                            usage['associated'].append("Source: WebUI Binder (Restricted)")
-                        else:
-                            usage['associated'].append("Source: Associated Binder (Frame/Navigation)")
+                        if "Source: Associated Interface (RFH/Navigation)" not in usage['associated']:
+                            usage['associated'].insert(0, "Source: Associated Interface (RFH/Navigation)")
                     
-                    elif fqn in global_binders or fqn in context_binders:
+                    # PRIORITY 2: Global/Direct Binders
+                    elif is_in_global or is_in_context:
                         scope = "context"
-                        src = "Global" if fqn in global_binders else "DocumentService/Media"
+                        src = "Global Broker" if is_in_global else "Document Service"
                         if f"Source: BrowserInterfaceBroker ({src})" not in usage['direct']:
                             usage['direct'].insert(0, f"Source: BrowserInterfaceBroker ({src})")
-                            
-                    elif fqn in process_binders:
+                    
+                    # PRIORITY 3: Process Binders
+                    elif is_in_process:
                         scope = "process"
                         if "Source: RenderProcessHost (Process)" not in usage['direct']:
                             usage['direct'].insert(0, "Source: RenderProcessHost (Process)")
+                            
+                    # PRIORITY 4: WebUI Restricted
+                    elif is_in_webui:
+                        usage['direct'] = []
+                        if "Source: WebUI Binder (Restricted)" not in usage['associated']:
+                            usage['associated'].insert(0, "Source: WebUI Binder (Restricted)")
 
+                    # FALLBACK: Unknown/Internal
                     else:
-                        # UNKNOWN/PLATFORM-SPECIFIC
-                        # If heuristic said "Direct" (e.g. pending_receiver used in Factory),
-                        # but it's not in the Global/Process Binder Map, then it's not a ROOT service.
-                        # We downgrade it to Associated/Internal.
+                        # If heuristic said Direct but not found in maps, it's likely an Internal Factory result.
+                        # Do NOT move to associated list unless it truly uses associated pipes.
                         if usage['direct']:
-                            # Move direct entries to associated to preserve info but change category
-                            for d_reason in usage['direct']:
-                                usage['associated'].append(f"Internal: {d_reason}")
-                            usage['direct'] = [] # STRICTLY EMPTY if not in Global Set
+                            usage['direct'] = [f"Internal Interface: {r}" for r in usage['direct']]
                         
-                        if not usage['associated']:
+                        if not usage['associated'] and not usage['direct']:
                              usage['associated'].append("Inferred: Not in Desktop BinderMap")
 
                     index_data['interfaces'].append({

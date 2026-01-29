@@ -468,6 +468,7 @@
     const filters = [
       { id: "ALL", label: "All", icon: "" },
       { id: "DIRECT", label: "Direct", icon: "" },
+      { id: "INTERNAL", label: "Internal", icon: "🛠️" },
       { id: "ASSOCIATED", label: "Associated", icon: "🔗" },
     ];
 
@@ -553,15 +554,21 @@
       if (state.filterType === "ALL") return true;
 
       // Check metadata for association
-      // Logic: Associated = (associated > 0) OR (direct == 0 [Inferred])
-      //        Direct     = (direct > 0)
       const usage = iface.metadata?.usage;
-      const isDirect = usage?.direct?.length > 0;
+
+      const directList = usage?.direct || [];
+      const associatedList = usage?.associated || [];
+
+      const isInternal = directList.some((s) =>
+        s.includes("Internal Interface"),
+      );
+      const isDirect = directList.length > 0 && !isInternal;
       const isAssociated =
-        usage?.associated?.length > 0 ||
-        (!isDirect && (!usage || !usage.direct)); // Inference fallback
+        associatedList.length > 0 ||
+        (!isDirect && !isInternal && directList.length === 0);
 
       if (state.filterType === "DIRECT") return isDirect;
+      if (state.filterType === "INTERNAL") return isInternal;
       if (state.filterType === "ASSOCIATED") return isAssociated;
 
       return true;
