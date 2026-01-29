@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T01:10:20.313272Z",
+  "generated_at": "2026-01-29T01:40:11.239169Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -87,7 +87,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -615,7 +615,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -649,7 +649,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -697,7 +697,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -733,7 +733,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -750,7 +750,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -900,7 +900,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -952,7 +952,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1042,7 +1042,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1077,7 +1077,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1096,7 +1096,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1131,7 +1131,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1169,7 +1169,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1206,7 +1206,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1224,7 +1224,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1243,7 +1243,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1277,7 +1277,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1294,7 +1294,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1312,7 +1312,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1346,7 +1346,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1476,7 +1476,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1512,7 +1512,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1549,7 +1549,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1569,7 +1569,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1587,7 +1587,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1604,7 +1604,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1668,7 +1668,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1702,7 +1702,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1877,7 +1877,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1906,7 +1906,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -1967,7 +1967,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2019,7 +2019,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2063,7 +2063,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2121,7 +2121,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2160,7 +2160,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2195,7 +2195,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2212,7 +2212,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2467,7 +2467,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2528,7 +2528,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2809,7 +2809,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2844,7 +2844,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2914,7 +2914,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -2994,7 +2994,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3115,7 +3115,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3183,7 +3183,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3278,7 +3278,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3295,7 +3295,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3542,7 +3542,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3672,7 +3672,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3742,7 +3742,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3761,7 +3761,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3780,7 +3780,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3819,7 +3819,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3838,7 +3838,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3857,7 +3857,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3879,7 +3879,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3900,7 +3900,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3917,7 +3917,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -3979,7 +3979,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4064,7 +4064,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4081,7 +4081,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4143,7 +4143,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4165,7 +4165,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4217,7 +4217,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4252,7 +4252,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4310,7 +4310,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4358,7 +4358,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4437,7 +4437,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4454,7 +4454,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4502,7 +4502,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4519,7 +4519,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4572,7 +4572,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4623,7 +4623,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -4869,7 +4869,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5051,7 +5051,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5086,7 +5086,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5125,7 +5125,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5142,7 +5142,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5182,7 +5182,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5224,7 +5224,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5259,7 +5259,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5390,7 +5390,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5590,7 +5590,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5607,7 +5607,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5662,7 +5662,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5718,7 +5718,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5758,7 +5758,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5793,7 +5793,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5845,7 +5845,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5868,7 +5868,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5885,7 +5885,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5938,7 +5938,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -5978,7 +5978,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6012,7 +6012,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6136,7 +6136,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6180,7 +6180,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6198,7 +6198,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6215,7 +6215,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6292,7 +6292,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6338,7 +6338,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6388,7 +6388,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6407,7 +6407,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6424,7 +6424,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6498,7 +6498,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6560,7 +6560,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6673,7 +6673,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6690,7 +6690,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6707,7 +6707,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6836,7 +6836,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -6904,7 +6904,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7014,7 +7014,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7034,7 +7034,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7071,7 +7071,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7126,7 +7126,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7186,7 +7186,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7238,7 +7238,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7303,7 +7303,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7335,7 +7335,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7352,7 +7352,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7369,7 +7369,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7386,7 +7386,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7424,7 +7424,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7479,7 +7479,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7557,7 +7557,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7606,7 +7606,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7693,7 +7693,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7749,7 +7749,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7810,7 +7810,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7872,7 +7872,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7925,7 +7925,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -7980,7 +7980,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8035,7 +8035,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8071,7 +8071,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8201,7 +8201,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8285,7 +8285,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8336,7 +8336,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8386,7 +8386,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8438,7 +8438,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8473,7 +8473,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8490,7 +8490,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8540,7 +8540,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -8557,7 +8557,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -9031,12 +9031,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9202,12 +9202,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9220,12 +9220,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9257,12 +9257,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9294,12 +9294,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9346,12 +9346,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9363,12 +9363,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9399,7 +9399,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -9565,12 +9565,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9625,12 +9625,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -9643,12 +9643,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -11468,7 +11468,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -11646,7 +11646,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -11741,7 +11741,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -11848,12 +11848,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Inferred: Not in Desktop BinderMap"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -14861,7 +14861,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -14932,7 +14932,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -14949,7 +14949,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -14970,7 +14970,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -14992,7 +14992,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -15149,7 +15149,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -15218,7 +15218,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -15256,7 +15256,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -15336,7 +15336,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -15974,7 +15974,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -16184,7 +16184,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -16321,7 +16321,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -16338,7 +16338,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -16688,7 +16688,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -16725,7 +16725,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -17357,12 +17357,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -17544,7 +17544,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -17640,7 +17640,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -17658,7 +17658,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19090,7 +19090,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19147,7 +19147,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19186,7 +19186,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19506,12 +19506,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -19535,12 +19535,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -19558,12 +19558,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -19593,7 +19593,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19696,7 +19696,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19751,7 +19751,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19878,7 +19878,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -19970,7 +19970,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20031,7 +20031,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20110,7 +20110,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20165,12 +20165,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -20220,12 +20220,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: content_settings.mojom.ContentSettingsManager.Clone"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "content_settings.mojom.ContentSettingsManager.Clone"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -20255,7 +20256,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20326,12 +20327,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -20401,7 +20402,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20552,7 +20553,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -20584,12 +20585,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -20639,7 +20640,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -21361,7 +21362,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -21520,7 +21521,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -21608,7 +21609,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -21626,12 +21627,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -21809,12 +21810,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -22269,12 +22270,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -22323,12 +22324,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -22343,12 +22344,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -23030,7 +23031,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -23064,12 +23065,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -23122,12 +23123,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -23161,12 +23162,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -23486,7 +23487,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -26204,12 +26205,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -27760,12 +27761,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -28360,7 +28361,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -28411,12 +28412,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -29124,14 +29125,15 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: media.mojom.VideoEncodeAcceleratorProviderFactory.CreateVideoEncodeAcceleratorProvider",
-            "Internal: viz.mojom.GpuService.CreateVideoEncodeAcceleratorProvider",
-            "Internal: viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "media.mojom.VideoEncodeAcceleratorProviderFactory.CreateVideoEncodeAcceleratorProvider",
+            "viz.mojom.GpuService.CreateVideoEncodeAcceleratorProvider",
+            "viz.mojom.Gpu.CreateVideoEncodeAcceleratorProvider"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -29401,12 +29403,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -30979,7 +30981,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -36400,12 +36402,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -36775,7 +36777,7 @@
         "usage": {
           "associated": [
             "blink.mojom.StorageAccessHandle.BindBlobStorage",
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -36831,7 +36833,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -36950,7 +36952,7 @@
         "usage": {
           "associated": [
             "blink.mojom.StorageAccessHandle.BindBroadcastChannel",
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -37497,7 +37499,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -38463,7 +38465,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -38598,7 +38600,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -38742,7 +38744,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -40000,7 +40002,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -40473,7 +40475,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -41829,7 +41831,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -42927,7 +42929,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43031,7 +43033,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43137,7 +43139,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43171,7 +43173,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43257,7 +43259,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43308,7 +43310,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43353,7 +43355,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43387,7 +43389,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43454,7 +43456,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43511,7 +43513,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
@@ -43563,7 +43565,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Restricted: WebUI Interface (PageHandler)"
+            "Source: WebUI Binder (Restricted)"
           ],
           "direct": []
         },
