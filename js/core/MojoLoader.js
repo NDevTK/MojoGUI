@@ -40,6 +40,9 @@
 
     async getInterfaces() {
       const data = await this.loadIndex();
+      if (data.interfaces && this._interfaces.length === 0) {
+        this._interfaces = data.interfaces;
+      }
       return data.interfaces;
     },
 

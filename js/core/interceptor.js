@@ -708,12 +708,18 @@
       MojoHandleRegistry.register(clientHandle);
       if (global.MojoLoader) await global.MojoLoader.ensureBinding(ifaceName);
       try {
+        // Get scope from metadata
+        const ifaceMeta = window.MojoGUI_State.interfaces.find(
+          (i) => i.name === ifaceName || i.module + "." + i.name === ifaceName,
+        );
+        const scope = ifaceMeta?.metadata?.scope || "context";
+
         const proxyData = MojoProxy.create(ifaceName, clientHandle);
         if (proxyData) {
           const interceptor = this.interceptors.get(ifaceName);
           if (interceptor) interceptor.stop();
           try {
-            Mojo.bindInterface(ifaceName, proxyData.realHandle);
+            Mojo.bindInterface(ifaceName, proxyData.realHandle, scope);
           } finally {
             if (interceptor) interceptor.start();
           }
@@ -721,7 +727,7 @@
           const interceptor = this.interceptors.get(ifaceName);
           if (interceptor) interceptor.stop();
           try {
-            Mojo.bindInterface(ifaceName, clientHandle);
+            Mojo.bindInterface(ifaceName, clientHandle, scope);
           } finally {
             if (interceptor) interceptor.start();
           }
@@ -745,7 +751,7 @@
         );
         const scope = ifaceMeta?.metadata?.scope || "context";
 
-        interceptor = new MojoInterfaceInterceptor(ifaceName, scope);
+        const interceptor = new MojoInterfaceInterceptor(ifaceName, scope);
         interceptor.oninterfacerequest = (e) =>
           this.handleRequest(ifaceName, e.handle);
         interceptor.start();

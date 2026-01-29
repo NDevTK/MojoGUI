@@ -198,6 +198,7 @@
         const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
+          if (typeof MojoLoader !== "undefined") MojoLoader.init(interfaces);
           renderInterfaceList(interfaces);
           // AUTO-MONITOR ALL (Quietly)
           setTimeout(() => toggleMonitorAll(true), 100);

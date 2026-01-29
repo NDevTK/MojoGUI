@@ -62,7 +62,7 @@
           MojoHandleRegistry.register(handle1);
 
           // Get scope from metadata if available
-          const ifaceMeta = MojoLoader._interfaces.find(
+          const ifaceMeta = window.MojoGUI_State.interfaces.find(
             (i) =>
               i.name === interfaceName ||
               i.module + "." + i.name === interfaceName,
