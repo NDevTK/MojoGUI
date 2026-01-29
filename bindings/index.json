@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T01:51:35.117963Z",
+  "generated_at": "2026-01-29T03:26:56.863588Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -28360,10 +28360,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -30980,10 +30980,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -36523,7 +36523,8 @@
       "metadata": {
         "usage": {
           "associated": [
-            "blink.mojom.AssociatedInterfaceProvider.GetAssociatedInterface"
+            "blink.mojom.AssociatedInterfaceProvider.GetAssociatedInterface",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -36542,7 +36543,8 @@
           "associated": [
             "content.mojom.RouteProvider.GetRoute",
             "content.mojom.FrameHost.CreateChildFrame",
-            "blink.mojom.ServiceWorker.InitializeGlobalScope"
+            "blink.mojom.ServiceWorker.InitializeGlobalScope",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -36777,7 +36779,7 @@
         "usage": {
           "associated": [
             "blink.mojom.StorageAccessHandle.BindBlobStorage",
-            "Source: WebUI Binder (Restricted)"
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -36833,7 +36835,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Source: WebUI Binder (Restricted)"
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -36952,7 +36954,7 @@
         "usage": {
           "associated": [
             "blink.mojom.StorageAccessHandle.BindBroadcastChannel",
-            "Source: WebUI Binder (Restricted)"
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -37498,10 +37500,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -37668,7 +37670,8 @@
             "auction_worklet.mojom.BidderWorklet.ConnectDevToolsAgent",
             "auction_worklet.mojom.SellerWorklet.ConnectDevToolsAgent",
             "ax.mojom.AccessibilityService.ConnectDevToolsAgent",
-            "blink.mojom.LocalFrame.BindDevToolsAgent"
+            "blink.mojom.LocalFrame.BindDevToolsAgent",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -38062,7 +38065,8 @@
       "metadata": {
         "usage": {
           "associated": [
-            "blink.mojom.LocalFrameHost.CreateFencedFrame"
+            "blink.mojom.LocalFrameHost.CreateFencedFrame",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -38464,10 +38468,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -38599,10 +38603,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -38743,10 +38747,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -40001,10 +40005,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -40474,10 +40478,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -40596,7 +40600,8 @@
       "metadata": {
         "usage": {
           "associated": [
-            "blink.mojom.LocalFrameHost.CreateNewPopupWidget"
+            "blink.mojom.LocalFrameHost.CreateNewPopupWidget",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
@@ -41830,10 +41835,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: WebUI Binder (Restricted)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
+          ]
         },
         "scope": "context"
       }
@@ -42356,7 +42361,8 @@
       "metadata": {
         "usage": {
           "associated": [
-            "blink.mojom.LocalFrameHost.CreateNewPopupWidget"
+            "blink.mojom.LocalFrameHost.CreateNewPopupWidget",
+            "Source: Associated Binder (Frame/Navigation)"
           ],
           "direct": []
         },
