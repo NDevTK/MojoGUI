@@ -907,7 +907,8 @@
         code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
         code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
         code += `    const handle = receiver.handle || receiver;\n`;
-        code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
+        const scope = iface.metadata?.scope || "context";
+        code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "${scope}");\n`;
         code += `}\n`;
       }
       code += `// Select a method to see the full call...`;
@@ -955,8 +956,8 @@
       code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
       code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
       code += `    const handle = receiver.handle || receiver;\n`;
-      code += `    // Default to 'context' scope for safety, can be 'process'\n`;
-      code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
+      const scope = iface.metadata?.scope || "context";
+      code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "${scope}");\n`;
       code += `}\n`;
     }
     code += `\n`;
