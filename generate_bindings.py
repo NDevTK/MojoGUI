@@ -1981,7 +1981,9 @@ def main():
                         for wf in webui_files:
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
                             webui_binders.update(extract_interfaces(wf, r'AddInterface<\s*([\w:]+)'))
-                        
+                            # Some WebUI parts use associated receivers
+                            associated_binders.update(extract_interfaces(wf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+
                         # D. Frame Binders (Context Scoped - Non-Restricted)
                         frame_files = [
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl_interface_binders.cc")
@@ -1989,6 +1991,9 @@ def main():
                         for ff in frame_files:
                             context_binders.update(extract_interfaces(ff, r'map->Add<\s*([\w:]+)'))
                             context_binders.update(extract_interfaces(ff, r'AddInterface<\s*([\w:]+)'))
+                            # This file also contains associated interfaces for frames
+                            associated_binders.update(extract_interfaces(ff, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+                            associated_binders.update(extract_interfaces(ff, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
                         # E. Associated Binders (Frame/Navigation level)
                         assoc_files = [
