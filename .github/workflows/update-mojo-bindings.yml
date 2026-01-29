@@ -66,6 +66,7 @@ jobs:
           **/BUILD.gn
           chrome/VERSION
           content/browser/browser_interface_binders.cc
+          content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc
           chrome/browser/chrome_browser_interface_binders.cc
           chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc
           components/performance_manager/binders.cc
