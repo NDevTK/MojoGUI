@@ -81,6 +81,7 @@ jobs:
           chrome/browser/chrome_browser_interface_binders_webui_parts_features.cc
           android_webview/browser/aw_content_browser_client_receiver_bindings.cc
           content/browser/renderer_host/render_frame_host_impl_interface_binders.cc
+          content/browser/renderer_host/render_frame_host_impl.cc
           EOF
 
           git pull --depth=1 origin main || git pull --depth=1 origin master

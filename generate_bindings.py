@@ -1970,19 +1970,33 @@ def main():
                             associated_binders.update(extract_interfaces(ccbc_file, r'PendingAssociatedReceiver<\s*([\w:]+)'))
                             associated_binders.update(extract_interfaces(ccbc_file, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
-                        # C. WebUI / Associated Binders (Downgrade to Associated)
+                        # C. WebUI Binders (Restricted)
                         webui_files = [
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_desktop.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_android.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_chromeos.cc"),
-                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_features.cc"),
-                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl_interface_binders.cc")
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_features.cc")
                         ]
                         for wf in webui_files:
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
                             webui_binders.update(extract_interfaces(wf, r'AddInterface<\s*([\w:]+)'))
-                            associated_binders.update(extract_interfaces(wf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+                        
+                        # D. Frame Binders (Context Scoped - Non-Restricted)
+                        frame_files = [
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl_interface_binders.cc")
+                        ]
+                        for ff in frame_files:
+                            context_binders.update(extract_interfaces(ff, r'map->Add<\s*([\w:]+)'))
+                            context_binders.update(extract_interfaces(ff, r'AddInterface<\s*([\w:]+)'))
+
+                        # E. Associated Binders (Frame/Navigation level)
+                        assoc_files = [
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl.cc")
+                        ]
+                        for af in assoc_files:
+                            associated_binders.update(extract_interfaces(af, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+                            associated_binders.update(extract_interfaces(af, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
                     # 2. Apply Ground Truth Logic
                     scope = "context"
