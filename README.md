@@ -6,7 +6,7 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 > [!IMPORTANT]
-> Associated interfaces like LocalFrameHost are not supported without exposed handles <https://github.com/ndevtk/chromiumdebug>
+> Associated interfaces like LocalFrameHost are not supported without exposed handles <https://github.com/NDevTK/MojoGUI/tree/main/chromiumdebug>
 
 ## Features
 
