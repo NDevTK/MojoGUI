@@ -1920,7 +1920,9 @@ def main():
                         global_files = [
                             os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
-                            os.path.join(ROOT_DIR, "components/performance_manager/binders.cc")
+                            os.path.join(ROOT_DIR, "components/performance_manager/binders.cc"),
+                            os.path.join(ROOT_DIR, "extensions/browser/extensions_browser_interface_binders.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc")
                         ]
                         for gf in global_files:
                             global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
@@ -1929,20 +1931,28 @@ def main():
                         process_files = [
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc"),
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl.h"),
-                            os.path.join(ROOT_DIR, "chrome/browser/chrome_content_browser_client_receiver_bindings.cc")
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_content_browser_client_receiver_bindings.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/extensions/chrome_content_browser_client_extensions_part_bindings.cc"),
+                            os.path.join(ROOT_DIR, "components/performance_manager/binders.cc"),
+                            os.path.join(ROOT_DIR, "android_webview/browser/aw_content_browser_client_receiver_bindings.cc")
                         ]
                         for pf in process_files:
                             # Catch registry->AddInterface<T> or PendingReceiver<T>
                             process_binders.update(extract_interfaces(pf, r'PendingReceiver<\s*([\w:]+)'))
                             process_binders.update(extract_interfaces(pf, r'AddInterface<\s*([\w:]+)'))
 
-                        # C. WebUI Binders (Restricted/Associated)
                         webui_files = [
-                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc")
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_desktop.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_android.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_chromeos.cc"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_features.cc"),
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl_interface_binders.cc")
                         ]
                         for wf in webui_files:
-                            # Matches RegisterWebUIControllerInterfaceBinder<...
+                            # Matches RegisterWebUIControllerInterfaceBinder<... or AddInterface<...
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
+                            webui_binders.update(extract_interfaces(wf, r'AddInterface<\s*([\w:]+)'))
 
                     # 2. Apply Ground Truth Logic
                     # Logic: If it's in Global Binders, it's Direct (Context).
