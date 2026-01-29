@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T00:24:48.869506Z",
+  "generated_at": "2026-01-29T00:53:19.320680Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -8980,12 +8980,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9031,12 +9031,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9202,12 +9202,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9220,12 +9220,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9240,12 +9240,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9257,12 +9257,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9294,12 +9294,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9346,12 +9346,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9363,12 +9363,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9565,12 +9565,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9625,12 +9625,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -9643,12 +9643,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -11848,12 +11848,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -19501,12 +19501,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -19530,12 +19530,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -19553,12 +19553,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -20160,12 +20160,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -21076,12 +21076,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -21110,12 +21110,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: chrome.mojom.AppShim.BindChildHistogramFetcherFactory"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "chrome.mojom.AppShim.BindChildHistogramFetcherFactory"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -21620,12 +21621,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -21803,12 +21804,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -22098,12 +22099,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: safe_browsing.mojom.SafeBrowsing.Clone"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "safe_browsing.mojom.SafeBrowsing.Clone"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -22208,12 +22210,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: safe_browsing.mojom.ExtensionWebRequestReporter.Clone"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "safe_browsing.mojom.ExtensionWebRequestReporter.Clone"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -22261,12 +22264,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -23153,12 +23156,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -24137,12 +24140,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -26196,12 +26199,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -29060,13 +29063,14 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: media.mojom.InterfaceFactory.CreateVideoDecoder",
-            "Internal: media.mojom.InterfaceFactory.CreateVideoDecoderWithTracker"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "media.mojom.InterfaceFactory.CreateVideoDecoder",
+            "media.mojom.InterfaceFactory.CreateVideoDecoderWithTracker"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -29392,12 +29396,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -34409,12 +34413,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: memory_instrumentation.mojom.CoordinatorConnector.RegisterCoordinatorClient"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "memory_instrumentation.mojom.CoordinatorConnector.RegisterCoordinatorClient"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -35004,12 +35009,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -35796,12 +35801,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -37860,12 +37865,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -37879,12 +37884,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: blink.mojom.DomStorageProvider.BindDomStorage"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "blink.mojom.DomStorageProvider.BindDomStorage"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -38964,12 +38970,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -40135,12 +40141,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
