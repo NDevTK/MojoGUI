@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T01:40:11.239169Z",
+  "generated_at": "2026-01-29T01:51:35.117963Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -17357,12 +17357,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)"
-          ]
+          "associated": [
+            "Inferred: Not in Desktop BinderMap"
+          ],
+          "direct": []
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -20586,7 +20586,7 @@
       "metadata": {
         "usage": {
           "associated": [
-            "Source: Associated Binder (Frame/Navigation)"
+            "Inferred: Not in Desktop BinderMap"
           ],
           "direct": []
         },
@@ -27763,10 +27763,10 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: RenderProcessHost (Process)"
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
           ]
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -28141,10 +28141,10 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: RenderProcessHost (Process)"
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
           ]
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
@@ -28414,10 +28414,10 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: RenderProcessHost (Process)"
+            "Source: BrowserInterfaceBroker (DocumentService/Media)"
           ]
         },
-        "scope": "process"
+        "scope": "context"
       }
     },
     {
