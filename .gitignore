@@ -1,6 +1,8 @@
 # Temporary files - never commit
 chromium_src/
 mojom_files.txt
+DebugProfile/
+init.txt
 
 # OS files
 .DS_Store
