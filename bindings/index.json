@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T03:26:56.863588Z",
+  "generated_at": "2026-01-29T03:33:38.747875Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -28360,10 +28360,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -30980,10 +30980,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -37500,10 +37500,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -38468,10 +38468,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -38603,10 +38603,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -38747,10 +38747,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -40005,10 +40005,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -40478,10 +40478,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -41835,10 +41835,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (DocumentService/Media)"
-          ]
+          "associated": [
+            "Source: Associated Binder (Frame/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
