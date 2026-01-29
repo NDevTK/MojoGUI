@@ -1898,6 +1898,7 @@ def main():
                         global_binders = set()
                         process_binders = set()
                         webui_binders = set()
+                        associated_binders = set()
                         
                         def extract_interfaces(file_path, pattern):
                             found = set()
@@ -1905,11 +1906,7 @@ def main():
                             try:
                                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                                     c = f.read()
-                                    # Matches map->Add<blink::mojom::Foo>
-                                    # Matches RegisterWebUIControllerInterfaceBinder<blink::mojom::Foo
-                                    # Matches PendingReceiver<blink::mojom::Foo>
                                     for m in re.finditer(pattern, c):
-                                        # detected C++ name: blink::mojom::Foo
                                         cpp_name = m.group(1).replace('::', '.')
                                         if cpp_name.startswith('.'): cpp_name = cpp_name[1:]
                                         found.add(cpp_name)
@@ -1937,10 +1934,17 @@ def main():
                             os.path.join(ROOT_DIR, "android_webview/browser/aw_content_browser_client_receiver_bindings.cc")
                         ]
                         for pf in process_files:
-                            # Catch registry->AddInterface<T> or PendingReceiver<T>
+                            # Direct Process Interfaces
                             process_binders.update(extract_interfaces(pf, r'PendingReceiver<\s*([\w:]+)'))
-                            process_binders.update(extract_interfaces(pf, r'AddInterface<\s*([\w:]+)'))
+                            # Only registry->AddInterface (not associated_registry)
+                            process_binders.update(extract_interfaces(pf, r'[^\.]registry->AddInterface<\s*([\w:]+)'))
+                            process_binders.update(extract_interfaces(pf, r'receiver\.As<\s*([\w:]+)'))
+                            
+                            # Associated Interfaces in these files
+                            associated_binders.update(extract_interfaces(pf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+                            associated_binders.update(extract_interfaces(pf, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
+                        # C. WebUI / Associated Binders (Downgrade to Associated)
                         webui_files = [
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui_parts_desktop.cc"),
@@ -1950,21 +1954,21 @@ def main():
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_frame_host_impl_interface_binders.cc")
                         ]
                         for wf in webui_files:
-                            # Matches RegisterWebUIControllerInterfaceBinder<... or AddInterface<...
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
+                            # In WebUI files, AddInterface is almost always Restricted
                             webui_binders.update(extract_interfaces(wf, r'AddInterface<\s*([\w:]+)'))
+                            associated_binders.update(extract_interfaces(wf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
 
                     # 2. Apply Ground Truth Logic
-                    # Logic: If it's in Global Binders, it's Direct (Context).
-                    #        If it's in Process Binders, it's Direct (Process).
-                    #        If it's in WebUI, it's Associated.
-                    #        If it's in NEITHER, it's NOT Direct (downgrade matches).
-                    
                     scope = "context"
-                    if fqn in webui_binders:
-                        # RESTRICTED: Found in WebUI binders -> Force Associated
-                        usage['direct'] = [] # Clear any potential false positives
-                        usage['associated'].append("Restricted: WebUI Interface (PageHandler)")
+                    
+                    if fqn in associated_binders or fqn in webui_binders:
+                        # RESTRICTED or ASSOCIATED: Downgrade to Associated
+                        usage['direct'] = [] 
+                        if fqn in webui_binders:
+                            usage['associated'].append("Source: WebUI Binder (Restricted)")
+                        else:
+                            usage['associated'].append("Source: Associated Binder (Frame/Navigation)")
                     
                     elif fqn in global_binders:
                         # ALLOWED: Found in Global binders -> Mark Direct (Context)
