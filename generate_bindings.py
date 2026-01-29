@@ -1896,6 +1896,7 @@ def main():
                     # 1. Define sets if not already done (lazy init)
                     if 'global_binders' not in locals():
                         global_binders = set()
+                        process_binders = set()
                         webui_binders = set()
                         
                         def extract_interfaces(file_path, pattern):
@@ -1906,6 +1907,7 @@ def main():
                                     c = f.read()
                                     # Matches map->Add<blink::mojom::Foo>
                                     # Matches RegisterWebUIControllerInterfaceBinder<blink::mojom::Foo
+                                    # Matches PendingReceiver<blink::mojom::Foo>
                                     for m in re.finditer(pattern, c):
                                         # detected C++ name: blink::mojom::Foo
                                         cpp_name = m.group(1).replace('::', '.')
@@ -1914,7 +1916,7 @@ def main():
                             except: pass
                             return found
 
-                        # A. Global Binders (Directly Callable)
+                        # A. Global Binders (Directly Callable - Context Scoped)
                         global_files = [
                             os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders.cc"),
@@ -1923,7 +1925,16 @@ def main():
                         for gf in global_files:
                             global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
 
-                        # B. WebUI Binders (Restricted/Associated)
+                        # B. Process Binders (Directly Callable - Process Scoped)
+                        process_files = [
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc")
+                        ]
+                        for pf in process_files:
+                            # Catch registry->AddInterface<T> or PendingReceiver<T>
+                            process_binders.update(extract_interfaces(pf, r'PendingReceiver<\s*([\w:]+)'))
+                            process_binders.update(extract_interfaces(pf, r'AddInterface<\s*([\w:]+)'))
+
+                        # C. WebUI Binders (Restricted/Associated)
                         webui_files = [
                             os.path.join(ROOT_DIR, "chrome/browser/chrome_browser_interface_binders_webui.cc")
                         ]
@@ -1932,24 +1943,33 @@ def main():
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
 
                     # 2. Apply Ground Truth Logic
-                    # Logic: If it's in Global Binders, it's Direct.
+                    # Logic: If it's in Global Binders, it's Direct (Context).
+                    #        If it's in Process Binders, it's Direct (Process).
                     #        If it's in WebUI, it's Associated.
                     #        If it's in NEITHER, it's NOT Direct (downgrade matches).
                     
+                    scope = "context"
                     if fqn in webui_binders:
                         # RESTRICTED: Found in WebUI binders -> Force Associated
                         usage['direct'] = [] # Clear any potential false positives
                         usage['associated'].append("Restricted: WebUI Interface (PageHandler)")
                     
                     elif fqn in global_binders:
-                        # ALLOWED: Found in Global binders -> Mark Direct
+                        # ALLOWED: Found in Global binders -> Mark Direct (Context)
+                        scope = "context"
                         if "Source: BrowserInterfaceBroker (Global)" not in usage['direct']:
                             usage['direct'].insert(0, "Source: BrowserInterfaceBroker (Global)")
+                            
+                    elif fqn in process_binders:
+                        # ALLOWED: Found in Process binders -> Mark Direct (Process)
+                        scope = "process"
+                        if "Source: RenderProcessHost (Process)" not in usage['direct']:
+                            usage['direct'].insert(0, "Source: RenderProcessHost (Process)")
 
                     else:
                         # UNKNOWN/PLATFORM-SPECIFIC
                         # If heuristic said "Direct" (e.g. pending_receiver used in Factory),
-                        # but it's not in the Global Binder Map, then it's not a ROOT service.
+                        # but it's not in the Global/Process Binder Map, then it's not a ROOT service.
                         # We downgrade it to Associated/Internal.
                         if usage['direct']:
                             # Move direct entries to associated to preserve info but change category
@@ -1966,7 +1986,8 @@ def main():
                         'file': out_filename,
                         'methods': [m['name'] for m in interface.get('methods', [])],
                         'metadata': {
-                            'usage': usage
+                            'usage': usage,
+                            'scope': scope
                         }
                     })
                 

@@ -417,7 +417,12 @@
               handle: bridgedHandle,
               handle_: bridgedHandle,
               isPendingAssociation: true,
-              localPeer_: arg.localPeer_ || (arg.proxy && arg.proxy.endpoint && arg.proxy.endpoint.localPeer_) || null,
+              localPeer_:
+                arg.localPeer_ ||
+                (arg.proxy &&
+                  arg.proxy.endpoint &&
+                  arg.proxy.endpoint.localPeer_) ||
+                null,
               watch: (...args) => bridgedHandle.watch(...args),
             };
             const mockRemote = {
@@ -427,7 +432,7 @@
                 handle: mockEndpoint,
                 handle_: bridgedHandle,
                 endpoint: mockEndpoint,
-                isPendingAssociation: true
+                isPendingAssociation: true,
               },
               handle: mockEndpoint,
               endpoint: mockEndpoint,
@@ -735,12 +740,12 @@
       this.modes.set(ifaceName, mode);
       if (this.interceptors.has(ifaceName)) return true;
       try {
-        let interceptor;
-        try {
-          interceptor = new MojoInterfaceInterceptor(ifaceName, "context");
-        } catch (e) {
-          interceptor = new MojoInterfaceInterceptor(ifaceName, "process");
-        }
+        const ifaceMeta = window.MojoGUI_State.interfaces.find(
+          (i) => i.name === ifaceName || i.module + "." + i.name === ifaceName,
+        );
+        const scope = ifaceMeta?.metadata?.scope || "context";
+
+        interceptor = new MojoInterfaceInterceptor(ifaceName, scope);
         interceptor.oninterfacerequest = (e) =>
           this.handleRequest(ifaceName, e.handle);
         interceptor.start();

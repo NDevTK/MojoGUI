@@ -61,6 +61,14 @@
           MojoHandleRegistry.register(handle0);
           MojoHandleRegistry.register(handle1);
 
+          // Get scope from metadata if available
+          const ifaceMeta = MojoLoader._interfaces.find(
+            (i) =>
+              i.name === interfaceName ||
+              i.module + "." + i.name === interfaceName,
+          );
+          const scope = ifaceMeta?.metadata?.scope || target.scope || "context";
+
           // Pause Global Interceptor to avoid duplicate logging (we only want the Application-side sender log)
           let interceptorToPause = null;
           if (
@@ -73,7 +81,10 @@
           }
 
           try {
-            Mojo.bindInterface(interfaceName, handle1);
+            console.log(
+              `[ExecutionService] Binding ${interfaceName} with scope: ${scope}`,
+            );
+            Mojo.bindInterface(interfaceName, handle1, scope);
           } finally {
             if (interceptorToPause) interceptorToPause.start();
           }

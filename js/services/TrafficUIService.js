@@ -431,9 +431,14 @@
             `;
     }
 
+    const ifaceMeta = window.MojoGUI_State.interfaces.find(
+      (i) => i.name === iface || i.module + "." + i.name === iface,
+    );
+    const scope = ifaceMeta?.metadata?.scope || "context";
+
     getElements().interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
-                <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
+                <h4>${escapeHtml(iface)}.${escapeHtml(method)} <span class="badge ${scope === "process" ? "badge-info" : "badge-outline"}" style="font-size: 0.6em; vertical-align: middle; margin-left: 8px; opacity: 0.8;">${scope.toUpperCase()}</span></h4>
                 ${
                   isPending && !isManual
                     ? `
