@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-29T00:10:04.822856Z",
+  "generated_at": "2026-01-29T00:24:48.869506Z",
   "version": "146.0.7656.0",
   "interfaces": [
     {
@@ -30877,12 +30877,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: device.mojom.DeviceService.BindPowerMonitor"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "device.mojom.DeviceService.BindPowerMonitor"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -30985,12 +30986,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: device.mojom.DeviceService.BindScreenOrientationListener"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "device.mojom.DeviceService.BindScreenOrientationListener"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -31253,12 +31255,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Internal: device.mojom.DeviceService.BindTimeZoneMonitor"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)",
+            "device.mojom.DeviceService.BindTimeZoneMonitor"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -34423,12 +34426,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
@@ -40933,12 +40936,12 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Source: RenderProcessHost (Process)"
+          ]
         },
-        "scope": "context"
+        "scope": "process"
       }
     },
     {
