@@ -1927,7 +1927,9 @@ def main():
 
                         # B. Process Binders (Directly Callable - Process Scoped)
                         process_files = [
-                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc")
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc"),
+                            os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl.h"),
+                            os.path.join(ROOT_DIR, "chrome/browser/chrome_content_browser_client_receiver_bindings.cc")
                         ]
                         for pf in process_files:
                             # Catch registry->AddInterface<T> or PendingReceiver<T>

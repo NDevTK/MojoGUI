@@ -70,6 +70,8 @@ jobs:
           chrome/browser/chrome_browser_interface_binders.cc
           chrome/browser/extensions/chrome_extensions_browser_interface_binders.cc
           components/performance_manager/binders.cc
+          content/browser/renderer_host/render_process_host_impl.h
+          chrome/browser/chrome_content_browser_client_receiver_bindings.cc
           EOF
 
           git pull --depth=1 origin main || git pull --depth=1 origin master
