@@ -1899,14 +1899,29 @@ def main():
                         process_binders = set()
                         webui_binders = set()
                         associated_binders = set()
+                        context_binders = set() # Frame/Context but in "process" files
                         
-                        def extract_interfaces(file_path, pattern):
+                        def extract_interfaces(file_path, pattern, function_name=None):
                             found = set()
                             if not os.path.exists(file_path): return found
                             try:
                                 with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                                    c = f.read()
-                                    for m in re.finditer(pattern, c):
+                                    content = f.read()
+                                    
+                                    # If function_name is provided, try to isolate that function's body
+                                    if function_name:
+                                        # Simple regex to find function body (start { to next top-level })
+                                        # This is a heuristic but works for most Chromium binder files
+                                        func_match = re.search(rf'void\s+[\w:]+::{function_name}\s*\([^{{]*\{{(.*?)\n\}}', content, re.DOTALL)
+                                        if func_match:
+                                            content = func_match.group(1)
+                                        else:
+                                            # Try without namespace
+                                            func_match = re.search(rf'void\s+{function_name}\s*\([^{{]*\{{(.*?)\n\}}', content, re.DOTALL)
+                                            if func_match:
+                                                content = func_match.group(1)
+
+                                    for m in re.finditer(pattern, content):
                                         cpp_name = m.group(1).replace('::', '.')
                                         if cpp_name.startswith('.'): cpp_name = cpp_name[1:]
                                         found.add(cpp_name)
@@ -1925,24 +1940,35 @@ def main():
                             global_binders.update(extract_interfaces(gf, r'map->Add<\s*([\w:]+)'))
 
                         # B. Process Binders (Directly Callable - Process Scoped)
-                        process_files = [
+                        # We must be careful in chrome_content_browser_client_receiver_bindings.cc
+                        # because it has BOTH process and frame binders.
+                        
+                        rph_files = [
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl_receiver_bindings.cc"),
                             os.path.join(ROOT_DIR, "content/browser/renderer_host/render_process_host_impl.h"),
-                            os.path.join(ROOT_DIR, "chrome/browser/chrome_content_browser_client_receiver_bindings.cc"),
-                            os.path.join(ROOT_DIR, "chrome/browser/extensions/chrome_content_browser_client_extensions_part_bindings.cc"),
                             os.path.join(ROOT_DIR, "components/performance_manager/binders.cc"),
                             os.path.join(ROOT_DIR, "android_webview/browser/aw_content_browser_client_receiver_bindings.cc")
                         ]
-                        for pf in process_files:
-                            # Direct Process Interfaces
-                            process_binders.update(extract_interfaces(pf, r'PendingReceiver<\s*([\w:]+)'))
-                            # Only registry->AddInterface (not associated_registry)
-                            process_binders.update(extract_interfaces(pf, r'[^\.]registry->AddInterface<\s*([\w:]+)'))
-                            process_binders.update(extract_interfaces(pf, r'receiver\.As<\s*([\w:]+)'))
+                        for rf in rph_files:
+                            process_binders.update(extract_interfaces(rf, r'PendingReceiver<\s*([\w:]+)'))
+                            process_binders.update(extract_interfaces(rf, r'[^\.]registry->AddInterface<\s*([\w:]+)'))
+                            process_binders.update(extract_interfaces(rf, r'receiver\.As<\s*([\w:]+)'))
+
+                        # Mixed Scope File: ChromeContentBrowserClient
+                        ccbc_file = os.path.join(ROOT_DIR, "chrome/browser/chrome_content_browser_client_receiver_bindings.cc")
+                        if os.path.exists(ccbc_file):
+                            # Process scoped in CCBC
+                            process_binders.update(extract_interfaces(ccbc_file, r'PendingReceiver<\s*([\w:]+)', "BindHostReceiverForRenderer"))
+                            process_binders.update(extract_interfaces(ccbc_file, r'receiver\.As<\s*([\w:]+)', "BindHostReceiverForRenderer"))
+                            process_binders.update(extract_interfaces(ccbc_file, r'registry->AddInterface<\s*([\w:]+)', "ExposeInterfacesToRenderer"))
                             
-                            # Associated Interfaces in these files
-                            associated_binders.update(extract_interfaces(pf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
-                            associated_binders.update(extract_interfaces(pf, r'associated_registry\.AddInterface<\s*([\w:]+)'))
+                            # Context (Frame) scoped in CCBC
+                            context_binders.update(extract_interfaces(ccbc_file, r'PendingReceiver<\s*([\w:]+)', "RegisterBrowserInterfaceBindersForFrame"))
+                            context_binders.update(extract_interfaces(ccbc_file, r'receiver\.As<\s*([\w:]+)', "BindMediaServiceReceiver"))
+                            
+                            # Associated in CCBC
+                            associated_binders.update(extract_interfaces(ccbc_file, r'PendingAssociatedReceiver<\s*([\w:]+)'))
+                            associated_binders.update(extract_interfaces(ccbc_file, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
                         # C. WebUI / Associated Binders (Downgrade to Associated)
                         webui_files = [
@@ -1955,7 +1981,6 @@ def main():
                         ]
                         for wf in webui_files:
                             webui_binders.update(extract_interfaces(wf, r'RegisterWebUIControllerInterfaceBinder<\s*([\w:]+)'))
-                            # In WebUI files, AddInterface is almost always Restricted
                             webui_binders.update(extract_interfaces(wf, r'AddInterface<\s*([\w:]+)'))
                             associated_binders.update(extract_interfaces(wf, r'PendingAssociatedReceiver<\s*([\w:]+)'))
 
@@ -1963,21 +1988,19 @@ def main():
                     scope = "context"
                     
                     if fqn in associated_binders or fqn in webui_binders:
-                        # RESTRICTED or ASSOCIATED: Downgrade to Associated
                         usage['direct'] = [] 
                         if fqn in webui_binders:
                             usage['associated'].append("Source: WebUI Binder (Restricted)")
                         else:
                             usage['associated'].append("Source: Associated Binder (Frame/Navigation)")
                     
-                    elif fqn in global_binders:
-                        # ALLOWED: Found in Global binders -> Mark Direct (Context)
+                    elif fqn in global_binders or fqn in context_binders:
                         scope = "context"
-                        if "Source: BrowserInterfaceBroker (Global)" not in usage['direct']:
-                            usage['direct'].insert(0, "Source: BrowserInterfaceBroker (Global)")
+                        src = "Global" if fqn in global_binders else "DocumentService/Media"
+                        if f"Source: BrowserInterfaceBroker ({src})" not in usage['direct']:
+                            usage['direct'].insert(0, f"Source: BrowserInterfaceBroker ({src})")
                             
                     elif fqn in process_binders:
-                        # ALLOWED: Found in Process binders -> Mark Direct (Process)
                         scope = "process"
                         if "Source: RenderProcessHost (Process)" not in usage['direct']:
                             usage['direct'].insert(0, "Source: RenderProcessHost (Process)")
