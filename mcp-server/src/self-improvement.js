@@ -27,6 +27,9 @@ const mutex = new Mutex();
  * Optimized for Chromium security research with advanced filtering.
  */
 export const SelfImprovement = {
+  _cache: null,
+  _writeTimer: null,
+
   /**
    * Consolidate tracking: handle research findings, targets, and gaps in one tool.
    */
@@ -405,8 +408,9 @@ export const SelfImprovement = {
       const content = await fs.promises.readFile(PROGRESS_FILE, "utf8");
       return JSON.parse(content);
     } catch (e) {
-      return { gaps: [], research: [], error: "Failed to parse PROGRESS.json" };
+      this._cache = { gaps: [], research: [], targets: [], error: "Failed to parse PROGRESS.json" };
     }
+    return this._cache;
   },
 
   async _write(data) {
