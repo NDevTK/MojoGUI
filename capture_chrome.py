@@ -39,10 +39,10 @@ def get_windows_for_pid(pid):
     return hwnds
 
 # --- 3. Capture a single window ---
-def capture_window(hwnd):
+def capture_window(hwnd, handle_restore=True):
     # If minimized, restore it briefly
     was_minimized = False
-    if win32gui.IsIconic(hwnd):
+    if handle_restore and win32gui.IsIconic(hwnd):
         was_minimized = True
         # SW_RESTORE (9) activates and displays the window
         win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
@@ -107,12 +107,29 @@ def main():
     hwnds = get_windows_for_pid(pid)
     print(f"Found {len(hwnds)} window(s).")
 
-    images = []
+    # Batch restore minimized windows to optimize wait time
+    restored_hwnds = []
     for hwnd in hwnds:
-        print(f"Capturing window handle: {hwnd}...")
-        img = capture_window(hwnd)
-        if img:
-            images.append(img)
+        if win32gui.IsIconic(hwnd):
+            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            restored_hwnds.append(hwnd)
+
+    if restored_hwnds:
+        print(f"Restored {len(restored_hwnds)} window(s). Waiting for repaint...")
+        time.sleep(0.3)
+
+    images = []
+    try:
+        for hwnd in hwnds:
+            print(f"Capturing window handle: {hwnd}...")
+            # We already handled restoration, so pass handle_restore=False
+            img = capture_window(hwnd, handle_restore=False)
+            if img:
+                images.append(img)
+    finally:
+        # Minimize back the windows we restored
+        for hwnd in restored_hwnds:
+            win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
 
     if not images:
         print("No images captured.")
