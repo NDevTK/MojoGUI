@@ -970,7 +970,12 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             # Pointers (Structs, Arrays, Maps, Unions)
             # Fix: Strip mojo.internal.bindings prefix to match global_kind_map keys
             # Fix: Only strip Spec if it is a suffix
-            spec_name = p_type.replace('mojo.internal.bindings.', '')
+            prefix = 'mojo.internal.bindings.'
+            if p_type.startswith(prefix):
+                spec_name = p_type[len(prefix):]
+            else:
+                spec_name = p_type
+
             if spec_name.endswith('Spec'):
                 spec_name = spec_name[:-4]
             kind = global_kind_map.get(spec_name)
