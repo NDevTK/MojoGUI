@@ -715,4 +715,7 @@
     // ---- Binding Loading ----
     ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName),
   };
+
+  // Signal readiness
+  window.dispatchEvent(new CustomEvent('mojo-gui-ready'));
 })(this);
