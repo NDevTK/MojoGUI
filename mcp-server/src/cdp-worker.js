@@ -105,6 +105,16 @@ parentPort.on("message", async (msg) => {
         parentPort.postMessage({ id, success: true });
         break;
 
+      case "capture_screenshot":
+        if (!connected) {
+          await client.connect();
+          connected = true;
+        }
+
+        const screenshotData = await client.captureScreenshot(options);
+        parentPort.postMessage({ id, success: true, result: screenshotData });
+        break;
+
       case "get_logs":
         parentPort.postMessage({
           id,

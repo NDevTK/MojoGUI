@@ -299,6 +299,21 @@ export class CDPClient {
     }
     return this.sendToSession("Page.reload");
   }
+
+  /**
+   * Capture a screenshot of the current page
+   */
+  async captureScreenshot(options = {}) {
+    const params = {
+      format: "png",
+      ...options,
+    };
+    if (!this.sessionId) {
+      await this.connect();
+    }
+    const result = await this.sendToSession("Page.captureScreenshot", params);
+    return result.data;
+  }
   /**
    * Send a CDP command to the browser and wait for response
    */

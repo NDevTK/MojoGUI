@@ -141,6 +141,13 @@ export class WorkerPool {
   }
 
   /**
+   * Capture a screenshot of the MojoGUI page
+   */
+  async captureScreenshot(options = {}) {
+    return await this.send("capture_screenshot", { options });
+  }
+
+  /**
    * Evaluate JavaScript in MojoGUI page
    */
   async evaluate(code, options = {}) {

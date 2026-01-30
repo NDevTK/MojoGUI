@@ -1265,27 +1265,32 @@ server.tool(
 
 server.tool(
   "take_browser_screenshot",
-  "Capture a PNG screenshot of the entire browser window using the local capture_chrome.py script.",
+  "Capture a PNG screenshot of the browser page.",
   {},
   async () => {
     try {
-      // Execute the local capture_chrome.py script
-      await execAsync("python capture_chrome.py");
-
       const filename = "chrome_capture.png";
       const filepath = path.resolve(process.cwd(), filename);
 
+      const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+      const base64Data = await pool.captureScreenshot();
+
+      if (!base64Data) {
+        throw new Error("Failed to capture screenshot (no data returned)");
+      }
+
+      const buffer = Buffer.from(base64Data, "base64");
+      fs.writeFileSync(filepath, buffer);
+
       if (!fs.existsSync(filepath)) {
-        throw new Error(
-          "capture_chrome.py failed to create chrome_capture.png",
-        );
+        throw new Error("Failed to save screenshot file");
       }
 
       return {
         content: [
           {
             type: "text",
-            text: "Read the image file: " + filename,
+            text: "Screenshot saved to: " + filename,
           },
         ],
       };
@@ -1294,7 +1299,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: "Error running capture_chrome.py: " + e.message,
+            text: "Error taking screenshot: " + e.message,
           },
         ],
         isError: true,
