@@ -600,8 +600,6 @@
       if (!trustedPolicy) {
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
           createHTML: (input) => input,
-          createScript: (input) => input,
-          createScriptURL: (input) => input,
         });
       }
     } catch (e) {

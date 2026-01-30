@@ -10,7 +10,12 @@
   if (typeof window.trustedTypes !== "undefined") {
     try {
       trustedPolicy = window.trustedTypes.createPolicy("mojoBindings", {
-        createScriptURL: (input) => input,
+        createScriptURL: (input) => {
+          if (input.startsWith("bindings/") && !input.includes("..")) {
+            return input;
+          }
+          throw new Error(`Blocked script load: ${input}`);
+        },
       });
     } catch (e) {
       console.warn("Could not create trusted types policy:", e);
