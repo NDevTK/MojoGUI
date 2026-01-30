@@ -5,8 +5,8 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 ![MojoJS Research GUI](https://img.shields.io/badge/MojoJS-Research%20GUI-6366f1?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-> [!IMPORTANT]
-> Associated interfaces like LocalFrameHost are not supported without exposed handles <https://github.com/NDevTK/MojoGUI/tree/main/chromiumdebug>
+> [!TIP]
+> **Associated Interfaces** (like `LocalFrameHost`) can now be hijacked directly from the renderer process using the integrated WinDbg toolkit! [Learn how in /chromiumdebug](https://github.com/NDevTK/MojoGUI/tree/main/chromiumdebug)
 
 ## Features
 
