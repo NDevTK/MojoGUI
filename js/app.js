@@ -195,6 +195,9 @@
     try {
       // Try to load from bindings index
       if (typeof MojoLoader !== "undefined") {
+        MojoLoader.loadBinding(
+          "third_party_blink_public_mojom_plugins_plugin_registry.mojom.js", // Does not support async usage
+        );
         const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
@@ -205,20 +208,9 @@
           return;
         }
       }
-
-      // Fallback: load demo interfaces
-      loadDemoInterfaces();
-      setTimeout(() => toggleMonitorAll(true), 100);
     } catch (error) {
       console.error("Error loading interfaces:", error);
-      loadDemoInterfaces();
     }
-  }
-
-  function loadDemoInterfaces() {
-    // Demo interfaces removed as requested.
-    // We rely solely on bindings loaded from the page/extension context.
-    state.interfaces = [];
   }
 
   // ========================================
