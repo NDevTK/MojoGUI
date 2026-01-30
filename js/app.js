@@ -425,7 +425,7 @@
     window.addEventListener(
       "mojo-response-intercept",
       handleMojoResponseIntercept,
-    ); // Fix: Add missing listener
+    );
     window.addEventListener("mojo-error", handleMojoError);
     window.switchToInterceptMode = switchToInterceptMode;
   }
