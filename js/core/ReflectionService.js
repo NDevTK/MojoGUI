@@ -66,6 +66,72 @@
       return null;
     },
 
+    findEnumInBindings(targetSpec) {
+      if (!targetSpec) return null;
+
+      // Helper to recursively search for the spec
+      const search = (obj, depth = 0) => {
+        if (depth > 10 || !obj || typeof obj !== "object") return null;
+
+        for (const key in obj) {
+          const value = obj[key];
+
+          // Check if this value is the target spec
+          if (
+            value === targetSpec ||
+            (value?.$ && targetSpec?.$ && value.$ === targetSpec.$)
+          ) {
+            // Found the spec! Now look for the options (sibling without "Spec" suffix)
+            // Assumption: EnumSpec key ends in "Spec"
+            if (key.endsWith("Spec")) {
+              const baseName = key.substring(0, key.length - 4);
+              if (obj[baseName]) {
+                console.log(
+                  `[ReflectionService] Found enum options via deep search: ${key} -> ${baseName}`,
+                );
+                return obj[baseName];
+              }
+            }
+            // Fallback: search for any sibling that looks like an enum definition
+            // This is heuristic-based if strict naming isn't followed
+            for (const siblingKey in obj) {
+              if (
+                siblingKey !== key &&
+                obj[siblingKey] &&
+                typeof obj[siblingKey] === "object"
+              ) {
+                // Heuristic: Enum definitions usually have numeric values (except maybe 'MIN_VALUE', etc)
+                // A simple check might not be enough, but strict naming is the standard.
+              }
+            }
+          }
+
+          // Recurse strictly into standard namespaces
+          // Avoid recursing into the spec objects themselves (which might have `$` prop)
+          if (
+            value &&
+            typeof value === "object" &&
+            !value.$ &&
+            !Array.isArray(value)
+          ) {
+            const result = search(value, depth + 1);
+            if (result) return result;
+          }
+        }
+        return null;
+      };
+
+      // Search primarily in mojo.internal.bindings
+      if (
+        typeof mojo !== "undefined" &&
+        mojo.internal &&
+        mojo.internal.bindings
+      ) {
+        return search(mojo.internal.bindings);
+      }
+      return null;
+    },
+
     /**
      * Finds a method definition (params/response) for an interface
      */
@@ -205,6 +271,11 @@
                 }
               }
             }
+          }
+
+          // Last resort: deep search for the spec in bindings
+          if (!enumOptions) {
+            enumOptions = this.findEnumInBindings(f.type);
           }
         }
 

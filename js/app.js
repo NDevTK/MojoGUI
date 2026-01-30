@@ -993,7 +993,9 @@
     code += `\n`;
 
     // Generate method call with params
-    const paramsDef = getMethodParams(state.selectedInterface.name, method);
+    const paramsFqn =
+      state.selectedInterface.module + "." + state.selectedInterface.name;
+    const paramsDef = getMethodParams(paramsFqn, method);
     const args = [];
 
     if (paramsDef && paramsDef.length > 0) {
