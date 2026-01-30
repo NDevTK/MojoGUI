@@ -335,7 +335,7 @@ def parse_mojom(file_path):
         # Capture optional Ordinal: Name@123(...)
         # Fix: Use re.DOTALL (via flag or inline) to allow parameters to span multiple lines
         # Update: Capture Attributes [Attr] preceding method
-        method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
+        method_pattern = r'(?s)((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
         
         for method_match in re.finditer(method_pattern, interface_body, re.DOTALL):
             attributes_str = method_match.group(1)
