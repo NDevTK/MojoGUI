@@ -7,6 +7,9 @@ from pathlib import Path
 # Configuration
 ROOT_DIR = 'chromium_src'
 
+MOJOM_SOURCES_PATTERN = re.compile(r'sources\s*=\s*\[([^\]]+)\]', re.DOTALL)
+MOJOM_FILE_PATTERN = re.compile(r'"([^"]+\.mojom)"')
+
 TYPE_MAPPING = {
     'bool': 'mojo.internal.Bool',
     'int8': 'mojo.internal.Int8',
@@ -99,11 +102,11 @@ def parse_build_gn_for_scrambling():
                     
                     if has_no_scramble:
                         # Extract sources from this block
-                        sources_match = re.search(r'sources\s*=\s*\[([^\]]+)\]', block_content, re.DOTALL)
+                        sources_match = MOJOM_SOURCES_PATTERN.search(block_content)
                         if sources_match:
                             sources_str = sources_match.group(1)
                             # Extract individual .mojom files
-                            for mojom_match in re.finditer(r'"([^"]+\.mojom)"', sources_str):
+                            for mojom_match in MOJOM_FILE_PATTERN.finditer(sources_str):
                                 mojom_file = mojom_match.group(1)
                                 # Make path relative to the BUILD.gn directory
                                 rel_dir = os.path.relpath(root, ROOT_DIR)
