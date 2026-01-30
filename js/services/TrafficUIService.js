@@ -29,6 +29,56 @@
   // Use global elements object (initialized in app.js)
   const getElements = () => window.MojoGUI_Elements || {};
 
+  // Helper to safely parse JSON params only when appropriate (avoiding String->Number corruption)
+  function parseNestedJSONParams(params, methodDef) {
+    if (!Array.isArray(params)) return params;
+    return params.map((p, i) => {
+      if (typeof p !== "string") return p;
+
+      let shouldParse = true;
+      let isStringContext = false;
+
+      if (methodDef && methodDef.parameters && methodDef.parameters[i]) {
+        const paramSpec = methodDef.parameters[i];
+        const typeInfo = paramSpec.type;
+        const typeString =
+          typeof typeInfo === "object" ? typeInfo.type : typeInfo;
+
+        if (
+          typeString === "string" ||
+          typeString === "string16" ||
+          typeString === "bigstring" ||
+          typeString === "bigstring16" ||
+          typeString === "Url" ||
+          typeString === "filepath" ||
+          (typeof typeString === "string" && typeString.endsWith("String"))
+        ) {
+          shouldParse = false;
+          isStringContext = true;
+        } else if (
+          ["number", "bool", "int64", "uint64"].includes(typeString)
+        ) {
+          isStringContext = false;
+        }
+      }
+
+      if (shouldParse) {
+        try {
+          const parsed = JSON.parse(p);
+          // If methodDef says it's not a string, we trust the parse (primitives allowed)
+          if (methodDef && !isStringContext) {
+            return parsed;
+          }
+          // Fallback: Only accept complex objects to avoid string->number corruption
+          if (typeof parsed === "object" && parsed !== null) {
+            return parsed;
+          }
+        } catch (e) {}
+      }
+      return p;
+    });
+  }
+
   // Helper for Traffic Log Buttons
   window.toggleInterceptFromLog = function (ifaceName, methodName) {
     const isIfaceActive = InterceptorManager.isActive(ifaceName);
@@ -562,18 +612,14 @@
           row && row.__details ? row.__details.params : null;
 
         // Parse any nested JSON strings in parameters before reconciliation
-        if (Array.isArray(params)) {
-          params = params.map((p) => {
-            if (typeof p === "string") {
-              try {
-                return JSON.parse(p);
-              } catch (e) {
-                return p;
-              }
-            }
-            return p;
-          });
+        let methodDef = null;
+        if (row && row.__details) {
+          methodDef = findMethodDefinition(
+            row.__details.interface,
+            row.__details.method,
+          );
         }
+        params = parseNestedJSONParams(params, methodDef);
 
         // Reconcile and restore Mojo handles
         const restoredParams = reconcileKeys(
@@ -665,18 +711,8 @@
         const newId = "replay_" + Date.now();
 
         // Fix: params might be JSON strings
-        if (Array.isArray(params)) {
-          params = params.map((p) => {
-            if (typeof p === "string") {
-              try {
-                return JSON.parse(p);
-              } catch (e) {
-                return p;
-              }
-            }
-            return p;
-          });
-        }
+        const methodDef = findMethodDefinition(detail.interface, detail.method);
+        params = parseNestedJSONParams(params, methodDef);
 
         // Restore Mojo handles if present
         const originalParams =
@@ -747,6 +783,11 @@
 
     // Reconcile modified parameters with original log entry to restore Mojo handles
     const originalParams = row && row.__details ? row.__details.params : null;
+
+    // Fix: params might be JSON strings
+    const methodDef = findMethodDefinition(detail.interface, detail.method);
+    params = parseNestedJSONParams(params, methodDef);
+
     let finalParams = params;
     if (typeof MojoUtils !== "undefined") {
       finalParams = MojoUtils.reconcileKeys(
