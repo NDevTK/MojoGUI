@@ -11,6 +11,9 @@ const PROGRESS_FILE = path.join(DATA_DIR, "PROGRESS.json");
  * Optimized for Chromium security research with advanced filtering.
  */
 export const SelfImprovement = {
+  _cache: null,
+  _writeTimer: null,
+
   /**
    * Consolidate tracking: handle research findings, targets, and gaps in one tool.
    */
@@ -306,17 +309,36 @@ export const SelfImprovement = {
   },
 
   _read() {
+    if (this._cache) return this._cache;
     this.init();
     try {
-      return JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
+      this._cache = JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
     } catch (e) {
-      return { gaps: [], research: [], error: "Failed to parse PROGRESS.json" };
+      this._cache = { gaps: [], research: [], targets: [], error: "Failed to parse PROGRESS.json" };
     }
+    return this._cache;
   },
 
   _write(data) {
-    this.init();
-    fs.writeFileSync(PROGRESS_FILE, JSON.stringify(data, null, 2));
+    this._cache = data;
+
+    // Debounce the disk write
+    if (this._writeTimer) clearTimeout(this._writeTimer);
+
+    this._writeTimer = setTimeout(() => {
+        this.flush();
+    }, 1000); // 1 second debounce
+  },
+
+  flush() {
+    if (this._writeTimer) {
+        clearTimeout(this._writeTimer);
+        this._writeTimer = null;
+    }
+    if (this._cache) {
+        this.init();
+        fs.writeFileSync(PROGRESS_FILE, JSON.stringify(this._cache, null, 2));
+    }
   },
 
   init() {
