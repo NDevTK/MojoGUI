@@ -431,6 +431,8 @@
     let count = 0;
     state.interfaces.forEach((iface) => {
       let started = false;
+      // PluginRegistry does not support async usage
+      if (iface.name == "PluginRegistry") return;
       if (!InterceptorManager.isActive(iface.name)) {
         if (InterceptorManager.start(iface.name, "LOG")) started = true;
       }
