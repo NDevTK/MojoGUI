@@ -192,7 +192,7 @@
                           }
                         }
 
-                        return `<button class="btn btn-small ${isBtnActive ? "active" : ""}" data-action="toggle-intercept">
+                        return `<button class="btn btn-small ${isBtnActive ? "active" : ""}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}">
                           ${isBtnActive ? "Blocking" : "Logging"}
                         </button>`;
                       })()
