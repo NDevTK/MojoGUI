@@ -417,6 +417,23 @@
     );
     window.addEventListener("mojo-error", handleMojoError);
     window.switchToInterceptMode = switchToInterceptMode;
+
+    // Fix for ClipboardHost Freeze (Paste Deadlock)
+    window.addEventListener(
+      "keydown",
+      (e) => {
+        if (
+          (e.ctrlKey || e.metaKey) &&
+          (e.key === "v" || e.key === "V") &&
+          InterceptorManager.isActive("ClipboardHost")
+        ) {
+          showToast("MojoGUI: Prevented paste deadlock (Ctrl+V)", "info");
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      },
+      true, // Capture phase
+    );
   }
 
   function toggleMonitorAll(quiet = false) {
