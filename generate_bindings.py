@@ -28,6 +28,22 @@ INTERFACE_SCRAMBLE_MAP = {}
 CHROME_VERSION_SALT = ""
 FALLBACK_VERSION_STRING = "120.0.0.0"
 
+def extract_brace_block(text, start_index):
+    """
+    Extracts a block enclosed by braces starting at `start_index`.
+    Assumes `text[start_index]` is '{'.
+    Returns the content inside the braces (exclusive) and the end index (exclusive).
+    """
+    brace_count = 1
+    end_pos = start_index + 1
+    while brace_count > 0 and end_pos < len(text):
+        if text[end_pos] == '{':
+            brace_count += 1
+        elif text[end_pos] == '}':
+            brace_count -= 1
+        end_pos += 1
+    return text[start_index+1:end_pos-1], end_pos
+
 def load_chrome_version():
     """Load chrome/VERSION to use as scrambling salt and fallback version."""
     global CHROME_VERSION_SALT, FALLBACK_VERSION_STRING
@@ -318,18 +334,8 @@ def parse_mojom(file_path):
             continue
             
         start_pos = match.end()
-        
-        # Find matching closing brace
-        brace_count = 1
-        end_pos = start_pos
-        while brace_count > 0 and end_pos < len(content_no_comments):
-            if content_no_comments[end_pos] == '{':
-                brace_count += 1
-            elif content_no_comments[end_pos] == '}':
-                brace_count -= 1
-            end_pos += 1
-        
-        interface_body = content_no_comments[start_pos:end_pos-1]
+        # Move back one char because start_pos is after '{', and extract_brace_block needs position of '{'
+        interface_body, end_pos = extract_brace_block(content_no_comments, start_pos - 1)
         
         methods = []
         # Capture optional Ordinal: Name@123(...)
@@ -379,16 +385,22 @@ def parse_mojom(file_path):
 
     # Extract enums (handle both defined { ... } and native/forward declared ;)
     # Also handle [EnableIf=...] attributes
-    enum_pattern = r'(?:\[([^\]]+)\]\s*)?enum\s+(\w+)\s*(?:\{([^}]*)\}|;)'
-    for match in re.finditer(enum_pattern, content_no_comments, re.DOTALL):
+    # Fix: Use manual brace counting to handle nested structures correctly
+    enum_start_pattern = r'(?:\[([^\]]+)\]\s*)?enum\s+(\w+)[^{;]*([{;])'
+    for match in re.finditer(enum_start_pattern, content_no_comments):
         attributes = match.group(1)
         enum_name = match.group(2)
-        enum_body = match.group(3)
+        delimiter = match.group(3)
         
         # Check EnableIf/EnableIfNot conditions
         if not check_enable_if(attributes):
             continue
             
+        enum_body = None
+        if delimiter == '{':
+            start_pos = match.end() - 1
+            enum_body, _ = extract_brace_block(content_no_comments, start_pos)
+
         values = []
         
         if enum_body:
@@ -432,18 +444,8 @@ def parse_mojom(file_path):
         if not check_enable_if(attributes):
             continue
             
-        start_pos = match.end()
-        
-        brace_count = 1
-        end_pos = start_pos
-        while brace_count > 0 and end_pos < len(content_no_comments):
-            if content_no_comments[end_pos] == '{':
-                brace_count += 1
-            elif content_no_comments[end_pos] == '}':
-                brace_count -= 1
-            end_pos += 1
-        
-        struct_body = content_no_comments[start_pos:end_pos-1]
+        start_pos = match.end() - 1
+        struct_body, _ = extract_brace_block(content_no_comments, start_pos)
         
         # Remove nested definitions and constants from body before parsing fields
         # We don't need to parse them recursively here, just ignore them for field parsing
@@ -474,15 +476,21 @@ def parse_mojom(file_path):
 
     # Extract unions (regular and native ;)
     # Also handle [EnableIf=...] attributes
-    union_pattern = r'(?:\[([^\]]+)\]\s*)?union\s+(\w+)\s*(?:\{([^}]*)\}|;)'
-    for match in re.finditer(union_pattern, content_no_comments, re.DOTALL):
+    # Fix: Use manual brace counting to handle nested structures correctly
+    union_start_pattern = r'(?:\[([^\]]+)\]\s*)?union\s+(\w+)[^{;]*([{;])'
+    for match in re.finditer(union_start_pattern, content_no_comments):
         attributes = match.group(1)
         union_name = match.group(2)
-        union_body = match.group(3)
+        delimiter = match.group(3)
         
         # Check EnableIf/EnableIfNot conditions
         if not check_enable_if(attributes):
             continue
+
+        union_body = None
+        if delimiter == '{':
+            start_pos = match.end() - 1
+            union_body, _ = extract_brace_block(content_no_comments, start_pos)
             
         fields = parse_params(union_body) if union_body else []
         # Unions in Mojo have ordinals, often explicit. parse_params handles basic "Type Name".
