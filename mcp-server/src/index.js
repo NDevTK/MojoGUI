@@ -27,7 +27,7 @@ import { SelfImprovement } from "./self-improvement.js";
 const execAsync = promisify(exec);
 
 // Initialize self-improvement tracking
-SelfImprovement.init();
+await SelfImprovement.ensureInit();
 
 // Create the MCP server
 const server = new McpServer({
@@ -56,7 +56,7 @@ async function executeInMojoGUI(code, retryCount = 0, options = {}) {
 
     // Auto-log success for call_method
     if (executionContext && executionContext.type === "call_method") {
-      SelfImprovement.autoLogResearch({
+      await SelfImprovement.autoLogResearch({
         interface: executionContext.interface,
         method: executionContext.method,
         result: "Accessible / Functional",
@@ -77,7 +77,7 @@ async function executeInMojoGUI(code, retryCount = 0, options = {}) {
             ? "Correctly Restricted (Crash)"
             : `Renderer Crashed (${error.crashInfo?.codeName || "Unknown"})`;
 
-        SelfImprovement.autoLogResearch({
+        await SelfImprovement.autoLogResearch({
           interface: executionContext.interface,
           method: executionContext.method || "Bind",
           result: resultText,
@@ -181,7 +181,7 @@ server.tool(
     const result = await executeInMojoGUI(code);
 
     // Augment with research data
-    const progress = SelfImprovement.getProgress();
+    const progress = await SelfImprovement.getProgress();
     const augmented = result.map((iface) => {
       const fqn = `${iface.module}.${iface.name}`;
       const interfaceResearch = progress.research.filter(
@@ -261,7 +261,7 @@ server.tool(
     const result = await executeInMojoGUI(code);
 
     // Generate Research Summary
-    const summary = SelfImprovement.getInterfaceSummary(
+    const summary = await SelfImprovement.getInterfaceSummary(
       name,
       result.methodCount,
     );
@@ -297,7 +297,7 @@ server.tool(
     } else {
       summaryNote = `\n🆕 INTERFACE NOT YET RESEARCHED: ${name}\n`;
       // Even for new interfaces, show if the module has findings
-      const moduleResearch = SelfImprovement.getInterfaceSummary(name);
+      const moduleResearch = await SelfImprovement.getInterfaceSummary(name);
       if (moduleResearch && moduleResearch.moduleFindingCount > 0) {
         summaryNote += `⚠️  NOTE: Other interfaces in module '${moduleResearch.moduleName}' HAVE been researched.\n`;
       }
@@ -471,7 +471,7 @@ server.tool(
     // Check for history to remind the agent
     let warning = "";
     const name = iface || "";
-    const summary = SelfImprovement.getInterfaceSummary(name);
+    const summary = await SelfImprovement.getInterfaceSummary(name);
 
     if (summary && summary.findings[method]) {
       warning = `\n📜 PREVIOUS FINDINGS FOR ${method}:\n`;
@@ -500,7 +500,7 @@ server.tool(
     id: z.string().describe("The finding ID to verify"),
   },
   async ({ id }) => {
-    const { research } = SelfImprovement.getProgress();
+    const { research } = await SelfImprovement.getProgress();
     const entry = research.find((r) => r.id === id);
     if (!entry) {
       return {
@@ -774,7 +774,7 @@ server.tool(
     const result = await executeInMojoGUI(code);
 
     // Augment with security context
-    const progress = SelfImprovement.getProgress();
+    const progress = await SelfImprovement.getProgress();
     const augmentedCalls = result.calls.map((call) => {
       const interfaceResearch = progress.research.filter(
         (r) => r.interface === call.interface,
@@ -1422,7 +1422,7 @@ server.tool(
       .describe("Impact on research (required for 'gap')"),
   },
   async (params) => {
-    const result = SelfImprovement.track(params);
+    const result = await SelfImprovement.track(params);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
@@ -1436,7 +1436,7 @@ server.tool(
     id: z.string().describe("The ID or interface name to remove"),
   },
   async ({ id }) => {
-    const result = SelfImprovement.removeTarget(id);
+    const result = await SelfImprovement.removeTarget(id);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
@@ -1452,7 +1452,7 @@ server.tool(
       .describe("The ID of the gap to close (from get_research_progress)"),
   },
   async ({ id }) => {
-    const result = SelfImprovement.closeGap(id);
+    const result = await SelfImprovement.closeGap(id);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
@@ -1470,7 +1470,7 @@ server.tool(
     notes: z.string().optional().describe("New detailed notes"),
   },
   async ({ id, result, notes }) => {
-    const res = SelfImprovement.updateResearch(id, { result, notes });
+    const res = await SelfImprovement.updateResearch(id, { result, notes });
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };
@@ -1486,7 +1486,7 @@ server.tool(
       .describe("The ID of the finding to delete (from get_research_progress)"),
   },
   async ({ id }) => {
-    const res = SelfImprovement.deleteResearch(id);
+    const res = await SelfImprovement.deleteResearch(id);
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };
@@ -1502,7 +1502,7 @@ server.tool(
       .describe("The research idea or interface/method name to check"),
   },
   async ({ idea }) => {
-    const result = SelfImprovement.checkIdea(idea);
+    const result = await SelfImprovement.checkIdea(idea);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
@@ -1536,7 +1536,7 @@ server.tool(
       .describe("Maximum number of entries to return per category"),
   },
   async (filters) => {
-    const data = SelfImprovement.getProgress(filters);
+    const data = await SelfImprovement.getProgress(filters);
     return {
       content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
     };

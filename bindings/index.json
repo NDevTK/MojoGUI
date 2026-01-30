@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-30T10:25:26.894489Z",
-  "version": "146.0.7658.0",
+  "generated_at": "2026-01-30T11:22:36.906063Z",
+  "version": "146.0.7659.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3490,6 +3490,7 @@
         "NotifyPinnedTabDataChanged",
         "NotifySkillDeleted",
         "NotifySkillPreviewChanged",
+        "NotifyContextualSkillPreviewsChanged",
         "NotifySkillPreviewsChanged",
         "NotifySkillToInvokeChanged",
         "NotifyZeroStateSuggestionsChanged",
@@ -7494,7 +7495,6 @@
       "file": "chrome_browser_ui_webui_side_panel_bookmarks_bookmarks.mojom.js",
       "methods": [
         "BookmarkCurrentTabInFolder",
-        "CanOpenBookmarksInIncognitoWindow",
         "CreateFolder",
         "DropBookmarks",
         "ExecuteEditCommand",
@@ -7507,6 +7507,7 @@
         "ExecuteAddToBookmarksBarCommand",
         "ExecuteRemoveFromBookmarksBarCommand",
         "ExecuteDeleteCommand",
+        "GetIncognitoAvailableCount",
         "OpenBookmark",
         "Undo",
         "RenameBookmark",
@@ -19644,23 +19645,6 @@
       }
     },
     {
-      "name": "BrowserControlsFactory",
-      "module": "browser_controls_api.mojom",
-      "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
-      "methods": [
-        "CreateBrowserControls"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [
-            "Inferred: Not in Desktop BinderMap"
-          ],
-          "direct": []
-        },
-        "scope": "context"
-      }
-    },
-    {
       "name": "BrowserControlsObserver",
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
@@ -19684,6 +19668,7 @@
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
       "methods": [
+        "AddObserver",
         "StopLoad",
         "ShowContextMenu",
         "OnPageInitialized",
@@ -19691,10 +19676,10 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: browser_controls_api.mojom.BrowserControlsFactory.CreateBrowserControls"
-          ]
+          "associated": [
+            "Inferred: Not in Desktop BinderMap"
+          ],
+          "direct": []
         },
         "scope": "context"
       }
@@ -23904,7 +23889,6 @@
         "BindReceiver",
         "SetProfilingFile",
         "WriteClangProfilingProfile",
-        "SetPseudonymizationSalt",
         "OnMemoryPressure",
         "SetBatterySaverMode"
       ],
@@ -24209,11 +24193,11 @@
       }
     },
     {
-      "name": "BrowserMemoryConsumerRegistry",
+      "name": "ChildMemoryConsumerRegistryHost",
       "module": "content.mojom",
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
-        "RegisterChildMemoryConsumer"
+        "Register"
       ],
       "metadata": {
         "usage": {
@@ -24714,6 +24698,8 @@
         "CloneSharedMemoryContents",
         "IsProcessSandboxed",
         "PseudonymizeString",
+        "GetPseudonymizationSalt",
+        "IsPseudonymizationSaltInitialized",
         "PassWriteableFile",
         "WriteToPreloadedPipe"
       ],
@@ -52210,6 +52196,12 @@
     {
       "filename": "remoting_host_mojom_keyboard_layout.mojom.js",
       "source": "remoting/host/mojom/keyboard_layout.mojom",
+      "module": "remoting.mojom",
+      "imports": []
+    },
+    {
+      "filename": "remoting_host_mojom_login_session.mojom.js",
+      "source": "remoting/host/mojom/login_session.mojom",
       "module": "remoting.mojom",
       "imports": []
     },

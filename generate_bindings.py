@@ -7,6 +7,9 @@ from pathlib import Path
 # Configuration
 ROOT_DIR = 'chromium_src'
 
+MOJOM_SOURCES_PATTERN = re.compile(r'sources\s*=\s*\[([^\]]+)\]', re.DOTALL)
+MOJOM_FILE_PATTERN = re.compile(r'"([^"]+\.mojom)"')
+
 TYPE_MAPPING = {
     'bool': 'mojo.internal.Bool',
     'int8': 'mojo.internal.Int8',
@@ -99,11 +102,11 @@ def parse_build_gn_for_scrambling():
                     
                     if has_no_scramble:
                         # Extract sources from this block
-                        sources_match = re.search(r'sources\s*=\s*\[([^\]]+)\]', block_content, re.DOTALL)
+                        sources_match = MOJOM_SOURCES_PATTERN.search(block_content)
                         if sources_match:
                             sources_str = sources_match.group(1)
                             # Extract individual .mojom files
-                            for mojom_match in re.finditer(r'"([^"]+\.mojom)"', sources_str):
+                            for mojom_match in MOJOM_FILE_PATTERN.finditer(sources_str):
                                 mojom_file = mojom_match.group(1)
                                 # Make path relative to the BUILD.gn directory
                                 rel_dir = os.path.relpath(root, ROOT_DIR)
@@ -307,11 +310,12 @@ def parse_mojom(file_path):
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
     # Also handle [EnableIf=...] and other attributes like [ServiceSandbox=...]
-    interface_pattern = r'(?:\[([^\]]+)\]\s*)?interface\s+(\w+)[^{]*\{'
+    interface_pattern = r'(?:\[([^\]]+)\]\s*)?interface\s+(\w+)(?:\s*:\s*([\w.]+))?[^{]*\{'
 
     for match in re.finditer(interface_pattern, content_no_comments):
         attributes = match.group(1)
         interface_name = match.group(2)
+        parent_interface = match.group(3)
         
         # Check EnableIf/EnableIfNot conditions
         if not check_enable_if(attributes):
@@ -335,7 +339,7 @@ def parse_mojom(file_path):
         # Capture optional Ordinal: Name@123(...)
         # Fix: Use re.DOTALL (via flag or inline) to allow parameters to span multiple lines
         # Update: Capture Attributes [Attr] preceding method
-        method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
+        method_pattern = r'(?s)((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
         
         for method_match in re.finditer(method_pattern, interface_body, re.DOTALL):
             attributes_str = method_match.group(1)
@@ -374,6 +378,7 @@ def parse_mojom(file_path):
         
         result['interfaces'].append({
             'name': interface_name,
+            'parent': parent_interface,
             'methods': unique_methods
         })
 
@@ -968,14 +973,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             if 'Interface' in p_type: return 8, 4
             
             # Pointers (Structs, Arrays, Maps, Unions)
-            # Fix: Strip mojo.internal.bindings prefix to match global_kind_map keys
-            # Fix: Only strip Spec if it is a suffix
-            prefix = 'mojo.internal.bindings.'
-            if p_type.startswith(prefix):
-                spec_name = p_type[len(prefix):]
-            else:
-                spec_name = p_type
-
+            spec_name = p_type.replace('mojo.internal.bindings.', '')
             if spec_name.endswith('Spec'):
                 spec_name = spec_name[:-4]
             kind = global_kind_map.get(spec_name)
