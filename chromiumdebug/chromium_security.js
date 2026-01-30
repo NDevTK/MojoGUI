@@ -2286,7 +2286,7 @@ class BlinkUnwrap {
 
         // Try to parse "member_ : value [Type: ...]" format
         var colonMatch = afterOffset.match(
-          /^([a-zA-Z_][a-zA-Z0-9_]*)\s*:\s*(.+)$/,
+          /^([a-zA-Z_][a-zA-Z0-9_]*)\s*:\s+(.+)$/,
         );
         if (colonMatch) {
           var name = colonMatch[1];
