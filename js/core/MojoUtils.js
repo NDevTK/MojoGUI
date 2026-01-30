@@ -638,6 +638,18 @@
   }
 
   /**
+   * Creates a debounced function that delays invoking func until after wait milliseconds.
+   */
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
+
+  /**
    * Helper to read all available data from a Mojo data pipe.
    * @param {MojoHandle} handle - The consumer handle.
    * @returns {Uint8Array|null} The data read, or null if no data/error.
@@ -694,6 +706,7 @@
     escapeHtml,
     readDataPipeAvailable,
     writeDataPipe,
+    debounce,
   };
 
   global.MojoUtils = MojoUtils;

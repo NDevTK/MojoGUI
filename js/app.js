@@ -232,7 +232,18 @@
   // ========================================
   function setupEventListeners() {
     // Search
-    elements.interfaceSearch.addEventListener("input", handleSearch);
+    elements.interfaceSearch.addEventListener(
+      "input",
+      MojoUtils.debounce(handleSearch, 300),
+    );
+
+    // Interface List Delegation
+    elements.interfaceList.addEventListener("click", (e) => {
+      const item = e.target.closest(".interface-item");
+      if (item) {
+        selectInterface(item.dataset.name, item.dataset.module);
+      }
+    });
 
     // Copy button
     elements.copyBtn.addEventListener("click", copyCode);
@@ -615,15 +626,12 @@
         .join(""),
     );
 
-    // Add click handlers + Staggered Animation
+    // Staggered Animation
     elements.interfaceList
       .querySelectorAll(".interface-item")
       .forEach((item, index) => {
         item.style.animation = `listItemEnter 0.3s ease-out backwards`;
         item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
-        item.addEventListener("click", () =>
-          selectInterface(item.dataset.name, item.dataset.module),
-        );
       });
   }
 
