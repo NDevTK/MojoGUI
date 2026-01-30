@@ -686,6 +686,12 @@
     renderParamsForm(null);
     updateGeneratedCode();
 
+    // Fix: Update toggle button state for the new interface
+    updateInterceptButtonState(
+      null,
+      iface.module ? `${iface.module}.${iface.name}` : iface.name,
+    );
+
     // Auto-hide traffic log when switching interfaces
     if (state.panelVisible) {
       showInterceptorPanel(false);
