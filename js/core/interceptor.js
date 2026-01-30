@@ -452,7 +452,7 @@
       const callId = Math.random().toString(36).substr(2, 9);
       const mode = global.InterceptorManager
         ? global.InterceptorManager.getMode(this.interfaceName)
-        : "INTERCEPT";
+        : "LOG";
       console.log(
         `[MojoProxy] Intercepted ${this.interfaceName}.${methodName} (Mode: ${mode})`,
       );
@@ -784,7 +784,7 @@
       return this.interceptors.has(ifaceName);
     },
     getMode(ifaceName) {
-      return this.modes.get(ifaceName) || "INTERCEPT";
+      return this.modes.get(ifaceName) || "LOG";
     },
   };
 
