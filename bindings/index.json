@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-29T10:29:15.270409Z",
-  "version": "146.0.7656.0",
+  "generated_at": "2026-01-30T10:25:26.894489Z",
+  "version": "146.0.7658.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3057,6 +3057,7 @@
         "OpenMyActivityUi",
         "OpenHelpUi",
         "OpenOnboardingHelpUi",
+        "OpenUrl",
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
         "OnFileClickedFromSourcesMenu",
@@ -3374,6 +3375,7 @@
         "UnpinAllTabs",
         "CreateSkill",
         "UpdateSkill",
+        "ShowManageSkillsUi",
         "GetSkill",
         "SubscribeToPinCandidates",
         "CreateTask",
@@ -8030,7 +8032,8 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "CreatePageHandler"
+        "CreatePageHandler",
+        "CreateDialogHandler"
       ],
       "metadata": {
         "usage": {
@@ -8043,13 +8046,28 @@
       }
     },
     {
-      "name": "PageHandler",
+      "name": "DialogHandler",
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "SubmitSkill",
         "CloseDialog"
       ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: skills.mojom.PageHandlerFactory.CreateDialogHandler"
+          ]
+        },
+        "scope": "context"
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "skills.mojom",
+      "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -8400,6 +8418,7 @@
       "methods": [
         "GetAllUpdaterEvents",
         "GetUpdaterStates",
+        "GetAppStates",
         "ShowUpdaterDirectory"
       ],
       "metadata": {
@@ -40324,6 +40343,23 @@
       }
     },
     {
+      "name": "NavigationResumeDeferredCommitListener",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_navigation_navigation_params.mojom.js",
+      "methods": [
+        "ResumeDeferredCommit"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: content.mojom.FrameHost.BeginNavigation"
+          ]
+        },
+        "scope": "context"
+      }
+    },
+    {
       "name": "NonPersistentNotificationListener",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_notifications_notification_service.mojom.js",
@@ -42125,6 +42161,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_web_install_web_install.mojom.js",
       "methods": [
+        "IsInstalled",
         "Install",
         "InstallFromElement"
       ],
@@ -44371,7 +44408,8 @@
       "module": "contextual_tasks.mojom",
       "imports": [
         "mojo/public/mojom/base/uuid.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "ui/base/mojom/window_open_disposition.mojom"
       ]
     },
     {
@@ -53570,6 +53608,7 @@
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
+        "services/network/public/mojom/originating_process.mojom",
         "services/network/public/mojom/key_pinning.mojom",
         "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
         "services/network/public/mojom/net_log.mojom",
