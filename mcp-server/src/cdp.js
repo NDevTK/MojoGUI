@@ -79,7 +79,7 @@ export class CDPClient {
    * Discover available Chrome pages/targets
    */
   async discoverTargets() {
-    const response = await fetch(CDP_URL);
+    const response = await fetch(`http://localhost:${this.port}/json`);
     if (!response.ok) {
       throw new Error(
         `Failed to connect to Chrome DevTools on port ${this.port}. ` +
@@ -392,12 +392,39 @@ export class CDPClient {
    * Wait for MojoGUI API to be available
    */
   async waitForMojoGUI(timeoutMs = 30000) {
-    const startTime = Date.now();
-    while (Date.now() - startTime < timeoutMs) {
-      if (await this.isMojoGUIReady()) {
-        return true;
-      }
-      await new Promise((resolve) => setTimeout(resolve, 500));
+    // Check if already ready to avoid overhead
+    if (await this.isMojoGUIReady()) {
+      return true;
+    }
+
+    // Wait for the mojo-gui-ready event (dispatched by MojoGUI_APIService.js)
+    // using a single CDP call instead of polling
+    const expression = `
+      (async () => {
+        if (typeof window.MojoGUI_API !== 'undefined' && window.MojoGUI_API !== null) {
+          return true;
+        }
+        return new Promise((resolve) => {
+          // Add safety timeout inside the browser context
+          const timer = setTimeout(() => resolve(false), ${timeoutMs});
+          window.addEventListener(
+            'mojo-gui-ready',
+            () => {
+              clearTimeout(timer);
+              resolve(true);
+            },
+            { once: true }
+          );
+        });
+      })()
+    `;
+
+    // Note: evaluate has its own 30s timeout in sendToSession,
+    // so extensive timeouts >30s might need adjustments to sendToSession.
+    const result = await this.evaluate(expression, { awaitPromise: true });
+
+    if (result === true) {
+      return true;
     }
     throw new Error("Timeout waiting for MojoGUI API to be available");
   }

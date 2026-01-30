@@ -1507,7 +1507,8 @@ function getCompressedMember(baseAddr, typeCast, memberName) {
     var out = ctl.ExecuteCommand(cmd);
     for (var line of out) {
       var l = line.toString();
-      var m = l.match(/:\s*(0x[0-9a-fA-F`]+)/);
+      // Fix: Ensure we match the value after the colon (space required)
+      var m = l.match(/:\s+(0x[0-9a-fA-F`]+)/);
       if (m) {
         var addrStr = m[1].replace(/`/g, "");
         var addrBig = MemoryUtils.parseBigInt(addrStr);
@@ -2286,7 +2287,7 @@ class BlinkUnwrap {
 
         // Try to parse "member_ : value [Type: ...]" format
         var colonMatch = afterOffset.match(
-          /^([a-zA-Z_][a-zA-Z0-9_]*)\s*:\s*(.+)$/,
+          /^([a-zA-Z_][a-zA-Z0-9_]*)\s*:\s+(.+)$/,
         );
         if (colonMatch) {
           var name = colonMatch[1];
@@ -5292,7 +5293,8 @@ class Exec {
         for (var line of output) {
           var lineStr = line.toString();
           // Match address after colon:  ... : 0x12345 ...
-          var m = lineStr.match(/:\s*(0x[0-9a-fA-F`]+)/);
+          // Fix: Ensure we match the value after the colon (space required)
+          var m = lineStr.match(/:\s+(0x[0-9a-fA-F`]+)/);
           if (m) {
             var memberAddr = MemoryUtils.parseBigInt(m[1].replace(/`/g, ""));
             memberOffset = memberAddr - thisBigInt;
@@ -5375,7 +5377,8 @@ class Exec {
         var output = ctl.ExecuteCommand(castExpr);
         for (var line of output) {
           // dx output: (chrome!blink::ExecutionContext *) : 0x1234...
-          var m = line.toString().match(/:\s*(0x[0-9a-fA-F`]+)/);
+          // Fix: Ensure we match the value after the colon (space required)
+          var m = line.toString().match(/:\s+(0x[0-9a-fA-F`]+)/);
           if (m) {
             var adjustedPtr = m[1].replace(/`/g, "");
 

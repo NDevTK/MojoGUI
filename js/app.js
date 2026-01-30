@@ -425,7 +425,7 @@
     window.addEventListener(
       "mojo-response-intercept",
       handleMojoResponseIntercept,
-    ); // Fix: Add missing listener
+    );
     window.addEventListener("mojo-error", handleMojoError);
     window.switchToInterceptMode = switchToInterceptMode;
   }
@@ -1429,7 +1429,7 @@
     const entry = MojoObjectRegistry.get(proxyId);
 
     if (entry && entry.remote) {
-      // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
+      // Use reconcileKeys to restore original field names (e.g. status -> arg_status)
       const originalResult = row && row.__details ? row.__details.result : null;
       const restoredResult = reconcileKeys(result, originalResult);
 
