@@ -64,21 +64,21 @@ const WelcomeManager = (function () {
             </div>
         </div>
 
-        <div class="step-card">
-            <h4><span class="step-number">🛡️</span> Security Posture</h4>
+        <div class="step-card" style="border-left-color: #6366f1;">
+            <h4><span class="step-number">�</span> Associated Interface Hijacking</h4>
             <p style="font-size: 0.9em; margin-bottom: 0;">
-                We have detected <strong>${associatedCount} restricted interfaces</strong> (e.g. WebUI handlers, platform-specific services). 
-                These are marked as <strong>Associated</strong> to prevent accidental <code>BAD_MESSAGE</code> terminations when binding from the global scope.
+                Previously restricted interfaces like <strong>LocalFrameHost</strong> or <strong>StoragePartitionService</strong> can now be hijacked! 
+                Use the <strong>WinDbg Toolkit</strong> in <code>/chromiumdebug</code> to dynamically extract Master Handles and Interface IDs from the renderer.
             </p>
         </div>
 
         <div class="step-card">
             <h4><span class="step-number">⚡</span> How this Tool Works</h4>
-            <p><strong>MojoGUI</strong> uses the <code>MojoInterfaceInterceptor</code> API to capture interface requests relative to the current context.</p>
+            <p><strong>MojoGUI</strong> provides a powerful suite for Chromium IPC research:</p>
             <ul>
-                <li><strong>Log:</strong> See every message sent between the page and the browser.</li>
-                <li><strong>Intercept:</strong> Block messages or modify their arguments on the fly.</li>
-                <li><strong>Fuzz:</strong> Send custom messages to test browser security.</li>
+                <li><strong>Traffic Log:</strong> Monitor real-time messages between Renderer and Browser.</li>
+                <li><strong>Interceptor:</strong> Block or modify IPC arguments on the fly.</li>
+                <li><strong>Master Hijack:</strong> Escalate from standard MojoJS to privileged C++ endpoints.</li>
             </ul>
         </div>
     `;
