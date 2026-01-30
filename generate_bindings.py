@@ -310,11 +310,12 @@ def parse_mojom(file_path):
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
     # Also handle [EnableIf=...] and other attributes like [ServiceSandbox=...]
-    interface_pattern = r'(?:\[([^\]]+)\]\s*)?interface\s+(\w+)[^{]*\{'
+    interface_pattern = r'(?:\[([^\]]+)\]\s*)?interface\s+(\w+)(?:\s*:\s*([\w.]+))?[^{]*\{'
 
     for match in re.finditer(interface_pattern, content_no_comments):
         attributes = match.group(1)
         interface_name = match.group(2)
+        parent_interface = match.group(3)
         
         # Check EnableIf/EnableIfNot conditions
         if not check_enable_if(attributes):
@@ -377,6 +378,7 @@ def parse_mojom(file_path):
         
         result['interfaces'].append({
             'name': interface_name,
+            'parent': parent_interface,
             'methods': unique_methods
         })
 
