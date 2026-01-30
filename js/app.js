@@ -195,9 +195,8 @@
     try {
       // Try to load from bindings index
       if (typeof MojoLoader !== "undefined") {
-        MojoLoader.loadBinding(
-          "third_party_blink_public_mojom_plugins_plugin_registry.mojom.js", // Does not support async usage
-        );
+        // PluginRegistry does not support async usage
+        if (iface.name == "PluginRegistry") return;
         const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
