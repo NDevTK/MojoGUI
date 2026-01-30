@@ -11082,17 +11082,18 @@ function list_mojo_js_handles() {
 
   Logger.info("Scanning heap for MojoHandle objects...");
 
-  // Use the reliable dynamic address scan
   var cmd =
     '!address /f:MEM_COMMIT,MEM_PRIVATE,PAGE_READWRITE /c:"s -q %1 L?%3 ' +
     jsVtable +
     '"';
   var results = SymbolUtils.execute(cmd);
   var count = 0;
+  var seen = new Set();
 
   for (var line of results) {
     var addr = SymbolUtils.extractAddress(line);
-    if (!addr) continue;
+    if (!addr || seen.has(addr)) continue;
+    seen.add(addr);
 
     try {
       // Print the raw handle info
@@ -11108,7 +11109,9 @@ function list_mojo_js_handles() {
 
   Logger.header("SCAN COMPLETE");
   Logger.info(
-    "Found " + count + " handles. You can hijack any of these addresses.",
+    "Found " +
+      count +
+      " unique handles. You can hijack any of these addresses.",
   );
   return "";
 }
