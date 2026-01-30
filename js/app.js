@@ -195,8 +195,6 @@
     try {
       // Try to load from bindings index
       if (typeof MojoLoader !== "undefined") {
-        // PluginRegistry does not support async usage
-        if (iface.name == "PluginRegistry") return;
         const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
