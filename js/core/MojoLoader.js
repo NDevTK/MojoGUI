@@ -82,9 +82,6 @@
               );
             });
             if (importEntry) {
-              console.log(
-                `[MojoLoader] Dependency: ${importPath} -> ${importEntry.filename}`,
-              );
               await this.loadBinding(importEntry.filename);
             } else {
               console.warn(`[MojoLoader] Import not found: ${importPath}`);

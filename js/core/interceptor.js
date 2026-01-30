@@ -756,7 +756,6 @@
           this.handleRequest(ifaceName, e.handle);
         interceptor.start();
         this.interceptors.set(ifaceName, interceptor);
-        console.log(`[Interceptor] Monitoring ${ifaceName} (${mode})`);
         return true;
       } catch (e) {
         return false;
