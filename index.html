@@ -113,15 +113,36 @@
         <!-- Sidebar - Interface Browser -->
         <aside class="sidebar">
           <!-- Sidebar Tabs -->
-          <div class="sidebar-tabs">
-            <button class="sidebar-tab active" data-tab="interfaces">
+          <div class="sidebar-tabs" role="tablist" aria-label="Sidebar Sections">
+            <button
+              class="sidebar-tab active"
+              data-tab="interfaces"
+              role="tab"
+              aria-selected="true"
+              aria-controls="tab-interfaces"
+              id="tab-btn-interfaces"
+            >
               Interfaces
             </button>
-            <button class="sidebar-tab" data-tab="tools">Tools</button>
+            <button
+              class="sidebar-tab"
+              data-tab="tools"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-tools"
+              id="tab-btn-tools"
+            >
+              Tools
+            </button>
           </div>
 
           <!-- Interfaces Tab Content -->
-          <div id="tab-interfaces" class="sidebar-tab-content active">
+          <div
+            id="tab-interfaces"
+            class="sidebar-tab-content active"
+            role="tabpanel"
+            aria-labelledby="tab-btn-interfaces"
+          >
             <div class="sidebar-header">
               <h2>Interfaces</h2>
               <div style="display: flex; gap: 8px">
@@ -158,7 +179,13 @@
           </div>
 
           <!-- Tools Tab Content -->
-          <div id="tab-tools" class="sidebar-tab-content" style="display: none">
+          <div
+            id="tab-tools"
+            class="sidebar-tab-content"
+            style="display: none"
+            role="tabpanel"
+            aria-labelledby="tab-btn-tools"
+          >
             <div class="tools-container">
               <!-- Injected by js/tools_panel.js -->
               <div class="loading-state">

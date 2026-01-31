@@ -66,9 +66,11 @@
           const target = tab.dataset.tab;
 
           // Update Buttons
-          tabs.forEach((t) =>
-            t.classList.toggle("active", t.dataset.tab === target),
-          );
+          tabs.forEach((t) => {
+            const isActive = t.dataset.tab === target;
+            t.classList.toggle("active", isActive);
+            t.setAttribute("aria-selected", isActive);
+          });
 
           const contents = document.querySelectorAll(".sidebar-tab-content");
           contents.forEach((c) => {
