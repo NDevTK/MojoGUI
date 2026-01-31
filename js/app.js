@@ -572,23 +572,11 @@
       // 2. Type Match
       if (state.filterType === "ALL") return true;
 
-      // Check metadata for association
-      const usage = iface.metadata?.usage;
+      const category = iface.metadata?.category;
 
-      const directList = usage?.direct || [];
-      const associatedList = usage?.associated || [];
-
-      const isInternal = directList.some((s) =>
-        s.includes("Internal Interface"),
-      );
-      const isDirect = directList.length > 0 && !isInternal;
-      const isAssociated =
-        associatedList.length > 0 ||
-        (!isDirect && !isInternal && directList.length === 0);
-
-      if (state.filterType === "DIRECT") return isDirect;
-      if (state.filterType === "INTERNAL") return isInternal;
-      if (state.filterType === "ASSOCIATED") return isAssociated;
+      if (state.filterType === "DIRECT") return category === "direct";
+      if (state.filterType === "INTERNAL") return category === "internal";
+      if (state.filterType === "ASSOCIATED") return category === "associated";
 
       return true;
     });

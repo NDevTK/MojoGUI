@@ -154,19 +154,8 @@ server.tool(
                 const filterType = ${JSON.stringify(type)}.toLowerCase();
                 if (filterType !== "all") {
                     interfaces = interfaces.filter(iface => {
-                        const usage = iface.metadata?.usage;
-                        
-                        const directList = usage?.direct || [];
-                        const associatedList = usage?.associated || [];
-                        
-                        const isInternal = directList.some(s => s.includes("Internal Interface"));
-                        const isDirect = directList.length > 0 && !isInternal;
-                        const isAssociated = associatedList.length > 0 || (!isDirect && !isInternal && directList.length === 0);
-
-                        if (filterType === "direct") return isDirect;
-                        if (filterType === "internal") return isInternal;
-                        if (filterType === "associated") return isAssociated;
-                        return true;
+                        // Strict filtering: Use explicit category field
+                        return iface.metadata?.category === filterType;
                     });
                 }
 

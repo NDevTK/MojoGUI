@@ -2016,6 +2016,7 @@ def main():
 
                     # 2. Apply Ground Truth Logic
                     scope = "context"
+                    category = "internal" # Default to internal/unknown
                     leaf_name = fqn.split('.')[-1]
                     
                     # Logic: Check for direct binders first, then associated.
@@ -2029,12 +2030,14 @@ def main():
                     
                     # PRIORITY 1: Associated (If it's multiplexed, it's ALWAYS multiplexed)
                     if is_in_assoc:
+                        category = "associated"
                         usage['direct'] = [] 
                         if "Source: Associated Interface (RFH/Navigation)" not in usage['associated']:
                             usage['associated'].insert(0, "Source: Associated Interface (RFH/Navigation)")
                     
                     # PRIORITY 2: Global/Direct Binders
                     elif is_in_global or is_in_context:
+                        category = "direct"
                         scope = "context"
                         src = "Global Broker" if is_in_global else "Document Service"
                         if f"Source: BrowserInterfaceBroker ({src})" not in usage['direct']:
@@ -2042,25 +2045,32 @@ def main():
                     
                     # PRIORITY 3: Process Binders
                     elif is_in_process:
+                        category = "direct"
                         scope = "process"
                         if "Source: RenderProcessHost (Process)" not in usage['direct']:
                             usage['direct'].insert(0, "Source: RenderProcessHost (Process)")
                             
-                    # PRIORITY 4: WebUI Restricted
+                    # PRIORITY 4: WebUI Restricted (Technically Direct, but Restricted)
                     elif is_in_webui:
-                        usage['direct'] = []
-                        if "Source: WebUI Binder (Restricted)" not in usage['associated']:
-                            usage['associated'].insert(0, "Source: WebUI Binder (Restricted)")
+                        category = "internal" # UI treats WebUI as internal/restricted
+                        # Do NOT clear direct usage if it exists, just ensure we label it
+                        if "Source: WebUI Binder (Restricted)" not in usage['direct']:
+                             usage['direct'].insert(0, "Source: WebUI Binder (Restricted)")
 
                     # FALLBACK: Unknown/Internal
                     else:
-                        # If heuristic said Direct but not found in maps, it's likely an Internal Factory result.
-                        # Do NOT move to associated list unless it truly uses associated pipes.
-                        if usage['direct']:
-                            usage['direct'] = [f"Internal Interface: {r}" for r in usage['direct']]
-                        
-                        if not usage['associated'] and not usage['direct']:
-                             usage['associated'].append("Inferred: Not in Desktop BinderMap")
+                        # If parsed usage said Associated but not found in binders -> Likely true associated (e.g. from definition)
+                        if usage['associated']:
+                            category = "associated"
+                        elif usage['direct']:
+                             # It was found in some IDL as pending_receiver, but not in our binder map
+                             # Assume Internal/Factory created
+                             category = "internal"
+                             usage['direct'] = [f"Internal Interface: {r}" for r in usage['direct']]
+                        else:
+                             # No usage found -> Internal/Unknown
+                             category = "internal"
+                             usage['direct'].append("Internal Interface: Inferred (Not in Desktop BinderMap)")
 
                     index_data['interfaces'].append({
                         'name': interface['name'],
@@ -2069,7 +2079,8 @@ def main():
                         'methods': [m['name'] for m in interface.get('methods', [])],
                         'metadata': {
                             'usage': usage,
-                            'scope': scope
+                            'scope': scope,
+                            'category': category
                         }
                     })
                 
