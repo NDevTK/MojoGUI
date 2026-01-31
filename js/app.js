@@ -41,7 +41,6 @@
   // ========================================
   const {
     safeHTML,
-    safeScriptURL,
     safeStringify,
     safeParse,
     escapeHtml,

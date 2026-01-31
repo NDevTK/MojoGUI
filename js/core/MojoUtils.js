@@ -599,7 +599,30 @@
     try {
       if (!trustedPolicy) {
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
-          createHTML: (input) => input,
+          createHTML: (input) => {
+            const doc = new DOMParser().parseFromString(input, "text/html");
+            if (doc.scripts.length > 0) {
+              throw new Error("MojoUtils: Unsafe HTML (scripts) rejected.");
+            }
+            const els = doc.querySelectorAll("*");
+            for (const el of els) {
+              for (const attr of el.attributes) {
+                if (attr.name.toLowerCase().startsWith("on")) {
+                  throw new Error(
+                    "MojoUtils: Unsafe HTML (handlers) rejected.",
+                  );
+                }
+                if (
+                  (attr.name.toLowerCase() === "href" ||
+                    attr.name.toLowerCase() === "src") &&
+                  attr.value.trim().toLowerCase().startsWith("javascript:")
+                ) {
+                  throw new Error("MojoUtils: Unsafe HTML (js-uri) rejected.");
+                }
+              }
+            }
+            return input;
+          },
         });
       }
     } catch (e) {
@@ -626,13 +649,6 @@
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
-  }
-
-  function safeScriptURL(url) {
-    if (trustedPolicy) {
-      return trustedPolicy.createScriptURL(url);
-    }
-    return url;
   }
 
   /**
@@ -693,7 +709,6 @@
     safeStringify,
     safeParse,
     safeHTML,
-    safeScriptURL,
     sanitizeKeys,
     reconcileKeys,
     inflateStruct,
@@ -709,6 +724,5 @@
 
   global.MojoUtils = MojoUtils;
   global.safeHTML = safeHTML;
-  global.safeScriptURL = safeScriptURL;
   global.escapeHtml = escapeHtml;
 })(this);
