@@ -21,6 +21,30 @@
     convertParamsObjectToArray,
   } = InputRendererService;
 
+  // Performance Optimization: Batching & Caching
+  const activeRows = new Map();
+  const rowBuffer = [];
+  let flushScheduled = false;
+
+  function flushBuffer() {
+    if (rowBuffer.length === 0) {
+      flushScheduled = false;
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    // Batch Insert: Newest items at the top.
+    // rowBuffer contains [Oldest, ..., Newest] (push order).
+    // To ensure correct order when prepending a fragment (which keeps its internal order),
+    // we must populate the fragment with [Newest, ..., Oldest].
+    while (rowBuffer.length > 0) {
+      fragment.appendChild(rowBuffer.pop());
+    }
+
+    getElements().interceptorTableBody.prepend(fragment);
+    flushScheduled = false;
+  }
+
   // Internal function redirects
   const getInternal = () => window.__MojoGUI_Internal || {};
   const findMethodDefinition = (...args) =>
@@ -69,6 +93,8 @@
   };
 
   function clearActivityLog() {
+    activeRows.clear();
+    rowBuffer.length = 0;
     getElements().interceptorTableBody.textContent = "";
     state.trafficCount = 0;
     if (getElements().trafficBadge) {
@@ -124,10 +150,17 @@
     } = data;
     const rowId = `row_${id}`;
 
-    // Correctly handle duplicates: Update existing row if ID matches
-    // Use getElementById for absolute reliability
+    // Optimization: Check Cache first (O(1)) instead of DOM
+    if (activeRows.has(id)) {
+      updateActivityRow(id, status || "Pending", data.result);
+      return;
+    }
+
+    // Double check DOM just in case (e.g. from previous session or manual manipulation)
     const existingRow = document.getElementById(rowId);
     if (existingRow) {
+      // Re-cache it
+      activeRows.set(id, existingRow);
       updateActivityRow(id, status || "Pending", data.result);
       return;
     }
@@ -214,12 +247,24 @@
       });
     }
 
-    getElements().interceptorTableBody.prepend(row);
+    // Optimization: Batching using Buffer and Fragment
+    activeRows.set(id, row);
+    rowBuffer.push(row);
+
+    if (!flushScheduled) {
+      flushScheduled = true;
+      requestAnimationFrame(flushBuffer);
+    }
   }
 
   function updateActivityRow(id, status, resultData) {
-    // Use getElementById for consistency with addActivityRow
-    const row = document.getElementById(`row_${id}`);
+    // Optimization: Look up in Cache first (covers buffered rows too)
+    let row = activeRows.get(id);
+    if (!row) {
+      row = document.getElementById(`row_${id}`);
+      if (row) activeRows.set(id, row);
+    }
+
     if (row) {
       const statusCell = row.cells[2];
       let displayStatus = status;
@@ -260,6 +305,8 @@
         }
       }
     } else {
+      // Row might be buffered or missing
+      // Since we use activeRows set in addActivityRow, if it's missing here it likely doesn't exist
       console.warn(
         `[UI] updateActivityRow failed: Row ${id} not found (row_${id}).`,
       );
