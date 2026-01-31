@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7659.0';
+        const versionStr = window.mojoVersion || '146.0.7660.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -343,6 +343,9 @@ mojo.internal.bindings.blink.mojom.PointerLockContextPendingReceiver = mojo.inte
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PointerLockResultSpec = mojo.internal.bindings.blink.mojom.PointerLockResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RailsModeSpec = mojo.internal.bindings.blink.mojom.RailsModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SelectionMenuBehaviorSpec = mojo.internal.bindings.blink.mojom.SelectionMenuBehaviorSpec || { $: mojo.internal.Enum().$ };
@@ -2053,8 +2056,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_event_action', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_delta_units', 27, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_cancelable', 28, 0, mojo.internal.bindings.blink.mojom.DispatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rails_mode', 32, 0, mojo.internal.bindings.blink.mojom.RailsModeSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: MouseData
 mojo.internal.Struct(

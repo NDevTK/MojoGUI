@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7659.0';
+        const versionStr = window.mojoVersion || '146.0.7660.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.blink.mojom.ButtonSpec = mojo.internal.bindings.blink.mojom.ButtonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.DispatchTypeSpec = mojo.internal.bindings.blink.mojom.DispatchTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.EventTypeSpec = mojo.internal.bindings.blink.mojom.EventTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RailsModeSpec = mojo.internal.bindings.blink.mojom.RailsModeSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: Button
 mojo.internal.bindings.blink.mojom.Button = {
@@ -209,6 +210,13 @@ mojo.internal.bindings.blink.mojom.EventType = {
   kPointerCausedUaAction: 41,
   kPointerTypeLast: 41,
   kTypeLast: 41,
+};
+
+// Enum: RailsMode
+mojo.internal.bindings.blink.mojom.RailsMode = {
+  kRailsModeFree: 0,
+  kRailsModeHorizontal: 1,
+  kRailsModeVertical: 2,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

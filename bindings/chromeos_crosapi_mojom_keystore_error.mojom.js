@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7659.0';
+        const versionStr = window.mojoVersion || '146.0.7660.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -146,11 +146,10 @@ mojo.internal.bindings.crosapi.mojom.KeystoreError = {
   kNetAddUserCertFailed: 13,
   kNetCertificateDateInvalid: 14,
   kNetCertificateInvalid: 15,
-  kUnsupportedKeystoreType: 16,
-  kUnsupportedAlgorithmType: 17,
-  kUnsupportedKeyTag: 18,
-  kMojoUnavailable: 19,
-  kUnsupportedKeyType: 20,
+  kUnsupportedAlgorithmType: 16,
+  kUnsupportedKeyTag: 17,
+  kMojoUnavailable: 18,
+  kUnsupportedKeyType: 19,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
