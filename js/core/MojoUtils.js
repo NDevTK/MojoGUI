@@ -606,18 +606,41 @@
             }
             const els = doc.querySelectorAll("*");
             for (const el of els) {
+              const tag = el.tagName.toUpperCase();
+              if (
+                tag === "SCRIPT" ||
+                tag === "IFRAME" ||
+                tag === "OBJECT" ||
+                tag === "EMBED" ||
+                tag === "APPLET"
+              ) {
+                throw new Error("MojoUtils: Unsafe HTML (tag) rejected.");
+              }
               for (const attr of el.attributes) {
-                if (attr.name.toLowerCase().startsWith("on")) {
+                const name = attr.name.toLowerCase();
+                if (name.startsWith("on")) {
                   throw new Error(
                     "MojoUtils: Unsafe HTML (handlers) rejected.",
                   );
                 }
                 if (
-                  (attr.name.toLowerCase() === "href" ||
-                    attr.name.toLowerCase() === "src") &&
-                  attr.value.trim().toLowerCase().startsWith("javascript:")
+                  name === "href" ||
+                  name === "src" ||
+                  name === "action" ||
+                  name === "formaction" ||
+                  name === "srcdoc"
                 ) {
-                  throw new Error("MojoUtils: Unsafe HTML (js-uri) rejected.");
+                  const val = attr.value.trim().toLowerCase();
+                  if (
+                    val.startsWith("javascript:") ||
+                    val.startsWith("vbscript:") ||
+                    val.startsWith("data:") ||
+                    name === "srcdoc"
+                  ) {
+                    throw new Error(
+                      "MojoUtils: Unsafe HTML (unsafe-attr) rejected.",
+                    );
+                  }
                 }
               }
             }
