@@ -8270,6 +8270,7 @@ function initializeScript() {
     // Mojo Research Tools
     new host.functionAlias(list_mojo_js_handles, "list_js_handles"),
     new host.functionAlias(hijack_interface, "hijack_interface"),
+    new host.functionAlias(map_all_interfaces, "map_interfaces"),
     // Cache Management
     new host.functionAlias(cache_clear, "cache_clear"),
   ];
@@ -11123,8 +11124,9 @@ function list_mojo_js_handles() {
  * Automatically find a live master handle by interface name and hijack a JS handle with it.
  */
 function hijack_interface(jsHandleAddr, interfaceName) {
-  if (!jsHandleAddr || !interfaceName) {
-    Logger.error("Usage: !hijack_interface(JS_HANDLE, INTERFACE_NAME)");
+  interfaceName = interfaceName || "LocalFrameHost";
+  if (!jsHandleAddr) {
+    Logger.error("Usage: !hijack_interface(JS_HANDLE, [INTERFACE_NAME])");
     return "";
   }
 
@@ -11279,5 +11281,98 @@ function hijack_interface(jsHandleAddr, interfaceName) {
     Logger.error("Write failed: " + e);
   }
 
+  return "";
+}
+
+/**
+ * Map all active Mojo interfaces to their Interface IDs.
+ * Scans the heap for InterfaceEndpointClient objects.
+ */
+function map_all_interfaces() {
+  Logger.section("Mojo Interface Mapper");
+
+  // 1. Resolve vtable for InterfaceEndpointClient
+  var vtable = SymbolUtils.findSymbolAddress(
+    "chrome!mojo::InterfaceEndpointClient::`vftable'",
+  );
+  if (!vtable) {
+    Logger.error(
+      "Failed to resolve chrome!mojo::InterfaceEndpointClient::`vftable'",
+    );
+    return "";
+  }
+  Logger.info("InterfaceEndpointClient vtable: " + vtable);
+  Logger.info("Scanning heap for interfaces (this may take a moment)...");
+
+  var cmd =
+    '!address /f:MEM_COMMIT,MEM_PRIVATE,PAGE_READWRITE /c:"s -q %1 L?%3 ' +
+    vtable +
+    '"';
+  var results = SymbolUtils.execute(cmd);
+
+  var count = 0;
+  var seen = new Set();
+
+  // Helper for padding
+  var pad = function (str, len) {
+    str = (str || "").toString();
+    if (str.length < len) {
+      return str + " ".repeat(len - str.length);
+    }
+    return str;
+  };
+
+  Logger.header(
+    pad("Interface Name", 60) + " " + pad("ID", 20) + " " + "Client Address",
+  );
+
+  for (var line of results) {
+    var clientAddr = SymbolUtils.extractAddress(line);
+    if (!clientAddr || seen.has(clientAddr)) continue;
+    seen.add(clientAddr);
+
+    try {
+      // 3. Resolve Name (Client + 0x1B8 -> const char*)
+      var namePtr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0x1B8)");
+      var name = "<unknown>";
+
+      if (namePtr && parseInt(namePtr, 16) !== 0) {
+        // Use dx to read the string - it handles long strings better than da
+        var dxLines = SymbolUtils.execute("dx -r0 (char*)0x" + namePtr);
+        if (dxLines.length > 0) {
+          var match = dxLines[0].match(/"(.*)"/);
+          if (match) {
+            name = match[1];
+          }
+        }
+      }
+
+      // 4. Resolve Endpoint to get ID
+      var endpointAddr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0xC8)");
+      if (!endpointAddr || parseInt(endpointAddr, 16) === 0) continue;
+
+      // 5. Read Interface ID
+      var idVal = SymbolUtils.execute("dd 0x" + endpointAddr + "+0x18 L1");
+      if (idVal.length > 0) {
+        var parts = idVal[0].trim().split(/\s+/);
+        var idHexFull = parts[parts.length - 1];
+        var idNum = parseInt(idHexFull, 16);
+
+        // Format ID: decimal + (hex) for easier identification of namespace bits
+        var idStr = idNum.toString();
+        if (idNum >= 0x80000000) {
+          idStr += " (0x" + idNum.toString(16) + ")";
+        }
+
+        Logger.info(pad(name, 60) + " " + pad(idStr, 20) + " 0x" + clientAddr);
+        count++;
+      }
+    } catch (e) {
+      // Ignore read errors
+    }
+  }
+
+  Logger.empty();
+  Logger.info("Found " + count + " interfaces.");
   return "";
 }

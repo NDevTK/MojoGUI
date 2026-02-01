@@ -22,6 +22,7 @@ A no-code web-based GUI for Chromium MojoJS security research with automated bin
 - 📋 **One-Click Copy** - Copy generated code to clipboard
 - 🚀 **Execute in Browser** - Run code directly when MojoJS is enabled
 - 👋 **Interactive Guide** - Built-in welcome and setup assistance for researchers
+- 🛡️ **WinDbg Toolkit** - Advanced memory analysis: `!map_interfaces`, `!hijack_interface`, and spoofing tools.
 
 ## Quick Start
 

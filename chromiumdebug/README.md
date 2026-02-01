@@ -49,11 +49,12 @@ Then in WinDbg: `!chelp`
 | `!trace_ipc`       | Enable IPC message logging                                |
 | `!mojo_interfaces` | **List mojo interfaces exposed to current renderer**      |
 
-### Mojo Handle Hijacking
+### Mojo Handle Hijacking & Mapping
 
 | Command                         | Description                                                     |
 | ------------------------------- | --------------------------------------------------------------- |
 | `!list_js_handles`              | Scan heap for live `blink::MojoHandle` objects in JS            |
+| `!map_interfaces`               | **Map all active Mojo interfaces to their Interface IDs**       |
 | `!hijack_interface(addr, name)` | **Hijack a JS handle with any live master handle/interface ID** |
 
 ### Site Isolation Analysis
