@@ -387,7 +387,7 @@
           const badge = document.createElement("span");
           badge.className = "sync-badge";
           badge.title = "Protocol Synchronized";
-          badge.innerHTML = "✓";
+          badge.innerHTML = safeHTML("✓");
           item.appendChild(badge);
         }
       });

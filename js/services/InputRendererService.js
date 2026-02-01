@@ -45,7 +45,7 @@
       const refreshBtn = target.closest('[data-action="refresh-handles"]');
       if (refreshBtn) {
         const sel = refreshBtn.previousElementSibling;
-        if (sel) sel.innerHTML = window.renderHandleOptions();
+        if (sel) sel.innerHTML = safeHTML(window.renderHandleOptions());
         return;
       }
 
