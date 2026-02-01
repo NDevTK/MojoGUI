@@ -29,6 +29,19 @@ parentPort.on("message", async (msg) => {
         parentPort.postMessage({ id, success: true });
         break;
 
+      case "capture_screenshot":
+        if (!connected) {
+          await client.connect();
+          connected = true;
+        }
+        const screenshotData = await client.captureScreenshot();
+        parentPort.postMessage({
+          id,
+          success: true,
+          result: { data: screenshotData },
+        });
+        break;
+
       case "evaluate":
         if (!connected) {
           await client.connect();

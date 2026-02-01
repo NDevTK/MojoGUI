@@ -148,6 +148,13 @@ export class WorkerPool {
   }
 
   /**
+   * Capture a screenshot
+   */
+  async captureScreenshot() {
+    return await this.send("capture_screenshot");
+  }
+
+  /**
    * Get captured console logs
    */
   async getLogs(clear = false) {

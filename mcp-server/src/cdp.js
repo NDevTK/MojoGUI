@@ -343,6 +343,18 @@ export class CDPClient {
   /**
    * Evaluate JavaScript in the page context
    */
+  /**
+   * Capture a screenshot of the current page
+   */
+  async captureScreenshot() {
+    await this.sendToSession("Page.enable");
+    const result = await this.sendToSession("Page.captureScreenshot", {
+      format: "png",
+      fromSurface: true,
+    });
+    return result.data;
+  }
+
   async evaluate(expression, options = {}) {
     const params = {
       expression,
