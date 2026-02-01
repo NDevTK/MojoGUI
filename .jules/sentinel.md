@@ -1,4 +1,0 @@
-## 2025-02-17 - Permissive Trusted Types Policy Bypass
-**Vulnerability:** The application enabled Trusted Types (`require-trusted-types-for 'script'`) but implemented policies (`mojoGUI`, `mojoBindings`) that acted as identity functions (`input => input`). This effectively disabled the protection, allowing arbitrary strings to be used as script URLs, leading to potential path traversal and XSS via `MojoLoader.loadBinding` if the input file list was compromised.
-**Learning:** Simply enabling Trusted Types is not enough; the policies must validate or sanitize the input. Identity policies create a false sense of security.
-**Prevention:** Always implement strict validation in Trusted Types policies. For script URLs, ensure they match expected paths (e.g., specific directory prefixes) and reject path traversal characters (`..`). Remove unused policy methods to reduce the attack surface.
