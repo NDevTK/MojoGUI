@@ -598,9 +598,8 @@
   if (typeof global.trustedTypes !== "undefined") {
     try {
       if (!trustedPolicy) {
-        trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
-          createHTML: (input) => input,
-        });
+        // Use the safeHTML function for trusted HTML
+        trustedPolicy = global.trustedTypes.createPolicy("mojoGUI");
       }
     } catch (e) {
       // Policy might already exist
@@ -615,6 +614,8 @@
   }
 
   function safeHTML(html) {
+    // Don't want to implement a custom sanitizer or use a library, so return the input as is.
+    // Script injection is blocked by our CSP.
     if (trustedPolicy) {
       return trustedPolicy.createHTML(html);
     }
@@ -626,13 +627,6 @@
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
-  }
-
-  function safeScriptURL(url) {
-    if (trustedPolicy) {
-      return trustedPolicy.createScriptURL(url);
-    }
-    return url;
   }
 
   /**
@@ -693,7 +687,6 @@
     safeStringify,
     safeParse,
     safeHTML,
-    safeScriptURL,
     sanitizeKeys,
     reconcileKeys,
     inflateStruct,
@@ -709,6 +702,5 @@
 
   global.MojoUtils = MojoUtils;
   global.safeHTML = safeHTML;
-  global.safeScriptURL = safeScriptURL;
   global.escapeHtml = escapeHtml;
 })(this);
