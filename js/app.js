@@ -233,6 +233,30 @@
       }
     });
 
+    elements.interfaceList.addEventListener("keydown", (e) => {
+      const item = e.target.closest(".interface-item");
+      if (item && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        selectInterface(item.dataset.name, item.dataset.module);
+      }
+    });
+
+    // Methods List Delegation
+    elements.methodsList.addEventListener("click", (e) => {
+      const item = e.target.closest(".method-item");
+      if (item) {
+        selectMethod(item.dataset.method);
+      }
+    });
+
+    elements.methodsList.addEventListener("keydown", (e) => {
+      const item = e.target.closest(".method-item");
+      if (item && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        selectMethod(item.dataset.method);
+      }
+    });
+
     // Copy button
     elements.copyBtn.addEventListener("click", copyCode);
 
@@ -610,7 +634,7 @@
             : "";
 
           return `
-            <div class="interface-item" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
+            <div class="interface-item" role="button" tabindex="0" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
@@ -700,7 +724,7 @@
         .map((method) => {
           const methodName = typeof method === "string" ? method : method.name;
           return `
-                <div class="method-item" data-method="${escapeHtml(methodName)}">
+                <div class="method-item" role="button" tabindex="0" data-method="${escapeHtml(methodName)}">
                     <span class="name">${escapeHtml(methodName)}</span>
                     <span class="returns">→</span>
                 </div>
@@ -708,11 +732,6 @@
         })
         .join(""),
     );
-
-    // Add click handlers
-    elements.methodsList.querySelectorAll(".method-item").forEach((item) => {
-      item.addEventListener("click", () => selectMethod(item.dataset.method));
-    });
   }
 
   function selectMethod(methodName) {
