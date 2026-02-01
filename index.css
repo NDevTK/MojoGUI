@@ -544,10 +544,17 @@ body::before {
   overflow: hidden;
 }
 
-.interface-item:hover {
+.interface-item:hover,
+.interface-item:focus-visible {
   background: var(--bg-tertiary);
   border-color: var(--border-subtle);
   transform: translateX(4px);
+  outline: none;
+}
+
+.interface-item:focus-visible {
+  border-color: var(--accent-primary);
+  box-shadow: inset 2px 0 0 0 var(--accent-primary), 0 0 0 1px var(--accent-glow);
 }
 
 .interface-item.active {
@@ -675,12 +682,18 @@ body::before {
   color: var(--text-secondary);
 }
 
-.method-item:hover {
+.method-item:hover,
+.method-item:focus-visible {
   background: var(--bg-elevated);
   border-color: var(--accent-primary);
   color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
+  outline: none;
+}
+
+.method-item:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .method-item.active {
