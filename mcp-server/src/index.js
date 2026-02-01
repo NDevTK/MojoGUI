@@ -1259,6 +1259,7 @@ server.tool(
   async () => {
     try {
       // Execute the local capture_chrome.py script
+      // Unlike CDP this allows capturing browser UI
       await execAsync("python capture_chrome.py");
 
       const filename = "chrome_capture.png";
