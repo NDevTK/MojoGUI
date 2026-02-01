@@ -599,7 +599,9 @@
     try {
       if (!trustedPolicy) {
         // Use the safeHTML function for trusted HTML
-        trustedPolicy = global.trustedTypes.createPolicy("mojoGUI");
+        trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
+          createHTML: (input) => input,
+        });
       }
     } catch (e) {
       // Policy might already exist
