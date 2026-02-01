@@ -108,11 +108,69 @@
     }
   }
 
-  // Unified function to add rows to the table
-  function addActivityRow(data) {
-    // Ensure status is initialized
-    if (!data.status) data.status = "Pending";
+  // ========================================
+  // DOM Batcher
+  // ========================================
+  const Batcher = {
+    pendingAdds: [], // Array of data objects
+    pendingUpdates: new Map(), // Map<id, {status, result}>
+    rafId: null,
 
+    schedule() {
+      if (this.rafId) return;
+      this.rafId = requestAnimationFrame(() => this.flush());
+    },
+
+    add(data) {
+      this.pendingAdds.push(data);
+      this.schedule();
+    },
+
+    update(id, status, result) {
+      // 1. Check pending adds first (modify in place before render)
+      const pendingIndex = this.pendingAdds.findIndex((d) => d.id === id);
+      if (pendingIndex !== -1) {
+        const data = this.pendingAdds[pendingIndex];
+        data.status = status;
+        if (result !== undefined) data.result = result;
+      } else {
+        // 2. Schedule DOM update
+        this.pendingUpdates.set(id, { status, result });
+        this.schedule();
+      }
+    },
+
+    flush() {
+      this.rafId = null;
+
+      // 1. Process Adds
+      if (this.pendingAdds.length > 0) {
+        const fragment = document.createDocumentFragment();
+        // Iterate in reverse because we prepend the fragment.
+        // If pendingAdds = [E1, E2]. E1 arrived first.
+        // We want Table: E2, E1, ...
+        // Fragment: E2, E1.
+        // Prepend(Fragment) inserts E2 then E1 at the top.
+        for (let i = this.pendingAdds.length - 1; i >= 0; i--) {
+          const data = this.pendingAdds[i];
+          const row = createRowElement(data);
+          fragment.appendChild(row);
+        }
+        getElements().interceptorTableBody.prepend(fragment);
+        this.pendingAdds = [];
+      }
+
+      // 2. Process Updates
+      if (this.pendingUpdates.size > 0) {
+        this.pendingUpdates.forEach((val, id) => {
+          applyUpdateToDom(id, val.status, val.result);
+        });
+        this.pendingUpdates.clear();
+      }
+    },
+  };
+
+  function createRowElement(data) {
     const {
       id,
       interface: iface,
@@ -123,14 +181,6 @@
       status,
     } = data;
     const rowId = `row_${id}`;
-
-    // Correctly handle duplicates: Update existing row if ID matches
-    // Use getElementById for absolute reliability
-    const existingRow = document.getElementById(rowId);
-    if (existingRow) {
-      updateActivityRow(id, status || "Pending", data.result);
-      return;
-    }
 
     const row = document.createElement("tr");
     row.id = rowId; // Set ID for fast lookup
@@ -214,11 +264,10 @@
       });
     }
 
-    getElements().interceptorTableBody.prepend(row);
+    return row;
   }
 
-  function updateActivityRow(id, status, resultData) {
-    // Use getElementById for consistency with addActivityRow
+  function applyUpdateToDom(id, status, resultData) {
     const row = document.getElementById(`row_${id}`);
     if (row) {
       const statusCell = row.cells[2];
@@ -260,10 +309,37 @@
         }
       }
     } else {
-      console.warn(
-        `[UI] updateActivityRow failed: Row ${id} not found (row_${id}).`,
-      );
+      // It might be in the batcher queue, but this function only touches DOM.
+      // If it's not in DOM and not in pendingAdds (which is checked before calling this in updateActivityRow/Batcher.update), then it's truly lost.
+      // But Batcher.update schedules it.
     }
+  }
+
+  // Unified function to add rows to the table
+  function addActivityRow(data) {
+    // Ensure status is initialized
+    if (!data.status) data.status = "Pending";
+
+    // 1. Check Pending Adds
+    const pendingIndex = Batcher.pendingAdds.findIndex((d) => d.id === data.id);
+    if (pendingIndex !== -1) {
+      Batcher.update(data.id, data.status, data.result);
+      return;
+    }
+
+    // 2. Check DOM
+    const existingRow = document.getElementById(`row_${data.id}`);
+    if (existingRow) {
+      Batcher.update(data.id, data.status, data.result);
+      return;
+    }
+
+    // 3. Add New
+    Batcher.add(data);
+  }
+
+  function updateActivityRow(id, status, resultData) {
+    Batcher.update(id, status, resultData);
   }
 
   function showInterceptDetails(detail) {
