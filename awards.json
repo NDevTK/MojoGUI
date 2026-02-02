@@ -20,8 +20,8 @@
     "reason": "Exposes direct access to USB devices; allows sending raw control/bulk/isochronous transfers via returned UsbDevice interface, risking firmware exploitation."
   },
   {
-    "file": "third_party/blink/public/mojom/ai/ai_manager.mojom",
-    "method": "CreateLanguageModel",
-    "reason": "Exposes complex on-device AI model interaction to renderers; high risk of resource exhaustion and model parsing vulnerabilities in privileged service."
+    "file": "third_party/blink/public/mojom/hid/hid.mojom",
+    "method": "Connect",
+    "reason": "Exposes direct raw byte communication with HID devices; allows sending raw reports via returned HidConnection interface, risking firmware exploitation."
   }
 ]
