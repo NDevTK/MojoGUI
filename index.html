@@ -113,7 +113,11 @@
         <!-- Sidebar - Interface Browser -->
         <aside class="sidebar">
           <!-- Sidebar Tabs -->
-          <div class="sidebar-tabs" role="tablist" aria-label="Sidebar Sections">
+          <div
+            class="sidebar-tabs"
+            role="tablist"
+            aria-label="Sidebar Sections"
+          >
             <button
               class="sidebar-tab active"
               data-tab="interfaces"
@@ -133,6 +137,16 @@
               id="tab-btn-tools"
             >
               Tools
+            </button>
+            <button
+              class="sidebar-tab"
+              data-tab="awards"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-awards"
+              id="tab-btn-awards"
+            >
+              Awards
             </button>
           </div>
 
@@ -191,6 +205,22 @@
               <div class="loading-state">
                 <p>Loading tools...</p>
               </div>
+            </div>
+          </div>
+          <!-- Awards Tab Content -->
+          <div
+            id="tab-awards"
+            class="sidebar-tab-content"
+            style="display: none"
+            role="tabpanel"
+            aria-labelledby="tab-btn-awards"
+          >
+            <div class="sidebar-header">
+              <h2>Security Awards</h2>
+            </div>
+            <div class="loading-state">
+              <div class="spinner"></div>
+              <p>Loading awards...</p>
             </div>
           </div>
         </aside>
@@ -465,5 +495,6 @@
     <script src="js/welcome_manager.js"></script>
     <script src="js/tools_panel.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/awards.js"></script>
   </body>
 </html>

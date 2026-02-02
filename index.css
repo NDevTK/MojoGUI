@@ -554,7 +554,9 @@ body::before {
 
 .interface-item:focus-visible {
   border-color: var(--accent-primary);
-  box-shadow: inset 2px 0 0 0 var(--accent-primary), 0 0 0 1px var(--accent-glow);
+  box-shadow:
+    inset 2px 0 0 0 var(--accent-primary),
+    0 0 0 1px var(--accent-glow);
 }
 
 .interface-item.active {
@@ -2125,4 +2127,60 @@ select option {
 
 .add-item-btn {
   margin-top: var(--space-sm);
+}
+
+/* ========================================
+   Awards Tab
+   ======================================== */
+.awards-list {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.award-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--error);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: all var(--transition-fast);
+}
+
+.award-card:hover {
+  transform: translateX(4px);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-sm);
+}
+
+.award-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.award-method {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.award-file {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  word-break: break-all;
+}
+
+.award-reason {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--border-subtle);
 }
