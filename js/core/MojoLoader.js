@@ -40,6 +40,22 @@
       if (this._indexData) return this._indexData;
       const response = await fetch("bindings/index.json");
       this._indexData = await response.json();
+
+      // Bolt Optimization: Build lookup maps for O(1) access
+      // Reduces loadBinding complexity from O(N) to O(1)
+      this._fileByFilename = new Map();
+      this._fileBySource = new Map();
+
+      if (this._indexData.files) {
+        for (const file of this._indexData.files) {
+          this._fileByFilename.set(file.filename, file);
+          if (file.source) {
+            const normalized = file.source.replace(/\\/g, "/").toLowerCase();
+            this._fileBySource.set(normalized, file);
+          }
+        }
+      }
+
       return this._indexData;
     },
 
@@ -69,18 +85,32 @@
       this._loadedModules[filename] = (async () => {
         // Load index to resolve dependencies
         const data = await this.loadIndex();
-        const fileEntry = data.files.find((f) => f.filename === filename);
+
+        // Optimized lookup using Map
+        const fileEntry = this._fileByFilename
+          ? this._fileByFilename.get(filename)
+          : data.files.find((f) => f.filename === filename);
 
         if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
           const loadPromises = fileEntry.imports.map(async (importPath) => {
-            // Find the file entry that matches this import source
-            const importEntry = data.files.find((f) => {
-              const s1 = f.source.replace(/\\/g, "/").toLowerCase();
-              const s2 = importPath.replace(/\\/g, "/").toLowerCase();
-              return (
-                s1 === s2 || s1.endsWith("/" + s2) || s2.endsWith("/" + s1)
-              );
-            });
+            let importEntry = null;
+            const s2 = importPath.replace(/\\/g, "/").toLowerCase();
+
+            // 1. Fast path: Direct match from Map
+            if (this._fileBySource) {
+              importEntry = this._fileBySource.get(s2);
+            }
+
+            // 2. Slow path: Fuzzy match (if no direct match)
+            if (!importEntry) {
+              importEntry = data.files.find((f) => {
+                const s1 = f.source.replace(/\\/g, "/").toLowerCase();
+                return (
+                  s1 === s2 || s1.endsWith("/" + s2) || s2.endsWith("/" + s1)
+                );
+              });
+            }
+
             if (importEntry) {
               await this.loadBinding(importEntry.filename);
             } else {
