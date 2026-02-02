@@ -23,5 +23,10 @@
     "file": "third_party/blink/public/mojom/hid/hid.mojom",
     "method": "Connect",
     "reason": "Exposes direct raw byte communication with HID devices; allows sending raw reports via returned HidConnection interface, risking firmware exploitation."
+  },
+  {
+    "file": "third_party/blink/public/mojom/direct_sockets/direct_sockets.mojom",
+    "method": "OpenTCPSocket",
+    "reason": "Exposes direct raw TCP/UDP socket creation to renderers; high risk of bypassing network security policies and accessing intranet resources."
   }
 ]
