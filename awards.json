@@ -28,5 +28,10 @@
     "file": "third_party/blink/public/mojom/direct_sockets/direct_sockets.mojom",
     "method": "OpenTCPSocket",
     "reason": "Exposes direct raw TCP/UDP socket creation to renderers; high risk of bypassing network security policies and accessing intranet resources."
+  },
+  {
+    "file": "third_party/blink/public/mojom/clipboard/clipboard.mojom",
+    "method": "ReadUnsanitizedCustomFormat",
+    "reason": "Exposes raw clipboard data reading without sanitization; high risk of data leakage and payload delivery to vulnerable parsers."
   }
 ]
