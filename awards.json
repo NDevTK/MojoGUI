@@ -15,9 +15,9 @@
     "reason": "Exposes direct raw byte communication with Bluetooth devices; high risk of firmware exploitation and Bluetooth stack vulnerabilities."
   },
   {
-    "file": "third_party/blink/public/mojom/direct_sockets/direct_sockets.mojom",
-    "method": "OpenTCPSocket",
-    "reason": "Bypasses standard network stack security checks; allows arbitrary TCP connections."
+    "file": "third_party/blink/public/mojom/usb/web_usb_service.mojom",
+    "method": "GetDevice",
+    "reason": "Exposes direct access to USB devices; allows sending raw control/bulk/isochronous transfers via returned UsbDevice interface, risking firmware exploitation."
   },
   {
     "file": "third_party/blink/public/mojom/ai/ai_manager.mojom",
