@@ -5,9 +5,9 @@
     "reason": "Complex graph parsing and GPU interaction; high risk of memory corruption in GPU process."
   },
   {
-    "file": "third_party/blink/public/mojom/serial/serial.mojom",
-    "method": "OpenPort",
-    "reason": "Exposes direct raw byte communication with serial devices; allows sending raw data via returned SerialPort interface, risking firmware exploitation."
+    "file": "media/mojo/mojom/video_decoder.mojom",
+    "method": "Decode",
+    "reason": "Complex media parsing and GPU interaction; high risk of memory corruption in GPU process due to complex codec implementations and driver interactions."
   },
   {
     "file": "third_party/blink/public/mojom/bluetooth/web_bluetooth.mojom",
