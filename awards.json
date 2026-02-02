@@ -64,5 +64,17 @@
     "method": "SendData",
     "reason": "Allows renderer to send arbitrary MIDI data including SysEx; high risk of device exploitation and bypassing OS MIDI protections.",
     "priority": 8
+  },
+  {
+    "file": "third_party/blink/public/mojom/printing/web_printing.mojom",
+    "method": "Print",
+    "reason": "Exposes privileged printing path and triggers PDF parsing from the renderer; risk of memory exhaustion and parsing vulnerabilities.",
+    "priority": 8
+  },
+  {
+    "file": "services/screen_ai/public/mojom/screen_ai_service.mojom",
+    "method": "IdentifyMainNode",
+    "reason": "Exposes complex accessibility tree parsing to the Screen AI service; high risk of parsing vulnerabilities in the ML service.",
+    "priority": 7
   }
 ]
