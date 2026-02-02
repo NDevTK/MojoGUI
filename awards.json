@@ -10,9 +10,9 @@
     "reason": "Direct access to file system operations; historical source of sandbox escapes."
   },
   {
-    "file": "third_party/blink/public/mojom/clipboard/clipboard.mojom",
-    "method": "WriteUnsanitizedCustomFormat",
-    "reason": "Allows writing raw data to clipboard, bypassing sanitization; high risk of compromised renderer logic."
+    "file": "third_party/blink/public/mojom/bluetooth/web_bluetooth.mojom",
+    "method": "RemoteCharacteristicWriteValue",
+    "reason": "Exposes direct raw byte communication with Bluetooth devices; high risk of firmware exploitation and Bluetooth stack vulnerabilities."
   },
   {
     "file": "third_party/blink/public/mojom/direct_sockets/direct_sockets.mojom",
