@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7662.0';
+        const versionStr = window.mojoVersion || '146.0.7665.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1808,8 +1808,8 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onSubmitFrameTransferred(arg_success) {
-    return this.$.onSubmitFrameTransferred(arg_success);
+  onSubmitFrameTransferred(arg_succeeded, arg_layer_ids) {
+    return this.$.onSubmitFrameTransferred(arg_succeeded, arg_layer_ids);
   }
   onSubmitFrameRendered() {
     return this.$.onSubmitFrameRendered();
@@ -1829,12 +1829,12 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
     ]);
   }
 
-  onSubmitFrameTransferred(arg_success) {
+  onSubmitFrameTransferred(arg_succeeded, arg_layer_ids) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
-      [arg_success],
+      [arg_succeeded, arg_layer_ids],
       false);
   }
 
@@ -1924,7 +1924,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
-          const result = this.impl.onSubmitFrameTransferred(params.arg_success);
+          const result = this.impl.onSubmitFrameTransferred(params.arg_succeeded, params.arg_layer_ids);
           break;
         }
         case 1: {
@@ -3256,9 +3256,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameTransferred_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.LayerIdSpec, false), null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameRendered_Params', [

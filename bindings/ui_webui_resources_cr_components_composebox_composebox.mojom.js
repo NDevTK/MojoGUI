@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7662.0';
+        const versionStr = window.mojoVersion || '146.0.7665.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,10 +140,6 @@ if (mojo.internal.bindings.composebox.mojom.PageHandlerSpec.$.structSpec && mojo
 mojo.internal.bindings.composebox.mojom.PageHandler.$interfaceName = 'composebox.mojom.PageHandler';
 mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$ = {};
-mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$ = {};
-mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$ = {};
 mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec && mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$ = {};
 mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec = mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec || { $: {} };
@@ -338,12 +334,6 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemote = class {
   focusChanged(arg_focused) {
     return this.$.focusChanged(arg_focused);
   }
-  setDeepSearchMode(arg_enabled) {
-    return this.$.setDeepSearchMode(arg_enabled);
-  }
-  setCreateImageMode(arg_enabled, arg_image_present) {
-    return this.$.setCreateImageMode(arg_enabled, arg_image_present);
-  }
   handleLensButtonClick() {
     return this.$.handleLensButtonClick();
   }
@@ -363,8 +353,6 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -377,27 +365,9 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  setDeepSearchMode(arg_enabled) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
-      null,
-      [arg_enabled],
-      false);
-  }
-
-  setCreateImageMode(arg_enabled, arg_image_present) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
-      null,
-      [arg_enabled, arg_image_present],
-      false);
-  }
-
   handleLensButtonClick() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
       [],
@@ -406,7 +376,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
 
   handleFileUpload(arg_is_image) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
       [arg_is_image],
@@ -415,7 +385,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
 
   navigateUrl(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
       [arg_url],
@@ -440,8 +410,6 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('composebox.mojom.PageHandler', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -498,33 +466,19 @@ mojo.internal.bindings.composebox.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setDeepSearchMode');
-          const result = this.impl.setDeepSearchMode(params.arg_enabled);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCreateImageMode');
-          const result = this.impl.setCreateImageMode(params.arg_enabled, params.arg_image_present);
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleLensButtonClick');
           const result = this.impl.handleLensButtonClick();
           break;
         }
-        case 4: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleFileUpload');
           const result = this.impl.handleFileUpload(params.arg_is_image);
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigateUrl');
@@ -672,19 +626,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec, 'composebox.mojom.PageHandler_FocusChanged_Params', [
       mojo.internal.StructField('arg_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec, 'composebox.mojom.PageHandler_SetDeepSearchMode_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec, 'composebox.mojom.PageHandler_SetCreateImageMode_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_present', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

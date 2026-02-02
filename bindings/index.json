@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-01T10:17:51.785953Z",
-  "version": "146.0.7662.0",
+  "generated_at": "2026-02-02T10:36:05.213840Z",
+  "version": "146.0.7665.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -45294,8 +45294,6 @@
       "file": "ui_webui_resources_cr_components_composebox_composebox.mojom.js",
       "methods": [
         "FocusChanged",
-        "SetDeepSearchMode",
-        "SetCreateImageMode",
         "HandleLensButtonClick",
         "HandleFileUpload",
         "NavigateUrl"
