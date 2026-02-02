@@ -20,8 +20,8 @@
     "reason": "Bypasses standard network stack security checks; allows arbitrary TCP connections."
   },
   {
-    "file": "third_party/blink/public/mojom/blob/blob_url_store.mojom",
-    "method": "Register",
-    "reason": "Controls Blob URL creation; critical for preventing XSS and spoofing attacks."
+    "file": "third_party/blink/public/mojom/ai/ai_manager.mojom",
+    "method": "CreateLanguageModel",
+    "reason": "Exposes complex on-device AI model interaction to renderers; high risk of resource exhaustion and model parsing vulnerabilities in privileged service."
   }
 ]
