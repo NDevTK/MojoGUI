@@ -40,5 +40,29 @@
     "method": "Register",
     "reason": "Allows renderer to register Blob URLs; potential for URL spoofing and XSS if renderer can control the URL.",
     "priority": 6
+  },
+  {
+    "file": "services/device/public/mojom/usb_device.mojom",
+    "method": "ControlTransferOut",
+    "reason": "Allows renderer to send arbitrary USB control requests; high risk of device firmware exploitation.",
+    "priority": 8
+  },
+  {
+    "file": "services/device/public/mojom/hid.mojom",
+    "method": "Write",
+    "reason": "Allows renderer to send arbitrary HID reports; high risk of device firmware exploitation.",
+    "priority": 8
+  },
+  {
+    "file": "services/device/public/mojom/serial.mojom",
+    "method": "StartWriting",
+    "reason": "Allows renderer to write arbitrary data to serial ports; high risk of interaction with attached hardware.",
+    "priority": 8
+  },
+  {
+    "file": "media/midi/midi_service.mojom",
+    "method": "SendData",
+    "reason": "Allows renderer to send arbitrary MIDI data including SysEx; high risk of device exploitation and bypassing OS MIDI protections.",
+    "priority": 8
   }
 ]
