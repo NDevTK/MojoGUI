@@ -24,6 +24,18 @@
     }
   }
 
+  function getPriorityLabel(priority) {
+    if (priority >= 9) return "Critical";
+    if (priority >= 7) return "High";
+    return "Medium";
+  }
+
+  function getPriorityClass(priority) {
+    if (priority >= 9) return "priority-critical";
+    if (priority >= 7) return "priority-high";
+    return "priority-medium";
+  }
+
   function renderAwards(awards) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -35,6 +47,9 @@
       return;
     }
 
+    // Sort by priority (descending)
+    awards.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+
     let html = '<div class="awards-list">';
 
     awards.forEach((award) => {
@@ -42,11 +57,17 @@
       const file = MojoUtils.escapeHtml(award.file);
       const method = MojoUtils.escapeHtml(award.method);
       const reason = MojoUtils.escapeHtml(award.reason);
+      const priorityVal = award.priority || 0;
+      const priorityLabel = getPriorityLabel(priorityVal);
+      const priorityClass = getPriorityClass(priorityVal);
 
       html += `
-          <div class="award-card">
+          <div class="award-card ${priorityClass}">
             <div class="award-header">
-              <div class="award-method">${method}</div>
+              <div class="award-top-row">
+                  <div class="award-method">${method}</div>
+                  <span class="priority-badge ${priorityClass}">${priorityLabel}</span>
+              </div>
               <div class="award-file">${file}</div>
             </div>
             <div class="award-reason">${reason}</div>

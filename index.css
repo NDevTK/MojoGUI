@@ -2162,8 +2162,53 @@ select option {
 .award-header {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
+
+.award-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priority-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.priority-badge.priority-critical {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.priority-badge.priority-high {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.priority-badge.priority-medium {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Card border accents */
+.award-card.priority-critical {
+    border-left-color: #ef4444;
+}
+.award-card.priority-high {
+    border-left-color: #f59e0b;
+}
+.award-card.priority-medium {
+    border-left-color: #3b82f6;
+}
+
 
 .award-method {
   font-family: var(--font-mono);
