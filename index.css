@@ -2137,6 +2137,8 @@ select option {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  flex: 1;
+  overflow-y: auto;
 }
 
 .award-card {
