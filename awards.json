@@ -76,5 +76,17 @@
     "method": "IdentifyMainNode",
     "reason": "Exposes complex accessibility tree parsing to the Screen AI service; high risk of parsing vulnerabilities in the ML service.",
     "priority": 7
+  },
+  {
+    "file": "third_party/blink/public/mojom/clipboard/clipboard.mojom",
+    "method": "WriteUnsanitizedCustomFormat",
+    "reason": "Allows renderer to write arbitrary data with arbitrary format names to the system clipboard; high risk of exploiting vulnerabilities in native applications that read the clipboard.",
+    "priority": 8
+  },
+  {
+    "file": "third_party/blink/public/mojom/mediastream/media_stream.mojom",
+    "method": "SendWheel",
+    "reason": "Part of Captured Surface Control; allows a renderer to send wheel events to a captured tab, potentially interacting with privileged or cross-origin content.",
+    "priority": 8
   }
 ]
