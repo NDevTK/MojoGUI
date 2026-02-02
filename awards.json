@@ -2,26 +2,43 @@
   {
     "file": "services/webnn/public/mojom/webnn_context_provider.mojom",
     "method": "CreateWebNNContext",
-    "reason": "Complex graph parsing and GPU interaction; high risk of memory corruption in GPU process."
+    "reason": "Complex graph parsing and GPU interaction; high risk of memory corruption in GPU process.",
+    "priority": 8
   },
   {
     "file": "third_party/blink/public/mojom/file_system_access/file_system_access_manager.mojom",
     "method": "GetSandboxedFileSystem",
-    "reason": "Direct access to file system operations; historical source of sandbox escapes."
+    "reason": "Direct access to file system operations; historical source of sandbox escapes.",
+    "priority": 8
   },
   {
     "file": "third_party/blink/public/mojom/bluetooth/web_bluetooth.mojom",
     "method": "RemoteCharacteristicWriteValue",
-    "reason": "Exposes direct raw byte communication with Bluetooth devices; high risk of firmware exploitation and Bluetooth stack vulnerabilities."
+    "reason": "Exposes direct raw byte communication with Bluetooth devices; high risk of firmware exploitation and Bluetooth stack vulnerabilities.",
+    "priority": 8
   },
   {
     "file": "third_party/blink/public/mojom/direct_sockets/direct_sockets.mojom",
     "method": "OpenTCPSocket",
-    "reason": "Bypasses standard network stack security checks; allows arbitrary TCP connections."
+    "reason": "Bypasses standard network stack security checks; allows arbitrary TCP connections.",
+    "priority": 9
   },
   {
     "file": "third_party/blink/public/mojom/ai/ai_manager.mojom",
     "method": "CreateLanguageModel",
-    "reason": "Exposes complex on-device AI model interaction to renderers; high risk of resource exhaustion and model parsing vulnerabilities in privileged service."
+    "reason": "Exposes complex on-device AI model interaction to renderers; high risk of resource exhaustion and model parsing vulnerabilities in privileged service.",
+    "priority": 9
+  },
+  {
+    "file": "third_party/blink/public/mojom/webshare/webshare.mojom",
+    "method": "Share",
+    "reason": "Interacts with OS share sheet and handles file attachments; high risk of file handling vulnerabilities and interaction with external apps.",
+    "priority": 7
+  },
+  {
+    "file": "third_party/blink/public/mojom/blob/blob_url_store.mojom",
+    "method": "Register",
+    "reason": "Allows renderer to register Blob URLs; potential for URL spoofing and XSS if renderer can control the URL.",
+    "priority": 6
   }
 ]
