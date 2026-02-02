@@ -43,5 +43,10 @@
     "file": "media/midi/midi_service.mojom",
     "method": "SendData",
     "reason": "Exposes direct raw byte communication with MIDI devices; allows sending raw sysex messages, risking firmware exploitation."
+  },
+  {
+    "file": "services/shape_detection/public/mojom/barcodedetection.mojom",
+    "method": "Detect",
+    "reason": "Exposes direct raw image processing (Barcode decoding) to renderers; high risk of memory corruption in ShapeDetection service."
   }
 ]
