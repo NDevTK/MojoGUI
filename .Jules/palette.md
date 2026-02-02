@@ -1,3 +1,7 @@
 ## 2025-02-01 - Div-based Interactive Lists
 **Learning:** The app relies on `div` elements for interactive lists (Interfaces, Methods) which lack native keyboard accessibility.
 **Action:** When touching list components, ensure `role="button"`, `tabindex="0"`, and `keydown` handlers (Enter/Space) are explicitly added to restore accessibility. Use `:focus-visible` to provide clear indicators matching the theme.
+
+## 2025-05-23 - Global Keyboard Shortcuts
+**Learning:** Adding global shortcuts (like `/` for search) dramatically improves developer efficiency but must be implemented carefully to avoid hijacking normal typing.
+**Action:** Always wrap global `keydown` handlers with a check for `document.activeElement.tagName` to ensure the user is not typing in an `INPUT`, `TEXTAREA`, or `SELECT` field before triggering the shortcut.
