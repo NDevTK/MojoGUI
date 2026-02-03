@@ -88,5 +88,17 @@
     "method": "SendWheel",
     "reason": "Part of Captured Surface Control; allows a renderer to send wheel events to a captured tab, potentially interacting with privileged or cross-origin content.",
     "priority": 8
+  },
+  {
+    "file": "third_party/blink/public/mojom/loader/code_cache.mojom",
+    "method": "DidGenerateCacheableMetadata",
+    "reason": "Vulnerable to cross-site cache poisoning in unlocked process models and exposes deserialization attack surface.",
+    "priority": 7
+  },
+  {
+    "file": "media/mojo/mojom/speech_recognizer.mojom",
+    "method": "Start",
+    "reason": "Exposes complex audio parsing and processing in the browser to untrusted renderer content.",
+    "priority": 7
   }
 ]
