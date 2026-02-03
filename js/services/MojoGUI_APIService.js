@@ -207,21 +207,44 @@
         return null;
       };
 
-      // Try to find the struct spec in loaded bindings
+      // Try to find the struct spec in mojo.internal.bindings namespace
+      // This is where MojoJS actually stores generated struct specs
       const parts = structName.split(".");
-      let moduleNS = window;
+      const typeName = parts[parts.length - 1];
+      const specName = typeName + "Spec";
 
-      // Navigate to the module namespace (e.g., blink.mojom)
+      // First try: mojo.internal.bindings namespace (primary location)
+      let moduleNS = mojo?.internal?.bindings;
+      for (const part of parts.slice(0, -1)) {
+        if (moduleNS && moduleNS[part]) {
+          moduleNS = moduleNS[part];
+        }
+      }
+
+      if (moduleNS && moduleNS[specName] && moduleNS[specName].$) {
+        const spec = moduleNS[specName].$;
+        if (spec.structSpec && spec.structSpec.fields) {
+          const result = {};
+          for (const field of spec.structSpec.fields) {
+            result[field.name] = generateDefault(field, 0);
+          }
+          return {
+            success: true,
+            structName: structName,
+            struct: result,
+            note: "Generated minimal valid struct. Handle placeholders may need to be replaced.",
+          };
+        }
+      }
+
+      // Fallback: Try window namespace
+      moduleNS = window;
       for (const part of parts.slice(0, -1)) {
         if (moduleNS[part]) {
           moduleNS = moduleNS[part];
         }
       }
 
-      const typeName = parts[parts.length - 1];
-
-      // Check if we can find the struct's Spec
-      const specName = typeName + "Spec";
       if (moduleNS[specName] && moduleNS[specName].$) {
         const spec = moduleNS[specName].$;
         if (spec.structSpec && spec.structSpec.fields) {
