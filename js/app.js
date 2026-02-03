@@ -802,7 +802,7 @@
                             This interface cannot be bound directly from the browser process. It must be retrieved via a parent interface.
                         </div>
                         <div style="margin-top: 8px; font-size: 0.85em;">
-                            Derived from: <code style="background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">${parentInfo}</code>
+                            Derived from: <code style="background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">${escapeHtml(parentInfo)}</code>
                         </div>
                     </div>
                   `;
