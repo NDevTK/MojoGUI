@@ -219,6 +219,18 @@
   // Event Listeners
   // ========================================
   function setupEventListeners() {
+    // Global Keyboard Shortcuts
+    document.addEventListener("keydown", (e) => {
+      // Focus Search (/)
+      if (
+        e.key === "/" &&
+        !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)
+      ) {
+        e.preventDefault();
+        elements.interfaceSearch.focus();
+      }
+    });
+
     // Search
     elements.interfaceSearch.addEventListener(
       "input",
