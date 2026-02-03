@@ -379,6 +379,38 @@
       return original;
     }
 
+    // 3. Resolve Handle ID References ($handleId)
+    // This allows passing { $handleId: 1234 } to reference a handle in the registry
+    if (
+      handleData &&
+      typeof handleData === "object" &&
+      handleData.$handleId !== undefined
+    ) {
+      const hId = handleData.$handleId;
+      const realHandle = MojoHandleRegistry.get(hId);
+      if (realHandle) {
+        console.log(`[MojoUtils] Resolved $handleId ${hId} to handle`);
+        // If interface type is specified, try to get proper Remote class
+        if (handleData.$interface) {
+          try {
+            const fqn = handleData.$interface;
+            const comps = window.MojoProxy?.getInterfaceComponents(fqn);
+            if (comps && comps.Remote) {
+              const remote = new comps.Remote(realHandle);
+              console.log(`[MojoUtils] Wrapped handle in ${fqn} Remote`);
+              return remote;
+            }
+          } catch (e) {
+            console.warn(`[MojoUtils] Failed to wrap as interface Remote:`, e);
+          }
+        }
+        // Fallback to decorated handle
+        return decorateHandle(realHandle, false, handleData.$interface || null);
+      }
+      console.warn(`[MojoUtils] Handle ID ${hId} not found in registry`);
+      return null;
+    }
+
     if (edited === null || typeof edited !== "object") return edited;
 
     // Detect if it's already a Mojo handle or remote/receiver to avoid corrupting it

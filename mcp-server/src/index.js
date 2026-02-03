@@ -351,7 +351,11 @@ server.tool(
                 Mojo.bindInterface(name, rawHandle);
                 
                 const id = window.MojoObjectRegistry.register(remote, name);
-                return { objectId: id, type: name, status: "Success" };
+                // Auto-pin to prevent garbage collection during research session
+                if (window.MojoObjectRegistry.pin) {
+                    window.MojoObjectRegistry.pin(id);
+                }
+                return { objectId: id, type: name, status: "Success", pinned: true };
             })()
         `;
     const result = await executeInMojoGUI(code, 0, {
@@ -673,6 +677,38 @@ server.tool(
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return await api.bindMockListener(${JSON.stringify(iface)});
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "generate_default_struct",
+  "Generate a minimal valid Mojo struct with default values. Useful for testing methods that require complex nested structs.",
+  {
+    structName: z
+      .string()
+      .describe(
+        'Fully qualified struct name (e.g., "blink.mojom.FetchClientSettingsObject")',
+      ),
+    interfaceName: z
+      .string()
+      .optional()
+      .describe("Optional: Interface name to ensure binding is loaded first"),
+  },
+  async ({ structName, interfaceName }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                
+                ${interfaceName ? `await window.MojoLoader.ensureBinding(${JSON.stringify(interfaceName)});` : ""}
+                
+                return await api.generateDefaultStruct(${JSON.stringify(structName)});
             })()
         `;
     const result = await executeInMojoGUI(code);
@@ -1112,6 +1148,65 @@ server.tool(
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return api.listObjects();
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "pin_object",
+  "Pin or unpin a registered object to prevent garbage collection. Useful for keeping objects alive during long research sessions.",
+  {
+    id: z.string().describe("The object ID to pin/unpin (e.g., 'obj_1')"),
+    action: z
+      .enum(["pin", "unpin", "status"])
+      .optional()
+      .default("pin")
+      .describe("Action to perform: pin, unpin, or check status"),
+  },
+  async ({ id, action = "pin" }) => {
+    const code = `
+            (async () => {
+                const registry = window.MojoObjectRegistry;
+                if (!registry) throw new Error('MojoObjectRegistry not available');
+                
+                const action = ${JSON.stringify(action)};
+                const id = ${JSON.stringify(id)};
+                
+                if (action === 'status') {
+                    return {
+                        id: id,
+                        exists: !!registry.get(id),
+                        pinned: registry.isPinned(id),
+                        allPinned: registry.listPinned()
+                    };
+                }
+                
+                if (action === 'pin') {
+                    const success = registry.pin(id);
+                    return {
+                        success: success,
+                        id: id,
+                        action: 'pin',
+                        message: success ? 'Object pinned successfully' : 'Failed to pin (object not found)'
+                    };
+                }
+                
+                if (action === 'unpin') {
+                    const success = registry.unpin(id);
+                    return {
+                        success: success,
+                        id: id,
+                        action: 'unpin',
+                        message: success ? 'Object unpinned successfully' : 'Object was not pinned'
+                    };
+                }
+                
+                return { error: 'Unknown action' };
             })()
         `;
     const result = await executeInMojoGUI(code);

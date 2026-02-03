@@ -6,6 +6,7 @@
   "use strict";
 
   const objects = new Map(); // Map<string, { remote: Object, type: String }>
+  const pinnedObjects = new Set(); // Set of pinned object IDs that should not be garbage collected
   let nextId = 1;
   let onupdate = null;
 
@@ -39,6 +40,52 @@
      */
     list() {
       return Array.from(objects.keys());
+    },
+
+    /**
+     * Pin an object to prevent it from being garbage collected.
+     * Pinned objects are kept alive until explicitly unpinned.
+     * @param {string} id - The object ID to pin
+     * @returns {boolean} True if successfully pinned
+     */
+    pin(id) {
+      if (!objects.has(id)) {
+        console.warn(`[MojoObjectRegistry] Cannot pin ${id}: not found`);
+        return false;
+      }
+      pinnedObjects.add(id);
+      console.log(`[MojoObjectRegistry] Pinned ${id}`);
+      return true;
+    },
+
+    /**
+     * Unpin a previously pinned object.
+     * @param {string} id - The object ID to unpin
+     * @returns {boolean} True if successfully unpinned
+     */
+    unpin(id) {
+      const result = pinnedObjects.delete(id);
+      if (result) {
+        console.log(`[MojoObjectRegistry] Unpinned ${id}`);
+      }
+      return result;
+    },
+
+    /**
+     * Check if an object is pinned.
+     * @param {string} id - The object ID to check
+     * @returns {boolean} True if pinned
+     */
+    isPinned(id) {
+      return pinnedObjects.has(id);
+    },
+
+    /**
+     * List all pinned object IDs.
+     * @returns {Array<string>}
+     */
+    listPinned() {
+      return Array.from(pinnedObjects);
     },
 
     /**
@@ -81,7 +128,12 @@
         (value.$ && value.proxy) ||
         (value.bindNewPipeAndPassReceiver &&
           typeof value.bindNewPipeAndPassReceiver === "function");
-      const isEndpoint = !!(value.router_ || value.router || value.endpoint_ || value.endpoint);
+      const isEndpoint = !!(
+        value.router_ ||
+        value.router ||
+        value.endpoint_ ||
+        value.endpoint
+      );
 
       if (isProxy || isRemote || isEndpoint) {
         let typeName = isProxy
@@ -121,7 +173,10 @@
                 // Wrap securely - MojoProxy constructor now handles Remote instances and Endpoints!
                 value = new global.MojoProxy(typeName, value, comps);
               } catch (e) {
-                console.warn(`[ObjectRegistry] Failed to wrap ${typeName} in MojoProxy:`, e);
+                console.warn(
+                  `[ObjectRegistry] Failed to wrap ${typeName} in MojoProxy:`,
+                  e,
+                );
               }
             }
           }
@@ -133,8 +188,13 @@
 
       // Do not recurse into Mojo internals (like Routers) that aren't Endpoints/Remotes
       // We return the value as-is to avoid breaking Mojo's internal state
-      if (value.connector_ || value.messageReceiver_ || value.handle_ || value.pipe_) {
-          return value;
+      if (
+        value.connector_ ||
+        value.messageReceiver_ ||
+        value.handle_ ||
+        value.pipe_
+      ) {
+        return value;
       }
 
       // Detect if it's a raw handle (MojoHandle) and we have a specific interface name
@@ -166,7 +226,10 @@
                 // Registering is handled by MojoProxy constructor, but we return the ref
                 return { $ref: proxy.id, type: typeNameSuggestion };
               } catch (e) {
-                console.warn(`[ObjectRegistry] Failed to wrap handle in MojoProxy for ${typeNameSuggestion}:`, e);
+                console.warn(
+                  `[ObjectRegistry] Failed to wrap handle in MojoProxy for ${typeNameSuggestion}:`,
+                  e,
+                );
               }
             }
           }

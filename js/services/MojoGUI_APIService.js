@@ -97,6 +97,171 @@
       getInternal().getMethodParams?.(iface, method),
     findMethodDefinition: (iface, method) =>
       getInternal().findMethodDefinition?.(iface, method),
+    /**
+     * Generate a minimal valid struct based on a struct specification.
+     * @param {string} structName - Fully qualified struct name (e.g., "blink.mojom.FetchClientSettingsObject")
+     * @returns {Object} A minimal valid struct with default values
+     */
+    generateDefaultStruct: async (structName) => {
+      // Helper to generate defaults for a field based on its type
+      const generateDefault = (field, depth = 0) => {
+        if (depth > 10) return null; // Prevent infinite recursion
+
+        const type = field.type;
+        const rawType = field.rawType?.$ || field.rawType;
+
+        // Use defaultValue if available
+        if (field.defaultValue !== null && field.defaultValue !== undefined) {
+          return field.defaultValue;
+        }
+
+        // Handle by type
+        if (
+          type === "string" ||
+          (rawType && rawType.isValueType === false && !rawType.structSpec)
+        ) {
+          return "";
+        }
+        if (type === "bool" || type === "boolean") {
+          return false;
+        }
+        if (
+          type === "number" ||
+          type === "int32" ||
+          type === "uint32" ||
+          type === "int64" ||
+          type === "uint64" ||
+          type === "float" ||
+          type === "double"
+        ) {
+          return 0;
+        }
+        if (type && type.type === "enum") {
+          // Return first enum value (usually 0)
+          const options = type.options;
+          if (options) {
+            const keys = Object.keys(options);
+            if (keys.length > 0) return options[keys[0]];
+          }
+          return 0;
+        }
+        if (type === "array") {
+          return []; // Empty array is usually valid
+        }
+        if (type === "map") {
+          return {}; // Empty map
+        }
+        if (type === "pending_remote" || type === "pending_receiver") {
+          // Return a placeholder that indicates a handle is needed
+          if (field.nullable) return null;
+          return {
+            __mojoType: "Handle",
+            action: "new_pipe",
+            interface: field.interface || "unknown",
+          };
+        }
+        if (
+          type === "pending_associated_remote" ||
+          type === "pending_associated_receiver"
+        ) {
+          if (field.nullable) return null;
+          return {
+            __mojoType: "Handle",
+            action: "new_pipe",
+            isAssociated: true,
+            interface: field.interface || "unknown",
+          };
+        }
+        if (type === "struct" && rawType?.structSpec) {
+          // Recursively generate nested struct
+          const nested = {};
+          const spec = rawType.structSpec;
+          if (spec.fields) {
+            for (const subField of spec.fields) {
+              nested[subField.name] = generateDefault(subField, depth + 1);
+            }
+          }
+          return nested;
+        }
+        if (type === "union" && rawType?.unionSpec) {
+          // For unions, generate the first variant
+          const spec = rawType.unionSpec;
+          const fields = spec.fields;
+          if (fields) {
+            const keys = Object.keys(fields);
+            if (keys.length > 0) {
+              const firstKey = keys[0];
+              return {
+                [firstKey]: generateDefault(
+                  { type: "any", rawType: fields[firstKey].type },
+                  depth + 1,
+                ),
+              };
+            }
+          }
+          return {};
+        }
+
+        // Default fallback
+        if (field.nullable) return null;
+        return null;
+      };
+
+      // Try to find the struct spec in loaded bindings
+      const parts = structName.split(".");
+      let moduleNS = window;
+
+      // Navigate to the module namespace (e.g., blink.mojom)
+      for (const part of parts.slice(0, -1)) {
+        if (moduleNS[part]) {
+          moduleNS = moduleNS[part];
+        }
+      }
+
+      const typeName = parts[parts.length - 1];
+
+      // Check if we can find the struct's Spec
+      const specName = typeName + "Spec";
+      if (moduleNS[specName] && moduleNS[specName].$) {
+        const spec = moduleNS[specName].$;
+        if (spec.structSpec && spec.structSpec.fields) {
+          const result = {};
+          for (const field of spec.structSpec.fields) {
+            result[field.name] = generateDefault(field, 0);
+          }
+          return {
+            success: true,
+            structName: structName,
+            struct: result,
+            note: "Generated minimal valid struct. Handle placeholders may need to be replaced.",
+          };
+        }
+      }
+
+      // Fallback: Try to find via reflection service
+      const reflection = window.MojoReflectionService;
+      if (reflection && reflection.resolveType) {
+        const typeInfo = reflection.resolveType(structName);
+        if (typeInfo && typeInfo.structSpec) {
+          const result = {};
+          for (const field of typeInfo.structSpec.fields) {
+            result[field.name] = generateDefault(field, 0);
+          }
+          return {
+            success: true,
+            structName: structName,
+            struct: result,
+            note: "Generated via reflection. Handle placeholders may need to be replaced.",
+          };
+        }
+      }
+
+      return {
+        success: false,
+        error: `Struct '${structName}' not found or spec not available. Try loading the interface binding first.`,
+        suggestion: "Use get_interface_details first to load the binding.",
+      };
+    },
     // ---- Code Generation ----
     /**
      * Generate MojoJS code for calling a method
