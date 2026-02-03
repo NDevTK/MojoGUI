@@ -56,7 +56,7 @@ const WelcomeManager = (function () {
             </div>
              <div style="flex: 1; text-align: center; padding: 12px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
                 <div style="font-size: 1.8em; font-weight: bold; color: #4caf50;">${directCount}</div>
-                <div style="font-size: 0.8em; opacity: 0.7; color: #4caf50;">✓ Direct (Safe)</div>
+                <div style="font-size: 0.8em; opacity: 0.7; color: #4caf50;">✓ Direct</div>
             </div>
              <div style="flex: 1; text-align: center; padding: 12px; background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 8px;">
                 <div style="font-size: 1.8em; font-weight: bold; color: #ff9800;">${associatedCount}</div>
