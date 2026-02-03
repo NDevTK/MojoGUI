@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -224,6 +224,8 @@ mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec = mo
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$ = {};
@@ -917,12 +919,16 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   hideErrorPage() {
     return this.$.hideErrorPage();
   }
+  showOauthErrorDialog() {
+    return this.$.showOauthErrorDialog();
+  }
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1066,6 +1072,15 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  showOauthErrorDialog() {
+    return this.proxy.sendMessage(
+      this.ordinals[14],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.Page.getRemote = function() {
@@ -1084,6 +1099,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1237,6 +1253,13 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideErrorPage');
           const result = this.impl.hideErrorPage();
+          break;
+        }
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showOauthErrorDialog');
+          const result = this.impl.showOauthErrorDialog();
           break;
         }
       }
@@ -1661,6 +1684,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec, 'contextual_tasks.mojom.Page_HideErrorPage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec, 'contextual_tasks.mojom.Page_ShowOauthErrorDialog_Params', [
     ],
     [[0, 8]]);
 

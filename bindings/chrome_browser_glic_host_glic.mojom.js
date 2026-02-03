@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -798,8 +798,9 @@ mojo.internal.bindings.glic.mojom.ActuationEligibility = {
   kEligible: 0,
   kMissingAccountCapability: 1,
   kMissingChromeBenefits: 2,
-  kManagedOrDataProtected: 3,
-  kPlatformUnsupported: 4,
+  kDisabledByPolicy: 3,
+  kEnterpriseWithoutManagement: 4,
+  kPlatformUnsupported: 5,
 };
 
 // Enum: ProfileReadyState

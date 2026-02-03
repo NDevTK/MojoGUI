@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -323,6 +323,7 @@ mojo.internal.bindings.actor.mojom.ActionResultCode = {
   kScriptToolInvocationFailed: 1203,
   kScriptToolCrossOriginNavigation: 1204,
   kScriptToolMissingRequiredSubmitButton: 1205,
+  kScriptToolCancelled: 1206,
   kActorUiError: 1300,
 };
 

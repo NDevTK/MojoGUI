@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -311,6 +311,7 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 mojo.internal.bindings.searchbox.mojom.ToolMode = {
   kDefault: 0,
   kDeepSearch: 1,
+  kCanvas: 2,
   kCreateImage: 4,
 };
 

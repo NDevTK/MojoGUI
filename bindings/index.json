@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-02T10:36:05.213840Z",
-  "version": "146.0.7665.0",
+  "generated_at": "2026-02-03T10:31:55.667754Z",
+  "version": "146.0.7667.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3246,7 +3246,8 @@
         "OnAiPageStatusChanged",
         "OnLensOverlayStateChanged",
         "ShowErrorPage",
-        "HideErrorPage"
+        "HideErrorPage",
+        "ShowOauthErrorDialog"
       ],
       "metadata": {
         "usage": {
@@ -8541,8 +8542,10 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "SubmitSkill",
+        "RefineSkill",
         "CloseDialog",
-        "ShowEmojiPicker"
+        "ShowEmojiPicker",
+        "GetInitialSkill"
       ],
       "metadata": {
         "usage": {
@@ -49848,7 +49851,6 @@
         "chromeos/crosapi/mojom/cros_display_config.mojom",
         "chromeos/crosapi/mojom/diagnostics_service.mojom",
         "chromeos/crosapi/mojom/document_scan.mojom",
-        "chromeos/crosapi/mojom/keystore_service.mojom",
         "chromeos/crosapi/mojom/local_printer.mojom",
         "chromeos/crosapi/mojom/print_preview_cros.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
@@ -49877,20 +49879,6 @@
       "source": "chromeos/crosapi/mojom/document_scan.mojom",
       "module": "crosapi.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_keystore_error.mojom.js",
-      "source": "chromeos/crosapi/mojom/keystore_error.mojom",
-      "module": "crosapi.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_keystore_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/keystore_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/keystore_error.mojom"
-      ]
     },
     {
       "filename": "chromeos_crosapi_mojom_launcher_search.mojom.js",

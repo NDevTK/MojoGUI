@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -609,8 +609,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
-              const resp_obj = { 'arg_success': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -627,8 +626,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
-              const resp_obj = { 'arg_success': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -763,9 +761,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec, 'blink.mojom.StorageArea_Delete_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec, 'blink.mojom.StorageArea_DeleteAll_Params', [
@@ -776,9 +773,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec, 'blink.mojom.StorageArea_DeleteAll_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec, 'blink.mojom.StorageArea_Get_Params', [

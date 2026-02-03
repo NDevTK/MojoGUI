@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -153,10 +153,18 @@ if (mojo.internal.bindings.skills.mojom.DialogHandlerSpec.$.structSpec && mojo.i
 mojo.internal.bindings.skills.mojom.DialogHandler.$interfaceName = 'skills.mojom.DialogHandler';
 mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec = mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
@@ -628,11 +636,17 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemote = class {
   submitSkill(arg_skill) {
     return this.$.submitSkill(arg_skill);
   }
+  refineSkill(arg_skill) {
+    return this.$.refineSkill(arg_skill);
+  }
   closeDialog() {
     return this.$.closeDialog();
   }
   showEmojiPicker() {
     return this.$.showEmojiPicker();
+  }
+  getInitialSkill() {
+    return this.$.getInitialSkill();
   }
 };
 
@@ -640,6 +654,8 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('skills.mojom.DialogHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -655,9 +671,18 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemoteCallHandler = class {
       false);
   }
 
-  closeDialog() {
+  refineSkill(arg_skill) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec,
+      mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec,
+      [arg_skill],
+      false);
+  }
+
+  closeDialog() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec,
       null,
       [],
@@ -666,9 +691,18 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemoteCallHandler = class {
 
   showEmojiPicker() {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec,
       null,
+      [],
+      false);
+  }
+
+  getInitialSkill() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec,
+      mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec,
       [],
       false);
   }
@@ -691,6 +725,8 @@ mojo.internal.bindings.skills.mojom.DialogHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('skills.mojom.DialogHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -746,16 +782,52 @@ mojo.internal.bindings.skills.mojom.DialogHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.refineSkill');
+          const result = this.impl.refineSkill(params.arg_skill);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_refined_skill' in response) ? response['arg_refined_skill'] : response;
+              const resp_obj = { 'arg_refined_skill': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] refineSkill FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDialog');
           const result = this.impl.closeDialog();
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showEmojiPicker');
           const result = this.impl.showEmojiPicker();
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getInitialSkill');
+          const result = this.impl.getInitialSkill();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_skill' in response) ? response['arg_skill'] : response;
+              const resp_obj = { 'arg_skill': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getInitialSkill FAILED:', e));
+          }
           break;
         }
       }
@@ -806,6 +878,18 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ParamsSpec, 'skills.mojom.DialogHandler_RefineSkill_Params', [
+      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.skills.mojom.SkillSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.DialogHandler_RefineSkill_ResponseParamsSpec, 'skills.mojom.DialogHandler_RefineSkill_ResponseParams', [
+      mojo.internal.StructField('arg_refined_skill', 0, 0, mojo.internal.bindings.skills.mojom.SkillSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.DialogHandler_CloseDialog_ParamsSpec, 'skills.mojom.DialogHandler_CloseDialog_Params', [
     ],
     [[0, 8]]);
@@ -814,4 +898,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.DialogHandler_ShowEmojiPicker_ParamsSpec, 'skills.mojom.DialogHandler_ShowEmojiPicker_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ParamsSpec, 'skills.mojom.DialogHandler_GetInitialSkill_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.DialogHandler_GetInitialSkill_ResponseParamsSpec, 'skills.mojom.DialogHandler_GetInitialSkill_ResponseParams', [
+      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.skills.mojom.SkillSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

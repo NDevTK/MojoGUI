@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7665.0';
+        const versionStr = window.mojoVersion || '146.0.7667.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec = mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.LocalNetworkAccessRequestPolicySpec = mojo.internal.bindings.network.mojom.LocalNetworkAccessRequestPolicySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ClientSecurityStateSpec = mojo.internal.bindings.network.mojom.ClientSecurityStateSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.ClientSecurityStateSpec.$.structSpec && mojo.internal.bindings.network.mojom.ClientSecurityStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ClientSecurityStateSpec.$ = {};
 
@@ -141,8 +141,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPAddressSpaceSpec = mojo.internal.bindings.network.mojom.IPAddressSpaceSpec || { $: mojo.internal.Enum().$ };
 
-// Enum: PrivateNetworkRequestPolicy
-mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicy = {
+// Enum: LocalNetworkAccessRequestPolicy
+mojo.internal.bindings.network.mojom.LocalNetworkAccessRequestPolicy = {
   kAllow: 0,
   kWarn: 1,
   kBlock: 2,
@@ -158,7 +158,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_web_secure_context', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_ip_address_space', 12, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_private_network_request_policy', 16, 0, mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_network_access_request_policy', 16, 0, mojo.internal.bindings.network.mojom.LocalNetworkAccessRequestPolicySpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_document_isolation_policy', 24, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
