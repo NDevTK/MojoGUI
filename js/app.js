@@ -73,6 +73,7 @@
     // Code Panel
     generatedCode: document.getElementById("generatedCode"),
     copyBtn: document.getElementById("copyBtn"),
+    downloadPoCBtn: document.getElementById("downloadPoCBtn"),
     executeBtn: document.getElementById("executeBtn"),
 
     // Toast
@@ -236,7 +237,9 @@
       // Focus Search (/)
       if (
         e.key === "/" &&
-        !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)
+        !["INPUT", "TEXTAREA", "SELECT"].includes(
+          document.activeElement.tagName,
+        )
       ) {
         e.preventDefault();
         elements.interfaceSearch.focus();
@@ -283,6 +286,11 @@
 
     // Copy button
     elements.copyBtn.addEventListener("click", copyCode);
+
+    // Download PoC button
+    if (elements.downloadPoCBtn) {
+      elements.downloadPoCBtn.addEventListener("click", downloadPoC);
+    }
 
     // Execute button
     elements.executeBtn.addEventListener("click", executeCode);
@@ -1169,6 +1177,50 @@
       document.execCommand("copy");
       document.body.removeChild(textarea);
       showToast("Code copied to clipboard!", "success");
+    }
+  }
+
+  /**
+   * Download a standalone HTML PoC file for the selected interface/method.
+   */
+  async function downloadPoC() {
+    const iface = state.selectedInterface;
+    const method = state.selectedMethod;
+
+    if (!iface) {
+      showToast("Select an interface first", "warning");
+      return;
+    }
+
+    if (!method) {
+      showToast("Select a method to generate PoC", "warning");
+      return;
+    }
+
+    showToast("Generating PoC bundle...", "info");
+
+    try {
+      // Get method definition for parameter info
+      const fqn = iface.module + "." + iface.name;
+      const methodDef = MojoReflectionService.findMethodDefinition(fqn, method);
+
+      // Attach interface name for use in code generation
+      if (methodDef) {
+        methodDef._interfaceName = iface.name;
+      }
+
+      // Generate and download the complete bundle
+      await PoCGenerator.downloadBundle(
+        iface,
+        method,
+        state.paramValues,
+        methodDef,
+      );
+
+      showToast(`Downloaded PoC bundle for ${iface.name}.${method}`, "success");
+    } catch (e) {
+      console.error("PoC generation failed:", e);
+      showToast(`PoC generation failed: ${e.message}`, "error");
     }
   }
 
