@@ -197,6 +197,18 @@
         const interfaces = await MojoLoader.getInterfaces();
         if (interfaces && interfaces.length > 0) {
           state.interfaces = interfaces;
+
+          // Pre-compute search fields for performance
+          state.interfaces.forEach((iface) => {
+            iface._lowerName = iface.name.toLowerCase();
+            iface._lowerModule = iface.module.toLowerCase();
+            iface._lowerMethods = iface.methods
+              ? iface.methods.map((m) =>
+                  (typeof m === "string" ? m : m.name).toLowerCase(),
+                )
+              : [];
+          });
+
           if (typeof MojoLoader !== "undefined") MojoLoader.init(interfaces);
           renderInterfaceList(interfaces);
           // AUTO-MONITOR ALL (Quietly)
@@ -585,10 +597,16 @@
     const filtered = state.interfaces.filter((iface) => {
       // 1. Text Match
       const matchesText =
-        iface.name.toLowerCase().includes(query) ||
-        iface.module.toLowerCase().includes(query) ||
-        (iface.methods &&
-          iface.methods.some((m) => m.toLowerCase().includes(query)));
+        (iface._lowerName || iface.name.toLowerCase()).includes(query) ||
+        (iface._lowerModule || iface.module.toLowerCase()).includes(query) ||
+        (iface._lowerMethods
+          ? iface._lowerMethods.some((m) => m.includes(query))
+          : iface.methods &&
+            iface.methods.some((m) =>
+              (typeof m === "string" ? m : m.name)
+                .toLowerCase()
+                .includes(query),
+            ));
 
       if (!matchesText) return false;
 
