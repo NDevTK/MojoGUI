@@ -64,17 +64,15 @@
           (!isFQN && i.name === name),
       );
       if (!iface) return null;
-      // Load binding if available
-      if (iface.file && typeof MojoBindingLoader !== "undefined") {
-        try {
-          await MojoBindingLoader.loadBinding(iface.file);
-        } catch (e) {
-          console.warn("[MojoGUI_API] Failed to load binding:", e);
-        }
+      // Load binding to ensure method params can be resolved
+      const fqn = iface.module ? `${iface.module}.${iface.name}` : iface.name;
+      try {
+        await MojoLoader.ensureBinding(fqn);
+      } catch (e) {
+        console.warn("[MojoGUI_API] Failed to load binding:", e);
       }
       // Get method details with parameters
       const { getMethodParams, findMethodDefinition } = getInternal();
-      const fqn = iface.module ? `${iface.module}.${iface.name}` : iface.name;
       const methods = (iface.methods || []).map((m) => {
         const methodName = typeof m === "string" ? m : m.name;
         const params = getMethodParams ? getMethodParams(fqn, methodName) : [];
@@ -717,5 +715,5 @@
   };
 
   // Signal readiness
-  window.dispatchEvent(new CustomEvent('mojo-gui-ready'));
+  window.dispatchEvent(new CustomEvent("mojo-gui-ready"));
 })(this);
