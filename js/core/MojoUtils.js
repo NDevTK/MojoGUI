@@ -247,6 +247,53 @@
   }
 
   /**
+   * Resolves a handle reference from various GUI/Script formats.
+   * Supports Numeric IDs, Registry IDs (obj_N), and optional Interface wrapping.
+   */
+  function resolveHandle(reference, interfaceName = null) {
+    if (!reference) return null;
+    let realHandle = null;
+
+    // 1. Support Registry ID (obj_N)
+    if (typeof reference === "string" && reference.startsWith("obj_")) {
+      const entry = window.MojoObjectRegistry?.get(reference);
+      if (entry && entry.remote) {
+        realHandle = window.MojoProxy?.getRawHandleFromMojoObject(entry.remote);
+      }
+    }
+    // 2. Support Numeric ID
+    else {
+      const hId = parseInt(reference, 10);
+      if (!isNaN(hId)) {
+        realHandle = window.MojoHandleRegistry?.get(hId);
+      }
+    }
+
+    if (!realHandle) return null;
+
+    // 3. Auto-wrap in Remote if a specific interface is specified
+    if (
+      interfaceName &&
+      !["Unknown", "PendingReceiver", "MojoHandle"].includes(interfaceName)
+    ) {
+      try {
+        const comps = window.MojoProxy?.getInterfaceComponents(interfaceName);
+        if (comps && comps.Remote) {
+          console.log(
+            `[MojoUtils] Resolved and wrapped handle in ${interfaceName}`,
+          );
+          return new comps.Remote(realHandle);
+        }
+      } catch (e) {
+        console.warn(`[MojoUtils] Failed to wrap as ${interfaceName}:`, e);
+      }
+    }
+
+    // 4. Fallback to decorated handle
+    return decorateHandle(realHandle, false, interfaceName);
+  }
+
+  /**
    * Restores 'arg_' prefixes and processes Handle descriptors.
    */
   function reconcileKeys(edited, original, useHeuristics = true) {
@@ -268,18 +315,12 @@
     ) {
       const action = handleData.action || "preserve";
       if (action === "preserve") {
-        if (handleData.$ref) {
-          const entry = window.MojoObjectRegistry.get(handleData.$ref);
-          if (entry && entry.remote) {
-            const realHandle = window.MojoProxy.getRawHandleFromMojoObject(
-              entry.remote,
-            );
-            if (realHandle) {
-              return decorateHandle(realHandle);
-            }
-          }
-        }
-        return original;
+        return (
+          resolveHandle(
+            handleData.$ref || handleData.interfaceId,
+            handleData.interface,
+          ) || original
+        );
       }
       if (action === "close") return null;
       if (action === "new_pipe") {
@@ -342,22 +383,10 @@
         return decorateHandle(endpoint, true, handleData.interface);
       }
       if (action === "use_handle") {
-        const handleInput = handleData.customHandle;
-        let realHandle = null;
-
-        // Support both raw numeric IDs and registry IDs (obj_N)
-        if (typeof handleInput === "string" && handleInput.startsWith("obj_")) {
-          const entry = window.MojoObjectRegistry.get(handleInput);
-          if (entry)
-            realHandle = window.MojoProxy.getRawHandleFromMojoObject(
-              entry.remote,
-            );
-        } else {
-          realHandle = MojoHandleRegistry.get(parseInt(handleInput, 10));
-        }
-
-        if (!realHandle) return original;
-        return decorateHandle(realHandle);
+        return (
+          resolveHandle(handleData.customHandle, handleData.interface) ||
+          original
+        );
       }
       if (action === "bind_listener") {
         return handleData;
@@ -367,16 +396,12 @@
 
     // 2. Resolve Object Registry References ($ref)
     if (handleData && typeof handleData === "object" && handleData.$ref) {
-      const entry = window.MojoObjectRegistry.get(handleData.$ref);
-      if (entry && entry.remote) {
-        const realHandle = window.MojoProxy.getRawHandleFromMojoObject(
-          entry.remote,
-        );
-        if (realHandle) {
-          return decorateHandle(realHandle);
-        }
-      }
-      return original;
+      return (
+        resolveHandle(
+          handleData.$ref,
+          handleData.type || handleData.interface,
+        ) || original
+      );
     }
 
     // 3. Resolve Handle ID References ($handleId)
@@ -386,29 +411,7 @@
       typeof handleData === "object" &&
       handleData.$handleId !== undefined
     ) {
-      const hId = handleData.$handleId;
-      const realHandle = MojoHandleRegistry.get(hId);
-      if (realHandle) {
-        console.log(`[MojoUtils] Resolved $handleId ${hId} to handle`);
-        // If interface type is specified, try to get proper Remote class
-        if (handleData.$interface) {
-          try {
-            const fqn = handleData.$interface;
-            const comps = window.MojoProxy?.getInterfaceComponents(fqn);
-            if (comps && comps.Remote) {
-              const remote = new comps.Remote(realHandle);
-              console.log(`[MojoUtils] Wrapped handle in ${fqn} Remote`);
-              return remote;
-            }
-          } catch (e) {
-            console.warn(`[MojoUtils] Failed to wrap as interface Remote:`, e);
-          }
-        }
-        // Fallback to decorated handle
-        return decorateHandle(realHandle, false, handleData.$interface || null);
-      }
-      console.warn(`[MojoUtils] Handle ID ${hId} not found in registry`);
-      return null;
+      return resolveHandle(handleData.$handleId, handleData.$interface);
     }
 
     if (edited === null || typeof edited !== "object") return edited;
@@ -719,6 +722,7 @@
     inflateString16,
     decodeBigString,
     decorateHandle,
+    resolveHandle,
     escapeHtml,
     readDataPipeAvailable,
     writeDataPipe,
