@@ -6,7 +6,7 @@
   "use strict";
 
   const objects = new Map(); // Map<string, { remote: Object, type: String }>
-  const pinnedObjects = new Set(); // Set of pinned object IDs that should not be garbage collected
+  const pinnedObjects = new Set(); // Set of pinned object IDs that are important to agents
   let nextId = 1;
   let onupdate = null;
 
@@ -43,7 +43,7 @@
     },
 
     /**
-     * Pin an object to prevent it from being garbage collected.
+     * Pin an object to mark it as important to agents.
      * Pinned objects are kept alive until explicitly unpinned.
      * @param {string} id - The object ID to pin
      * @returns {boolean} True if successfully pinned

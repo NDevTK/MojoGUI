@@ -351,11 +351,7 @@ server.tool(
                 Mojo.bindInterface(name, rawHandle);
                 
                 const id = window.MojoObjectRegistry.register(remote, name);
-                // Auto-pin to prevent garbage collection during research session
-                if (window.MojoObjectRegistry.pin) {
-                    window.MojoObjectRegistry.pin(id);
-                }
-                return { objectId: id, type: name, status: "Success", pinned: true };
+                return { objectId: id, type: name, status: "Success" };
             })()
         `;
     const result = await executeInMojoGUI(code, 0, {
@@ -1145,9 +1141,17 @@ server.tool(
   async () => {
     const code = `
             (async () => {
-                const api = window.MojoGUI_API;
-                if (!api) throw new Error('MojoGUI API not available');
-                return api.listObjects();
+                const registry = window.MojoObjectRegistry;
+                if (!registry) throw new Error('MojoObjectRegistry not available');
+                const ids = registry.list();
+                return ids.map(id => {
+                    const entry = registry.get(id);
+                    return {
+                        id,
+                        type: entry ? entry.type : 'Unknown',
+                        pinned: registry.isPinned ? registry.isPinned(id) : false
+                    };
+                });
             })()
         `;
     const result = await executeInMojoGUI(code);
@@ -1159,7 +1163,7 @@ server.tool(
 
 server.tool(
   "pin_object",
-  "Pin or unpin a registered object to prevent garbage collection. Useful for keeping objects alive during long research sessions.",
+  "Pin or unpin a registered object to mark it as important to agents.",
   {
     id: z.string().describe("The object ID to pin/unpin (e.g., 'obj_1')"),
     action: z
