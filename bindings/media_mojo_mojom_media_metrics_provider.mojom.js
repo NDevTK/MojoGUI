@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7667.0';
+        const versionStr = window.mojoVersion || '146.0.7668.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -151,6 +151,8 @@ mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_Para
 if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec = mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec || { $: {} };
@@ -308,6 +310,9 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemote = class {
   setTimeToPlayReady(arg_elapsed) {
     return this.$.setTimeToPlayReady(arg_elapsed);
   }
+  setVisibilityRatioAtPlaybackStart(arg_ratio) {
+    return this.$.setVisibilityRatioAtPlaybackStart(arg_ratio);
+  }
   setRendererType(arg_renderer_type) {
     return this.$.setRendererType(arg_renderer_type);
   }
@@ -356,6 +361,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaMetricsProvider', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -473,9 +479,18 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       false);
   }
 
-  setRendererType(arg_renderer_type) {
+  setVisibilityRatioAtPlaybackStart(arg_ratio) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
+      mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec,
+      null,
+      [arg_ratio],
+      false);
+  }
+
+  setRendererType(arg_renderer_type) {
+    return this.proxy.sendMessage(
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec,
       null,
       [arg_renderer_type],
@@ -484,7 +499,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setDemuxerType(arg_demuxer_type) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec,
       null,
       [arg_demuxer_type],
@@ -493,7 +508,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setKeySystem(arg_key_system) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec,
       null,
       [arg_key_system],
@@ -502,7 +517,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setHasWaitingForKey() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec,
       null,
       [],
@@ -511,7 +526,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setIsHardwareSecure() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec,
       null,
       [],
@@ -520,7 +535,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setHasTrackChange() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec,
       null,
       [],
@@ -529,7 +544,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setContainerName(arg_container_name) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec,
       null,
       [arg_container_name],
@@ -538,7 +553,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   acquireWatchTimeRecorder(arg_properties, arg_recorder) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec,
       null,
       [arg_properties, arg_recorder],
@@ -547,7 +562,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   acquireVideoDecodeStatsRecorder(arg_recorder) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec,
       null,
       [arg_recorder],
@@ -556,7 +571,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   acquirePlaybackEventsRecorder(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec,
       null,
       [arg_receiver],
@@ -565,7 +580,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setHasAudio(arg_codec) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec,
       null,
       [arg_codec],
@@ -574,7 +589,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setHasVideo(arg_codec) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec,
       null,
       [arg_codec],
@@ -583,7 +598,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setVideoPipelineInfo(arg_info) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec,
       null,
       [arg_info],
@@ -592,7 +607,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
 
   setAudioPipelineInfo(arg_info) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec,
       null,
       [arg_info],
@@ -617,6 +632,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaMetricsProvider', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -756,96 +772,103 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setVisibilityRatioAtPlaybackStart');
+          const result = this.impl.setVisibilityRatioAtPlaybackStart(params.arg_ratio);
+          break;
+        }
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
           const result = this.impl.setRendererType(params.arg_renderer_type);
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDemuxerType');
           const result = this.impl.setDemuxerType(params.arg_demuxer_type);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeySystem');
           const result = this.impl.setKeySystem(params.arg_key_system);
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasWaitingForKey');
           const result = this.impl.setHasWaitingForKey();
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsHardwareSecure');
           const result = this.impl.setIsHardwareSecure();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasTrackChange');
           const result = this.impl.setHasTrackChange();
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setContainerName');
           const result = this.impl.setContainerName(params.arg_container_name);
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquireWatchTimeRecorder');
           const result = this.impl.acquireWatchTimeRecorder(params.arg_properties, params.arg_recorder);
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquireVideoDecodeStatsRecorder');
           const result = this.impl.acquireVideoDecodeStatsRecorder(params.arg_recorder);
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquirePlaybackEventsRecorder');
           const result = this.impl.acquirePlaybackEventsRecorder(params.arg_receiver);
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasAudio');
           const result = this.impl.setHasAudio(params.arg_codec);
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasVideo');
           const result = this.impl.setHasVideo(params.arg_codec);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoPipelineInfo');
           const result = this.impl.setVideoPipelineInfo(params.arg_info);
           break;
         }
-        case 23: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioPipelineInfo');
@@ -923,6 +946,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetTimeToPlayReady_Params', [
       mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_ParamsSpec, 'media.mojom.MediaMetricsProvider_SetVisibilityRatioAtPlaybackStart_Params', [
+      mojo.internal.StructField('arg_ratio', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

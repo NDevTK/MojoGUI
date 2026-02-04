@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7667.0';
+        const versionStr = window.mojoVersion || '146.0.7668.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -210,8 +210,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_send_frame_token_to_embedder', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_top_controls_visible_height_$flag', 36, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_top_controls_visible_height_$value', originalFieldName: 'arg_top_controls_visible_height' }),
       mojo.internal.StructField('arg_is_mobile_optimized', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_shared_element_resources', 36, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_software', 37, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefer_efficient_scheduling', 36, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_shared_element_resources', 37, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_software', 37, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_root_background_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_latency_info', 48, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_referenced_surfaces', 56, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, false), null, false, 0, undefined),

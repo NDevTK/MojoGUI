@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7667.0';
+        const versionStr = window.mojoVersion || '146.0.7668.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -376,7 +376,7 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kOBSOLETE_LocaleInfoObsoletedGetters: 243,
   kIntlLocaleInfo: 244,
   kViewTransitionClass: 245,
-  kDRAFT_ReferenceTarget: 246,
+  kReferencetarget: 246,
   kFedcm: 247,
   kWebOtp: 248,
   kPreservesPitch: 249,
@@ -505,7 +505,7 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kWasmSignExtensionOperators: 372,
   kDRAFT_IncomingCallNotifications: 373,
   kPopover: 374,
-  kDRAFT_WebInstallAPI: 375,
+  kNavigatorInstall: 375,
   kTopLevelAwait: 376,
   kAtomicsPause: 377,
   kLogicalAssignments: 378,

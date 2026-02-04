@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-03T10:31:55.667754Z",
-  "version": "146.0.7667.0",
+  "generated_at": "2026-02-04T10:31:34.895134Z",
+  "version": "146.0.7668.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -29734,6 +29734,7 @@
         "SetTimeToMetadata",
         "SetTimeToFirstFrame",
         "SetTimeToPlayReady",
+        "SetVisibilityRatioAtPlaybackStart",
         "SetRendererType",
         "SetDemuxerType",
         "SetKeySystem",

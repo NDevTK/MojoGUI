@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7667.0';
+        const versionStr = window.mojoVersion || '146.0.7668.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,7 +134,7 @@ if (mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec.$.structSpec && m
 // Struct: LoginSessionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec, 'remoting.mojom.LoginSessionInfo', [
-      mojo.internal.StructField('arg_xdg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_xdg_current_desktop', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_dbus_session_bus_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display', 24, 0, mojo.internal.String, null, false, 0, undefined),

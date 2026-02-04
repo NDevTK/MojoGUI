@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7667.0';
+        const versionStr = window.mojoVersion || '146.0.7668.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,7 +132,7 @@ if (mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$.structSpec && mojo.i
 mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec = mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec.$ = {};
 
-mojo.internal.bindings.blink.mojom.kWritingAssistanceMaxInputTokenSize = 6000;
+mojo.internal.bindings.blink.mojom.kWritingAssistanceMaxInputTokenSize = 9216;
 
 // Enum: AIManagerCreateClientError
 mojo.internal.bindings.blink.mojom.AIManagerCreateClientError = {
