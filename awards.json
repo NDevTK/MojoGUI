@@ -100,5 +100,17 @@
     "method": "Start",
     "reason": "Exposes complex audio parsing and processing in the browser to untrusted renderer content.",
     "priority": 7
+  },
+  {
+    "file": "third_party/blink/public/mojom/blob/file_backed_blob_factory.mojom",
+    "method": "RegisterBlob",
+    "reason": "Allows renderer to register blobs backed by arbitrary file paths. Although checked against child process security policy, it relies on complex permission validation and potentially legacy unsafe patterns (`FromUnsafeValue`).",
+    "priority": 9
+  },
+  {
+    "file": "third_party/blink/public/mojom/shared_storage/shared_storage.mojom",
+    "method": "CreateWorklet",
+    "reason": "Exposes creation of Shared Storage worklets; high complexity in cross-origin data handling and interaction with Fenced Frames, representing a significant attack surface in the privacy sandbox.",
+    "priority": 8
   }
 ]
