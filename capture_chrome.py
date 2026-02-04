@@ -21,7 +21,7 @@ def get_pid_by_port(port):
 # --- 2. Find all visible windows for that PID ---
 def get_windows_for_pid(pid):
     hwnds = []
-    
+    # We don't need title based filtering since its a dedicated chrome profile
     def callback(hwnd, _):
         # Filter: Must be visible (or minimized)
         if win32gui.IsWindowVisible(hwnd) or win32gui.IsIconic(hwnd):
