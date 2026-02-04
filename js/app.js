@@ -614,7 +614,13 @@
 
   function performSearch(query) {
     query = query.toLowerCase();
-    const filtered = state.interfaces.filter((iface) => {
+    let count = 0;
+
+    // Use querySelectorAll to get the list items. Note that we assume 1:1 mapping with state.interfaces
+    // based on data-index.
+    const items = elements.interfaceList.querySelectorAll(".interface-item");
+
+    state.interfaces.forEach((iface, index) => {
       // 1. Text Match
       const matchesText =
         (iface._lowerName || iface.name.toLowerCase()).includes(query) ||
@@ -628,62 +634,84 @@
                 .includes(query),
             ));
 
-      if (!matchesText) return false;
+      let isMatch = matchesText;
 
-      // 2. Type Match
-      if (state.filterType === "ALL") return true;
+      // 2. Type Match (only check if text matches to save time)
+      if (isMatch && state.filterType !== "ALL") {
+        const category = iface.metadata?.category;
+        if (state.filterType === "DIRECT" && category !== "direct")
+          isMatch = false;
+        else if (state.filterType === "INTERNAL" && category !== "internal")
+          isMatch = false;
+        else if (state.filterType === "ASSOCIATED" && category !== "associated")
+          isMatch = false;
+      }
 
-      const category = iface.metadata?.category;
-
-      if (state.filterType === "DIRECT") return category === "direct";
-      if (state.filterType === "INTERNAL") return category === "internal";
-      if (state.filterType === "ASSOCIATED") return category === "associated";
-
-      return true;
+      // Update DOM
+      const item = items[index];
+      if (item) {
+        if (isMatch) {
+          item.classList.remove("hidden");
+          count++;
+        } else {
+          item.classList.add("hidden");
+        }
+      }
     });
-    renderInterfaceList(filtered);
+
+    elements.interfaceCount.textContent = count;
+
+    // Toggle Empty State
+    const emptyState = document.getElementById("interfaceListEmptyState");
+    if (emptyState) {
+      if (count === 0) {
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+      }
+    }
   }
 
   // ========================================
   // Rendering
   // ========================================
   function renderInterfaceList(interfaces) {
+    // This function now renders ALL interfaces once.
+    // Filtering is handled by toggling visibility in performSearch.
+
     elements.interfaceCount.textContent = interfaces.length;
 
-    if (interfaces.length === 0) {
-      elements.interfaceList.innerHTML = safeHTML(`
-                <div class="empty-state small">
-                    <p>No interfaces found</p>
-                </div>
-            `);
-      return;
-    }
+    const listHtml = interfaces
+      .map((iface, index) => {
+        const isSynced =
+          window.MojoLearnedProtocols &&
+          window.MojoLearnedProtocols.has(iface.name);
 
-    elements.interfaceList.innerHTML = safeHTML(
-      interfaces
-        .map((iface) => {
-          const isSynced =
-            window.MojoLearnedProtocols &&
-            window.MojoLearnedProtocols.has(iface.name);
+        const isAssociated = iface.metadata?.usage?.associated?.length > 0;
+        const assocBadge = isAssociated
+          ? '<span class="badge warning" title="Associated Interface">🔗</span>'
+          : "";
 
-          const isAssociated = iface.metadata?.usage?.associated?.length > 0;
-          const assocBadge = isAssociated
-            ? '<span class="badge warning" title="Associated Interface">🔗</span>'
-            : "";
-
-          return `
-            <div class="interface-item" role="button" tabindex="0" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
+        return `
+            <div class="interface-item" role="button" tabindex="0" data-index="${index}" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
             </div>
         `;
-        })
-        .join(""),
-    );
+      })
+      .join("");
 
-    // Staggered Animation
+    const emptyStateHtml = `
+            <div id="interfaceListEmptyState" class="empty-state small hidden">
+                <p>No interfaces found</p>
+            </div>
+        `;
+
+    elements.interfaceList.innerHTML = safeHTML(listHtml + emptyStateHtml);
+
+    // Staggered Animation (Runs once on initial load)
     elements.interfaceList
       .querySelectorAll(".interface-item")
       .forEach((item, index) => {
