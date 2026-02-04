@@ -105,7 +105,26 @@ def main():
 
     print(f"Found Chrome PID: {pid}")
     hwnds = get_windows_for_pid(pid)
-    print(f"Found {len(hwnds)} window(s).")
+    print(f"Found {len(hwnds)} window(s) for PID {pid}.")
+
+    # --- Security Filter: Only capture MojoGUI windows ---
+    # This prevents accidental capture of other open tabs (e.g. email, banking)
+    # that might share the same browser process.
+    target_hwnds = []
+    for hwnd in hwnds:
+        title = win32gui.GetWindowText(hwnd)
+        if "MojoJS" in title or "MojoGUI" in title:
+            target_hwnds.append(hwnd)
+        else:
+            print(f"Skipping unrelated window: '{title}' (Handle: {hwnd})")
+
+    if not target_hwnds:
+        print("No windows found with 'MojoJS' or 'MojoGUI' in the title.")
+        print("Aborting capture to prevent privacy leak of unrelated windows.")
+        return
+
+    print(f"Proceeding with {len(target_hwnds)} target window(s).")
+    hwnds = target_hwnds
 
     # Batch restore minimized windows to optimize wait time
     restored_hwnds = []
