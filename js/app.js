@@ -57,6 +57,7 @@
 
     // Search & List
     interfaceSearch: document.getElementById("interfaceSearch"),
+    clearSearchBtn: document.getElementById("clearSearchBtn"),
     interfaceList: document.getElementById("interfaceList"),
     interfaceCount: document.getElementById("interfaceCount"),
 
@@ -247,10 +248,27 @@
     });
 
     // Search
-    elements.interfaceSearch.addEventListener(
-      "input",
-      MojoUtils.debounce(handleSearch, 300),
-    );
+    const debouncedSearch = MojoUtils.debounce(handleSearch, 300);
+    elements.interfaceSearch.addEventListener("input", (e) => {
+      // Toggle clear button immediately
+      const hasText = e.target.value.length > 0;
+      if (elements.clearSearchBtn) {
+        elements.clearSearchBtn.style.display = hasText ? "flex" : "none";
+      }
+
+      // Debounce search
+      debouncedSearch(e);
+    });
+
+    // Clear Search Button
+    if (elements.clearSearchBtn) {
+      elements.clearSearchBtn.addEventListener("click", () => {
+        elements.interfaceSearch.value = "";
+        elements.clearSearchBtn.style.display = "none";
+        performSearch("");
+        elements.interfaceSearch.focus();
+      });
+    }
 
     // Interface List Delegation
     elements.interfaceList.addEventListener("click", (e) => {
