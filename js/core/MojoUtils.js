@@ -536,15 +536,6 @@
   function inflateType(value, typeInfo) {
     if (value === null || value === undefined) return null;
 
-    // Handle auto-decoration
-    if (typeof value === "number") {
-      const handle =
-        typeof MojoHandleRegistry !== "undefined"
-          ? MojoHandleRegistry.get(value)
-          : null;
-      if (handle) return decorateHandle(handle);
-    }
-
     if (!typeInfo) return value;
     if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
     if (typeInfo.unionSpec) {
