@@ -565,6 +565,9 @@ body::before {
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
+  /* Bolt Optimization: Improve rendering performance for long lists */
+  content-visibility: auto;
+  contain-intrinsic-size: 0 80px;
 }
 
 .interface-item:hover,
