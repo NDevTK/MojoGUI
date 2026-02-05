@@ -1320,7 +1320,6 @@
     );
 
     try {
-      const manualId = "manual_" + Date.now();
       showInterceptorPanel(true);
 
       // Map param values (handle Maps)
@@ -1328,21 +1327,6 @@
       Object.entries(state.paramValues).forEach(([key, val]) => {
         params[key] = val;
       });
-
-      // Only add manual activity if this call WON'T be intercepted by the global interceptor.
-      // Standard calls use Mojo.bindInterface which is intercepted.
-      // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
-      const needsManualEvent = state.isAssociated;
-
-      if (needsManualEvent) {
-        window.MojoGUI_API.addActivity({
-          id: manualId,
-          interface: iface.name,
-          method: method,
-          params: params,
-          status: "Running",
-        });
-      }
 
       try {
         const target = {
@@ -1367,15 +1351,9 @@
           },
         );
 
-        if (needsManualEvent) {
-          window.MojoGUI_API.updateActivity(manualId, "Done", result);
-        }
         showToast("Execution Success", "success");
       } catch (error) {
         console.error("[Execution] Error:", error);
-        if (needsManualEvent) {
-          window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
-        }
         showToast("Execution Error: " + error.message, "error");
       }
     } finally {
