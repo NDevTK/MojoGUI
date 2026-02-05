@@ -98,6 +98,29 @@
     findMethodDefinition: (iface, method) =>
       getInternal().findMethodDefinition?.(iface, method),
     /**
+     * Assign discovered interface IDs to their respective interfaces.
+     * @param {Object} mapping - Object mapping interface names (FQN) to IDs.
+     */
+    assignInterfaceIds: (mapping) => {
+      const interfaces = state.interfaces;
+      let count = 0;
+      for (const [name, id] of Object.entries(mapping)) {
+        const isFQN = name.includes(".");
+        const iface = interfaces.find(
+          (i) =>
+            (isFQN && i.module + "." + i.name === name) ||
+            (!isFQN && i.name === name),
+        );
+        if (iface) {
+          iface.metadata = iface.metadata || {};
+          iface.metadata.discoveredId = id;
+          count++;
+        }
+      }
+      console.log(`[MojoGUI_API] Assigned ${count} interface IDs.`);
+      return { success: true, count };
+    },
+    /**
      * Generate a minimal valid struct based on a struct specification.
      * @param {string} structName - Fully qualified struct name (e.g., "blink.mojom.FetchClientSettingsObject")
      * @returns {Object} A minimal valid struct with default values

@@ -163,6 +163,7 @@ server.tool(
                     name: i.name,
                     module: i.module,
                     method_count: i.metadata?.methods?.length || 0,
+                    discoveredId: i.metadata?.discoveredId || null,
                     metadata: i.metadata // Expose full metadata including usage
                 }));
             })()
@@ -208,6 +209,7 @@ server.tool(
         findings:
           findingCount > 0 ? `${findingCount} (${criticalCount} Critical)` : 0,
         priority: target?.priority || "None",
+        discoveredId: iface.discoveredId,
       };
     });
 
@@ -244,7 +246,11 @@ server.tool(
                     if (typeof value === 'bigint') return value.toString() + 'n';
                     return value;
                 }, 2);
-                return { json, methodCount: details.methods?.length || 0 };
+                return { 
+                    json, 
+                    methodCount: details.methods?.length || 0,
+                    discoveredId: details.metadata?.discoveredId || null
+                };
             })()
         `;
     const result = await executeInMojoGUI(code);
@@ -265,7 +271,11 @@ server.tool(
         summaryNote += `${warningIcon} Component Context: ${summary.moduleName} has ${summary.moduleFindingCount} other findings in this session.\n`;
       }
 
-      summaryNote += `📊 Coverage: ${summary.coverage} methods tested\n\n`;
+      summaryNote += `📊 Coverage: ${summary.coverage} methods tested\n`;
+      if (result.discoveredId) {
+        summaryNote += `🆔 Discovered Interface ID: ${result.discoveredId}\n`;
+      }
+      summaryNote += `\n`;
 
       for (const [method, findings] of Object.entries(summary.findings)) {
         summaryNote += `[${method}]\n`;

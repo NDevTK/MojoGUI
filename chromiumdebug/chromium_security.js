@@ -11312,6 +11312,7 @@ function map_all_interfaces() {
 
   var count = 0;
   var seen = new Set();
+  var mapping = {};
 
   // Helper for padding
   var pad = function (str, len) {
@@ -11365,6 +11366,7 @@ function map_all_interfaces() {
         }
 
         Logger.info(pad(name, 60) + " " + pad(idStr, 20) + " 0x" + clientAddr);
+        mapping[name] = idNum;
         count++;
       }
     } catch (e) {
@@ -11374,5 +11376,24 @@ function map_all_interfaces() {
 
   Logger.empty();
   Logger.info("Found " + count + " interfaces.");
+
+  if (count > 0) {
+    Logger.empty();
+    Logger.header("MOJOGUI SYNC SNIPPET");
+    Logger.info("Copy and paste this into the MojoGUI browser console:");
+    Logger.empty();
+
+    var snippet = "window.MojoGUI_API.assignInterfaceIds({\n";
+    var mappings = [];
+    for (var name in mapping) {
+      mappings.push('  "' + name + '": ' + mapping[name]);
+    }
+    snippet += mappings.join(",\n");
+    snippet += "\n});";
+
+    Logger.info(snippet);
+    Logger.empty();
+  }
+
   return "";
 }

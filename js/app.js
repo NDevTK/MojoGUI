@@ -703,6 +703,23 @@
     state.selectedMethod = null;
     state.paramValues = {};
 
+    // Auto-assign discovered interface ID if available
+    if (iface.metadata && iface.metadata.discoveredId !== undefined) {
+      state.interfaceId = iface.metadata.discoveredId;
+      state.isAssociated = true;
+    } else {
+      // Check if it's naturally associated (some interfaces are ONLY associated)
+      const meta = iface.metadata?.usage;
+      if (
+        meta?.associated?.length > 0 &&
+        (!meta.direct || meta.direct.length === 0)
+      ) {
+        state.isAssociated = true;
+      }
+      // We do NOT reset state.interfaceId to 0 here to allow persistence
+      // across interface switches when researching a multiplexed pipe.
+    }
+
     // Update UI
     elements.interfaceList
       .querySelectorAll(".interface-item")
@@ -884,7 +901,7 @@
                     <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Master Pipe Handle</label>
                     <select id="masterHandleInput" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
                          <option value="" disabled ${!state.masterHandleId ? "selected" : ""}>Select handle...</option>
-                         ${window.renderHandleOptions ? window.renderHandleOptions() : ""}
+                         ${window.renderHandleOptions ? window.renderHandleOptions(state.masterHandleId) : ""}
                     </select>
                 </div>
                 <div>
@@ -1643,14 +1660,17 @@
       .join("");
   };
 
-  window.renderHandleOptions = function () {
+  window.renderHandleOptions = function (currentId) {
     if (!window.MojoHandleRegistry)
       return '<option value="" disabled>Registry unavailable</option>';
     const ids = window.MojoHandleRegistry.list();
     if (ids.length === 0)
       return '<option value="" disabled>No raw handles</option>';
     return ids
-      .map((id) => `<option value="${id}">Handle ${id}</option>`)
+      .map((id) => {
+        const isSelected = String(id) === String(currentId);
+        return `<option value="${id}" ${isSelected ? "selected" : ""}>Handle ${id}</option>`;
+      })
       .join("");
   };
 
