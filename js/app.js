@@ -636,7 +636,10 @@
 
     // Use querySelectorAll to get the list items. Note that we assume 1:1 mapping with state.interfaces
     // based on data-index.
-    const items = elements.interfaceList.querySelectorAll(".interface-item");
+    // Bolt Optimization: Use cached items if available
+    const items =
+      state.interfaceListItems ||
+      elements.interfaceList.querySelectorAll(".interface-item");
 
     state.interfaces.forEach((iface, index) => {
       // 1. Text Match
@@ -729,13 +732,16 @@
 
     elements.interfaceList.innerHTML = safeHTML(listHtml + emptyStateHtml);
 
+    // Bolt Optimization: Cache DOM elements for faster search
+    state.interfaceListItems = Array.from(
+      elements.interfaceList.querySelectorAll(".interface-item"),
+    );
+
     // Staggered Animation (Runs once on initial load)
-    elements.interfaceList
-      .querySelectorAll(".interface-item")
-      .forEach((item, index) => {
-        item.style.animation = `listItemEnter 0.3s ease-out backwards`;
-        item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
-      });
+    state.interfaceListItems.forEach((item, index) => {
+      item.style.animation = `listItemEnter 0.3s ease-out backwards`;
+      item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
+    });
   }
 
   async function selectInterface(name, module) {
