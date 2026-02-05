@@ -182,7 +182,8 @@ const WelcomeManager = (function () {
 
   function escapeHtml(str) {
     if (!str) return "";
-    return str
+    // 🛡️ Security Fix: Force string conversion to prevent potential bypasses
+    return String(str)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");

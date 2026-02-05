@@ -624,9 +624,10 @@
   if (typeof global.trustedTypes !== "undefined") {
     try {
       if (!trustedPolicy) {
-        // Use the safeHTML function for trusted HTML
-        // Don't want to implement a custom sanitizer or use a library, so return the input as is.
-        // Script injection is blocked by our CSP.
+        // 🛡️ Sentinel: This policy expects callers to be responsible for escaping values.
+        // Ideally, we would use a sanitizer, but for this tool's architecture, we rely
+        // on manual escapeHtml() usage.
+        // Script injection is blocked by our CSP (script-src 'self').
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
           createHTML: (input) => input,
         });
@@ -643,7 +644,19 @@
     }
   }
 
+  /**
+   * 🛡️ Security Wrapper for Trusted Types
+   * WARNING: This policy does NOT sanitize HTML. It relies on the caller
+   * having already escaped all user input using escapeHtml().
+   * Do NOT pass unescaped user input to this function.
+   */
   function safeHTML(html) {
+    if (typeof html !== "string") {
+      console.warn(
+        "[MojoUtils] safeHTML received non-string input. Forcing string conversion.",
+      );
+      html = String(html);
+    }
     if (trustedPolicy) {
       return trustedPolicy.createHTML(html);
     }
@@ -651,7 +664,11 @@
   }
 
   function escapeHtml(str) {
-    if (typeof str !== "string") return str;
+    // 🛡️ Security Fix: Force string conversion to prevent object injection attacks
+    // where malicious .toString() could bypass escaping in template literals.
+    if (typeof str !== "string") {
+      str = String(str);
+    }
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
