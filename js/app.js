@@ -762,14 +762,19 @@
     } else {
       // Check if it's naturally associated (some interfaces are ONLY associated)
       const meta = iface.metadata?.usage;
-      if (
+      const isExclusivelyAssociated =
         meta?.associated?.length > 0 &&
-        (!meta.direct || meta.direct.length === 0)
-      ) {
+        (!meta.direct || meta.direct.length === 0);
+
+      if (isExclusivelyAssociated) {
         state.isAssociated = true;
+      } else {
+        // Default to Direct binding for standard interfaces
+        state.isAssociated = false;
       }
-      // We do NOT reset state.interfaceId to 0 here to allow persistence
-      // across interface switches when researching a multiplexed pipe.
+
+      // Note: We do NOT reset state.interfaceId to 0 here to allow ID persistence
+      // when manually researching a multiplexed pipe across similar interfaces.
     }
 
     // Update UI
