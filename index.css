@@ -489,6 +489,7 @@ body::before {
   width: 100%;
   padding: var(--space-sm) var(--space-md);
   padding-left: 40px;
+  padding-right: 40px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
@@ -505,6 +506,28 @@ body::before {
   outline: none;
   border-color: var(--border-focus);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: calc(var(--space-md) + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.clear-search-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
 }
 
 .interface-list {
@@ -542,6 +565,9 @@ body::before {
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
+  /* Bolt Optimization: Improve rendering performance for long lists */
+  content-visibility: auto;
+  contain-intrinsic-size: 0 80px;
 }
 
 .interface-item:hover,
@@ -2166,49 +2192,48 @@ select option {
 }
 
 .award-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .priority-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .priority-badge.priority-critical {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .priority-badge.priority-high {
-    background: rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .priority-badge.priority-medium {
-    background: rgba(59, 130, 246, 0.2);
-    color: #3b82f6;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 /* Card border accents */
 .award-card.priority-critical {
-    border-left-color: #ef4444;
+  border-left-color: #ef4444;
 }
 .award-card.priority-high {
-    border-left-color: #f59e0b;
+  border-left-color: #f59e0b;
 }
 .award-card.priority-medium {
-    border-left-color: #3b82f6;
+  border-left-color: #3b82f6;
 }
-
 
 .award-method {
   font-family: var(--font-mono);
@@ -2230,4 +2255,9 @@ select option {
   line-height: 1.5;
   padding-top: var(--space-xs);
   border-top: 1px solid var(--border-subtle);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
 }

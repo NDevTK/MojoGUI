@@ -57,6 +57,7 @@
 
     // Search & List
     interfaceSearch: document.getElementById("interfaceSearch"),
+    clearSearchBtn: document.getElementById("clearSearchBtn"),
     interfaceList: document.getElementById("interfaceList"),
     interfaceCount: document.getElementById("interfaceCount"),
 
@@ -247,10 +248,27 @@
     });
 
     // Search
-    elements.interfaceSearch.addEventListener(
-      "input",
-      MojoUtils.debounce(handleSearch, 300),
-    );
+    const debouncedSearch = MojoUtils.debounce(handleSearch, 300);
+    elements.interfaceSearch.addEventListener("input", (e) => {
+      // Toggle clear button immediately
+      const hasText = e.target.value.length > 0;
+      if (elements.clearSearchBtn) {
+        elements.clearSearchBtn.style.display = hasText ? "flex" : "none";
+      }
+
+      // Debounce search
+      debouncedSearch(e);
+    });
+
+    // Clear Search Button
+    if (elements.clearSearchBtn) {
+      elements.clearSearchBtn.addEventListener("click", () => {
+        elements.interfaceSearch.value = "";
+        elements.clearSearchBtn.style.display = "none";
+        performSearch("");
+        elements.interfaceSearch.focus();
+      });
+    }
 
     // Interface List Delegation
     elements.interfaceList.addEventListener("click", (e) => {
@@ -614,7 +632,16 @@
 
   function performSearch(query) {
     query = query.toLowerCase();
-    const filtered = state.interfaces.filter((iface) => {
+    let count = 0;
+
+    // Use querySelectorAll to get the list items. Note that we assume 1:1 mapping with state.interfaces
+    // based on data-index.
+    // Bolt Optimization: Use cached items if available
+    const items =
+      state.interfaceListItems ||
+      elements.interfaceList.querySelectorAll(".interface-item");
+
+    state.interfaces.forEach((iface, index) => {
       // 1. Text Match
       const matchesText =
         (iface._lowerName || iface.name.toLowerCase()).includes(query) ||
@@ -628,68 +655,93 @@
                 .includes(query),
             ));
 
-      if (!matchesText) return false;
+      let isMatch = matchesText;
 
-      // 2. Type Match
-      if (state.filterType === "ALL") return true;
+      // 2. Type Match (only check if text matches to save time)
+      if (isMatch && state.filterType !== "ALL") {
+        const category = iface.metadata?.category;
+        if (state.filterType === "DIRECT" && category !== "direct")
+          isMatch = false;
+        else if (state.filterType === "INTERNAL" && category !== "internal")
+          isMatch = false;
+        else if (state.filterType === "ASSOCIATED" && category !== "associated")
+          isMatch = false;
+      }
 
-      const category = iface.metadata?.category;
-
-      if (state.filterType === "DIRECT") return category === "direct";
-      if (state.filterType === "INTERNAL") return category === "internal";
-      if (state.filterType === "ASSOCIATED") return category === "associated";
-
-      return true;
+      // Update DOM
+      const item = items[index];
+      if (item) {
+        if (isMatch) {
+          item.classList.remove("hidden");
+          count++;
+        } else {
+          item.classList.add("hidden");
+        }
+      }
     });
-    renderInterfaceList(filtered);
+
+    elements.interfaceCount.textContent = count;
+
+    // Toggle Empty State
+    const emptyState = document.getElementById("interfaceListEmptyState");
+    if (emptyState) {
+      if (count === 0) {
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+      }
+    }
   }
 
   // ========================================
   // Rendering
   // ========================================
   function renderInterfaceList(interfaces) {
+    // This function now renders ALL interfaces once.
+    // Filtering is handled by toggling visibility in performSearch.
+
     elements.interfaceCount.textContent = interfaces.length;
 
-    if (interfaces.length === 0) {
-      elements.interfaceList.innerHTML = safeHTML(`
-                <div class="empty-state small">
-                    <p>No interfaces found</p>
-                </div>
-            `);
-      return;
-    }
+    const listHtml = interfaces
+      .map((iface, index) => {
+        const isSynced =
+          window.MojoLearnedProtocols &&
+          window.MojoLearnedProtocols.has(iface.name);
 
-    elements.interfaceList.innerHTML = safeHTML(
-      interfaces
-        .map((iface) => {
-          const isSynced =
-            window.MojoLearnedProtocols &&
-            window.MojoLearnedProtocols.has(iface.name);
+        const isAssociated = iface.metadata?.usage?.associated?.length > 0;
+        const assocBadge = isAssociated
+          ? '<span class="badge warning" title="Associated Interface">🔗</span>'
+          : "";
 
-          const isAssociated = iface.metadata?.usage?.associated?.length > 0;
-          const assocBadge = isAssociated
-            ? '<span class="badge warning" title="Associated Interface">🔗</span>'
-            : "";
-
-          return `
-            <div class="interface-item" role="button" tabindex="0" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
+        return `
+            <div class="interface-item" role="button" tabindex="0" data-index="${index}" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
             </div>
         `;
-        })
-        .join(""),
+      })
+      .join("");
+
+    const emptyStateHtml = `
+            <div id="interfaceListEmptyState" class="empty-state small hidden">
+                <p>No interfaces found</p>
+            </div>
+        `;
+
+    elements.interfaceList.innerHTML = safeHTML(listHtml + emptyStateHtml);
+
+    // Bolt Optimization: Cache DOM elements for faster search
+    state.interfaceListItems = Array.from(
+      elements.interfaceList.querySelectorAll(".interface-item"),
     );
 
-    // Staggered Animation
-    elements.interfaceList
-      .querySelectorAll(".interface-item")
-      .forEach((item, index) => {
-        item.style.animation = `listItemEnter 0.3s ease-out backwards`;
-        item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
-      });
+    // Staggered Animation (Runs once on initial load)
+    state.interfaceListItems.forEach((item, index) => {
+      item.style.animation = `listItemEnter 0.3s ease-out backwards`;
+      item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
+    });
   }
 
   async function selectInterface(name, module) {
@@ -1254,61 +1306,72 @@
     const method = state.selectedMethod;
     if (!iface || !method) return;
 
-    const manualId = "manual_" + Date.now();
-    showInterceptorPanel(true);
-
-    // Map param values (handle Maps)
-    const params = {};
-    Object.entries(state.paramValues).forEach(([key, val]) => {
-      params[key] = val;
-    });
-
-    // Only add manual activity if this call WON'T be intercepted by the global interceptor.
-    // Standard calls use Mojo.bindInterface which is intercepted.
-    // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
-    const needsManualEvent = state.isAssociated;
-
-    if (needsManualEvent) {
-      window.MojoGUI_API.addActivity({
-        id: manualId,
-        interface: iface.name,
-        method: method,
-        params: params,
-        status: "Running",
-      });
-    }
+    // Loading State
+    const btn = elements.executeBtn;
+    const originalContent = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = safeHTML(`<div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin-bottom: 0; display: inline-block; vertical-align: middle; margin-right: 8px;"></div> Executing...`);
 
     try {
-      const target = {
-        interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
-        masterHandleId: state.masterHandleId,
-      };
+      const manualId = "manual_" + Date.now();
+      showInterceptorPanel(true);
 
-      // Support Instance Calls
-      if (state.targetType === "instance" && state.targetObjectId) {
-        target.objectId = state.targetObjectId;
-      }
+      // Map param values (handle Maps)
+      const params = {};
+      Object.entries(state.paramValues).forEach(([key, val]) => {
+        params[key] = val;
+      });
 
-      const result = await window.MojoExecutionService.call(
-        target,
-        method,
-        params,
-        {
-          isAssociated: state.isAssociated,
-          interfaceId: state.interfaceId,
-        },
-      );
+      // Only add manual activity if this call WON'T be intercepted by the global interceptor.
+      // Standard calls use Mojo.bindInterface which is intercepted.
+      // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
+      const needsManualEvent = state.isAssociated;
 
       if (needsManualEvent) {
-        window.MojoGUI_API.updateActivity(manualId, "Done", result);
+        window.MojoGUI_API.addActivity({
+          id: manualId,
+          interface: iface.name,
+          method: method,
+          params: params,
+          status: "Running",
+        });
       }
-      showToast("Execution Success", "success");
-    } catch (error) {
-      console.error("[Execution] Error:", error);
-      if (needsManualEvent) {
-        window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
+
+      try {
+        const target = {
+          interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
+          masterHandleId: state.masterHandleId,
+        };
+
+        // Support Instance Calls
+        if (state.targetType === "instance" && state.targetObjectId) {
+          target.objectId = state.targetObjectId;
+        }
+
+        const result = await window.MojoExecutionService.call(
+          target,
+          method,
+          params,
+          {
+            isAssociated: state.isAssociated,
+            interfaceId: state.interfaceId,
+          },
+        );
+
+        if (needsManualEvent) {
+          window.MojoGUI_API.updateActivity(manualId, "Done", result);
+        }
+        showToast("Execution Success", "success");
+      } catch (error) {
+        console.error("[Execution] Error:", error);
+        if (needsManualEvent) {
+          window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
+        }
+        showToast("Execution Error: " + error.message, "error");
       }
-      showToast("Execution Error: " + error.message, "error");
+    } finally {
+      btn.innerHTML = safeHTML(originalContent);
+      btn.disabled = false;
     }
   }
 

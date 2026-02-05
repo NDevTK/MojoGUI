@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-03T10:31:55.667754Z",
-  "version": "146.0.7667.0",
+  "generated_at": "2026-02-05T10:32:58.706243Z",
+  "version": "146.0.7669.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3483,7 +3483,8 @@
         "ResizeWidget",
         "EnableDragResize",
         "WebUiStateChanged",
-        "GetInternalsDataPayload"
+        "GetInternalsDataPayload",
+        "SetGuestUrlPresets"
       ],
       "metadata": {
         "usage": {
@@ -6769,10 +6770,29 @@
       }
     },
     {
+      "name": "LegionInternalsPage",
+      "module": "legion_internals.mojom",
+      "file": "chrome_browser_ui_webui_legion_internals_legion_internals.mojom.js",
+      "methods": [
+        "OnLogMessage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "LegionInternalsPageHandler",
       "module": "legion_internals.mojom",
       "file": "chrome_browser_ui_webui_legion_internals_legion_internals.mojom.js",
       "methods": [
+        "SetPage",
         "Connect",
         "Close",
         "SendRequest"
@@ -8505,7 +8525,8 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "OpenSkillsDialog"
+        "OpenSkillsDialog",
+        "GetInitialUserSkills"
       ],
       "metadata": {
         "usage": {
@@ -8523,7 +8544,8 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "UpdateSkill"
+        "UpdateSkill",
+        "RemoveSkill"
       ],
       "metadata": {
         "usage": {
@@ -29734,6 +29756,7 @@
         "SetTimeToMetadata",
         "SetTimeToFirstFrame",
         "SetTimeToPlayReady",
+        "SetVisibilityRatioAtPlaybackStart",
         "SetRendererType",
         "SetDemuxerType",
         "SetKeySystem",
@@ -47667,6 +47690,7 @@
       "module": "webui_browser.mojom",
       "imports": [
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
         "url/mojom/url.mojom"
       ]
@@ -50784,7 +50808,8 @@
       "module": "guest_contents.mojom",
       "imports": [
         "mojo/public/mojom/base/values.mojom",
-        "third_party/blink/public/mojom/tokens/tokens.mojom"
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
@@ -52256,18 +52281,13 @@
       "imports": []
     },
     {
-      "filename": "content_common_native_types.mojom.js",
-      "source": "content/common/native_types.mojom",
-      "module": "content.mojom",
-      "imports": []
-    },
-    {
       "filename": "content_common_navigation_client.mojom.js",
       "source": "content/common/navigation_client.mojom",
       "module": "content.mojom",
       "imports": [
         "content/common/frame_messages.mojom",
         "content/public/common/alternative_error_page_override_info.mojom",
+        "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/uuid.mojom",
@@ -52333,12 +52353,12 @@
       "module": "content.mojom",
       "imports": [
         "content/common/agent_scheduling_group.mojom",
-        "content/common/native_types.mojom",
         "ipc/ipc.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
         "mojo/public/mojom/base/process_priority.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "services/network/public/mojom/network_change_manager.mojom",
         "services/network/public/mojom/network_types.mojom",
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/cpu_performance.mojom",
@@ -59274,6 +59294,7 @@
       "source": "third_party/blink/public/mojom/input/text_input_host.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -62019,6 +62040,7 @@
       "source": "ui/webui/examples/browser/ui/web/browser.mojom",
       "module": "webui_examples.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
         "url/mojom/url.mojom"
       ]
