@@ -11386,7 +11386,9 @@ function map_all_interfaces() {
     var snippet = "window.MojoGUI_API.assignInterfaceIds({\n";
     var mappings = [];
     for (var name in mapping) {
-      mappings.push('  "' + name + '": ' + mapping[name]);
+      // Strip high bit (0x80000000) for MojoGUI logical IDs
+      var logicalId = mapping[name] & 0x7fffffff;
+      mappings.push('  "' + name + '": ' + logicalId);
     }
     snippet += mappings.join(",\n");
     snippet += "\n});";

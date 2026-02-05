@@ -1310,7 +1310,9 @@
     const btn = elements.executeBtn;
     const originalContent = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = safeHTML(`<div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin-bottom: 0; display: inline-block; vertical-align: middle; margin-right: 8px;"></div> Executing...`);
+    btn.innerHTML = safeHTML(
+      `<div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin-bottom: 0; display: inline-block; vertical-align: middle; margin-right: 8px;"></div> Executing...`,
+    );
 
     try {
       const manualId = "manual_" + Date.now();
@@ -1339,7 +1341,9 @@
 
       try {
         const target = {
-          interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
+          interface: iface.module
+            ? `${iface.module}.${iface.name}`
+            : iface.name,
           masterHandleId: state.masterHandleId,
         };
 
