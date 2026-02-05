@@ -190,14 +190,15 @@ server.tool(
         ),
       ).length;
 
-      const isAssociated = iface.metadata?.usage?.associated?.length > 0;
+      const isAssociated =
+        iface.metadata?.usage?.associated?.length > 0 || iface.discoveredId;
 
       let status = "🆕 New";
       if (findingCount > 0) status = "🔍 Researched";
       else if (target)
         status = target.status === "Completed" ? "✅ Done" : "🎯 Target";
 
-      // Oversee status if it's strictly associated
+      // Oversee status if it's strictly associated or discovered via debugger
       if (isAssociated) status = "🔗 Associated";
 
       const highImpactIcon = criticalCount > 0 ? " 🔴" : "";

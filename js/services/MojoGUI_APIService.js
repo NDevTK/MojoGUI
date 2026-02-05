@@ -114,6 +114,8 @@
         if (iface) {
           iface.metadata = iface.metadata || {};
           iface.metadata.discoveredId = id;
+          // Promote to associated category so it shows up in filtered search
+          iface.metadata.category = "associated";
           count++;
         }
       }
