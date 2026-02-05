@@ -1289,61 +1289,72 @@
     const method = state.selectedMethod;
     if (!iface || !method) return;
 
-    const manualId = "manual_" + Date.now();
-    showInterceptorPanel(true);
-
-    // Map param values (handle Maps)
-    const params = {};
-    Object.entries(state.paramValues).forEach(([key, val]) => {
-      params[key] = val;
-    });
-
-    // Only add manual activity if this call WON'T be intercepted by the global interceptor.
-    // Standard calls use Mojo.bindInterface which is intercepted.
-    // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
-    const needsManualEvent = state.isAssociated;
-
-    if (needsManualEvent) {
-      window.MojoGUI_API.addActivity({
-        id: manualId,
-        interface: iface.name,
-        method: method,
-        params: params,
-        status: "Running",
-      });
-    }
+    // Loading State
+    const btn = elements.executeBtn;
+    const originalContent = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = safeHTML(`<div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin-bottom: 0; display: inline-block; vertical-align: middle; margin-right: 8px;"></div> Executing...`);
 
     try {
-      const target = {
-        interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
-        masterHandleId: state.masterHandleId,
-      };
+      const manualId = "manual_" + Date.now();
+      showInterceptorPanel(true);
 
-      // Support Instance Calls
-      if (state.targetType === "instance" && state.targetObjectId) {
-        target.objectId = state.targetObjectId;
-      }
+      // Map param values (handle Maps)
+      const params = {};
+      Object.entries(state.paramValues).forEach(([key, val]) => {
+        params[key] = val;
+      });
 
-      const result = await window.MojoExecutionService.call(
-        target,
-        method,
-        params,
-        {
-          isAssociated: state.isAssociated,
-          interfaceId: state.interfaceId,
-        },
-      );
+      // Only add manual activity if this call WON'T be intercepted by the global interceptor.
+      // Standard calls use Mojo.bindInterface which is intercepted.
+      // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
+      const needsManualEvent = state.isAssociated;
 
       if (needsManualEvent) {
-        window.MojoGUI_API.updateActivity(manualId, "Done", result);
+        window.MojoGUI_API.addActivity({
+          id: manualId,
+          interface: iface.name,
+          method: method,
+          params: params,
+          status: "Running",
+        });
       }
-      showToast("Execution Success", "success");
-    } catch (error) {
-      console.error("[Execution] Error:", error);
-      if (needsManualEvent) {
-        window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
+
+      try {
+        const target = {
+          interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
+          masterHandleId: state.masterHandleId,
+        };
+
+        // Support Instance Calls
+        if (state.targetType === "instance" && state.targetObjectId) {
+          target.objectId = state.targetObjectId;
+        }
+
+        const result = await window.MojoExecutionService.call(
+          target,
+          method,
+          params,
+          {
+            isAssociated: state.isAssociated,
+            interfaceId: state.interfaceId,
+          },
+        );
+
+        if (needsManualEvent) {
+          window.MojoGUI_API.updateActivity(manualId, "Done", result);
+        }
+        showToast("Execution Success", "success");
+      } catch (error) {
+        console.error("[Execution] Error:", error);
+        if (needsManualEvent) {
+          window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
+        }
+        showToast("Execution Error: " + error.message, "error");
       }
-      showToast("Execution Error: " + error.message, "error");
+    } finally {
+      btn.innerHTML = safeHTML(originalContent);
+      btn.disabled = false;
     }
   }
 
