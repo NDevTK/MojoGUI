@@ -28,6 +28,7 @@ const mutex = new Mutex();
  */
 export const SelfImprovement = {
   _cache: null,
+  _initialized: false,
   _writeTimer: null,
 
   /**
@@ -419,6 +420,8 @@ export const SelfImprovement = {
   },
 
   async init() {
+    if (this._initialized) return;
+
     // Check if directory exists
     try {
         await fs.promises.access(DATA_DIR);
@@ -445,6 +448,7 @@ export const SelfImprovement = {
              // fs.promises.writeFile with flag 'wx' (exclusive) fails if exists.
         }
     }
+    this._initialized = true;
   },
 
   // Public init to be called at start, needs to be async now
