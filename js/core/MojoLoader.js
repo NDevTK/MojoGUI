@@ -56,7 +56,51 @@
         }
       }
 
+      // Bolt Optimization: Interface lookup maps
+      this._interfaceByFQN = new Map();
+      this._interfaceByName = new Map();
+
+      if (this._indexData.interfaces) {
+        for (const iface of this._indexData.interfaces) {
+          const fqn = iface.module + "." + iface.name;
+          if (!this._interfaceByFQN.has(fqn)) {
+            this._interfaceByFQN.set(fqn, iface);
+          }
+          // Store first occurrence of short name
+          if (!this._interfaceByName.has(iface.name)) {
+            this._interfaceByName.set(iface.name, iface);
+          }
+        }
+      }
+
       return this._indexData;
+    },
+
+    /**
+     * Find interface metadata by name (FQN or Short Name)
+     * @param {string} interfaceName - The interface name
+     */
+    findInterface(interfaceName) {
+      if (this._interfaceByFQN && this._interfaceByFQN.has(interfaceName)) {
+        return this._interfaceByFQN.get(interfaceName);
+      }
+      if (this._interfaceByName && this._interfaceByName.has(interfaceName)) {
+        return this._interfaceByName.get(interfaceName);
+      }
+      // Fuzzy fallback
+      if (this._interfaces) {
+        // Optimization: these finds are still O(N), but only run if exact match fails
+        let iface = this._interfaces.find((i) =>
+          i.name.endsWith("." + interfaceName),
+        );
+        if (!iface) {
+          iface = this._interfaces.find((i) =>
+            interfaceName.endsWith("." + i.name),
+          );
+        }
+        return iface || null;
+      }
+      return null;
     },
 
     async getInterfaces() {
@@ -153,22 +197,8 @@
      */
     async ensureBinding(interfaceName) {
       // 1. Resolve FQN from metadata first (most reliable)
-      let iface = this._interfaces.find(
-        (i) =>
-          i.name === interfaceName || i.module + "." + i.name === interfaceName,
-      );
-
-      // Fuzzy match fallback
-      if (!iface) {
-        iface = this._interfaces.find((i) =>
-          i.name.endsWith("." + interfaceName),
-        );
-      }
-      if (!iface) {
-        iface = this._interfaces.find((i) =>
-          interfaceName.endsWith("." + i.name),
-        );
-      }
+      // Bolt Optimization: Use Map lookup instead of O(N) scan
+      let iface = this.findInterface(interfaceName);
 
       const fqn = iface ? iface.module + "." + iface.name : interfaceName;
 

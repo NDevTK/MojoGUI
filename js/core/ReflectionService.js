@@ -136,15 +136,8 @@
      * Finds a method definition (params/response) for an interface
      */
     findMethodDefinition(interfaceName, methodName) {
-      // Prioritize FQN match to avoid ambiguity
-      let iface = MojoLoader._interfaces.find(
-        (i) => i.module + "." + i.name === interfaceName,
-      );
-
-      // Fallback to simple name match
-      if (!iface) {
-        iface = MojoLoader._interfaces.find((i) => i.name === interfaceName);
-      }
+      // Bolt Optimization: Use fast lookup via MojoLoader.findInterface
+      const iface = MojoLoader.findInterface(interfaceName);
 
       if (!iface || !iface.module) return null;
 
