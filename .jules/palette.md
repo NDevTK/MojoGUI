@@ -9,3 +9,7 @@
 ## 2025-10-27 - Visual Feedback for Async Actions
 **Learning:** Users need immediate feedback for actions like "Execute" to know the system is working, especially for Mojo calls that might take time.
 **Action:** Implement loading states (spinner + disabled state) for all async action buttons, ensuring the button returns to its original state even if the action fails.
+
+## 2024-05-22 - [Sidebar Tabs Navigation]
+**Learning:** Sidebar tabs were implemented as buttons but lacked proper ARIA `tabindex` management and keyboard navigation (Arrow keys), making them cumbersome for keyboard users who expect standard tab widget behavior.
+**Action:** When implementing tab interfaces, always use the "Roving Tabindex" pattern: set `tabindex="0"` on the active tab and `-1` on others, and handle Arrow keys to move focus and activate tabs.

@@ -61,7 +61,14 @@
 
     bindTabs() {
       const tabs = document.querySelectorAll(".sidebar-tab");
+
+      // Initialize tabs
       tabs.forEach((tab) => {
+        // Set initial tabindex
+        const isActive = tab.classList.contains("active");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+
+        // Click Handler
         tab.addEventListener("click", () => {
           const target = tab.dataset.tab;
 
@@ -70,6 +77,8 @@
             const isActive = t.dataset.tab === target;
             t.classList.toggle("active", isActive);
             t.setAttribute("aria-selected", isActive);
+            // Manage focus for Roving Tabindex
+            t.setAttribute("tabindex", isActive ? "0" : "-1");
           });
 
           const contents = document.querySelectorAll(".sidebar-tab-content");
@@ -85,6 +94,37 @@
 
           if (target === "tools") {
             this.refreshAllDropdowns();
+          }
+        });
+
+        // Keyboard Navigation (Roving Tabindex)
+        tab.addEventListener("keydown", (e) => {
+          const index = Array.from(tabs).indexOf(tab);
+          let targetTab = null;
+
+          switch (e.key) {
+            case "ArrowRight":
+            case "ArrowDown": // Support vertical navigation too
+              targetTab = tabs[(index + 1) % tabs.length];
+              break;
+            case "ArrowLeft":
+            case "ArrowUp":
+              targetTab = tabs[(index - 1 + tabs.length) % tabs.length];
+              break;
+            case "Home":
+              targetTab = tabs[0];
+              break;
+            case "End":
+              targetTab = tabs[tabs.length - 1];
+              break;
+            default:
+              return; // Quit if not a navigation key
+          }
+
+          if (targetTab) {
+            e.preventDefault();
+            targetTab.focus();
+            targetTab.click(); // Automatic Activation
           }
         });
       });
