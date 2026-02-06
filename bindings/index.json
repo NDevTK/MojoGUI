@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-05T10:32:58.706243Z",
-  "version": "146.0.7669.0",
+  "generated_at": "2026-02-06T10:32:32.104962Z",
+  "version": "146.0.7671.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7039,7 +7039,8 @@
       "module": "action_chips.mojom",
       "file": "chrome_browser_ui_webui_new_tab_page_action_chips_action_chips.mojom.js",
       "methods": [
-        "StartActionChipsRetrieval"
+        "StartActionChipsRetrieval",
+        "ActivateMetricsFunnel"
       ],
       "metadata": {
         "usage": {
@@ -8526,7 +8527,9 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "OpenSkillsDialog",
-        "GetInitialUserSkills"
+        "GetInitialUserSkills",
+        "GetInitial1PSkills",
+        "Request1PSkills"
       ],
       "metadata": {
         "usage": {
@@ -8545,7 +8548,8 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "UpdateSkill",
-        "RemoveSkill"
+        "RemoveSkill",
+        "Update1PMap"
       ],
       "metadata": {
         "usage": {
@@ -8567,7 +8571,8 @@
         "RefineSkill",
         "CloseDialog",
         "ShowEmojiPicker",
-        "GetInitialSkill"
+        "GetInitialSkill",
+        "GetSignedInEmail"
       ],
       "metadata": {
         "usage": {
@@ -8935,8 +8940,9 @@
       "methods": [
         "GetAllUpdaterEvents",
         "GetUpdaterStates",
+        "GetEnterpriseCompanionState",
         "GetAppStates",
-        "ShowUpdaterDirectory"
+        "ShowDirectory"
       ],
       "metadata": {
         "usage": {
@@ -22527,7 +22533,8 @@
         "SubmitQuery",
         "OpenLensSearch",
         "SetActiveToolMode",
-        "SetActiveModelMode"
+        "SetActiveModelMode",
+        "ActivateMetricsFunnel"
       ],
       "metadata": {
         "usage": {
@@ -23167,7 +23174,8 @@
         "SetCanGoForward",
         "DisplayContextMenu",
         "SetAllowScreenshots",
-        "SetColorMode"
+        "SetColorMode",
+        "BeginFileDrag"
       ],
       "metadata": {
         "usage": {
@@ -25477,7 +25485,7 @@
       }
     },
     {
-      "name": "ChildMemoryConsumer",
+      "name": "ChildMemoryCoordinator",
       "module": "content.mojom",
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
@@ -25500,7 +25508,9 @@
       "module": "content.mojom",
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
-        "Register"
+        "BindCoordinator",
+        "Register",
+        "Unregister"
       ],
       "metadata": {
         "usage": {
@@ -34016,6 +34026,7 @@
         "OnSharedDictionaryError",
         "OnSRIMessageSignatureIssue",
         "OnUnencodedDigestError",
+        "OnConnectionAllowlistIssue",
         "Clone"
       ],
       "metadata": {
@@ -51395,6 +51406,7 @@
       "imports": [
         "components/remote_cocoa/common/select_file_dialog.mojom",
         "components/remote_cocoa/common/menu.mojom",
+        "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "services/network/public/mojom/network_param.mojom",
         "ui/base/cursor/mojom/cursor.mojom",
@@ -51402,6 +51414,7 @@
         "ui/base/mojom/ui_base_types.mojom",
         "ui/events/mojom/event_constants.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/gfx/image/mojom/image.mojom",
         "ui/gfx/mojom/ca_layer_params.mojom"
       ]
     },
@@ -55429,6 +55442,7 @@
         "services/network/public/mojom/shared_dictionary_error.mojom",
         "services/network/public/mojom/sri_message_signature.mojom",
         "services/network/public/mojom/unencoded_digest.mojom",
+        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/trust_tokens.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/url_loader_completion_status.mojom",
