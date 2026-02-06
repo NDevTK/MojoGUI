@@ -287,6 +287,12 @@ export const SelfImprovement = {
       }
 
       // Sort by newest first
+      // Ensure we don't mutate the cached arrays
+      const cached = await this._read();
+      if (research === cached.research) research = research.slice();
+      if (gaps === cached.gaps) gaps = gaps.slice();
+      if (targets === cached.targets) targets = targets.slice();
+
       research.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
       gaps.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
       targets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
@@ -405,9 +411,11 @@ export const SelfImprovement = {
 
   async _read() {
     await this.init();
+    if (this._cache) return this._cache;
     try {
       const content = await fs.promises.readFile(PROGRESS_FILE, "utf8");
-      return JSON.parse(content);
+      this._cache = JSON.parse(content);
+      return this._cache;
     } catch (e) {
       this._cache = { gaps: [], research: [], targets: [], error: "Failed to parse PROGRESS.json" };
     }
@@ -416,6 +424,7 @@ export const SelfImprovement = {
 
   async _write(data) {
     await this.init();
+    this._cache = data;
     await fs.promises.writeFile(PROGRESS_FILE, JSON.stringify(data, null, 2));
   },
 
