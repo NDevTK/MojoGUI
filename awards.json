@@ -124,5 +124,23 @@
     "method": "Transmit",
     "reason": "Allows renderer to send arbitrary APDUs to smart cards; high risk of card applet exploitation, bypassing PINs, or interacting with secure elements.",
     "priority": 8
+  },
+  {
+    "file": "services/device/public/mojom/nfc.mojom",
+    "method": "Push",
+    "reason": "Allows renderer to write arbitrary data to NFC tags; high risk of interaction with NFC hardware and potential firmware exploitation.",
+    "priority": 8
+  },
+  {
+    "file": "media/mojo/mojom/renderer.mojom",
+    "method": "Initialize",
+    "reason": "Allows renderer to provide a DemuxerStream, enabling it to feed arbitrary media data to privileged decoders (GPU/Utility process); high risk of exploiting video/audio codec vulnerabilities.",
+    "priority": 8
+  },
+  {
+    "file": "services/device/public/mojom/usb_manager.mojom",
+    "method": "OpenFileDescriptor",
+    "reason": "Allows renderer to obtain a raw file descriptor to the USB device on ChromeOS; bypassing specific driver logic and allowing direct kernel interaction.",
+    "priority": 9
   }
 ]
