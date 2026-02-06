@@ -6,6 +6,11 @@ const APPDATA = process.env.APPDATA || (process.platform === 'darwin' ? path.joi
 const DATA_DIR = path.join(APPDATA, "MojoGUI");
 const PROGRESS_FILE = path.join(DATA_DIR, "PROGRESS.json");
 
+// Security Limits
+const MAX_NOTE_LENGTH = 10000;
+const MAX_RESULT_LENGTH = 1000;
+const MAX_RESEARCH_ENTRIES = 1000;
+
 class Mutex {
     constructor() {
         this.queue = Promise.resolve();
@@ -45,14 +50,32 @@ export const SelfImprovement = {
     }
   },
 
+  _truncate(str, maxLength) {
+    if (typeof str !== 'string') return str;
+    if (str.length <= maxLength) return str;
+    return str.substring(0, maxLength) + " ... (truncated)";
+  },
+
   _applyTrack(data, { interface: iface, method, result, notes, type = "research", priority = "Medium", task, gap, impact }) {
     const id = Math.random().toString(36).substr(2, 9);
     const timestamp = new Date().toISOString();
+
+    // Input Validation / Truncation
+    notes = this._truncate(notes, MAX_NOTE_LENGTH);
+    result = this._truncate(result, MAX_RESULT_LENGTH);
+    task = this._truncate(task, MAX_NOTE_LENGTH);
+    gap = this._truncate(gap, MAX_NOTE_LENGTH);
+    impact = this._truncate(impact, MAX_RESULT_LENGTH);
 
     if (type === "research") {
       // Log finding
       data.research.push({ id, timestamp, interface: iface, method, result, notes });
       
+      // Log Rotation (FIFO)
+      if (data.research.length > MAX_RESEARCH_ENTRIES) {
+          data.research.shift();
+      }
+
       // Auto-update target if it exists
       if (data.targets) {
         const target = data.targets.find(t => t.interface === iface);
@@ -73,11 +96,19 @@ export const SelfImprovement = {
         existing.updatedAt = timestamp;
         return { success: true, message: `Target ${iface} updated.` };
       }
+      // Safety cap for targets too
+      if (data.targets.length >= MAX_RESEARCH_ENTRIES) {
+         return { success: false, message: "Too many targets. Please remove some." };
+      }
       data.targets.push({ id, timestamp, interface: iface, priority, notes, status: "Pending" });
       return { success: true, id, message: `Target ${iface} added.` };
     }
 
     if (type === "gap") {
+      // Safety cap for gaps
+      if (data.gaps.length >= MAX_RESEARCH_ENTRIES) {
+          return { success: false, message: "Too many gaps logged. Please close some." };
+      }
       data.gaps.push({ id, timestamp, task, gap, impact, status: "Open" });
       return { success: true, id, message: "Capability gap logged." };
     }
