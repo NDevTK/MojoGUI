@@ -13,7 +13,7 @@ OUTPUT_FILE = "chrome_capture.png"
 
 # --- 1. Find the PID listening on Port 9222 ---
 def get_pid_by_port(port):
-    for conn in psutil.net_connections():
+    for conn in psutil.net_connections(kind='tcp'):
         if conn.laddr.port == port and conn.status == 'LISTEN':
             return conn.pid
     return None
