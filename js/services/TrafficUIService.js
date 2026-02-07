@@ -214,7 +214,7 @@
     row.innerHTML = safeHTML(`
             <td>
                 ${new Date(timestamp).toLocaleTimeString()}
-                <div style="font-size:0.8em;opacity:0.7;font-family:monospace;">${id}</div>
+                <div style="font-size:0.8em;opacity:0.7;font-family:monospace;">${escapeHtml(id)}</div>
             </td>
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>

@@ -316,8 +316,8 @@
                     </label>
                     <input type="text" 
                    class="intercept-input param-input" 
-                           data-id="${interceptId}" 
-                           data-index="${index}" 
+                           data-id="${escapeHtml(interceptId)}"
+                           data-index="${escapeHtml(index)}"
                            data-type="url_wrapped" 
                            value="${escapeHtml(urlVal)}" 
                            placeholder="https://...">
@@ -374,8 +374,8 @@
                         <span style="font-size: 1.25em; filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));">📁</span>
                         <input type="text" 
                                class="intercept-input param-input" 
-                               data-id="${interceptId}" 
-                               data-index="${index}" 
+                               data-id="${escapeHtml(interceptId)}"
+                               data-index="${escapeHtml(index)}"
                                data-type="filepath" 
                                value="${escapeHtml(displayValue)}" 
                                placeholder="C:\\path\\to\\file"
@@ -395,8 +395,8 @@
                     </label>
                     <textarea 
                            class="intercept-input param-input" 
-                           data-id="${interceptId}" 
-                           data-index="${index}" 
+                           data-id="${escapeHtml(interceptId)}"
+                           data-index="${escapeHtml(index)}"
                            data-type="string16" 
                            placeholder="String16 value"
                            rows="2"
@@ -415,8 +415,8 @@
                     </label>
                     <textarea
                            class="intercept-input param-input" 
-                           data-id="${interceptId}" 
-                           data-index="${index}" 
+                           data-id="${escapeHtml(interceptId)}"
+                           data-index="${escapeHtml(index)}"
                            data-type="bigstring16" 
                            placeholder="BigString16 value"
                            rows="4"
@@ -435,8 +435,8 @@
                     </label>
                     <textarea
                            class="intercept-input param-input" 
-                           data-id="${interceptId}" 
-                           data-index="${index}" 
+                           data-id="${escapeHtml(interceptId)}"
+                           data-index="${escapeHtml(index)}"
                            data-type="bigstring" 
                            placeholder="BigString value"
                            rows="4"
@@ -1039,8 +1039,8 @@
     if (isInterceptor) {
       attributes = `class="intercept-input param-input ${inputType === "textarea" ? "params-editor" : ""}"
                           name="${escapeHtml(param.name)}"
-                          data-id="${interceptId}"
-                          data-index="${index}"
+                          data-id="${escapeHtml(interceptId)}"
+                          data-index="${escapeHtml(index)}"
                           data-type="${escapeHtml(typeString)}"`;
       if (inputType === "textarea") attributes += ' style="min-height: 100px;"';
     } else {
@@ -1284,7 +1284,7 @@
       })
       .join("");
 
-    return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
+    return `<div id="interceptForm_${escapeHtml(interceptId)}">${inputs}</div>`;
   }
 
   global.InputRendererService = {
