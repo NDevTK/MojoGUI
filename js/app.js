@@ -1776,6 +1776,14 @@
 
   window.updateTargetType = function (value) {
     state.targetType = value;
+
+    // Update radio-tab active states
+    const tabs = elements.paramsForm.querySelectorAll(".radio-tab");
+    tabs.forEach((tab) => {
+      const radio = tab.querySelector('input[type="radio"]');
+      tab.classList.toggle("active", radio && radio.value === value);
+    });
+
     const input = document.getElementById("instanceTargetInput");
     if (input) {
       input.style.display = value === "instance" ? "block" : "none";
