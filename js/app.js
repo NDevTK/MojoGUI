@@ -1211,7 +1211,7 @@
     return highlighted
       .split("\n")
       .map((line) => `<span class="code-line">${line}</span>`)
-      .join("\n");
+      .join("");
   }
 
   // ========================================

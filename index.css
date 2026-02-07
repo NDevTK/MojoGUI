@@ -2325,9 +2325,9 @@ select option {
   gap: 6px;
   cursor: pointer;
   padding: 6px var(--space-md);
-  background: var(--bg-primary);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-default);
   transition: all var(--transition-fast);
 }
 
