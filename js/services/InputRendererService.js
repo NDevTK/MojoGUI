@@ -37,7 +37,15 @@
       const label = target.closest('[data-action="toggle-visibility"]');
       if (label) {
         const content = label.nextElementSibling;
-        if (content) content.hidden = !content.hidden;
+        if (content) {
+          content.hidden = !content.hidden;
+          label.setAttribute("aria-expanded", !content.hidden);
+          const arrow = label.querySelector("span");
+          if (arrow)
+            arrow.style.transform = content.hidden
+              ? "rotate(0deg)"
+              : "rotate(90deg)";
+        }
         return;
       }
 
@@ -55,6 +63,17 @@
         const { interface: iface, id, ref } = useBtn.dataset;
         window.useHandle(iface, id, ref);
         return;
+      }
+    });
+
+    // Keyboard Accessibility for Toggles
+    container.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        const label = e.target.closest('[data-action="toggle-visibility"]');
+        if (label) {
+          e.preventDefault();
+          label.click();
+        }
       }
     });
 
@@ -272,7 +291,7 @@
 
     // If templateHtml is just the input, we wrapper it.
     wrapper.innerHTML = safeHTML(`<div class="item-content">${newItemHtml}</div>
-                        <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}">&times;</button>`);
+                        <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}" aria-label="Remove item" title="Remove item">&times;</button>`);
 
     container.appendChild(wrapper);
     updateContainerCount(container);
@@ -677,7 +696,7 @@
                 <div class="form-group struct-group" 
                      data-type="struct" 
                      data-original-name="${escapeHtml(param.name)}">
-                    <label style="cursor: pointer;" data-action="toggle-visibility">
+                    <label style="cursor: pointer;" data-action="toggle-visibility" role="button" tabindex="0" aria-expanded="true">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Struct</span>
@@ -737,7 +756,7 @@
           (val, i) => `
                 <div class="array-item">
                     <div class="item-content">${renderItemHtml(val, i)}</div>
-                    <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}">&times;</button>
+                    <button type="button" class="remove-item-btn" data-action="remove-item" data-prefix="${escapeHtml(prefix || "")}" aria-label="Remove item" title="Remove item">&times;</button>
                 </div>
             `,
         )
@@ -773,7 +792,7 @@
                      data-type="array" 
                      data-original-name="${escapeHtml(param.name)}"
                      data-prefix="${escapeHtml(prefix)}">
-                    <label style="cursor: pointer;" data-action="toggle-visibility">
+                    <label style="cursor: pointer;" data-action="toggle-visibility" role="button" tabindex="0" aria-expanded="true">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
@@ -864,7 +883,7 @@
           (entry, i) => `
                     <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
                         <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
-                        <button type="button" class="remove-item-btn" data-action="remove-item" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
+                        <button type="button" class="remove-item-btn" data-action="remove-item" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;" aria-label="Remove item" title="Remove item">&times;</button>
                     </div>
                 `,
         )
@@ -881,7 +900,7 @@
                      data-original-name="${escapeHtml(param.name)}"
                      data-prefix="${escapeHtml(prefix)}"
                      style="margin-bottom: 8px;">
-                    <label style="cursor: pointer;" data-action="toggle-visibility">
+                    <label style="cursor: pointer;" data-action="toggle-visibility" role="button" tabindex="0" aria-expanded="true">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
                         ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.keySpec)}, ${inferTypeFromMojomType(param.mapSpec.valueSpec)}&gt;</span>
