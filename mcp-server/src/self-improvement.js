@@ -286,16 +286,27 @@ export const SelfImprovement = {
         );
       }
 
-      // Sort by newest first
-      // Ensure we don't mutate the cached arrays
-      const cached = await this._read();
-      if (research === cached.research) research = research.slice();
-      if (gaps === cached.gaps) gaps = gaps.slice();
-      if (targets === cached.targets) targets = targets.slice();
+      // Sort by newest first (always clone to avoid mutating cache)
+      research = research.slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      gaps = gaps.slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      targets = targets.slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
-      research.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-      gaps.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-      targets.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      // Build crash pattern summary
+      const crashPatterns = {};
+      for (const r of research) {
+        if (!r.result || !r.result.toLowerCase().includes('crash')) continue;
+        const codeMatch = r.notes?.match(/crashed with (\w+)/i);
+        const code = codeMatch ? codeMatch[1] : 'Unknown';
+        const mod = r.interface ? r.interface.split('.').slice(0, -1).join('.') : 'unknown';
+        const key = `${code}@${mod}`;
+        if (!crashPatterns[key]) crashPatterns[key] = { code, module: mod, count: 0, interfaces: [] };
+        crashPatterns[key].count++;
+        if (!crashPatterns[key].interfaces.includes(r.interface)) {
+          crashPatterns[key].interfaces.push(r.interface);
+        }
+      }
+
+      const significantCrashPatterns = Object.values(crashPatterns).filter(p => p.count >= 2);
 
       if (filters.limit) {
         research = research.slice(0, filters.limit);
@@ -303,7 +314,12 @@ export const SelfImprovement = {
         targets = targets.slice(0, filters.limit);
       }
 
-      return { gaps, research, targets, count: { gaps: gaps.length, research: research.length, targets: targets.length }, path: PROGRESS_FILE };
+      return {
+        gaps, research, targets,
+        count: { gaps: gaps.length, research: research.length, targets: targets.length },
+        crashPatterns: significantCrashPatterns.length > 0 ? significantCrashPatterns : undefined,
+        path: PROGRESS_FILE
+      };
     } finally {
       release();
     }
@@ -316,36 +332,218 @@ export const SelfImprovement = {
   async checkIdea(idea) {
     const release = await mutex.lock();
     try {
-      const { gaps, research } = await this._read();
+      const { gaps, research, targets = [] } = await this._read();
       const q = idea.toLowerCase();
 
-      // Find direct matches or high-similarity keywords
+      // Extract likely module/interface from the idea
+      const ideaParts = idea.split('.');
+      const likelyModule = ideaParts.length >= 2 ? ideaParts.slice(0, -1).join('.') : null;
+
+      // Direct matches
       const relevantResearch = research.filter(r =>
-        r.interface.toLowerCase().includes(q) ||
-        r.method.toLowerCase().includes(q) ||
-        r.notes.toLowerCase().includes(q)
+        r.interface?.toLowerCase().includes(q) ||
+        r.method?.toLowerCase().includes(q) ||
+        r.notes?.toLowerCase().includes(q) ||
+        this._getSimilarity(r.notes, idea) > 0.3
       );
 
       const relevantGaps = gaps.filter(g =>
-        g.task.toLowerCase().includes(q) ||
-        g.gap.toLowerCase().includes(q) ||
-        g.impact.toLowerCase().includes(q)
+        g.task?.toLowerCase().includes(q) ||
+        g.gap?.toLowerCase().includes(q) ||
+        g.impact?.toLowerCase().includes(q)
       );
 
-      // Identify patterns (e.g. "Renderer crashed" or "User Gesture Bypass")
+      // Module-level context: if the idea mentions an interface, find sibling findings
+      let moduleContext = null;
+      if (likelyModule) {
+        const moduleResearch = research.filter(r =>
+          r.interface && r.interface.startsWith(likelyModule) &&
+          !relevantResearch.includes(r)
+        );
+        if (moduleResearch.length > 0) {
+          const moduleOutcomes = {};
+          const moduleInterfaces = new Set();
+          for (const r of moduleResearch) {
+            moduleOutcomes[r.result] = (moduleOutcomes[r.result] || 0) + 1;
+            moduleInterfaces.add(r.interface);
+          }
+          const highImpact = moduleResearch.filter(r => {
+            const text = `${r.result} ${r.notes}`.toLowerCase();
+            return ['bypass', 'leak', 'exploit', 'vulnerability', 'escalation', 'pwned'].some(k => text.includes(k));
+          });
+          moduleContext = {
+            module: likelyModule,
+            siblingFindings: moduleResearch.length,
+            siblingInterfaces: [...moduleInterfaces],
+            outcomes: moduleOutcomes,
+            hasHighImpact: highImpact.length > 0,
+            highImpactCount: highImpact.length,
+            suggestion: highImpact.length > 0
+              ? `Module '${likelyModule}' has ${highImpact.length} high-impact findings in sibling interfaces - this area is worth investigating.`
+              : `Module '${likelyModule}' has ${moduleResearch.length} findings but none high-impact yet.`
+          };
+        }
+      }
+
+      // Outcome distribution for direct matches
       const outcomePatterns = {};
-      relevantResearch.forEach(r => {
+      for (const r of relevantResearch) {
         outcomePatterns[r.result] = (outcomePatterns[r.result] || 0) + 1;
-      });
+      }
+
+      // Related targets
+      const relatedTargets = targets.filter(t =>
+        t.interface?.toLowerCase().includes(q) ||
+        (likelyModule && t.interface?.startsWith(likelyModule))
+      );
+
+      // Verdict
+      const openBlockers = relevantGaps.filter(g => g.status === "Open");
+      let verdict = "New area - no prior research found.";
+      if (relevantResearch.length > 0 && openBlockers.length > 0) {
+        verdict = `Partially researched with ${openBlockers.length} open blocker(s). Review gaps before proceeding.`;
+      } else if (relevantResearch.length > 0) {
+        verdict = `Already researched (${relevantResearch.length} findings). Check if new angles exist.`;
+      } else if (moduleContext?.hasHighImpact) {
+        verdict = `Not directly researched, but sibling interfaces in ${likelyModule} have critical findings - high potential.`;
+      }
 
       return {
         idea,
+        verdict,
         alreadyResearched: relevantResearch.length > 0,
-        knownBlockers: relevantGaps.filter(g => g.status === "Open").length > 0,
-        findings: relevantResearch.slice(0, 10), // Limit to top 10 relevant findings
+        knownBlockers: openBlockers.length > 0,
+        findings: relevantResearch.slice(0, 10),
         gaps: relevantGaps.slice(0, 10),
         patterns: outcomePatterns,
-        summary: `Found ${relevantResearch.length} relevant research entries and ${relevantGaps.length} gaps.`
+        moduleContext,
+        relatedTargets: relatedTargets.slice(0, 5),
+        summary: `Found ${relevantResearch.length} relevant research entries, ${relevantGaps.length} gaps, and ${relatedTargets.length} related targets.`
+      };
+    } finally {
+      release();
+    }
+  },
+
+  /**
+   * Suggest the most promising interfaces to research next.
+   * Uses module vulnerability density, untested method counts, crash clusters,
+   * and pending target priority to rank suggestions.
+   */
+  async suggestNextTarget(limit = 5) {
+    const release = await mutex.lock();
+    try {
+      const { research, targets, gaps } = await this._read();
+
+      // Build module-level stats
+      const moduleStats = {};
+      const researchedInterfaces = new Set();
+
+      for (const r of research) {
+        if (!r.interface) continue;
+        researchedInterfaces.add(r.interface);
+        const mod = r.interface.split('.').slice(0, -1).join('.');
+        if (!mod) continue;
+        if (!moduleStats[mod]) moduleStats[mod] = { findings: 0, criticals: 0, crashes: 0, interfaces: new Set() };
+        moduleStats[mod].findings++;
+        moduleStats[mod].interfaces.add(r.interface);
+
+        const text = `${r.result} ${r.notes}`.toLowerCase();
+        if (['bypass', 'leak', 'exploit', 'vulnerability', 'escalation', 'pwned'].some(k => text.includes(k))) {
+          moduleStats[mod].criticals++;
+        }
+        if (text.includes('crash')) {
+          moduleStats[mod].crashes++;
+        }
+      }
+
+      // Build crash pattern clusters
+      const crashPatterns = {};
+      for (const r of research) {
+        if (!r.result || !r.result.toLowerCase().includes('crash')) continue;
+        const codeMatch = r.notes?.match(/crashed with (\w+)/i);
+        const code = codeMatch ? codeMatch[1] : 'Unknown';
+        const mod = r.interface ? r.interface.split('.').slice(0, -1).join('.') : 'unknown';
+        const key = `${code}@${mod}`;
+        if (!crashPatterns[key]) crashPatterns[key] = { code, module: mod, count: 0, interfaces: [] };
+        crashPatterns[key].count++;
+        if (!crashPatterns[key].interfaces.includes(r.interface)) {
+          crashPatterns[key].interfaces.push(r.interface);
+        }
+      }
+
+      // Pending targets get a boost
+      const pendingTargets = (targets || []).filter(t => t.status === 'Pending');
+      const pendingSet = new Set(pendingTargets.map(t => t.interface));
+
+      // Score pending targets
+      const suggestions = pendingTargets.map(t => {
+        const mod = t.interface ? t.interface.split('.').slice(0, -1).join('.') : '';
+        const modData = moduleStats[mod];
+        const priorityScore = t.priority === 'High' ? 30 : t.priority === 'Medium' ? 15 : 5;
+        const moduleVulnScore = modData ? (modData.criticals * 20 + modData.findings * 2) : 0;
+
+        return {
+          interface: t.interface,
+          reason: `Pending target (${t.priority} priority)${modData ? `, module has ${modData.criticals} critical findings` : ''}`,
+          score: priorityScore + moduleVulnScore,
+          source: 'target',
+          notes: t.notes
+        };
+      });
+
+      // Suggest unexplored interfaces in high-vulnerability modules
+      for (const [mod, stats] of Object.entries(moduleStats)) {
+        if (stats.criticals === 0) continue;
+        // Find interfaces we know about in this module that haven't been fully explored
+        // We can't enumerate all interfaces here, but we can flag the module
+        suggestions.push({
+          interface: `${mod}.*`,
+          reason: `Module has ${stats.criticals} critical findings across ${stats.interfaces.size} interfaces - unexplored siblings may have similar issues`,
+          score: stats.criticals * 15 + stats.findings * 2,
+          source: 'module_pattern'
+        });
+      }
+
+      // Flag crash clusters as interesting
+      for (const pattern of Object.values(crashPatterns)) {
+        if (pattern.count >= 2 && pattern.code !== 'RESULT_CODE_KILLED_BAD_MESSAGE') {
+          suggestions.push({
+            interface: pattern.interfaces[0],
+            reason: `Crash cluster: ${pattern.count} ${pattern.code} crashes in ${pattern.module} - may indicate exploitable conditions`,
+            score: pattern.count * 25,
+            source: 'crash_cluster',
+            relatedInterfaces: pattern.interfaces
+          });
+        }
+      }
+
+      // Deduplicate by interface, keep highest score
+      const seen = new Map();
+      for (const s of suggestions) {
+        const existing = seen.get(s.interface);
+        if (!existing || s.score > existing.score) {
+          seen.set(s.interface, s);
+        }
+      }
+
+      const ranked = [...seen.values()]
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit);
+
+      // Open gaps that might inform strategy
+      const openGaps = gaps.filter(g => g.status === 'Open').slice(0, 5);
+
+      return {
+        suggestions: ranked,
+        stats: {
+          totalResearched: researchedInterfaces.size,
+          pendingTargets: pendingTargets.length,
+          openGaps: openGaps.length,
+          crashClusters: Object.keys(crashPatterns).length
+        },
+        openGaps,
+        crashPatterns: Object.values(crashPatterns).filter(p => p.count >= 2)
       };
     } finally {
       release();
@@ -444,18 +642,16 @@ export const SelfImprovement = {
         }
     }
 
-    // Check if file exists
+    // Create file only if it doesn't exist (wx = exclusive create, fails if exists)
     try {
-        await fs.promises.access(PROGRESS_FILE);
-    } catch {
-        // File doesn't exist, create it
-        try {
-             await fs.promises.writeFile(PROGRESS_FILE, JSON.stringify({ gaps: [], research: [], targets: [] }, null, 2));
-        } catch (e) {
-             // If written concurrently, that's fine?
-             // But if we overwrite existing with empty, that's bad.
-             // fs.promises.writeFile with flag 'wx' (exclusive) fails if exists.
-        }
+        await fs.promises.writeFile(
+            PROGRESS_FILE,
+            JSON.stringify({ gaps: [], research: [], targets: [] }, null, 2),
+            { flag: 'wx' }
+        );
+    } catch (e) {
+        // EEXIST is expected if file already exists - safe to ignore
+        if (e.code !== 'EEXIST') throw e;
     }
     this._initialized = true;
   },

@@ -1610,8 +1610,26 @@ server.tool(
 );
 
 server.tool(
+  "suggest_next_target",
+  "Analyze accumulated research data and suggest the most promising interfaces to investigate next. Uses module vulnerability density, crash pattern clusters, untested method counts, and pending target priorities to rank suggestions.",
+  {
+    limit: z
+      .number()
+      .optional()
+      .default(5)
+      .describe("Maximum number of suggestions to return"),
+  },
+  async ({ limit = 5 }) => {
+    const result = await SelfImprovement.suggestNextTarget(limit);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
   "get_research_progress",
-  "Retrieve filtered history of Mojo interface research and identified capability gaps.",
+  "Retrieve filtered history of Mojo interface research and identified capability gaps. Includes crash pattern clusters when significant patterns are detected.",
   {
     interface: z
       .string()
