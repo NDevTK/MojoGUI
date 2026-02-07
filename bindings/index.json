@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-06T10:32:32.104962Z",
-  "version": "146.0.7671.0",
+  "generated_at": "2026-02-07T10:17:42.704748Z",
+  "version": "146.0.7673.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -19014,8 +19014,7 @@
         "BindMediaSessionAudioFocusDebug",
         "BindTelemetryDiagnosticRoutinesService",
         "BindTelemetryManagementService",
-        "BindTelemetryProbeService",
-        "BindVideoCaptureDeviceFactory"
+        "BindTelemetryProbeService"
       ],
       "metadata": {
         "usage": {
@@ -19420,13 +19419,10 @@
       "methods": [
         "OnCaptureConfigurationChanged",
         "OnNewBuffer",
-        "DEPRECATED_OnFrameReadyInBuffer",
         "OnFrameReadyInBuffer",
         "OnBufferRetired",
         "OnError",
         "OnFrameDropped",
-        "DEPRECATED_OnNewCropVersion",
-        "DEPRECATED_OnNewSubCaptureTargetVersion",
         "OnNewCaptureVersion",
         "OnFrameWithEmptyRegionCapture",
         "OnLog",
@@ -19439,50 +19435,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "VideoCaptureDevice",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": [
-        "Start",
-        "MaybeSuspend",
-        "Resume",
-        "GetPhotoState",
-        "SetPhotoOptions",
-        "TakePhoto",
-        "ProcessFeedback",
-        "RequestRefreshFrame"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.VideoCaptureDeviceFactory.CreateDevice"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "VideoCaptureDeviceFactory",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": [
-        "GetDeviceInfos",
-        "CreateDevice"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindVideoCaptureDeviceFactory"
           ]
         },
         "scope": "context",
@@ -20733,7 +20685,9 @@
       "methods": [
         "OnDevToolsStatusChanged",
         "OnNavigationStatusChanged",
-        "OnContextMenuStateChanged"
+        "OnContextMenuStateChanged",
+        "OnTabSplitStatusChanged",
+        "OnButtonPinStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -20755,7 +20709,10 @@
         "StopLoad",
         "ShowContextMenu",
         "OnPageInitialized",
-        "ReloadFromClick"
+        "ReloadFromClick",
+        "SplitActiveTab",
+        "GetTabSplitState",
+        "GetButtonPinState"
       ],
       "metadata": {
         "usage": {
@@ -22777,7 +22734,8 @@
       "module": "optimization_guide.mojom",
       "file": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "methods": [
-        "Subscribe"
+        "Subscribe",
+        "AddModelDownloadProgressObserver"
       ],
       "metadata": {
         "usage": {
@@ -39437,6 +39395,24 @@
       }
     },
     {
+      "name": "ScriptToolHost",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_content_extraction_script_tools.mojom.js",
+      "methods": [
+        "PauseExecution"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
+      }
+    },
+    {
       "name": "ContentIndexService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_content_index_content_index.mojom.js",
@@ -51217,6 +51193,7 @@
       "module": "optimization_guide.mojom",
       "imports": [
         "mojo/public/mojom/base/proto_wrapper.mojom",
+        "services/on_device_model/public/mojom/download_observer.mojom",
         "services/on_device_model/public/mojom/on_device_model.mojom"
       ]
     },
