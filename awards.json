@@ -142,5 +142,17 @@
     "method": "OpenFileDescriptor",
     "reason": "Allows renderer to obtain a raw file descriptor to the USB device on ChromeOS; bypassing specific driver logic and allowing direct kernel interaction.",
     "priority": 9
+  },
+  {
+    "file": "third_party/blink/public/mojom/on_device_translation/translation_manager.mojom",
+    "method": "CreateTranslator",
+    "reason": "Exposes creation of on-device translators; involves downloading and parsing complex language packs and models in a utility or GPU process, exposing attack surface to the renderer.",
+    "priority": 8
+  },
+  {
+    "file": "third_party/blink/public/mojom/handwriting/handwriting.mojom",
+    "method": "CreateHandwritingRecognizer",
+    "reason": "Exposes complex handwriting recognition models to the renderer; high risk of model parsing vulnerabilities and resource exhaustion.",
+    "priority": 8
   }
 ]
