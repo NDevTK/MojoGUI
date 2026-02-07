@@ -244,15 +244,25 @@
   function setupEventListeners() {
     // Global Keyboard Shortcuts
     document.addEventListener("keydown", (e) => {
+      const inInput = ["INPUT", "TEXTAREA", "SELECT"].includes(
+        document.activeElement.tagName,
+      );
+
       // Focus Search (/)
-      if (
-        e.key === "/" &&
-        !["INPUT", "TEXTAREA", "SELECT"].includes(
-          document.activeElement.tagName,
-        )
-      ) {
+      if (e.key === "/" && !inInput) {
         e.preventDefault();
         elements.interfaceSearch.focus();
+      }
+
+      // Keyboard Shortcuts Help (?)
+      if (e.key === "?" && !inInput) {
+        e.preventDefault();
+        showShortcutsModal();
+      }
+
+      // Escape to blur search
+      if (e.key === "Escape" && document.activeElement === elements.interfaceSearch) {
+        elements.interfaceSearch.blur();
       }
     });
 
@@ -563,8 +573,6 @@
   function renderSearchFilters() {
     const container = document.createElement("div");
     container.className = "search-filters";
-    container.style.cssText =
-      "display: flex; gap: 8px; margin: 10px 0; padding: 0 5px;";
 
     const filters = [
       { id: "ALL", label: "All", icon: "" },
@@ -580,40 +588,16 @@
       btn.className = `filter-btn ${f.id === "ALL" ? "active" : ""}`;
       btn.dataset.filter = f.id;
       btn.innerHTML = safeHTML(f.icon ? `${f.icon} ${f.label}` : f.label);
-      btn.style.cssText = `
-                flex: 1;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 6px;
-                padding: 8px 10px;
-                white-space: nowrap;
-                background: var(--bg-secondary);
-                border: 1px solid var(--border-color);
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 0.85em;
-                color: var(--text-secondary);
-                transition: all 0.2s;
-            `;
+      btn.className = `filter-btn ${f.id === "ALL" ? "active" : ""}`;
 
       btn.addEventListener("click", () => {
-        // Update State
         state.filterType = f.id;
 
-        // Update UI
         container.querySelectorAll(".filter-btn").forEach((b) => {
-          b.style.background = "var(--bg-secondary)";
-          b.style.color = "var(--text-secondary)";
-          b.style.borderColor = "var(--border-color)";
+          b.classList.remove("active");
         });
-        btn.style.background = "rgba(100, 181, 246, 0.15)";
-        btn.style.color = "#64b5f6";
-        btn.style.borderColor = "#64b5f6";
+        btn.classList.add("active");
 
-        // Trigger Search
-        // Create a fake event or just call filter logic
         const query = elements.interfaceSearch.value;
         performSearch(query);
       });
@@ -625,12 +609,7 @@
     if (elements.interfaceSearch) {
       const searchBox = elements.interfaceSearch.closest(".search-box");
       if (searchBox && searchBox.parentNode) {
-        // Insert after searchBox
         searchBox.parentNode.insertBefore(container, searchBox.nextSibling);
-
-        // Add some margin to separate from the list
-        container.style.marginBottom = "10px";
-        container.style.padding = "0 16px"; // Match Sidebar padding
       }
     }
   }
@@ -892,29 +871,27 @@
     const isAssociated = state.isAssociated;
 
     return `
-      <div class="target-control-group" style="margin-bottom: 20px; padding: 12px; background: var(--bg-hover); border-radius: 8px; border: 1px solid var(--border-subtle);">
+      <div class="target-control-group">
           <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
-            <span style="font-weight: 600; font-size: 0.9em; color: var(--accent);">TARGET CONFIGURATION</span>
+            <span class="target-control-title">TARGET CONFIGURATION</span>
           </div>
 
           ${(() => {
-            // Safety/Hint Logic
             const iface = state.selectedInterface;
             const meta = iface?.metadata?.usage;
             if (
               meta?.associated?.length > 0 &&
               (!meta.direct || meta.direct.length === 0)
             ) {
-              // It's purely associated
               const parentInfo = meta.associated[0];
               return `
-                    <div style="background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); border-radius: 6px; padding: 10px; margin-bottom: 15px;">
-                        <div style="color: #ffb74d; font-weight: 600; font-size: 0.9em; margin-bottom: 5px;">⚠️ Associated Interface</div>
-                        <div style="font-size: 0.85em; color: var(--text-main); opacity: 0.9;">
+                    <div class="associated-warning">
+                        <div class="associated-warning-title">⚠️ Associated Interface</div>
+                        <div class="associated-warning-text">
                             This interface cannot be bound directly from the browser process. It must be retrieved via a parent interface.
                         </div>
                         <div style="margin-top: 8px; font-size: 0.85em;">
-                            Derived from: <code style="background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">${escapeHtml(parentInfo)}</code>
+                            Derived from: <code>${escapeHtml(parentInfo)}</code>
                         </div>
                     </div>
                   `;
@@ -923,23 +900,23 @@
           })()}
 
           <div style="margin-bottom: 12px;">
-              <div style="font-size: 0.8em; color: var(--text-muted); margin-bottom: 6px;">Receiver Type</div>
-              <div style="display: flex; gap: 12px;">
-                  <label class="radio-tab ${!isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
+              <div class="target-subsection-label">Receiver Type</div>
+              <div class="target-receiver-options">
+                  <label class="radio-tab ${!isInstance ? "active" : ""}">
                       <input type="radio" name="targetType" value="new" ${!isInstance ? "checked" : ""}>
                       <span>⚡ New Interface</span>
                   </label>
-                  <label class="radio-tab ${isInstance ? "active" : ""}" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; background: var(--bg-dark); border-radius: 4px; border: 1px solid var(--border-subtle);">
+                  <label class="radio-tab ${isInstance ? "active" : ""}">
                       <input type="radio" name="targetType" value="instance" ${isInstance ? "checked" : ""}>
                       <span>🧩 Existing Instance</span>
                   </label>
               </div>
           </div>
-          
-          <div id="instanceTargetInput" style="display: ${isInstance ? "block" : "none"}; margin-bottom: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
+
+          <div id="instanceTargetInput" class="target-subsection" style="display: ${isInstance ? "block" : "none"};">
                <div class="form-group" style="margin-bottom: 0;">
-                  <label style="font-size: 0.8em; display: block; margin-bottom: 4px;">Object Registry ID</label>
-                  <select id="targetObjectId" class="param-input" style="width: 100%; border: 1px solid var(--border-subtle);">
+                  <label class="target-subsection-label">Object Registry ID</label>
+                  <select id="targetObjectId" class="param-input" style="width: 100%;">
                       <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
                       ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
                   </select>
@@ -947,23 +924,23 @@
           </div>
 
           <div class="associated-section" style="border-top: 1px solid var(--border-subtle); padding-top: 12px;">
-             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer; color: var(--text-main);">
+             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer;">
                  <input type="checkbox" id="associatedInterfaceToggle" ${isAssociated ? "checked" : ""}>
                  <span style="font-weight: 500;">Associated Interface</span>
-                 <span style="font-size: 0.8em; color: var(--text-muted); font-weight: normal;">(Multiplexing)</span>
+                 <span class="optional">(Multiplexing)</span>
              </label>
-             
-             <div id="associatedInputs" style="display: ${isAssociated ? "block" : "none"}; margin-top: 12px; padding: 10px; background: var(--bg-input); border-radius: 6px;">
+
+             <div id="associatedInputs" class="target-subsection" style="display: ${isAssociated ? "block" : "none"}; margin-top: 12px;">
                 <div style="margin-bottom: 10px;">
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Master Pipe Handle</label>
-                    <select id="masterHandleInput" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <label class="target-subsection-label">Master Pipe Handle</label>
+                    <select id="masterHandleInput" style="width: 100%;">
                          <option value="" disabled ${!state.masterHandleId ? "selected" : ""}>Select handle...</option>
                          ${window.renderHandleOptions ? window.renderHandleOptions(state.masterHandleId) : ""}
                     </select>
                 </div>
                 <div>
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px; color: var(--text-muted);">Interface ID (Ordinal)</label>
-                    <input type="number" id="interfaceIdInput" value="${state.interfaceId || 0}" placeholder="0" style="width: 100%; padding: 6px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <label class="target-subsection-label">Interface ID (Ordinal)</label>
+                    <input type="number" id="interfaceIdInput" value="${state.interfaceId || 0}" placeholder="0" style="width: 100%;">
                 </div>
              </div>
           </div>
@@ -1212,18 +1189,16 @@
 
     const combinedRegex = new RegExp(combinedSource, "gm");
 
-    return escaped.replace(combinedRegex, (...args) => {
+    const highlighted = escaped.replace(combinedRegex, (...args) => {
       const groups = args.pop(); // Last arg is groups object in replace callback for named groups
       const match = args[0]; // Full match
 
       for (const [name, groupMatch] of Object.entries(groups)) {
         if (groupMatch !== undefined) {
           if (name === "property") {
-            // Property includes the dot, highlight only the name
             return `.<span class="property">${match.substring(1)}</span>`;
           }
           if (name === "class") {
-            // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
             if (match === match.toUpperCase() && match.length > 1) return match;
           }
           return `<span class="${name}">${match}</span>`;
@@ -1231,6 +1206,12 @@
       }
       return match;
     });
+
+    // Wrap each line in a span for line numbers
+    return highlighted
+      .split("\n")
+      .map((line) => `<span class="code-line">${line}</span>`)
+      .join("\n");
   }
 
   // ========================================
@@ -1363,6 +1344,9 @@
   }
 
   function resetParams() {
+    const previousValues = { ...state.paramValues };
+    const hadValues = Object.keys(previousValues).length > 0;
+
     state.paramValues = {};
     if (state.selectedMethod) {
       const fqn =
@@ -1370,6 +1354,65 @@
       const params = getMethodParams(fqn, state.selectedMethod);
       renderParamsForm(params);
       updateGeneratedCode();
+    }
+
+    if (hadValues) {
+      // Show undo toast
+      const toast = document.createElement("div");
+      toast.className = "toast toast-info";
+      toast.setAttribute("role", "status");
+      toast.innerHTML = safeHTML(`
+        <span class="toast-icon">↩️</span>
+        <span class="toast-message">Parameters reset</span>
+        <span class="toast-actions">
+          <button class="btn btn-primary btn-small" data-action="undo-reset">Undo</button>
+        </span>
+      `);
+
+      const progressBar = document.createElement("div");
+      progressBar.className = "toast-progress";
+      toast.appendChild(progressBar);
+
+      elements.toastContainer.appendChild(toast);
+
+      toast
+        .querySelector('[data-action="undo-reset"]')
+        .addEventListener("click", () => {
+          state.paramValues = previousValues;
+          if (state.selectedMethod) {
+            const fqn =
+              state.selectedInterface.module +
+              "." +
+              state.selectedInterface.name;
+            const params = getMethodParams(fqn, state.selectedMethod);
+            renderParamsForm(params);
+            // Re-apply the previous values to the form
+            Object.entries(previousValues).forEach(([key, value]) => {
+              const input = elements.paramsForm.querySelector(
+                `[name="${key}"]`,
+              );
+              if (input) {
+                if (input.type === "checkbox") {
+                  input.checked = !!value;
+                } else {
+                  input.value =
+                    typeof value === "object"
+                      ? JSON.stringify(value)
+                      : value;
+                }
+              }
+            });
+            state.paramValues = previousValues;
+            updateGeneratedCode();
+          }
+          toast.remove();
+          showToast("Parameters restored", "success");
+        });
+
+      setTimeout(() => {
+        toast.style.animation = "slideOut 0.3s ease forwards";
+        setTimeout(() => toast.remove(), 300);
+      }, 5000);
     }
   }
 
@@ -1591,7 +1634,7 @@
         }
       }
     } catch (e) {
-      alert("Error parsing response: " + e.message);
+      showToast("Error parsing response: " + e.message, "error");
       return;
     }
 
@@ -1808,6 +1851,73 @@
       "success",
     );
   };
+
+  // ========================================
+  // Keyboard Shortcuts Help
+  // ========================================
+  function showShortcutsModal() {
+    if (document.querySelector(".modal-overlay.active")) return;
+
+    const html = `
+      <div class="shortcuts-grid">
+        <span class="shortcut-key">/</span>
+        <span class="shortcut-desc">Focus interface search</span>
+        <span class="shortcut-key">?</span>
+        <span class="shortcut-desc">Show this help</span>
+        <span class="shortcut-key">Esc</span>
+        <span class="shortcut-desc">Blur search / close modal</span>
+      </div>
+    `;
+
+    if (window.WelcomeManager) {
+      // Reuse the modal infrastructure from WelcomeManager
+      WelcomeManager.createModal
+        ? WelcomeManager.createModal("⌨️ Keyboard Shortcuts", html)
+        : createShortcutsModal(html);
+    } else {
+      createShortcutsModal(html);
+    }
+  }
+
+  function createShortcutsModal(contentHtml) {
+    const overlay = document.createElement("div");
+    overlay.className = "modal-overlay";
+    overlay.innerHTML = safeHTML(`
+      <div class="modal-content" style="max-width: 420px;">
+        <div class="modal-header">
+          <h2>⌨️ Keyboard Shortcuts</h2>
+          <button class="btn btn-icon" id="modalCloseBtn">X</button>
+        </div>
+        <div class="modal-body">
+          ${contentHtml}
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="modalActionBtn">Got it</button>
+        </div>
+      </div>
+    `);
+
+    document.body.appendChild(overlay);
+    void overlay.offsetWidth;
+    overlay.classList.add("active");
+
+    function close() {
+      overlay.classList.remove("active");
+      setTimeout(() => overlay.remove(), 300);
+      document.removeEventListener("keydown", escHandler);
+    }
+
+    const escHandler = (e) => {
+      if (e.key === "Escape") close();
+    };
+
+    overlay.querySelector("#modalCloseBtn").addEventListener("click", close);
+    overlay.querySelector("#modalActionBtn").addEventListener("click", close);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) close();
+    });
+    document.addEventListener("keydown", escHandler);
+  }
 
   // Start initialization
   init();

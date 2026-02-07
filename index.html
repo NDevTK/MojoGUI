@@ -284,6 +284,9 @@
                   />
                 </svg>
                 <p>Select an interface from the sidebar to view its methods</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; color: var(--text-muted);">
+                  Try searching for <strong>ClipboardHost</strong>, <strong>SensorProvider</strong>, or <strong>BatteryMonitor</strong>
+                </p>
               </div>
             </div>
           </section>
@@ -318,6 +321,9 @@
             <div class="params-form" id="paramsForm">
               <div class="empty-state small">
                 <p>Select a method to configure parameters</p>
+                <p style="font-size: 0.8rem; margin-top: 4px; color: var(--text-muted);">
+                  Press <kbd style="padding: 1px 5px; background: var(--bg-tertiary); border: 1px solid var(--border-default); border-radius: 3px; font-size: 0.85em;">?</kbd> for keyboard shortcuts
+                </p>
               </div>
             </div>
           </section>
@@ -326,6 +332,7 @@
           <section
             class="panel interceptor-panel"
             id="interceptorPanel"
+            tabindex="-1"
             style="display: none; flex: 1; flex-direction: column"
           >
             <div class="panel-header">
@@ -395,20 +402,14 @@
             >
               <table
                 class="interceptor-table"
-                style="width: 100%; border-collapse: collapse"
+                aria-label="Mojo Traffic Log"
               >
                 <thead>
-                  <tr
-                    style="
-                      text-align: left;
-                      border-bottom: 1px solid var(--border-subtle);
-                      background: rgba(0, 0, 0, 0.1);
-                    "
-                  >
-                    <th style="padding: 8px">Time</th>
-                    <th style="padding: 8px">Interface.Method</th>
-                    <th style="padding: 8px">Status</th>
-                    <th style="padding: 8px">Actions</th>
+                  <tr>
+                    <th>Time</th>
+                    <th>Interface.Method</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody id="interceptorTableBody">

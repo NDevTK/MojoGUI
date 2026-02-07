@@ -33,8 +33,8 @@
   /* Text Colors */
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --text-muted: #475569;
+  --text-tertiary: #7a8ba0;
+  --text-muted: #6b7a8d;
 
   /* Border Colors */
   --border-subtle: rgba(255, 255, 255, 0.05);
@@ -2255,6 +2255,241 @@ select option {
   line-height: 1.5;
   padding-top: var(--space-xs);
   border-top: 1px solid var(--border-subtle);
+}
+
+/* ========================================
+   Search Filters
+   ======================================== */
+.search-filters {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding: 0 var(--space-md);
+}
+
+.filter-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--space-sm) 10px;
+  white-space: nowrap;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* ========================================
+   Target Control
+   ======================================== */
+.target-control-group {
+  margin-bottom: 20px;
+  padding: var(--space-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.target-control-title {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--accent-primary);
+}
+
+.target-receiver-options {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.radio-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px var(--space-md);
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.radio-tab:hover {
+  border-color: var(--border-highlight);
+}
+
+.radio-tab.active {
+  border-color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.associated-warning {
+  background: rgba(255, 165, 0, 0.1);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.associated-warning-title {
+  color: #ffb74d;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.associated-warning-text {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+.target-subsection {
+  display: block;
+  margin-bottom: var(--space-md);
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.target-subsection-label {
+  display: block;
+  font-size: 0.8em;
+  margin-bottom: 4px;
+  color: var(--text-tertiary);
+}
+
+/* ========================================
+   Welcome Modal Stats
+   ======================================== */
+.stats-container {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.stat-card-value {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.stat-card-label {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.stat-card.success {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.stat-card.success .stat-card-value,
+.stat-card.success .stat-card-label {
+  color: #4caf50;
+}
+
+.stat-card.warning {
+  background: rgba(255, 152, 0, 0.1);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.stat-card.warning .stat-card-value,
+.stat-card.warning .stat-card-label {
+  color: #ff9800;
+}
+
+/* ========================================
+   Keyboard Shortcuts Modal
+   ======================================== */
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm) var(--space-lg);
+  align-items: center;
+}
+
+.shortcut-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 2px 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.shortcut-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Code Line Numbers
+   ======================================== */
+.code-block code {
+  display: block;
+  counter-reset: line;
+}
+
+.code-block .code-line {
+  display: block;
+  counter-increment: line;
+}
+
+.code-block .code-line::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2.5em;
+  margin-right: 1em;
+  padding-right: 0.5em;
+  text-align: right;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border-subtle);
+  user-select: none;
+}
+
+/* ========================================
+   Confirm Toast
+   ======================================== */
+.toast-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: var(--space-sm);
+}
+
+.toast-actions .btn {
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
 }
 
 /* Utility Classes */

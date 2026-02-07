@@ -49,18 +49,18 @@ const WelcomeManager = (function () {
           browserVersion ? escapeHtml(browserVersion) : "Canary"
         }</strong>.</p>
         
-        <div class="stats-container" style="display: flex; gap: 10px; margin: 15px 0;">
-            <div style="flex: 1; text-align: center; padding: 12px; background: var(--bg-secondary, #f5f5f5); border-radius: 8px;">
-                <div style="font-size: 1.8em; font-weight: bold;">${total}</div>
-                <div style="font-size: 0.8em; opacity: 0.7;">Total Interfaces</div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-card-value">${total}</div>
+                <div class="stat-card-label">Total Interfaces</div>
             </div>
-             <div style="flex: 1; text-align: center; padding: 12px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #4caf50;">${directCount}</div>
-                <div style="font-size: 0.8em; opacity: 0.7; color: #4caf50;">✓ Direct</div>
+            <div class="stat-card success">
+                <div class="stat-card-value">${directCount}</div>
+                <div class="stat-card-label">✓ Direct</div>
             </div>
-             <div style="flex: 1; text-align: center; padding: 12px; background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 8px;">
-                <div style="font-size: 1.8em; font-weight: bold; color: #ff9800;">${associatedCount}</div>
-                <div style="font-size: 0.8em; opacity: 0.7; color: #ff9800;">🔗 Associated</div>
+            <div class="stat-card warning">
+                <div class="stat-card-value">${associatedCount}</div>
+                <div class="stat-card-label">🔗 Associated</div>
             </div>
         </div>
 
@@ -178,6 +178,15 @@ const WelcomeManager = (function () {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) close();
     });
+
+    // Close on Escape key
+    const escHandler = (e) => {
+      if (e.key === "Escape") {
+        close();
+        document.removeEventListener("keydown", escHandler);
+      }
+    };
+    document.addEventListener("keydown", escHandler);
   }
 
   function escapeHtml(str) {

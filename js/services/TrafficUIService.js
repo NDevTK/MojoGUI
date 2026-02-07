@@ -68,7 +68,7 @@
     updateInterceptButtonState(true, ifaceName);
   };
 
-  function clearActivityLog() {
+  function doClearActivityLog() {
     getElements().interceptorTableBody.textContent = "";
     state.trafficCount = 0;
     if (getElements().trafficBadge) {
@@ -82,29 +82,82 @@
         `);
   }
 
+  function clearActivityLog() {
+    const rowCount =
+      getElements().interceptorTableBody.querySelectorAll("tr").length;
+    if (rowCount === 0) return;
+
+    if (rowCount > 5) {
+      // Show confirmation toast for non-trivial history
+      const toast = document.createElement("div");
+      toast.className = "toast toast-warning";
+      toast.setAttribute("role", "alert");
+      toast.innerHTML = safeHTML(`
+        <span class="toast-icon">⚠️</span>
+        <span class="toast-message">Clear ${rowCount} traffic entries?</span>
+        <span class="toast-actions">
+          <button class="btn btn-primary btn-small" data-action="confirm-clear">Clear</button>
+          <button class="btn btn-secondary btn-small" data-action="cancel-clear">Cancel</button>
+        </span>
+      `);
+      const container = document.getElementById("toastContainer");
+      container.appendChild(toast);
+
+      toast.querySelector('[data-action="confirm-clear"]').addEventListener(
+        "click",
+        () => {
+          doClearActivityLog();
+          toast.remove();
+        },
+      );
+      toast.querySelector('[data-action="cancel-clear"]').addEventListener(
+        "click",
+        () => {
+          toast.remove();
+        },
+      );
+
+      // Auto-dismiss after 5s
+      setTimeout(() => toast.remove(), 5000);
+    } else {
+      doClearActivityLog();
+    }
+  }
+
   function showInterceptorPanel(show) {
     state.panelVisible = show;
 
     if (show) {
-      // Update header button to look active
       getElements().viewTrafficBtn?.classList.add("active");
 
-      // Hide standard panels
       getElements().interfacePanel.style.display = "none";
       getElements().paramsPanel.style.display = "none";
 
-      // Show Interceptor Panel (Full Width)
       getElements().interceptorPanel.style.display = "flex";
+
+      // Move focus to the traffic panel for accessibility
+      const firstRow =
+        getElements().interceptorTableBody.querySelector("tr");
+      if (firstRow) {
+        firstRow.focus();
+      } else {
+        getElements().interceptorPanel.focus();
+      }
     } else {
-      // Update header button
       getElements().viewTrafficBtn?.classList.remove("active");
 
-      // Show standard panels
       getElements().interfacePanel.style.display = "flex";
       getElements().paramsPanel.style.display = "flex";
 
-      // Hide Interceptor Panel
       getElements().interceptorPanel.style.display = "none";
+
+      // Restore focus to the interface panel
+      const activeItem = getElements().interfacePanel.querySelector(
+        ".method-item.active, .method-item",
+      );
+      if (activeItem) {
+        activeItem.focus();
+      }
     }
   }
 
