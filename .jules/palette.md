@@ -13,3 +13,7 @@
 ## 2024-05-22 - [Sidebar Tabs Navigation]
 **Learning:** Sidebar tabs were implemented as buttons but lacked proper ARIA `tabindex` management and keyboard navigation (Arrow keys), making them cumbersome for keyboard users who expect standard tab widget behavior.
 **Action:** When implementing tab interfaces, always use the "Roving Tabindex" pattern: set `tabindex="0"` on the active tab and `-1` on others, and handle Arrow keys to move focus and activate tabs.
+
+## 2025-05-24 - [Pseudo-Button Pattern]
+**Learning:** Collapsible headers were implemented using `<label>` elements without form inputs, relying on click events. This breaks accessibility as labels are not natively focusable or announced as interactive.
+**Action:** When using non-standard elements as buttons (like `<label>` for toggles), explicitly add `role="button"`, `tabindex="0"`, `aria-expanded`, and keyboard handlers (Enter/Space) to emulate native button behavior.
