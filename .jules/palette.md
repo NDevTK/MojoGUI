@@ -17,3 +17,7 @@
 ## 2025-05-24 - [Pseudo-Button Pattern]
 **Learning:** Collapsible headers were implemented using `<label>` elements without form inputs, relying on click events. This breaks accessibility as labels are not natively focusable or announced as interactive.
 **Action:** When using non-standard elements as buttons (like `<label>` for toggles), explicitly add `role="button"`, `tabindex="0"`, `aria-expanded`, and keyboard handlers (Enter/Space) to emulate native button behavior.
+
+## 2025-05-25 - [Focus and Visibility Transitions]
+**Learning:** Using `display: none` for toggling interactive elements prevents smooth transitions and can disrupt keyboard focus management if not handled carefully.
+**Action:** Use `opacity` and `visibility` (with `pointer-events`) to animate appearance/disappearance. This preserves the element's layout presence during transition and allows for nicer focus handling.

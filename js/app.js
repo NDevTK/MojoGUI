@@ -274,7 +274,7 @@
       // Toggle clear button immediately
       const hasText = e.target.value.length > 0;
       if (elements.clearSearchBtn) {
-        elements.clearSearchBtn.style.display = hasText ? "flex" : "none";
+        elements.clearSearchBtn.classList.toggle("visible", hasText);
       }
 
       // Debounce search
@@ -285,7 +285,7 @@
     if (elements.clearSearchBtn) {
       elements.clearSearchBtn.addEventListener("click", () => {
         elements.interfaceSearch.value = "";
-        elements.clearSearchBtn.style.display = "none";
+        elements.clearSearchBtn.classList.remove("visible");
         performSearch("");
         elements.interfaceSearch.focus();
       });

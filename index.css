@@ -523,11 +523,30 @@ body::before {
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.clear-search-btn:hover {
+.clear-search-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.clear-search-btn:hover,
+.clear-search-btn:focus-visible {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
+  outline: none;
+}
+
+.clear-search-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.search-box:focus-within .search-icon {
+  color: var(--accent-primary);
 }
 
 .interface-list {
