@@ -222,6 +222,8 @@
 
           if (typeof MojoLoader !== "undefined") MojoLoader.init(interfaces);
           renderInterfaceList(interfaces);
+          // Re-populate fuzzer dropdown now that interfaces are loaded
+          if (window.MojoFuzzer) MojoFuzzer.populateInterfaces();
           // AUTO-MONITOR ALL (Quietly)
           setTimeout(() => toggleMonitorAll(true), 100);
           return;
@@ -787,6 +789,9 @@
     renderMethods(iface);
     renderParamsForm(null);
     updateGeneratedCode();
+
+    // Sync fuzzer panel with new selection
+    if (window.MojoFuzzer) MojoFuzzer.syncSelectedInterface();
 
     // Fix: Update toggle button state for the new interface
     updateInterceptButtonState(

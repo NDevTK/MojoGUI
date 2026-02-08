@@ -678,9 +678,10 @@
           <h4 style="color: var(--accent-primary);">Fuzzer Configuration</h4>
           <div class="fuzzer-controls">
             <label>Interface</label>
-            <select id="fuzzer-interface-select">
-              <option value="" disabled selected>Select an interface...</option>
-            </select>
+            <div id="fuzzer-interface-display" class="fuzzer-interface-display">
+              <span class="fuzzer-iface-name" id="fuzzer-iface-name">No interface selected</span>
+              <button class="btn btn-secondary btn-small" id="fuzzer-pick-iface-btn" style="margin-left: auto; font-size: 0.7rem; padding: 2px 8px;">Pick</button>
+            </div>
 
             <label>Method</label>
             <select id="fuzzer-method-select" disabled>
@@ -774,7 +775,7 @@
       `,
       );
 
-      this.populateInterfaces();
+      this.syncSelectedInterface();
       this.bindEvents();
     },
 
@@ -782,11 +783,12 @@
       const container = document.querySelector(".fuzzer-container");
       if (!container) return;
 
-      const ifaceSelect = container.querySelector("#fuzzer-interface-select");
-      if (ifaceSelect) {
-        ifaceSelect.addEventListener("change", (e) => {
-          this.populateMethods(e.target.value);
-          this.updateStartButton();
+      const pickBtn = container.querySelector("#fuzzer-pick-iface-btn");
+      if (pickBtn) {
+        pickBtn.addEventListener("click", () => {
+          // Switch to the Interfaces tab so the user can pick one
+          const tab = document.querySelector('[data-tab="interfaces"]');
+          if (tab) tab.click();
         });
       }
 
@@ -841,25 +843,35 @@
       }
     },
 
+    syncSelectedInterface() {
+      const nameEl = document.getElementById("fuzzer-iface-name");
+      if (!nameEl) return;
+
+      const iface = (global.MojoGUI_State || {}).selectedInterface;
+      if (iface) {
+        const categoryTag = { direct: "[D]", associated: "[A]", internal: "[I]" };
+        const tag = categoryTag[iface.metadata?.category] || "[I]";
+        const fqn = iface.module + "." + iface.name;
+        nameEl.textContent = tag + " " + fqn;
+        nameEl.classList.add("has-selection");
+        this.populateMethods(fqn);
+      } else {
+        nameEl.textContent = "No interface selected";
+        nameEl.classList.remove("has-selection");
+        const methodSelect = document.getElementById("fuzzer-method-select");
+        if (methodSelect) {
+          methodSelect.disabled = true;
+          methodSelect.innerHTML = safe(
+            '<option value="" disabled selected>Select interface first...</option>',
+          );
+        }
+      }
+      this.updateStartButton();
+    },
+
+    // Keep old name as alias for callers in app.js
     populateInterfaces() {
-      const select = document.getElementById("fuzzer-interface-select");
-      if (!select) return;
-
-      const interfaces = (global.MojoGUI_State || {}).interfaces || [];
-      const categoryTag = { direct: "[D]", associated: "[A]", internal: "[I]" };
-      const options = interfaces
-        .map((iface) => {
-          const fqn = iface.module + "." + iface.name;
-          const tag = categoryTag[iface.metadata?.category] || "[I]";
-          return `<option value="${escapeHtml(fqn)}">${tag} ${escapeHtml(fqn)}</option>`;
-        })
-        .sort()
-        .join("");
-
-      select.innerHTML = safe(
-        '<option value="" disabled selected>Select an interface...</option>' +
-          options,
-      );
+      this.syncSelectedInterface();
     },
 
     async populateMethods(interfaceFqn) {
@@ -906,13 +918,12 @@
       const strategySelect = document.getElementById(
         "fuzzer-strategy-select",
       );
-      const ifaceSelect = document.getElementById("fuzzer-interface-select");
       const methodSelect = document.getElementById("fuzzer-method-select");
       const startBtn = document.getElementById("fuzzer-start-btn");
       if (!startBtn) return;
 
       const strategy = strategySelect?.value;
-      const hasInterface = !!ifaceSelect?.value;
+      const hasInterface = !!(global.MojoGUI_State || {}).selectedInterface;
       const hasMethod = !!methodSelect?.value;
 
       let enabled = false;
@@ -933,13 +944,13 @@
       const strategySelect = document.getElementById(
         "fuzzer-strategy-select",
       );
-      const ifaceSelect = document.getElementById("fuzzer-interface-select");
       const methodSelect = document.getElementById("fuzzer-method-select");
       const iterationsInput = document.getElementById("fuzzer-iterations");
       const delayInput = document.getElementById("fuzzer-delay");
 
       const strategy = strategySelect.value;
-      const interfaceFqn = ifaceSelect.value;
+      const selIface = (global.MojoGUI_State || {}).selectedInterface;
+      const interfaceFqn = selIface ? selIface.module + "." + selIface.name : "";
       const methodName = methodSelect.value;
       const iterations = parseInt(iterationsInput.value) || 100;
       const delay = parseInt(delayInput.value) || 0;

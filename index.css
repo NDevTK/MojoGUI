@@ -2608,6 +2608,31 @@ select option {
   box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
+.fuzzer-interface-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  min-height: 32px;
+}
+
+.fuzzer-iface-name {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.fuzzer-iface-name.has-selection {
+  color: var(--text-primary);
+}
+
 .fuzzer-btn-row {
   display: flex;
   gap: var(--space-sm);
