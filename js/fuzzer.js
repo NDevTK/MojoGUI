@@ -514,7 +514,10 @@
         );
       }
 
-      // Rebuild target list
+      // Rebuild target list, ordered by category for smart fuzzing:
+      // 1. direct interfaces first (most likely to bind successfully)
+      // 2. associated interfaces (require master handle + discoveredId)
+      // 3. internal interfaces last (may not bind without chaining)
       let targets = [];
       if (strategy === "selected_method") {
         targets = [{ interface: interfaceFqn, method: methodName }];
@@ -530,7 +533,13 @@
         }
       } else if (strategy === "all_interfaces") {
         const interfaces = (global.MojoGUI_State || {}).interfaces || [];
-        for (const iface of interfaces) {
+        const order = { direct: 0, associated: 1, internal: 2 };
+        const sorted = [...interfaces].sort((a, b) => {
+          const ca = order[a.metadata?.category] ?? 2;
+          const cb = order[b.metadata?.category] ?? 2;
+          return ca - cb;
+        });
+        for (const iface of sorted) {
           if (!iface.methods) continue;
           const fqn = iface.module + "." + iface.name;
           for (const m of iface.methods) {
@@ -837,10 +846,12 @@
       if (!select) return;
 
       const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+      const categoryTag = { direct: "[D]", associated: "[A]", internal: "[I]" };
       const options = interfaces
         .map((iface) => {
           const fqn = iface.module + "." + iface.name;
-          return `<option value="${escapeHtml(fqn)}">${escapeHtml(fqn)}</option>`;
+          const tag = categoryTag[iface.metadata?.category] || "[I]";
+          return `<option value="${escapeHtml(fqn)}">${tag} ${escapeHtml(fqn)}</option>`;
         })
         .sort()
         .join("");
@@ -978,6 +989,67 @@
       this.updateStartButton();
     },
 
+    /**
+     * Resolve the interface metadata to determine how to bind it.
+     * Returns { category, target, options } for MojoExecutionService.call().
+     */
+    resolveTarget(interfaceFqn) {
+      const iface = ((global.MojoGUI_State || {}).interfaces || []).find(
+        (i) =>
+          i.module + "." + i.name === interfaceFqn ||
+          i.name === interfaceFqn,
+      );
+      const meta = iface?.metadata;
+      const category = meta?.category || "internal";
+
+      // Check cache first
+      if (this._objectCache[interfaceFqn]) {
+        return {
+          category,
+          target: {
+            objectId: this._objectCache[interfaceFqn],
+            interface: interfaceFqn,
+          },
+          options: {},
+        };
+      }
+
+      if (category === "associated") {
+        const interfaceId = meta?.discoveredId;
+        if (interfaceId === undefined || interfaceId === null) {
+          return { category, target: null, skip: "no discoveredId assigned (use assignInterfaceIds)" };
+        }
+        // Find any available master handle from the registry
+        const masterHandleId = this.findMasterHandle();
+        if (!masterHandleId) {
+          return { category, target: null, skip: "no master handle in registry" };
+        }
+        return {
+          category,
+          target: { interface: interfaceFqn, masterHandleId },
+          options: { isAssociated: true, interfaceId },
+        };
+      }
+
+      // "direct" and "internal" both use standard Mojo.bindInterface
+      // direct interfaces reliably bind; internal ones may or may not work
+      return {
+        category,
+        target: { interface: interfaceFqn },
+        options: {},
+      };
+    },
+
+    /**
+     * Find the first available master handle from the HandleRegistry.
+     * Master handles are raw message pipe handles used for associated interfaces.
+     */
+    findMasterHandle() {
+      if (typeof MojoHandleRegistry === "undefined") return null;
+      const ids = MojoHandleRegistry.list();
+      return ids.length > 0 ? ids[0] : null;
+    },
+
     async fuzzMethod(interfaceFqn, methodName, iteration) {
       let params = {};
       let status = "success";
@@ -998,21 +1070,36 @@
           }
         }
 
-        const target = this._objectCache[interfaceFqn]
-          ? {
-              objectId: this._objectCache[interfaceFqn],
-              interface: interfaceFqn,
-            }
-          : { interface: interfaceFqn };
+        const resolved = this.resolveTarget(interfaceFqn);
+
+        if (resolved.skip) {
+          // Can't fuzz this interface right now, log as skip
+          status = "error";
+          errorMsg = `Skipped (${resolved.category}): ${resolved.skip}`;
+          this.stats.errors++;
+
+          this.addResult({
+            index: iteration,
+            interface: interfaceFqn,
+            method: methodName,
+            params,
+            status,
+            result: null,
+            error: errorMsg,
+            timestamp: Date.now(),
+          });
+          this.updateStats();
+          return;
+        }
 
         // Persist before call so we can detect crashes on page reload
         this.persistInflight(interfaceFqn, methodName, params);
 
         const result = await MojoExecutionService.call(
-          target,
+          resolved.target,
           methodName,
           params,
-          {},
+          resolved.options,
         );
 
         this.clearInflight();
