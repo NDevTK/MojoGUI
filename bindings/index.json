@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-07T10:17:42.704748Z",
-  "version": "146.0.7673.0",
+  "generated_at": "2026-02-08T10:17:57.081688Z",
+  "version": "146.0.7675.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1704,7 +1704,6 @@
         "ShowOnDeviceAppControls",
         "ShowParentalControls",
         "TriggerWelcomeTipCallToAction",
-        "IsLauncherSearchEnabled",
         "LaunchMicrosoft365Setup",
         "MaybeShowReleaseNotesNotification",
         "GetDeviceInfo",
@@ -7448,6 +7447,58 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: omnibox.logging.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "Page",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
+      "methods": [
+        "OnLogMessageAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "OmniboxPageHandler",
       "module": "mojom",
       "file": "chrome_browser_ui_webui_omnibox_omnibox_internals.mojom.js",
@@ -8529,7 +8580,8 @@
         "OpenSkillsDialog",
         "GetInitialUserSkills",
         "GetInitial1PSkills",
-        "Request1PSkills"
+        "Request1PSkills",
+        "DeleteSkill"
       ],
       "metadata": {
         "usage": {
@@ -33974,7 +34026,7 @@
         "OnRawRequest",
         "OnRawResponse",
         "OnEarlyHintsResponse",
-        "OnPrivateNetworkRequest",
+        "OnLocalNetworkRequest",
         "OnCorsPreflightRequest",
         "OnCorsPreflightResponse",
         "OnCorsPreflightRequestCompleted",
@@ -35526,8 +35578,8 @@
         "OnSharedStorageHeaderReceived",
         "OnAdAuctionEventRecordHeaderReceived",
         "Clone",
-        "OnWebSocketConnectedToPrivateNetwork",
-        "OnUrlLoaderConnectedToPrivateNetwork"
+        "OnWebSocketConnectedToLocalNetwork",
+        "OnUrlLoaderConnectedToLocalNetwork"
       ],
       "metadata": {
         "usage": {
@@ -47381,6 +47433,14 @@
       "filename": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
       "source": "chrome/browser/ui/webui/omnibox/aim_eligibility/aim_eligibility.mojom",
       "module": "aim_eligibility.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox/logging/logs.mojom",
+      "module": "omnibox.logging.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom"
       ]
