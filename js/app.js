@@ -631,7 +631,21 @@
       state.interfaceListItems ||
       elements.interfaceList.querySelectorAll(".interface-item");
 
+    // Bolt Optimization: Refinement check
+    // If typing forward (e.g. "a" -> "ap") and filter unchanged,
+    // we only need to check currently visible items.
+    // Hidden items remain hidden because "ap" is more specific than "a".
+    const isRefinement =
+      typeof state.lastQuery === "string" &&
+      query.startsWith(state.lastQuery) &&
+      state.lastFilterType === state.filterType;
+
     state.interfaces.forEach((iface, index) => {
+      // Optimization: If refinement and item is already hidden, we can skip checking
+      if (isRefinement && iface._isVisible === false) {
+        return;
+      }
+
       // 1. Text Match
       // Bolt Optimization: Use pre-computed search text for 2x faster search
       const matchesText = iface._searchText.includes(query);
@@ -649,19 +663,25 @@
           isMatch = false;
       }
 
-      // Update DOM
+      // Update DOM only if state changes or if not tracked yet
       const item = items[index];
       if (item) {
-        if (isMatch) {
-          item.classList.remove("hidden");
-          count++;
-        } else {
-          item.classList.add("hidden");
+        if (iface._isVisible !== isMatch) {
+          if (isMatch) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+          iface._isVisible = isMatch;
         }
+
+        if (isMatch) count++;
       }
     });
 
     elements.interfaceCount.textContent = count;
+    state.lastQuery = query;
+    state.lastFilterType = state.filterType;
 
     // Toggle Empty State
     const emptyState = document.getElementById("interfaceListEmptyState");
@@ -723,6 +743,14 @@
       item.style.animation = `listItemEnter 0.3s ease-out backwards`;
       item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
     });
+
+    // Bolt Optimization: Reset search state and visibility tracking
+    // Initialize _isVisible to true since we just rendered everything visible
+    interfaces.forEach((iface) => {
+      iface._isVisible = true;
+    });
+    state.lastQuery = "";
+    state.lastFilterType = state.filterType;
   }
 
   async function selectInterface(name, module) {
