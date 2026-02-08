@@ -80,7 +80,9 @@
      * @param {Object} methodDef - Method definition from ReflectionService
      */
     async downloadBundle(iface, methodName, paramValues, methodDef) {
-      const scope = iface.metadata?.scope || "context";
+      const rawScope = iface.metadata?.scope || "context";
+      // Ensure scope is safe (alphanumeric check)
+      const scope = rawScope.replace(/[^a-zA-Z0-9_]/g, "");
 
       // Resolve all required binding files
       const bindingFiles = await this._resolveBindingFiles(iface.file);
@@ -298,12 +300,29 @@ function decodeBigString16(value) {
       fileContents,
       helpersJs,
     ) {
+      // 1. Sanitize Inputs for HTML Context
       const fqn = `${iface.module}.${iface.name}`;
-      const enums = this._generateEnumDefinitions(methodDef, paramValues);
-      const remoteName =
+      const safeFqn = this._escapeHtml(fqn);
+      const safeMethodName = this._escapeHtml(methodName);
+
+      // 2. Sanitize Inputs for JS Context (Identifiers)
+      // remoteName is a variable name
+      let safeRemoteName =
         iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + "Remote";
-      const methodNameLower =
+      safeRemoteName = this._sanitizeIdentifier(safeRemoteName);
+
+      // methodNameLower is a property name, but safer to sanitize if we access it via dot notation
+      let safeMethodNameLower =
         methodName.charAt(0).toLowerCase() + methodName.slice(1);
+      safeMethodNameLower = this._sanitizeIdentifier(safeMethodNameLower);
+
+      // Sanitize Module Path for Namespace Access
+      // mojo.internal.bindings.${iface.module}
+      // We allow dots in module path, but remove other special chars
+      const safeModulePath = iface.module.replace(/[^a-zA-Z0-9_.]/g, "");
+      const safeInterfaceName = this._sanitizeIdentifier(iface.name);
+
+      const enums = this._generateEnumDefinitions(methodDef, paramValues);
       const paramCode = this._buildParamCode(methodDef, paramValues);
       const callArgs =
         methodDef?.parameters
@@ -376,7 +395,7 @@ function decodeBigString16(value) {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PoC: ${fqn}.${methodName}</title>
+  <title>PoC: ${safeFqn}.${safeMethodName}</title>
   <style>
     body { font-family: monospace; padding: 20px; background: #1a1a2e; color: #eee; }
     button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #4a90d9; color: white; border: none; border-radius: 4px; }
@@ -388,8 +407,8 @@ function decodeBigString16(value) {
   </style>
 </head>
 <body>
-  <h1>PoC: ${methodName}</h1>
-  <div class="info">Interface: ${fqn}</div>
+  <h1>PoC: ${safeMethodName}</h1>
+  <div class="info">Interface: ${safeFqn}</div>
   <div class="warn">⚠️ Run Chrome with: --enable-blink-features=MojoJS</div>
   <button id="run">Run PoC</button>
   <pre id="output">Click "Run PoC" to execute...</pre>
@@ -401,7 +420,7 @@ function decodeBigString16(value) {
 -->
 <script id="poc-code">
 // ============================================================================
-// POC: ${fqn}.${methodName}
+// POC: ${safeFqn}.${safeMethodName}
 // ============================================================================
 // This is the security-relevant code. The Mojo runtime below is boilerplate.
 
@@ -412,21 +431,22 @@ async function runPoC() {
   
   try {
     // Bind to the interface
-    const root = mojo.internal.bindings.${iface.module.replace(/\./g, ".")};
-    let ${remoteName};
+    const root = mojo.internal.bindings.${safeModulePath};
+    let ${safeRemoteName};
     
-    if (typeof root.${iface.name}.getRemote === 'function') {
-      ${remoteName} = root.${iface.name}.getRemote();
+    if (typeof root.${safeInterfaceName}.getRemote === 'function') {
+      ${safeRemoteName} = root.${safeInterfaceName}.getRemote();
     } else {
-      ${remoteName} = new root.${iface.name}Remote();
-      const receiver = ${remoteName}.bindNewPipeAndPassReceiver();
-      Mojo.bindInterface("${fqn}", receiver.handle || receiver, "${scope}");
+      ${safeRemoteName} = new root.${safeInterfaceName}Remote();
+      const receiver = ${safeRemoteName}.bindNewPipeAndPassReceiver();
+      // Use safeFqn in bindInterface string
+      Mojo.bindInterface("${safeFqn}", receiver.handle || receiver, "${scope}");
     }
 
 ${paramCode}
 
     // Call the target method
-    const result = await ${remoteName}.${methodNameLower}(${callArgs});
+    const result = await ${safeRemoteName}.${safeMethodNameLower}(${callArgs});
 
 ${decodeCode}
   } catch (e) {
@@ -483,6 +503,28 @@ ${runtimeBlocks.join("\n\n// ----------------------------------------\n\n")}
 
 </body>
 </html>`;
+    },
+
+    /**
+     * Sanitize HTML special characters to prevent XSS in HTML context.
+     */
+    _escapeHtml(str) {
+      if (!str) return "";
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    },
+
+    /**
+     * Sanitize JS identifiers to prevent code injection.
+     * Allows alphanumeric and underscore.
+     */
+    _sanitizeIdentifier(str) {
+      if (!str) return "";
+      return str.replace(/[^a-zA-Z0-9_]/g, "_");
     },
 
     /**
