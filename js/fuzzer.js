@@ -11,6 +11,240 @@
   // ========================================
   // Fuzz Value Generators
   // ========================================
+  // ========================================
+  // Valid Value Generators (pass validation)
+  // ========================================
+  const ValidGenerators = {
+    _pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    },
+
+    _randomString(len) {
+      const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let s = "";
+      for (let i = 0; i < len; i++)
+        s += chars[Math.floor(Math.random() * chars.length)];
+      return s;
+    },
+
+    number() {
+      return this._pick([0, 1, 2, 10, 42, 100, 255, 1000]);
+    },
+
+    int64() {
+      return this._pick([0n, 1n, 2n, 100n, 1000n]);
+    },
+
+    string() {
+      return this._pick([
+        "test",
+        "hello world",
+        "Example Title",
+        "Some text content",
+        "user input",
+        this._randomString(16),
+      ]);
+    },
+
+    bool() {
+      return this._pick([true, false]);
+    },
+
+    enum(paramDef) {
+      const options =
+        (paramDef.type && paramDef.type.options) || paramDef.enumOptions;
+      if (options && typeof options === "object") {
+        const values = Object.values(options).filter(
+          (v) => typeof v === "number",
+        );
+        return values.length > 0 ? this._pick(values) : 0;
+      }
+      return 0;
+    },
+
+    array(paramDef, depth) {
+      if (depth > 3) return [];
+      const elementSpec = paramDef.elementSpec;
+      const length = this._pick([0, 1, 2]);
+      const arr = [];
+      for (let i = 0; i < length; i++) {
+        arr.push(this.generateForType(elementSpec, depth + 1));
+      }
+      return arr;
+    },
+
+    struct(paramDef, depth) {
+      if (depth > 5) return null;
+      const spec = paramDef.structSpec;
+      if (!spec || !spec.fields) return {};
+
+      const result = {};
+      const fields = Array.isArray(spec.fields)
+        ? spec.fields
+        : Object.entries(spec.fields).map(([name, f]) => ({ name, ...f }));
+
+      for (const field of fields) {
+        if (field.nullable && Math.random() < 0.3) {
+          result[field.name] = null;
+          continue;
+        }
+        const fieldType = MojoReflectionService.inferType(
+          field.type,
+          field.name,
+        );
+        result[field.name] = this.generate(
+          {
+            name: field.name,
+            type: fieldType,
+            rawType: field.type,
+            structSpec:
+              field.type?.$?.structSpec || field.type?.structSpec,
+            elementSpec:
+              field.type?.elementType ||
+              field.type?.$?.elementType ||
+              field.type?.$?.arraySpec?.elementType,
+            mapSpec:
+              field.type?.keyType || field.type?.$?.mapSpec
+                ? {
+                    key:
+                      field.type?.keyType || field.type?.$?.mapSpec?.keyType,
+                    value:
+                      field.type?.valueType || field.type?.$?.mapSpec?.valueType,
+                  }
+                : null,
+            optional: !!field.nullable,
+            defaultValue: field.defaultValue,
+          },
+          depth + 1,
+        );
+      }
+      return result;
+    },
+
+    union(paramDef, depth) {
+      if (depth > 5) return {};
+      const spec = paramDef.structSpec;
+      if (!spec || !spec.fields) return {};
+
+      const fieldEntries =
+        typeof spec.fields === "object" && !Array.isArray(spec.fields)
+          ? Object.entries(spec.fields)
+          : (spec.fields || []).map((f) => [f.name, f]);
+
+      if (fieldEntries.length === 0) return {};
+      const [tag, field] = this._pick(fieldEntries);
+      const fieldType = MojoReflectionService.inferType(
+        field.type || field,
+        tag,
+      );
+
+      return {
+        [tag]: this.generate(
+          {
+            name: tag,
+            type: fieldType,
+            rawType: field.type || field,
+            structSpec: (field.type || field)?.$?.structSpec,
+            optional: false,
+          },
+          depth + 1,
+        ),
+      };
+    },
+
+    map(paramDef, depth) {
+      if (depth > 3) return {};
+      const mapSpec = paramDef.mapSpec;
+      if (!mapSpec) return {};
+
+      const length = this._pick([0, 1, 2]);
+      const result = {};
+      for (let i = 0; i < length; i++) {
+        const key = this.generateForType(mapSpec.key, depth + 1);
+        const value = this.generateForType(mapSpec.value, depth + 1);
+        if (key !== null && key !== undefined) {
+          result[String(key)] = value;
+        }
+      }
+      return result;
+    },
+
+    url() {
+      return this._pick([
+        "https://example.com",
+        "https://example.com/page",
+        "https://example.com/path?q=test",
+        "http://example.com",
+        "https://www.example.org/share",
+      ]);
+    },
+
+    filepath() {
+      return this._pick([
+        "/tmp/test.txt",
+        "C:\\Users\\test\\file.txt",
+        "/home/user/document.pdf",
+      ]);
+    },
+
+    bigstring() { return this.string(); },
+    bigstring16() { return this.string(); },
+    string16() { return this.string(); },
+    handle() { return null; },
+    pending_remote(paramDef) { return null; },
+    pending_receiver() { return null; },
+    pending_associated_remote() { return null; },
+    pending_associated_receiver() { return null; },
+    mojo_handle() { return null; },
+    "handle<platform>"() { return null; },
+    any() { return this._pick([0, "test", true]); },
+
+    generateForType(typeSpec, depth) {
+      if (!typeSpec) return this.any();
+      const type = MojoReflectionService.inferType(typeSpec);
+      return this.generate({ type, rawType: typeSpec }, depth);
+    },
+
+    generate(paramDef, depth) {
+      if (depth === undefined) depth = 0;
+      if (depth > 8) return null;
+
+      const type = paramDef.type;
+
+      if (type && typeof type === "object" && type.type === "enum") {
+        return this.enum(paramDef);
+      }
+
+      switch (type) {
+        case "number": return this.number();
+        case "int64": return this.int64();
+        case "string": return this.string();
+        case "bool": return this.bool();
+        case "array": return this.array(paramDef, depth);
+        case "struct": return this.struct(paramDef, depth);
+        case "union": return this.union(paramDef, depth);
+        case "map": return this.map(paramDef, depth);
+        case "Url": return this.url();
+        case "filepath": return this.filepath();
+        case "bigstring": return this.bigstring();
+        case "bigstring16": return this.bigstring16();
+        case "string16": return this.string16();
+        case "pending_remote": return this.pending_remote(paramDef);
+        case "pending_receiver": return this.pending_receiver();
+        case "pending_associated_remote": return this.pending_associated_remote();
+        case "pending_associated_receiver": return this.pending_associated_receiver();
+        case "mojo_handle": return this.mojo_handle();
+        case "handle<platform>": return this["handle<platform>"]();
+        case "enum": return this.enum(paramDef);
+        default: return this.any();
+      }
+    },
+  };
+
+  // ========================================
+  // Attack Value Generators (fuzz/edge cases)
+  // ========================================
   const FuzzGenerators = {
     _pick(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
@@ -393,6 +627,124 @@
   };
 
   // ========================================
+  // Fuzzing Technique Helpers
+  // ========================================
+
+  /**
+   * Generates a type-confused value — returns a value of the wrong type
+   * for the given parameter to test deserialization and type-checking.
+   */
+  function typeConfusedValue(paramDef) {
+    const type = paramDef.type;
+    // Return a type that doesn't match
+    const confusions = {
+      string: () => FuzzGenerators._pick([0, -1, true, null, {}, [], NaN]),
+      number: () => FuzzGenerators._pick(["not_a_number", "", true, null, {}, [], "99999999"]),
+      int64: () => FuzzGenerators._pick(["not_a_bigint", 0, null, {}, true]),
+      bool: () => FuzzGenerators._pick([0, 1, 2, -1, "true", "false", "", null, "yes"]),
+      Url: () => FuzzGenerators._pick([0, null, true, {}, [], { url: "http://x.com" }, 42]),
+      enum: () => FuzzGenerators._pick(["invalid", null, true, {}, 99999, -99999, 3.14]),
+      array: () => FuzzGenerators._pick(["not_array", 0, true, null, {}, "[]"]),
+      struct: () => FuzzGenerators._pick(["not_struct", 0, true, null, [], ""]),
+      map: () => FuzzGenerators._pick(["not_map", 0, true, null, [], ""]),
+    };
+    const gen = confusions[type] || confusions.string;
+    return gen();
+  }
+
+  /**
+   * Available fuzzing techniques, cycled per-iteration.
+   * Each returns a params object for the given method definition.
+   */
+  const FuzzTechniques = {
+    /** Fuzz one param, rest valid */
+    targeted(methodDef, iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      const fuzzIndex = iteration % paramCount;
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        params[p.name] = i === fuzzIndex
+          ? FuzzGenerators.generate(p)
+          : ValidGenerators.generate(p);
+      }
+      return params;
+    },
+
+    /** Fuzz 2-3 params simultaneously, rest valid */
+    multiField(methodDef, iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      if (paramCount <= 1) return this.targeted(methodDef, iteration);
+
+      const fuzzCount = Math.min(paramCount, FuzzGenerators._pick([2, 3]));
+      const indices = new Set();
+      while (indices.size < fuzzCount) {
+        indices.add(Math.floor(Math.random() * paramCount));
+      }
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        params[p.name] = indices.has(i)
+          ? FuzzGenerators.generate(p)
+          : ValidGenerators.generate(p);
+      }
+      return params;
+    },
+
+    /** Set random params to null or omit them entirely */
+    nullOmit(methodDef, _iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      const nullIndex = Math.floor(Math.random() * paramCount);
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        if (i === nullIndex) {
+          // 50% null, 50% omit (don't set the key at all)
+          if (Math.random() < 0.5) {
+            params[p.name] = null;
+          }
+          // else: key is omitted
+        } else {
+          params[p.name] = ValidGenerators.generate(p);
+        }
+      }
+      return params;
+    },
+
+    /** Send wrong types for one param */
+    typeConfuse(methodDef, iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      const confuseIndex = iteration % paramCount;
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        params[p.name] = i === confuseIndex
+          ? typeConfusedValue(p)
+          : ValidGenerators.generate(p);
+      }
+      return params;
+    },
+
+    /** All valid — baseline to confirm the call actually works */
+    baseline(methodDef, _iteration) {
+      const params = {};
+      for (const p of methodDef.parameters) {
+        params[p.name] = ValidGenerators.generate(p);
+      }
+      return params;
+    },
+  };
+
+  /** Ordered list of techniques to cycle through */
+  const TECHNIQUE_NAMES = [
+    "targeted", "targeted", "targeted",  // Weight toward targeted
+    "multiField",
+    "nullOmit",
+    "typeConfuse",
+    "baseline",
+  ];
+
+  // ========================================
   // Fuzzer Engine & UI
   // ========================================
   const MojoFuzzer = {
@@ -402,6 +754,7 @@
     results: [],
     uniqueErrors: new Map(),
     _objectCache: {},
+    _lastSuccessParams: null,
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
     SESSION_KEY: "mojofuzzer_session",
@@ -557,21 +910,28 @@
       }
 
       this.stats.startTime = Date.now();
+      this._lastSuccessParams = null;
       const outerIterations = strategy === "all_interfaces" ? 1 : iterations;
       const totalCalls = outerIterations * targets.length;
       let currentCallIndex = callIndex || 0;
 
       try {
-        // Flatten to a single iteration list and skip already-completed calls
         let callNum = 0;
         for (let i = 0; i < outerIterations && !this.aborted; i++) {
-          for (const target of targets) {
+          // Sequence fuzzing: periodically shuffle method order within
+          // same interface to test unexpected call sequences
+          if (i > 0 && i % 5 === 0 && strategy !== "selected_method") {
+            this._shuffleInPlace(targets);
+          }
+
+          for (let t = 0; t < targets.length; t++) {
+            const target = targets[t];
             callNum++;
-            if (callNum <= currentCallIndex) continue; // Skip completed calls
+            if (callNum <= currentCallIndex) continue;
             if (this.aborted) break;
 
             const targetKey = target.interface + "." + target.method;
-            if (this._crashedTargets.has(targetKey)) continue; // Skip known crashers
+            if (this._crashedTargets.has(targetKey)) continue;
 
             currentCallIndex = callNum;
 
@@ -582,7 +942,6 @@
             if (progressText)
               progressText.textContent = `${currentCallIndex} / ${totalCalls}`;
 
-            // Persist session state for resume-after-crash
             this.persistSession(
               strategy,
               interfaceFqn,
@@ -592,11 +951,37 @@
               currentCallIndex,
             );
 
-            await this.fuzzMethod(
-              target.interface,
-              target.method,
-              currentCallIndex,
-            );
+            // Rapid-fire burst: every 10th iteration, fire 3-5 calls
+            // concurrently without awaiting — triggers race conditions
+            if (currentCallIndex % 10 === 0) {
+              const burstSize = FuzzGenerators._pick([3, 4, 5]);
+              const burst = [];
+              for (let b = 0; b < burstSize; b++) {
+                burst.push(
+                  this.fuzzMethod(target.interface, target.method, currentCallIndex + b * 1000),
+                );
+              }
+              await Promise.allSettled(burst);
+            } else {
+              await this.fuzzMethod(
+                target.interface,
+                target.method,
+                currentCallIndex,
+              );
+            }
+
+            // Repeat-after-success: when a call succeeds, immediately
+            // re-send with mutations of the same params to probe
+            // state-dependent bugs after valid setup
+            if (
+              this._lastSuccessParams &&
+              this._lastSuccessParams.interface === target.interface &&
+              this._lastSuccessParams.method === target.method &&
+              !this.aborted
+            ) {
+              await this._repeatMutated(target, currentCallIndex);
+              this._lastSuccessParams = null;
+            }
 
             if (delay > 0) {
               await new Promise((resolve) => setTimeout(resolve, delay));
@@ -616,6 +1001,78 @@
           (skipped > 0 ? ` (${skipped} crashers skipped)` : ""),
         this.stats.crashes > 0 ? "warning" : "success",
       );
+    },
+
+    _shuffleInPlace(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    },
+
+    /** After a successful call, re-send 2 mutated variants of the same params */
+    async _repeatMutated(target, iteration) {
+      const saved = this._lastSuccessParams;
+      if (!saved || !saved.params) return;
+
+      for (let r = 0; r < 2 && !this.aborted; r++) {
+        const mutated = Object.assign({}, saved.params);
+        const keys = Object.keys(mutated).filter((k) => k !== "__technique");
+        if (keys.length === 0) break;
+
+        // Pick a random key and mutate it
+        const mutKey = FuzzGenerators._pick(keys);
+        const val = mutated[mutKey];
+        if (typeof val === "string") {
+          mutated[mutKey] = FuzzGenerators.string();
+        } else if (typeof val === "number") {
+          mutated[mutKey] = FuzzGenerators.number();
+        } else if (typeof val === "boolean") {
+          mutated[mutKey] = !val;
+        } else {
+          mutated[mutKey] = null;
+        }
+
+        try {
+          const resolved = this.resolveTarget(target.interface);
+          if (resolved.skip) continue;
+          this.persistInflight(target.interface, target.method, mutated);
+          const result = await MojoExecutionService.call(
+            resolved.target,
+            target.method,
+            mutated,
+            resolved.options,
+          );
+          this.clearInflight();
+          this.stats.calls++;
+          this.stats.successes++;
+          this.addResult({
+            index: iteration + 0.1 * (r + 1),
+            interface: target.interface,
+            method: target.method,
+            params: mutated,
+            status: "success",
+            result,
+            error: null,
+            timestamp: Date.now(),
+          });
+        } catch (e) {
+          this.clearInflight();
+          this.stats.calls++;
+          this.stats.errors++;
+          this.addResult({
+            index: iteration + 0.1 * (r + 1),
+            interface: target.interface,
+            method: target.method,
+            params: mutated,
+            status: "error",
+            result: null,
+            error: e.message || String(e),
+            timestamp: Date.now(),
+          });
+        }
+        this.updateStats();
+      }
     },
 
     persistInflight(interfaceFqn, methodName, params) {
@@ -1076,9 +1533,11 @@
         );
 
         if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
-          for (const param of methodDef.parameters) {
-            params[param.name] = FuzzGenerators.generate(param);
-          }
+          // Cycle through fuzzing techniques each iteration
+          const techniqueName = TECHNIQUE_NAMES[iteration % TECHNIQUE_NAMES.length];
+          const technique = FuzzTechniques[techniqueName];
+          params = technique(methodDef, iteration);
+          params.__technique = techniqueName;
         }
 
         const resolved = this.resolveTarget(interfaceFqn);
@@ -1106,10 +1565,14 @@
         // Persist before call so we can detect crashes on page reload
         this.persistInflight(interfaceFqn, methodName, params);
 
+        // Strip internal metadata before sending over IPC
+        const callParams = Object.assign({}, params);
+        delete callParams.__technique;
+
         const result = await MojoExecutionService.call(
           resolved.target,
           methodName,
-          params,
+          callParams,
           resolved.options,
         );
 
@@ -1118,6 +1581,13 @@
         resultData = result;
         status = "success";
         this.stats.successes++;
+
+        // Track successful params for repeat-after-success mutations
+        this._lastSuccessParams = {
+          interface: interfaceFqn,
+          method: methodName,
+          params: Object.assign({}, params),
+        };
 
         if (result && result.objectId) {
           this._objectCache[interfaceFqn] = result.objectId;
@@ -1192,8 +1662,14 @@
       const div = document.createElement("div");
       div.className = `fuzzer-result-entry ${statusClass}`;
       div.dataset.index = entry.index;
+      const technique = entry.params?.__technique || "";
+      const techBadge = technique
+        ? `<span class="result-technique" title="${escapeHtml(technique)}">${escapeHtml(technique.substring(0, 3).toUpperCase())}</span>`
+        : "";
+
       div.innerHTML = safe(
         `<span class="result-index">#${entry.index}</span>` +
+          techBadge +
           `<span class="result-method" title="${escapeHtml(entry.interface + "." + entry.method)}">${escapeHtml(shortMethod)}</span>` +
           `<span class="result-status">${statusLabel}</span>`,
       );

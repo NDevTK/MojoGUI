@@ -2698,6 +2698,16 @@ select option {
   white-space: nowrap;
 }
 
+.fuzzer-result-entry .result-technique {
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
 .fuzzer-result-entry .result-status {
   font-weight: 500;
 }
