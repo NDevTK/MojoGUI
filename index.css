@@ -2496,3 +2496,277 @@ select option {
 .hidden {
   display: none !important;
 }
+
+/* ========================================
+   Fuzzer Panel
+   ======================================== */
+.fuzzer-container {
+  padding: var(--space-md);
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.fuzzer-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.fuzzer-card h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fuzzer-card .desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Fuzzer Stats Grid */
+.fuzzer-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+.fuzzer-stat {
+  text-align: center;
+  padding: var(--space-sm);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.fuzzer-stat-value {
+  font-size: 1.4em;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.fuzzer-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.fuzzer-stat.stat-success .fuzzer-stat-value {
+  color: var(--success);
+}
+
+.fuzzer-stat.stat-error .fuzzer-stat-value {
+  color: var(--warning);
+}
+
+.fuzzer-stat.stat-crash .fuzzer-stat-value {
+  color: var(--error);
+}
+
+/* Fuzzer Controls */
+.fuzzer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.fuzzer-controls label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.fuzzer-controls select,
+.fuzzer-controls input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+}
+
+.fuzzer-controls select:focus,
+.fuzzer-controls input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.fuzzer-btn-row {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.fuzzer-btn-row .btn {
+  flex: 1;
+}
+
+/* Fuzzer Results Log */
+.fuzzer-results {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fuzzer-result-entry {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.fuzzer-result-entry:hover {
+  background: var(--bg-elevated);
+}
+
+.fuzzer-result-entry.result-success {
+  border-left-color: var(--success);
+  color: var(--text-secondary);
+}
+
+.fuzzer-result-entry.result-error {
+  border-left-color: var(--warning);
+  color: var(--warning);
+}
+
+.fuzzer-result-entry.result-crash {
+  border-left-color: var(--error);
+  color: var(--error);
+  font-weight: 600;
+}
+
+.fuzzer-result-entry .result-index {
+  color: var(--text-muted);
+  min-width: 40px;
+}
+
+.fuzzer-result-entry .result-method {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fuzzer-result-entry .result-status {
+  font-weight: 500;
+}
+
+/* Expanded detail for a result entry */
+.fuzzer-result-detail {
+  padding: 8px 10px 8px 20px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 2px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Progress bar */
+.fuzzer-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fuzzer-progress-bar {
+  height: 100%;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Running state indicator */
+.fuzzer-running-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.fuzzer-running-indicator .pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+/* Unique errors list */
+.fuzzer-errors-list {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fuzzer-error-item {
+  padding: 4px 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--error);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.fuzzer-error-count {
+  background: rgba(239, 68, 68, 0.2);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}

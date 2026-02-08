@@ -55,6 +55,22 @@ echo  Profile Path:   %PROFILE_PATH%
 echo  WinDbg Script:  %WINDBG_SCRIPT%
 echo.
 
+:: Ask about disable-kill-after-bad-ipc switch
+SET "DISABLE_KILL_FLAG="
+echo  [OPTION] Disable renderer kill after bad IPC messages?
+echo  This prevents the browser from terminating renderers that send
+echo  malformed Mojo messages. Bad for security, but useful for fast fuzzing
+echo  since it keeps the renderer alive across invalid calls.
+echo.
+choice /C YN /M "  Enable --disable-kill-after-bad-ipc"
+if !ERRORLEVEL! EQU 1 (
+    SET "DISABLE_KILL_FLAG=--disable-kill-after-bad-ipc"
+    echo  [ON]  Renderer kills disabled - fuzzing mode
+) else (
+    echo  [OFF] Renderer kills enabled - normal security
+)
+echo.
+
 :: Build Chrome command line flags
 SET CHROME_FLAGS=^
     --user-data-dir="%PROFILE_PATH%" ^
@@ -70,6 +86,7 @@ SET CHROME_FLAGS=^
     --wait-for-debugger-children ^
     --remote-debugging-port=9222 ^
     --enable-blink-features=MojoJS,MojoJSTest ^
+    %DISABLE_KILL_FLAG% ^
     https://ndevtk.github.io/MojoGUI/
 
 :: WinDbg initialization commands

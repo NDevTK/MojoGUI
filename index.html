@@ -150,6 +150,16 @@
             >
               Awards
             </button>
+            <button
+              class="sidebar-tab"
+              data-tab="fuzzer"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-fuzzer"
+              id="tab-btn-fuzzer"
+            >
+              Fuzzer
+            </button>
           </div>
 
           <!-- Interfaces Tab Content -->
@@ -243,6 +253,20 @@
             <div class="loading-state">
               <div class="spinner"></div>
               <p>Loading awards...</p>
+            </div>
+          </div>
+          <!-- Fuzzer Tab Content -->
+          <div
+            id="tab-fuzzer"
+            class="sidebar-tab-content"
+            style="display: none"
+            role="tabpanel"
+            aria-labelledby="tab-btn-fuzzer"
+          >
+            <div class="fuzzer-container">
+              <div class="loading-state">
+                <p>Loading fuzzer...</p>
+              </div>
             </div>
           </div>
         </aside>
@@ -545,6 +569,7 @@
     <script src="js/version_tracker.js"></script>
     <script src="js/welcome_manager.js"></script>
     <script src="js/tools_panel.js"></script>
+    <script src="js/fuzzer.js"></script>
     <script src="js/pocGenerator.js"></script>
     <script src="js/app.js"></script>
     <script src="js/awards.js"></script>
