@@ -904,8 +904,9 @@
 
     async resume(session) {
       // Rebuild the same config and continue from where we left off
-      const { strategy, interfaceFqn, methodName, iterations, delay, callIndex } =
+      const { strategy, interfaceFqn, methodName, iterations, concurrency: rawConcurrency, delay, callIndex } =
         session.config;
+      const concurrency = Math.max(1, rawConcurrency || 1);
 
       this.running = true;
       this.aborted = false;
@@ -971,76 +972,71 @@
       let currentCallIndex = callIndex || 0;
 
       try {
-        let callNum = 0;
-        for (let i = 0; i < outerIterations && !this.aborted; i++) {
-          // Sequence fuzzing: periodically shuffle method order within
-          // same interface to test unexpected call sequences
-          if (i > 0 && i % 5 === 0 && strategy !== "selected_method") {
-            this._shuffleInPlace(targets);
+        // Build a flat work queue of all calls to make
+        const queue = [];
+        for (let i = 0; i < outerIterations; i++) {
+          // Sequence fuzzing: shuffle copy for some iterations
+          const iterTargets = i > 0 && i % 5 === 0 && strategy !== "selected_method"
+            ? [...targets].sort(() => Math.random() - 0.5)
+            : targets;
+          for (const target of iterTargets) {
+            queue.push(target);
           }
+        }
 
-          for (let t = 0; t < targets.length; t++) {
-            const target = targets[t];
-            callNum++;
-            if (callNum <= currentCallIndex) continue;
-            if (this.aborted) break;
+        // Process queue in concurrent batches
+        let qi = callIndex || 0;
+        while (qi < queue.length && !this.aborted) {
+          const batchEnd = Math.min(qi + concurrency, queue.length);
+          const batch = [];
 
+          for (let b = qi; b < batchEnd; b++) {
+            const target = queue[b];
             const targetKey = target.interface + "." + target.method;
             if (this._crashedTargets.has(targetKey)) continue;
 
-            currentCallIndex = callNum;
+            batch.push(
+              this.fuzzMethod(target.interface, target.method, b),
+            );
+          }
 
-            const pct = Math.floor((currentCallIndex / totalCalls) * 100);
-            const progressBar = document.getElementById("fuzzer-progress-bar");
-            const progressText = document.getElementById("fuzzer-progress-text");
-            if (progressBar) progressBar.style.width = pct + "%";
-            if (progressText)
-              progressText.textContent = `${currentCallIndex} / ${totalCalls}`;
+          if (batch.length > 0) {
+            await Promise.allSettled(batch);
+          }
 
-            this.persistSession(
-              strategy,
-              interfaceFqn,
-              methodName,
-              iterations,
-              delay,
+          currentCallIndex = batchEnd;
+
+          // Update progress
+          const pct = Math.floor((currentCallIndex / totalCalls) * 100);
+          const progressBar = document.getElementById("fuzzer-progress-bar");
+          const progressText = document.getElementById("fuzzer-progress-text");
+          if (progressBar) progressBar.style.width = pct + "%";
+          if (progressText)
+            progressText.textContent = `${currentCallIndex} / ${totalCalls}`;
+
+          this.persistSession(
+            strategy,
+            interfaceFqn,
+            methodName,
+            iterations,
+            delay,
+            currentCallIndex,
+            concurrency,
+          );
+
+          // Repeat-after-success on the last target in the batch
+          if (this._lastSuccessParams && !this.aborted) {
+            await this._repeatMutated(
+              { interface: this._lastSuccessParams.interface, method: this._lastSuccessParams.method },
               currentCallIndex,
             );
+            this._lastSuccessParams = null;
+          }
 
-            // Rapid-fire burst: every 10th iteration, fire 3-5 calls
-            // concurrently without awaiting — triggers race conditions
-            if (currentCallIndex % 10 === 0) {
-              const burstSize = FuzzGenerators._pick([3, 4, 5]);
-              const burst = [];
-              for (let b = 0; b < burstSize; b++) {
-                burst.push(
-                  this.fuzzMethod(target.interface, target.method, currentCallIndex + b * 1000),
-                );
-              }
-              await Promise.allSettled(burst);
-            } else {
-              await this.fuzzMethod(
-                target.interface,
-                target.method,
-                currentCallIndex,
-              );
-            }
+          qi = batchEnd;
 
-            // Repeat-after-success: when a call succeeds, immediately
-            // re-send with mutations of the same params to probe
-            // state-dependent bugs after valid setup
-            if (
-              this._lastSuccessParams &&
-              this._lastSuccessParams.interface === target.interface &&
-              this._lastSuccessParams.method === target.method &&
-              !this.aborted
-            ) {
-              await this._repeatMutated(target, currentCallIndex);
-              this._lastSuccessParams = null;
-            }
-
-            if (delay > 0) {
-              await new Promise((resolve) => setTimeout(resolve, delay));
-            }
+          if (delay > 0) {
+            await new Promise((resolve) => setTimeout(resolve, delay));
           }
         }
       } catch (e) {
@@ -1154,12 +1150,12 @@
       }
     },
 
-    persistSession(strategy, interfaceFqn, methodName, iterations, delay, callIndex) {
+    persistSession(strategy, interfaceFqn, methodName, iterations, delay, callIndex, concurrency) {
       try {
         localStorage.setItem(
           this.SESSION_KEY,
           JSON.stringify({
-            config: { strategy, interfaceFqn, methodName, iterations, delay, callIndex },
+            config: { strategy, interfaceFqn, methodName, iterations, concurrency, delay, callIndex },
             stats: { ...this.stats },
             crashedTargets: Array.from(this._crashedTargets),
             uniqueErrors: Array.from(this.uniqueErrors.entries()),
@@ -1213,8 +1209,12 @@
                 <input type="number" id="fuzzer-iterations" value="100" min="1" max="100000">
               </div>
               <div style="flex: 1;">
+                <label>Concurrency</label>
+                <input type="number" id="fuzzer-concurrency" value="8" min="1" max="50">
+              </div>
+              <div style="flex: 1;">
                 <label>Delay (ms)</label>
-                <input type="number" id="fuzzer-delay" value="50" min="0" max="10000">
+                <input type="number" id="fuzzer-delay" value="0" min="0" max="10000">
               </div>
             </div>
           </div>
@@ -1458,6 +1458,7 @@
       );
       const methodSelect = document.getElementById("fuzzer-method-select");
       const iterationsInput = document.getElementById("fuzzer-iterations");
+      const concurrencyInput = document.getElementById("fuzzer-concurrency");
       const delayInput = document.getElementById("fuzzer-delay");
 
       const strategy = strategySelect.value;
@@ -1465,6 +1466,7 @@
       const interfaceFqn = selIface ? selIface.module + "." + selIface.name : "";
       const methodName = methodSelect.value;
       const iterations = parseInt(iterationsInput.value) || 100;
+      const concurrency = Math.max(1, Math.min(50, parseInt(concurrencyInput.value) || 8));
       const delay = parseInt(delayInput.value) || 0;
 
       if (strategy === "selected_method" && (!interfaceFqn || !methodName)) {
@@ -1484,7 +1486,7 @@
 
       // Delegate to the shared run loop
       await this.resume({
-        config: { strategy, interfaceFqn, methodName, iterations, delay, callIndex: 0 },
+        config: { strategy, interfaceFqn, methodName, iterations, concurrency, delay, callIndex: 0 },
       });
     },
 
