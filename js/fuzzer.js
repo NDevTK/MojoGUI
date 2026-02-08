@@ -305,39 +305,60 @@
     },
 
     string() {
+      // 70% passable strings (survive validation, reach deeper logic)
+      // 30% extreme strings (test boundary/sanitization)
+      if (Math.random() < 0.7) {
+        return this._pick([
+          "",
+          " ",
+          "   leading whitespace",
+          "trailing whitespace   ",
+          "A".repeat(256),
+          "A".repeat(10000),
+          "<b>bold</b>",
+          "<img src=x onerror=alert(1)>",
+          "<script>alert(1)</script>",
+          "{{7*7}}",
+          "${7*7}",
+          "test\nwith\nnewlines",
+          "test\ttabs\there",
+          "test\r\nCRLF",
+          "\u202Ehello\u202C",
+          "\uFEFF",
+          "Sch\u00f6n",
+          "\u0410\u0411\u0412",
+          "\uD83D\uDE00\uD83D\uDE01\uD83D\uDE02",
+          "a]b[c",
+          "test'quote\"double",
+          "a&b<c>d",
+          "null",
+          "undefined",
+          "true",
+          "false",
+          "-1",
+          "0",
+          "%s%s%s%s",
+          "../../../etc/passwd",
+          "..\\..\\..\\windows\\system32",
+          "file:///etc/passwd",
+          "\\\\server\\share",
+          "CON",
+          this._randomString(50),
+          this._randomString(500),
+        ]);
+      }
       return this._pick([
-        "",
-        "A",
-        "A".repeat(256),
-        "A".repeat(10000),
-        "A".repeat(100000),
-        "%n%n%n%n%n%n",
-        "%s%s%s%s%s%s",
         "\x00",
         "\x00".repeat(100),
-        "null",
-        "undefined",
-        "true",
-        "false",
-        "<script>alert(1)</script>",
-        "{{7*7}}",
-        "${7*7}",
-        "../../../etc/passwd",
-        "..\\..\\..\\windows\\system32",
-        "file:///etc/passwd",
-        "\\\\server\\share",
-        "/dev/null",
-        "CON",
-        "NUL",
-        "\uFEFF",
+        "A".repeat(100000),
+        "\u0000\u0001\u0002\u0003",
         "\uD800",
         "\uDFFF",
-        "\u0000\u0001\u0002\u0003",
-        "\u202Ehello",
-        "a]b",
-        this._randomString(100),
-        this._randomString(1000),
         String.fromCharCode(...Array.from({ length: 128 }, (_, i) => i)),
+        "/dev/null",
+        "NUL",
+        "%n%n%n%n%n%n",
+        this._randomString(1000),
       ]);
     },
 
@@ -361,7 +382,10 @@
     array(paramDef, depth) {
       if (depth > 3) return [];
       const elementSpec = paramDef.elementSpec;
-      const length = this._pick([0, 1, 2, 5, 50, 100]);
+      // 70% small arrays (pass validation), 30% large (stress test)
+      const length = Math.random() < 0.7
+        ? this._pick([0, 1, 2, 3])
+        : this._pick([5, 50, 100]);
       const arr = [];
       for (let i = 0; i < length; i++) {
         arr.push(this.generateForType(elementSpec, depth + 1));
@@ -469,10 +493,36 @@
     },
 
     url() {
+      // 70% valid-scheme URLs (pass URL validation, reach handler logic)
+      // 30% invalid/exotic schemes (test scheme filtering)
+      if (Math.random() < 0.7) {
+        return this._pick([
+          "https://example.com",
+          "https://example.com/page",
+          "https://example.com/path?q=<script>alert(1)</script>",
+          "https://example.com/path?q={{7*7}}",
+          "https://example.com/path?redirect=https://evil.com",
+          "https://example.com/" + "A".repeat(5000),
+          "https://example.com/path/../../../etc/passwd",
+          "https://evil.com/path?q=1#frag",
+          "http://example.com",
+          "http://localhost",
+          "http://localhost:8080/admin",
+          "http://127.0.0.1",
+          "http://[::1]/",
+          "http://0x7f000001/",
+          "http://169.254.169.254/latest/meta-data/",
+          "http://metadata.google.internal/",
+          "https://example.com/path?q=" + encodeURIComponent("<script>"),
+          "https://example.com/%2e%2e/%2e%2e/etc/passwd",
+          "https://example.com/page#<img src=x>",
+          "https://user:pass@example.com/",
+          "https://example.com:443/",
+          "https://example.com:8443/",
+        ]);
+      }
       return this._pick([
         "",
-        "http://example.com",
-        "https://evil.com/path?q=1#frag",
         "javascript:alert(1)",
         "data:text/html,<h1>test</h1>",
         "file:///etc/passwd",
@@ -482,22 +532,28 @@
         "about:blank",
         "chrome://settings",
         "chrome-extension://aaaa/manifest.json",
-        "http://[::1]/",
-        "http://0x7f000001/",
-        "http://127.0.0.1:0/",
-        "http://example.com/" + "A".repeat(10000),
         "://missing-scheme",
         "http://",
         "http:///",
         "http://example.com/\x00evil",
-        "https://example.com/path/../../../etc/passwd",
       ]);
     },
 
     filepath() {
+      if (Math.random() < 0.6) {
+        return this._pick([
+          "/tmp/test.txt",
+          "/home/user/document.pdf",
+          "C:\\Users\\test\\file.txt",
+          "/tmp/" + this._randomString(20) + ".txt",
+          "../test.txt",
+          "./relative/path.txt",
+          "file with spaces.txt",
+          "/tmp/" + "A".repeat(200) + ".txt",
+        ]);
+      }
       return this._pick([
         "",
-        "/tmp/test.txt",
         "C:\\Windows\\System32\\cmd.exe",
         "/etc/passwd",
         "../../../etc/shadow",
@@ -507,7 +563,6 @@
         "NUL",
         "/proc/self/exe",
         "A".repeat(1000),
-        "/tmp/" + this._randomString(50),
       ]);
     },
 
