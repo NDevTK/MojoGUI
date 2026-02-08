@@ -403,8 +403,260 @@
     uniqueErrors: new Map(),
     _objectCache: {},
 
+    INFLIGHT_KEY: "mojofuzzer_inflight",
+    SESSION_KEY: "mojofuzzer_session",
+    _crashedTargets: new Set(),
+
     init() {
       this.renderUI();
+      this.checkForCrash();
+    },
+
+    checkForCrash() {
+      try {
+        const raw = localStorage.getItem(this.INFLIGHT_KEY);
+        if (!raw) return;
+        localStorage.removeItem(this.INFLIGHT_KEY);
+
+        const inflight = JSON.parse(raw);
+
+        // Record the crash
+        this.stats.crashes++;
+        this.stats.calls++;
+
+        const crashKey = inflight.interface + "." + inflight.method;
+        const errorKey = `${crashKey}: CRASH (page reloaded during call)`;
+        this.uniqueErrors.set(errorKey, {
+          count: 1,
+          firstParams: inflight.params,
+          firstMethod: inflight.method,
+          firstInterface: inflight.interface,
+          error:
+            "Browser or tab crashed - page was reloaded while this call was in flight",
+        });
+
+        this.addResult({
+          index: 0,
+          interface: inflight.interface,
+          method: inflight.method,
+          params: inflight.params,
+          status: "crash",
+          result: null,
+          error:
+            "Browser or tab crashed - page was reloaded while this call was in flight",
+          timestamp: Date.now(),
+        });
+
+        this.updateStats();
+        global.showToast(
+          `Crash detected! ${crashKey} caused a page reload. Resuming...`,
+          "warning",
+        );
+
+        // Load session and add the crashing target to the skip list, then resume
+        const sessionRaw = localStorage.getItem(this.SESSION_KEY);
+        if (sessionRaw) {
+          const session = JSON.parse(sessionRaw);
+
+          // Carry forward existing crashed targets + the new one
+          this._crashedTargets = new Set(session.crashedTargets || []);
+          this._crashedTargets.add(crashKey);
+
+          // Restore stats from session (add to the crash we just recorded)
+          this.stats.calls += session.stats.calls || 0;
+          this.stats.successes += session.stats.successes || 0;
+          this.stats.errors += session.stats.errors || 0;
+          this.stats.crashes += session.stats.crashes || 0;
+
+          // Restore unique errors from session
+          if (session.uniqueErrors) {
+            for (const [key, data] of session.uniqueErrors) {
+              if (!this.uniqueErrors.has(key)) {
+                this.uniqueErrors.set(key, data);
+              }
+            }
+          }
+
+          // Restore results from session
+          if (session.results) {
+            for (const r of session.results) {
+              this.addResult(r);
+            }
+          }
+
+          this.updateStats();
+
+          // Auto-resume after a short delay to let the page finish loading
+          setTimeout(() => this.resume(session), 2000);
+        }
+      } catch (e) {
+        console.error("[Fuzzer] checkForCrash error:", e);
+      }
+    },
+
+    async resume(session) {
+      // Rebuild the same config and continue from where we left off
+      const { strategy, interfaceFqn, methodName, iterations, delay, callIndex } =
+        session.config;
+
+      this.running = true;
+      this.aborted = false;
+      this._objectCache = {};
+
+      document.getElementById("fuzzer-start-btn").disabled = true;
+      document.getElementById("fuzzer-stop-btn").disabled = false;
+      document.getElementById("fuzzer-progress-card").style.display = "block";
+
+      const indicator = document.getElementById("fuzzer-running-indicator");
+      if (indicator) {
+        indicator.innerHTML = safe(
+          '<span class="pulse-dot"></span><span>Resuming...</span>',
+        );
+      }
+
+      // Rebuild target list
+      let targets = [];
+      if (strategy === "selected_method") {
+        targets = [{ interface: interfaceFqn, method: methodName }];
+      } else if (strategy === "all_methods") {
+        const iface = (global.MojoGUI_State || {}).interfaces.find(
+          (i) => i.module + "." + i.name === interfaceFqn,
+        );
+        if (iface && iface.methods) {
+          targets = iface.methods.map((m) => ({
+            interface: interfaceFqn,
+            method: typeof m === "string" ? m : m.name,
+          }));
+        }
+      } else if (strategy === "all_interfaces") {
+        const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+        for (const iface of interfaces) {
+          if (!iface.methods) continue;
+          const fqn = iface.module + "." + iface.name;
+          for (const m of iface.methods) {
+            targets.push({
+              interface: fqn,
+              method: typeof m === "string" ? m : m.name,
+            });
+          }
+        }
+      }
+
+      if (targets.length === 0) {
+        this.stop();
+        return;
+      }
+
+      this.stats.startTime = Date.now();
+      const outerIterations = strategy === "all_interfaces" ? 1 : iterations;
+      const totalCalls = outerIterations * targets.length;
+      let currentCallIndex = callIndex || 0;
+
+      try {
+        // Flatten to a single iteration list and skip already-completed calls
+        let callNum = 0;
+        for (let i = 0; i < outerIterations && !this.aborted; i++) {
+          for (const target of targets) {
+            callNum++;
+            if (callNum <= currentCallIndex) continue; // Skip completed calls
+            if (this.aborted) break;
+
+            const targetKey = target.interface + "." + target.method;
+            if (this._crashedTargets.has(targetKey)) continue; // Skip known crashers
+
+            currentCallIndex = callNum;
+
+            const pct = Math.floor((currentCallIndex / totalCalls) * 100);
+            const progressBar = document.getElementById("fuzzer-progress-bar");
+            const progressText = document.getElementById("fuzzer-progress-text");
+            if (progressBar) progressBar.style.width = pct + "%";
+            if (progressText)
+              progressText.textContent = `${currentCallIndex} / ${totalCalls}`;
+
+            // Persist session state for resume-after-crash
+            this.persistSession(
+              strategy,
+              interfaceFqn,
+              methodName,
+              iterations,
+              delay,
+              currentCallIndex,
+            );
+
+            await this.fuzzMethod(
+              target.interface,
+              target.method,
+              currentCallIndex,
+            );
+
+            if (delay > 0) {
+              await new Promise((resolve) => setTimeout(resolve, delay));
+            }
+          }
+        }
+      } catch (e) {
+        console.error("[Fuzzer] Unexpected engine error:", e);
+      }
+
+      this.clearSession();
+      this.stop();
+
+      const skipped = this._crashedTargets.size;
+      global.showToast(
+        `Fuzzing complete: ${this.stats.calls} calls, ${this.stats.errors} errors, ${this.stats.crashes} crashes` +
+          (skipped > 0 ? ` (${skipped} crashers skipped)` : ""),
+        this.stats.crashes > 0 ? "warning" : "success",
+      );
+    },
+
+    persistInflight(interfaceFqn, methodName, params) {
+      try {
+        localStorage.setItem(
+          this.INFLIGHT_KEY,
+          JSON.stringify({
+            interface: interfaceFqn,
+            method: methodName,
+            params,
+            timestamp: Date.now(),
+          }),
+        );
+      } catch (e) {
+        // Best-effort persistence
+      }
+    },
+
+    clearInflight() {
+      try {
+        localStorage.removeItem(this.INFLIGHT_KEY);
+      } catch (e) {
+        // ignore
+      }
+    },
+
+    persistSession(strategy, interfaceFqn, methodName, iterations, delay, callIndex) {
+      try {
+        localStorage.setItem(
+          this.SESSION_KEY,
+          JSON.stringify({
+            config: { strategy, interfaceFqn, methodName, iterations, delay, callIndex },
+            stats: { ...this.stats },
+            crashedTargets: Array.from(this._crashedTargets),
+            uniqueErrors: Array.from(this.uniqueErrors.entries()),
+            results: this.results.slice(-50), // Keep last 50 results to limit storage
+          }),
+        );
+      } catch (e) {
+        // Best-effort persistence
+      }
+    },
+
+    clearSession() {
+      try {
+        localStorage.removeItem(this.SESSION_KEY);
+        localStorage.removeItem(this.INFLIGHT_KEY);
+      } catch (e) {
+        // ignore
+      }
     },
 
     renderUI() {
@@ -693,103 +945,23 @@
       this.running = true;
       this.aborted = false;
       this._objectCache = {};
+      this._crashedTargets = new Set();
       this.resetStats();
 
-      document.getElementById("fuzzer-start-btn").disabled = true;
-      document.getElementById("fuzzer-stop-btn").disabled = false;
-      document.getElementById("fuzzer-progress-card").style.display = "block";
-
-      const indicator = document.getElementById("fuzzer-running-indicator");
-      if (indicator) {
-        indicator.innerHTML = safe(
-          '<span class="pulse-dot"></span><span>Fuzzing...</span>',
-        );
-      }
-
-      let targets = [];
-
-      if (strategy === "selected_method") {
-        targets = [{ interface: interfaceFqn, method: methodName }];
-      } else if (strategy === "all_methods") {
-        const iface = (global.MojoGUI_State || {}).interfaces.find(
-          (i) => i.module + "." + i.name === interfaceFqn,
-        );
-        if (iface && iface.methods) {
-          targets = iface.methods.map((m) => ({
-            interface: interfaceFqn,
-            method: typeof m === "string" ? m : m.name,
-          }));
-        }
-      } else if (strategy === "all_interfaces") {
-        const interfaces = (global.MojoGUI_State || {}).interfaces || [];
-        for (const iface of interfaces) {
-          if (!iface.methods) continue;
-          const fqn = iface.module + "." + iface.name;
-          for (const m of iface.methods) {
-            targets.push({
-              interface: fqn,
-              method: typeof m === "string" ? m : m.name,
-            });
-          }
-        }
-      }
-
-      if (targets.length === 0) {
-        global.showToast("No targets to fuzz", "warning");
-        this.stop();
-        return;
-      }
-
-      this.stats.startTime = Date.now();
-      const outerIterations =
-        strategy === "all_interfaces" ? 1 : iterations;
-      const totalCalls = outerIterations * targets.length;
-
-      let callIndex = 0;
-
-      try {
-        for (let i = 0; i < outerIterations && !this.aborted; i++) {
-          for (const target of targets) {
-            if (this.aborted) break;
-
-            callIndex++;
-
-            const pct = Math.floor((callIndex / totalCalls) * 100);
-            const progressBar = document.getElementById(
-              "fuzzer-progress-bar",
-            );
-            const progressText = document.getElementById(
-              "fuzzer-progress-text",
-            );
-            if (progressBar) progressBar.style.width = pct + "%";
-            if (progressText)
-              progressText.textContent = `${callIndex} / ${totalCalls}`;
-
-            await this.fuzzMethod(
-              target.interface,
-              target.method,
-              callIndex,
-            );
-
-            if (delay > 0) {
-              await new Promise((resolve) => setTimeout(resolve, delay));
-            }
-          }
-        }
-      } catch (e) {
-        console.error("[Fuzzer] Unexpected engine error:", e);
-      }
-
-      this.stop();
-      global.showToast(
-        `Fuzzing complete: ${this.stats.calls} calls, ${this.stats.errors} errors, ${this.stats.crashes} crashes`,
-        this.stats.crashes > 0 ? "warning" : "success",
-      );
+      // Delegate to the shared run loop
+      await this.resume({
+        config: { strategy, interfaceFqn, methodName, iterations, delay, callIndex: 0 },
+      });
     },
 
-    stop() {
+    stop(keepSession) {
       this.aborted = true;
       this.running = false;
+
+      // Only clear session if user explicitly stopped (not if we're about to resume)
+      if (!keepSession) {
+        this.clearSession();
+      }
 
       const startBtn = document.getElementById("fuzzer-start-btn");
       const stopBtn = document.getElementById("fuzzer-stop-btn");
@@ -833,12 +1005,17 @@
             }
           : { interface: interfaceFqn };
 
+        // Persist before call so we can detect crashes on page reload
+        this.persistInflight(interfaceFqn, methodName, params);
+
         const result = await MojoExecutionService.call(
           target,
           methodName,
           params,
           {},
         );
+
+        this.clearInflight();
 
         resultData = result;
         status = "success";
@@ -848,23 +1025,11 @@
           this._objectCache[interfaceFqn] = result.objectId;
         }
       } catch (e) {
+        this.clearInflight();
         errorMsg = e.message || String(e);
 
-        const isCrash =
-          errorMsg.includes("pipe") ||
-          errorMsg.includes("disconnect") ||
-          errorMsg.includes("connection") ||
-          errorMsg.includes("closed") ||
-          errorMsg.includes("reset");
-
-        status = isCrash ? "crash" : "error";
-
-        if (isCrash) {
-          this.stats.crashes++;
-          delete this._objectCache[interfaceFqn];
-        } else {
-          this.stats.errors++;
-        }
+        status = "error";
+        this.stats.errors++;
 
         const errorKey = `${interfaceFqn}.${methodName}: ${errorMsg.substring(0, 200)}`;
         const existing = this.uniqueErrors.get(errorKey);
@@ -904,7 +1069,7 @@
       if (!log) return;
 
       if (this.results.length === 1) {
-        log.innerHTML = "";
+        log.innerHTML = safe("");
       }
 
       const statusClass =
