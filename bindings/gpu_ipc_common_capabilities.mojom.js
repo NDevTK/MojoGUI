@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -150,24 +150,25 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_egl_image_external', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_texture_format_bgra8888', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_texture_format_etc1_npot', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_query', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_rg', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_norm16', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_half_float_linear', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_ycbcr_420v', 4, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_ar30', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_ab30', 5, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_ycbcr_p010', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_render_buffer_format_bgra8888', 5, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_msaa_is_slow', 5, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_avoid_stencil_buffers', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_2d_canvas_copy_on_write', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_rgb_to_yuv_conversion', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_yuv_readback', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_chromium_gpu_fence', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 6, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_context_supports_distance_field_text', 6, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_using_vulkan_context', 6, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_mac_swangle_rgbx', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_query', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_rg', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_norm16', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_half_float_linear', 4, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ycbcr_420v', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ar30', 5, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ab30', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ycbcr_p010', 5, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_render_buffer_format_bgra8888', 5, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_msaa_is_slow', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_avoid_stencil_buffers', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_2d_canvas_copy_on_write', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_rgb_to_yuv_conversion', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_yuv_readback', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_chromium_gpu_fence', 6, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 6, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_context_supports_distance_field_text', 6, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_using_vulkan_context', 6, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_mappable_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_drm_formats_and_modifiers', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_drm_device_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),

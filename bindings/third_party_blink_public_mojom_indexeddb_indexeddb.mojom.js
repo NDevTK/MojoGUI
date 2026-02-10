@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2413,8 +2413,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_object_store_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_object_stores', 24, 0, mojo.internal.Map(mojo.internal.Int64, mojo.internal.bindings.blink.mojom.IDBObjectStoreMetadataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_cold_open', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_sqlite', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_sqlite', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

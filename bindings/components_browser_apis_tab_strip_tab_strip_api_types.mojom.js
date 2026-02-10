@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.tabs_api.mojom.TypeSpec = mojo.internal.bindings.tabs_api.mojom.TypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.tabs_api.mojom.NodeIdSpec = mojo.internal.bindings.tabs_api.mojom.NodeIdSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.PathSpec = mojo.internal.bindings.tabs_api.mojom.PathSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.PathSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.PathSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.PathSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.PositionSpec = mojo.internal.bindings.tabs_api.mojom.PositionSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.PositionSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.PositionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.PositionSpec.$ = {};
 
@@ -149,10 +151,17 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: Path
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.PathSpec, 'tabs_api.mojom.Path', [
+      mojo.internal.StructField('arg_components', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: Position
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.PositionSpec, 'tabs_api.mojom.Position', [
-      mojo.internal.StructField('arg_parent_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.tabs_api.mojom.PathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

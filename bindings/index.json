@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-09T10:49:06.664481Z",
-  "version": "146.0.7678.0",
+  "generated_at": "2026-02-10T10:45:49.236058Z",
+  "version": "146.0.7680.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8581,7 +8581,8 @@
         "GetInitialUserSkills",
         "GetInitial1PSkills",
         "Request1PSkills",
-        "DeleteSkill"
+        "DeleteSkill",
+        "MaybeSave1PSkill"
       ],
       "metadata": {
         "usage": {
@@ -19086,36 +19087,19 @@
       "methods": [
         "GetAvailableRoutines",
         "GetRoutineUpdate",
-        "RunBatteryCapacityRoutine",
-        "RunBatteryHealthRoutine",
         "RunSmartctlCheckRoutine",
         "RunAcPowerRoutine",
         "RunCpuCacheRoutine",
         "RunCpuStressRoutine",
         "RunFloatingPointAccuracyRoutine",
-        "DEPRECATED_RunNvmeWearLevelRoutine",
         "RunNvmeSelfTestRoutine",
         "RunDiskReadRoutine",
         "RunPrimeSearchRoutine",
         "RunBatteryDischargeRoutine",
         "RunBatteryChargeRoutine",
-        "RunMemoryRoutine",
-        "RunLanConnectivityRoutine",
-        "RunDnsResolutionRoutine",
-        "RunSignalStrengthRoutine",
-        "RunGatewayCanBePingedRoutine",
-        "RunDnsResolverPresentRoutine",
-        "RunSensitiveSensorRoutine",
-        "RunFingerprintAliveRoutine",
-        "RunEmmcLifetimeRoutine",
-        "RunBluetoothPowerRoutine",
-        "RunUfsLifetimeRoutine",
         "RunPowerButtonRoutine",
-        "RunAudioDriverRoutine",
-        "RunBluetoothDiscoveryRoutine",
         "RunBluetoothScanningRoutine",
-        "RunBluetoothPairingRoutine",
-        "RunFanRoutine"
+        "RunBluetoothPairingRoutine"
       ],
       "metadata": {
         "usage": {
@@ -36668,7 +36652,8 @@
         "Crash",
         "DelayLoad",
         "LoadNativeLibrary",
-        "DecryptEncrypt"
+        "DecryptEncrypt",
+        "VerifyCheckIsTest"
       ],
       "metadata": {
         "usage": {
@@ -40807,7 +40792,6 @@
         "TakeFocus",
         "UpdateTargetURL",
         "RequestClose",
-        "ShowCreatedWindow",
         "SetWindowRect",
         "DidFirstVisuallyNonEmptyPaint",
         "DidAccessInitialMainDocument",

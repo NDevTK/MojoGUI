@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,6 +140,7 @@ mojo.internal.bindings.skills.mojom.SkillSource = {
   kUnknown: 0,
   kFirstParty: 1,
   kUserCreated: 2,
+  kDerivedFromFirstParty: 3,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -148,12 +149,13 @@ mojo.internal.bindings.skills.mojom.SkillSource = {
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.SkillSpec, 'skills.mojom.Skill', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prompt', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 32, 0, mojo.internal.bindings.skills.mojom.SkillSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_update_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_skill_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prompt', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 40, 0, mojo.internal.bindings.skills.mojom.SkillSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_update_time', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);

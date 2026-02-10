@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -153,6 +153,10 @@ mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = mojo.i
 if (mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$ = {};
 mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec.$ = {};
+mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec = mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -224,12 +228,16 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemote = class {
   decryptEncrypt(arg_encryptor, arg_input) {
     return this.$.decryptEncrypt(arg_encryptor, arg_input);
   }
+  verifyCheckIsTest() {
+    return this.$.verifyCheckIsTest();
+  }
 };
 
 mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('echo.mojom.EchoService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -303,6 +311,15 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       false);
   }
 
+  verifyCheckIsTest() {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec,
+      mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.echo.mojom.EchoService.getRemote = function() {
@@ -321,6 +338,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('echo.mojom.EchoService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -452,6 +470,24 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           }
           break;
         }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.verifyCheckIsTest');
+          const result = this.impl.verifyCheckIsTest();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_is_test' in response) ? response['arg_is_test'] : response;
+              const resp_obj = { 'arg_is_test': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] verifyCheckIsTest FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -525,6 +561,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_ResponseParams', [
       mojo.internal.StructField('arg_output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ParamsSpec, 'echo.mojom.EchoService_VerifyCheckIsTest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_VerifyCheckIsTest_ResponseParamsSpec, 'echo.mojom.EchoService_VerifyCheckIsTest_ResponseParams', [
+      mojo.internal.StructField('arg_is_test', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

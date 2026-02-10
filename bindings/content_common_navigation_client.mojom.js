@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -302,8 +302,8 @@ mojo.internal.bindings.content.mojom.NavigationClientRemote = class {
   close() {
     this.proxy.close();
   }
-  commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info) {
-    return this.$.commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info);
+  commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info) {
+    return this.$.commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info);
   }
   commitFailedNavigation(arg_common_params, arg_request_params, arg_has_stale_copy_in_cache, arg_error_code, arg_extended_error_code, arg_resolve_error_info, arg_error_page_content, arg_subresource_loader_factories, arg_document_token, arg_devtools_navigation_token, arg_policy_container, arg_alternative_error_page_info) {
     return this.$.commitFailedNavigation(arg_common_params, arg_request_params, arg_has_stale_copy_in_cache, arg_error_code, arg_extended_error_code, arg_resolve_error_info, arg_error_page_content, arg_subresource_loader_factories, arg_document_token, arg_devtools_navigation_token, arg_policy_container, arg_alternative_error_page_info);
@@ -319,12 +319,12 @@ mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
     ]);
   }
 
-  commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info) {
+  commitNavigation(arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
-      [arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info],
+      [arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitNavigation');
-          const result = this.impl.commitNavigation(params.arg_common_params, params.arg_request_params, params.arg_response_head, params.arg_response_body, params.arg_url_loader_client_endpoints, params.arg_subresource_loader_factories, params.arg_subresource_overrides, params.arg_controller_service_worker_info, params.arg_container_info, params.arg_subresource_proxying_loader_factory, params.arg_keep_alive_loader_factory, params.arg_fetch_later_loader_factory, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_base_auction_nonce, params.arg_permissions_policy, params.arg_policy_container, params.arg_code_cache_host, params.arg_code_cache_host_for_background, params.arg_cookie_manager_info, params.arg_storage_info);
+          const result = this.impl.commitNavigation(params.arg_common_params, params.arg_request_params, params.arg_response_head, params.arg_response_body, params.arg_url_loader_client_endpoints, params.arg_subresource_loader_factories, params.arg_subresource_overrides, params.arg_controller_service_worker_info, params.arg_container_info, params.arg_subresource_proxying_loader_factory, params.arg_keep_alive_loader_factory, params.arg_fetch_later_loader_factory, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_base_auction_nonce, params.arg_policy_container, params.arg_code_cache_host, params.arg_code_cache_host_for_background, params.arg_cookie_manager_info, params.arg_storage_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -540,14 +540,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_document_token', 96, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_navigation_token', 104, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_base_auction_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions_policy', 120, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 128, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_code_cache_host', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_code_cache_host_for_background', 144, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_manager_info', 152, 0, mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_info', 160, 0, mojo.internal.bindings.content.mojom.StorageInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 120, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code_cache_host', 128, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_code_cache_host_for_background', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager_info', 144, 0, mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 152, 0, mojo.internal.bindings.content.mojom.StorageInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 176]]);
+    [[0, 168]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_ResponseParams', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,14 +155,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsS
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec || { $: {} };
@@ -183,10 +175,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracy
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec || { $: {} };
@@ -207,62 +195,10 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec || { $: {} };
@@ -271,10 +207,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRouti
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
@@ -411,12 +343,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemote = class {
   getRoutineUpdate(arg_id, arg_command, arg_include_output) {
     return this.$.getRoutineUpdate(arg_id, arg_command, arg_include_output);
   }
-  runBatteryCapacityRoutine() {
-    return this.$.runBatteryCapacityRoutine();
-  }
-  runBatteryHealthRoutine() {
-    return this.$.runBatteryHealthRoutine();
-  }
   runSmartctlCheckRoutine(arg_percentage_used_threshold) {
     return this.$.runSmartctlCheckRoutine(arg_percentage_used_threshold);
   }
@@ -431,9 +357,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemote = class {
   }
   runFloatingPointAccuracyRoutine(arg_length_seconds) {
     return this.$.runFloatingPointAccuracyRoutine(arg_length_seconds);
-  }
-  dEPRECATED_RunNvmeWearLevelRoutine(arg_wear_level_threshold) {
-    return this.$.dEPRECATED_RunNvmeWearLevelRoutine(arg_wear_level_threshold);
   }
   runNvmeSelfTestRoutine(arg_nvme_self_test_type) {
     return this.$.runNvmeSelfTestRoutine(arg_nvme_self_test_type);
@@ -450,56 +373,14 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemote = class {
   runBatteryChargeRoutine(arg_length_seconds, arg_minimum_charge_percent_required) {
     return this.$.runBatteryChargeRoutine(arg_length_seconds, arg_minimum_charge_percent_required);
   }
-  runMemoryRoutine() {
-    return this.$.runMemoryRoutine();
-  }
-  runLanConnectivityRoutine() {
-    return this.$.runLanConnectivityRoutine();
-  }
-  runDnsResolutionRoutine() {
-    return this.$.runDnsResolutionRoutine();
-  }
-  runSignalStrengthRoutine() {
-    return this.$.runSignalStrengthRoutine();
-  }
-  runGatewayCanBePingedRoutine() {
-    return this.$.runGatewayCanBePingedRoutine();
-  }
-  runDnsResolverPresentRoutine() {
-    return this.$.runDnsResolverPresentRoutine();
-  }
-  runSensitiveSensorRoutine() {
-    return this.$.runSensitiveSensorRoutine();
-  }
-  runFingerprintAliveRoutine() {
-    return this.$.runFingerprintAliveRoutine();
-  }
-  runEmmcLifetimeRoutine() {
-    return this.$.runEmmcLifetimeRoutine();
-  }
-  runBluetoothPowerRoutine() {
-    return this.$.runBluetoothPowerRoutine();
-  }
-  runUfsLifetimeRoutine() {
-    return this.$.runUfsLifetimeRoutine();
-  }
   runPowerButtonRoutine(arg_timeout_seconds) {
     return this.$.runPowerButtonRoutine(arg_timeout_seconds);
-  }
-  runAudioDriverRoutine() {
-    return this.$.runAudioDriverRoutine();
-  }
-  runBluetoothDiscoveryRoutine() {
-    return this.$.runBluetoothDiscoveryRoutine();
   }
   runBluetoothScanningRoutine(arg_length_seconds) {
     return this.$.runBluetoothScanningRoutine(arg_length_seconds);
   }
   runBluetoothPairingRoutine(arg_peripheral_id) {
     return this.$.runBluetoothPairingRoutine(arg_peripheral_id);
-  }
-  runFanRoutine() {
-    return this.$.runFanRoutine();
   }
 };
 
@@ -509,36 +390,19 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
     this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DiagnosticsService', [
       { explicit: 0 },
       { explicit: 1 },
-      { explicit: 2 },
-      { explicit: 3 },
       { explicit: 4 },
       { explicit: 5 },
       { explicit: 6 },
       { explicit: 7 },
       { explicit: 8 },
-      { explicit: 9 },
       { explicit: 10 },
       { explicit: 11 },
       { explicit: 12 },
       { explicit: 13 },
       { explicit: 14 },
-      { explicit: 15 },
-      { explicit: 16 },
-      { explicit: 17 },
-      { explicit: 18 },
-      { explicit: 19 },
-      { explicit: 20 },
-      { explicit: 21 },
-      { explicit: 22 },
-      { explicit: 23 },
-      { explicit: 24 },
-      { explicit: 25 },
       { explicit: 26 },
-      { explicit: 27 },
-      { explicit: 28 },
       { explicit: 29 },
       { explicit: 30 },
-      { explicit: 31 },
     ]);
   }
 
@@ -560,27 +424,9 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       false);
   }
 
-  runBatteryCapacityRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runBatteryHealthRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   runSmartctlCheckRoutine(arg_percentage_used_threshold) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
       [arg_percentage_used_threshold],
@@ -589,7 +435,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runAcPowerRoutine(arg_expected_status, arg_expected_power_type) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
       [arg_expected_status, arg_expected_power_type],
@@ -598,7 +444,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runCpuCacheRoutine(arg_length_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
       [arg_length_seconds],
@@ -607,7 +453,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runCpuStressRoutine(arg_length_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
       [arg_length_seconds],
@@ -616,25 +462,16 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runFloatingPointAccuracyRoutine(arg_length_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
       [arg_length_seconds],
       false);
   }
 
-  dEPRECATED_RunNvmeWearLevelRoutine(arg_wear_level_threshold) {
-    return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      [arg_wear_level_threshold],
-      false);
-  }
-
   runNvmeSelfTestRoutine(arg_nvme_self_test_type) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
       [arg_nvme_self_test_type],
@@ -643,7 +480,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runDiskReadRoutine(arg_type, arg_length_seconds, arg_file_size_mb) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
       [arg_type, arg_length_seconds, arg_file_size_mb],
@@ -652,7 +489,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runPrimeSearchRoutine(arg_length_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
       [arg_length_seconds],
@@ -661,7 +498,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runBatteryDischargeRoutine(arg_length_seconds, arg_maximum_discharge_percent_allowed) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
       [arg_length_seconds, arg_maximum_discharge_percent_allowed],
@@ -670,142 +507,25 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runBatteryChargeRoutine(arg_length_seconds, arg_minimum_charge_percent_required) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
       [arg_length_seconds, arg_minimum_charge_percent_required],
       false);
   }
 
-  runMemoryRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runLanConnectivityRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runDnsResolutionRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runSignalStrengthRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runGatewayCanBePingedRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runDnsResolverPresentRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runSensitiveSensorRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runFingerprintAliveRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runEmmcLifetimeRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runBluetoothPowerRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runUfsLifetimeRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   runPowerButtonRoutine(arg_timeout_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
       [arg_timeout_seconds],
       false);
   }
 
-  runAudioDriverRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  runBluetoothDiscoveryRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   runBluetoothScanningRoutine(arg_length_seconds) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
       [arg_length_seconds],
@@ -814,19 +534,10 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
 
   runBluetoothPairingRoutine(arg_peripheral_id) {
     return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
       [arg_peripheral_id],
-      false);
-  }
-
-  runFanRoutine() {
-    return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      [],
       false);
   }
 
@@ -850,36 +561,19 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
     const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DiagnosticsService', [
       { explicit: 0 },
       { explicit: 1 },
-      { explicit: 2 },
-      { explicit: 3 },
       { explicit: 4 },
       { explicit: 5 },
       { explicit: 6 },
       { explicit: 7 },
       { explicit: 8 },
-      { explicit: 9 },
       { explicit: 10 },
       { explicit: 11 },
       { explicit: 12 },
       { explicit: 13 },
       { explicit: 14 },
-      { explicit: 15 },
-      { explicit: 16 },
-      { explicit: 17 },
-      { explicit: 18 },
-      { explicit: 19 },
-      { explicit: 20 },
-      { explicit: 21 },
-      { explicit: 22 },
-      { explicit: 23 },
-      { explicit: 24 },
-      { explicit: 25 },
       { explicit: 26 },
-      { explicit: 27 },
-      { explicit: 28 },
       { explicit: 29 },
       { explicit: 30 },
-      { explicit: 31 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -961,42 +655,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runBatteryCapacityRoutine');
-          const result = this.impl.runBatteryCapacityRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runBatteryCapacityRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runBatteryHealthRoutine');
-          const result = this.impl.runBatteryHealthRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runBatteryHealthRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runSmartctlCheckRoutine');
           const result = this.impl.runSmartctlCheckRoutine(params.arg_percentage_used_threshold);
@@ -1013,7 +671,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAcPowerRoutine');
@@ -1031,7 +689,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuCacheRoutine');
@@ -1049,7 +707,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCpuStressRoutine');
@@ -1067,7 +725,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runFloatingPointAccuracyRoutine');
@@ -1085,25 +743,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 9: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RunNvmeWearLevelRoutine');
-          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.arg_wear_level_threshold);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] dEPRECATED_RunNvmeWearLevelRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 10: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runNvmeSelfTestRoutine');
@@ -1121,7 +761,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDiskReadRoutine');
@@ -1139,7 +779,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPrimeSearchRoutine');
@@ -1157,7 +797,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryDischargeRoutine');
@@ -1175,7 +815,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBatteryChargeRoutine');
@@ -1193,205 +833,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 15: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runMemoryRoutine');
-          const result = this.impl.runMemoryRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runMemoryRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 16: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runLanConnectivityRoutine');
-          const result = this.impl.runLanConnectivityRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runLanConnectivityRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 17: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runDnsResolutionRoutine');
-          const result = this.impl.runDnsResolutionRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runDnsResolutionRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 18: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runSignalStrengthRoutine');
-          const result = this.impl.runSignalStrengthRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runSignalStrengthRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 19: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePingedRoutine');
-          const result = this.impl.runGatewayCanBePingedRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runGatewayCanBePingedRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 20: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresentRoutine');
-          const result = this.impl.runDnsResolverPresentRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runDnsResolverPresentRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 21: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runSensitiveSensorRoutine');
-          const result = this.impl.runSensitiveSensorRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runSensitiveSensorRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 22: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runFingerprintAliveRoutine');
-          const result = this.impl.runFingerprintAliveRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runFingerprintAliveRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 23: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runEmmcLifetimeRoutine');
-          const result = this.impl.runEmmcLifetimeRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runEmmcLifetimeRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 24: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runBluetoothPowerRoutine');
-          const result = this.impl.runBluetoothPowerRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runBluetoothPowerRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 25: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runUfsLifetimeRoutine');
-          const result = this.impl.runUfsLifetimeRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runUfsLifetimeRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 26: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runPowerButtonRoutine');
@@ -1409,43 +851,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 27: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runAudioDriverRoutine');
-          const result = this.impl.runAudioDriverRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runAudioDriverRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 28: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runBluetoothDiscoveryRoutine');
-          const result = this.impl.runBluetoothDiscoveryRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runBluetoothDiscoveryRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 29: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothScanningRoutine');
@@ -1463,7 +869,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runBluetoothPairingRoutine');
@@ -1478,24 +884,6 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] runBluetoothPairingRoutine FAILED:', e));
-          }
-          break;
-        }
-        case 31: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.runFanRoutine');
-          const result = this.impl.runFanRoutine();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] runFanRoutine FAILED:', e));
           }
           break;
         }
@@ -1587,28 +975,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_Params', [
       mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
@@ -1665,18 +1031,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_Params', [
-      mojo.internal.StructField('arg_wear_level_threshold', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -1746,127 +1100,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunMemoryRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_Params', [
       mojo.internal.StructField('arg_timeout_seconds', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -1874,28 +1107,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -1920,17 +1131,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFanRoutine_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.DiagnosticsRunRoutineResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

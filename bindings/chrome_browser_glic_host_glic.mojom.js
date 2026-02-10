@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -919,6 +919,7 @@ mojo.internal.bindings.glic.mojom.SkillSource = {
   kUnknown: 0,
   kFirstParty: 1,
   kUserCreated: 2,
+  MinVersion: 2,
 };
 
 // Enum: PinTrigger
@@ -6156,8 +6157,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.SkillSpec, 'glic.mojom.Skill', [
       mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.glic.mojom.SkillPreviewSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_skill_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: CreateSkillRequest
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7678.0';
+        const versionStr = window.mojoVersion || '146.0.7680.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -230,8 +230,8 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemote = cl
   deleteKeys(arg_key_ids, arg_priority) {
     return this.$.deleteKeys(arg_key_ids, arg_priority);
   }
-  deleteAllKeys(arg_priority) {
-    return this.$.deleteAllKeys(arg_priority);
+  deleteAllKeys() {
+    return this.$.deleteAllKeys();
   }
 };
 
@@ -293,12 +293,12 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       false);
   }
 
-  deleteAllKeys(arg_priority) {
+  deleteAllKeys() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
-      [arg_priority],
+      [],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
-          const result = this.impl.deleteAllKeys(params.arg_priority);
+          const result = this.impl.deleteAllKeys();
           break;
         }
       }
@@ -482,7 +482,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
