@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-11T10:41:31.493659Z",
-  "version": "146.0.7680.4",
+  "generated_at": "2026-02-12T10:37:14.451304Z",
+  "version": "147.0.7682.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3234,6 +3234,7 @@
       "methods": [
         "SetThreadTitle",
         "SetTaskDetails",
+        "SetAimUrl",
         "OnSidePanelStateChanged",
         "PostMessageToWebview",
         "OnHandshakeComplete",
@@ -3246,7 +3247,8 @@
         "OnLensOverlayStateChanged",
         "ShowErrorPage",
         "HideErrorPage",
-        "ShowOauthErrorDialog"
+        "ShowOauthErrorDialog",
+        "UpdateComposeboxPosition"
       ],
       "metadata": {
         "usage": {
@@ -9150,6 +9152,62 @@
       }
     },
     {
+      "name": "WebNNInternalsHandler",
+      "module": "webnn_internals.mojom",
+      "file": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
+      "methods": [
+        "SetGraphRecordEnabled",
+        "IsGraphRecording"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: webnn_internals.mojom.WebNNInternalsHandlerFactory.CreateWebNNInternalsHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebNNInternalsPage",
+      "module": "webnn_internals.mojom",
+      "file": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
+      "methods": [
+        "ExportGraphRecorded",
+        "OnGraphRecordEnabledChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebNNInternalsHandlerFactory",
+      "module": "webnn_internals.mojom",
+      "file": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
+      "methods": [
+        "CreateWebNNInternalsHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "whats_new.mojom",
       "file": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",
@@ -10134,6 +10192,26 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "RecordReplayDriver",
+      "module": "record_replay.mojom",
+      "file": "chrome_common_record_replay_record_replay.mojom.js",
+      "methods": [
+        "OnClick",
+        "OnSelectChanged",
+        "OnTextChange"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated"
       }
     },
     {
@@ -19088,18 +19166,9 @@
         "GetAvailableRoutines",
         "GetRoutineUpdate",
         "RunSmartctlCheckRoutine",
-        "RunAcPowerRoutine",
-        "RunCpuCacheRoutine",
-        "RunCpuStressRoutine",
-        "RunFloatingPointAccuracyRoutine",
         "RunNvmeSelfTestRoutine",
         "RunDiskReadRoutine",
-        "RunPrimeSearchRoutine",
-        "RunBatteryDischargeRoutine",
-        "RunBatteryChargeRoutine",
-        "RunPowerButtonRoutine",
-        "RunBluetoothScanningRoutine",
-        "RunBluetoothPairingRoutine"
+        "RunPrimeSearchRoutine"
       ],
       "metadata": {
         "usage": {
@@ -23218,6 +23287,7 @@
         "OnWindowHasClosed",
         "OnWindowKeyStatusChanged",
         "OnWindowStateRestorationDataChanged",
+        "OnVisibleOnAllWorkspacesChanged",
         "OnSheetModalShown",
         "OnSheetModalClosed",
         "OnImmersiveFullscreenToolbarRevealChanged",
@@ -44492,6 +44562,42 @@
       }
     },
     {
+      "name": "WebNNIntrospectionClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webnn_webnn_introspection.mojom.js",
+      "methods": [
+        "OnGraphRecorded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebNNIntrospection",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webnn_webnn_introspection.mojom.js",
+      "methods": [
+        "SetClient"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "ShareService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_webshare_webshare.mojom.js",
@@ -47699,6 +47805,14 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/webnn_internals/webnn_internals.mojom",
+      "module": "webnn_internals.mojom",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",
       "source": "chrome/browser/ui/webui/whats_new/whats_new.mojom",
       "module": "whats_new.mojom",
@@ -47909,6 +48023,12 @@
         "ui/accessibility/mojom/ax_tree_update.mojom",
         "mojo/public/mojom/base/values.mojom"
       ]
+    },
+    {
+      "filename": "chrome_common_record_replay_record_replay.mojom.js",
+      "source": "chrome/common/record_replay/record_replay.mojom",
+      "module": "record_replay.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_common_renderer_configuration.mojom.js",
@@ -58836,7 +58956,6 @@
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/text_direction.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
@@ -60975,6 +61094,14 @@
         "third_party/blink/public/mojom/credentialmanagement/credential_manager.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_webnn_webnn_introspection.mojom.js",
+      "source": "third_party/blink/public/mojom/webnn/webnn_introspection.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
       ]
     },
     {
