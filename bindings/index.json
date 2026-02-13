@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-12T10:37:14.451304Z",
-  "version": "147.0.7682.0",
+  "generated_at": "2026-02-13T10:32:31.769625Z",
+  "version": "147.0.7684.2",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3248,7 +3248,9 @@
         "ShowErrorPage",
         "HideErrorPage",
         "ShowOauthErrorDialog",
-        "UpdateComposeboxPosition"
+        "UpdateComposeboxPosition",
+        "LockInput",
+        "UnlockInput"
       ],
       "metadata": {
         "usage": {
@@ -5016,6 +5018,24 @@
       }
     },
     {
+      "name": "FjordTouchControllerPageHandler",
+      "module": "ash.screens_common.mojom",
+      "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
+      "methods": [
+        "OnSetupComplete"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: ash.screens_factory.mojom.ScreensFactory.EstablishFjordTouchControllerScreenPipe"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "GaiaInfoPageHandler",
       "module": "ash.screens_common.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
@@ -5100,6 +5120,7 @@
         "EstablishAppDownloadingScreenPipe",
         "EstablishDrivePinningScreenPipe",
         "EstablishFjordStationSetupScreenPipe",
+        "EstablishFjordTouchControllerScreenPipe",
         "EstablishGaiaInfoScreenPipe",
         "EstablishGestureNavigationScreenPipe",
         "EstablishGeminiIntroScreenPipe",
@@ -8626,7 +8647,7 @@
         "RefineSkill",
         "CloseDialog",
         "ShowEmojiPicker",
-        "GetInitialSkill",
+        "GetInitialState",
         "GetSignedInEmail"
       ],
       "metadata": {
@@ -8812,9 +8833,6 @@
         "ShowTabContextMenu",
         "ShowBackgroundContextMenu",
         "CloseContainer",
-        "ReportTabActivationDuration",
-        "ReportTabDataReceivedDuration",
-        "ReportTabCreationDuration",
         "ActivateTab"
       ],
       "metadata": {
@@ -19164,11 +19182,7 @@
       "file": "chromeos_crosapi_mojom_diagnostics_service.mojom.js",
       "methods": [
         "GetAvailableRoutines",
-        "GetRoutineUpdate",
-        "RunSmartctlCheckRoutine",
-        "RunNvmeSelfTestRoutine",
-        "RunDiskReadRoutine",
-        "RunPrimeSearchRoutine"
+        "GetRoutineUpdate"
       ],
       "metadata": {
         "usage": {
@@ -21750,6 +21764,43 @@
           "associated": [],
           "direct": [
             "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "guest_view.mojom",
+      "file": "components_guest_view_browser_slim_web_view_slim_web_view.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "guest_view.mojom",
+      "file": "components_guest_view_browser_slim_web_view_slim_web_view.mojom.js",
+      "methods": [
+        "CreateGuest",
+        "Navigate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: guest_view.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -40063,7 +40114,6 @@
         "Put",
         "Delete",
         "DeleteAll",
-        "Get",
         "GetAll"
       ],
       "metadata": {
@@ -47862,6 +47912,7 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
+        "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -50964,6 +51015,15 @@
       ]
     },
     {
+      "filename": "components_guest_view_browser_slim_web_view_slim_web_view.mojom.js",
+      "source": "components/guest_view/browser/slim_web_view/slim_web_view.mojom",
+      "module": "guest_view.mojom",
+      "imports": [
+        "mojo/public/mojom/base/values.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
       "filename": "components_guest_view_common_guest_view.mojom.js",
       "source": "components/guest_view/common/guest_view.mojom",
       "module": "guest_view.mojom",
@@ -53159,6 +53219,7 @@
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
+        "third_party/blink/public/mojom/messaging/cloneable_message.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
@@ -56234,6 +56295,7 @@
       "imports": [
         "services/network/public/mojom/cookie_manager.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/site_for_cookies.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
         "url/mojom/url.mojom",
