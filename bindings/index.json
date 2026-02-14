@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-13T10:32:31.769625Z",
-  "version": "147.0.7684.2",
+  "generated_at": "2026-02-14T10:18:05.028803Z",
+  "version": "147.0.7687.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8647,7 +8647,7 @@
         "RefineSkill",
         "CloseDialog",
         "ShowEmojiPicker",
-        "GetInitialState",
+        "GetInitialSkill",
         "GetSignedInEmail"
       ],
       "metadata": {
@@ -9560,6 +9560,8 @@
         "GetMediaFeedURL",
         "LoadBlockedPlugins",
         "SetShouldDeferMediaLoad",
+        "InitializeTool",
+        "ExecuteTool",
         "InvokeTool",
         "CancelTool",
         "GetCrossDocumentScriptToolResult",
@@ -10200,6 +10202,30 @@
         "OnPinStatusReceived",
         "UpdateContent",
         "OnReadabilityDistillationStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "RecordReplayAgent",
+      "module": "record_replay.mojom",
+      "file": "chrome_common_record_replay_record_replay.mojom.js",
+      "methods": [
+        "StartRecording",
+        "StopRecording",
+        "GetElementSelector",
+        "GetMatchingElements",
+        "DoClick",
+        "DoPaste",
+        "DoSelect"
       ],
       "metadata": {
         "usage": {
@@ -19180,10 +19206,7 @@
       "name": "DiagnosticsService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_diagnostics_service.mojom.js",
-      "methods": [
-        "GetAvailableRoutines",
-        "GetRoutineUpdate"
-      ],
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -19567,8 +19590,7 @@
       "methods": [
         "GetMediaApps",
         "ReturnToApp",
-        "SetSystemMediaDeviceStatus",
-        "StopAllScreenShare"
+        "SetSystemMediaDeviceStatus"
       ],
       "metadata": {
         "usage": {
@@ -21801,6 +21823,24 @@
           "associated": [],
           "direct": [
             "Internal Interface: guest_view.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "Page",
+      "module": "guest_view.mojom",
+      "file": "components_guest_view_browser_slim_web_view_slim_web_view.mojom.js",
+      "methods": [
+        "DispatchEvent"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -25604,8 +25644,7 @@
       "module": "content.mojom",
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
-        "NotifyReleaseMemory",
-        "NotifyUpdateMemoryLimit"
+        "UpdateConsumers"
       ],
       "metadata": {
         "usage": {
@@ -56103,7 +56142,8 @@
         "services/network/public/mojom/url_loader_network_service_observer.mojom",
         "services/network/public/mojom/url_response_head.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "services/network/public/mojom/url_request.mojom"
       ]
     },
     {
