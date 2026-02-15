@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7687.0';
+        const versionStr = window.mojoVersion || '147.0.7689.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -153,6 +153,7 @@ mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec = mojo.inter
 mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec = mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.PanelStateKindSpec = mojo.internal.bindings.glic.mojom.PanelStateKindSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.InvocationSourceSpec = mojo.internal.bindings.glic.mojom.InvocationSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.FeatureModeSpec = mojo.internal.bindings.glic.mojom.FeatureModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.WebClientModeSpec = mojo.internal.bindings.glic.mojom.WebClientModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.WebClientModelSpec = mojo.internal.bindings.glic.mojom.WebClientModelSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.WebUseCounterSpec = mojo.internal.bindings.glic.mojom.WebUseCounterSpec || { $: mojo.internal.Enum().$ };
@@ -228,6 +229,8 @@ mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec = mojo.internal.bindings.
 if (mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$.structSpec && mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$ = {};
 mojo.internal.bindings.glic.mojom.PanelStateSpec = mojo.internal.bindings.glic.mojom.PanelStateSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.PanelStateSpec.$.structSpec && mojo.internal.bindings.glic.mojom.PanelStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.PanelStateSpec.$ = {};
+mojo.internal.bindings.glic.mojom.InvokeOptionsSpec = mojo.internal.bindings.glic.mojom.InvokeOptionsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec = mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.OpenPanelInfoSpec = mojo.internal.bindings.glic.mojom.OpenPanelInfoSpec || { $: {} };
@@ -690,6 +693,10 @@ mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_Par
 if (mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver = mojo.internal.bindings.glic.mojom.CaptureRegionObserver || {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec = mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$ = {};
@@ -983,6 +990,14 @@ mojo.internal.bindings.glic.mojom.InvocationSource = {
   MinVersion: 8,
   MinVersion: 8,
   MinVersion: 8,
+  MinVersion: 8,
+};
+
+// Enum: FeatureMode
+mojo.internal.bindings.glic.mojom.FeatureMode = {
+  kUnspecified: 0,
+  kImageGeneration: 1,
+  kBluedog: 2,
 };
 
 // Enum: WebClientMode
@@ -4913,12 +4928,16 @@ mojo.internal.bindings.glic.mojom.WebClientRemote = class {
   notifyActorTaskListRowClicked(arg_task_id) {
     return this.$.notifyActorTaskListRowClicked(arg_task_id);
   }
+  invoke(arg_options) {
+    return this.$.invoke(arg_options);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5282,6 +5301,15 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       false);
   }
 
+  invoke(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[36],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClient.getRemote = function() {
@@ -5300,6 +5328,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5694,6 +5723,23 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyActorTaskListRowClicked');
           const result = this.impl.notifyActorTaskListRowClicked(params.arg_task_id);
+          break;
+        }
+        case 36: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.invoke');
+          const result = this.impl.invoke(params.arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] invoke FAILED:', e));
+          }
           break;
         }
       }
@@ -6261,6 +6307,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_window_id_$flag', originalFieldName: 'arg_window_id' }),
     ],
     [[0, 24]]);
+
+// Struct: InvokeOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.InvokeOptionsSpec, 'glic.mojom.InvokeOptions', [
+      mojo.internal.StructField('arg_invocation_source', 0, 0, mojo.internal.bindings.glic.mojom.InvocationSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auto_submit', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_zero_state_suggestions', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prompts', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_context', 16, 0, mojo.internal.bindings.glic.mojom.AdditionalContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_feature_mode', 24, 0, mojo.internal.bindings.glic.mojom.FeatureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: OnResponseStoppedDetails
 mojo.internal.Struct(
@@ -7582,6 +7641,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec, 'glic.mojom.WebClient_Invoke_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.InvokeOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec, 'glic.mojom.WebClient_Invoke_ResponseParams', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec, 'glic.mojom.CaptureRegionObserver_OnUpdate_Params', [

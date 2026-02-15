@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-14T10:18:05.028803Z",
-  "version": "147.0.7687.0",
+  "generated_at": "2026-02-15T10:18:20.889700Z",
+  "version": "147.0.7689.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3679,7 +3679,8 @@
         "NotifyActuationOnWebSettingChanged",
         "NotifyActOnWebCapabilityChanged",
         "NotifyOnboardingCompletedChanged",
-        "NotifyActorTaskListRowClicked"
+        "NotifyActorTaskListRowClicked",
+        "Invoke"
       ],
       "metadata": {
         "usage": {
