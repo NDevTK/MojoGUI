@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-15T10:18:20.889700Z",
-  "version": "147.0.7689.0",
+  "generated_at": "2026-02-16T10:40:49.717920Z",
+  "version": "147.0.7690.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -19178,7 +19178,6 @@
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
         "BindCrosDisplayConfigController",
-        "BindDiagnosticsService",
         "BindDocumentScan",
         "BindInSessionAuth",
         "BindLocalPrinter",
@@ -19197,22 +19196,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "DiagnosticsService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_diagnostics_service.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindDiagnosticsService"
           ]
         },
         "scope": "context",
@@ -50115,7 +50098,6 @@
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
         "chromeos/crosapi/mojom/cros_display_config.mojom",
-        "chromeos/crosapi/mojom/diagnostics_service.mojom",
         "chromeos/crosapi/mojom/document_scan.mojom",
         "chromeos/crosapi/mojom/local_printer.mojom",
         "chromeos/crosapi/mojom/print_preview_cros.mojom",
@@ -50130,14 +50112,6 @@
         "services/device/public/mojom/hid.mojom",
         "services/media_session/public/mojom/audio_focus.mojom",
         "services/media_session/public/mojom/media_controller.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_diagnostics_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/diagnostics_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/nullable_primitives.mojom"
       ]
     },
     {
