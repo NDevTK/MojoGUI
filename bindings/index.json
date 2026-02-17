@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-16T10:40:49.717920Z",
-  "version": "147.0.7690.0",
+  "generated_at": "2026-02-17T10:37:35.878043Z",
+  "version": "147.0.7692.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -19335,44 +19335,6 @@
       }
     },
     {
-      "name": "PrintPreviewCrosDelegate",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_print_preview_cros.mojom.js",
-      "methods": [
-        "RequestPrintPreview",
-        "PrintPreviewDone"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PrintPreviewCrosClient",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_print_preview_cros.mojom.js",
-      "methods": [
-        "GeneratePrintPreview",
-        "HandleDialogClosed"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "TelemetryProbeService",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_probe_service.mojom.js",
@@ -22120,7 +22082,7 @@
     },
     {
       "name": "OakSession",
-      "module": "legion.mojom",
+      "module": "private_ai.mojom",
       "file": "components_legion_mojom_oak_session.mojom.js",
       "methods": [
         "InitiateHandshake",
@@ -50154,12 +50116,9 @@
       "module": "crosapi.mojom",
       "imports": [
         "chromeos/crosapi/mojom/local_printer.mojom",
-        "components/printing/common/print.mojom",
         "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
         "printing/mojom/print.mojom",
-        "ui/gfx/image/mojom/image.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -51118,7 +51077,7 @@
     {
       "filename": "components_legion_mojom_oak_session.mojom.js",
       "source": "components/legion/mojom/oak_session.mojom",
-      "module": "legion.mojom",
+      "module": "private_ai.mojom",
       "imports": [
         "sandbox/policy/mojom/sandbox.mojom"
       ]
