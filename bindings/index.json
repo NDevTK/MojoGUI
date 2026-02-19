@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-18T10:36:16.474792Z",
-  "version": "147.0.7693.0",
+  "generated_at": "2026-02-19T10:35:22.345022Z",
+  "version": "147.0.7694.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3529,6 +3529,9 @@
         "CreateTab",
         "OpenLinkInPopup",
         "OpenGlicSettingsPage",
+        "AutofillSuggestionDialogOnFormPresented",
+        "AutofillSuggestionDialogOnFormPreviewChanged",
+        "AutofillSuggestionDialogOnFormConfirmed",
         "OpenPasswordManagerSettingsPage",
         "ClosePanel",
         "ClosePanelAndShutdown",
@@ -19485,51 +19488,6 @@
       }
     },
     {
-      "name": "ScopedAccessPermission",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "VideoFrameHandler",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "methods": [
-        "OnCaptureConfigurationChanged",
-        "OnNewBuffer",
-        "OnFrameReadyInBuffer",
-        "OnBufferRetired",
-        "OnError",
-        "OnFrameDropped",
-        "OnNewCaptureVersion",
-        "OnFrameWithEmptyRegionCapture",
-        "OnLog",
-        "OnStarted",
-        "OnStartedUsingGpuDecode",
-        "OnStopped"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "VideoConferenceManagerClient",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_video_conference.mojom.js",
@@ -20774,7 +20732,8 @@
         "OnNavigationStatusChanged",
         "OnContextMenuStateChanged",
         "OnTabSplitStatusChanged",
-        "OnButtonPinStateChanged"
+        "OnButtonPinStateChanged",
+        "OnLayoutChanged"
       ],
       "metadata": {
         "usage": {
@@ -20799,7 +20758,8 @@
         "ReloadFromClick",
         "SplitActiveTab",
         "GetTabSplitState",
-        "GetButtonPinState"
+        "GetButtonPinState",
+        "GetLayoutConstants"
       ],
       "metadata": {
         "usage": {
@@ -21037,8 +20997,6 @@
         "ResetPriceTrackingEmailPref",
         "GetProductInfoForUrl",
         "GetSubscriptionDetails",
-        "GetProductSpecificationsDetails",
-        "ResetProductSpecifications",
         "GetShoppingEligibilityDetails"
       ],
       "metadata": {
@@ -21190,71 +21148,6 @@
       }
     },
     {
-      "name": "ProductSpecificationsHandler",
-      "module": "commerce.product_specifications.mojom",
-      "file": "components_commerce_core_mojom_product_specifications.mojom.js",
-      "methods": [
-        "SetAcceptedDisclosureVersion",
-        "MaybeShowDisclosure",
-        "DeclineDisclosure",
-        "ShowSyncSetupFlow",
-        "GetPageTitleFromHistory",
-        "ShowProductSpecificationsSetForUuid",
-        "ShowProductSpecificationsSetsForUuids",
-        "ShowComparePage",
-        "GetComparisonTableUrlForUuid"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.CreateProductSpecificationsHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Page",
-      "module": "commerce.product_specifications.mojom",
-      "file": "components_commerce_core_mojom_product_specifications.mojom.js",
-      "methods": [
-        "OnProductSpecificationsSetAdded",
-        "OnProductSpecificationsSetUpdated",
-        "OnProductSpecificationsSetRemoved",
-        "OnSyncStateChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ProductSpecificationsHandlerFactory",
-      "module": "commerce.product_specifications.mojom",
-      "file": "components_commerce_core_mojom_product_specifications.mojom.js",
-      "methods": [
-        "CreateProductSpecificationsHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "ShoppingServiceHandlerFactory",
       "module": "shopping_service.mojom",
       "file": "components_commerce_core_mojom_shopping_service.mojom.js",
@@ -21282,21 +21175,12 @@
         "GetProductInfoForUrls",
         "GetPriceInsightsInfoForCurrentUrl",
         "GetPriceInsightsInfoForUrl",
-        "GetProductSpecificationsForUrls",
         "GetUrlInfosForProductTabs",
         "GetUrlInfosForRecentlyViewedTabs",
         "IsShoppingListEligible",
         "GetPriceTrackingStatusForCurrentUrl",
         "OpenUrlInNewTab",
-        "SwitchToOrOpenTab",
-        "GetAllProductSpecificationsSets",
-        "GetProductSpecificationsSetByUuid",
-        "AddProductSpecificationsSet",
-        "DeleteProductSpecificationsSet",
-        "SetNameForProductSpecificationsSet",
-        "SetUrlsForProductSpecificationsSet",
-        "SetProductSpecificationsUserFeedback",
-        "GetProductSpecificationsFeatureState"
+        "SwitchToOrOpenTab"
       ],
       "metadata": {
         "usage": {
@@ -24540,6 +24424,43 @@
       "file": "components_subresource_filter_core_mojom_subresource_filter.mojom.js",
       "methods": [
         "SetRulesetForProcess"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SurfaceEmbed",
+      "module": "surface_embed.mojom",
+      "file": "components_surface_embed_common_surface_embed.mojom.js",
+      "methods": [
+        "SetFrameSinkId"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SurfaceEmbedHost",
+      "module": "surface_embed.mojom",
+      "file": "components_surface_embed_common_surface_embed.mojom.js",
+      "methods": [
+        "SetSurfaceEmbed",
+        "SynchronizeVisualProperties"
       ],
       "metadata": {
         "usage": {
@@ -50069,7 +49990,6 @@
         "chromeos/crosapi/mojom/telemetry_management_service.mojom",
         "chromeos/services/chromebox_for_meetings/public/mojom/cfm_service_manager.mojom",
         "chromeos/services/machine_learning/public/mojom/machine_learning_service.mojom",
-        "chromeos/crosapi/mojom/video_capture.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
         "services/device/public/mojom/hid.mojom",
         "services/media_session/public/mojom/audio_focus.mojom",
@@ -50178,20 +50098,6 @@
       "source": "chromeos/crosapi/mojom/telemetry_management_service.mojom",
       "module": "crosapi.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_video_capture.mojom.js",
-      "source": "chromeos/crosapi/mojom/video_capture.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "media/capture/mojom/image_capture.mojom",
-        "media/capture/mojom/video_capture_types.mojom",
-        "media/mojo/mojom/media_types.mojom",
-        "mojo/public/mojom/base/shared_memory.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/mojom/native_handle_types.mojom"
-      ]
     },
     {
       "filename": "chromeos_crosapi_mojom_video_conference.mojom.js",
@@ -50727,7 +50633,6 @@
       "source": "components/commerce/core/internals/mojom/commerce_internals.mojom",
       "module": "commerce.mojom",
       "imports": [
-        "components/commerce/core/mojom/shopping_service.mojom",
         "components/commerce/core/mojom/shared.mojom",
         "url/mojom/url.mojom"
       ]
@@ -50756,21 +50661,10 @@
       ]
     },
     {
-      "filename": "components_commerce_core_mojom_product_specifications.mojom.js",
-      "source": "components/commerce/core/mojom/product_specifications.mojom",
-      "module": "commerce.product_specifications.mojom",
-      "imports": [
-        "mojo/public/mojom/base/uuid.mojom",
-        "url/mojom/url.mojom",
-        "components/commerce/core/mojom/shared.mojom"
-      ]
-    },
-    {
       "filename": "components_commerce_core_mojom_shared.mojom.js",
       "source": "components/commerce/core/mojom/shared.mojom",
       "module": "commerce.shared.mojom",
       "imports": [
-        "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -50780,7 +50674,6 @@
       "module": "shopping_service.mojom",
       "imports": [
         "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom",
         "mojo/public/mojom/base/values.mojom",
         "components/commerce/core/mojom/shared.mojom"
@@ -52067,6 +51960,15 @@
       "imports": [
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "filename": "components_surface_embed_common_surface_embed.mojom.js",
+      "source": "components/surface_embed/common/surface_embed.mojom",
+      "module": "surface_embed.mojom",
+      "imports": [
+        "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "third_party/blink/public/mojom/frame/frame_visual_properties.mojom"
       ]
     },
     {
