@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-19T10:35:22.345022Z",
-  "version": "147.0.7694.0",
+  "generated_at": "2026-02-20T10:29:16.196999Z",
+  "version": "147.0.7697.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3242,6 +3242,8 @@
         "OnContextUpdated",
         "HideInput",
         "RestoreInput",
+        "InjectInput",
+        "RemoveInjectedInput",
         "OnZeroStateChange",
         "OnAiPageStatusChanged",
         "OnLensOverlayStateChanged",
@@ -3538,6 +3540,7 @@
         "AttachPanel",
         "DetachPanel",
         "OnModeChange",
+        "OnMicrophoneStatusChange",
         "ShowProfilePicker",
         "GetModelQualityClientId",
         "GetContextFromFocusedTab",
@@ -3653,6 +3656,7 @@
         "NotifyPanelActiveChange",
         "NotifyPanelCanAttachChange",
         "NotifyMicrophonePermissionStateChanged",
+        "StopMicrophone",
         "NotifyLocationPermissionStateChanged",
         "NotifyTabContextPermissionStateChanged",
         "NotifyOsLocationPermissionStateChanged",
@@ -3702,6 +3706,44 @@
       "file": "chrome_browser_glic_host_glic.mojom.js",
       "methods": [
         "OnUpdate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SelectionOverlayPageHandler",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "methods": [
+        "DismissOverlay",
+        "AdjustRegion",
+        "DeleteRegion"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SelectionOverlayPage",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "methods": [
+        "ScreenshotReceived"
       ],
       "metadata": {
         "usage": {
@@ -6324,6 +6366,61 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "Page",
+      "module": "chrome_finds_internals.mojom",
+      "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
+      "methods": [
+        "LogMessageAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "chrome_finds_internals.mojom",
+      "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
+      "methods": [
+        "Start",
+        "GetHistoryJson"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: chrome_finds_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "chrome_finds_internals.mojom",
+      "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
@@ -19088,7 +19185,6 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
       "methods": [
-        "IsInitialized",
         "AddObserver",
         "GetAccounts",
         "ShowAddAccountDialog",
@@ -20728,12 +20824,7 @@
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
       "methods": [
-        "OnDevToolsStatusChanged",
-        "OnNavigationStatusChanged",
-        "OnContextMenuStateChanged",
-        "OnTabSplitStatusChanged",
-        "OnButtonPinStateChanged",
-        "OnLayoutChanged"
+        "OnNavigationControlsStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -20751,15 +20842,12 @@
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
       "methods": [
-        "AddObserver",
+        "Bind",
         "StopLoad",
         "ShowContextMenu",
         "OnPageInitialized",
         "ReloadFromClick",
-        "SplitActiveTab",
-        "GetTabSplitState",
-        "GetButtonPinState",
-        "GetLayoutConstants"
+        "SplitActiveTab"
       ],
       "metadata": {
         "usage": {
@@ -21965,27 +22053,6 @@
       }
     },
     {
-      "name": "OakSession",
-      "module": "private_ai.mojom",
-      "file": "components_legion_mojom_oak_session.mojom.js",
-      "methods": [
-        "InitiateHandshake",
-        "CompleteHandshake",
-        "Encrypt",
-        "Decrypt"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "MediaPlaybackOptions",
       "module": "components.media_control.mojom",
       "file": "components_media_control_mojom_media_playback_options.mojom.js",
@@ -22761,7 +22828,8 @@
       "file": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "methods": [
         "Subscribe",
-        "AddModelDownloadProgressObserver"
+        "AddModelDownloadProgressObserver",
+        "RequestAssetsFor"
       ],
       "metadata": {
         "usage": {
@@ -23001,6 +23069,27 @@
         },
         "scope": "context",
         "category": "associated"
+      }
+    },
+    {
+      "name": "OakSession",
+      "module": "private_ai.mojom",
+      "file": "components_private_ai_mojom_oak_session.mojom.js",
+      "methods": [
+        "InitiateHandshake",
+        "CompleteHandshake",
+        "Encrypt",
+        "Decrypt"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -46753,6 +46842,7 @@
       "module": "contextual_tasks.mojom",
       "imports": [
         "mojo/public/mojom/base/uuid.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "url/mojom/url.mojom",
         "ui/base/mojom/window_open_disposition.mojom"
       ]
@@ -46801,6 +46891,16 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "source": "chrome/browser/glic/selection/selection_overlay.mojom",
+      "module": "glic.selection",
+      "imports": [
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "skia/public/mojom/bitmap.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
@@ -47300,6 +47400,12 @@
       "imports": [
         "device/bluetooth/public/mojom/adapter.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/chrome_finds_internals/chrome_finds_internals.mojom",
+      "module": "chrome_finds_internals.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_customize_buttons_customize_buttons.mojom.js",
@@ -50516,7 +50622,8 @@
       "imports": [
         "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
         "ui/base/mojom/menu_source_type.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "mojo/public/mojom/base/error.mojom"
       ]
     },
     {
@@ -50965,14 +51072,6 @@
       "module": "language_detection.mojom",
       "imports": [
         "mojo/public/mojom/base/file.mojom"
-      ]
-    },
-    {
-      "filename": "components_legion_mojom_oak_session.mojom.js",
-      "source": "components/legion/mojom/oak_session.mojom",
-      "module": "private_ai.mojom",
-      "imports": [
-        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -51428,6 +51527,14 @@
       ]
     },
     {
+      "filename": "components_private_ai_mojom_oak_session.mojom.js",
+      "source": "components/private_ai/mojom/oak_session.mojom",
+      "module": "private_ai.mojom",
+      "imports": [
+        "sandbox/policy/mojom/sandbox.mojom"
+      ]
+    },
+    {
       "filename": "components_remote_cocoa_common_alert.mojom.js",
       "source": "components/remote_cocoa/common/alert.mojom",
       "module": "remote_cocoa.mojom",
@@ -51819,6 +51926,7 @@
       "source": "components/services/storage/public/mojom/service_worker_database.mojom",
       "module": "storage.mojom",
       "imports": [
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
         "third_party/blink/public/mojom/script/script_type.mojom",
@@ -55816,7 +55924,7 @@
         "services/network/public/mojom/cors_origin_pattern.mojom",
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
         "services/network/public/mojom/ct_policy.mojom",
-        "services/network/public/mojom/originating_process.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/default_credentials.mojom",
         "services/network/public/mojom/device_bound_sessions.mojom",
         "services/network/public/mojom/devtools_observer.mojom",
@@ -55956,7 +56064,7 @@
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
-        "services/network/public/mojom/originating_process.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/key_pinning.mojom",
         "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
         "services/network/public/mojom/net_log.mojom",
@@ -56029,8 +56137,8 @@
       ]
     },
     {
-      "filename": "services_network_public_mojom_originating_process.mojom.js",
-      "source": "services/network/public/mojom/originating_process.mojom",
+      "filename": "services_network_public_mojom_originating_process_id.mojom.js",
+      "source": "services/network/public/mojom/originating_process_id.mojom",
       "module": "network.mojom",
       "imports": []
     },
