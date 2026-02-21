@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7697.0';
+        const versionStr = window.mojoVersion || '147.0.7699.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -5099,6 +5099,9 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kNonParentOriginInitiatedNavigationOfSubframe: 5790,
   kModelContextRegisterTool: 5791,
   kModelContextRegisterDeclarativeTool: 5792,
+  kLanguageModel_ContextUsage: 5793,
+  kLanguageModel_ContextWindow: 5794,
+  kLanguageModel_MeasureContextUsage: 5795,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7697.0';
+        const versionStr = window.mojoVersion || '147.0.7699.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -250,8 +250,8 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote = class {
   close() {
     this.proxy.close();
   }
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
-    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics);
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_custom_user_timings) {
+    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_custom_user_timings);
   }
   setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
     return this.$.setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory);
@@ -271,12 +271,12 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
     ]);
   }
 
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_custom_user_timings) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics],
+      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_custom_user_timings],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
-          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_event_timings, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics);
+          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_event_timings, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics, params.arg_custom_user_timings);
           break;
         }
         case 1: {
@@ -656,8 +656,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_event_timings', 48, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.EventTimingSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_subresource_load_metrics', 56, 0, mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_soft_navigation_metrics', 64, 0, mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_user_timings', 72, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec, false), null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params', [

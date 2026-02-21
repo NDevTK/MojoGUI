@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7697.0';
+        const versionStr = window.mojoVersion || '147.0.7699.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
 mojo.internal.bindings.on_device_model.mojom.TokenSpec = mojo.internal.bindings.on_device_model.mojom.TokenSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.on_device_model.mojom.InputSourceSpec = mojo.internal.bindings.on_device_model.mojom.InputSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.PrioritySpec = mojo.internal.bindings.on_device_model.mojom.PrioritySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec = mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec = mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec || { $: mojo.internal.Enum().$ };
@@ -283,6 +284,13 @@ mojo.internal.bindings.on_device_model.mojom.Token = {
   kEnd: 3,
   MinVersion: 3,
   MinVersion: 3,
+};
+
+// Enum: InputSource
+mojo.internal.bindings.on_device_model.mojom.InputSource = {
+  kUnknown: 0,
+  kUserInput: 1,
+  kModelOutputFeedback: 2,
 };
 
 // Enum: Priority
@@ -1882,6 +1890,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec, 'on_device_model.mojom.AppendOptions', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.on_device_model.mojom.InputSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_tokens', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_source', 12, 0, mojo.internal.bindings.on_device_model.mojom.InputSourceSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7697.0';
+        const versionStr = window.mojoVersion || '147.0.7699.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -160,6 +160,8 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec
 if (mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec.$.structSpec && mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec.$ = {};
 mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec = mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec.$.structSpec && mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec.$ = {};
+mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec = mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec.$.structSpec && mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec.$ = {};
 mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec = mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec.$ = {};
 mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec = mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec || { $: {} };
@@ -1091,13 +1093,26 @@ mojo.internal.Struct(
     ],
     [[0, 64]]);
 
+// Struct: DeviceBoundSessionFailedRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec, 'network.mojom.DeviceBoundSessionFailedRequest', [
+      mojo.internal.StructField('arg_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_net_error_$value', originalFieldName: 'arg_net_error' }),
+      mojo.internal.StructField('arg_response_error_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_response_error_$value', originalFieldName: 'arg_response_error' }),
+      mojo.internal.StructField('arg_net_error_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_net_error_$flag', originalFieldName: 'arg_net_error' }),
+      mojo.internal.StructField('arg_response_error_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_response_error_$flag', originalFieldName: 'arg_response_error' }),
+      mojo.internal.StructField('arg_response_error_body', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
 // Struct: DeviceBoundSessionCreationDetails
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec, 'network.mojom.DeviceBoundSessionCreationDetails', [
       mojo.internal.StructField('arg_fetch_error', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_failed_request', 16, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: DeviceBoundSessionRefreshDetails
 mojo.internal.Struct(
@@ -1106,8 +1121,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fetch_error', 4, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_was_fully_proactive_refresh', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_failed_request', 24, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionFailedRequestSpec, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: DeviceBoundSessionTerminationDetails
 mojo.internal.Struct(
