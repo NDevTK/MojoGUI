@@ -2082,12 +2082,12 @@ def main():
                             associated_binders.update(extract_interfaces(af, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
                     # 2. Extract feature flags and permission gates near this interface's binder registration
+                    leaf_name = fqn.split('.')[-1]
                     security_gates = extract_security_gates(fqn, leaf_name, global_files + rph_files + [ccbc_file] + frame_files + webui_files)
 
                     # 3. Apply Ground Truth Logic
                     scope = "context"
                     category = "internal" # Default to internal/unknown
-                    leaf_name = fqn.split('.')[-1]
                     
                     # Logic: Check for direct binders first, then associated.
                     # Use both FQN and leaf_name (since C++ often uses mojom::Interface)
