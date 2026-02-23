@@ -2400,44 +2400,6 @@ select option {
   background: #ff884422;
 }
 
-/* Award source tabs (Curated / Smart Picks) */
-.awards-source-tabs {
-  display: flex;
-  gap: 4px;
-}
-.awards-source-btn {
-  padding: 4px 10px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-.awards-source-btn:hover { background: var(--bg-tertiary); }
-.awards-source-btn.active {
-  background: rgba(139, 92, 246, 0.15);
-  color: #a78bfa;
-  border-color: rgba(139, 92, 246, 0.3);
-}
-
-/* Smart pick tag */
-.award-smart-tag {
-  font-size: 0.6rem;
-  font-weight: 700;
-  padding: 1px 5px;
-  border-radius: 3px;
-  background: rgba(139, 92, 246, 0.2);
-  color: #a78bfa;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  vertical-align: middle;
-  margin-left: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
 /* Metadata badges row */
 .award-meta {
   display: flex;
@@ -2501,6 +2463,11 @@ select option {
   background: rgba(148, 163, 184, 0.15);
   color: #94a3b8;
   border: 1px solid rgba(148, 163, 184, 0.25);
+}
+.meta-tag {
+  background: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 /* ========================================
