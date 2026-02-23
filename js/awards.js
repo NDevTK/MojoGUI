@@ -126,6 +126,13 @@
       signals.push("Process-scoped");
     }
 
+    // 7. Unscrambled ordinals – easier to exploit (no version-dependent salt)
+    if (meta.scrambled === false) {
+      score += 1;
+      signals.push("Unscrambled ordinals");
+      tags.add("no-scramble");
+    }
+
     return { score, signals, riskMethods, tags: Array.from(tags) };
   }
 
@@ -448,8 +455,14 @@
 
   // ── Init ─────────────────────────────────────────────────────────
 
+  // Awards depend on MojoGUI_State.interfaces which are loaded asynchronously.
+  // We attempt to load on DOMContentLoaded (in case interfaces were cached/fast),
+  // but the primary trigger is app.js calling MojoAwards.load() after loadInterfaces().
   document.addEventListener("DOMContentLoaded", () => {
-    loadAwards();
+    const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+    if (interfaces.length > 0) {
+      loadAwards();
+    }
   });
 
   global.MojoAwards = {

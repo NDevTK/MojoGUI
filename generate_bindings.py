@@ -2150,11 +2150,17 @@ def main():
                     if security_gates:
                         iface_metadata['gates'] = security_gates
 
+                    # Include scramble status for security research
+                    should_scramble = INTERFACE_SCRAMBLE_MAP.get(fqn, True)
+                    if not should_scramble:
+                        iface_metadata['scrambled'] = False
+
+                    methods_list = [m['name'] for m in interface.get('methods', [])]
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],
                         'file': out_filename,
-                        'methods': [m['name'] for m in interface.get('methods', [])],
+                        'methods': methods_list,
                         'metadata': iface_metadata
                     })
                 

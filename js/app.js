@@ -225,6 +225,8 @@
           renderInterfaceList(interfaces);
           // Re-populate fuzzer dropdown now that interfaces are loaded
           if (window.MojoFuzzer) MojoFuzzer.populateInterfaces();
+          // Refresh awards now that interfaces are available
+          if (window.MojoAwards) MojoAwards.load();
           // AUTO-MONITOR ALL (Quietly)
           setTimeout(() => toggleMonitorAll(true), 100);
           return;

@@ -141,7 +141,7 @@ jobs:
         if: env.HAS_OLD_INDEX == 'true'
         run: |
           python3 << 'PYEOF'
-          import json, os, sys
+          import json, os, sys, re
           from datetime import datetime
 
           old_path = "/tmp/index_old.json"
@@ -160,6 +160,72 @@ jobs:
 
           added = sorted(new_keys - old_keys)
           removed = sorted(old_keys - new_keys)
+
+          # Risk scoring for security diff (mirrors js/awards.js scoring logic)
+          METHOD_RISK_PATTERNS = [
+              (r'^(Write|Send|Push|Transmit|Control)', 2, 'write-primitive'),
+              (r'^(Open|Create|Install|Execute|Run|Launch)', 2, 'instantiation'),
+              (r'(Unsanitized|Unsafe|Raw|Arbitrary)', 3, 'unsanitized'),
+              (r'(File|Path|Directory|FileDescriptor)', 2, 'fs-access'),
+              (r'(Socket|Port|Connect|Tcp|Udp)', 2, 'network'),
+              (r'(Deserialize|Parse|Decode|Compile|Wasm)', 2, 'parser'),
+              (r'(Navigate|Load|Redirect|Commit|Origin)', 1, 'navigation'),
+              (r'^(Register|Bind|Attach|Mount)', 1, 'lifecycle'),
+              (r'^(Delete|Remove|Drop|Clear|Reset)', 1, 'destructive'),
+              (r'(Transfer|Stream|Data|Buffer|Blob|Chunk)', 1, 'data-flow'),
+          ]
+          DOMAIN_RISK_PATTERNS = [
+              (r'\b(usb|hid|serial|nfc|smart_card|midi|bluetooth)\b', 3, 'hardware'),
+              (r'\b(direct_socket|tcp_socket|udp_socket)\b', 3, 'raw-network'),
+              (r'\b(file_system|file_backed|clipboard)\b', 2, 'fs/clipboard'),
+              (r'\b(ai_manager|webnn|translation|handwriting|speech_recogn|screen_ai)\b', 2, 'ai/ml'),
+              (r'\b(shared_storage|fenced_frame|attribution|interest_group)\b', 2, 'privacy-sandbox'),
+              (r'\b(print|pdf|media|codec|video|audio|renderer)\b', 1, 'media/parsing'),
+          ]
+
+          def score_interface(iface):
+              meta = iface.get('metadata', {})
+              category = meta.get('category', 'internal')
+              scope = meta.get('scope', 'context')
+              gates = meta.get('gates', [])
+              methods = iface.get('methods', [])
+              name = iface.get('name', '')
+              module = iface.get('module', '')
+              module_name = module + ' ' + name
+
+              score = 0
+              tags = []
+
+              # Category score
+              if category == 'direct': score += 3
+              elif category == 'associated': score += 2
+
+              # Domain risk
+              for pattern, weight, label in DOMAIN_RISK_PATTERNS:
+                  if re.search(pattern, module_name, re.IGNORECASE):
+                      score += weight
+                      tags.append(label)
+
+              # Method risk
+              for m in methods:
+                  for pattern, weight, label in METHOD_RISK_PATTERNS:
+                      if re.search(pattern, m, re.IGNORECASE):
+                          score += weight
+                          if label not in tags: tags.append(label)
+                          break
+
+              # Attack surface
+              if len(methods) >= 10: score += 2
+              elif len(methods) >= 5: score += 1
+
+              # No security gates
+              if not gates and category in ('direct', 'associated'):
+                  score += 2
+
+              # Process scope
+              if scope == 'process': score += 1
+
+              return score, tags
 
           # Detect method changes on existing interfaces
           changed = []
@@ -188,7 +254,15 @@ jobs:
                   if gates_changed:
                       entry['gates_added'] = sorted(set(new_gates) - set(old_gates))
                       entry['gates_removed'] = sorted(set(old_gates) - set(new_gates))
+                  # Score the changed interface for priority sorting
+                  risk_score, risk_tags = score_interface(new_ifaces[fqn])
+                  entry['risk_score'] = risk_score
+                  if risk_tags:
+                      entry['risk_tags'] = risk_tags
                   changed.append(entry)
+
+          # Sort changed by risk score descending
+          changed.sort(key=lambda x: x.get('risk_score', 0), reverse=True)
 
           version = os.environ.get('TARGET_VERSION', 'unknown')
           report = {
@@ -206,19 +280,26 @@ jobs:
               'changed': changed,
           }
 
-          # Enrich added interfaces with their metadata
+          # Enrich added interfaces with their metadata and risk score
           for fqn in added:
               iface = new_ifaces[fqn]
+              risk_score, risk_tags = score_interface(iface)
               entry = {
                   'interface': fqn,
                   'methods': iface.get('methods', []),
                   'category': iface.get('metadata', {}).get('category', 'unknown'),
                   'scope': iface.get('metadata', {}).get('scope', 'unknown'),
+                  'risk_score': risk_score,
               }
+              if risk_tags:
+                  entry['risk_tags'] = risk_tags
               gates = iface.get('metadata', {}).get('gates', [])
               if gates:
                   entry['gates'] = gates
               report['added'].append(entry)
+
+          # Sort added by risk score descending (highest priority first)
+          report['added'].sort(key=lambda x: x.get('risk_score', 0), reverse=True)
 
           # Write report
           os.makedirs('security-reports', exist_ok=True)
@@ -238,16 +319,22 @@ jobs:
               f.write(f"| Interfaces removed | {len(removed)} |\n")
               f.write(f"| Interfaces with method changes | {len(changed)} |\n\n")
 
-              if added:
+              if report['added']:
                   f.write("## New Interfaces\n\n")
-                  # Sort by direct category first (most interesting for security)
-                  sorted_added = sorted(report['added'], key=lambda x: 0 if x['category'] == 'direct' else 1)
-                  for entry in sorted_added:
+                  f.write("Sorted by risk score (highest first).\n\n")
+                  for entry in report['added']:
+                      score = entry.get('risk_score', 0)
                       cat_badge = f"[{entry['category']}]"
+                      score_badge = f"(score: {score})" if score >= 5 else ""
+                      tags_str = ""
+                      if entry.get('risk_tags'):
+                          tags_str = " | Tags: " + ", ".join(entry['risk_tags'])
                       gates_str = ""
                       if entry.get('gates'):
                           gates_str = " | Gates: " + ", ".join(entry['gates'])
-                      f.write(f"- **{entry['interface']}** {cat_badge}{gates_str}\n")
+                      # Highlight high-risk additions
+                      prefix = "🔴 " if score >= 9 else ("🟠 " if score >= 7 else ("🟡 " if score >= 5 else ""))
+                      f.write(f"- {prefix}**{entry['interface']}** {cat_badge} {score_badge}{tags_str}{gates_str}\n")
                       if entry.get('methods'):
                           for m in entry['methods'][:10]:
                               f.write(f"  - `{m}`\n")
@@ -263,10 +350,13 @@ jobs:
 
               if changed:
                   f.write("## Changed Interfaces\n\n")
+                  f.write("Sorted by risk score (highest first).\n\n")
                   for entry in changed:
-                      f.write(f"### {entry['interface']} [{entry.get('category', '?')}]\n")
+                      score = entry.get('risk_score', 0)
+                      score_badge = f"(score: {score})" if score >= 5 else ""
+                      f.write(f"### {entry['interface']} [{entry.get('category', '?')}] {score_badge}\n")
                       if 'category_change' in entry:
-                          f.write(f"- Category changed: {entry['category_change']}\n")
+                          f.write(f"- **Category changed: {entry['category_change']}**\n")
                       if entry.get('methods_added'):
                           f.write(f"- Methods added: {', '.join('`' + m + '`' for m in entry['methods_added'])}\n")
                       if entry.get('methods_removed'):
@@ -275,6 +365,8 @@ jobs:
                           f.write(f"- Gates added: {', '.join(entry['gates_added'])}\n")
                       if entry.get('gates_removed'):
                           f.write(f"- Gates removed: {', '.join(entry['gates_removed'])}\n")
+                      if entry.get('risk_tags'):
+                          f.write(f"- Risk tags: {', '.join(entry['risk_tags'])}\n")
                       f.write("\n")
 
           # Print summary to stdout
@@ -286,7 +378,12 @@ jobs:
           print(f"Interfaces changed: {len(changed)}")
           if added:
               direct_added = [a for a in report['added'] if a['category'] == 'direct']
+              high_risk = [a for a in report['added'] if a.get('risk_score', 0) >= 5]
               print(f"  -> {len(direct_added)} new DIRECT interfaces (renderer-accessible)")
+              print(f"  -> {len(high_risk)} high-risk new interfaces (score >= 5)")
+          if changed:
+              high_risk_changed = [c for c in changed if c.get('risk_score', 0) >= 5]
+              print(f"  -> {len(high_risk_changed)} high-risk changed interfaces (score >= 5)")
           print(f"Reports: {report_path}, {summary_path}")
           print(f"{'='*60}")
 
@@ -296,9 +393,14 @@ jobs:
               f.write(f"- **{len(added)}** interfaces added")
               if added:
                   direct_added = [a for a in report['added'] if a['category'] == 'direct']
-                  f.write(f" ({len(direct_added)} direct)")
+                  high_risk = [a for a in report['added'] if a.get('risk_score', 0) >= 5]
+                  f.write(f" ({len(direct_added)} direct, {len(high_risk)} high-risk)")
               f.write(f"\n- **{len(removed)}** interfaces removed\n")
               f.write(f"- **{len(changed)}** interfaces changed\n")
+              if changed:
+                  high_risk_changed = [c for c in changed if c.get('risk_score', 0) >= 5]
+                  if high_risk_changed:
+                      f.write(f"  - {len(high_risk_changed)} high-risk changes\n")
 
           PYEOF
 
