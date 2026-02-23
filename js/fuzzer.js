@@ -788,6 +788,60 @@
       }
       return params;
     },
+
+    /** Boundary values only — test integer/string limits */
+    boundary(methodDef, iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      const targetIdx = iteration % paramCount;
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        if (i === targetIdx) {
+          const t = typeof p.type === "object" ? p.type.type : p.type;
+          if (t === "number") {
+            params[p.name] = FuzzGenerators._pick([
+              0, -1, 1, 0x7fffffff, -0x80000000, 0xffffffff, 0xffff, 0xff,
+              Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER,
+            ]);
+          } else if (t === "int64") {
+            params[p.name] = FuzzGenerators._pick([
+              0n, -1n, 1n, 2n ** 63n - 1n, -(2n ** 63n), 2n ** 32n - 1n, 2n ** 32n,
+            ]);
+          } else if (t === "string" || t === "Url" || t === "bigstring" || t === "bigstring16") {
+            params[p.name] = FuzzGenerators._pick([
+              "", " ", "A".repeat(65536), "A".repeat(1048576), "\x00",
+              "\x00".repeat(256), String.fromCharCode(...Array.from({length: 128}, (_, i) => i)),
+            ]);
+          } else if (t === "array") {
+            params[p.name] = FuzzGenerators._pick([
+              [], new Array(1000).fill(0), new Array(10000).fill(null),
+            ]);
+          } else {
+            params[p.name] = FuzzGenerators.generate(p);
+          }
+        } else {
+          params[p.name] = ValidGenerators.generate(p);
+        }
+      }
+      return params;
+    },
+
+    /** Double-free / use-after pattern — send null/closed handles after valid ones */
+    handleReuse(methodDef, _iteration) {
+      const params = {};
+      for (const p of methodDef.parameters) {
+        const t = typeof p.type === "object" ? p.type.type : p.type;
+        if (t === "pending_remote" || t === "pending_receiver" ||
+            t === "pending_associated_remote" || t === "pending_associated_receiver" ||
+            t === "mojo_handle") {
+          // Send null to test missing-handle paths
+          params[p.name] = null;
+        } else {
+          params[p.name] = ValidGenerators.generate(p);
+        }
+      }
+      return params;
+    },
   };
 
   /** Ordered list of techniques to cycle through */
@@ -796,6 +850,8 @@
     "multiField",
     "nullOmit",
     "typeConfuse",
+    "boundary",
+    "handleReuse",
     "baseline",
   ];
 
@@ -1227,6 +1283,14 @@
               Stop
             </button>
           </div>
+          <div class="fuzzer-btn-row" style="margin-top: 4px;">
+            <button class="btn btn-secondary btn-small" id="fuzzer-race-btn" disabled title="Fire N concurrent identical calls to test for race conditions (TOCTOU bugs)">
+              Race Test
+            </button>
+            <button class="btn btn-secondary btn-small" id="fuzzer-sequence-btn" disabled title="Call all methods in sequence to test state-dependent bugs">
+              Sequence Fuzz
+            </button>
+          </div>
         </div>
 
         <div class="fuzzer-card" id="fuzzer-progress-card" style="display: none;">
@@ -1333,6 +1397,35 @@
       const clearBtn = container.querySelector("#fuzzer-clear-btn");
       if (clearBtn) {
         clearBtn.addEventListener("click", () => this.clearResults());
+      }
+
+      const raceBtn = container.querySelector("#fuzzer-race-btn");
+      if (raceBtn) {
+        raceBtn.addEventListener("click", () => {
+          const selIface = (global.MojoGUI_State || {}).selectedInterface;
+          if (!selIface) return global.showToast("Select an interface first", "warning");
+          const methodSelect = document.getElementById("fuzzer-method-select");
+          const method = methodSelect?.value;
+          if (!method) return global.showToast("Select a method first", "warning");
+          const fqn = selIface.module + "." + selIface.name;
+          const concurrency = parseInt(document.getElementById("fuzzer-concurrency")?.value) || 10;
+          this.raceTest(fqn, method, concurrency);
+        });
+      }
+
+      const seqBtn = container.querySelector("#fuzzer-sequence-btn");
+      if (seqBtn) {
+        seqBtn.addEventListener("click", () => {
+          const selIface = (global.MojoGUI_State || {}).selectedInterface;
+          if (!selIface) return global.showToast("Select an interface first", "warning");
+          if (!selIface.methods || selIface.methods.length < 2) {
+            return global.showToast("Interface needs at least 2 methods for sequence fuzz", "warning");
+          }
+          const fqn = selIface.module + "." + selIface.name;
+          const methods = selIface.methods.map(m => typeof m === "string" ? m : m.name);
+          const iterations = parseInt(document.getElementById("fuzzer-iterations")?.value) || 10;
+          this.sequenceFuzz(fqn, methods, iterations);
+        });
       }
 
       const resultsLog = container.querySelector("#fuzzer-results-log");
@@ -1448,6 +1541,13 @@
         !enabled ||
         !(global.MojoGUI_State || {}).mojoAvailable ||
         this.running;
+
+      // Enable race/sequence buttons when interface + method are selected
+      const mojoAvailable = !!(global.MojoGUI_State || {}).mojoAvailable;
+      const raceBtn = document.getElementById("fuzzer-race-btn");
+      const seqBtn = document.getElementById("fuzzer-sequence-btn");
+      if (raceBtn) raceBtn.disabled = !(hasInterface && hasMethod && mojoAvailable && !this.running);
+      if (seqBtn) seqBtn.disabled = !(hasInterface && mojoAvailable && !this.running);
     },
 
     async start() {
@@ -1837,6 +1937,161 @@
         global.showToast("Replay succeeded", "success");
       } catch (e) {
         global.showToast("Replay error: " + e.message, "error");
+      }
+    },
+
+    /**
+     * Race condition test: fire N identical calls concurrently to the same method.
+     * Useful for finding TOCTOU bugs and race conditions in browser-side handlers.
+     * @param {string} interfaceFqn - Fully qualified interface name
+     * @param {string} methodName - Method to race
+     * @param {number} concurrency - Number of concurrent calls (default 10)
+     * @param {Object} params - Optional fixed params (otherwise auto-generated)
+     */
+    async raceTest(interfaceFqn, methodName, concurrency = 10, params = null) {
+      try {
+        await MojoLoader.ensureBinding(interfaceFqn);
+        const methodDef = MojoReflectionService.findMethodDefinition(interfaceFqn, methodName);
+
+        const callParams = params || (methodDef && methodDef.parameters.length > 0
+          ? FuzzTechniques.baseline(methodDef, 0) : {});
+
+        global.showToast(`Race testing ${interfaceFqn}.${methodName} x${concurrency}...`, "info");
+
+        const resolved = this.resolveTarget(interfaceFqn);
+        if (resolved.skip) {
+          global.showToast(`Cannot race test: ${resolved.skip}`, "warning");
+          return { error: resolved.skip };
+        }
+
+        const promises = [];
+        for (let i = 0; i < concurrency; i++) {
+          promises.push(
+            MojoExecutionService.call(resolved.target, methodName, callParams, resolved.options)
+              .then(r => ({ status: "success", result: r, index: i }))
+              .catch(e => ({ status: "error", error: e.message, index: i }))
+          );
+        }
+
+        const results = await Promise.allSettled(promises);
+        const settled = results.map(r => r.value || r.reason);
+
+        const successes = settled.filter(r => r.status === "success").length;
+        const errors = settled.filter(r => r.status === "error").length;
+
+        // Log each result
+        for (const r of settled) {
+          this.addResult({
+            index: this.stats.calls + r.index,
+            interface: interfaceFqn,
+            method: methodName,
+            params: { ...callParams, __technique: "race" },
+            status: r.status,
+            result: r.result || null,
+            error: r.error || null,
+            timestamp: Date.now(),
+          });
+        }
+        this.stats.calls += concurrency;
+        this.stats.successes += successes;
+        this.stats.errors += errors;
+        this.updateStats();
+
+        global.showToast(
+          `Race test done: ${successes} ok, ${errors} errors out of ${concurrency}`,
+          errors > 0 ? "warning" : "success"
+        );
+
+        return { successes, errors, total: concurrency, results: settled };
+      } catch (e) {
+        global.showToast(`Race test failed: ${e.message}`, "error");
+        return { error: e.message };
+      }
+    },
+
+    /**
+     * Sequence fuzz: call multiple methods on the same interface in a specific order.
+     * Tests state-dependent bugs where Method B assumes Method A was called first.
+     * @param {string} interfaceFqn - Fully qualified interface name
+     * @param {Array<string>} methodSequence - Ordered list of method names to call
+     * @param {number} iterations - Number of times to run the sequence
+     */
+    async sequenceFuzz(interfaceFqn, methodSequence, iterations = 10) {
+      if (!methodSequence || methodSequence.length < 2) {
+        global.showToast("Sequence fuzz needs at least 2 methods", "warning");
+        return;
+      }
+
+      try {
+        await MojoLoader.ensureBinding(interfaceFqn);
+
+        global.showToast(
+          `Sequence fuzzing ${methodSequence.length} methods x${iterations}...`, "info"
+        );
+
+        let objectId = null;
+
+        for (let iter = 0; iter < iterations && !this.aborted; iter++) {
+          // Optionally shuffle the sequence for some iterations to test order sensitivity
+          const sequence = iter > 0 && iter % 3 === 0
+            ? [...methodSequence].sort(() => Math.random() - 0.5)
+            : methodSequence;
+
+          for (const methodName of sequence) {
+            if (this.aborted) break;
+
+            const methodDef = MojoReflectionService.findMethodDefinition(interfaceFqn, methodName);
+            const techniqueName = TECHNIQUE_NAMES[this.stats.calls % TECHNIQUE_NAMES.length];
+            const technique = FuzzTechniques[techniqueName];
+            const params = methodDef && methodDef.parameters.length > 0
+              ? technique(methodDef, this.stats.calls)
+              : {};
+
+            try {
+              const target = objectId
+                ? { objectId, interface: interfaceFqn }
+                : { interface: interfaceFqn };
+
+              const result = await MojoExecutionService.call(target, methodName, params, {});
+
+              if (result && result.objectId) objectId = result.objectId;
+
+              this.stats.calls++;
+              this.stats.successes++;
+              this.addResult({
+                index: this.stats.calls,
+                interface: interfaceFqn,
+                method: methodName,
+                params: { ...params, __technique: "seq:" + techniqueName },
+                status: "success",
+                result,
+                error: null,
+                timestamp: Date.now(),
+              });
+            } catch (e) {
+              this.stats.calls++;
+              this.stats.errors++;
+              this.addResult({
+                index: this.stats.calls,
+                interface: interfaceFqn,
+                method: methodName,
+                params: { ...params, __technique: "seq:" + techniqueName },
+                status: "error",
+                result: null,
+                error: e.message,
+                timestamp: Date.now(),
+              });
+            }
+            this.updateStats();
+          }
+        }
+
+        global.showToast(
+          `Sequence fuzz done: ${this.stats.calls} calls, ${this.stats.errors} errors`,
+          this.stats.errors > 0 ? "warning" : "success"
+        );
+      } catch (e) {
+        global.showToast(`Sequence fuzz failed: ${e.message}`, "error");
       }
     },
 
