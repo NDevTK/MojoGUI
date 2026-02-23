@@ -64,6 +64,8 @@
     _jsSeq: 0,
     _listeners: [],       // { type: string|"*", fn: Function }[]
     _connected: false,    // True once we see WinDbg's ready bit
+    _validationErrors: [], // Queue of validation errors from WinDbg
+    _pendingInterfaceIds: null, // Last interface_ids payload from WinDbg
 
     // ── Lifecycle ───────────────────────────────────────────────
 
@@ -235,6 +237,10 @@
       // Auto-assign interface IDs when WinDbg pushes them
       this.on("interface_ids", function (msg) {
         if (!msg.data || typeof msg.data !== "object") return;
+
+        // Stash for the fuzzer to detect new IDs
+        self._pendingInterfaceIds = msg.data;
+
         var api = global.MojoGUI_API;
         if (api && api.assignInterfaceIds) {
           var result = api.assignInterfaceIds(msg.data);
@@ -245,11 +251,23 @@
         }
       });
 
-      // Feed validation errors to the fuzzer's FeedbackEngine
+      // Feed validation errors into the fuzzer's FeedbackEngine.
+      // WinDbg catches ReportBadMessage at the C++ level — these messages
+      // tell us *exactly* which validation check failed (e.g.
+      // "VALIDATION_ERROR_UNEXPECTED_NULL_POINTER"), which is far more
+      // specific than the JS-level "connection lost" the fuzzer normally sees.
       this.on("validation_error", function (msg) {
-        if (!global.MojoFuzzer || !global.MojoFuzzer._feedbackEngine) return;
-        // Store as a WinDbg-sourced error signal
         console.log("[DebugBridge] Validation error: " + msg.interface + "." + msg.method + ": " + msg.message);
+
+        // Accumulate in a queue the fuzzer can drain
+        self._validationErrors.push({
+          interface: msg.interface || "",
+          method: msg.method || "",
+          message: msg.message || "",
+          timestamp: Date.now(),
+        });
+        // Cap queue
+        if (self._validationErrors.length > 50) self._validationErrors.shift();
       });
 
       // Handle pong (WinDbg responding to our ping)
@@ -265,6 +283,28 @@
         // Auto-request interface IDs on connect
         self.requestInterfaceIds();
       });
+    },
+
+    // ── Fuzzer integration ─────────────────────────────────────
+
+    /**
+     * Drain all queued validation errors from WinDbg.
+     * Returns the array and clears the queue.
+     */
+    drainValidationErrors: function () {
+      var errors = this._validationErrors;
+      this._validationErrors = [];
+      return errors;
+    },
+
+    /**
+     * Consume the last interface_ids payload (returns null if none pending).
+     * Clears the pending state after consumption.
+     */
+    consumeInterfaceIds: function () {
+      var ids = this._pendingInterfaceIds;
+      this._pendingInterfaceIds = null;
+      return ids;
     },
 
     // ── Debug Helpers ───────────────────────────────────────────

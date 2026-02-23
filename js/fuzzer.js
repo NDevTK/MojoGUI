@@ -1102,6 +1102,66 @@
       return clone;
     },
 
+    /**
+     * Ingest a native validation error from WinDbg.
+     * These are C++ ReportBadMessage strings — much more specific than
+     * the JS-level "connection lost" we normally see.
+     *
+     * Uses the most recent call in the ring buffer to correlate the
+     * error with the params that triggered it.
+     */
+    recordValidationError(interfaceFqn, methodName, nativeMessage) {
+      const key = interfaceFqn + "." + methodName;
+      if (!this._methodKnowledge.has(key)) {
+        this._methodKnowledge.set(key, {
+          baseline: null,
+          successCount: 0,
+          errorCount: 0,
+          paramFeedback: {},
+          interestingInputs: [],
+          errorPatterns: new Map(),
+        });
+      }
+
+      const mk = this._methodKnowledge.get(key);
+      mk.errorCount++;
+
+      // Try to correlate with the last call to this method in the ring buffer
+      let correlatedParams = null;
+      for (let i = this._callHistory.length - 1; i >= 0; i--) {
+        const call = this._callHistory[i];
+        if (call.interface === interfaceFqn && call.method === methodName) {
+          correlatedParams = call.params;
+          break;
+        }
+      }
+
+      // Store the native error message as an error pattern
+      const errKey = "NATIVE:" + nativeMessage.substring(0, 100);
+      if (!mk.errorPatterns.has(errKey)) {
+        mk.errorPatterns.set(errKey, []);
+      }
+      if (correlatedParams) {
+        const errList = mk.errorPatterns.get(errKey);
+        errList.push(correlatedParams);
+        if (errList.length > 5) errList.shift();
+
+        // Also mark as rejected in paramFeedback — native validation
+        // is the most authoritative rejection signal we can get
+        this._recordParamOutcome(mk, correlatedParams, "rejected");
+      }
+
+      // Always save as an interesting input if we have params
+      if (correlatedParams) {
+        mk.interestingInputs.push({
+          params: correlatedParams,
+          reason: "native_validation_error",
+          nativeMessage,
+        });
+        if (mk.interestingInputs.length > 15) mk.interestingInputs.shift();
+      }
+    },
+
     /** Reset all learned state */
     reset() {
       this._methodKnowledge.clear();
@@ -1238,6 +1298,7 @@
     _lastSuccessParams: null,
     _responseTimes: [],
     _currentInterface: null, // Tracked for feedback engine context
+    _bridgeIdRequested: false, // Whether we've already asked WinDbg for IDs
     SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
@@ -1459,6 +1520,14 @@
             concurrency,
           );
 
+          // Drain WinDbg validation errors into FeedbackEngine
+          if (typeof DebugBridge !== "undefined") {
+            const nativeErrors = DebugBridge.drainValidationErrors();
+            for (const ve of nativeErrors) {
+              FeedbackEngine.recordValidationError(ve.interface, ve.method, ve.message);
+            }
+          }
+
           // Repeat-after-success on the last target in the batch
           if (this._lastSuccessParams && !this.aborted) {
             await this._repeatMutated(
@@ -1466,6 +1535,41 @@
               currentCallIndex,
             );
             this._lastSuccessParams = null;
+          }
+
+          // Check if WinDbg pushed new interface IDs — if so, dynamically
+          // expand the queue with newly-unlocked associated interfaces
+          if (typeof DebugBridge !== "undefined" && strategy === "all_interfaces") {
+            const newIds = DebugBridge.consumeInterfaceIds();
+            if (newIds) {
+              const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+              let added = 0;
+              for (const iface of interfaces) {
+                const fqn = iface.module + "." + iface.name;
+                const meta = iface.metadata;
+                if (meta?.category !== "associated") continue;
+                if (!meta?.discoveredId) continue;
+                if (!iface.methods) continue;
+
+                // Skip if already in the queue
+                const alreadyQueued = queue.some((t) => t.interface === fqn);
+                if (alreadyQueued) continue;
+
+                for (const m of iface.methods) {
+                  queue.push({
+                    interface: fqn,
+                    method: typeof m === "string" ? m : m.name,
+                  });
+                  added++;
+                }
+              }
+              if (added > 0) {
+                console.log("[Fuzzer] Bridge: added " + added + " newly-unlocked targets to queue");
+                if (global.showToast) {
+                  global.showToast("Bridge unlocked " + added + " new fuzz targets", "success");
+                }
+              }
+            }
           }
 
           qi = batchEnd;
@@ -2071,7 +2175,15 @@
       if (category === "associated") {
         const interfaceId = meta?.discoveredId;
         if (interfaceId === undefined || interfaceId === null) {
-          return { category, target: null, skip: "no discoveredId assigned (use assignInterfaceIds)" };
+          // If the bridge is connected, ask WinDbg for interface IDs
+          // instead of silently skipping
+          if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+            if (!this._bridgeIdRequested) {
+              this._bridgeIdRequested = true;
+              DebugBridge.requestInterfaceIds();
+            }
+          }
+          return { category, target: null, skip: "no discoveredId assigned (use assignInterfaceIds or !bridge_sync)" };
         }
         // Find any available master handle from the registry
         const masterHandleId = this.findMasterHandle();
@@ -2592,6 +2704,7 @@
       this.results = [];
       this.uniqueErrors.clear();
       this._responseTimes = [];
+      this._bridgeIdRequested = false;
       FeedbackEngine.reset();
       this.updateStats();
 
