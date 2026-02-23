@@ -71,7 +71,8 @@ This document compares MojoGUI's fuzzer against the state-of-the-art in Chromium
 
 ### Unique Strengths
 - **Zero setup cost**: No harness writing, no build system. Open browser, start fuzzing.
-- **WinDbg code-aware fuzzing**: PDB-driven input generation (string literal probing, comparison constant testing, security-note-driven values) — unique among MojoJS-based fuzzers.
+- **WinDbg-integrated coverage and code analysis**: Shared-memory bridge to WinDbg provides real-time edge coverage feedback, PDB-driven input generation (string literals, comparison constants, security checks), and validation error attribution. This is a core architectural component with graceful degradation when WinDbg is not connected.
+- **Associated interface reach via handle hijacking**: WinDbg scans the renderer heap for master handles and overwrites JS handle backing memory to bind associated interfaces that stock MojoJS cannot reach.
 - **Interactive research GUI**: Manual exploration + targeted fuzzing in a single tool.
 - **PoC generation**: Automatically creates standalone HTML exploit bundles.
 
@@ -81,9 +82,9 @@ This document compares MojoGUI's fuzzer against the state-of-the-art in Chromium
 |---|---|---|---|---|---|
 | Throughput | Low | Medium | Very High (300x) | Medium | Low |
 | Setup cost | None | High (per-interface) | Very High | High | Low |
-| Coverage guidance | Bolt-on (WinDbg) | Native (libFuzzer) | Native (AFL++) | Partial | None |
-| Interface reach | MojoJS-reachable | Any | Any (full IPC) | Mojo + DOM | MojoJS-reachable |
-| Scale | Single browser | ClusterFuzz | CI-integrated | Research | Manual |
+| Coverage guidance | Integrated (WinDbg) | Native (libFuzzer) | Native (AFL++) | Partial | None |
+| Interface reach | MojoJS + associated (handle hijacking) | Any | Any (full IPC) | Mojo + DOM | MojoJS-reachable |
+| Scale | Multi-tab capable | ClusterFuzz | CI-integrated | Research | Manual |
 | Structure-aware | Yes (reflection) | Yes (protobuf) | No (snapshot) | Yes (semantic) | Partial |
 | Code-aware | Yes (WinDbg/PDB) | No | No | No | No |
 | Bug detection | Crash + anomaly | Crash + sanitizer | Crash + sanitizer | Crash + semantic | Crash |
@@ -92,19 +93,18 @@ This document compares MojoGUI's fuzzer against the state-of-the-art in Chromium
 ## Key Gaps
 
 ### 1. Throughput
-MojoGUI runs in a full browser via JavaScript. MojoLPM runs in-process, and Nyx-Net uses VM snapshots for near-zero reset cost. This is the largest competitive gap — likely 100-1000x slower than MojoLPM, and orders of magnitude slower than Nyx.
+MojoGUI runs in a full browser via JavaScript by design. MojoLPM runs in-process, and Nyx-Net uses VM snapshots for near-zero reset cost. MojoGUI could operate at the WinDbg level (in-process) but deliberately does not — the out-of-process design enables zero-setup operation, interactive research workflows, and PoC generation that in-process fuzzers cannot offer. The throughput trade-off is a deliberate architectural choice to maximize input quality (code-aware + coverage-guided) over raw iteration speed.
 
 ### 2. Interface reach
-MojoJS does not expose associated interfaces, worker-bound interfaces, or ipcz transport internals. Recent critical CVEs target these unreachable surfaces:
+Stock MojoJS does not expose associated interfaces, but MojoGUI extends reach via WinDbg handle hijacking — scanning the renderer heap for master handles and overwriting JS handle backing memory to bind associated interfaces. Worker-bound interfaces and ipcz transport internals remain out of reach. Recent critical CVEs in those remaining surfaces:
 - CVE-2025-2783: Mojo handle validation sandbox escape (Windows)
 - CVE-2025-4609: ipcz Transport deserialization ($250K bounty)
-- CVE-2021-21146: BackForwardCacheControllerHost (associated interface)
 
 ### 3. Coverage integration
-MojoLPM has native binary-level coverage from libFuzzer. MojoGUI's coverage requires an external WinDbg connection and is not always available.
+MojoLPM has native binary-level coverage from libFuzzer. MojoGUI's coverage comes from the WinDbg shared-memory bridge — WinDbg sets one-shot breakpoints on callees of the current fuzz target and reports newly-hit edges back to the fuzzer in real-time. This is semantic coverage (security checks, validators, code paths) rather than raw basic blocks. The fuzzer degrades gracefully to non-coverage-guided strategies when WinDbg is not connected, but with WinDbg this is an integrated feedback loop, not a bolt-on.
 
 ### 4. Scale
-MojoLPM runs on ClusterFuzz across thousands of cores continuously. MojoGUI runs in a single session.
+MojoLPM runs on ClusterFuzz across thousands of cores continuously. MojoGUI scales horizontally by opening additional tabs — each tab runs an independent fuzzing session against the same or different interfaces. This is not multi-core orchestration, but it provides parallelism with zero additional infrastructure.
 
 ## Where MojoGUI Fits
 
@@ -119,8 +119,8 @@ MojoGUI is best categorized as a **security research tool** rather than a produc
 
 1. **Headless/worker mode**: Run fuzzing iterations without GUI overhead to improve throughput.
 2. **Corpus sharing**: Export/import interesting inputs in a format compatible with MojoLPM or ClusterFuzz.
-3. **Associated interface support**: Explore workarounds for reaching non-MojoJS interfaces (e.g., via CDP raw Mojo message injection).
-4. **Parallel browser instances**: Spawn multiple tabs/workers to increase iteration throughput.
+3. **Worker-bound and ipcz interface reach**: Explore workarounds for the remaining unreachable surfaces (worker-bound interfaces, ipcz transport internals) beyond what handle hijacking already covers.
+4. **Multi-tab orchestration**: Tabs already provide parallelism; adding coordination (shared corpus, de-duplicated coverage) would improve efficiency.
 5. **Persistent coverage database**: Store and reload coverage data across sessions for cumulative progress.
 
 ## References
