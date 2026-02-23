@@ -25,6 +25,8 @@
     { re: /^(Register|Bind|Attach|Mount)/i, weight: 1, tag: "lifecycle" },
     { re: /^(Delete|Remove|Drop|Clear|Reset)/i, weight: 1, tag: "destructive" },
     { re: /(Transfer|Stream|Data|Buffer|Blob|Chunk)/i, weight: 1, tag: "data-flow" },
+    { re: /^(Set|Update|Replace|Override|Inject)/i, weight: 1, tag: "state-mutation" },
+    { re: /(Clone|Copy|Duplicate|Fork)/i, weight: 1, tag: "cloning" },
   ];
 
   /** Module / interface name patterns that indicate high-risk domains. */
@@ -38,6 +40,8 @@
     { re: /\b(web_install|payment|webshare|webxr|web_lock)\b/i, weight: 1, label: "web-api" },
     { re: /\b(shared_storage|fenced_frame|attribution|interest_group)\b/i, weight: 2, label: "privacy-sandbox" },
     { re: /\b(devtools|extensions|plugin)\b/i, weight: 1, label: "privileged" },
+    { re: /\b(process|host|browser_context|service_worker)\b/i, weight: 2, label: "browser-process" },
+    { re: /\b(download|installer|updater)\b/i, weight: 2, label: "installer" },
   ];
 
   // ── Scoring engine ───────────────────────────────────────────────
@@ -365,7 +369,7 @@
           <div class="award-actions">
             <a href="${searchUrl}" target="_blank" rel="noopener" class="award-action-btn award-action-code" title="Search Chromium source code">C++ Source</a>
             <button class="award-action-btn award-action-research" data-interface="${MojoUtils.escapeHtml(interfaceName)}" title="Navigate to this interface in the browser panel">Research</button>
-            <button class="award-action-btn award-action-fuzz" data-interface="${MojoUtils.escapeHtml(interfaceName)}" title="Open fuzzer for this interface">Fuzz</button>
+            <button class="award-action-btn award-action-fuzz" data-interface="${MojoUtils.escapeHtml(interfaceName)}" data-method="${methodHtml}" title="Open fuzzer for this interface">Fuzz</button>
           </div>
         </div>
       `;
@@ -417,10 +421,18 @@
       }
       const fuzzBtn = e.target.closest(".award-action-fuzz");
       if (fuzzBtn) {
-        navigateToInterface(fuzzBtn.dataset.interface);
+        const ifaceName = fuzzBtn.dataset.interface;
+        const methodName = fuzzBtn.dataset.method || "";
+        navigateToInterface(ifaceName);
         setTimeout(() => {
           const tab = document.querySelector('[data-tab="fuzzer"]');
           if (tab) tab.click();
+          // Pre-populate fuzzer with the selected target
+          if (window.MojoFuzzer && window.MojoFuzzer.preloadTarget) {
+            setTimeout(() => {
+              MojoFuzzer.preloadTarget(ifaceName, methodName);
+            }, 200);
+          }
         }, 300);
       }
     });

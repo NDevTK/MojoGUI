@@ -1580,6 +1580,43 @@
       this.syncSelectedInterface();
     },
 
+    /**
+     * Pre-populate fuzzer with a target from Awards or external caller.
+     * Selects the interface and optionally the method in the dropdowns.
+     */
+    preloadTarget(interfaceName, methodName) {
+      if (!interfaceName) return;
+      const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+      const q = interfaceName.toLowerCase();
+      const match = interfaces.find((i) => i.name.toLowerCase() === q) ||
+        interfaces.find((i) => (i.module + "." + i.name).toLowerCase().includes(q));
+      if (match) {
+        // Select the interface in the main app (which triggers syncSelectedInterface)
+        const internal = global.__MojoGUI_Internal;
+        if (internal && internal.selectInterface) {
+          internal.selectInterface(match.name, match.module);
+        }
+        // After methods load, select the target method
+        if (methodName) {
+          const trySelectMethod = (attempts) => {
+            const select = document.getElementById("fuzzer-method-select");
+            if (!select || select.disabled) {
+              if (attempts > 0) setTimeout(() => trySelectMethod(attempts - 1), 200);
+              return;
+            }
+            for (const opt of select.options) {
+              if (opt.value.toLowerCase() === methodName.toLowerCase()) {
+                select.value = opt.value;
+                this.updateStartButton();
+                return;
+              }
+            }
+          };
+          setTimeout(() => trySelectMethod(10), 300);
+        }
+      }
+    },
+
     async populateMethods(interfaceFqn) {
       const select = document.getElementById("fuzzer-method-select");
       if (!select) return;
@@ -1828,12 +1865,19 @@
         delete callParams.__technique;
 
         const callStartTime = performance.now();
-        const result = await MojoExecutionService.call(
+        const callPromise = MojoExecutionService.call(
           resolved.target,
           methodName,
           callParams,
           resolved.options,
         );
+        const CALL_TIMEOUT_MS = 30000; // 30s hard timeout for hang detection
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error(
+            `TIMEOUT after ${CALL_TIMEOUT_MS / 1000}s — possible hang/DoS vector`
+          )), CALL_TIMEOUT_MS),
+        );
+        const result = await Promise.race([callPromise, timeoutPromise]);
         const callDuration = performance.now() - callStartTime;
 
         this.clearInflight();
