@@ -46,6 +46,7 @@
   var JS_MSG_OFFSET     = 4096;           // JS → WinDbg message area
   var JS_MSG_SIZE       = 4096;
   var POLL_INTERVAL_MS  = 200;
+  var FAST_POLL_INTERVAL_MS = 50;  // Used during active coverage-guided fuzzing
 
   // Header field offsets
   var OFF_JS_SEQ        = 16;
@@ -70,6 +71,22 @@
     _methodHints: new Map(), // "iface.method" → hints from PDB analysis
     _masterHandleIds: new Map(), // interfaceName → MojoHandleRegistry ID
     _masterHandleValues: new Map(), // interfaceName → raw native handle value
+    _fuzzEntries: [],     // Queue of fuzz_entry events from WinDbg (method was entered)
+    _coverageEdges: new Map(),  // edgeId → { name, firstHitTime }
+    _coverageNewEdges: [],      // Queue of newly-discovered edge IDs (delta per drain)
+    _coverageCorpus: [],        // Corpus of inputs that found new edges: { params, edges, method, interface }
+    _coverageTotalEdges: 0,     // Total edges instrumented by WinDbg
+    _coverageEnabled: false,    // Whether coverage tracking is active
+    _bridgeStats: {       // Stats about bridge data received
+      validationErrorsTotal: 0,
+      crashReportsTotal: 0,
+      methodHintsTotal: 0,
+      interfaceSyncs: 0,
+      fuzzEntriesTotal: 0,
+      coverageEdgesTotal: 0,
+      coverageReports: 0,
+      lastActivity: 0,
+    },
 
     // ── Lifecycle ───────────────────────────────────────────────
 
@@ -106,6 +123,20 @@
       this._view = null;
       this._bytes = null;
       this._connected = false;
+    },
+
+    /**
+     * Switch between normal (200ms) and fast (50ms) poll intervals.
+     * Fast polling is used during coverage-guided fuzzing for tighter feedback.
+     */
+    setFastPoll: function (enabled) {
+      if (!this._buffer) return;
+      var interval = enabled ? FAST_POLL_INTERVAL_MS : POLL_INTERVAL_MS;
+      if (this._pollTimer) {
+        clearInterval(this._pollTimer);
+      }
+      var self = this;
+      this._pollTimer = setInterval(function () { self._poll(); }, interval);
     },
 
     /** Whether WinDbg has set its ready bit. */
@@ -285,6 +316,9 @@
           }
         }
 
+        self._bridgeStats.interfaceSyncs++;
+        self._bridgeStats.lastActivity = Date.now();
+
         var summary = "WinDbg synced " + Object.keys(msg.data).length + " IDs";
         if (masterCount > 0) {
           summary += " + " + masterCount + " master handles (auto-hijack)";
@@ -300,18 +334,26 @@
       // tell us *exactly* which validation check failed (e.g.
       // "VALIDATION_ERROR_UNEXPECTED_NULL_POINTER"), which is far more
       // specific than the JS-level "connection lost" the fuzzer normally sees.
+      // With smart attribution, the interface/method are now extracted from
+      // the actual C++ call stack instead of always being "unknown".
       this.on("validation_error", function (msg) {
-        console.log("[DebugBridge] Validation error: " + msg.interface + "." + msg.method + ": " + msg.message);
+        var attributed = msg.attributed ? " [attributed]" : "";
+        console.log("[DebugBridge] Validation error" + attributed + ": " +
+          msg.interface + "." + msg.method + ": " + msg.message);
 
         // Accumulate in a queue the fuzzer can drain
         self._validationErrors.push({
           interface: msg.interface || "",
           method: msg.method || "",
           message: msg.message || "",
+          attributed: !!msg.attributed,
+          fuzzTarget: msg.fuzzTarget || null,
           timestamp: Date.now(),
         });
         // Cap queue
         if (self._validationErrors.length > 50) self._validationErrors.shift();
+        self._bridgeStats.validationErrorsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
       });
 
       // Consume crash reports from WinDbg (from previous renderer or live crash)
@@ -320,6 +362,8 @@
           " addr=" + msg.crashAddress + " frames=" + (msg.stackFrames || []).length);
         self._crashReports.push(msg);
         if (self._crashReports.length > 10) self._crashReports.shift();
+        self._bridgeStats.crashReportsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
 
         if (global.showToast) {
           global.showToast(
@@ -332,13 +376,70 @@
       // Consume PDB method analysis hints — the fuzzer uses these to generate
       // values near comparison constants, probe null-checked params, and
       // focus on methods that call ReportBadMessage.
+      // Enhanced hints now also include: string literals, callees, param
+      // signature, switch targets, and branch count.
       this.on("method_hints", function (msg) {
         var key = (msg.interface || "") + "." + (msg.method || "");
         self._methodHints.set(key, msg);
+        self._bridgeStats.methodHintsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
         console.log("[DebugBridge] Method hints for " + key +
           ": cmp=" + (msg.cmpConstants || []).length +
+          " strs=" + (msg.stringLiterals || []).length +
+          " callees=" + (msg.callees || []).length +
+          " branches=" + (msg.branchCount || 0) +
           " nullChks=" + (msg.nullChecks || 0) +
           " badMsg=" + !!msg.callsReportBadMessage);
+      });
+
+      // Consume fuzz_entry events — WinDbg confirms the C++ impl was entered
+      // for the method we're currently fuzzing. This is a high-confidence signal
+      // that our IPC message actually reached the handler.
+      this.on("fuzz_entry", function (msg) {
+        self._fuzzEntries.push({
+          interface: msg.interface || "",
+          method: msg.method || "",
+          thisPtr: msg.thisPtr || null,
+          timestamp: Date.now(),
+        });
+        if (self._fuzzEntries.length > 50) self._fuzzEntries.shift();
+        self._bridgeStats.fuzzEntriesTotal++;
+        self._bridgeStats.lastActivity = Date.now();
+      });
+
+      // Consume edge coverage reports from WinDbg.
+      // Each report contains newly-hit edge IDs from the one-shot breakpoints
+      // set on callees of the current fuzz target. This is semantic coverage:
+      // we track which code paths (security checks, validators, etc.) were
+      // exercised, not raw basic blocks.
+      this.on("edge_coverage", function (msg) {
+        var newEdges = msg.newEdges || [];
+        var now = Date.now();
+
+        for (var i = 0; i < newEdges.length; i++) {
+          var edge = newEdges[i];
+          var edgeId = typeof edge === "object" ? edge.id : edge;
+          var edgeName = typeof edge === "object" ? edge.name : ("edge_" + edgeId);
+
+          if (!self._coverageEdges.has(edgeId)) {
+            self._coverageEdges.set(edgeId, { name: edgeName, firstHitTime: now });
+            self._coverageNewEdges.push(edgeId);
+            self._bridgeStats.coverageEdgesTotal++;
+          }
+        }
+
+        if (msg.totalEdges !== undefined) {
+          self._coverageTotalEdges = msg.totalEdges;
+        }
+
+        self._coverageEnabled = true;
+        self._bridgeStats.coverageReports++;
+        self._bridgeStats.lastActivity = now;
+
+        if (newEdges.length > 0) {
+          console.log("[DebugBridge] Coverage: " + newEdges.length + " new edges (total: " +
+            self._coverageEdges.size + "/" + self._coverageTotalEdges + ")");
+        }
       });
 
       // Handle pong (WinDbg responding to our ping)
@@ -429,6 +530,121 @@
     getAnyMasterHandleId: function () {
       if (this._masterHandleIds.size === 0) return null;
       return this._masterHandleIds.values().next().value;
+    },
+
+    /**
+     * Drain all queued fuzz_entry events from WinDbg.
+     * These confirm the C++ impl was entered for the method being fuzzed.
+     */
+    drainFuzzEntries: function () {
+      var entries = this._fuzzEntries;
+      this._fuzzEntries = [];
+      return entries;
+    },
+
+    // ── Coverage integration ─────────────────────────────────────
+
+    /**
+     * Drain newly-discovered edge IDs since last drain.
+     * Returns an array of edge IDs and clears the pending queue.
+     */
+    drainNewEdges: function () {
+      var edges = this._coverageNewEdges;
+      this._coverageNewEdges = [];
+      return edges;
+    },
+
+    /**
+     * Get coverage statistics.
+     */
+    getCoverageStats: function () {
+      return {
+        enabled: this._coverageEnabled,
+        totalEdgesInstrumented: this._coverageTotalEdges,
+        totalEdgesHit: this._coverageEdges.size,
+        corpusSize: this._coverageCorpus.length,
+        pendingNewEdges: this._coverageNewEdges.length,
+      };
+    },
+
+    /**
+     * Add an input to the coverage corpus (called by fuzzer when input finds new edges).
+     */
+    addToCorpus: function (entry) {
+      this._coverageCorpus.push(entry);
+      // Cap corpus to prevent unbounded growth
+      if (this._coverageCorpus.length > 200) {
+        this._coverageCorpus.shift();
+      }
+    },
+
+    /**
+     * Get a random corpus entry for mutation.
+     * Returns null if corpus is empty.
+     */
+    getCorpusEntry: function () {
+      if (this._coverageCorpus.length === 0) return null;
+      return this._coverageCorpus[Math.floor(Math.random() * this._coverageCorpus.length)];
+    },
+
+    /**
+     * Get the full corpus (for export/inspection).
+     */
+    getCorpus: function () {
+      return this._coverageCorpus;
+    },
+
+    /**
+     * Get edge info by ID.
+     */
+    getEdgeInfo: function (edgeId) {
+      return this._coverageEdges.get(edgeId) || null;
+    },
+
+    /**
+     * Request WinDbg to set up coverage instrumentation for a method.
+     */
+    requestCoverage: function (interfaceFqn, methodName) {
+      return this.send({
+        type: "request_coverage",
+        interface: interfaceFqn,
+        method: methodName,
+      });
+    },
+
+    /**
+     * Reset coverage state (e.g. when switching fuzz targets).
+     */
+    resetCoverage: function () {
+      this._coverageEdges.clear();
+      this._coverageNewEdges = [];
+      this._coverageCorpus = [];
+      this._coverageTotalEdges = 0;
+      this._coverageEnabled = false;
+    },
+
+    /**
+     * Get bridge statistics for the UI status indicator.
+     */
+    getBridgeStats: function () {
+      return {
+        connected: this._connected,
+        validationErrorsTotal: this._bridgeStats.validationErrorsTotal,
+        crashReportsTotal: this._bridgeStats.crashReportsTotal,
+        methodHintsTotal: this._bridgeStats.methodHintsTotal,
+        interfaceSyncs: this._bridgeStats.interfaceSyncs,
+        fuzzEntriesTotal: this._bridgeStats.fuzzEntriesTotal,
+        coverageEdgesTotal: this._bridgeStats.coverageEdgesTotal,
+        coverageReports: this._bridgeStats.coverageReports,
+        lastActivity: this._bridgeStats.lastActivity,
+        masterHandleCount: this._masterHandleIds.size,
+        methodHintCount: this._methodHints.size,
+        pendingValidationErrors: this._validationErrors.length,
+        pendingCrashReports: this._crashReports.length,
+        coverageEdgesHit: this._coverageEdges.size,
+        coverageTotalEdges: this._coverageTotalEdges,
+        coverageCorpusSize: this._coverageCorpus.length,
+      };
     },
 
     // ── Debug Helpers ───────────────────────────────────────────

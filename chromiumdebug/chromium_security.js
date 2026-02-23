@@ -8370,6 +8370,9 @@ function initializeScript() {
     new host.functionAlias(bridge_status, "bridge_status"),
     new host.functionAlias(bridge_process_pending, "bridge_process"),
     new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
+    new host.functionAlias(bridge_push_validation_smart, "bridge_push_validation_smart"),
+    new host.functionAlias(bridge_capture_entry, "bridge_capture_entry"),
+    new host.functionAlias(bridge_mark_edge, "bridge_mark_edge"),
     new host.functionAlias(bridge_crash, "bridge_crash"),
     new host.functionAlias(bridge_analyze, "bridge_analyze"),
     // Debug-only (not needed for normal workflow)
@@ -12096,6 +12099,18 @@ function bridge_status() {
       Logger.empty();
       Logger.info("Pending JS message: " + JSON.stringify(msg));
     }
+
+    // Coverage stats
+    if (g_coverageTotalEdges > 0) {
+      var hitCount = 0;
+      for (var id in g_coverageMap) {
+        if (g_coverageMap[id].hit) hitCount++;
+      }
+      Logger.empty();
+      Logger.info("Coverage: " + hitCount + "/" + g_coverageTotalEdges +
+        " edges hit (session " + g_coverageSession + ")");
+      Logger.info("Pending edge reports: " + g_coverageNewEdges.length);
+    }
   } catch (e) {
     Logger.error("Error reading status: " + e);
   }
@@ -12294,8 +12309,9 @@ function bridge_help() {
   Logger.info("  - Interface IDs + master handles synced to MojoGUI (hijack enabled)");
   Logger.info("  - ReportBadMessage / ValidationError auto-pushed to fuzzer");
   Logger.info("  - Crash context captured and stashed across renderer restarts");
-  Logger.info("  - JS requests (analyze, resync, hijack) processed on BP hits");
+  Logger.info("  - JS requests (analyze, resync, hijack, coverage) processed on BP hits");
   Logger.info("  - PDB analysis triggered on-demand by fuzzer for each method");
+  Logger.info("  - Edge coverage via one-shot BPs on callees (coverage-guided fuzzing)");
   Logger.empty();
   Logger.header("DEBUG COMMANDS (normally not needed)");
   Logger.info("  !bridge_status       Show bridge connection diagnostics");
@@ -12305,6 +12321,428 @@ function bridge_help() {
   Logger.info("  !bridge_process      Manually process pending JS requests");
   Logger.empty();
   return "";
+}
+
+/// =============================================================================
+/// BRIDGE: SMART VALIDATION ERROR ATTRIBUTION
+/// =============================================================================
+
+/**
+ * Extract the Mojo interface and method from the current call stack.
+ * When a ReportBadMessage or ValidationError breakpoint fires, walk the
+ * stack frames to find the Impl class method that triggered the error.
+ * Returns { interface: string, method: string } or null.
+ */
+function bridge_extract_caller_context() {
+  try {
+    var frames = SymbolUtils.execute("k 15");
+    for (var line of frames) {
+      var lineStr = line.toString();
+      // Look for mojom Impl methods: pattern like "Foo::BarImpl::MethodName"
+      // or "content::FooHost::OnMethodName" etc.
+      var implMatch = lineStr.match(/(\w+(?:::\w+)*?(?:Impl|Host))::(\w+)/);
+      if (implMatch) {
+        var className = implMatch[1];
+        var methodName = implMatch[2];
+        // Skip destructors, constructors, operators
+        if (methodName.startsWith("~") || methodName === className.split("::").pop() ||
+            methodName.startsWith("operator")) continue;
+        // Skip internal Mojo dispatch frames
+        if (className.indexOf("mojo::") !== -1 && className.indexOf("Impl") === -1) continue;
+        // Convert class name to mojom-style interface name
+        var interfaceName = className.replace(/::/g, ".").replace(/Impl$/, "");
+        return { interface: interfaceName, method: methodName };
+      }
+      // Also look for mojom-generated stub dispatchers:
+      // e.g. "blink::mojom::LocalFrameHost_Stub::AcceptWithResponder"
+      var stubMatch = lineStr.match(/(\w+(?:::\w+)*?)_Stub::(Accept|AcceptWithResponder)/);
+      if (stubMatch) {
+        var stubName = stubMatch[1].replace(/::/g, ".");
+        return { interface: stubName, method: "dispatch" };
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
+/**
+ * Enhanced validation push: extracts caller context from the stack and
+ * optionally includes the bad message string and validation error code.
+ */
+function bridge_push_validation_smart(fallbackIface, fallbackMethod, message) {
+  if (!g_bridgeAddr) return;
+
+  // Try to get the actual interface/method from the call stack
+  var ctx = bridge_extract_caller_context();
+  var iface = (ctx && ctx.interface) ? ctx.interface : (fallbackIface || "unknown").toString();
+  var method = (ctx && ctx.method) ? ctx.method : (fallbackMethod || "unknown").toString();
+  var validationMsg = message ? message.toString() : "validation failed";
+
+  // Try to read the actual bad message string from RCX (std::string& arg)
+  var nativeMsg = null;
+  try {
+    var strLines = SymbolUtils.execute("da poi(@rcx) L80");
+    if (strLines.length > 0) {
+      var match = strLines[0].match(/^\s*[0-9a-f`]+\s+"?(.+?)"?\s*$/i);
+      if (match) nativeMsg = match[1];
+    }
+  } catch (e) {}
+
+  var payload = {
+    type: "validation_error",
+    interface: iface,
+    method: method,
+    message: nativeMsg || validationMsg,
+    attributed: !!(ctx && ctx.interface),
+    timestamp: Date.now(),
+  };
+
+  // Also capture the fuzz target if one was set (for correlation)
+  if (g_currentFuzzTarget) {
+    payload.fuzzTarget = g_currentFuzzTarget;
+  }
+
+  bridge_write(JSON.stringify(payload));
+}
+
+/// =============================================================================
+/// BRIDGE: FUZZ TARGET TRACKING & FOCUSED BREAKPOINTS
+/// =============================================================================
+
+var g_currentFuzzTarget = null;    // Current { interface, method } from JS fuzzer
+var g_fuzzTargetBpIds = [];        // BP IDs we've set for the current target
+
+/**
+ * Handle fuzz_target message from JS: track the current target and optionally
+ * set focused breakpoints on the method's C++ implementation.
+ */
+function bridge_handle_fuzz_target(msg) {
+  g_currentFuzzTarget = {
+    interface: msg.interface || "",
+    method: msg.method || "",
+    timestamp: Date.now(),
+  };
+
+  // Clear previous focused breakpoints
+  bridge_clear_fuzz_bps();
+
+  // Try to resolve the impl symbol and set a focused BP
+  if (!msg.interface || !msg.method) return;
+
+  var ifaceParts = msg.interface.split(".");
+  var simpleName = ifaceParts[ifaceParts.length - 1];
+  var method = msg.method;
+
+  var patterns = [
+    "chrome!*" + simpleName + "Impl::*" + method + "*",
+    "chrome!*" + simpleName + "Host::*" + method + "*",
+    "chrome!*" + simpleName + "::*" + method + "*",
+  ];
+
+  var ctl = SymbolUtils.getControl();
+  for (var pattern of patterns) {
+    var symbols = SymbolUtils.findSymbols(pattern);
+    for (var sym of symbols) {
+      if (sym.name.indexOf("[thunk]") !== -1) continue;
+      if (sym.name.indexOf("~") !== -1) continue;
+      if (sym.name.indexOf("operator") !== -1) continue;
+
+      try {
+        // Set a logging BP (non-breaking) that captures entry params
+        var cmd = 'bp ' + sym.name +
+          ' ".printf \\"[FUZZ] ' + msg.interface + '::' + method +
+          ' entered\\\\n\\"; !bridge_capture_entry; g"';
+        ctl.ExecuteCommand(cmd);
+        g_fuzzTargetBpIds.push(sym.name);
+        return; // One BP is enough
+      } catch (e) {}
+    }
+  }
+}
+
+/**
+ * Clear breakpoints set for the previous fuzz target.
+ */
+function bridge_clear_fuzz_bps() {
+  if (g_fuzzTargetBpIds.length === 0) return;
+  var ctl = SymbolUtils.getControl();
+  for (var sym of g_fuzzTargetBpIds) {
+    try {
+      ctl.ExecuteCommand("bc " + sym);
+    } catch (e) {}
+  }
+  g_fuzzTargetBpIds = [];
+}
+
+/**
+ * !bridge_capture_entry - Called from focused BP on fuzz target entry.
+ * Captures the RCX (this pointer) and basic frame info for correlation.
+ */
+function bridge_capture_entry() {
+  if (!g_bridgeAddr || !g_currentFuzzTarget) return "";
+
+  try {
+    var thisPtr = SymbolUtils.evaluate("@rcx");
+    var payload = {
+      type: "fuzz_entry",
+      interface: g_currentFuzzTarget.interface,
+      method: g_currentFuzzTarget.method,
+      thisPtr: thisPtr ? ("0x" + thisPtr.toString(16)) : null,
+      timestamp: Date.now(),
+    };
+    bridge_write(JSON.stringify(payload));
+  } catch (e) {}
+
+  return "";
+}
+
+/// =============================================================================
+/// BRIDGE: EDGE COVERAGE TRACKING (COVERAGE-GUIDED FUZZING)
+/// =============================================================================
+///
+/// Uses one-shot breakpoints on callees of the current fuzz target to track
+/// which code paths are exercised during fuzzing. Each callee BP fires once,
+/// records the edge hit, auto-removes itself, and continues execution.
+///
+/// This gives "semantic coverage": we know which security checks, validators,
+/// and code paths were reached, rather than raw basic-block counts. The overhead
+/// is minimal — each BP fires at most once per coverage session.
+
+var g_coverageMap = {};         // edgeId → { name, hit }
+var g_coverageNewEdges = [];    // Newly-hit edge IDs since last report
+var g_coverageBpIds = [];       // BP identifiers for cleanup
+var g_coverageTotalEdges = 0;   // Total edges instrumented
+var g_coverageSession = 0;      // Session counter (incremented per new target)
+
+/**
+ * Set up coverage instrumentation for the given method's callees.
+ * Uses the method_hints data if already analyzed, otherwise runs analysis first.
+ *
+ * Called when JS sends a request_coverage message or when bridge_handle_fuzz_target
+ * runs on a new target.
+ */
+function bridge_setup_coverage(interfaceName, methodName) {
+  if (!g_bridgeAddr) return;
+
+  var iface = interfaceName ? interfaceName.toString().replace(/"/g, "") : "";
+  var method = methodName ? methodName.toString().replace(/"/g, "") : "";
+
+  if (!iface || !method) return;
+
+  // Clear previous coverage session
+  bridge_clear_coverage_bps();
+  g_coverageMap = {};
+  g_coverageNewEdges = [];
+  g_coverageTotalEdges = 0;
+  g_coverageSession++;
+
+  Logger.info("[Coverage] Setting up for " + iface + "::" + method);
+
+  // Resolve the C++ implementation symbol
+  var ifaceParts = iface.split(".");
+  var simpleName = ifaceParts[ifaceParts.length - 1];
+
+  var implCandidates = [
+    "chrome!*" + simpleName + "Impl::*" + method + "*",
+    "chrome!*" + simpleName + "Host::*" + method + "*",
+    "chrome!*" + simpleName + "::*" + method + "*",
+  ];
+
+  var implSymbol = null;
+  var implAddr = null;
+
+  for (var pattern of implCandidates) {
+    var symbols = SymbolUtils.findSymbols(pattern);
+    for (var sym of symbols) {
+      if (sym.name.indexOf("[thunk]") !== -1) continue;
+      if (sym.name.indexOf("~") !== -1) continue;
+      if (sym.name.indexOf("operator") !== -1) continue;
+      implSymbol = sym.name;
+      implAddr = sym.addr;
+      break;
+    }
+    if (implSymbol) break;
+  }
+
+  if (!implSymbol) {
+    Logger.info("[Coverage] Could not resolve impl for " + iface + "::" + method);
+    return;
+  }
+
+  // Disassemble to find callees (uf /c shows called functions)
+  var callees = [];
+  try {
+    var disasm = SymbolUtils.execute("uf /c 0x" + implAddr);
+    var seen = new Set();
+
+    for (var line of disasm) {
+      var lineStr = line.toString();
+      var callMatch = lineStr.match(/call\s+(?:0x[0-9a-f`]+\s+)?(\S+![\w:]+)/i);
+      if (callMatch) {
+        var callee = callMatch[1];
+        if (seen.has(callee)) continue;
+        seen.add(callee);
+
+        // Skip very common runtime/internal functions that add noise
+        if (callee.indexOf("std::") !== -1) continue;
+        if (callee.indexOf("operator") !== -1) continue;
+        if (callee.indexOf("__") === 0) continue;
+        if (callee.indexOf("mojo::internal") !== -1) continue;
+        if (callee.indexOf("base::RefCounted") !== -1) continue;
+        if (callee.indexOf("base::subtle") !== -1) continue;
+
+        callees.push(callee);
+      }
+    }
+  } catch (e) {
+    Logger.info("[Coverage] Disassembly failed: " + e.message);
+    return;
+  }
+
+  if (callees.length === 0) {
+    Logger.info("[Coverage] No instrumentable callees found");
+    return;
+  }
+
+  // Limit to 30 callees to keep overhead manageable
+  var maxEdges = Math.min(callees.length, 30);
+  var ctl = SymbolUtils.getControl();
+  var setCount = 0;
+
+  for (var i = 0; i < maxEdges; i++) {
+    var callee = callees[i];
+    var edgeId = i;
+    g_coverageMap[edgeId] = { name: callee, hit: false };
+
+    try {
+      // One-shot BP (/1): fires once, marks edge, auto-removes, continues
+      // The !bridge_mark_edge command is called inline from the BP
+      var cmd = 'bp /1 ' + callee +
+        ' ".printf \\"[COV] edge ' + edgeId + ': ' +
+        callee.replace(/"/g, '\\"').substring(0, 60) +
+        '\\\\n\\"; !bridge_mark_edge ' + edgeId + '; g"';
+      ctl.ExecuteCommand(cmd);
+      g_coverageBpIds.push(callee);
+      setCount++;
+    } catch (e) {
+      // Some symbols may not be resolvable to BPs
+    }
+  }
+
+  g_coverageTotalEdges = setCount;
+  Logger.info("[Coverage] Instrumented " + setCount + "/" + callees.length +
+    " callees for " + iface + "::" + method);
+}
+
+/**
+ * !bridge_mark_edge - Called from one-shot BP to record an edge hit.
+ * The BP auto-removes after first hit, so this is called at most once per edge.
+ */
+function bridge_mark_edge(edgeId) {
+  var id = parseInt(edgeId);
+  if (isNaN(id)) return "";
+
+  if (g_coverageMap[id] && !g_coverageMap[id].hit) {
+    g_coverageMap[id].hit = true;
+    g_coverageNewEdges.push({
+      id: id,
+      name: g_coverageMap[id].name,
+    });
+  }
+
+  // Auto-report coverage when we have new edges and the bridge is connected
+  // This piggybacks on the BP hit — no need to wait for a separate poll
+  if (g_coverageNewEdges.length > 0 && g_bridgeAddr) {
+    bridge_report_coverage();
+  }
+
+  return "";
+}
+
+/**
+ * Push coverage delta to MojoGUI via the bridge.
+ * Sends only newly-discovered edges since the last report.
+ */
+function bridge_report_coverage() {
+  if (!g_bridgeAddr || g_coverageNewEdges.length === 0) return;
+
+  var totalHit = 0;
+  for (var id in g_coverageMap) {
+    if (g_coverageMap[id].hit) totalHit++;
+  }
+
+  var payload = {
+    type: "edge_coverage",
+    newEdges: g_coverageNewEdges,
+    totalEdges: g_coverageTotalEdges,
+    totalHit: totalHit,
+    session: g_coverageSession,
+  };
+
+  bridge_write(JSON.stringify(payload));
+
+  // Clear the delta — these edges have been reported
+  g_coverageNewEdges = [];
+}
+
+/**
+ * Clear all coverage breakpoints from the previous session.
+ */
+function bridge_clear_coverage_bps() {
+  if (g_coverageBpIds.length === 0) return;
+  var ctl = SymbolUtils.getControl();
+
+  for (var sym of g_coverageBpIds) {
+    try {
+      ctl.ExecuteCommand("bc " + sym);
+    } catch (e) {}
+  }
+
+  g_coverageBpIds = [];
+}
+
+/// =============================================================================
+/// BRIDGE: HEAP STATE INSPECTION ON VALIDATION ERRORS
+/// =============================================================================
+
+/**
+ * Capture heap/memory context around a validation error.
+ * Called from the enhanced validation breakpoints.
+ * Returns enriched context about the memory state.
+ */
+function bridge_capture_heap_context() {
+  var ctx = {
+    heapAllocations: 0,
+    stackDepth: 0,
+    locals: [],
+  };
+
+  try {
+    // Count stack depth
+    var frames = SymbolUtils.execute("k");
+    ctx.stackDepth = frames.length;
+
+    // Capture key local variables from the impl frame
+    // Walk up to find the first non-mojo frame
+    for (var line of frames) {
+      var lineStr = line.toString();
+      if (lineStr.indexOf("Impl::") !== -1 || lineStr.indexOf("Host::") !== -1) {
+        // Try to dump locals for this frame
+        try {
+          var locals = SymbolUtils.execute("dv /t");
+          for (var local of locals) {
+            var localStr = local.toString().trim();
+            if (localStr.length > 0 && localStr.length < 200) {
+              ctx.locals.push(localStr);
+            }
+          }
+        } catch (e2) {}
+        break;
+      }
+    }
+  } catch (e) {}
+
+  return ctx;
 }
 
 /// =============================================================================
@@ -12416,17 +12854,19 @@ function bridge_setup_validation() {
 
   // ReportBadMessage: first arg (RCX on x64) is std::string& with the error
   // ReportValidationError: second arg (RDX) is the validation error code
-  // Each BP also calls bridge_process_pending to handle queued JS requests.
+  // Each BP uses bridge_push_validation_smart which walks the stack to extract
+  // the actual interface/method that triggered the error, then auto-processes
+  // pending JS messages.
   var targets = [
     {
       sym: "chrome!mojo::ReportBadMessage",
-      desc: "Bad message (security kill) -> bridge + auto-process",
-      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; da poi(@rcx) L80; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; !bridge_process; g"',
+      desc: "Bad message (security kill) -> smart attribution + bridge + auto-process",
+      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; !bridge_push_validation_smart \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; !bridge_process; g"',
     },
     {
       sym: "chrome!mojo::internal::ReportValidationError",
-      desc: "Validation error -> bridge + auto-process",
-      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; !bridge_process; g"',
+      desc: "Validation error -> smart attribution + bridge + auto-process",
+      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation_smart \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; !bridge_process; g"',
     },
   ];
 
@@ -12484,8 +12924,13 @@ function bridge_handle_message(msg) {
     }
   } else if (msg.type === "request_analyze") {
     bridge_analyze(msg.interface, msg.method);
+  } else if (msg.type === "request_coverage") {
+    // Set up edge coverage instrumentation for this method
+    bridge_setup_coverage(msg.interface, msg.method);
+  } else if (msg.type === "fuzz_target") {
+    // Track current fuzz target and optionally set focused BPs
+    bridge_handle_fuzz_target(msg);
   }
-  // fuzz_target: informational only, no action needed
 }
 
 /**
@@ -12544,10 +12989,15 @@ function bridge_analyze(interfaceName, methodName) {
     implSymbol: null,
     returnType: null,
     cmpConstants: [],
+    stringLiterals: [],       // String constants referenced in the function
+    callees: [],              // Functions called by this method
+    paramSignature: null,     // C++ parameter signature from PDB
+    switchTargets: 0,         // Number of switch/jump table entries
     callsReportBadMessage: false,
     validationChecks: [],
     nullChecks: 0,
     securityNotes: [],
+    branchCount: 0,           // Number of conditional branches (complexity indicator)
   };
 
   // 1. Resolve the Impl class from PDB symbols
@@ -12595,32 +13045,84 @@ function bridge_analyze(interfaceName, methodName) {
     Logger.info("  Returns: " + retType);
   }
 
-  // 3. Disassemble to find validation patterns
+  // 2b. Extract parameter signature from PDB
+  try {
+    // Use "x /t /v" to get the full decorated symbol with parameter types
+    var symInfo = SymbolUtils.execute("x /t " + implSymbol);
+    if (symInfo.length > 0) {
+      var sigMatch = symInfo[0].toString().match(/\(([^)]*)\)/);
+      if (sigMatch) {
+        hints.paramSignature = sigMatch[1];
+        Logger.info("  Params: " + sigMatch[1]);
+      }
+    }
+  } catch (e) {}
+
+  // 3. Disassemble with call targets ("uf /c" shows called functions)
   try {
     var disasm = SymbolUtils.execute("uf /c 0x" + implAddr);
     var nullCheckCount = 0;
+    var branchCount = 0;
+    var calleeSet = new Set();
 
     for (var line of disasm) {
       var lineStr = line.toString();
 
-      if (lineStr.indexOf("ReportBadMessage") !== -1) {
+      // Extract callees (functions this method calls)
+      var callMatch = lineStr.match(/call\s+(?:0x[0-9a-f`]+\s+)?(\S+![\w:]+)/i);
+      if (callMatch) {
+        var callee = callMatch[1];
+        if (!calleeSet.has(callee)) {
+          calleeSet.add(callee);
+
+          // Classify the callee for security relevance
+          if (callee.indexOf("ReportBadMessage") !== -1) {
+            hints.callsReportBadMessage = true;
+            hints.validationChecks.push("report_bad_message");
+          }
+          if (callee.indexOf("CHECK") !== -1 || callee.indexOf("DCHECK") !== -1) {
+            hints.validationChecks.push("dcheck");
+          }
+          if (callee.indexOf("ChildProcessSecurityPolicy") !== -1) {
+            hints.securityNotes.push("checks_security_policy");
+          }
+          if (callee.indexOf("CanAccessDataForOrigin") !== -1) {
+            hints.securityNotes.push("checks_origin");
+          }
+          if (callee.indexOf("IsFeatureEnabled") !== -1 || callee.indexOf("FeatureList") !== -1) {
+            hints.securityNotes.push("feature_gated");
+          }
+          if (callee.indexOf("GetContentClient") !== -1) {
+            hints.securityNotes.push("uses_content_client");
+          }
+          if (callee.indexOf("CanCommitURL") !== -1 || callee.indexOf("CanCommitOrigin") !== -1) {
+            hints.securityNotes.push("checks_commit_url");
+          }
+          if (callee.indexOf("HasWebUIScheme") !== -1 || callee.indexOf("IsWebUI") !== -1) {
+            hints.securityNotes.push("checks_webui");
+          }
+          if (callee.indexOf("ShouldSwapBrowsingInstance") !== -1) {
+            hints.securityNotes.push("checks_browsing_instance");
+          }
+          if (callee.indexOf("ReceivedBadMessage") !== -1) {
+            hints.validationChecks.push("received_bad_message");
+          }
+          if (callee.indexOf("mojo::") !== -1 || callee.indexOf("IPC::") !== -1) {
+            // Skip internal mojo/IPC callees for the list
+            continue;
+          }
+          // Store interesting callees (skip very common runtime functions)
+          if (callee.indexOf("std::") === -1 && callee.indexOf("operator") === -1 &&
+              callee.indexOf("__") !== 0) {
+            hints.callees.push(callee);
+          }
+        }
+      }
+
+      // Also check for inline references to these symbols
+      if (lineStr.indexOf("ReportBadMessage") !== -1 && !hints.callsReportBadMessage) {
         hints.callsReportBadMessage = true;
         hints.validationChecks.push("report_bad_message");
-      }
-      if (lineStr.indexOf("CHECK") !== -1) {
-        hints.validationChecks.push("dcheck");
-      }
-      if (lineStr.indexOf("ChildProcessSecurityPolicy") !== -1) {
-        hints.securityNotes.push("checks_security_policy");
-      }
-      if (lineStr.indexOf("CanAccessDataForOrigin") !== -1) {
-        hints.securityNotes.push("checks_origin");
-      }
-      if (lineStr.indexOf("IsFeatureEnabled") !== -1 || lineStr.indexOf("FeatureList") !== -1) {
-        hints.securityNotes.push("feature_gated");
-      }
-      if (lineStr.indexOf("GetContentClient") !== -1) {
-        hints.securityNotes.push("uses_content_client");
       }
 
       // Extract cmp constants (potential enum bounds, array sizes, etc.)
@@ -12638,20 +13140,87 @@ function bridge_analyze(interfaceName, methodName) {
       if (lineStr.match(/test\s+(\w+),\s*\1/i)) {
         nullCheckCount++;
       }
+
+      // Count conditional branches
+      if (lineStr.match(/\bj[a-z]{1,3}\s+/i)) {
+        branchCount++;
+      }
+
+      // Detect switch/jump tables
+      if (lineStr.match(/\bjmp\s+.*\[.*\*.*\]/i) || lineStr.indexOf("__switch") !== -1) {
+        hints.switchTargets++;
+      }
     }
 
     hints.nullChecks = nullCheckCount;
+    hints.branchCount = branchCount;
     // Deduplicate comparison constants
     hints.cmpConstants = [...new Set(hints.cmpConstants)].sort(function (a, b) { return a - b; });
+    // Cap callees to avoid huge payloads
+    if (hints.callees.length > 30) hints.callees = hints.callees.slice(0, 30);
+    // Deduplicate arrays
+    hints.validationChecks = [...new Set(hints.validationChecks)];
+    hints.securityNotes = [...new Set(hints.securityNotes)];
 
     if (hints.cmpConstants.length > 0) Logger.info("  Comparison constants: " + hints.cmpConstants.join(", "));
     if (hints.callsReportBadMessage) Logger.info("  CALLS ReportBadMessage (has validation failure path)");
     if (nullCheckCount > 0) Logger.info("  Null checks: " + nullCheckCount);
+    if (branchCount > 0) Logger.info("  Branches: " + branchCount + " (complexity)");
+    if (hints.callees.length > 0) Logger.info("  Callees: " + hints.callees.length + " functions");
+    if (hints.switchTargets > 0) Logger.info("  Switch/jump tables: " + hints.switchTargets);
     if (hints.securityNotes.length > 0) Logger.info("  Security: " + hints.securityNotes.join(", "));
 
   } catch (e) {
     Logger.debug("Disassembly analysis failed: " + e.message);
     hints.securityNotes.push("disasm_failed");
+  }
+
+  // 3b. Extract string literals referenced by the function
+  //     These are often error messages, validation strings, or comparison targets.
+  try {
+    // Full disassembly to find lea instructions loading string constants
+    var fullDisasm = SymbolUtils.execute("uf 0x" + implAddr);
+    var stringAddrs = new Set();
+
+    for (var line of fullDisasm) {
+      var lineStr = line.toString();
+      // Look for lea with RIP-relative addressing (common for string constants)
+      var leaMatch = lineStr.match(/lea\s+\w+,\s*\[.*?(0x[0-9a-fA-F`]+)\s*\]/i);
+      if (leaMatch) {
+        var addr = leaMatch[1].replace(/`/g, "");
+        stringAddrs.add(addr);
+      }
+    }
+
+    // Try to read string content at each address
+    for (var addr of stringAddrs) {
+      if (hints.stringLiterals.length >= 20) break;
+      try {
+        var strLines = SymbolUtils.execute("da " + addr + " L80");
+        if (strLines.length > 0) {
+          var match = strLines[0].match(/^\s*[0-9a-f`]+\s+"(.+?)"/i);
+          if (match && match[1].length > 2 && match[1].length < 200) {
+            // Filter out garbage: must have at least some printable chars
+            var str = match[1];
+            if (/[a-zA-Z]{2}/.test(str)) {
+              hints.stringLiterals.push(str);
+            }
+          }
+        }
+      } catch (e2) {}
+    }
+
+    if (hints.stringLiterals.length > 0) {
+      Logger.info("  String literals: " + hints.stringLiterals.length + " found");
+      for (var i = 0; i < Math.min(5, hints.stringLiterals.length); i++) {
+        var display = hints.stringLiterals[i].length > 60
+          ? hints.stringLiterals[i].substring(0, 60) + "..."
+          : hints.stringLiterals[i];
+        Logger.info("    \"" + display + "\"");
+      }
+    }
+  } catch (e) {
+    Logger.debug("String literal extraction failed: " + e.message);
   }
 
   // 4. Try to get class member types from PDB via dt

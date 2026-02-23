@@ -933,10 +933,268 @@
   // Register feedback-guided as a technique
   FuzzTechniques.feedbackGuided = feedbackGuidedParams;
 
+  // ── Code-aware technique ────────────────────────────────────────
+  // Uses WinDbg bridge data (string literals, callees, security notes,
+  // comparison constants, branch count) to generate highly targeted inputs.
+  // This is the highest-value technique when WinDbg is connected because
+  // it probes the actual C++ implementation's code paths.
+
+  /**
+   * Generate params using code-aware analysis from WinDbg's PDB data.
+   * Falls back to feedbackGuided if no bridge data is available.
+   */
+  function codeAwareParams(methodDef, iteration) {
+    const iface = MojoFuzzer._currentInterface || "";
+    const hints = (typeof DebugBridge !== "undefined")
+      ? DebugBridge.getMethodHints(iface, methodDef.name)
+      : null;
+
+    // Fall back to feedbackGuided if no WinDbg data available
+    if (!hints || (!hints.cmpConstants.length && !hints.stringLiterals?.length &&
+                   !hints.callees?.length && !hints.securityNotes?.length)) {
+      return feedbackGuidedParams(methodDef, iteration);
+    }
+
+    const params = {};
+
+    for (const p of methodDef.parameters) {
+      const pType = typeof p.type === "object" ? p.type.type : p.type;
+      const nameLower = p.name.toLowerCase();
+
+      // Strategy selection based on what WinDbg data tells us about the code
+
+      // 1. String literal probing: if the binary contains string constants,
+      //    use them as fuzz values — they might be comparison targets
+      //    (error messages, expected values, enum-like strings)
+      if (hints.stringLiterals && hints.stringLiterals.length > 0 &&
+          (pType === "string" || pType === "string16" || pType === "bigstring" || pType === "bigstring16") &&
+          Math.random() < 0.5) {
+        const literal = hints.stringLiterals[Math.floor(Math.random() * hints.stringLiterals.length)];
+        // Mutate the string literal slightly to probe boundaries
+        params[p.name] = FuzzGenerators._pick([
+          literal,                                  // Exact match
+          literal.toUpperCase(),                    // Case variation
+          literal.toLowerCase(),
+          literal + "\x00",                         // Null termination
+          literal.substring(0, literal.length - 1), // Off-by-one truncation
+          literal + "X",                            // One extra char
+          "",                                       // Empty (test missing)
+          literal.split("").reverse().join(""),     // Reversed
+        ]);
+        continue;
+      }
+
+      // 2. Security-note-driven: adapt values based on what security checks
+      //    the method performs in C++
+      if (hints.securityNotes && hints.securityNotes.length > 0 && Math.random() < 0.4) {
+        const notes = hints.securityNotes;
+
+        // If method checks origins, try different origin scenarios
+        if ((notes.includes("checks_origin") || notes.includes("checks_security_policy") ||
+             notes.includes("checks_commit_url")) &&
+            (pType === "Url" || pType === "string" || nameLower.includes("url") || nameLower.includes("origin"))) {
+          params[p.name] = FuzzGenerators._pick([
+            "https://evil.com",
+            "null",
+            "https://example.com",
+            "chrome://settings",
+            "file:///etc/passwd",
+            "data:text/html,<h1>test</h1>",
+            "about:blank",
+            "blob:https://evil.com/uuid",
+            "https://example.com\x00https://evil.com",
+            "https://evil.com@example.com",
+            "https://example.com%2F..%2F..%2Fetc/passwd",
+            "javascript:alert(1)",
+            "https://[::1]/",
+          ]);
+          continue;
+        }
+
+        // If method checks WebUI, try WebUI-related values
+        if (notes.includes("checks_webui") &&
+            (pType === "Url" || pType === "string" || nameLower.includes("url"))) {
+          params[p.name] = FuzzGenerators._pick([
+            "chrome://settings",
+            "chrome://flags",
+            "chrome://extensions",
+            "chrome-untrusted://terminal",
+            "chrome://new-tab-page",
+            "devtools://devtools/bundled/inspector.html",
+            "chrome://downloads",
+          ]);
+          continue;
+        }
+
+        // If method is feature-gated, sometimes send values that bypass the check
+        if (notes.includes("feature_gated") && pType === "bool" && Math.random() < 0.3) {
+          params[p.name] = true; // Try to enable the feature path
+          continue;
+        }
+
+        // If method checks browsing instances
+        if (notes.includes("checks_browsing_instance") &&
+            (pType === "number" || nameLower.includes("id"))) {
+          params[p.name] = FuzzGenerators._pick([
+            0, -1, 1, 0xFFFFFFFF, 0x7FFFFFFF, 0xDEADBEEF,
+          ]);
+          continue;
+        }
+      }
+
+      // 3. Comparison constant probing (enhanced): use switch target count
+      //    to determine if this is an enum-like parameter
+      if (hints.cmpConstants.length > 0 && Math.random() < 0.5) {
+        if (pType === "number" || pType === "int64" || pType === "enum" ||
+            pType === "int32" || pType === "uint32") {
+          const boundary = hints.cmpConstants[Math.floor(Math.random() * hints.cmpConstants.length)];
+          // For methods with switch tables, try values around all comparison constants
+          if (hints.switchTargets > 0 && Math.random() < 0.5) {
+            // Systematic probing: try each cmp constant ± small delta
+            const cmpIdx = iteration % hints.cmpConstants.length;
+            const delta = FuzzGenerators._pick([0, -1, 1]);
+            const val = hints.cmpConstants[cmpIdx] + delta;
+            params[p.name] = pType === "int64" ? BigInt(val) : val;
+          } else {
+            const delta = FuzzGenerators._pick([0, -1, 1, -2, 2]);
+            const val = boundary + delta;
+            params[p.name] = pType === "int64" ? BigInt(val) : val;
+          }
+          continue;
+        }
+      }
+
+      // 4. Callee-guided: if the method calls specific validators,
+      //    bias toward inputs that would exercise those code paths
+      if (hints.callees && hints.callees.length > 0 && Math.random() < 0.3) {
+        const calleeStr = hints.callees.join(" ");
+        // If method calls URL parsing, try URL-like values even for string params
+        if (calleeStr.indexOf("GURL") !== -1 || calleeStr.indexOf("URLParse") !== -1) {
+          if (pType === "string" || pType === "string16") {
+            params[p.name] = FuzzGenerators._pick([
+              "https://example.com", "not-a-url", "", "://",
+              "http://evil.com", "file:///tmp", "data:text/plain,hi",
+            ]);
+            continue;
+          }
+        }
+        // If method calls permission-checking functions
+        if (calleeStr.indexOf("Permission") !== -1) {
+          if (pType === "enum" || pType === "number") {
+            params[p.name] = FuzzGenerators._pick([0, 1, 2, -1, 999]);
+            continue;
+          }
+        }
+      }
+
+      // 5. Null-check-guided: if the method has many null checks, exercise them
+      if (hints.nullChecks > 3 && Math.random() < 0.25) {
+        params[p.name] = null;
+        continue;
+      }
+
+      // 6. Branch-complexity-guided: methods with more branches deserve
+      //    more diverse values to explore different paths
+      if (hints.branchCount > 20 && Math.random() < 0.3) {
+        // Use extra-diverse fuzz values for complex methods
+        params[p.name] = FuzzGenerators.generate(p);
+        continue;
+      }
+
+      // Default: use standard fuzz generation
+      params[p.name] = FuzzGenerators.generate(p);
+    }
+
+    return params;
+  }
+
+  FuzzTechniques.codeAware = codeAwareParams;
+
+  // ── Coverage-guided technique ──────────────────────────────────
+  // Mutates inputs from the coverage corpus — inputs that previously
+  // triggered new code paths (edges) in the C++ implementation.
+  // This is the highest-value technique when WinDbg coverage is active
+  // because it focuses on inputs that actually reach new code.
+
+  /**
+   * Generate params by mutating a corpus entry that found new coverage.
+   * Falls back to feedbackGuided if no corpus entries are available.
+   */
+  function coverageGuidedParams(methodDef, iteration) {
+    if (typeof DebugBridge === "undefined" || !DebugBridge.getCoverageStats().enabled) {
+      return feedbackGuidedParams(methodDef, iteration);
+    }
+
+    var corpusEntry = DebugBridge.getCorpusEntry();
+    if (!corpusEntry || !corpusEntry.params) {
+      return feedbackGuidedParams(methodDef, iteration);
+    }
+
+    // Mutate 1-2 params from the corpus entry
+    var params = {};
+    var corpusParams = corpusEntry.params;
+    var paramCount = methodDef.parameters.length;
+    var mutateCount = Math.min(paramCount, FuzzGenerators._pick([1, 1, 2]));
+    var mutateIndices = new Set();
+    while (mutateIndices.size < mutateCount && mutateIndices.size < paramCount) {
+      mutateIndices.add(Math.floor(Math.random() * paramCount));
+    }
+
+    for (var i = 0; i < paramCount; i++) {
+      var p = methodDef.parameters[i];
+      if (mutateIndices.has(i)) {
+        // Mutate this param: use a mix of strategies
+        var roll = Math.random();
+        if (roll < 0.3) {
+          // Boundary mutation of the corpus value
+          var corpusVal = corpusParams[p.name];
+          if (corpusVal !== undefined && corpusVal !== null) {
+            params[p.name] = mutateBoundary(
+              FeedbackEngine._serializeValue(corpusVal), p);
+          } else {
+            params[p.name] = FuzzGenerators.generate(p);
+          }
+        } else if (roll < 0.6) {
+          // Fresh fuzz value
+          params[p.name] = FuzzGenerators.generate(p);
+        } else {
+          // Use code-aware hints if available
+          var iface = MojoFuzzer._currentInterface || "";
+          var hints = DebugBridge.getMethodHints(iface, methodDef.name);
+          if (hints && hints.cmpConstants && hints.cmpConstants.length > 0) {
+            var pType = typeof p.type === "object" ? p.type.type : p.type;
+            if (pType === "number" || pType === "int64" || pType === "enum") {
+              var cmpVal = hints.cmpConstants[Math.floor(Math.random() * hints.cmpConstants.length)];
+              var delta = FuzzGenerators._pick([0, -1, 1, -2, 2]);
+              params[p.name] = pType === "int64" ? BigInt(cmpVal + delta) : (cmpVal + delta);
+            } else {
+              params[p.name] = FuzzGenerators.generate(p);
+            }
+          } else {
+            params[p.name] = FuzzGenerators.generate(p);
+          }
+        }
+      } else {
+        // Keep corpus value if available, otherwise generate valid
+        if (corpusParams[p.name] !== undefined) {
+          params[p.name] = corpusParams[p.name];
+        } else {
+          params[p.name] = ValidGenerators.generate(p);
+        }
+      }
+    }
+
+    return params;
+  }
+
+  FuzzTechniques.coverageGuided = coverageGuidedParams;
+
   /** Ordered list of techniques to cycle through */
   const TECHNIQUE_NAMES = [
     "targeted", "targeted", "targeted",  // Weight toward targeted
     "feedbackGuided", "feedbackGuided",   // Weight toward feedback-guided
+    "codeAware", "codeAware",             // Weight toward code-aware (WinDbg data)
+    "coverageGuided", "coverageGuided",   // Weight toward coverage-guided (WinDbg coverage)
     "multiField",
     "nullOmit",
     "typeConfuse",
@@ -1321,6 +1579,9 @@
     _responseTimes: [],
     _currentInterface: null, // Tracked for feedback engine context
     _bridgeIdRequested: false, // Whether we've already asked WinDbg for IDs
+    _lastFuzzedParams: null, // Last fuzzed params for coverage correlation
+    _bridgeStatusTimer: null, // Timer for updating bridge status indicator
+    _confirmedMethods: new Set(), // Methods confirmed to reach C++ impl via fuzz_entry
     SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
@@ -1330,6 +1591,79 @@
     init() {
       this.renderUI();
       this.checkForCrash();
+      this.startBridgeStatusUpdater();
+    },
+
+    /** Periodically update the WinDbg bridge status indicator. */
+    startBridgeStatusUpdater() {
+      if (this._bridgeStatusTimer) return;
+      const self = this;
+      this._bridgeStatusTimer = setInterval(function () {
+        self.updateBridgeStatus();
+      }, 1000);
+      // Immediate first update
+      this.updateBridgeStatus();
+    },
+
+    /** Update the bridge status indicator in the UI. */
+    updateBridgeStatus() {
+      if (typeof DebugBridge === "undefined") return;
+
+      const dot = document.getElementById("fuzzer-bridge-dot");
+      const label = document.getElementById("fuzzer-bridge-label");
+      const statsDiv = document.getElementById("fuzzer-bridge-stats");
+      if (!dot || !label) return;
+
+      const stats = DebugBridge.getBridgeStats();
+
+      if (stats.connected) {
+        dot.style.background = "var(--success-color, #22c55e)";
+        const ago = stats.lastActivity > 0
+          ? Math.round((Date.now() - stats.lastActivity) / 1000) + "s ago"
+          : "waiting";
+        label.textContent = "Connected (" + ago + ")";
+        label.style.color = "var(--success-color, #22c55e)";
+
+        if (statsDiv) {
+          statsDiv.style.display = "block";
+          const el = (id) => document.getElementById(id);
+          const hintsEl = el("bridge-stat-hints");
+          const errorsEl = el("bridge-stat-errors");
+          const crashesEl = el("bridge-stat-crashes");
+          const syncsEl = el("bridge-stat-syncs");
+          const entriesEl = el("bridge-stat-entries");
+          const handlesEl = el("bridge-stat-handles");
+          if (hintsEl) hintsEl.textContent = stats.methodHintsTotal;
+          if (errorsEl) errorsEl.textContent = stats.validationErrorsTotal;
+          if (crashesEl) crashesEl.textContent = stats.crashReportsTotal;
+          if (syncsEl) syncsEl.textContent = stats.interfaceSyncs;
+          if (entriesEl) entriesEl.textContent = stats.fuzzEntriesTotal;
+          if (handlesEl) handlesEl.textContent = stats.masterHandleCount;
+
+          // Coverage stats
+          const covDiv = document.getElementById("fuzzer-coverage-stats");
+          if (covDiv && stats.coverageTotalEdges > 0) {
+            covDiv.style.display = "block";
+            const covHitEl = document.getElementById("bridge-stat-cov-hit");
+            const covTotalEl = document.getElementById("bridge-stat-cov-total");
+            const corpusEl = document.getElementById("bridge-stat-corpus");
+            if (covHitEl) covHitEl.textContent = stats.coverageEdgesHit;
+            if (covTotalEl) covTotalEl.textContent = stats.coverageTotalEdges;
+            if (corpusEl) corpusEl.textContent = stats.coverageCorpusSize;
+          }
+        }
+      } else {
+        dot.style.background = "var(--text-muted)";
+        label.textContent = "Disconnected";
+        label.style.color = "var(--text-muted)";
+        if (statsDiv) statsDiv.style.display = "none";
+      }
+
+      // Drain fuzz_entry confirmations and track which methods are confirmed reachable
+      const entries = DebugBridge.drainFuzzEntries();
+      for (const entry of entries) {
+        this._confirmedMethods.add(entry.interface + "." + entry.method);
+      }
     },
 
     checkForCrash() {
@@ -1456,6 +1790,11 @@
       this.aborted = false;
       this._objectCache = {};
 
+      // Enable fast polling for tighter coverage feedback
+      if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+        DebugBridge.setFastPoll(true);
+      }
+
       document.getElementById("fuzzer-start-btn").disabled = true;
       document.getElementById("fuzzer-stop-btn").disabled = false;
       document.getElementById("fuzzer-progress-card").style.display = "block";
@@ -1568,11 +1907,40 @@
             concurrency,
           );
 
-          // Drain WinDbg validation errors into FeedbackEngine
+          // Drain WinDbg validation errors into FeedbackEngine.
+          // With smart attribution, errors now come with the actual
+          // interface/method extracted from the C++ call stack. If attribution
+          // succeeded, we use it directly. If not (attributed=false),
+          // we fall back to the fuzz_target context for correlation.
           if (typeof DebugBridge !== "undefined") {
             const nativeErrors = DebugBridge.drainValidationErrors();
             for (const ve of nativeErrors) {
-              FeedbackEngine.recordValidationError(ve.interface, ve.method, ve.message);
+              let errIface = ve.interface;
+              let errMethod = ve.method;
+
+              // If the error wasn't attributed from the stack, try the fuzz target
+              if (!ve.attributed && ve.fuzzTarget) {
+                errIface = ve.fuzzTarget.interface || errIface;
+                errMethod = ve.fuzzTarget.method || errMethod;
+              }
+
+              FeedbackEngine.recordValidationError(errIface, errMethod, ve.message);
+            }
+          }
+
+          // Drain coverage deltas and save interesting inputs to corpus
+          if (typeof DebugBridge !== "undefined" && DebugBridge.getCoverageStats().enabled) {
+            const newEdges = DebugBridge.drainNewEdges();
+            if (newEdges.length > 0 && this._lastFuzzedParams) {
+              // This batch found new edges - save the input to corpus
+              DebugBridge.addToCorpus({
+                params: FeedbackEngine._cloneParams(this._lastFuzzedParams.params),
+                interface: this._lastFuzzedParams.interface,
+                method: this._lastFuzzedParams.method,
+                newEdgeCount: newEdges.length,
+                edgeIds: newEdges,
+                timestamp: Date.now(),
+              });
             }
           }
 
@@ -1823,6 +2191,28 @@
             <button class="btn btn-secondary btn-small" id="fuzzer-sequence-btn" disabled title="Call all methods in sequence to test state-dependent bugs">
               Sequence Fuzz
             </button>
+          </div>
+        </div>
+
+        <div class="fuzzer-card" id="fuzzer-bridge-card">
+          <h4 style="display: flex; align-items: center; gap: 6px;">
+            WinDbg Bridge
+            <span id="fuzzer-bridge-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); display: inline-block;"></span>
+            <span id="fuzzer-bridge-label" style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">Disconnected</span>
+          </h4>
+          <div id="fuzzer-bridge-stats" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); display: none;">
+            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+              <span>Hints: <strong id="bridge-stat-hints">0</strong></span>
+              <span>Errors: <strong id="bridge-stat-errors">0</strong></span>
+              <span>Crashes: <strong id="bridge-stat-crashes">0</strong></span>
+              <span>Syncs: <strong id="bridge-stat-syncs">0</strong></span>
+              <span>Entries: <strong id="bridge-stat-entries">0</strong></span>
+              <span>Handles: <strong id="bridge-stat-handles">0</strong></span>
+            </div>
+            <div id="fuzzer-coverage-stats" style="margin-top: 4px; display: none;">
+              <span>Coverage: <strong id="bridge-stat-cov-hit">0</strong>/<strong id="bridge-stat-cov-total">0</strong> edges</span>
+              <span>Corpus: <strong id="bridge-stat-corpus">0</strong></span>
+            </div>
           </div>
         </div>
 
@@ -2175,6 +2565,11 @@
       this.aborted = true;
       this.running = false;
 
+      // Restore normal poll interval
+      if (typeof DebugBridge !== "undefined") {
+        DebugBridge.setFastPoll(false);
+      }
+
       // Only clear session if user explicitly stopped (not if we're about to resume)
       if (!keepSession) {
         this.clearSession();
@@ -2285,7 +2680,7 @@
       try {
         await MojoLoader.ensureBinding(interfaceFqn);
 
-        // Auto-request PDB analysis from WinDbg on first encounter
+        // Auto-request PDB analysis and coverage from WinDbg on first encounter
         if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
           const hintsKey = interfaceFqn + "." + methodName;
           if (!DebugBridge.getMethodHints(interfaceFqn, methodName) &&
@@ -2293,6 +2688,12 @@
             if (!this._analysisRequested) this._analysisRequested = new Set();
             this._analysisRequested.add(hintsKey);
             DebugBridge.requestAnalysis(interfaceFqn, methodName);
+          }
+          // Request coverage instrumentation for this method
+          if (!this._coverageRequested?.has(hintsKey)) {
+            if (!this._coverageRequested) this._coverageRequested = new Set();
+            this._coverageRequested.add(hintsKey);
+            DebugBridge.requestCoverage(interfaceFqn, methodName);
           }
         }
 
@@ -2302,12 +2703,36 @@
         );
 
         if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
-          // Cycle through fuzzing techniques each iteration
-          const techniqueName = TECHNIQUE_NAMES[iteration % TECHNIQUE_NAMES.length];
+          // Check if we have WinDbg hints or coverage for this method
+          let techniqueName;
+          const hasHints = (typeof DebugBridge !== "undefined") &&
+            DebugBridge.getMethodHints(interfaceFqn, methodName);
+          const hasCoverage = (typeof DebugBridge !== "undefined") &&
+            DebugBridge.getCoverageStats().enabled;
+          const hasCorpus = hasCoverage &&
+            DebugBridge.getCoverageStats().corpusSize > 0;
+
+          if (hasCorpus && Math.random() < 0.5) {
+            // 50% chance of coverage-guided when we have corpus entries
+            techniqueName = "coverageGuided";
+          } else if (hasHints && Math.random() < 0.4) {
+            // 40% chance of code-aware when we have WinDbg data
+            techniqueName = "codeAware";
+          } else {
+            techniqueName = TECHNIQUE_NAMES[iteration % TECHNIQUE_NAMES.length];
+          }
+
           const technique = FuzzTechniques[techniqueName];
           params = technique(methodDef, iteration);
           params.__technique = techniqueName;
         }
+
+        // Track for coverage correlation (which input triggered new edges)
+        this._lastFuzzedParams = {
+          interface: interfaceFqn,
+          method: methodName,
+          params: params,
+        };
 
         const resolved = this.resolveTarget(interfaceFqn);
 
@@ -2775,7 +3200,13 @@
       this.uniqueErrors.clear();
       this._responseTimes = [];
       this._bridgeIdRequested = false;
+      this._confirmedMethods = new Set();
+      this._coverageRequested = new Set();
+      this._lastFuzzedParams = null;
       FeedbackEngine.reset();
+      if (typeof DebugBridge !== "undefined") {
+        DebugBridge.resetCoverage();
+      }
       this.updateStats();
 
       const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -2829,6 +3260,12 @@
         uniqueErrors,
         feedback: FeedbackEngine.exportKnowledge(),
         pdbHints: (typeof DebugBridge !== "undefined") ? DebugBridge.getAllMethodHints() : {},
+        bridgeStats: (typeof DebugBridge !== "undefined") ? DebugBridge.getBridgeStats() : null,
+        coverage: (typeof DebugBridge !== "undefined") ? {
+          stats: DebugBridge.getCoverageStats(),
+          corpus: DebugBridge.getCorpus(),
+        } : null,
+        confirmedMethods: Array.from(this._confirmedMethods),
         totalResults: this.results.length,
         results: this.results,
       };
