@@ -930,9 +930,13 @@
     },
   };
 
+  // Register feedback-guided as a technique
+  FuzzTechniques.feedbackGuided = feedbackGuidedParams;
+
   /** Ordered list of techniques to cycle through */
   const TECHNIQUE_NAMES = [
     "targeted", "targeted", "targeted",  // Weight toward targeted
+    "feedbackGuided", "feedbackGuided",   // Weight toward feedback-guided
     "multiField",
     "nullOmit",
     "typeConfuse",
@@ -946,6 +950,284 @@
   // ========================================
   // Fuzzer Engine & UI
   // ========================================
+  // ── Response-guided feedback engine ──────────────────────────────
+  //
+  // Learns from IPC responses to guide future mutations:
+  // 1. Tracks which param values pass/fail validation per method
+  // 2. Builds a baseline response fingerprint per method
+  // 3. Detects structural anomalies when fuzzed responses differ from baseline
+  // 4. Maintains a ring buffer of recent calls for crash correlation
+
+  const FeedbackEngine = {
+    /** Per-method knowledge: { "iface.method": { baseline, paramFeedback, ... } } */
+    _methodKnowledge: new Map(),
+
+    /** Ring buffer of last N calls for crash correlation */
+    _callHistory: [],
+    HISTORY_SIZE: 20,
+
+    /** Record a call and its outcome for learning */
+    recordCall(interfaceFqn, methodName, params, status, result, errorMsg, durationMs) {
+      // 1. Push to ring buffer
+      this._callHistory.push({
+        interface: interfaceFqn,
+        method: methodName,
+        params: this._cloneParams(params),
+        status,
+        error: errorMsg,
+        durationMs,
+        timestamp: Date.now(),
+      });
+      if (this._callHistory.length > this.HISTORY_SIZE) {
+        this._callHistory.shift();
+      }
+
+      const key = interfaceFqn + "." + methodName;
+      if (!this._methodKnowledge.has(key)) {
+        this._methodKnowledge.set(key, {
+          baseline: null,         // First successful response fingerprint
+          successCount: 0,
+          errorCount: 0,
+          paramFeedback: {},      // { paramName: { accepted: [...], rejected: [...] } }
+          interestingInputs: [],  // Inputs that produced anomalous responses
+          errorPatterns: new Map(), // error message → param values that triggered it
+        });
+      }
+
+      const mk = this._methodKnowledge.get(key);
+
+      if (status === "success") {
+        mk.successCount++;
+
+        // Build baseline fingerprint from first success
+        if (!mk.baseline) {
+          mk.baseline = this._fingerprint(result);
+        } else {
+          // Differential analysis: compare to baseline
+          const current = this._fingerprint(result);
+          if (current !== mk.baseline) {
+            // This fuzzed input produced a structurally different response
+            mk.interestingInputs.push({
+              params: this._cloneParams(params),
+              reason: "response_anomaly",
+              baselineFingerprint: mk.baseline,
+              currentFingerprint: current,
+            });
+            // Cap stored interesting inputs
+            if (mk.interestingInputs.length > 10) mk.interestingInputs.shift();
+          }
+        }
+
+        // Record which param values were accepted
+        this._recordParamOutcome(mk, params, "accepted");
+      } else if (status === "error" && errorMsg) {
+        mk.errorCount++;
+
+        // Record which param values were rejected
+        this._recordParamOutcome(mk, params, "rejected");
+
+        // Track error patterns → param correlations
+        const errKey = errorMsg.substring(0, 100);
+        if (!mk.errorPatterns.has(errKey)) {
+          mk.errorPatterns.set(errKey, []);
+        }
+        const errList = mk.errorPatterns.get(errKey);
+        errList.push(this._cloneParams(params));
+        if (errList.length > 5) errList.shift();
+      }
+    },
+
+    /** Get learned knowledge for biasing mutations */
+    getKnowledge(interfaceFqn, methodName) {
+      return this._methodKnowledge.get(interfaceFqn + "." + methodName) || null;
+    },
+
+    /** Get the full call history for crash correlation */
+    getCallHistory() {
+      return this._callHistory;
+    },
+
+    /** Record per-param accept/reject for learning */
+    _recordParamOutcome(mk, params, outcome) {
+      for (const [name, value] of Object.entries(params)) {
+        if (name === "__technique") continue;
+        if (!mk.paramFeedback[name]) {
+          mk.paramFeedback[name] = { accepted: [], rejected: [] };
+        }
+        const fb = mk.paramFeedback[name];
+        const serialized = this._serializeValue(value);
+        const list = fb[outcome];
+        // Avoid duplicates and cap at 15 entries
+        if (!list.includes(serialized)) {
+          list.push(serialized);
+          if (list.length > 15) list.shift();
+        }
+      }
+    },
+
+    /** Create a structural fingerprint of a response (type + keys, not values) */
+    _fingerprint(obj) {
+      if (obj === null || obj === undefined) return "null";
+      if (typeof obj !== "object") return typeof obj;
+      if (Array.isArray(obj)) {
+        return "array[" + obj.length + ":" + (obj.length > 0 ? this._fingerprint(obj[0]) : "empty") + "]";
+      }
+      const keys = Object.keys(obj).sort();
+      const inner = keys.map((k) => k + ":" + typeof obj[k]).join(",");
+      return "{" + inner + "}";
+    },
+
+    /** Serialize a param value for comparison (lossy, for dedup) */
+    _serializeValue(val) {
+      if (val === null) return "null";
+      if (val === undefined) return "undefined";
+      if (typeof val === "object") {
+        try { return JSON.stringify(val).substring(0, 80); } catch { return "[object]"; }
+      }
+      return String(val).substring(0, 80);
+    },
+
+    /** Shallow clone params (avoid holding references to Mojo handles) */
+    _cloneParams(params) {
+      const clone = {};
+      for (const [k, v] of Object.entries(params)) {
+        if (k === "__technique") continue;
+        if (v === null || typeof v !== "object") {
+          clone[k] = v;
+        } else {
+          try { clone[k] = JSON.parse(JSON.stringify(v)); }
+          catch { clone[k] = "[uncloneable]"; }
+        }
+      }
+      return clone;
+    },
+
+    /** Reset all learned state */
+    reset() {
+      this._methodKnowledge.clear();
+      this._callHistory = [];
+    },
+
+    /** Export learned knowledge for the report */
+    exportKnowledge() {
+      const data = {};
+      for (const [key, mk] of this._methodKnowledge) {
+        data[key] = {
+          successCount: mk.successCount,
+          errorCount: mk.errorCount,
+          hasBaseline: !!mk.baseline,
+          interestingInputCount: mk.interestingInputs.length,
+          interestingInputs: mk.interestingInputs,
+          errorPatternCount: mk.errorPatterns.size,
+          paramFeedback: mk.paramFeedback,
+        };
+      }
+      return data;
+    },
+  };
+
+  // ── Feedback-guided technique ──────────────────────────────────
+  // Uses FeedbackEngine to bias mutations toward values near
+  // the accept/reject boundary for each parameter.
+
+  function feedbackGuidedParams(methodDef, iteration) {
+    const params = {};
+    const mk = FeedbackEngine.getKnowledge(
+      MojoFuzzer._currentInterface || "",
+      methodDef.name,
+    );
+
+    for (const p of methodDef.parameters) {
+      if (!mk || !mk.paramFeedback[p.name]) {
+        // No feedback yet — fall back to normal fuzz
+        params[p.name] = FuzzGenerators.generate(p);
+        continue;
+      }
+
+      const fb = mk.paramFeedback[p.name];
+
+      // Strategy: pick a value that was accepted, then mutate it slightly
+      // to probe the validation boundary
+      if (fb.accepted.length > 0 && Math.random() < 0.7) {
+        // Start from an accepted value and mutate
+        const baseStr = fb.accepted[Math.floor(Math.random() * fb.accepted.length)];
+        params[p.name] = mutateBoundary(baseStr, p);
+      } else if (fb.rejected.length > 0 && Math.random() < 0.5) {
+        // Replay a rejected value with slight variation
+        const baseStr = fb.rejected[Math.floor(Math.random() * fb.rejected.length)];
+        params[p.name] = mutateBoundary(baseStr, p);
+      } else {
+        params[p.name] = FuzzGenerators.generate(p);
+      }
+    }
+
+    // If we have interesting inputs, occasionally replay one with a twist
+    if (mk && mk.interestingInputs.length > 0 && Math.random() < 0.2) {
+      const interesting = mk.interestingInputs[
+        Math.floor(Math.random() * mk.interestingInputs.length)
+      ];
+      // Copy the interesting params but mutate one field
+      const keys = Object.keys(interesting.params);
+      const mutKey = keys[Math.floor(Math.random() * keys.length)];
+      for (const k of keys) {
+        if (k === mutKey) {
+          params[k] = FuzzGenerators.generate(
+            methodDef.parameters.find((p) => p.name === k) || { name: k, type: "any" },
+          );
+        } else {
+          params[k] = interesting.params[k];
+        }
+      }
+    }
+
+    return params;
+  }
+
+  /** Mutate a serialized value slightly to probe boundaries */
+  function mutateBoundary(serializedVal, paramDef) {
+    // Try to parse as a number for arithmetic mutations
+    const num = Number(serializedVal);
+    if (!isNaN(num) && isFinite(num)) {
+      const delta = FuzzGenerators._pick([1, -1, 2, -2, 0]);
+      const mutated = num + delta;
+      const t = typeof paramDef.type === "object" ? paramDef.type.type : paramDef.type;
+      if (t === "int64") return BigInt(Math.round(mutated));
+      return mutated;
+    }
+
+    // String mutations
+    if (serializedVal === "null") return null;
+    if (serializedVal === "undefined") return undefined;
+
+    // Try to parse as JSON for structural mutations
+    try {
+      const parsed = JSON.parse(serializedVal);
+      if (typeof parsed === "string") {
+        // Mutate string: truncate, extend, or flip case
+        return FuzzGenerators._pick([
+          parsed.substring(0, Math.max(0, parsed.length - 1)),
+          parsed + "X",
+          parsed + "\x00",
+          parsed.toUpperCase(),
+          "",
+        ]);
+      }
+      if (Array.isArray(parsed)) {
+        // Mutate array: add element, remove element, or empty
+        return FuzzGenerators._pick([
+          [...parsed, null],
+          parsed.slice(0, -1),
+          [],
+          [...parsed, ...parsed], // double
+        ]);
+      }
+      return parsed;
+    } catch {
+      // Fall back to generating a fresh fuzz value
+      return FuzzGenerators.generate(paramDef);
+    }
+  }
+
   const MojoFuzzer = {
     running: false,
     aborted: false,
@@ -955,6 +1237,7 @@
     _objectCache: {},
     _lastSuccessParams: null,
     _responseTimes: [],
+    _currentInterface: null, // Tracked for feedback engine context
     SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
@@ -979,14 +1262,19 @@
         this.stats.calls++;
 
         const crashKey = inflight.interface + "." + inflight.method;
+        const recentCalls = inflight.recentCalls || [];
+        const historyNote = recentCalls.length > 0
+          ? ` (${recentCalls.length} preceding calls available in export)`
+          : "";
         const errorKey = `${crashKey}: CRASH (page reloaded during call)`;
         this.uniqueErrors.set(errorKey, {
           count: 1,
           firstParams: inflight.params,
           firstMethod: inflight.method,
           firstInterface: inflight.interface,
+          recentCalls,
           error:
-            "Browser or tab crashed - page was reloaded while this call was in flight",
+            "Browser or tab crashed - page was reloaded while this call was in flight" + historyNote,
         });
 
         this.addResult({
@@ -997,7 +1285,8 @@
           status: "crash",
           result: null,
           error:
-            "Browser or tab crashed - page was reloaded while this call was in flight",
+            "Browser or tab crashed - page was reloaded while this call was in flight" + historyNote,
+          recentCalls,
           timestamp: Date.now(),
         });
 
@@ -1274,12 +1563,14 @@
 
     persistInflight(interfaceFqn, methodName, params) {
       try {
+        // Store the current call AND recent history for crash correlation
         localStorage.setItem(
           this.INFLIGHT_KEY,
           JSON.stringify({
             interface: interfaceFqn,
             method: methodName,
-            params,
+            params: FeedbackEngine._cloneParams(params),
+            recentCalls: FeedbackEngine.getCallHistory().slice(-5),
             timestamp: Date.now(),
           }),
         );
@@ -1818,6 +2109,7 @@
       let status = "success";
       let resultData = null;
       let errorMsg = null;
+      this._currentInterface = interfaceFqn;
 
       try {
         await MojoLoader.ensureBinding(interfaceFqn);
@@ -1939,6 +2231,13 @@
 
       this.stats.calls++;
 
+      // Feed results to the feedback engine for learning
+      const callDurationMs = this._responseTimes.length > 0
+        ? Math.round(this._responseTimes[this._responseTimes.length - 1]) : null;
+      FeedbackEngine.recordCall(
+        interfaceFqn, methodName, params, status, resultData, errorMsg, callDurationMs,
+      );
+
       this.addResult({
         index: iteration,
         interface: interfaceFqn,
@@ -1947,8 +2246,7 @@
         status,
         result: resultData,
         error: errorMsg,
-        durationMs: status === "success" && this._responseTimes.length > 0
-          ? Math.round(this._responseTimes[this._responseTimes.length - 1]) : null,
+        durationMs: callDurationMs,
         timestamp: Date.now(),
       });
 
@@ -2289,6 +2587,7 @@
       this.results = [];
       this.uniqueErrors.clear();
       this._responseTimes = [];
+      FeedbackEngine.reset();
       this.updateStats();
 
       const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -2340,6 +2639,7 @@
         crashedTargets: Array.from(this._crashedTargets),
         uniqueErrorCount: this.uniqueErrors.size,
         uniqueErrors,
+        feedback: FeedbackEngine.exportKnowledge(),
         totalResults: this.results.length,
         results: this.results,
       };
