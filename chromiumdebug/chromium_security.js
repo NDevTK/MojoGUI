@@ -8365,6 +8365,14 @@ function initializeScript() {
     new host.functionAlias(renderer_security, "renderer_sec"),
     // Cache Management
     new host.functionAlias(cache_clear, "cache_clear"),
+    // MojoGUI Debug Bridge
+    new host.functionAlias(bridge_connect, "bridge"),
+    new host.functionAlias(bridge_status, "bridge_status"),
+    new host.functionAlias(bridge_sync_ids, "bridge_sync"),
+    new host.functionAlias(bridge_read, "bridge_read"),
+    new host.functionAlias(bridge_send, "bridge_send"),
+    new host.functionAlias(bridge_help, "bridge_help"),
+    new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
   ];
 }
 
@@ -8540,6 +8548,14 @@ function help() {
   Logger.info(
     '  !script_attach("path")    - Auto-load script when renderers attach',
   );
+  Logger.empty();
+
+  Logger.info("MOJOGUI DEBUG BRIDGE:");
+  Logger.info("  !bridge               - Connect to MojoGUI's shared memory buffer");
+  Logger.info("  !bridge_sync          - Scan interfaces & push IDs to MojoGUI");
+  Logger.info("  !bridge_read          - Read pending message from MojoGUI JS");
+  Logger.info("  !bridge_status        - Show bridge connection status");
+  Logger.info("  !bridge_help          - Full bridge help & workflow");
   Logger.empty();
 
   Logger.info("TIPS:");
@@ -11810,5 +11826,411 @@ function map_all_interfaces() {
     Logger.empty();
   }
 
+  return "";
+}
+
+/// =============================================================================
+/// MOJOGUI DEBUG BRIDGE - SHARED MEMORY COMMUNICATION
+/// =============================================================================
+///
+/// JS allocates an ArrayBuffer with sentinel "MGUI_BRIDGE_V01\0" at offset 0.
+/// WinDbg scans heap for this sentinel to locate the buffer backing store,
+/// then both sides read/write through the same physical memory.
+///
+/// Buffer layout (8 KB):
+///   0-15   : Magic "MGUI_BRIDGE_V01\0"
+///   16     : JS seq (JS increments after writing)
+///   17     : WinDbg seq (WinDbg increments after writing)
+///   18-19  : JS msg length (uint16 LE)
+///   20-21  : WinDbg msg length (uint16 LE)
+///   22-23  : Status flags (bit0=JS ready, bit1=WinDbg ready)
+///   32-4095: WinDbg→JS message area (UTF-8 JSON)
+///   4096-8191: JS→WinDbg message area (UTF-8 JSON)
+
+var g_bridgeAddr = null;   // Cached backing store address
+var g_bridgeSeq = 0;       // Our (WinDbg) sequence counter
+
+/**
+ * Scan heap for the MojoGUI bridge sentinel and cache the address.
+ * Returns the address string (hex, no prefix) or null.
+ */
+function bridge_find_buffer() {
+  Logger.section("MojoGUI Debug Bridge - Locate");
+
+  // Search committed private RW memory for sentinel
+  var sentinel = '"MGUI_BRIDGE_V01"';
+  var ranges = get_search_ranges();
+  var found = null;
+
+  for (var i = 0; i < ranges.length; i++) {
+    if (found) break;
+    Logger.info("Scanning region " + (i + 1) + "/" + ranges.length + "...");
+    var results = SymbolUtils.execute("s -a " + ranges[i] + " " + sentinel, true);
+
+    for (var line of results) {
+      var addr = SymbolUtils.extractAddress(line);
+      if (!addr) continue;
+
+      // Validate: the status byte at offset 22 should have bit 0 set (JS ready).
+      try {
+        var statusBytes = SymbolUtils.execute("db 0x" + addr + "+0x16 L2");
+        if (statusBytes.length > 0) {
+          var parts = statusBytes[0].trim().split(/\s+/);
+          // parts[0] is the address, subsequent are hex bytes
+          var statusLow = parseInt(parts[1], 16);
+          if ((statusLow & 0x01) !== 0) {
+            // JS ready bit is set - this is our buffer
+            found = addr;
+            break;
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  if (!found) {
+    Logger.error("Bridge buffer not found. Is MojoGUI open with DebugBridge loaded?");
+    Logger.info("Ensure the page at ndevtk.github.io/MojoGUI is loaded in this renderer.");
+    return "";
+  }
+
+  g_bridgeAddr = found;
+  Logger.header("BRIDGE FOUND");
+  Logger.info("Buffer address: 0x" + found);
+
+  // Set WinDbg ready bit (bit 1) while preserving JS ready bit
+  try {
+    var currentStatus = SymbolUtils.execute("dw 0x" + found + "+0x16 L1");
+    var val = 0;
+    if (currentStatus.length > 0) {
+      val = parseInt(currentStatus[0].trim().split(/\s+/).pop(), 16);
+    }
+    val = val | 0x02; // Set bit 1
+    SymbolUtils.execute("ew 0x" + found + "+0x16 0x" + val.toString(16));
+    Logger.info("WinDbg ready bit set. Bridge is ACTIVE.");
+  } catch (e) {
+    Logger.error("Failed to set ready bit: " + e);
+  }
+
+  return "";
+}
+
+/**
+ * Write a JSON message to the WinDbg->JS area of the bridge buffer.
+ */
+function bridge_write(jsonStr) {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return false;
+  }
+
+  if (typeof jsonStr !== "string") {
+    try { jsonStr = JSON.stringify(jsonStr); } catch (e) { return false; }
+  }
+
+  var maxLen = 4064;
+  if (jsonStr.length > maxLen) {
+    Logger.error("Message too large (" + jsonStr.length + " chars), max " + maxLen);
+    return false;
+  }
+
+  // Write UTF-8 bytes to WinDbg->JS area (offset 32 = 0x20)
+  var msgAddr = "0x" + g_bridgeAddr + "+0x20";
+
+  // Use ea (edit ASCII) to write the JSON string.
+  // Escape inner double-quotes for the WinDbg command.
+  SymbolUtils.execute('ea ' + msgAddr + ' "' + jsonStr.replace(/"/g, '\\"') + '"');
+
+  // Write message length at offset 20 (0x14) as uint16 LE
+  var lenLow = jsonStr.length & 0xFF;
+  var lenHigh = (jsonStr.length >> 8) & 0xFF;
+  SymbolUtils.execute("eb 0x" + g_bridgeAddr + "+0x14 0x" + lenLow.toString(16) + " 0x" + lenHigh.toString(16));
+
+  // Bump WinDbg sequence number at offset 17 (0x11)
+  g_bridgeSeq = (g_bridgeSeq + 1) & 0xFF;
+  SymbolUtils.execute("eb 0x" + g_bridgeAddr + "+0x11 0x" + g_bridgeSeq.toString(16));
+
+  return true;
+}
+
+/**
+ * Read the JS->WinDbg message from the bridge buffer.
+ * Returns the parsed JSON object or null.
+ */
+function bridge_read_js_message() {
+  if (!g_bridgeAddr) return null;
+
+  // Read JS message length at offset 18 (0x12) as uint16 LE
+  var lenBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x12 L2");
+  if (lenBytes.length === 0) return null;
+
+  var parts = lenBytes[0].trim().split(/\s+/);
+  var lenLow = parseInt(parts[1], 16) || 0;
+  var lenHigh = parseInt(parts[2], 16) || 0;
+  var msgLen = lenLow | (lenHigh << 8);
+
+  if (msgLen === 0 || msgLen > 4096) return null;
+
+  // Read the message string from offset 4096 (0x1000)
+  var msgLines = SymbolUtils.execute(
+    "da 0x" + g_bridgeAddr + "+0x1000 L0x" + Math.min(msgLen, 4096).toString(16)
+  );
+
+  var text = "";
+  for (var line of msgLines) {
+    // da output: "address  text..." — extract the text portion
+    var match = line.match(/^\s*[0-9a-f`]+\s+"?(.+?)"?\s*$/i);
+    if (match) {
+      text += match[1];
+    } else {
+      var idx = line.indexOf("  ");
+      if (idx > 0) {
+        var chunk = line.substring(idx).trim();
+        if (chunk.startsWith('"')) chunk = chunk.slice(1);
+        if (chunk.endsWith('"')) chunk = chunk.slice(0, -1);
+        text += chunk;
+      }
+    }
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+}
+
+/**
+ * !bridge - Find and connect to the MojoGUI debug bridge.
+ */
+function bridge_connect() {
+  bridge_find_buffer();
+  return "";
+}
+
+/**
+ * !bridge_status - Show bridge connection status and header values.
+ */
+function bridge_status() {
+  if (!g_bridgeAddr) {
+    Logger.info("Bridge: NOT CONNECTED (run !bridge to connect)");
+    return "";
+  }
+
+  Logger.section("MojoGUI Debug Bridge Status");
+  Logger.info("Buffer: 0x" + g_bridgeAddr);
+
+  try {
+    var headerDump = SymbolUtils.execute("db 0x" + g_bridgeAddr + " L0x20");
+    for (var line of headerDump) {
+      Logger.info("  " + line);
+    }
+
+    var jsSeqBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x10 L1");
+    var wdbgSeqBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x11 L1");
+    var statusBytes = SymbolUtils.execute("dw 0x" + g_bridgeAddr + "+0x16 L1");
+
+    var jsSeq = jsSeqBytes.length > 0 ? parseInt(jsSeqBytes[0].trim().split(/\s+/)[1], 16) : 0;
+    var wdbgSeq = wdbgSeqBytes.length > 0 ? parseInt(wdbgSeqBytes[0].trim().split(/\s+/)[1], 16) : 0;
+    var status = 0;
+    if (statusBytes.length > 0) {
+      status = parseInt(statusBytes[0].trim().split(/\s+/).pop(), 16);
+    }
+
+    Logger.empty();
+    Logger.info("JS Seq:     " + jsSeq);
+    Logger.info("WinDbg Seq: " + wdbgSeq);
+    Logger.info("JS Ready:   " + ((status & 0x01) ? "YES" : "NO"));
+    Logger.info("WDbg Ready: " + ((status & 0x02) ? "YES" : "NO"));
+
+    var msg = bridge_read_js_message();
+    if (msg) {
+      Logger.empty();
+      Logger.info("Pending JS message: " + JSON.stringify(msg));
+    }
+  } catch (e) {
+    Logger.error("Error reading status: " + e);
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_read - Read and display the current JS->WinDbg message.
+ */
+function bridge_read() {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return "";
+  }
+
+  var msg = bridge_read_js_message();
+  if (!msg) {
+    Logger.info("No pending message from JS.");
+    return "";
+  }
+
+  Logger.section("JS -> WinDbg Message");
+  Logger.info(JSON.stringify(msg, null, 2));
+
+  // Auto-handle known message types
+  if (msg.type === "ping") {
+    Logger.info("Responding with pong...");
+    bridge_write(JSON.stringify({ type: "pong" }));
+  } else if (msg.type === "request_ids") {
+    Logger.info("JS requested interface IDs. Running scan and syncing...");
+    bridge_sync_ids();
+  } else if (msg.type === "request_hijack") {
+    Logger.info("JS requested hijack for: " + msg.interface);
+    Logger.info('Use: !hijack_interface <js_handle_addr> "' + msg.interface + '"');
+  } else if (msg.type === "fuzz_target") {
+    Logger.info("Fuzzer targeting: " + msg.interface + "." + msg.method);
+    Logger.info("TIP: Set validation breakpoint with !bp_mojo_validate");
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_send - Write a raw JSON message to JS.
+ * Usage: !bridge_send '{"type":"pong"}'
+ */
+function bridge_send(jsonStr) {
+  if (!jsonStr) {
+    Logger.error('Usage: !bridge_send \'{"type":"...","data":...}\'');
+    return "";
+  }
+
+  var str = jsonStr.toString().replace(/^["']|["']$/g, "");
+  if (bridge_write(str)) {
+    Logger.info("Message sent to JS (" + str.length + " bytes)");
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_sync - Run interface scan and push IDs directly to MojoGUI via bridge.
+ * This replaces the manual copy-paste workflow.
+ */
+function bridge_sync_ids() {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return "";
+  }
+
+  Logger.section("Bridge Sync: Interface IDs");
+
+  var vtable = SymbolUtils.findSymbolAddress(
+    "chrome!mojo::InterfaceEndpointClient::`vftable'"
+  );
+  if (!vtable) {
+    Logger.error("Failed to resolve InterfaceEndpointClient vtable.");
+    return "";
+  }
+
+  Logger.info("Scanning for interfaces...");
+
+  var cmd =
+    '!address /f:MEM_COMMIT,MEM_PRIVATE,PAGE_READWRITE /c:"s -q %1 L?%3 ' +
+    vtable + '"';
+  var results = SymbolUtils.execute(cmd);
+  var seen = new Set();
+  var mapping = {};
+  var count = 0;
+
+  for (var line of results) {
+    var clientAddr = SymbolUtils.extractAddress(line);
+    if (!clientAddr || seen.has(clientAddr)) continue;
+    seen.add(clientAddr);
+
+    try {
+      var namePtr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0x1B8)");
+      var name = null;
+
+      if (namePtr && parseInt(namePtr, 16) !== 0) {
+        var dxLines = SymbolUtils.execute("dx -r0 (char*)0x" + namePtr);
+        if (dxLines.length > 0) {
+          var match = dxLines[0].match(/"(.*)"/);
+          if (match) name = match[1];
+        }
+      }
+      if (!name) continue;
+
+      var endpointAddr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0xC8)");
+      if (!endpointAddr || parseInt(endpointAddr, 16) === 0) continue;
+
+      var idVal = SymbolUtils.execute("dd 0x" + endpointAddr + "+0x18 L1");
+      if (idVal.length > 0) {
+        var idParts = idVal[0].trim().split(/\s+/);
+        var idNum = parseInt(idParts[idParts.length - 1], 16);
+        var logicalId = idNum & 0x7fffffff;
+        mapping[name] = logicalId;
+        count++;
+      }
+    } catch (e) {}
+  }
+
+  Logger.info("Found " + count + " interfaces.");
+
+  if (count === 0) {
+    Logger.error("No interfaces found to sync.");
+    return "";
+  }
+
+  var msg = JSON.stringify({ type: "interface_ids", data: mapping });
+  if (bridge_write(msg)) {
+    Logger.header("SYNC COMPLETE");
+    Logger.info("Pushed " + count + " interface IDs to MojoGUI via bridge.");
+    Logger.info("MojoGUI will auto-assign them (no copy-paste needed).");
+  } else {
+    Logger.error("Failed to write to bridge. Message may be too large.");
+    Logger.info("Fallback - paste this into MojoGUI console:");
+    var snippet = "window.MojoGUI_API.assignInterfaceIds(" + JSON.stringify(mapping) + ");";
+    Logger.info(snippet);
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_push_validation - Send a validation error to MojoGUI.
+ * Typically called from a !bp_mojo_validate breakpoint callback.
+ */
+function bridge_push_validation(interfaceName, methodName, message) {
+  if (!g_bridgeAddr) return;
+
+  var iface = interfaceName ? interfaceName.toString() : "unknown";
+  var method = methodName ? methodName.toString() : "unknown";
+  var validationMsg = message ? message.toString() : "validation failed";
+
+  bridge_write(JSON.stringify({
+    type: "validation_error",
+    interface: iface,
+    method: method,
+    message: validationMsg,
+  }));
+}
+
+/**
+ * !bridge_help - Show bridge commands.
+ */
+function bridge_help() {
+  Logger.section("MojoGUI Debug Bridge Commands");
+  Logger.empty();
+  Logger.info("  !bridge              Find & connect to MojoGUI's shared memory buffer");
+  Logger.info("  !bridge_status       Show bridge connection status");
+  Logger.info("  !bridge_sync         Run interface scan & push IDs to MojoGUI (no copy-paste!)");
+  Logger.info("  !bridge_read         Read pending message from JS");
+  Logger.info('  !bridge_send "json"  Send raw JSON message to JS');
+  Logger.info("  !bridge_help         This help text");
+  Logger.empty();
+  Logger.header("WORKFLOW");
+  Logger.info("  1. Open MojoGUI in the debugged Chrome tab");
+  Logger.info("  2. !bridge           (locates shared buffer in renderer heap)");
+  Logger.info("  3. !bridge_sync      (scans interfaces & pushes to MojoGUI)");
+  Logger.info("  4. Start fuzzing in MojoGUI - it now knows all interface IDs");
+  Logger.info("  5. !bridge_read      (check if fuzzer sent any requests)");
+  Logger.empty();
   return "";
 }

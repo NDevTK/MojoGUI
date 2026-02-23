@@ -926,6 +926,50 @@
     // ---- Binding Loading ----
     ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName),
 
+    // ---- Debug Bridge ----
+    /**
+     * Check if the WinDbg debug bridge is connected.
+     * @returns {boolean} True if WinDbg has connected via shared memory
+     */
+    isBridgeConnected: () => {
+      return typeof DebugBridge !== "undefined" && DebugBridge.isConnected();
+    },
+    /**
+     * Get bridge connection status.
+     * @returns {Object} Bridge status details
+     */
+    getBridgeStatus: () => {
+      if (typeof DebugBridge === "undefined") return { available: false };
+      return { available: true, ...DebugBridge.getStatus() };
+    },
+    /**
+     * Send a message to WinDbg via the debug bridge.
+     * @param {Object} msg - JSON message to send
+     * @returns {boolean} Success
+     */
+    bridgeSend: (msg) => {
+      if (typeof DebugBridge === "undefined") return false;
+      return DebugBridge.send(msg);
+    },
+    /**
+     * Request interface ID mapping from WinDbg.
+     * WinDbg will scan the heap and push results back automatically.
+     * @returns {boolean} Whether the request was sent
+     */
+    bridgeRequestIds: () => {
+      if (typeof DebugBridge === "undefined") return false;
+      return DebugBridge.requestInterfaceIds();
+    },
+    /**
+     * Request WinDbg to hijack a specific associated interface.
+     * @param {string} interfaceName - Interface FQN to hijack
+     * @returns {boolean} Whether the request was sent
+     */
+    bridgeRequestHijack: (interfaceName) => {
+      if (typeof DebugBridge === "undefined") return false;
+      return DebugBridge.requestHijack(interfaceName);
+    },
+
     // ---- Security Research Shortcuts ----
 
     /**

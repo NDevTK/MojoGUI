@@ -2152,6 +2152,11 @@
         // Persist before call so we can detect crashes on page reload
         this.persistInflight(interfaceFqn, methodName, params);
 
+        // Notify WinDbg of the current fuzz target (for focused breakpoints)
+        if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+          DebugBridge.notifyFuzzTarget(interfaceFqn, methodName, params);
+        }
+
         // Strip internal metadata before sending over IPC
         const callParams = Object.assign({}, params);
         delete callParams.__technique;
