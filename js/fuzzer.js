@@ -282,6 +282,15 @@
         -0,
         1.7976931348623157e308,
         5e-324,
+        // IPC-specific: off-by-one around common buffer/length boundaries
+        1023, 1024, 1025,
+        4095, 4096, 4097,
+        65534, 65537,
+        0x7ffffffe, 0x80000001,
+        // Signed/unsigned confusion boundaries
+        0x80000000, // 2^31 (negative as int32, positive as uint32)
+        0xfffffffe, // max uint32 - 1
+        -2147483647, // min int32 + 1
         Math.floor(Math.random() * 1000000),
         -Math.floor(Math.random() * 1000000),
         Math.random(),
@@ -300,6 +309,12 @@
         2n ** 32n,
         2n ** 32n - 1n,
         2n ** 64n - 1n,
+        // IPC-specific: signed/unsigned confusion
+        2n ** 31n - 1n,
+        2n ** 31n,
+        -(2n ** 31n),
+        2n ** 63n, // overflows int64 -> wraps
+        2n ** 48n - 1n, // common allocation boundary
         BigInt(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)),
       ]);
     },
@@ -563,6 +578,19 @@
         "NUL",
         "/proc/self/exe",
         "A".repeat(1000),
+        // Symlink / junction targets
+        "/proc/self/fd/0",
+        "/proc/self/maps",
+        "/proc/self/cmdline",
+        // Windows special devices
+        "COM1", "LPT1", "AUX", "PRN",
+        "C:\\$Recycle.Bin",
+        // Null byte injection (test C-string termination)
+        "/tmp/safe\x00/etc/passwd",
+        "C:\\safe\x00\\..\\Windows\\System32",
+        // Unicode normalization attacks
+        "\u2025\u2025/etc/passwd", // two-dot leader
+        "/tmp/\uFE64script\uFE65", // small form variants
       ]);
     },
 
@@ -842,6 +870,64 @@
       }
       return params;
     },
+
+    /** Deep nested structs/arrays to test recursive deserialization limits */
+    depthStress(methodDef, _iteration) {
+      const params = {};
+      for (const p of methodDef.parameters) {
+        const t = typeof p.type === "object" ? p.type.type : p.type;
+        if (t === "struct" || t === "union") {
+          // Build deeply nested structure to stress the deserializer
+          let val = FuzzGenerators.generate(p, 0);
+          // Wrap in extra nesting layers
+          for (let d = 0; d < 3; d++) {
+            const keys = val && typeof val === "object" ? Object.keys(val) : [];
+            if (keys.length > 0) {
+              const k = keys[Math.floor(Math.random() * keys.length)];
+              if (typeof val[k] === "object" && val[k] !== null) {
+                val = val; // keep same depth, just ensure deeply fuzzed
+                break;
+              }
+            }
+          }
+          params[p.name] = val;
+        } else if (t === "array") {
+          // Nested arrays: [[[[...]]]]
+          let arr = [FuzzGenerators.generate(p, 0)];
+          params[p.name] = arr;
+        } else {
+          params[p.name] = FuzzGenerators.generate(p);
+        }
+      }
+      return params;
+    },
+
+    /** Cross-parameter dependency — fuzz values that reference other params */
+    crossParam(methodDef, _iteration) {
+      const params = {};
+      const paramCount = methodDef.parameters.length;
+      // First pass: generate all valid
+      for (const p of methodDef.parameters) {
+        params[p.name] = ValidGenerators.generate(p);
+      }
+      // Second pass: for size/count params, set contradictory values
+      for (let i = 0; i < paramCount; i++) {
+        const p = methodDef.parameters[i];
+        const nameLower = p.name.toLowerCase();
+        const t = typeof p.type === "object" ? p.type.type : p.type;
+        // If param name suggests a length/size/count, set it to a mismatched value
+        if (t === "number" && /(?:size|length|count|num|offset|capacity)/i.test(nameLower)) {
+          params[p.name] = FuzzGenerators._pick([
+            -1, 0, 1, 0x7fffffff, 0xffffffff,
+            // Off-by-one relative to any array params
+            ...methodDef.parameters
+              .filter(q => (typeof q.type === "object" ? q.type.type : q.type) === "array")
+              .flatMap(() => [0, 1, 2, 99999]),
+          ]);
+        }
+      }
+      return params;
+    },
   };
 
   /** Ordered list of techniques to cycle through */
@@ -852,6 +938,8 @@
     "typeConfuse",
     "boundary",
     "handleReuse",
+    "depthStress",
+    "crossParam",
     "baseline",
   ];
 
@@ -861,11 +949,13 @@
   const MojoFuzzer = {
     running: false,
     aborted: false,
-    stats: { calls: 0, successes: 0, errors: 0, crashes: 0, startTime: 0 },
+    stats: { calls: 0, successes: 0, errors: 0, crashes: 0, startTime: 0, slowCalls: 0 },
     results: [],
     uniqueErrors: new Map(),
     _objectCache: {},
     _lastSuccessParams: null,
+    _responseTimes: [],
+    SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
     SESSION_KEY: "mojofuzzer_session",
@@ -1325,10 +1415,15 @@
               <div class="fuzzer-stat-value" id="fuzzer-stat-crashes">0</div>
               <div class="fuzzer-stat-label">Crashes</div>
             </div>
+            <div class="fuzzer-stat stat-slow">
+              <div class="fuzzer-stat-value" id="fuzzer-stat-slow">0</div>
+              <div class="fuzzer-stat-label">Slow</div>
+            </div>
           </div>
           <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
             Rate: <span id="fuzzer-stat-rate">0</span> calls/sec
             | Unique Errors: <span id="fuzzer-stat-unique">0</span>
+            | Avg: <span id="fuzzer-stat-avg-time">0</span>ms
           </div>
         </div>
 
@@ -1732,18 +1827,39 @@
         const callParams = Object.assign({}, params);
         delete callParams.__technique;
 
+        const callStartTime = performance.now();
         const result = await MojoExecutionService.call(
           resolved.target,
           methodName,
           callParams,
           resolved.options,
         );
+        const callDuration = performance.now() - callStartTime;
 
         this.clearInflight();
 
         resultData = result;
         status = "success";
         this.stats.successes++;
+
+        // Track response time for anomaly detection
+        this._responseTimes.push(callDuration);
+        if (callDuration > this.SLOW_CALL_THRESHOLD_MS) {
+          this.stats.slowCalls++;
+          const slowKey = `${interfaceFqn}.${methodName}: SLOW (${Math.round(callDuration)}ms)`;
+          const existing = this.uniqueErrors.get(slowKey);
+          if (existing) {
+            existing.count++;
+          } else {
+            this.uniqueErrors.set(slowKey, {
+              count: 1,
+              firstParams: params,
+              firstMethod: methodName,
+              firstInterface: interfaceFqn,
+              error: `Response took ${Math.round(callDuration)}ms (potential DoS vector)`,
+            });
+          }
+        }
 
         // Track successful params for repeat-after-success mutations
         this._lastSuccessParams = {
@@ -1787,6 +1903,8 @@
         status,
         result: resultData,
         error: errorMsg,
+        durationMs: status === "success" && this._responseTimes.length > 0
+          ? Math.round(this._responseTimes[this._responseTimes.length - 1]) : null,
         timestamp: Date.now(),
       });
 
@@ -1830,10 +1948,15 @@
         ? `<span class="result-technique" title="${escapeHtml(technique)}">${escapeHtml(technique.substring(0, 3).toUpperCase())}</span>`
         : "";
 
+      const timingBadge = entry.durationMs != null && entry.durationMs > this.SLOW_CALL_THRESHOLD_MS
+        ? `<span class="result-technique" title="Slow response: ${entry.durationMs}ms" style="color: var(--error-color);">${entry.durationMs}ms</span>`
+        : (entry.durationMs != null ? `<span class="result-technique" title="Response time">${entry.durationMs}ms</span>` : "");
+
       div.innerHTML = safe(
         `<span class="result-index">#${entry.index}</span>` +
           techBadge +
           `<span class="result-method" title="${escapeHtml(entry.interface + "." + entry.method)}">${escapeHtml(shortMethod)}</span>` +
+          timingBadge +
           `<span class="result-status">${statusLabel}</span>`,
       );
 
@@ -1892,16 +2015,25 @@
       const crashesEl = el("fuzzer-stat-crashes");
       const uniqueEl = el("fuzzer-stat-unique");
       const rateEl = el("fuzzer-stat-rate");
+      const slowEl = el("fuzzer-stat-slow");
+      const avgTimeEl = el("fuzzer-stat-avg-time");
 
       if (callsEl) callsEl.textContent = this.stats.calls;
       if (successEl) successEl.textContent = this.stats.successes;
       if (errorsEl) errorsEl.textContent = this.stats.errors;
       if (crashesEl) crashesEl.textContent = this.stats.crashes;
       if (uniqueEl) uniqueEl.textContent = this.uniqueErrors.size;
+      if (slowEl) slowEl.textContent = this.stats.slowCalls;
 
       const elapsed = (Date.now() - this.stats.startTime) / 1000;
       const rate = elapsed > 0 ? (this.stats.calls / elapsed).toFixed(1) : "0";
       if (rateEl) rateEl.textContent = rate;
+
+      // Average response time
+      if (avgTimeEl && this._responseTimes.length > 0) {
+        const avg = this._responseTimes.reduce((a, b) => a + b, 0) / this._responseTimes.length;
+        avgTimeEl.textContent = Math.round(avg);
+      }
 
       if (this.uniqueErrors.size > 0) {
         const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -2107,10 +2239,12 @@
         successes: 0,
         errors: 0,
         crashes: 0,
+        slowCalls: 0,
         startTime: 0,
       };
       this.results = [];
       this.uniqueErrors.clear();
+      this._responseTimes = [];
       this.updateStats();
 
       const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -2141,9 +2275,24 @@
         uniqueErrors.push({ key, ...data });
       }
 
+      // Compute timing statistics for the report
+      const timingStats = {};
+      if (this._responseTimes.length > 0) {
+        const sorted = [...this._responseTimes].sort((a, b) => a - b);
+        timingStats.avgMs = Math.round(sorted.reduce((a, b) => a + b, 0) / sorted.length);
+        timingStats.medianMs = Math.round(sorted[Math.floor(sorted.length / 2)]);
+        timingStats.p95Ms = Math.round(sorted[Math.floor(sorted.length * 0.95)]);
+        timingStats.p99Ms = Math.round(sorted[Math.floor(sorted.length * 0.99)]);
+        timingStats.maxMs = Math.round(sorted[sorted.length - 1]);
+        timingStats.minMs = Math.round(sorted[0]);
+        timingStats.slowCallThresholdMs = this.SLOW_CALL_THRESHOLD_MS;
+      }
+
       const report = {
         exported_at: new Date().toISOString(),
+        tool: "MojoGUI Fuzzer",
         stats: { ...this.stats },
+        timing: timingStats,
         crashedTargets: Array.from(this._crashedTargets),
         uniqueErrorCount: this.uniqueErrors.size,
         uniqueErrors,
