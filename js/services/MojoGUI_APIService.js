@@ -984,6 +984,7 @@
         security: {
           boundary,
           methodCount: details.methods?.length || 0,
+          gates: details.metadata?.gates || [],
         },
         methods: details.methods,
         codeSearch,

@@ -1077,6 +1077,22 @@
     if (isAssociated) html += badge("Associated", "#cc8844", "Multiplexed on an existing pipe");
     html += badge(interestLabels[interestLevel], interestColors[interestLevel], "Security research interest heuristic");
 
+    // Security gates from binder analysis (feature flags, permissions, etc.)
+    const gates = meta.gates || [];
+    for (const gate of gates) {
+      if (gate.startsWith("feature:")) {
+        html += badge(gate.replace("feature:", ""), "#cc88ff", "Feature flag required: " + gate);
+      } else if (gate.startsWith("runtime_feature:")) {
+        html += badge(gate.replace("runtime_feature:", ""), "#cc88ff", "Runtime feature: " + gate);
+      } else if (gate.startsWith("permission:")) {
+        html += badge(gate.replace("permission:", ""), "#ff8844", "Permission required: " + gate);
+      } else if (gate === "gesture:required") {
+        html += badge("Gesture", "#ffcc44", "User gesture/activation required");
+      } else if (gate === "context:secure_only") {
+        html += badge("HTTPS", "#44cccc", "Secure context (HTTPS) required");
+      }
+    }
+
     // Action buttons
     html += `<a href="${chromiumSearchUrl(iface)}" target="_blank" rel="noopener" title="Search Chromium source for C++ implementation" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:600;background:#4488ff22;color:#4488ff;border:1px solid #4488ff44;text-decoration:none;cursor:pointer;white-space:nowrap;">C++ Impl</a>`;
     html += `<a href="${chromiumMojomUrl(iface)}" target="_blank" rel="noopener" title="View .mojom IDL definition in Chromium source" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:600;background:#44cc8822;color:#44cc88;border:1px solid #44cc8844;text-decoration:none;cursor:pointer;white-space:nowrap;">IDL</a>`;
