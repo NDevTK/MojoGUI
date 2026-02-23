@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T10:17:52.413853Z",
+  "generated_at": "2026-02-23T10:18:38.935150Z",
   "version": "147.0.7699.0",
   "interfaces": [
     {
@@ -78,7 +78,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -177,7 +182,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -195,7 +205,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -243,7 +258,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -270,7 +289,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -685,7 +709,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -735,7 +762,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -809,7 +839,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -828,7 +863,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -1420,7 +1460,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -1436,7 +1481,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -1452,7 +1501,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -1483,7 +1537,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -1674,7 +1732,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -1692,7 +1756,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -1720,7 +1789,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -1758,7 +1831,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -1776,7 +1854,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -1794,7 +1876,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -1818,7 +1905,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -1978,7 +2069,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2008,7 +2102,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2071,7 +2168,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2125,7 +2225,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2171,7 +2274,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2231,7 +2337,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2272,7 +2381,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2309,7 +2421,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -2327,7 +2444,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2465,7 +2585,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -2520,7 +2644,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -2540,7 +2669,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -2559,7 +2692,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -2615,7 +2753,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -2659,7 +2801,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2952,7 +3097,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2989,7 +3137,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -3062,7 +3216,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -3091,7 +3248,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -3146,7 +3307,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3165,7 +3331,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3187,7 +3358,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3224,7 +3400,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3262,7 +3443,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3280,7 +3467,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3298,7 +3491,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -3316,7 +3512,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -3334,7 +3533,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -3416,7 +3618,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -3470,7 +3677,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3499,7 +3711,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -3771,7 +3987,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3816,7 +4037,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3852,7 +4078,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3906,7 +4137,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3929,7 +4165,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3960,7 +4201,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -3999,7 +4245,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -4019,7 +4270,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -4060,7 +4318,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -4080,7 +4345,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -4100,7 +4370,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -4123,7 +4398,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -4145,7 +4427,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -4228,7 +4517,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -4247,7 +4545,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -4263,7 +4569,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -4281,7 +4596,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -4300,7 +4620,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4318,7 +4642,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -4336,7 +4665,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -4363,7 +4697,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4383,7 +4721,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -4401,7 +4744,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -4479,7 +4828,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -4498,7 +4854,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -4516,7 +4878,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -4539,7 +4906,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4559,7 +4930,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -4577,7 +4953,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -4609,7 +4992,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -4627,7 +5016,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -4649,7 +5043,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4670,7 +5068,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -4710,7 +5113,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4728,7 +5135,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4760,7 +5173,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4778,7 +5196,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -4796,7 +5218,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4816,7 +5244,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4834,7 +5267,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4852,7 +5291,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -4872,7 +5316,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -4888,7 +5336,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -4906,7 +5359,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -4924,7 +5383,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -5184,7 +5649,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5375,7 +5844,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault"
+        ]
       }
     },
     {
@@ -5394,7 +5869,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault"
+        ]
       }
     },
     {
@@ -5412,7 +5892,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5430,7 +5917,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5471,7 +5964,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -5490,7 +5989,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -5594,7 +6098,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5614,7 +6125,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5633,7 +6150,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5960,7 +6484,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -5981,7 +6512,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6000,7 +6537,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6018,7 +6562,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6039,7 +6590,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6058,7 +6615,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6156,7 +6720,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6174,7 +6743,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -6211,7 +6784,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -6253,7 +6831,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6273,7 +6858,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6291,7 +6882,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -6309,7 +6907,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -6387,7 +6988,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -6406,7 +7012,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -6424,7 +7034,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6442,7 +7057,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6462,7 +7082,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6498,7 +7123,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6525,7 +7155,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -6547,7 +7181,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -6563,7 +7202,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -6582,7 +7227,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -6600,7 +7250,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -6708,7 +7364,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6749,7 +7410,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6770,7 +7436,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6788,7 +7462,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6806,7 +7485,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -6836,7 +7519,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -6852,7 +7539,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6871,7 +7566,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -6889,7 +7589,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7024,7 +7729,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -7089,7 +7798,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVaultV2",
+          "feature:kSkyVault"
+        ]
       }
     },
     {
@@ -7107,7 +7820,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -7133,7 +7849,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -7173,7 +7892,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7191,7 +7915,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -7209,7 +7938,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7227,7 +7961,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -7245,7 +7984,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7293,7 +8037,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7319,7 +8068,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7343,7 +8100,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7379,7 +8141,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7397,7 +8164,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -7415,7 +8188,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -7433,7 +8211,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -7451,7 +8235,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -7529,7 +8317,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -7549,7 +8342,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -7567,7 +8364,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7585,7 +8387,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7601,7 +8409,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7619,7 +8432,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7679,7 +8498,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7698,7 +8522,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -7719,7 +8547,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -7737,7 +8570,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7763,7 +8603,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7782,7 +8628,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7800,7 +8653,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7819,7 +8677,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -7837,7 +8699,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -7855,7 +8722,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule"
+        ]
       }
     },
     {
@@ -7885,7 +8759,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule"
+        ]
       }
     },
     {
@@ -7901,7 +8781,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule"
+        ]
       }
     },
     {
@@ -7923,7 +8810,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -7939,7 +8830,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -7957,7 +8853,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7975,7 +8875,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -8011,7 +8915,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8033,7 +8942,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8051,7 +8965,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8072,7 +8991,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8091,7 +9014,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -8109,7 +9037,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8150,7 +9084,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8172,7 +9112,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8190,7 +9136,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8208,7 +9163,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8224,7 +9187,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8242,7 +9214,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8288,7 +9264,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8314,7 +9294,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8332,7 +9316,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -8354,7 +9343,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -8391,7 +9385,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -8419,7 +9418,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -8455,7 +9459,17 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8483,7 +9497,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8502,7 +9525,17 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -8520,7 +9553,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8540,7 +9578,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8558,7 +9600,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -8576,7 +9623,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8597,7 +9649,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8616,7 +9672,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -8634,7 +9695,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8656,7 +9722,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8674,7 +9744,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -8693,7 +9768,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8716,7 +9796,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8778,7 +9862,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
+        ]
       }
     },
     {
@@ -8798,7 +9887,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpTabGroupsModule"
+        ]
       }
     },
     {
@@ -8816,7 +9911,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -8866,7 +9967,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -8895,7 +10001,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -8913,7 +10025,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -8944,7 +10061,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -8979,7 +10100,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -8997,7 +10123,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -9015,7 +10146,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -9033,7 +10168,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -9051,7 +10191,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9070,7 +10216,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9086,7 +10237,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9104,7 +10261,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9126,7 +10289,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9142,7 +10310,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9197,7 +10371,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -9215,7 +10394,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -9234,7 +10418,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -9267,7 +10455,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -9341,7 +10533,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -9380,7 +10577,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -9396,7 +10597,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -9414,7 +10620,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9433,7 +10645,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9454,7 +10671,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9473,7 +10696,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9495,7 +10724,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9523,7 +10758,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9567,7 +10807,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9587,7 +10833,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -9607,7 +10858,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -10136,7 +11393,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -10154,7 +11416,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -10227,7 +11494,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -10277,7 +11549,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -10312,7 +11589,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -10446,7 +11728,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -10467,7 +11752,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -11146,7 +12434,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection"
+        ]
       }
     },
     {
@@ -11280,7 +12572,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -11298,7 +12595,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -11461,7 +12763,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -12635,7 +13940,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -12736,7 +14044,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -12909,7 +14220,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -13631,7 +14945,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kXuControls"
+        ]
       }
     },
     {
@@ -14525,7 +15843,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -16003,7 +17326,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -16021,7 +17349,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -16037,7 +17369,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -16966,7 +18303,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -17922,7 +19265,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -17961,7 +19308,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
       }
     },
     {
@@ -18469,7 +19820,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -19635,7 +20989,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kXuControls"
+        ]
       }
     },
     {
@@ -19886,7 +21244,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kXuControls"
+        ]
       }
     },
     {
@@ -20051,7 +21413,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebLockScreenApi",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -20166,7 +21534,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kXuControls"
+        ]
       }
     },
     {
@@ -20560,7 +21931,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kXuControls",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -20773,7 +22148,16 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -20791,7 +22175,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -20857,7 +22249,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -20881,7 +22276,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -20939,7 +22337,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -21150,7 +22552,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21168,7 +22574,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21193,7 +22603,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21214,7 +22628,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -21232,7 +22651,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21250,7 +22673,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21278,7 +22706,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpCalendarModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
       }
     },
     {
@@ -21394,7 +22827,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -21413,7 +22851,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -21431,7 +22873,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -21548,7 +22995,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -21707,7 +23158,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -21725,7 +23179,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -21744,7 +23203,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -21762,7 +23225,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -21854,7 +23322,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -21873,7 +23346,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -21891,7 +23368,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -22049,7 +23531,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -22374,7 +23859,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -22392,7 +23880,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -22595,7 +24086,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
+        ]
       }
     },
     {
@@ -22627,7 +24123,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpTabGroupsModule"
+        ]
       }
     },
     {
@@ -22762,7 +24264,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -22780,7 +24287,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -22839,7 +24351,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -23068,7 +24583,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -23167,7 +24685,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -23186,7 +24709,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -23532,7 +25060,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -23569,7 +25100,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -23957,7 +25491,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -24425,7 +25962,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection",
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -24504,7 +26046,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -24540,7 +26085,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -24559,7 +26110,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -24651,7 +26207,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -24882,7 +26441,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -24901,7 +26465,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -24917,7 +26485,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -24963,7 +26536,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -24981,7 +26558,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kWebOTP",
+          "feature:kLazyBrowserInterfaceBroker",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -25004,7 +26589,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kWebOTP"
+        ]
       }
     },
     {
@@ -25043,7 +26632,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -25061,7 +26654,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kLazyBrowserInterfaceBroker",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -25085,7 +26685,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kWebOTP"
+        ]
       }
     },
     {
@@ -25103,7 +26707,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kWebOTP"
+        ]
       }
     },
     {
@@ -25140,7 +26748,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -25158,7 +26770,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -25178,7 +26795,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebOTP"
+        ]
       }
     },
     {
@@ -25818,7 +27438,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -26004,7 +27629,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -27014,7 +28642,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kXuControls",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -27137,7 +28771,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -27156,7 +28793,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -27377,7 +29019,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -27592,7 +29237,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices"
+        ]
       }
     },
     {
@@ -27702,7 +29350,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -27732,7 +29383,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -27873,7 +29527,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -28218,7 +29877,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -28254,7 +29916,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -28876,7 +30541,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -28894,7 +30562,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -29051,7 +30722,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -29154,7 +30828,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -29645,7 +31322,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -29708,7 +31389,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -29744,7 +31428,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -29900,7 +31587,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -30268,7 +31958,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -30367,7 +32062,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -30387,7 +32087,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -30507,7 +32212,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -30602,7 +32312,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -30891,7 +32604,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -30971,7 +32687,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kLazyBrowserInterfaceBroker"
+        ]
       }
     },
     {
@@ -31095,7 +32815,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -31787,7 +33510,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -32312,7 +34040,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -32795,7 +34528,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork",
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -32836,7 +34573,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -33208,7 +34948,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -33226,7 +34970,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -33251,7 +34999,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -33622,7 +35373,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -33643,7 +35397,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -34382,7 +36139,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -35736,7 +37497,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -35857,7 +37621,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -35939,7 +37707,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -35965,7 +37736,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -36366,7 +38141,13 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontSrcLocalMatching",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -36384,7 +38165,10 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -36543,7 +38327,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching",
+          "feature:kPrintPreviewCrosPrimary"
+        ]
       }
     },
     {
@@ -36561,7 +38349,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker"
+        ]
       }
     },
     {
@@ -36581,7 +38372,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -37038,7 +38832,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kXuControls",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -38027,7 +39827,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -38166,7 +39969,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInterestGroupStorage",
+          "feature:kWebOTP"
+        ]
       }
     },
     {
@@ -38656,7 +40463,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -38736,7 +40546,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -38785,7 +40600,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -38844,7 +40666,13 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -38903,7 +40731,12 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kServiceWorkerInDedicatedWorker",
+          "feature:kServiceWorkerBackgroundSyncInDedicatedWorker",
+          "feature:kLazyBrowserInterfaceBroker"
+        ]
       }
     },
     {
@@ -38937,7 +40770,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -39028,7 +40864,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -39046,7 +40885,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -39064,7 +40907,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -39113,7 +40961,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -39161,7 +41012,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -39249,7 +41105,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -39287,7 +41146,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -39363,7 +41225,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -39435,7 +41301,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -39583,7 +41453,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -39642,7 +41515,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -39680,7 +41556,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -39720,7 +41600,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -39739,7 +41622,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -39923,7 +41809,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -39941,7 +41832,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -39962,7 +41858,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -40016,7 +41917,10 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -40037,7 +41941,10 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -40145,7 +42052,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -40163,7 +42073,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection"
+        ]
       }
     },
     {
@@ -40197,7 +42111,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -40434,7 +42352,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -40584,7 +42507,13 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -40602,7 +42531,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -40621,7 +42555,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -40640,7 +42577,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -40778,7 +42718,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -40863,7 +42806,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -41185,7 +43131,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -41203,7 +43154,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -41240,7 +43194,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -41280,7 +43237,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -41316,7 +43276,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -41498,7 +43462,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -41807,7 +43774,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -41863,7 +43835,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -41883,7 +43858,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -41907,7 +43885,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -41970,7 +43952,13 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -41990,7 +43978,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -42090,7 +44082,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -42148,7 +44144,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -42204,7 +44204,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -42280,7 +44283,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -42316,7 +44322,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -42359,7 +44368,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -42514,7 +44526,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -42568,7 +44583,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontSrcLocalMatching"
+        ]
       }
     },
     {
@@ -42740,7 +44758,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -42912,7 +44933,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -43007,7 +45031,14 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -43027,7 +45058,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -43082,7 +45117,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -43162,7 +45201,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -43180,7 +45222,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -43237,7 +45284,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -43277,7 +45327,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -43296,7 +45350,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -43342,7 +45400,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -43454,7 +45515,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection"
+        ]
       }
     },
     {
@@ -43494,7 +45559,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -43674,7 +45742,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ]
       }
     },
     {
@@ -43692,7 +45763,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -44183,7 +46257,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSharedStorageAPI"
+        ]
       }
     },
     {
@@ -44286,7 +46363,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44306,7 +46387,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44370,7 +46455,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kXuControls"
+        ]
       }
     },
     {
@@ -44395,7 +46484,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44415,7 +46507,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection"
+        ]
       }
     },
     {
@@ -44433,7 +46529,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -44455,7 +46556,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -44473,7 +46578,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInterestGroupStorage"
+        ]
       }
     },
     {
@@ -44493,7 +46601,13 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSubApps"
+        ]
       }
     },
     {
@@ -44532,7 +46646,12 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ]
       }
     },
     {
@@ -44556,7 +46675,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44576,7 +46699,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44603,7 +46730,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -44657,7 +46788,13 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSubApps"
+        ]
       }
     },
     {
@@ -44675,7 +46812,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -44693,7 +46834,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -44834,7 +46978,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -44872,7 +47020,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kComputePressure",
+          "feature:kFontAccess"
+        ]
       }
     },
     {
@@ -44975,7 +47127,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kServiceWorkerInDedicatedWorker",
+          "feature:kServiceWorkerBackgroundSyncInDedicatedWorker"
+        ]
       }
     },
     {
@@ -45338,7 +47494,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45358,7 +47519,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45376,7 +47541,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45411,7 +47581,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45431,7 +47605,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -45449,7 +47628,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45467,7 +47650,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45485,7 +47675,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45506,7 +47701,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45522,7 +47721,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -45540,7 +47744,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45559,7 +47768,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45631,7 +47845,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45649,7 +47870,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection"
+        ]
       }
     },
     {
@@ -45670,7 +47895,14 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSubApps",
+          "feature:kPaymentLinkDetection",
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45721,7 +47953,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45741,7 +47978,15 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45774,7 +48019,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45797,7 +48047,13 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45821,7 +48077,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -45839,7 +48099,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -45857,7 +48122,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45890,7 +48160,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45909,7 +48184,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -45927,7 +48207,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45951,7 +48236,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
+        ]
       }
     },
     {
@@ -45987,7 +48277,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -46006,7 +48301,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
       }
     },
     {
@@ -46024,7 +48323,12 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -46121,7 +48425,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
