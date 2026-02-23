@@ -80,6 +80,18 @@ CHROME_PATH=/opt/chromium/chrome ./debug_chrome.sh
 | `!map_interfaces`               | **Map all active Mojo interfaces to their Interface IDs**       |
 | `!hijack_interface(addr, name)` | **Hijack a JS handle with any live master handle/interface ID** |
 
+### MojoGUI Debug Bridge (Shared Memory)
+
+| Command                                    | Description                                               |
+| ------------------------------------------ | --------------------------------------------------------- |
+| `!bridge`                                  | **Find & connect to MojoGUI's shared memory buffer**      |
+| `!bridge_status`                           | Show connection status and header values                   |
+| `!bridge_sync`                             | **Scan interfaces & push IDs to MojoGUI (no copy-paste)** |
+| `!bridge_read`                             | Read pending message from JS                               |
+| `!bridge_send "json"`                      | Send raw JSON message to JS                                |
+| `!bridge_push_validation(iface,method,msg)`| Push a validation error to MojoGUI's fuzzer                |
+| `!bridge_help`                             | Show bridge help                                           |
+
 ### Site Isolation Analysis
 
 | Command     | Description                                          |
@@ -188,6 +200,23 @@ A typical Mojo IPC security research session:
 8. !vuln_hunt                 # Set vuln detection breakpoints
 9. !map_interfaces            # Get interface IDs for hijacking
 ```
+
+### With Debug Bridge (automated)
+
+```text
+1. !procs                     # Find renderer processes
+2. |2s                        # Switch to renderer running MojoGUI
+3. !bridge                    # Connect to MojoGUI's shared memory buffer
+4. !bridge_sync               # Scan interfaces & push IDs directly (no copy-paste)
+5. !bp_mojo_validate          # Catch validation failures
+6. g                          # Continue — start fuzzing in MojoGUI
+7. (break)
+8. !bridge_read               # Check if fuzzer sent any requests
+```
+
+The bridge uses a shared `ArrayBuffer` in renderer memory. JS writes a sentinel
+(`MGUI_BRIDGE_V01`) that WinDbg scans for, then both sides exchange JSON messages
+through the same physical memory region — no CDP, no copy-paste.
 
 ## Files
 

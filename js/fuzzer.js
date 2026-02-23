@@ -930,9 +930,13 @@
     },
   };
 
+  // Register feedback-guided as a technique
+  FuzzTechniques.feedbackGuided = feedbackGuidedParams;
+
   /** Ordered list of techniques to cycle through */
   const TECHNIQUE_NAMES = [
     "targeted", "targeted", "targeted",  // Weight toward targeted
+    "feedbackGuided", "feedbackGuided",   // Weight toward feedback-guided
     "multiField",
     "nullOmit",
     "typeConfuse",
@@ -946,6 +950,366 @@
   // ========================================
   // Fuzzer Engine & UI
   // ========================================
+  // ── Response-guided feedback engine ──────────────────────────────
+  //
+  // Learns from IPC responses to guide future mutations:
+  // 1. Tracks which param values pass/fail validation per method
+  // 2. Builds a baseline response fingerprint per method
+  // 3. Detects structural anomalies when fuzzed responses differ from baseline
+  // 4. Maintains a ring buffer of recent calls for crash correlation
+
+  const FeedbackEngine = {
+    /** Per-method knowledge: { "iface.method": { baseline, paramFeedback, ... } } */
+    _methodKnowledge: new Map(),
+
+    /** Ring buffer of last N calls for crash correlation */
+    _callHistory: [],
+    HISTORY_SIZE: 20,
+
+    /** Record a call and its outcome for learning */
+    recordCall(interfaceFqn, methodName, params, status, result, errorMsg, durationMs) {
+      // 1. Push to ring buffer
+      this._callHistory.push({
+        interface: interfaceFqn,
+        method: methodName,
+        params: this._cloneParams(params),
+        status,
+        error: errorMsg,
+        durationMs,
+        timestamp: Date.now(),
+      });
+      if (this._callHistory.length > this.HISTORY_SIZE) {
+        this._callHistory.shift();
+      }
+
+      const key = interfaceFqn + "." + methodName;
+      if (!this._methodKnowledge.has(key)) {
+        this._methodKnowledge.set(key, {
+          baseline: null,         // First successful response fingerprint
+          successCount: 0,
+          errorCount: 0,
+          paramFeedback: {},      // { paramName: { accepted: [...], rejected: [...] } }
+          interestingInputs: [],  // Inputs that produced anomalous responses
+          errorPatterns: new Map(), // error message → param values that triggered it
+        });
+      }
+
+      const mk = this._methodKnowledge.get(key);
+
+      if (status === "success") {
+        mk.successCount++;
+
+        // Build baseline fingerprint from first success
+        if (!mk.baseline) {
+          mk.baseline = this._fingerprint(result);
+        } else {
+          // Differential analysis: compare to baseline
+          const current = this._fingerprint(result);
+          if (current !== mk.baseline) {
+            // This fuzzed input produced a structurally different response
+            mk.interestingInputs.push({
+              params: this._cloneParams(params),
+              reason: "response_anomaly",
+              baselineFingerprint: mk.baseline,
+              currentFingerprint: current,
+            });
+            // Cap stored interesting inputs
+            if (mk.interestingInputs.length > 10) mk.interestingInputs.shift();
+          }
+        }
+
+        // Record which param values were accepted
+        this._recordParamOutcome(mk, params, "accepted");
+      } else if (status === "error" && errorMsg) {
+        mk.errorCount++;
+
+        // Record which param values were rejected
+        this._recordParamOutcome(mk, params, "rejected");
+
+        // Track error patterns → param correlations
+        const errKey = errorMsg.substring(0, 100);
+        if (!mk.errorPatterns.has(errKey)) {
+          mk.errorPatterns.set(errKey, []);
+        }
+        const errList = mk.errorPatterns.get(errKey);
+        errList.push(this._cloneParams(params));
+        if (errList.length > 5) errList.shift();
+      }
+    },
+
+    /** Get learned knowledge for biasing mutations */
+    getKnowledge(interfaceFqn, methodName) {
+      return this._methodKnowledge.get(interfaceFqn + "." + methodName) || null;
+    },
+
+    /** Get the full call history for crash correlation */
+    getCallHistory() {
+      return this._callHistory;
+    },
+
+    /** Record per-param accept/reject for learning */
+    _recordParamOutcome(mk, params, outcome) {
+      for (const [name, value] of Object.entries(params)) {
+        if (name === "__technique") continue;
+        if (!mk.paramFeedback[name]) {
+          mk.paramFeedback[name] = { accepted: [], rejected: [] };
+        }
+        const fb = mk.paramFeedback[name];
+        const serialized = this._serializeValue(value);
+        const list = fb[outcome];
+        // Avoid duplicates and cap at 15 entries
+        if (!list.includes(serialized)) {
+          list.push(serialized);
+          if (list.length > 15) list.shift();
+        }
+      }
+    },
+
+    /** Create a structural fingerprint of a response (type + keys, not values) */
+    _fingerprint(obj) {
+      if (obj === null || obj === undefined) return "null";
+      if (typeof obj !== "object") return typeof obj;
+      if (Array.isArray(obj)) {
+        return "array[" + obj.length + ":" + (obj.length > 0 ? this._fingerprint(obj[0]) : "empty") + "]";
+      }
+      const keys = Object.keys(obj).sort();
+      const inner = keys.map((k) => k + ":" + typeof obj[k]).join(",");
+      return "{" + inner + "}";
+    },
+
+    /** Serialize a param value for comparison (lossy, for dedup) */
+    _serializeValue(val) {
+      if (val === null) return "null";
+      if (val === undefined) return "undefined";
+      if (typeof val === "object") {
+        try { return JSON.stringify(val).substring(0, 80); } catch { return "[object]"; }
+      }
+      return String(val).substring(0, 80);
+    },
+
+    /** Shallow clone params (avoid holding references to Mojo handles) */
+    _cloneParams(params) {
+      const clone = {};
+      for (const [k, v] of Object.entries(params)) {
+        if (k === "__technique") continue;
+        if (v === null || typeof v !== "object") {
+          clone[k] = v;
+        } else {
+          try { clone[k] = JSON.parse(JSON.stringify(v)); }
+          catch { clone[k] = "[uncloneable]"; }
+        }
+      }
+      return clone;
+    },
+
+    /**
+     * Ingest a native validation error from WinDbg.
+     * These are C++ ReportBadMessage strings — much more specific than
+     * the JS-level "connection lost" we normally see.
+     *
+     * Uses the most recent call in the ring buffer to correlate the
+     * error with the params that triggered it.
+     */
+    recordValidationError(interfaceFqn, methodName, nativeMessage) {
+      const key = interfaceFqn + "." + methodName;
+      if (!this._methodKnowledge.has(key)) {
+        this._methodKnowledge.set(key, {
+          baseline: null,
+          successCount: 0,
+          errorCount: 0,
+          paramFeedback: {},
+          interestingInputs: [],
+          errorPatterns: new Map(),
+        });
+      }
+
+      const mk = this._methodKnowledge.get(key);
+      mk.errorCount++;
+
+      // Try to correlate with the last call to this method in the ring buffer
+      let correlatedParams = null;
+      for (let i = this._callHistory.length - 1; i >= 0; i--) {
+        const call = this._callHistory[i];
+        if (call.interface === interfaceFqn && call.method === methodName) {
+          correlatedParams = call.params;
+          break;
+        }
+      }
+
+      // Store the native error message as an error pattern
+      const errKey = "NATIVE:" + nativeMessage.substring(0, 100);
+      if (!mk.errorPatterns.has(errKey)) {
+        mk.errorPatterns.set(errKey, []);
+      }
+      if (correlatedParams) {
+        const errList = mk.errorPatterns.get(errKey);
+        errList.push(correlatedParams);
+        if (errList.length > 5) errList.shift();
+
+        // Also mark as rejected in paramFeedback — native validation
+        // is the most authoritative rejection signal we can get
+        this._recordParamOutcome(mk, correlatedParams, "rejected");
+      }
+
+      // Always save as an interesting input if we have params
+      if (correlatedParams) {
+        mk.interestingInputs.push({
+          params: correlatedParams,
+          reason: "native_validation_error",
+          nativeMessage,
+        });
+        if (mk.interestingInputs.length > 15) mk.interestingInputs.shift();
+      }
+    },
+
+    /** Reset all learned state */
+    reset() {
+      this._methodKnowledge.clear();
+      this._callHistory = [];
+    },
+
+    /** Export learned knowledge for the report */
+    exportKnowledge() {
+      const data = {};
+      for (const [key, mk] of this._methodKnowledge) {
+        data[key] = {
+          successCount: mk.successCount,
+          errorCount: mk.errorCount,
+          hasBaseline: !!mk.baseline,
+          interestingInputCount: mk.interestingInputs.length,
+          interestingInputs: mk.interestingInputs,
+          errorPatternCount: mk.errorPatterns.size,
+          paramFeedback: mk.paramFeedback,
+        };
+      }
+      return data;
+    },
+  };
+
+  // ── Feedback-guided technique ──────────────────────────────────
+  // Uses FeedbackEngine + PDB hints from WinDbg to bias mutations
+  // toward values near the accept/reject boundary and comparison
+  // constants found in the actual C++ implementation.
+
+  function feedbackGuidedParams(methodDef, iteration) {
+    const params = {};
+    const iface = MojoFuzzer._currentInterface || "";
+    const mk = FeedbackEngine.getKnowledge(iface, methodDef.name);
+
+    // Get PDB-derived hints if available (cmpConstants, nullChecks, etc.)
+    const hints = (typeof DebugBridge !== "undefined")
+      ? DebugBridge.getMethodHints(iface, methodDef.name)
+      : null;
+
+    for (const p of methodDef.parameters) {
+      // PDB-guided: if we have comparison constants from the binary,
+      // generate values at and around those boundaries.
+      // This is the highest-value signal — we're probing the exact
+      // values the C++ code checks in cmp/switch instructions.
+      if (hints && hints.cmpConstants && hints.cmpConstants.length > 0 && Math.random() < 0.4) {
+        const pType = typeof p.type === "object" ? p.type.type : p.type;
+        if (pType === "number" || pType === "int32" || pType === "uint32" ||
+            pType === "int64" || pType === "enum" || pType === "float" || pType === "double") {
+          const boundary = hints.cmpConstants[Math.floor(Math.random() * hints.cmpConstants.length)];
+          // Generate values at, just below, and just above the comparison constant
+          const delta = FuzzGenerators._pick([0, -1, 1, -2, 2]);
+          const val = boundary + delta;
+          params[p.name] = pType === "int64" ? BigInt(val) : val;
+          continue;
+        }
+      }
+
+      // PDB-guided: if the method has null checks, occasionally send null
+      // to exercise those code paths
+      if (hints && hints.nullChecks > 0 && Math.random() < 0.15) {
+        params[p.name] = null;
+        continue;
+      }
+
+      if (!mk || !mk.paramFeedback[p.name]) {
+        params[p.name] = FuzzGenerators.generate(p);
+        continue;
+      }
+
+      const fb = mk.paramFeedback[p.name];
+
+      if (fb.accepted.length > 0 && Math.random() < 0.7) {
+        const baseStr = fb.accepted[Math.floor(Math.random() * fb.accepted.length)];
+        params[p.name] = mutateBoundary(baseStr, p);
+      } else if (fb.rejected.length > 0 && Math.random() < 0.5) {
+        const baseStr = fb.rejected[Math.floor(Math.random() * fb.rejected.length)];
+        params[p.name] = mutateBoundary(baseStr, p);
+      } else {
+        params[p.name] = FuzzGenerators.generate(p);
+      }
+    }
+
+    // Replay interesting inputs with a twist
+    if (mk && mk.interestingInputs.length > 0 && Math.random() < 0.2) {
+      const interesting = mk.interestingInputs[
+        Math.floor(Math.random() * mk.interestingInputs.length)
+      ];
+      const keys = Object.keys(interesting.params);
+      const mutKey = keys[Math.floor(Math.random() * keys.length)];
+      for (const k of keys) {
+        if (k === mutKey) {
+          params[k] = FuzzGenerators.generate(
+            methodDef.parameters.find((p) => p.name === k) || { name: k, type: "any" },
+          );
+        } else {
+          params[k] = interesting.params[k];
+        }
+      }
+    }
+
+    return params;
+  }
+
+  /** Mutate a serialized value slightly to probe boundaries */
+  function mutateBoundary(serializedVal, paramDef) {
+    // Try to parse as a number for arithmetic mutations
+    const num = Number(serializedVal);
+    if (!isNaN(num) && isFinite(num)) {
+      const delta = FuzzGenerators._pick([1, -1, 2, -2, 0]);
+      const mutated = num + delta;
+      const t = typeof paramDef.type === "object" ? paramDef.type.type : paramDef.type;
+      if (t === "int64") return BigInt(Math.round(mutated));
+      return mutated;
+    }
+
+    // String mutations
+    if (serializedVal === "null") return null;
+    if (serializedVal === "undefined") return undefined;
+
+    // Try to parse as JSON for structural mutations
+    try {
+      const parsed = JSON.parse(serializedVal);
+      if (typeof parsed === "string") {
+        // Mutate string: truncate, extend, or flip case
+        return FuzzGenerators._pick([
+          parsed.substring(0, Math.max(0, parsed.length - 1)),
+          parsed + "X",
+          parsed + "\x00",
+          parsed.toUpperCase(),
+          "",
+        ]);
+      }
+      if (Array.isArray(parsed)) {
+        // Mutate array: add element, remove element, or empty
+        return FuzzGenerators._pick([
+          [...parsed, null],
+          parsed.slice(0, -1),
+          [],
+          [...parsed, ...parsed], // double
+        ]);
+      }
+      return parsed;
+    } catch {
+      // Fall back to generating a fresh fuzz value
+      return FuzzGenerators.generate(paramDef);
+    }
+  }
+
   const MojoFuzzer = {
     running: false,
     aborted: false,
@@ -955,6 +1319,8 @@
     _objectCache: {},
     _lastSuccessParams: null,
     _responseTimes: [],
+    _currentInterface: null, // Tracked for feedback engine context
+    _bridgeIdRequested: false, // Whether we've already asked WinDbg for IDs
     SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
 
     INFLIGHT_KEY: "mojofuzzer_inflight",
@@ -979,14 +1345,19 @@
         this.stats.calls++;
 
         const crashKey = inflight.interface + "." + inflight.method;
+        const recentCalls = inflight.recentCalls || [];
+        const historyNote = recentCalls.length > 0
+          ? ` (${recentCalls.length} preceding calls available in export)`
+          : "";
         const errorKey = `${crashKey}: CRASH (page reloaded during call)`;
         this.uniqueErrors.set(errorKey, {
           count: 1,
           firstParams: inflight.params,
           firstMethod: inflight.method,
           firstInterface: inflight.interface,
+          recentCalls,
           error:
-            "Browser or tab crashed - page was reloaded while this call was in flight",
+            "Browser or tab crashed - page was reloaded while this call was in flight" + historyNote,
         });
 
         this.addResult({
@@ -997,9 +1368,36 @@
           status: "crash",
           result: null,
           error:
-            "Browser or tab crashed - page was reloaded while this call was in flight",
+            "Browser or tab crashed - page was reloaded while this call was in flight" + historyNote,
+          recentCalls,
           timestamp: Date.now(),
         });
+
+        // Check if WinDbg pushed a native crash report with richer context
+        // (exception code, stack frames, registers, Mojo frame)
+        if (typeof DebugBridge !== "undefined") {
+          const nativeCrashes = DebugBridge.drainCrashReports();
+          if (nativeCrashes.length > 0) {
+            const native = nativeCrashes[nativeCrashes.length - 1];
+            // Merge native context into the crash record
+            const errData = this.uniqueErrors.get(errorKey);
+            if (errData) {
+              errData.nativeCrash = {
+                exceptionCode: native.exceptionCode,
+                crashAddress: native.crashAddress,
+                stackFrames: native.stackFrames,
+                registers: native.registers,
+                mojoContext: native.mojoContext,
+              };
+              errData.error += ` [Native: ${native.exceptionCode || "?"} at ${native.crashAddress || "?"}]`;
+            }
+            // Feed to FeedbackEngine as a crash signal
+            FeedbackEngine.recordValidationError(
+              inflight.interface, inflight.method,
+              `CRASH:${native.exceptionCode || "unknown"} at ${native.crashAddress || "?"}`,
+            );
+          }
+        }
 
         this.updateStats();
         global.showToast(
@@ -1170,6 +1568,14 @@
             concurrency,
           );
 
+          // Drain WinDbg validation errors into FeedbackEngine
+          if (typeof DebugBridge !== "undefined") {
+            const nativeErrors = DebugBridge.drainValidationErrors();
+            for (const ve of nativeErrors) {
+              FeedbackEngine.recordValidationError(ve.interface, ve.method, ve.message);
+            }
+          }
+
           // Repeat-after-success on the last target in the batch
           if (this._lastSuccessParams && !this.aborted) {
             await this._repeatMutated(
@@ -1177,6 +1583,41 @@
               currentCallIndex,
             );
             this._lastSuccessParams = null;
+          }
+
+          // Check if WinDbg pushed new interface IDs — if so, dynamically
+          // expand the queue with newly-unlocked associated interfaces
+          if (typeof DebugBridge !== "undefined" && strategy === "all_interfaces") {
+            const newIds = DebugBridge.consumeInterfaceIds();
+            if (newIds) {
+              const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+              let added = 0;
+              for (const iface of interfaces) {
+                const fqn = iface.module + "." + iface.name;
+                const meta = iface.metadata;
+                if (meta?.category !== "associated") continue;
+                if (!meta?.discoveredId) continue;
+                if (!iface.methods) continue;
+
+                // Skip if already in the queue
+                const alreadyQueued = queue.some((t) => t.interface === fqn);
+                if (alreadyQueued) continue;
+
+                for (const m of iface.methods) {
+                  queue.push({
+                    interface: fqn,
+                    method: typeof m === "string" ? m : m.name,
+                  });
+                  added++;
+                }
+              }
+              if (added > 0) {
+                console.log("[Fuzzer] Bridge: added " + added + " newly-unlocked targets to queue");
+                if (global.showToast) {
+                  global.showToast("Bridge unlocked " + added + " new fuzz targets", "success");
+                }
+              }
+            }
           }
 
           qi = batchEnd;
@@ -1274,12 +1715,14 @@
 
     persistInflight(interfaceFqn, methodName, params) {
       try {
+        // Store the current call AND recent history for crash correlation
         localStorage.setItem(
           this.INFLIGHT_KEY,
           JSON.stringify({
             interface: interfaceFqn,
             method: methodName,
-            params,
+            params: FeedbackEngine._cloneParams(params),
+            recentCalls: FeedbackEngine.getCallHistory().slice(-5),
             timestamp: Date.now(),
           }),
         );
@@ -1580,6 +2023,43 @@
       this.syncSelectedInterface();
     },
 
+    /**
+     * Pre-populate fuzzer with a target from Awards or external caller.
+     * Selects the interface and optionally the method in the dropdowns.
+     */
+    preloadTarget(interfaceName, methodName) {
+      if (!interfaceName) return;
+      const interfaces = (global.MojoGUI_State || {}).interfaces || [];
+      const q = interfaceName.toLowerCase();
+      const match = interfaces.find((i) => i.name.toLowerCase() === q) ||
+        interfaces.find((i) => (i.module + "." + i.name).toLowerCase().includes(q));
+      if (match) {
+        // Select the interface in the main app (which triggers syncSelectedInterface)
+        const internal = global.__MojoGUI_Internal;
+        if (internal && internal.selectInterface) {
+          internal.selectInterface(match.name, match.module);
+        }
+        // After methods load, select the target method
+        if (methodName) {
+          const trySelectMethod = (attempts) => {
+            const select = document.getElementById("fuzzer-method-select");
+            if (!select || select.disabled) {
+              if (attempts > 0) setTimeout(() => trySelectMethod(attempts - 1), 200);
+              return;
+            }
+            for (const opt of select.options) {
+              if (opt.value.toLowerCase() === methodName.toLowerCase()) {
+                select.value = opt.value;
+                this.updateStartButton();
+                return;
+              }
+            }
+          };
+          setTimeout(() => trySelectMethod(10), 300);
+        }
+      }
+    },
+
     async populateMethods(interfaceFqn) {
       const select = document.getElementById("fuzzer-method-select");
       if (!select) return;
@@ -1743,12 +2223,20 @@
       if (category === "associated") {
         const interfaceId = meta?.discoveredId;
         if (interfaceId === undefined || interfaceId === null) {
-          return { category, target: null, skip: "no discoveredId assigned (use assignInterfaceIds)" };
+          // If the bridge is connected, ask WinDbg for interface IDs
+          if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+            if (!this._bridgeIdRequested) {
+              this._bridgeIdRequested = true;
+              DebugBridge.requestInterfaceIds();
+            }
+          }
+          return { category, target: null, skip: "no discoveredId (run !bridge in WinDbg)" };
         }
-        // Find any available master handle from the registry
-        const masterHandleId = this.findMasterHandle();
+        // Find master handle: prefer bridge-provided handle for this specific
+        // interface, then fall back to any handle in the registry
+        const masterHandleId = this.findMasterHandle(interfaceFqn);
         if (!masterHandleId) {
-          return { category, target: null, skip: "no master handle in registry" };
+          return { category, target: null, skip: "no master handle (run !bridge in WinDbg)" };
         }
         return {
           category,
@@ -1767,10 +2255,21 @@
     },
 
     /**
-     * Find the first available master handle from the HandleRegistry.
-     * Master handles are raw message pipe handles used for associated interfaces.
+     * Find a master handle for the given interface.
+     * Priority: 1) bridge-provided handle for this specific interface,
+     *           2) any bridge-provided handle, 3) any handle in registry.
+     * Master handles are pushed automatically by WinDbg during !bridge setup.
      */
-    findMasterHandle() {
+    findMasterHandle(interfaceFqn) {
+      // 1. Check bridge for interface-specific master handle
+      if (typeof DebugBridge !== "undefined" && interfaceFqn) {
+        const bridgeId = DebugBridge.getMasterHandleId(interfaceFqn);
+        if (bridgeId != null) return bridgeId;
+        // 2. Any bridge master handle (interfaces often share a pipe)
+        const anyBridgeId = DebugBridge.getAnyMasterHandleId();
+        if (anyBridgeId != null) return anyBridgeId;
+      }
+      // 3. Fall back to HandleRegistry (manually registered handles)
       if (typeof MojoHandleRegistry === "undefined") return null;
       const ids = MojoHandleRegistry.list();
       return ids.length > 0 ? ids[0] : null;
@@ -1781,9 +2280,21 @@
       let status = "success";
       let resultData = null;
       let errorMsg = null;
+      this._currentInterface = interfaceFqn;
 
       try {
         await MojoLoader.ensureBinding(interfaceFqn);
+
+        // Auto-request PDB analysis from WinDbg on first encounter
+        if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+          const hintsKey = interfaceFqn + "." + methodName;
+          if (!DebugBridge.getMethodHints(interfaceFqn, methodName) &&
+              !this._analysisRequested?.has(hintsKey)) {
+            if (!this._analysisRequested) this._analysisRequested = new Set();
+            this._analysisRequested.add(hintsKey);
+            DebugBridge.requestAnalysis(interfaceFqn, methodName);
+          }
+        }
 
         const methodDef = MojoReflectionService.findMethodDefinition(
           interfaceFqn,
@@ -1823,17 +2334,29 @@
         // Persist before call so we can detect crashes on page reload
         this.persistInflight(interfaceFqn, methodName, params);
 
+        // Notify WinDbg of the current fuzz target (for focused breakpoints)
+        if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+          DebugBridge.notifyFuzzTarget(interfaceFqn, methodName, params);
+        }
+
         // Strip internal metadata before sending over IPC
         const callParams = Object.assign({}, params);
         delete callParams.__technique;
 
         const callStartTime = performance.now();
-        const result = await MojoExecutionService.call(
+        const callPromise = MojoExecutionService.call(
           resolved.target,
           methodName,
           callParams,
           resolved.options,
         );
+        const CALL_TIMEOUT_MS = 30000; // 30s hard timeout for hang detection
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error(
+            `TIMEOUT after ${CALL_TIMEOUT_MS / 1000}s — possible hang/DoS vector`
+          )), CALL_TIMEOUT_MS),
+        );
+        const result = await Promise.race([callPromise, timeoutPromise]);
         const callDuration = performance.now() - callStartTime;
 
         this.clearInflight();
@@ -1895,6 +2418,13 @@
 
       this.stats.calls++;
 
+      // Feed results to the feedback engine for learning
+      const callDurationMs = this._responseTimes.length > 0
+        ? Math.round(this._responseTimes[this._responseTimes.length - 1]) : null;
+      FeedbackEngine.recordCall(
+        interfaceFqn, methodName, params, status, resultData, errorMsg, callDurationMs,
+      );
+
       this.addResult({
         index: iteration,
         interface: interfaceFqn,
@@ -1903,8 +2433,7 @@
         status,
         result: resultData,
         error: errorMsg,
-        durationMs: status === "success" && this._responseTimes.length > 0
-          ? Math.round(this._responseTimes[this._responseTimes.length - 1]) : null,
+        durationMs: callDurationMs,
         timestamp: Date.now(),
       });
 
@@ -2245,6 +2774,8 @@
       this.results = [];
       this.uniqueErrors.clear();
       this._responseTimes = [];
+      this._bridgeIdRequested = false;
+      FeedbackEngine.reset();
       this.updateStats();
 
       const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -2296,6 +2827,8 @@
         crashedTargets: Array.from(this._crashedTargets),
         uniqueErrorCount: this.uniqueErrors.size,
         uniqueErrors,
+        feedback: FeedbackEngine.exportKnowledge(),
+        pdbHints: (typeof DebugBridge !== "undefined") ? DebugBridge.getAllMethodHints() : {},
         totalResults: this.results.length,
         results: this.results,
       };

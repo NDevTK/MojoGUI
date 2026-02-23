@@ -8365,6 +8365,18 @@ function initializeScript() {
     new host.functionAlias(renderer_security, "renderer_sec"),
     // Cache Management
     new host.functionAlias(cache_clear, "cache_clear"),
+    // MojoGUI Debug Bridge - single setup command + internal helpers
+    new host.functionAlias(bridge_connect, "bridge"),
+    new host.functionAlias(bridge_status, "bridge_status"),
+    new host.functionAlias(bridge_process_pending, "bridge_process"),
+    new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
+    new host.functionAlias(bridge_crash, "bridge_crash"),
+    new host.functionAlias(bridge_analyze, "bridge_analyze"),
+    // Debug-only (not needed for normal workflow)
+    new host.functionAlias(bridge_read, "bridge_read"),
+    new host.functionAlias(bridge_send, "bridge_send"),
+    new host.functionAlias(bridge_sync_ids, "bridge_sync"),
+    new host.functionAlias(bridge_help, "bridge_help"),
   ];
 }
 
@@ -8540,6 +8552,11 @@ function help() {
   Logger.info(
     '  !script_attach("path")    - Auto-load script when renderers attach',
   );
+  Logger.empty();
+
+  Logger.info("MOJOGUI DEBUG BRIDGE:");
+  Logger.info("  !bridge               - Full setup: connect + sync IDs + hijack + validation BPs + crash handler");
+  Logger.info("  !bridge_status        - Show bridge connection diagnostics");
   Logger.empty();
 
   Logger.info("TIPS:");
@@ -11808,6 +11825,863 @@ function map_all_interfaces() {
 
     Logger.info(snippet);
     Logger.empty();
+  }
+
+  return "";
+}
+
+/// =============================================================================
+/// MOJOGUI DEBUG BRIDGE - SHARED MEMORY COMMUNICATION
+/// =============================================================================
+///
+/// JS allocates an ArrayBuffer with sentinel "MGUI_BRIDGE_V01\0" at offset 0.
+/// WinDbg scans heap for this sentinel to locate the buffer backing store,
+/// then both sides read/write through the same physical memory.
+///
+/// Buffer layout (8 KB):
+///   0-15   : Magic "MGUI_BRIDGE_V01\0"
+///   16     : JS seq (JS increments after writing)
+///   17     : WinDbg seq (WinDbg increments after writing)
+///   18-19  : JS msg length (uint16 LE)
+///   20-21  : WinDbg msg length (uint16 LE)
+///   22-23  : Status flags (bit0=JS ready, bit1=WinDbg ready)
+///   32-4095: WinDbg→JS message area (UTF-8 JSON)
+///   4096-8191: JS→WinDbg message area (UTF-8 JSON)
+
+var g_bridgeAddr = null;   // Cached backing store address
+var g_bridgeSeq = 0;       // Our (WinDbg) sequence counter
+var g_lastCrashReport = null; // Stashed crash data to push when new renderer attaches
+
+/**
+ * Scan heap for the MojoGUI bridge sentinel and cache the address.
+ * Returns the address string (hex, no prefix) or null.
+ */
+function bridge_find_buffer() {
+  Logger.section("MojoGUI Debug Bridge - Locate");
+
+  // Search committed private RW memory for sentinel
+  var sentinel = '"MGUI_BRIDGE_V01"';
+  var ranges = get_search_ranges();
+  var found = null;
+
+  for (var i = 0; i < ranges.length; i++) {
+    if (found) break;
+    Logger.info("Scanning region " + (i + 1) + "/" + ranges.length + "...");
+    var results = SymbolUtils.execute("s -a " + ranges[i] + " " + sentinel, true);
+
+    for (var line of results) {
+      var addr = SymbolUtils.extractAddress(line);
+      if (!addr) continue;
+
+      // Validate: the status byte at offset 22 should have bit 0 set (JS ready).
+      try {
+        var statusBytes = SymbolUtils.execute("db 0x" + addr + "+0x16 L2");
+        if (statusBytes.length > 0) {
+          var parts = statusBytes[0].trim().split(/\s+/);
+          // parts[0] is the address, subsequent are hex bytes
+          var statusLow = parseInt(parts[1], 16);
+          if ((statusLow & 0x01) !== 0) {
+            // JS ready bit is set - this is our buffer
+            found = addr;
+            break;
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  if (!found) {
+    Logger.error("Bridge buffer not found. Is MojoGUI open with DebugBridge loaded?");
+    Logger.info("Ensure the page at ndevtk.github.io/MojoGUI is loaded in this renderer.");
+    return "";
+  }
+
+  g_bridgeAddr = found;
+  Logger.header("BRIDGE FOUND");
+  Logger.info("Buffer address: 0x" + found);
+
+  // Set WinDbg ready bit (bit 1) while preserving JS ready bit
+  try {
+    var currentStatus = SymbolUtils.execute("dw 0x" + found + "+0x16 L1");
+    var val = 0;
+    if (currentStatus.length > 0) {
+      val = parseInt(currentStatus[0].trim().split(/\s+/).pop(), 16);
+    }
+    val = val | 0x02; // Set bit 1
+    SymbolUtils.execute("ew 0x" + found + "+0x16 0x" + val.toString(16));
+    Logger.info("WinDbg ready bit set. Bridge is ACTIVE.");
+  } catch (e) {
+    Logger.error("Failed to set ready bit: " + e);
+  }
+
+  // Push any stashed crash report from previous renderer
+  if (g_lastCrashReport) {
+    Logger.info("Pushing stashed crash report from previous renderer...");
+    var crashJson = JSON.stringify(g_lastCrashReport);
+    if (bridge_write(crashJson)) {
+      Logger.info("Crash report delivered (" + crashJson.length + " bytes)");
+      g_lastCrashReport = null;
+    }
+  }
+
+  return "";
+}
+
+/**
+ * Write a JSON message to the WinDbg->JS area of the bridge buffer.
+ */
+function bridge_write(jsonStr) {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return false;
+  }
+
+  if (typeof jsonStr !== "string") {
+    try { jsonStr = JSON.stringify(jsonStr); } catch (e) { return false; }
+  }
+
+  var maxLen = 4064;
+  if (jsonStr.length > maxLen) {
+    Logger.error("Message too large (" + jsonStr.length + " chars), max " + maxLen);
+    return false;
+  }
+
+  // Write UTF-8 bytes to WinDbg->JS area (offset 32 = 0x20)
+  var msgAddr = "0x" + g_bridgeAddr + "+0x20";
+
+  // Use ea (edit ASCII) to write the JSON string.
+  // Escape inner double-quotes for the WinDbg command.
+  SymbolUtils.execute('ea ' + msgAddr + ' "' + jsonStr.replace(/"/g, '\\"') + '"');
+
+  // Write message length at offset 20 (0x14) as uint16 LE
+  var lenLow = jsonStr.length & 0xFF;
+  var lenHigh = (jsonStr.length >> 8) & 0xFF;
+  SymbolUtils.execute("eb 0x" + g_bridgeAddr + "+0x14 0x" + lenLow.toString(16) + " 0x" + lenHigh.toString(16));
+
+  // Bump WinDbg sequence number at offset 17 (0x11)
+  g_bridgeSeq = (g_bridgeSeq + 1) & 0xFF;
+  SymbolUtils.execute("eb 0x" + g_bridgeAddr + "+0x11 0x" + g_bridgeSeq.toString(16));
+
+  return true;
+}
+
+/**
+ * Read the JS->WinDbg message from the bridge buffer.
+ * Returns the parsed JSON object or null.
+ */
+function bridge_read_js_message() {
+  if (!g_bridgeAddr) return null;
+
+  // Read JS message length at offset 18 (0x12) as uint16 LE
+  var lenBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x12 L2");
+  if (lenBytes.length === 0) return null;
+
+  var parts = lenBytes[0].trim().split(/\s+/);
+  var lenLow = parseInt(parts[1], 16) || 0;
+  var lenHigh = parseInt(parts[2], 16) || 0;
+  var msgLen = lenLow | (lenHigh << 8);
+
+  if (msgLen === 0 || msgLen > 4096) return null;
+
+  // Read the message string from offset 4096 (0x1000)
+  var msgLines = SymbolUtils.execute(
+    "da 0x" + g_bridgeAddr + "+0x1000 L0x" + Math.min(msgLen, 4096).toString(16)
+  );
+
+  var text = "";
+  for (var line of msgLines) {
+    // da output: "address  text..." — extract the text portion
+    var match = line.match(/^\s*[0-9a-f`]+\s+"?(.+?)"?\s*$/i);
+    if (match) {
+      text += match[1];
+    } else {
+      var idx = line.indexOf("  ");
+      if (idx > 0) {
+        var chunk = line.substring(idx).trim();
+        if (chunk.startsWith('"')) chunk = chunk.slice(1);
+        if (chunk.endsWith('"')) chunk = chunk.slice(0, -1);
+        text += chunk;
+      }
+    }
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+}
+
+/**
+ * !bridge - Single command to set up the full MojoGUI debug bridge.
+ *
+ * This is the ONLY command users need to run. It:
+ *   1. Finds the shared memory buffer in the renderer heap
+ *   2. Scans all interfaces and pushes IDs + master handles to MojoGUI
+ *   3. Sets validation breakpoints that auto-feed errors to the fuzzer
+ *   4. Sets up crash capture on process exit
+ *   5. Processes any pending JS requests
+ *
+ * After running !bridge, everything is automatic: validation errors,
+ * crash reports, interface IDs, and hijack data flow through the bridge
+ * without further manual commands.
+ */
+function bridge_connect() {
+  // 1. Find the shared memory buffer
+  bridge_find_buffer();
+  if (!g_bridgeAddr) return "";
+
+  // 2. Scan interfaces and push IDs + master handles
+  bridge_sync_ids();
+
+  // 3. Set validation breakpoints (auto-push to fuzzer)
+  bridge_setup_validation();
+
+  // 4. Set crash capture on process exit
+  bridge_setup_crash_handler();
+
+  // 5. Process any pending JS messages
+  bridge_process_pending();
+
+  Logger.empty();
+  Logger.header("BRIDGE FULLY ACTIVE");
+  Logger.info("Interface IDs + master handles synced to MojoGUI.");
+  Logger.info("Validation errors auto-push to fuzzer.");
+  Logger.info("Crash reports auto-capture on renderer exit.");
+  Logger.info("JS requests processed automatically on BP hits.");
+  Logger.empty();
+  Logger.info("You can now start fuzzing in MojoGUI - no further WinDbg commands needed.");
+  Logger.info("Use !bridge_status for diagnostics.");
+
+  return "";
+}
+
+/**
+ * !bridge_status - Show bridge connection status and header values.
+ */
+function bridge_status() {
+  if (!g_bridgeAddr) {
+    Logger.info("Bridge: NOT CONNECTED (run !bridge to connect)");
+    return "";
+  }
+
+  Logger.section("MojoGUI Debug Bridge Status");
+  Logger.info("Buffer: 0x" + g_bridgeAddr);
+
+  try {
+    var headerDump = SymbolUtils.execute("db 0x" + g_bridgeAddr + " L0x20");
+    for (var line of headerDump) {
+      Logger.info("  " + line);
+    }
+
+    var jsSeqBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x10 L1");
+    var wdbgSeqBytes = SymbolUtils.execute("db 0x" + g_bridgeAddr + "+0x11 L1");
+    var statusBytes = SymbolUtils.execute("dw 0x" + g_bridgeAddr + "+0x16 L1");
+
+    var jsSeq = jsSeqBytes.length > 0 ? parseInt(jsSeqBytes[0].trim().split(/\s+/)[1], 16) : 0;
+    var wdbgSeq = wdbgSeqBytes.length > 0 ? parseInt(wdbgSeqBytes[0].trim().split(/\s+/)[1], 16) : 0;
+    var status = 0;
+    if (statusBytes.length > 0) {
+      status = parseInt(statusBytes[0].trim().split(/\s+/).pop(), 16);
+    }
+
+    Logger.empty();
+    Logger.info("JS Seq:     " + jsSeq);
+    Logger.info("WinDbg Seq: " + wdbgSeq);
+    Logger.info("JS Ready:   " + ((status & 0x01) ? "YES" : "NO"));
+    Logger.info("WDbg Ready: " + ((status & 0x02) ? "YES" : "NO"));
+
+    var msg = bridge_read_js_message();
+    if (msg) {
+      Logger.empty();
+      Logger.info("Pending JS message: " + JSON.stringify(msg));
+    }
+  } catch (e) {
+    Logger.error("Error reading status: " + e);
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_read - Read and display the current JS->WinDbg message, then process it.
+ * Note: messages are now auto-processed on validation BP hits.
+ * This command is for manual debugging only.
+ */
+function bridge_read() {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return "";
+  }
+
+  var msg = bridge_read_js_message();
+  if (!msg) {
+    Logger.info("No pending message from JS.");
+    return "";
+  }
+
+  Logger.section("JS -> WinDbg Message");
+  Logger.info(JSON.stringify(msg, null, 2));
+
+  // Process it inline (don't call bridge_process_pending since we already consumed the message)
+  bridge_handle_message(msg);
+
+  return "";
+}
+
+/**
+ * !bridge_send - Write a raw JSON message to JS.
+ * Usage: !bridge_send '{"type":"pong"}'
+ */
+function bridge_send(jsonStr) {
+  if (!jsonStr) {
+    Logger.error('Usage: !bridge_send \'{"type":"...","data":...}\'');
+    return "";
+  }
+
+  var str = jsonStr.toString().replace(/^["']|["']$/g, "");
+  if (bridge_write(str)) {
+    Logger.info("Message sent to JS (" + str.length + " bytes)");
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_sync - Run interface scan and push IDs directly to MojoGUI via bridge.
+ * This replaces the manual copy-paste workflow.
+ */
+function bridge_sync_ids() {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first.");
+    return "";
+  }
+
+  Logger.section("Bridge Sync: Interface IDs + Master Handles");
+
+  var vtable = SymbolUtils.findSymbolAddress(
+    "chrome!mojo::InterfaceEndpointClient::`vftable'"
+  );
+  if (!vtable) {
+    Logger.error("Failed to resolve InterfaceEndpointClient vtable.");
+    return "";
+  }
+
+  Logger.info("Scanning for interfaces...");
+
+  var cmd =
+    '!address /f:MEM_COMMIT,MEM_PRIVATE,PAGE_READWRITE /c:"s -q %1 L?%3 ' +
+    vtable + '"';
+  var results = SymbolUtils.execute(cmd);
+  var seen = new Set();
+  var mapping = {};
+  var masterHandles = {};
+  var count = 0;
+
+  for (var line of results) {
+    var clientAddr = SymbolUtils.extractAddress(line);
+    if (!clientAddr || seen.has(clientAddr)) continue;
+    seen.add(clientAddr);
+
+    try {
+      var namePtr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0x1B8)");
+      var name = null;
+
+      if (namePtr && parseInt(namePtr, 16) !== 0) {
+        var dxLines = SymbolUtils.execute("dx -r0 (char*)0x" + namePtr);
+        if (dxLines.length > 0) {
+          var match = dxLines[0].match(/"(.*)"/);
+          if (match) name = match[1];
+        }
+      }
+      if (!name) continue;
+
+      var endpointAddr = SymbolUtils.evaluate("poi(0x" + clientAddr + "+0xC8)");
+      if (!endpointAddr || parseInt(endpointAddr, 16) === 0) continue;
+
+      var idVal = SymbolUtils.execute("dd 0x" + endpointAddr + "+0x18 L1");
+      if (idVal.length > 0) {
+        var idParts = idVal[0].trim().split(/\s+/);
+        var idNum = parseInt(idParts[idParts.length - 1], 16);
+        var logicalId = idNum & 0x7fffffff;
+        mapping[name] = logicalId;
+        count++;
+
+        // Traverse endpoint → controller → connector → master handle
+        try {
+          var controllerPtr = SymbolUtils.evaluate("poi(0x" + endpointAddr + "+0x10)");
+          if (controllerPtr && parseInt(controllerPtr, 16) !== 0) {
+            var connector = SymbolUtils.evaluate("poi(0x" + controllerPtr.toString(16) + "+0x38)");
+            if (connector && parseInt(connector, 16) !== 0) {
+              var masterRead = SymbolUtils.execute("dd 0x" + connector.toString(16) + "+0x10 L1");
+              if (masterRead.length > 0) {
+                var master = parseInt(masterRead[0].trim().split(/\s+/).pop(), 16);
+                if (master > 0 && master < 0x7fffffff) {
+                  masterHandles[name] = master;
+                }
+              }
+            }
+          }
+        } catch (e2) {}
+      }
+    } catch (e) {}
+  }
+
+  Logger.info("Found " + count + " interfaces, " +
+    Object.keys(masterHandles).length + " master handles.");
+
+  if (count === 0) {
+    Logger.error("No interfaces found to sync.");
+    return "";
+  }
+
+  var payload = { type: "interface_ids", data: mapping };
+  if (Object.keys(masterHandles).length > 0) {
+    payload.masterHandles = masterHandles;
+  }
+  var msg = JSON.stringify(payload);
+  if (bridge_write(msg)) {
+    Logger.header("SYNC COMPLETE");
+    Logger.info("Pushed " + count + " interface IDs to MojoGUI via bridge.");
+    if (Object.keys(masterHandles).length > 0) {
+      Logger.info("Pushed " + Object.keys(masterHandles).length + " master handles (auto-hijack enabled).");
+    }
+  } else {
+    Logger.error("Failed to write to bridge. Message may be too large.");
+    Logger.info("Fallback - paste this into MojoGUI console:");
+    var snippet = "window.MojoGUI_API.assignInterfaceIds(" + JSON.stringify(mapping) + ");";
+    Logger.info(snippet);
+  }
+
+  return "";
+}
+
+/**
+ * !bridge_push_validation - Send a validation error to MojoGUI.
+ * Typically called from a !bp_mojo_validate breakpoint callback.
+ */
+function bridge_push_validation(interfaceName, methodName, message) {
+  if (!g_bridgeAddr) return;
+
+  var iface = interfaceName ? interfaceName.toString() : "unknown";
+  var method = methodName ? methodName.toString() : "unknown";
+  var validationMsg = message ? message.toString() : "validation failed";
+
+  bridge_write(JSON.stringify({
+    type: "validation_error",
+    interface: iface,
+    method: method,
+    message: validationMsg,
+  }));
+}
+
+/**
+ * !bridge_help - Show bridge commands.
+ */
+function bridge_help() {
+  Logger.section("MojoGUI Debug Bridge");
+  Logger.empty();
+  Logger.header("SETUP (one command)");
+  Logger.info("  !bridge              Full setup: find buffer, sync IDs + master handles,");
+  Logger.info("                       set validation BPs, crash handler, auto-process JS requests");
+  Logger.empty();
+  Logger.header("WORKFLOW");
+  Logger.info("  1. Open MojoGUI in the debugged Chrome tab");
+  Logger.info("  2. !bridge");
+  Logger.info("  3. Start fuzzing - everything is automatic");
+  Logger.empty();
+  Logger.header("WHAT HAPPENS AUTOMATICALLY");
+  Logger.info("  - Interface IDs + master handles synced to MojoGUI (hijack enabled)");
+  Logger.info("  - ReportBadMessage / ValidationError auto-pushed to fuzzer");
+  Logger.info("  - Crash context captured and stashed across renderer restarts");
+  Logger.info("  - JS requests (analyze, resync, hijack) processed on BP hits");
+  Logger.info("  - PDB analysis triggered on-demand by fuzzer for each method");
+  Logger.empty();
+  Logger.header("DEBUG COMMANDS (normally not needed)");
+  Logger.info("  !bridge_status       Show bridge connection diagnostics");
+  Logger.info("  !bridge_read         Manually read pending JS message");
+  Logger.info('  !bridge_send "json"  Manually send JSON to JS');
+  Logger.info("  !bridge_sync         Re-scan interfaces and push to MojoGUI");
+  Logger.info("  !bridge_process      Manually process pending JS requests");
+  Logger.empty();
+  return "";
+}
+
+/// =============================================================================
+/// BRIDGE: CRASH CAPTURE & RECOVERY
+/// =============================================================================
+
+/**
+ * Capture crash context from the current exception state.
+ * Stores the report so it can be pushed to the next renderer's bridge.
+ */
+function bridge_capture_crash() {
+  var report = {
+    type: "crash_report",
+    timestamp: Date.now(),
+    pid: 0,
+    exceptionCode: null,
+    crashAddress: null,
+    stackFrames: [],
+    registers: {},
+    mojoContext: null,
+  };
+
+  try { report.pid = parseInt(host.currentProcess.Id); } catch (e) {}
+
+  // Read exception record
+  try {
+    var exrLines = SymbolUtils.execute(".exr -1");
+    for (var line of exrLines) {
+      var lineStr = line.toString();
+      var codeMatch = lineStr.match(/ExceptionCode:\s*(0x[0-9a-fA-F]+)/i);
+      if (codeMatch) report.exceptionCode = codeMatch[1];
+      var addrMatch = lineStr.match(/ExceptionAddress:\s*(0x[0-9a-fA-F`]+)/i);
+      if (addrMatch) report.crashAddress = addrMatch[1].replace(/`/g, "");
+    }
+  } catch (e) {}
+
+  // Capture stack trace (top 10 frames)
+  try {
+    var kLines = SymbolUtils.execute("k 10");
+    for (var line of kLines) {
+      var lineStr = line.toString().trim();
+      var frameMatch = lineStr.match(/[0-9a-fA-F`]+\s+[0-9a-fA-F`]+\s+(.+)/);
+      if (frameMatch) {
+        report.stackFrames.push(frameMatch[1].trim());
+      }
+    }
+  } catch (e) {}
+
+  // Key registers
+  try {
+    var regLines = SymbolUtils.execute("r rax, rcx, rdx, r8, rsp, rip");
+    for (var line of regLines) {
+      var lineStr = line.toString();
+      var regs = lineStr.match(/(\w+)=([0-9a-fA-F`]+)/g);
+      if (regs) {
+        for (var r of regs) {
+          var rParts = r.split("=");
+          report.registers[rParts[0]] = rParts[1].replace(/`/g, "");
+        }
+      }
+    }
+  } catch (e) {}
+
+  // Check if a Mojo method was in flight
+  for (var frame of report.stackFrames) {
+    if (frame.indexOf("mojo::") !== -1 || frame.indexOf("Mojo") !== -1) {
+      report.mojoContext = frame;
+      break;
+    }
+  }
+
+  g_lastCrashReport = report;
+  Logger.info("[Bridge] Crash captured: code=" + (report.exceptionCode || "unknown") +
+    " addr=" + (report.crashAddress || "unknown") +
+    " frames=" + report.stackFrames.length);
+
+  return report;
+}
+
+/**
+ * !bridge_crash - Capture current crash state and push it to MojoGUI.
+ */
+function bridge_crash() {
+  Logger.section("Bridge: Capture Crash");
+  var report = bridge_capture_crash();
+
+  if (g_bridgeAddr) {
+    var json = JSON.stringify(report);
+    if (bridge_write(json)) {
+      Logger.info("Crash report pushed to MojoGUI (" + json.length + " bytes)");
+    } else {
+      Logger.info("Crash stashed (will push on reconnect).");
+    }
+  } else {
+    Logger.info("Crash stashed. Will push when bridge reconnects.");
+  }
+  return "";
+}
+
+/**
+ * Internal: Set validation breakpoints that auto-push errors to the bridge
+ * AND auto-process pending JS messages on each hit.
+ */
+function bridge_setup_validation() {
+  if (!g_bridgeAddr) return;
+
+  Logger.info("[Setup] Validation breakpoints...");
+  var ctl = SymbolUtils.getControl();
+
+  // ReportBadMessage: first arg (RCX on x64) is std::string& with the error
+  // ReportValidationError: second arg (RDX) is the validation error code
+  // Each BP also calls bridge_process_pending to handle queued JS requests.
+  var targets = [
+    {
+      sym: "chrome!mojo::ReportBadMessage",
+      desc: "Bad message (security kill) -> bridge + auto-process",
+      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; da poi(@rcx) L80; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; !bridge_process; g"',
+    },
+    {
+      sym: "chrome!mojo::internal::ReportValidationError",
+      desc: "Validation error -> bridge + auto-process",
+      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; !bridge_process; g"',
+    },
+  ];
+
+  var count = 0;
+  for (var t of targets) {
+    try {
+      ctl.ExecuteCommand(t.cmd);
+      count++;
+    } catch (e) {
+      Logger.debug("Failed: " + t.sym + ": " + e.message);
+    }
+  }
+
+  Logger.info("  " + count + " validation BPs set (auto-push + auto-process).");
+}
+
+/**
+ * Internal: Set up crash capture on process exit.
+ * When the renderer crashes/exits, capture the state and stash for next bridge.
+ */
+function bridge_setup_crash_handler() {
+  if (!g_bridgeAddr) return;
+
+  Logger.info("[Setup] Crash capture handler...");
+  var ctl = SymbolUtils.getControl();
+
+  try {
+    // On second-chance exception, capture crash state
+    ctl.ExecuteCommand('sxe -c "!bridge_crash; g" -c2 "!bridge_crash" av');
+    ctl.ExecuteCommand('sxe -c "!bridge_crash; g" -c2 "!bridge_crash" gp');
+    Logger.info("  Crash handlers set (AV + GP exceptions).");
+  } catch (e) {
+    Logger.debug("Crash handler setup failed: " + e.message);
+  }
+}
+
+/**
+ * Handle a single parsed JS→WinDbg message.
+ * Used by both bridge_process_pending and bridge_read.
+ */
+function bridge_handle_message(msg) {
+  if (!msg || !msg.type) return;
+
+  if (msg.type === "ping") {
+    bridge_write(JSON.stringify({ type: "pong" }));
+  } else if (msg.type === "request_ids") {
+    bridge_sync_ids();
+  } else if (msg.type === "request_hijack") {
+    Logger.info("[Auto] Hijack request for: " + msg.interface);
+    if (msg.handleAddr) {
+      hijack_interface(msg.handleAddr, msg.interface);
+    } else {
+      // Re-sync to push master handles so JS can use them directly
+      bridge_sync_ids();
+    }
+  } else if (msg.type === "request_analyze") {
+    bridge_analyze(msg.interface, msg.method);
+  }
+  // fuzz_target: informational only, no action needed
+}
+
+/**
+ * !bridge_process - Process all pending JS→WinDbg messages.
+ * Called automatically from validation BP callbacks and during !bridge setup.
+ * Can also be called manually.
+ */
+function bridge_process_pending() {
+  if (!g_bridgeAddr) return "";
+
+  var msg = bridge_read_js_message();
+  if (!msg) return "";
+
+  bridge_handle_message(msg);
+  return "";
+}
+
+/**
+ * Legacy !bridge_validate - now just calls bridge_connect.
+ */
+function bridge_validate() {
+  if (!g_bridgeAddr) {
+    Logger.info("Running full bridge setup...");
+    return bridge_connect();
+  }
+  bridge_setup_validation();
+  return "";
+}
+
+/// =============================================================================
+/// BRIDGE: PDB SYMBOL-BASED METHOD ANALYSIS (CODE-AWARE FUZZING)
+/// =============================================================================
+
+/**
+ * !bridge_analyze - Analyze a Mojo method's C++ implementation using PDB symbols.
+ * Extracts validation patterns, comparison constants, security checks, and class
+ * member types from the binary to generate smarter fuzz inputs.
+ *
+ * Usage: !bridge_analyze "blink.mojom.LocalFrameHost" "DidCallFocus"
+ */
+function bridge_analyze(interfaceName, methodName) {
+  if (!interfaceName || !methodName) {
+    Logger.error('Usage: !bridge_analyze "blink.mojom.InterfaceName" "MethodName"');
+    return "";
+  }
+
+  var iface = interfaceName.toString().replace(/"/g, "");
+  var method = methodName.toString().replace(/"/g, "");
+
+  Logger.section("Code Analysis: " + iface + "::" + method);
+
+  var hints = {
+    type: "method_hints",
+    interface: iface,
+    method: method,
+    implSymbol: null,
+    returnType: null,
+    cmpConstants: [],
+    callsReportBadMessage: false,
+    validationChecks: [],
+    nullChecks: 0,
+    securityNotes: [],
+  };
+
+  // 1. Resolve the Impl class from PDB symbols
+  var ifaceParts = iface.split(".");
+  var simpleName = ifaceParts[ifaceParts.length - 1];
+  var implCandidates = [
+    "chrome!*" + simpleName + "Impl::*" + method + "*",
+    "chrome!*" + simpleName + "Host::*" + method + "*",
+    "chrome!*" + simpleName + "::*" + method + "*",
+    "chrome!content::*" + simpleName + "::*" + method + "*",
+    "chrome!blink::*" + simpleName + "::*" + method + "*",
+  ];
+
+  var implSymbol = null;
+  var implAddr = null;
+  for (var pattern of implCandidates) {
+    var symbols = SymbolUtils.findSymbols(pattern);
+    if (symbols.length > 0) {
+      for (var sym of symbols) {
+        if (sym.name.indexOf("[thunk]") !== -1) continue;
+        if (sym.name.indexOf("~") !== -1) continue;
+        if (sym.name.indexOf("operator") !== -1) continue;
+        implSymbol = sym.name;
+        implAddr = sym.addr;
+        break;
+      }
+      if (implSymbol) break;
+    }
+  }
+
+  if (!implSymbol) {
+    Logger.error("Could not resolve C++ impl for " + iface + "::" + method);
+    hints.securityNotes.push("impl_not_found");
+    if (g_bridgeAddr) bridge_write(JSON.stringify(hints));
+    return "";
+  }
+
+  hints.implSymbol = implSymbol;
+  Logger.info("Impl: " + implSymbol + " @ 0x" + implAddr);
+
+  // 2. Get return type from PDB
+  var retType = SymbolUtils.getReturnType(implSymbol);
+  if (retType) {
+    hints.returnType = retType;
+    Logger.info("  Returns: " + retType);
+  }
+
+  // 3. Disassemble to find validation patterns
+  try {
+    var disasm = SymbolUtils.execute("uf /c 0x" + implAddr);
+    var nullCheckCount = 0;
+
+    for (var line of disasm) {
+      var lineStr = line.toString();
+
+      if (lineStr.indexOf("ReportBadMessage") !== -1) {
+        hints.callsReportBadMessage = true;
+        hints.validationChecks.push("report_bad_message");
+      }
+      if (lineStr.indexOf("CHECK") !== -1) {
+        hints.validationChecks.push("dcheck");
+      }
+      if (lineStr.indexOf("ChildProcessSecurityPolicy") !== -1) {
+        hints.securityNotes.push("checks_security_policy");
+      }
+      if (lineStr.indexOf("CanAccessDataForOrigin") !== -1) {
+        hints.securityNotes.push("checks_origin");
+      }
+      if (lineStr.indexOf("IsFeatureEnabled") !== -1 || lineStr.indexOf("FeatureList") !== -1) {
+        hints.securityNotes.push("feature_gated");
+      }
+      if (lineStr.indexOf("GetContentClient") !== -1) {
+        hints.securityNotes.push("uses_content_client");
+      }
+
+      // Extract cmp constants (potential enum bounds, array sizes, etc.)
+      var cmpMatch = lineStr.match(/cmp\s+\w+,\s*(0x[0-9a-fA-F]+|[0-9]+)$/i);
+      if (cmpMatch) {
+        var val = cmpMatch[1].startsWith("0x")
+          ? parseInt(cmpMatch[1], 16)
+          : parseInt(cmpMatch[1], 10);
+        if (val > 0 && val < 0x100000) {
+          hints.cmpConstants.push(val);
+        }
+      }
+
+      // Count null checks (test reg, reg patterns)
+      if (lineStr.match(/test\s+(\w+),\s*\1/i)) {
+        nullCheckCount++;
+      }
+    }
+
+    hints.nullChecks = nullCheckCount;
+    // Deduplicate comparison constants
+    hints.cmpConstants = [...new Set(hints.cmpConstants)].sort(function (a, b) { return a - b; });
+
+    if (hints.cmpConstants.length > 0) Logger.info("  Comparison constants: " + hints.cmpConstants.join(", "));
+    if (hints.callsReportBadMessage) Logger.info("  CALLS ReportBadMessage (has validation failure path)");
+    if (nullCheckCount > 0) Logger.info("  Null checks: " + nullCheckCount);
+    if (hints.securityNotes.length > 0) Logger.info("  Security: " + hints.securityNotes.join(", "));
+
+  } catch (e) {
+    Logger.debug("Disassembly analysis failed: " + e.message);
+    hints.securityNotes.push("disasm_failed");
+  }
+
+  // 4. Try to get class member types from PDB via dt
+  try {
+    var className = implSymbol.split("::").slice(0, -1).join("::");
+    var dtLines = SymbolUtils.execute("dt " + className);
+    for (var line of dtLines) {
+      var lineStr = line.toString();
+      var memberMatch = lineStr.match(/\+0x[0-9a-fA-F]+\s+(\w+)\s+:\s+(.+)/);
+      if (memberMatch) {
+        var mName = memberMatch[1];
+        if (mName.indexOf("security") !== -1 || mName.indexOf("policy") !== -1 ||
+            mName.indexOf("permission") !== -1 || mName.indexOf("origin") !== -1 ||
+            mName.indexOf("frame") !== -1) {
+          hints.securityNotes.push("member_" + mName);
+        }
+      }
+    }
+  } catch (e) {}
+
+  // 5. Push via bridge
+  Logger.empty();
+  if (g_bridgeAddr) {
+    var json = JSON.stringify(hints);
+    if (bridge_write(json)) {
+      Logger.info("Hints pushed to MojoGUI (" + json.length + " bytes)");
+    }
+  } else {
+    Logger.info("Bridge not connected. Copy hints manually:");
+    Logger.info(JSON.stringify(hints, null, 2));
   }
 
   return "";
