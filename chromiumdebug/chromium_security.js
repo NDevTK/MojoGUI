@@ -8373,6 +8373,9 @@ function initializeScript() {
     new host.functionAlias(bridge_send, "bridge_send"),
     new host.functionAlias(bridge_help, "bridge_help"),
     new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
+    new host.functionAlias(bridge_crash, "bridge_crash"),
+    new host.functionAlias(bridge_validate, "bridge_validate"),
+    new host.functionAlias(bridge_analyze, "bridge_analyze"),
   ];
 }
 
@@ -8553,8 +8556,9 @@ function help() {
   Logger.info("MOJOGUI DEBUG BRIDGE:");
   Logger.info("  !bridge               - Connect to MojoGUI's shared memory buffer");
   Logger.info("  !bridge_sync          - Scan interfaces & push IDs to MojoGUI");
-  Logger.info("  !bridge_read          - Read pending message from MojoGUI JS");
-  Logger.info("  !bridge_status        - Show bridge connection status");
+  Logger.info("  !bridge_validate      - Validation BPs with auto-push to fuzzer");
+  Logger.info("  !bridge_analyze(i,m)  - PDB analysis of method implementation");
+  Logger.info("  !bridge_crash         - Capture & push crash context");
   Logger.info("  !bridge_help          - Full bridge help & workflow");
   Logger.empty();
 
@@ -11849,6 +11853,7 @@ function map_all_interfaces() {
 
 var g_bridgeAddr = null;   // Cached backing store address
 var g_bridgeSeq = 0;       // Our (WinDbg) sequence counter
+var g_lastCrashReport = null; // Stashed crash data to push when new renderer attaches
 
 /**
  * Scan heap for the MojoGUI bridge sentinel and cache the address.
@@ -11910,6 +11915,16 @@ function bridge_find_buffer() {
     Logger.info("WinDbg ready bit set. Bridge is ACTIVE.");
   } catch (e) {
     Logger.error("Failed to set ready bit: " + e);
+  }
+
+  // Push any stashed crash report from previous renderer
+  if (g_lastCrashReport) {
+    Logger.info("Pushing stashed crash report from previous renderer...");
+    var crashJson = JSON.stringify(g_lastCrashReport);
+    if (bridge_write(crashJson)) {
+      Logger.info("Crash report delivered (" + crashJson.length + " bytes)");
+      g_lastCrashReport = null;
+    }
   }
 
   return "";
@@ -12083,6 +12098,9 @@ function bridge_read() {
   } else if (msg.type === "request_hijack") {
     Logger.info("JS requested hijack for: " + msg.interface);
     Logger.info('Use: !hijack_interface <js_handle_addr> "' + msg.interface + '"');
+  } else if (msg.type === "request_analyze") {
+    Logger.info("JS requested PDB analysis for: " + msg.interface + "." + msg.method);
+    bridge_analyze(msg.interface, msg.method);
   } else if (msg.type === "fuzz_target") {
     Logger.info("Fuzzer targeting: " + msg.interface + "." + msg.method);
     Logger.info("TIP: Set validation breakpoint with !bp_mojo_validate");
@@ -12231,6 +12249,320 @@ function bridge_help() {
   Logger.info("  3. !bridge_sync      (scans interfaces & pushes to MojoGUI)");
   Logger.info("  4. Start fuzzing in MojoGUI - it now knows all interface IDs");
   Logger.info("  5. !bridge_read      (check if fuzzer sent any requests)");
+  Logger.info("  6. !bridge_validate  (auto-push validation errors to fuzzer)");
+  Logger.info("  7. !bridge_analyze   (PDB-based method analysis for smarter fuzzing)");
   Logger.empty();
+  return "";
+}
+
+/// =============================================================================
+/// BRIDGE: CRASH CAPTURE & RECOVERY
+/// =============================================================================
+
+/**
+ * Capture crash context from the current exception state.
+ * Stores the report so it can be pushed to the next renderer's bridge.
+ */
+function bridge_capture_crash() {
+  var report = {
+    type: "crash_report",
+    timestamp: Date.now(),
+    pid: 0,
+    exceptionCode: null,
+    crashAddress: null,
+    stackFrames: [],
+    registers: {},
+    mojoContext: null,
+  };
+
+  try { report.pid = parseInt(host.currentProcess.Id); } catch (e) {}
+
+  // Read exception record
+  try {
+    var exrLines = SymbolUtils.execute(".exr -1");
+    for (var line of exrLines) {
+      var lineStr = line.toString();
+      var codeMatch = lineStr.match(/ExceptionCode:\s*(0x[0-9a-fA-F]+)/i);
+      if (codeMatch) report.exceptionCode = codeMatch[1];
+      var addrMatch = lineStr.match(/ExceptionAddress:\s*(0x[0-9a-fA-F`]+)/i);
+      if (addrMatch) report.crashAddress = addrMatch[1].replace(/`/g, "");
+    }
+  } catch (e) {}
+
+  // Capture stack trace (top 10 frames)
+  try {
+    var kLines = SymbolUtils.execute("k 10");
+    for (var line of kLines) {
+      var lineStr = line.toString().trim();
+      var frameMatch = lineStr.match(/[0-9a-fA-F`]+\s+[0-9a-fA-F`]+\s+(.+)/);
+      if (frameMatch) {
+        report.stackFrames.push(frameMatch[1].trim());
+      }
+    }
+  } catch (e) {}
+
+  // Key registers
+  try {
+    var regLines = SymbolUtils.execute("r rax, rcx, rdx, r8, rsp, rip");
+    for (var line of regLines) {
+      var lineStr = line.toString();
+      var regs = lineStr.match(/(\w+)=([0-9a-fA-F`]+)/g);
+      if (regs) {
+        for (var r of regs) {
+          var rParts = r.split("=");
+          report.registers[rParts[0]] = rParts[1].replace(/`/g, "");
+        }
+      }
+    }
+  } catch (e) {}
+
+  // Check if a Mojo method was in flight
+  for (var frame of report.stackFrames) {
+    if (frame.indexOf("mojo::") !== -1 || frame.indexOf("Mojo") !== -1) {
+      report.mojoContext = frame;
+      break;
+    }
+  }
+
+  g_lastCrashReport = report;
+  Logger.info("[Bridge] Crash captured: code=" + (report.exceptionCode || "unknown") +
+    " addr=" + (report.crashAddress || "unknown") +
+    " frames=" + report.stackFrames.length);
+
+  return report;
+}
+
+/**
+ * !bridge_crash - Capture current crash state and push it to MojoGUI.
+ */
+function bridge_crash() {
+  Logger.section("Bridge: Capture Crash");
+  var report = bridge_capture_crash();
+
+  if (g_bridgeAddr) {
+    var json = JSON.stringify(report);
+    if (bridge_write(json)) {
+      Logger.info("Crash report pushed to MojoGUI (" + json.length + " bytes)");
+    } else {
+      Logger.info("Crash stashed (will push on reconnect).");
+    }
+  } else {
+    Logger.info("Crash stashed. Will push when bridge reconnects.");
+  }
+  return "";
+}
+
+/**
+ * !bridge_validate - Set validation breakpoints with auto-capture to bridge.
+ * Enhanced version of !bp_mojo_validate that feeds errors to MojoGUI's fuzzer.
+ */
+function bridge_validate() {
+  if (!g_bridgeAddr) {
+    Logger.error("Bridge not connected. Run !bridge first, then !bridge_validate.");
+    return "";
+  }
+
+  Logger.section("Bridge: Validation Breakpoints (auto-capture)");
+  var ctl = SymbolUtils.getControl();
+
+  // ReportBadMessage: first arg (RCX on x64) is std::string& with the error
+  // ReportValidationError: second arg (RDX) is the validation error code
+  var targets = [
+    {
+      sym: "chrome!mojo::ReportBadMessage",
+      desc: "Bad message (security kill) -> bridge",
+      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; da poi(@rcx) L80; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; g"',
+    },
+    {
+      sym: "chrome!mojo::internal::ReportValidationError",
+      desc: "Validation error -> bridge",
+      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; g"',
+    },
+  ];
+
+  var count = 0;
+  for (var t of targets) {
+    Logger.info("[BP] " + t.desc);
+    try {
+      ctl.ExecuteCommand(t.cmd);
+      count++;
+    } catch (e) {
+      Logger.debug("Failed: " + t.sym + ": " + e.message);
+    }
+  }
+
+  Logger.info(count + " breakpoints set. Validation errors will auto-push to MojoGUI.");
+  return "";
+}
+
+/// =============================================================================
+/// BRIDGE: PDB SYMBOL-BASED METHOD ANALYSIS (CODE-AWARE FUZZING)
+/// =============================================================================
+
+/**
+ * !bridge_analyze - Analyze a Mojo method's C++ implementation using PDB symbols.
+ * Extracts validation patterns, comparison constants, security checks, and class
+ * member types from the binary to generate smarter fuzz inputs.
+ *
+ * Usage: !bridge_analyze "blink.mojom.LocalFrameHost" "DidCallFocus"
+ */
+function bridge_analyze(interfaceName, methodName) {
+  if (!interfaceName || !methodName) {
+    Logger.error('Usage: !bridge_analyze "blink.mojom.InterfaceName" "MethodName"');
+    return "";
+  }
+
+  var iface = interfaceName.toString().replace(/"/g, "");
+  var method = methodName.toString().replace(/"/g, "");
+
+  Logger.section("Code Analysis: " + iface + "::" + method);
+
+  var hints = {
+    type: "method_hints",
+    interface: iface,
+    method: method,
+    implSymbol: null,
+    returnType: null,
+    cmpConstants: [],
+    callsReportBadMessage: false,
+    validationChecks: [],
+    nullChecks: 0,
+    securityNotes: [],
+  };
+
+  // 1. Resolve the Impl class from PDB symbols
+  var ifaceParts = iface.split(".");
+  var simpleName = ifaceParts[ifaceParts.length - 1];
+  var implCandidates = [
+    "chrome!*" + simpleName + "Impl::*" + method + "*",
+    "chrome!*" + simpleName + "Host::*" + method + "*",
+    "chrome!*" + simpleName + "::*" + method + "*",
+    "chrome!content::*" + simpleName + "::*" + method + "*",
+    "chrome!blink::*" + simpleName + "::*" + method + "*",
+  ];
+
+  var implSymbol = null;
+  var implAddr = null;
+  for (var pattern of implCandidates) {
+    var symbols = SymbolUtils.findSymbols(pattern);
+    if (symbols.length > 0) {
+      for (var sym of symbols) {
+        if (sym.name.indexOf("[thunk]") !== -1) continue;
+        if (sym.name.indexOf("~") !== -1) continue;
+        if (sym.name.indexOf("operator") !== -1) continue;
+        implSymbol = sym.name;
+        implAddr = sym.addr;
+        break;
+      }
+      if (implSymbol) break;
+    }
+  }
+
+  if (!implSymbol) {
+    Logger.error("Could not resolve C++ impl for " + iface + "::" + method);
+    hints.securityNotes.push("impl_not_found");
+    if (g_bridgeAddr) bridge_write(JSON.stringify(hints));
+    return "";
+  }
+
+  hints.implSymbol = implSymbol;
+  Logger.info("Impl: " + implSymbol + " @ 0x" + implAddr);
+
+  // 2. Get return type from PDB
+  var retType = SymbolUtils.getReturnType(implSymbol);
+  if (retType) {
+    hints.returnType = retType;
+    Logger.info("  Returns: " + retType);
+  }
+
+  // 3. Disassemble to find validation patterns
+  try {
+    var disasm = SymbolUtils.execute("uf /c 0x" + implAddr);
+    var nullCheckCount = 0;
+
+    for (var line of disasm) {
+      var lineStr = line.toString();
+
+      if (lineStr.indexOf("ReportBadMessage") !== -1) {
+        hints.callsReportBadMessage = true;
+        hints.validationChecks.push("report_bad_message");
+      }
+      if (lineStr.indexOf("CHECK") !== -1) {
+        hints.validationChecks.push("dcheck");
+      }
+      if (lineStr.indexOf("ChildProcessSecurityPolicy") !== -1) {
+        hints.securityNotes.push("checks_security_policy");
+      }
+      if (lineStr.indexOf("CanAccessDataForOrigin") !== -1) {
+        hints.securityNotes.push("checks_origin");
+      }
+      if (lineStr.indexOf("IsFeatureEnabled") !== -1 || lineStr.indexOf("FeatureList") !== -1) {
+        hints.securityNotes.push("feature_gated");
+      }
+      if (lineStr.indexOf("GetContentClient") !== -1) {
+        hints.securityNotes.push("uses_content_client");
+      }
+
+      // Extract cmp constants (potential enum bounds, array sizes, etc.)
+      var cmpMatch = lineStr.match(/cmp\s+\w+,\s*(0x[0-9a-fA-F]+|[0-9]+)$/i);
+      if (cmpMatch) {
+        var val = cmpMatch[1].startsWith("0x")
+          ? parseInt(cmpMatch[1], 16)
+          : parseInt(cmpMatch[1], 10);
+        if (val > 0 && val < 0x100000) {
+          hints.cmpConstants.push(val);
+        }
+      }
+
+      // Count null checks (test reg, reg patterns)
+      if (lineStr.match(/test\s+(\w+),\s*\1/i)) {
+        nullCheckCount++;
+      }
+    }
+
+    hints.nullChecks = nullCheckCount;
+    // Deduplicate comparison constants
+    hints.cmpConstants = [...new Set(hints.cmpConstants)].sort(function (a, b) { return a - b; });
+
+    if (hints.cmpConstants.length > 0) Logger.info("  Comparison constants: " + hints.cmpConstants.join(", "));
+    if (hints.callsReportBadMessage) Logger.info("  CALLS ReportBadMessage (has validation failure path)");
+    if (nullCheckCount > 0) Logger.info("  Null checks: " + nullCheckCount);
+    if (hints.securityNotes.length > 0) Logger.info("  Security: " + hints.securityNotes.join(", "));
+
+  } catch (e) {
+    Logger.debug("Disassembly analysis failed: " + e.message);
+    hints.securityNotes.push("disasm_failed");
+  }
+
+  // 4. Try to get class member types from PDB via dt
+  try {
+    var className = implSymbol.split("::").slice(0, -1).join("::");
+    var dtLines = SymbolUtils.execute("dt " + className);
+    for (var line of dtLines) {
+      var lineStr = line.toString();
+      var memberMatch = lineStr.match(/\+0x[0-9a-fA-F]+\s+(\w+)\s+:\s+(.+)/);
+      if (memberMatch) {
+        var mName = memberMatch[1];
+        if (mName.indexOf("security") !== -1 || mName.indexOf("policy") !== -1 ||
+            mName.indexOf("permission") !== -1 || mName.indexOf("origin") !== -1 ||
+            mName.indexOf("frame") !== -1) {
+          hints.securityNotes.push("member_" + mName);
+        }
+      }
+    }
+  } catch (e) {}
+
+  // 5. Push via bridge
+  Logger.empty();
+  if (g_bridgeAddr) {
+    var json = JSON.stringify(hints);
+    if (bridge_write(json)) {
+      Logger.info("Hints pushed to MojoGUI (" + json.length + " bytes)");
+    }
+  } else {
+    Logger.info("Bridge not connected. Copy hints manually:");
+    Logger.info(JSON.stringify(hints, null, 2));
+  }
+
   return "";
 }

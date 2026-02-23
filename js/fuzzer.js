@@ -1187,33 +1187,56 @@
   };
 
   // ── Feedback-guided technique ──────────────────────────────────
-  // Uses FeedbackEngine to bias mutations toward values near
-  // the accept/reject boundary for each parameter.
+  // Uses FeedbackEngine + PDB hints from WinDbg to bias mutations
+  // toward values near the accept/reject boundary and comparison
+  // constants found in the actual C++ implementation.
 
   function feedbackGuidedParams(methodDef, iteration) {
     const params = {};
-    const mk = FeedbackEngine.getKnowledge(
-      MojoFuzzer._currentInterface || "",
-      methodDef.name,
-    );
+    const iface = MojoFuzzer._currentInterface || "";
+    const mk = FeedbackEngine.getKnowledge(iface, methodDef.name);
+
+    // Get PDB-derived hints if available (cmpConstants, nullChecks, etc.)
+    const hints = (typeof DebugBridge !== "undefined")
+      ? DebugBridge.getMethodHints(iface, methodDef.name)
+      : null;
 
     for (const p of methodDef.parameters) {
+      // PDB-guided: if we have comparison constants from the binary,
+      // generate values at and around those boundaries.
+      // This is the highest-value signal — we're probing the exact
+      // values the C++ code checks in cmp/switch instructions.
+      if (hints && hints.cmpConstants && hints.cmpConstants.length > 0 && Math.random() < 0.4) {
+        const pType = typeof p.type === "object" ? p.type.type : p.type;
+        if (pType === "number" || pType === "int32" || pType === "uint32" ||
+            pType === "int64" || pType === "enum" || pType === "float" || pType === "double") {
+          const boundary = hints.cmpConstants[Math.floor(Math.random() * hints.cmpConstants.length)];
+          // Generate values at, just below, and just above the comparison constant
+          const delta = FuzzGenerators._pick([0, -1, 1, -2, 2]);
+          const val = boundary + delta;
+          params[p.name] = pType === "int64" ? BigInt(val) : val;
+          continue;
+        }
+      }
+
+      // PDB-guided: if the method has null checks, occasionally send null
+      // to exercise those code paths
+      if (hints && hints.nullChecks > 0 && Math.random() < 0.15) {
+        params[p.name] = null;
+        continue;
+      }
+
       if (!mk || !mk.paramFeedback[p.name]) {
-        // No feedback yet — fall back to normal fuzz
         params[p.name] = FuzzGenerators.generate(p);
         continue;
       }
 
       const fb = mk.paramFeedback[p.name];
 
-      // Strategy: pick a value that was accepted, then mutate it slightly
-      // to probe the validation boundary
       if (fb.accepted.length > 0 && Math.random() < 0.7) {
-        // Start from an accepted value and mutate
         const baseStr = fb.accepted[Math.floor(Math.random() * fb.accepted.length)];
         params[p.name] = mutateBoundary(baseStr, p);
       } else if (fb.rejected.length > 0 && Math.random() < 0.5) {
-        // Replay a rejected value with slight variation
         const baseStr = fb.rejected[Math.floor(Math.random() * fb.rejected.length)];
         params[p.name] = mutateBoundary(baseStr, p);
       } else {
@@ -1221,12 +1244,11 @@
       }
     }
 
-    // If we have interesting inputs, occasionally replay one with a twist
+    // Replay interesting inputs with a twist
     if (mk && mk.interestingInputs.length > 0 && Math.random() < 0.2) {
       const interesting = mk.interestingInputs[
         Math.floor(Math.random() * mk.interestingInputs.length)
       ];
-      // Copy the interesting params but mutate one field
       const keys = Object.keys(interesting.params);
       const mutKey = keys[Math.floor(Math.random() * keys.length)];
       for (const k of keys) {
@@ -1350,6 +1372,32 @@
           recentCalls,
           timestamp: Date.now(),
         });
+
+        // Check if WinDbg pushed a native crash report with richer context
+        // (exception code, stack frames, registers, Mojo frame)
+        if (typeof DebugBridge !== "undefined") {
+          const nativeCrashes = DebugBridge.drainCrashReports();
+          if (nativeCrashes.length > 0) {
+            const native = nativeCrashes[nativeCrashes.length - 1];
+            // Merge native context into the crash record
+            const errData = this.uniqueErrors.get(errorKey);
+            if (errData) {
+              errData.nativeCrash = {
+                exceptionCode: native.exceptionCode,
+                crashAddress: native.crashAddress,
+                stackFrames: native.stackFrames,
+                registers: native.registers,
+                mojoContext: native.mojoContext,
+              };
+              errData.error += ` [Native: ${native.exceptionCode || "?"} at ${native.crashAddress || "?"}]`;
+            }
+            // Feed to FeedbackEngine as a crash signal
+            FeedbackEngine.recordValidationError(
+              inflight.interface, inflight.method,
+              `CRASH:${native.exceptionCode || "unknown"} at ${native.crashAddress || "?"}`,
+            );
+          }
+        }
 
         this.updateStats();
         global.showToast(
@@ -2226,6 +2274,17 @@
       try {
         await MojoLoader.ensureBinding(interfaceFqn);
 
+        // Auto-request PDB analysis from WinDbg on first encounter
+        if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+          const hintsKey = interfaceFqn + "." + methodName;
+          if (!DebugBridge.getMethodHints(interfaceFqn, methodName) &&
+              !this._analysisRequested?.has(hintsKey)) {
+            if (!this._analysisRequested) this._analysisRequested = new Set();
+            this._analysisRequested.add(hintsKey);
+            DebugBridge.requestAnalysis(interfaceFqn, methodName);
+          }
+        }
+
         const methodDef = MojoReflectionService.findMethodDefinition(
           interfaceFqn,
           methodName,
@@ -2758,6 +2817,7 @@
         uniqueErrorCount: this.uniqueErrors.size,
         uniqueErrors,
         feedback: FeedbackEngine.exportKnowledge(),
+        pdbHints: (typeof DebugBridge !== "undefined") ? DebugBridge.getAllMethodHints() : {},
         totalResults: this.results.length,
         results: this.results,
       };

@@ -66,6 +66,8 @@
     _connected: false,    // True once we see WinDbg's ready bit
     _validationErrors: [], // Queue of validation errors from WinDbg
     _pendingInterfaceIds: null, // Last interface_ids payload from WinDbg
+    _crashReports: [],    // Queue of crash reports from WinDbg
+    _methodHints: new Map(), // "iface.method" → hints from PDB analysis
 
     // ── Lifecycle ───────────────────────────────────────────────
 
@@ -270,6 +272,33 @@
         if (self._validationErrors.length > 50) self._validationErrors.shift();
       });
 
+      // Consume crash reports from WinDbg (from previous renderer or live crash)
+      this.on("crash_report", function (msg) {
+        console.log("[DebugBridge] Crash report: code=" + msg.exceptionCode +
+          " addr=" + msg.crashAddress + " frames=" + (msg.stackFrames || []).length);
+        self._crashReports.push(msg);
+        if (self._crashReports.length > 10) self._crashReports.shift();
+
+        if (global.showToast) {
+          global.showToast(
+            "WinDbg crash report: " + (msg.exceptionCode || "unknown") +
+            " at " + (msg.crashAddress || "?"), "warning"
+          );
+        }
+      });
+
+      // Consume PDB method analysis hints — the fuzzer uses these to generate
+      // values near comparison constants, probe null-checked params, and
+      // focus on methods that call ReportBadMessage.
+      this.on("method_hints", function (msg) {
+        var key = (msg.interface || "") + "." + (msg.method || "");
+        self._methodHints.set(key, msg);
+        console.log("[DebugBridge] Method hints for " + key +
+          ": cmp=" + (msg.cmpConstants || []).length +
+          " nullChks=" + (msg.nullChecks || 0) +
+          " badMsg=" + !!msg.callsReportBadMessage);
+      });
+
       // Handle pong (WinDbg responding to our ping)
       this.on("pong", function () {
         console.log("[DebugBridge] Pong received from WinDbg");
@@ -305,6 +334,42 @@
       var ids = this._pendingInterfaceIds;
       this._pendingInterfaceIds = null;
       return ids;
+    },
+
+    /**
+     * Drain all queued crash reports from WinDbg.
+     * Returns the array and clears the queue.
+     */
+    drainCrashReports: function () {
+      var reports = this._crashReports;
+      this._crashReports = [];
+      return reports;
+    },
+
+    /**
+     * Get PDB-derived method hints for a specific interface.method.
+     * Returns the hints object or null if not analyzed.
+     */
+    getMethodHints: function (interfaceFqn, methodName) {
+      return this._methodHints.get(interfaceFqn + "." + methodName) || null;
+    },
+
+    /**
+     * Get all cached method hints (for export/inspection).
+     */
+    getAllMethodHints: function () {
+      var result = {};
+      this._methodHints.forEach(function (v, k) { result[k] = v; });
+      return result;
+    },
+
+    /** Request PDB analysis of a method from WinDbg. */
+    requestAnalysis: function (interfaceFqn, methodName) {
+      return this.send({
+        type: "request_analyze",
+        interface: interfaceFqn,
+        method: methodName,
+      });
     },
 
     // ── Debug Helpers ───────────────────────────────────────────
