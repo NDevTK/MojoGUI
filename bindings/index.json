@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-23T10:41:47.211204Z",
+  "generated_at": "2026-02-23T10:51:46.885462Z",
   "version": "147.0.7699.0",
   "interfaces": [
     {
@@ -29919,7 +29919,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -34532,7 +34533,8 @@
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork",
           "feature:kImeSystemEmojiPickerMojoSearch"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -34551,7 +34553,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34576,7 +34579,8 @@
         "category": "internal",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -34846,7 +34850,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34865,7 +34870,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34888,7 +34894,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34907,7 +34914,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40011,7 +40019,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40033,7 +40042,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40052,7 +40062,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40071,7 +40082,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40090,7 +40102,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40109,7 +40122,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40138,7 +40152,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40157,7 +40172,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40176,7 +40192,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40195,7 +40212,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40214,7 +40232,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40235,7 +40254,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40255,7 +40275,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40273,7 +40294,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40291,7 +40313,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40311,7 +40334,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40329,7 +40353,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40348,7 +40373,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40366,7 +40392,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40383,7 +40410,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -40404,7 +40432,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -40422,7 +40451,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40442,7 +40472,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40466,7 +40497,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40487,7 +40519,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40507,7 +40540,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40527,7 +40561,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40551,7 +40586,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40570,7 +40606,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40607,7 +40644,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40625,7 +40663,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40644,7 +40683,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40672,7 +40712,8 @@
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40692,7 +40733,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40712,7 +40754,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40736,7 +40779,8 @@
           "feature:kServiceWorkerInDedicatedWorker",
           "feature:kServiceWorkerBackgroundSyncInDedicatedWorker",
           "feature:kLazyBrowserInterfaceBroker"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40889,7 +40933,8 @@
         "gates": [
           "feature:kLazyBrowserInterfaceBroker",
           "feature:kNtpFooter"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40912,7 +40957,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40987,7 +41033,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41017,7 +41064,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41035,7 +41083,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41051,7 +41100,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41069,7 +41119,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41087,7 +41138,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41108,7 +41160,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41127,7 +41180,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41149,7 +41203,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41168,7 +41223,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41186,7 +41242,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41229,7 +41286,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41247,7 +41305,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41265,7 +41324,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41283,7 +41343,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41305,7 +41366,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41323,7 +41385,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41341,7 +41404,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41359,7 +41423,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41378,7 +41443,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41396,7 +41462,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41414,7 +41481,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41432,7 +41500,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41456,7 +41525,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41475,7 +41545,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41495,7 +41566,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41518,7 +41590,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41536,7 +41609,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41578,7 +41652,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41603,7 +41678,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41625,7 +41701,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41645,7 +41722,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41663,7 +41741,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41687,7 +41766,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41711,7 +41791,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41732,7 +41813,8 @@
           ]
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41751,7 +41833,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41770,7 +41853,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41788,7 +41872,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41814,7 +41899,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41837,7 +41923,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41881,7 +41968,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41899,7 +41987,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41920,7 +42009,8 @@
         "category": "direct",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41944,7 +42034,8 @@
         "category": "direct",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41963,7 +42054,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41982,7 +42074,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42004,7 +42097,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42029,7 +42123,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42077,7 +42172,8 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42093,7 +42189,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42115,7 +42212,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42153,7 +42251,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -42171,7 +42270,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42190,7 +42290,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42208,7 +42309,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42238,7 +42340,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42259,7 +42362,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42288,7 +42392,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42307,7 +42412,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42328,7 +42434,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42357,7 +42464,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42375,7 +42483,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42394,7 +42503,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42416,7 +42526,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42435,7 +42546,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42455,7 +42567,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42473,7 +42586,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42513,7 +42627,8 @@
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42536,7 +42651,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42558,7 +42674,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43136,7 +43253,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43175,7 +43293,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43197,7 +43316,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43219,7 +43339,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -43240,7 +43361,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43258,7 +43380,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43280,7 +43403,8 @@
         "gates": [
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43299,7 +43423,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43483,7 +43608,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43509,7 +43635,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43556,7 +43683,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -43588,7 +43716,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43608,7 +43737,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -43631,7 +43761,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43649,7 +43780,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43756,7 +43888,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43779,7 +43912,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43807,7 +43941,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43838,7 +43973,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43861,7 +43997,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43889,7 +44026,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43907,7 +44045,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43930,7 +44069,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43958,7 +44098,8 @@
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43982,7 +44123,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44001,7 +44143,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44020,7 +44163,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44036,7 +44180,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44054,7 +44199,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44086,7 +44232,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44102,7 +44249,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44125,7 +44273,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44148,7 +44297,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44164,7 +44314,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44183,7 +44334,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44207,7 +44359,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44228,7 +44381,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44246,7 +44400,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44264,7 +44419,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44286,7 +44442,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44304,7 +44461,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44325,7 +44483,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44343,7 +44502,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44371,7 +44531,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44390,7 +44551,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44408,7 +44570,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44436,7 +44599,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44454,7 +44618,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44477,7 +44642,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44507,7 +44673,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44529,7 +44696,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44586,7 +44754,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44624,7 +44793,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44647,7 +44817,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44665,7 +44836,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44684,7 +44856,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44703,7 +44876,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44721,7 +44895,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44739,7 +44914,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44936,7 +45112,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44956,7 +45133,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44976,7 +45154,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45005,7 +45184,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45038,7 +45218,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45062,7 +45243,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45087,7 +45269,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45121,7 +45304,8 @@
         "gates": [
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45139,7 +45323,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45157,7 +45342,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45175,7 +45361,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45204,7 +45391,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45227,7 +45415,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45246,7 +45435,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45266,7 +45456,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45287,7 +45478,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45305,7 +45497,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45331,7 +45524,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45354,7 +45548,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45374,7 +45569,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45403,7 +45599,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45424,7 +45621,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45442,7 +45640,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45539,7 +45738,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45562,7 +45762,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45580,7 +45781,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45677,7 +45879,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45699,7 +45902,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45717,7 +45921,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45745,7 +45950,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45766,7 +45972,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45788,7 +45995,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45806,7 +46014,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46028,7 +46237,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46046,7 +46256,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46064,7 +46275,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46161,7 +46373,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46180,7 +46393,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46198,7 +46412,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46217,7 +46432,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46344,7 +46560,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -46367,7 +46584,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46391,7 +46609,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46409,7 +46628,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46433,7 +46653,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46459,7 +46680,8 @@
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kXuControls"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46511,7 +46733,8 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46560,7 +46783,8 @@
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46581,7 +46805,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46607,7 +46832,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kSubApps"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46625,7 +46851,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46651,7 +46878,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46703,7 +46931,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46734,7 +46963,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46794,7 +47024,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kSubApps"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46816,7 +47047,8 @@
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46837,7 +47069,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46891,7 +47124,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46917,7 +47151,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -46942,7 +47177,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46962,7 +47198,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46982,7 +47219,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -47067,7 +47305,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47131,7 +47370,8 @@
         "gates": [
           "feature:kServiceWorkerInDedicatedWorker",
           "feature:kServiceWorkerBackgroundSyncInDedicatedWorker"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -47149,7 +47389,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47170,7 +47411,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47188,7 +47430,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
