@@ -8365,17 +8365,18 @@ function initializeScript() {
     new host.functionAlias(renderer_security, "renderer_sec"),
     // Cache Management
     new host.functionAlias(cache_clear, "cache_clear"),
-    // MojoGUI Debug Bridge
+    // MojoGUI Debug Bridge - single setup command + internal helpers
     new host.functionAlias(bridge_connect, "bridge"),
     new host.functionAlias(bridge_status, "bridge_status"),
-    new host.functionAlias(bridge_sync_ids, "bridge_sync"),
-    new host.functionAlias(bridge_read, "bridge_read"),
-    new host.functionAlias(bridge_send, "bridge_send"),
-    new host.functionAlias(bridge_help, "bridge_help"),
+    new host.functionAlias(bridge_process_pending, "bridge_process"),
     new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
     new host.functionAlias(bridge_crash, "bridge_crash"),
-    new host.functionAlias(bridge_validate, "bridge_validate"),
     new host.functionAlias(bridge_analyze, "bridge_analyze"),
+    // Debug-only (not needed for normal workflow)
+    new host.functionAlias(bridge_read, "bridge_read"),
+    new host.functionAlias(bridge_send, "bridge_send"),
+    new host.functionAlias(bridge_sync_ids, "bridge_sync"),
+    new host.functionAlias(bridge_help, "bridge_help"),
   ];
 }
 
@@ -8554,12 +8555,8 @@ function help() {
   Logger.empty();
 
   Logger.info("MOJOGUI DEBUG BRIDGE:");
-  Logger.info("  !bridge               - Connect to MojoGUI's shared memory buffer");
-  Logger.info("  !bridge_sync          - Scan interfaces & push IDs to MojoGUI");
-  Logger.info("  !bridge_validate      - Validation BPs with auto-push to fuzzer");
-  Logger.info("  !bridge_analyze(i,m)  - PDB analysis of method implementation");
-  Logger.info("  !bridge_crash         - Capture & push crash context");
-  Logger.info("  !bridge_help          - Full bridge help & workflow");
+  Logger.info("  !bridge               - Full setup: connect + sync IDs + hijack + validation BPs + crash handler");
+  Logger.info("  !bridge_status        - Show bridge connection diagnostics");
   Logger.empty();
 
   Logger.info("TIPS:");
@@ -12016,10 +12013,46 @@ function bridge_read_js_message() {
 }
 
 /**
- * !bridge - Find and connect to the MojoGUI debug bridge.
+ * !bridge - Single command to set up the full MojoGUI debug bridge.
+ *
+ * This is the ONLY command users need to run. It:
+ *   1. Finds the shared memory buffer in the renderer heap
+ *   2. Scans all interfaces and pushes IDs + master handles to MojoGUI
+ *   3. Sets validation breakpoints that auto-feed errors to the fuzzer
+ *   4. Sets up crash capture on process exit
+ *   5. Processes any pending JS requests
+ *
+ * After running !bridge, everything is automatic: validation errors,
+ * crash reports, interface IDs, and hijack data flow through the bridge
+ * without further manual commands.
  */
 function bridge_connect() {
+  // 1. Find the shared memory buffer
   bridge_find_buffer();
+  if (!g_bridgeAddr) return "";
+
+  // 2. Scan interfaces and push IDs + master handles
+  bridge_sync_ids();
+
+  // 3. Set validation breakpoints (auto-push to fuzzer)
+  bridge_setup_validation();
+
+  // 4. Set crash capture on process exit
+  bridge_setup_crash_handler();
+
+  // 5. Process any pending JS messages
+  bridge_process_pending();
+
+  Logger.empty();
+  Logger.header("BRIDGE FULLY ACTIVE");
+  Logger.info("Interface IDs + master handles synced to MojoGUI.");
+  Logger.info("Validation errors auto-push to fuzzer.");
+  Logger.info("Crash reports auto-capture on renderer exit.");
+  Logger.info("JS requests processed automatically on BP hits.");
+  Logger.empty();
+  Logger.info("You can now start fuzzing in MojoGUI - no further WinDbg commands needed.");
+  Logger.info("Use !bridge_status for diagnostics.");
+
   return "";
 }
 
@@ -12071,7 +12104,9 @@ function bridge_status() {
 }
 
 /**
- * !bridge_read - Read and display the current JS->WinDbg message.
+ * !bridge_read - Read and display the current JS->WinDbg message, then process it.
+ * Note: messages are now auto-processed on validation BP hits.
+ * This command is for manual debugging only.
  */
 function bridge_read() {
   if (!g_bridgeAddr) {
@@ -12088,23 +12123,8 @@ function bridge_read() {
   Logger.section("JS -> WinDbg Message");
   Logger.info(JSON.stringify(msg, null, 2));
 
-  // Auto-handle known message types
-  if (msg.type === "ping") {
-    Logger.info("Responding with pong...");
-    bridge_write(JSON.stringify({ type: "pong" }));
-  } else if (msg.type === "request_ids") {
-    Logger.info("JS requested interface IDs. Running scan and syncing...");
-    bridge_sync_ids();
-  } else if (msg.type === "request_hijack") {
-    Logger.info("JS requested hijack for: " + msg.interface);
-    Logger.info('Use: !hijack_interface <js_handle_addr> "' + msg.interface + '"');
-  } else if (msg.type === "request_analyze") {
-    Logger.info("JS requested PDB analysis for: " + msg.interface + "." + msg.method);
-    bridge_analyze(msg.interface, msg.method);
-  } else if (msg.type === "fuzz_target") {
-    Logger.info("Fuzzer targeting: " + msg.interface + "." + msg.method);
-    Logger.info("TIP: Set validation breakpoint with !bp_mojo_validate");
-  }
+  // Process it inline (don't call bridge_process_pending since we already consumed the message)
+  bridge_handle_message(msg);
 
   return "";
 }
@@ -12137,7 +12157,7 @@ function bridge_sync_ids() {
     return "";
   }
 
-  Logger.section("Bridge Sync: Interface IDs");
+  Logger.section("Bridge Sync: Interface IDs + Master Handles");
 
   var vtable = SymbolUtils.findSymbolAddress(
     "chrome!mojo::InterfaceEndpointClient::`vftable'"
@@ -12155,6 +12175,7 @@ function bridge_sync_ids() {
   var results = SymbolUtils.execute(cmd);
   var seen = new Set();
   var mapping = {};
+  var masterHandles = {};
   var count = 0;
 
   for (var line of results) {
@@ -12185,22 +12206,46 @@ function bridge_sync_ids() {
         var logicalId = idNum & 0x7fffffff;
         mapping[name] = logicalId;
         count++;
+
+        // Traverse endpoint → controller → connector → master handle
+        try {
+          var controllerPtr = SymbolUtils.evaluate("poi(0x" + endpointAddr + "+0x10)");
+          if (controllerPtr && parseInt(controllerPtr, 16) !== 0) {
+            var connector = SymbolUtils.evaluate("poi(0x" + controllerPtr.toString(16) + "+0x38)");
+            if (connector && parseInt(connector, 16) !== 0) {
+              var masterRead = SymbolUtils.execute("dd 0x" + connector.toString(16) + "+0x10 L1");
+              if (masterRead.length > 0) {
+                var master = parseInt(masterRead[0].trim().split(/\s+/).pop(), 16);
+                if (master > 0 && master < 0x7fffffff) {
+                  masterHandles[name] = master;
+                }
+              }
+            }
+          }
+        } catch (e2) {}
       }
     } catch (e) {}
   }
 
-  Logger.info("Found " + count + " interfaces.");
+  Logger.info("Found " + count + " interfaces, " +
+    Object.keys(masterHandles).length + " master handles.");
 
   if (count === 0) {
     Logger.error("No interfaces found to sync.");
     return "";
   }
 
-  var msg = JSON.stringify({ type: "interface_ids", data: mapping });
+  var payload = { type: "interface_ids", data: mapping };
+  if (Object.keys(masterHandles).length > 0) {
+    payload.masterHandles = masterHandles;
+  }
+  var msg = JSON.stringify(payload);
   if (bridge_write(msg)) {
     Logger.header("SYNC COMPLETE");
     Logger.info("Pushed " + count + " interface IDs to MojoGUI via bridge.");
-    Logger.info("MojoGUI will auto-assign them (no copy-paste needed).");
+    if (Object.keys(masterHandles).length > 0) {
+      Logger.info("Pushed " + Object.keys(masterHandles).length + " master handles (auto-hijack enabled).");
+    }
   } else {
     Logger.error("Failed to write to bridge. Message may be too large.");
     Logger.info("Fallback - paste this into MojoGUI console:");
@@ -12234,23 +12279,30 @@ function bridge_push_validation(interfaceName, methodName, message) {
  * !bridge_help - Show bridge commands.
  */
 function bridge_help() {
-  Logger.section("MojoGUI Debug Bridge Commands");
+  Logger.section("MojoGUI Debug Bridge");
   Logger.empty();
-  Logger.info("  !bridge              Find & connect to MojoGUI's shared memory buffer");
-  Logger.info("  !bridge_status       Show bridge connection status");
-  Logger.info("  !bridge_sync         Run interface scan & push IDs to MojoGUI (no copy-paste!)");
-  Logger.info("  !bridge_read         Read pending message from JS");
-  Logger.info('  !bridge_send "json"  Send raw JSON message to JS');
-  Logger.info("  !bridge_help         This help text");
+  Logger.header("SETUP (one command)");
+  Logger.info("  !bridge              Full setup: find buffer, sync IDs + master handles,");
+  Logger.info("                       set validation BPs, crash handler, auto-process JS requests");
   Logger.empty();
   Logger.header("WORKFLOW");
   Logger.info("  1. Open MojoGUI in the debugged Chrome tab");
-  Logger.info("  2. !bridge           (locates shared buffer in renderer heap)");
-  Logger.info("  3. !bridge_sync      (scans interfaces & pushes to MojoGUI)");
-  Logger.info("  4. Start fuzzing in MojoGUI - it now knows all interface IDs");
-  Logger.info("  5. !bridge_read      (check if fuzzer sent any requests)");
-  Logger.info("  6. !bridge_validate  (auto-push validation errors to fuzzer)");
-  Logger.info("  7. !bridge_analyze   (PDB-based method analysis for smarter fuzzing)");
+  Logger.info("  2. !bridge");
+  Logger.info("  3. Start fuzzing - everything is automatic");
+  Logger.empty();
+  Logger.header("WHAT HAPPENS AUTOMATICALLY");
+  Logger.info("  - Interface IDs + master handles synced to MojoGUI (hijack enabled)");
+  Logger.info("  - ReportBadMessage / ValidationError auto-pushed to fuzzer");
+  Logger.info("  - Crash context captured and stashed across renderer restarts");
+  Logger.info("  - JS requests (analyze, resync, hijack) processed on BP hits");
+  Logger.info("  - PDB analysis triggered on-demand by fuzzer for each method");
+  Logger.empty();
+  Logger.header("DEBUG COMMANDS (normally not needed)");
+  Logger.info("  !bridge_status       Show bridge connection diagnostics");
+  Logger.info("  !bridge_read         Manually read pending JS message");
+  Logger.info('  !bridge_send "json"  Manually send JSON to JS');
+  Logger.info("  !bridge_sync         Re-scan interfaces and push to MojoGUI");
+  Logger.info("  !bridge_process      Manually process pending JS requests");
   Logger.empty();
   return "";
 }
@@ -12353,36 +12405,33 @@ function bridge_crash() {
 }
 
 /**
- * !bridge_validate - Set validation breakpoints with auto-capture to bridge.
- * Enhanced version of !bp_mojo_validate that feeds errors to MojoGUI's fuzzer.
+ * Internal: Set validation breakpoints that auto-push errors to the bridge
+ * AND auto-process pending JS messages on each hit.
  */
-function bridge_validate() {
-  if (!g_bridgeAddr) {
-    Logger.error("Bridge not connected. Run !bridge first, then !bridge_validate.");
-    return "";
-  }
+function bridge_setup_validation() {
+  if (!g_bridgeAddr) return;
 
-  Logger.section("Bridge: Validation Breakpoints (auto-capture)");
+  Logger.info("[Setup] Validation breakpoints...");
   var ctl = SymbolUtils.getControl();
 
   // ReportBadMessage: first arg (RCX on x64) is std::string& with the error
   // ReportValidationError: second arg (RDX) is the validation error code
+  // Each BP also calls bridge_process_pending to handle queued JS requests.
   var targets = [
     {
       sym: "chrome!mojo::ReportBadMessage",
-      desc: "Bad message (security kill) -> bridge",
-      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; da poi(@rcx) L80; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; g"',
+      desc: "Bad message (security kill) -> bridge + auto-process",
+      cmd: 'bp chrome!mojo::ReportBadMessage ".printf \\"[BRIDGE] ReportBadMessage\\\\n\\"; da poi(@rcx) L80; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ReportBadMessage\\"; !bridge_process; g"',
     },
     {
       sym: "chrome!mojo::internal::ReportValidationError",
-      desc: "Validation error -> bridge",
-      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; g"',
+      desc: "Validation error -> bridge + auto-process",
+      cmd: 'bp chrome!mojo::internal::ReportValidationError ".printf \\"[BRIDGE] ValidationError code=%d\\\\n\\", @rdx; !bridge_push_validation \\"unknown\\" \\"unknown\\" \\"ValidationError\\"; !bridge_process; g"',
     },
   ];
 
   var count = 0;
   for (var t of targets) {
-    Logger.info("[BP] " + t.desc);
     try {
       ctl.ExecuteCommand(t.cmd);
       count++;
@@ -12391,7 +12440,78 @@ function bridge_validate() {
     }
   }
 
-  Logger.info(count + " breakpoints set. Validation errors will auto-push to MojoGUI.");
+  Logger.info("  " + count + " validation BPs set (auto-push + auto-process).");
+}
+
+/**
+ * Internal: Set up crash capture on process exit.
+ * When the renderer crashes/exits, capture the state and stash for next bridge.
+ */
+function bridge_setup_crash_handler() {
+  if (!g_bridgeAddr) return;
+
+  Logger.info("[Setup] Crash capture handler...");
+  var ctl = SymbolUtils.getControl();
+
+  try {
+    // On second-chance exception, capture crash state
+    ctl.ExecuteCommand('sxe -c "!bridge_crash; g" -c2 "!bridge_crash" av');
+    ctl.ExecuteCommand('sxe -c "!bridge_crash; g" -c2 "!bridge_crash" gp');
+    Logger.info("  Crash handlers set (AV + GP exceptions).");
+  } catch (e) {
+    Logger.debug("Crash handler setup failed: " + e.message);
+  }
+}
+
+/**
+ * Handle a single parsed JS→WinDbg message.
+ * Used by both bridge_process_pending and bridge_read.
+ */
+function bridge_handle_message(msg) {
+  if (!msg || !msg.type) return;
+
+  if (msg.type === "ping") {
+    bridge_write(JSON.stringify({ type: "pong" }));
+  } else if (msg.type === "request_ids") {
+    bridge_sync_ids();
+  } else if (msg.type === "request_hijack") {
+    Logger.info("[Auto] Hijack request for: " + msg.interface);
+    if (msg.handleAddr) {
+      hijack_interface(msg.handleAddr, msg.interface);
+    } else {
+      // Re-sync to push master handles so JS can use them directly
+      bridge_sync_ids();
+    }
+  } else if (msg.type === "request_analyze") {
+    bridge_analyze(msg.interface, msg.method);
+  }
+  // fuzz_target: informational only, no action needed
+}
+
+/**
+ * !bridge_process - Process all pending JS→WinDbg messages.
+ * Called automatically from validation BP callbacks and during !bridge setup.
+ * Can also be called manually.
+ */
+function bridge_process_pending() {
+  if (!g_bridgeAddr) return "";
+
+  var msg = bridge_read_js_message();
+  if (!msg) return "";
+
+  bridge_handle_message(msg);
+  return "";
+}
+
+/**
+ * Legacy !bridge_validate - now just calls bridge_connect.
+ */
+function bridge_validate() {
+  if (!g_bridgeAddr) {
+    Logger.info("Running full bridge setup...");
+    return bridge_connect();
+  }
+  bridge_setup_validation();
   return "";
 }
 

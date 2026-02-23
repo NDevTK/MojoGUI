@@ -68,6 +68,8 @@
     _pendingInterfaceIds: null, // Last interface_ids payload from WinDbg
     _crashReports: [],    // Queue of crash reports from WinDbg
     _methodHints: new Map(), // "iface.method" → hints from PDB analysis
+    _masterHandleIds: new Map(), // interfaceName → MojoHandleRegistry ID
+    _masterHandleValues: new Map(), // interfaceName → raw native handle value
 
     // ── Lifecycle ───────────────────────────────────────────────
 
@@ -236,7 +238,7 @@
     _initDefaultHandlers: function () {
       var self = this;
 
-      // Auto-assign interface IDs when WinDbg pushes them
+      // Auto-assign interface IDs and register master handles when WinDbg pushes them
       this.on("interface_ids", function (msg) {
         if (!msg.data || typeof msg.data !== "object") return;
 
@@ -247,10 +249,50 @@
         if (api && api.assignInterfaceIds) {
           var result = api.assignInterfaceIds(msg.data);
           console.log("[DebugBridge] Auto-assigned " + result.count + " interface IDs from WinDbg");
-          if (global.showToast) {
-            global.showToast("WinDbg synced " + result.count + " interface IDs", "success");
+        }
+
+        // Auto-register master handles from WinDbg's interface traversal.
+        // Each master handle value is a raw Mojo handle number that JS can wrap
+        // as a MojoHandle and use for associated interface binding.
+        var masterCount = 0;
+        if (msg.masterHandles && typeof msg.masterHandles === "object") {
+          var registry = global.MojoHandleRegistry;
+          var seenValues = new Map(); // handleValue → registryId (dedup shared pipes)
+
+          for (var name in msg.masterHandles) {
+            var handleValue = msg.masterHandles[name];
+            self._masterHandleValues.set(name, handleValue);
+
+            // Multiple interfaces may share the same master pipe - register once
+            if (seenValues.has(handleValue)) {
+              self._masterHandleIds.set(name, seenValues.get(handleValue));
+              masterCount++;
+              continue;
+            }
+
+            // Create a MojoHandle wrapper and register it
+            if (registry && typeof MojoHandle !== "undefined") {
+              try {
+                var handle = new MojoHandle(handleValue);
+                var regId = registry.register(handle);
+                self._masterHandleIds.set(name, regId);
+                seenValues.set(handleValue, regId);
+                masterCount++;
+              } catch (e) {
+                console.warn("[DebugBridge] Failed to register master handle for " + name + ": " + e);
+              }
+            }
           }
         }
+
+        var summary = "WinDbg synced " + Object.keys(msg.data).length + " IDs";
+        if (masterCount > 0) {
+          summary += " + " + masterCount + " master handles (auto-hijack)";
+        }
+        if (global.showToast) {
+          global.showToast(summary, "success");
+        }
+        console.log("[DebugBridge] " + summary);
       });
 
       // Feed validation errors into the fuzzer's FeedbackEngine.
@@ -370,6 +412,23 @@
         interface: interfaceFqn,
         method: methodName,
       });
+    },
+
+    /**
+     * Get the MojoHandleRegistry ID for a master handle associated with an interface.
+     * Returns the registry ID (number) or null if not available.
+     */
+    getMasterHandleId: function (interfaceName) {
+      return this._masterHandleIds.get(interfaceName) || null;
+    },
+
+    /**
+     * Get ANY available master handle registry ID (for interfaces sharing a pipe).
+     * The fuzzer uses this when it needs a master handle but doesn't know which one.
+     */
+    getAnyMasterHandleId: function () {
+      if (this._masterHandleIds.size === 0) return null;
+      return this._masterHandleIds.values().next().value;
     },
 
     // ── Debug Helpers ───────────────────────────────────────────

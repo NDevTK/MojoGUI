@@ -2224,19 +2224,19 @@
         const interfaceId = meta?.discoveredId;
         if (interfaceId === undefined || interfaceId === null) {
           // If the bridge is connected, ask WinDbg for interface IDs
-          // instead of silently skipping
           if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
             if (!this._bridgeIdRequested) {
               this._bridgeIdRequested = true;
               DebugBridge.requestInterfaceIds();
             }
           }
-          return { category, target: null, skip: "no discoveredId assigned (use assignInterfaceIds or !bridge_sync)" };
+          return { category, target: null, skip: "no discoveredId (run !bridge in WinDbg)" };
         }
-        // Find any available master handle from the registry
-        const masterHandleId = this.findMasterHandle();
+        // Find master handle: prefer bridge-provided handle for this specific
+        // interface, then fall back to any handle in the registry
+        const masterHandleId = this.findMasterHandle(interfaceFqn);
         if (!masterHandleId) {
-          return { category, target: null, skip: "no master handle in registry" };
+          return { category, target: null, skip: "no master handle (run !bridge in WinDbg)" };
         }
         return {
           category,
@@ -2255,10 +2255,21 @@
     },
 
     /**
-     * Find the first available master handle from the HandleRegistry.
-     * Master handles are raw message pipe handles used for associated interfaces.
+     * Find a master handle for the given interface.
+     * Priority: 1) bridge-provided handle for this specific interface,
+     *           2) any bridge-provided handle, 3) any handle in registry.
+     * Master handles are pushed automatically by WinDbg during !bridge setup.
      */
-    findMasterHandle() {
+    findMasterHandle(interfaceFqn) {
+      // 1. Check bridge for interface-specific master handle
+      if (typeof DebugBridge !== "undefined" && interfaceFqn) {
+        const bridgeId = DebugBridge.getMasterHandleId(interfaceFqn);
+        if (bridgeId != null) return bridgeId;
+        // 2. Any bridge master handle (interfaces often share a pipe)
+        const anyBridgeId = DebugBridge.getAnyMasterHandleId();
+        if (anyBridgeId != null) return anyBridgeId;
+      }
+      // 3. Fall back to HandleRegistry (manually registered handles)
       if (typeof MojoHandleRegistry === "undefined") return null;
       const ids = MojoHandleRegistry.list();
       return ids.length > 0 ? ids[0] : null;
