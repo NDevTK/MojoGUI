@@ -75,6 +75,7 @@
     generatedCode: document.getElementById("generatedCode"),
     copyBtn: document.getElementById("copyBtn"),
     downloadPoCBtn: document.getElementById("downloadPoCBtn"),
+    downloadRacePoCBtn: document.getElementById("downloadRacePoCBtn"),
     executeBtn: document.getElementById("executeBtn"),
 
     // Toast
@@ -329,6 +330,11 @@
     // Download PoC button
     if (elements.downloadPoCBtn) {
       elements.downloadPoCBtn.addEventListener("click", downloadPoC);
+    }
+
+    // Download Race PoC button
+    if (elements.downloadRacePoCBtn) {
+      elements.downloadRacePoCBtn.addEventListener("click", downloadRacePoC);
     }
 
     // Execute button
@@ -689,14 +695,16 @@
           window.MojoLearnedProtocols &&
           window.MojoLearnedProtocols.has(iface.name);
 
-        const isAssociated = iface.metadata?.usage?.associated?.length > 0;
-        const assocBadge = isAssociated
-          ? '<span class="badge warning" title="Associated Interface">🔗</span>'
-          : "";
+        const category = iface.metadata?.category;
+        const catBadge = category === "associated"
+          ? '<span class="cat-badge cat-assoc" title="Associated Interface – requires parent pipe">A</span>'
+          : category === "internal"
+          ? '<span class="cat-badge cat-internal" title="Internal / non-renderer interface">I</span>'
+          : '<span class="cat-badge cat-direct" title="Direct – bindable from renderer">D</span>';
 
         return `
             <div class="interface-item" role="button" tabindex="0" data-index="${index}" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
-                <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
+                <span class="name">${catBadge} ${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
@@ -771,6 +779,9 @@
 
     elements.selectedInterfaceName.textContent = iface.name;
     elements.selectedModule.textContent = iface.module;
+
+    // Render security metadata badges
+    renderSecurityMeta(iface);
 
     // Auto-load the binding file
     if (iface.file && typeof MojoLoader !== "undefined") {
@@ -975,6 +986,126 @@
     // We use a small timeout to ensure DOM is ready? No, synchronous is fine.
     state.paramValues = collectFormData(elements.paramsForm, false);
     updateGeneratedCode();
+  }
+
+  // ========================================
+  // Security Research Helpers
+  // ========================================
+
+  /**
+   * Build a Chromium Code Search URL for a given interface.
+   * The search targets the C++ implementation file (e.g. FooImpl).
+   */
+  function chromiumSearchUrl(iface) {
+    // Convert mojom module path to a Chromium source search query.
+    // e.g. "blink.mojom.BlobRegistry" -> search for BlobRegistryImpl
+    const implName = iface.name + "Impl";
+    const mojoPath = iface.module.replace(/\./g, "/") + "/" + iface.name;
+    // Use the Chromium Code Search with a query that targets the impl class
+    return `https://source.chromium.org/search?q=${encodeURIComponent(implName + " " + iface.module.replace(/\./g, "/"))}&sq=&ss=chromium`;
+  }
+
+  /**
+   * Build a Chromium Code Search URL targeting the .mojom IDL definition.
+   */
+  function chromiumMojomUrl(iface) {
+    const mojomPath = iface.module.replace(/\./g, "/") + ".mojom";
+    return `https://source.chromium.org/search?q=${encodeURIComponent("interface " + iface.name + " file:" + mojomPath)}&sq=&ss=chromium`;
+  }
+
+  /**
+   * Render security-relevant metadata badges beneath the interface header.
+   */
+  function renderSecurityMeta(iface) {
+    let container = document.getElementById("security-meta-badges");
+    if (!container) {
+      // Create the container once, insert it after the module line
+      container = document.createElement("div");
+      container.id = "security-meta-badges";
+      container.style.cssText =
+        "display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;align-items:center;";
+      elements.selectedModule.parentNode.insertBefore(
+        container,
+        elements.selectedModule.nextSibling,
+      );
+    }
+
+    const meta = iface.metadata || {};
+    const usage = meta.usage || {};
+    const scope = meta.scope || "context";
+    const isDirect = usage.direct && usage.direct.length > 0;
+    const isAssociated = usage.associated && usage.associated.length > 0;
+
+    // Determine privilege boundary from metadata or heuristics
+    const module = iface.module || "";
+    let boundary = "unknown";
+    if (module.startsWith("blink.mojom")) boundary = "renderer → browser";
+    else if (module.startsWith("content.mojom")) boundary = "renderer → browser";
+    else if (module.startsWith("network.mojom")) boundary = "browser → network";
+    else if (module.startsWith("device.mojom")) boundary = "browser → device";
+    else if (module.startsWith("media.mojom")) boundary = "renderer → GPU/utility";
+    else if (module.startsWith("viz.mojom")) boundary = "renderer → GPU";
+    else if (module.startsWith("gpu.mojom")) boundary = "renderer → GPU";
+    else if (module.startsWith("storage.mojom")) boundary = "renderer → browser";
+    else if (module.startsWith("mojo.")) boundary = "core IPC";
+    else if (module.includes("mojom")) boundary = "cross-process";
+
+    // Determine security interest level
+    let interestLevel = "low";
+    const highInterestPatterns = [
+      "FileSystem", "Blob", "Storage", "Network", "Cookie", "Credential",
+      "Payment", "WebSocket", "Serial", "USB", "Bluetooth", "HID", "NFC",
+      "Clipboard", "Permission", "Download", "Process", "Navigator",
+      "ServiceWorker", "Cache", "WebAuthn", "Geolocation",
+    ];
+    const mediumInterestPatterns = [
+      "Frame", "Worker", "Render", "Loader", "Fetch", "URL", "Origin",
+      "Document", "Window", "Media", "Audio", "Video", "Canvas", "WebGL",
+    ];
+
+    for (const p of highInterestPatterns) {
+      if (iface.name.includes(p)) { interestLevel = "high"; break; }
+    }
+    if (interestLevel === "low") {
+      for (const p of mediumInterestPatterns) {
+        if (iface.name.includes(p)) { interestLevel = "medium"; break; }
+      }
+    }
+
+    const interestColors = { high: "#ff4444", medium: "#ffaa00", low: "#888" };
+    const interestLabels = { high: "High Interest", medium: "Med Interest", low: "Low Interest" };
+
+    const badge = (text, color, title) =>
+      `<span title="${title}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:600;background:${color}22;color:${color};border:1px solid ${color}44;cursor:default;white-space:nowrap;">${text}</span>`;
+
+    let html = "";
+    html += badge(boundary, "#8888ff", "IPC privilege boundary");
+    html += badge("scope: " + scope, "#888", "MojoJS binding scope");
+    if (isDirect) html += badge("Direct", "#44cc88", "Can be bound directly from renderer");
+    if (isAssociated) html += badge("Associated", "#cc8844", "Multiplexed on an existing pipe");
+    html += badge(interestLabels[interestLevel], interestColors[interestLevel], "Security research interest heuristic");
+
+    // Security gates from binder analysis (feature flags, permissions, etc.)
+    const gates = meta.gates || [];
+    for (const gate of gates) {
+      if (gate.startsWith("feature:")) {
+        html += badge(gate.replace("feature:", ""), "#cc88ff", "Feature flag required: " + gate);
+      } else if (gate.startsWith("runtime_feature:")) {
+        html += badge(gate.replace("runtime_feature:", ""), "#cc88ff", "Runtime feature: " + gate);
+      } else if (gate.startsWith("permission:")) {
+        html += badge(gate.replace("permission:", ""), "#ff8844", "Permission required: " + gate);
+      } else if (gate === "gesture:required") {
+        html += badge("Gesture", "#ffcc44", "User gesture/activation required");
+      } else if (gate === "context:secure_only") {
+        html += badge("HTTPS", "#44cccc", "Secure context (HTTPS) required");
+      }
+    }
+
+    // Action buttons
+    html += `<a href="${chromiumSearchUrl(iface)}" target="_blank" rel="noopener" title="Search Chromium source for C++ implementation" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:600;background:#4488ff22;color:#4488ff;border:1px solid #4488ff44;text-decoration:none;cursor:pointer;white-space:nowrap;">C++ Impl</a>`;
+    html += `<a href="${chromiumMojomUrl(iface)}" target="_blank" rel="noopener" title="View .mojom IDL definition in Chromium source" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:600;background:#44cc8822;color:#44cc88;border:1px solid #44cc8844;text-decoration:none;cursor:pointer;white-space:nowrap;">IDL</a>`;
+
+    container.innerHTML = safeHTML(html);
   }
 
   // ========================================
@@ -1281,6 +1412,36 @@
     } catch (e) {
       console.error("PoC generation failed:", e);
       showToast(`PoC generation failed: ${e.message}`, "error");
+    }
+  }
+
+  /**
+   * Download a race condition PoC that fires concurrent calls.
+   */
+  async function downloadRacePoC() {
+    const iface = state.selectedInterface;
+    const method = state.selectedMethod;
+
+    if (!iface || !method) {
+      showToast("Select an interface and method first", "warning");
+      return;
+    }
+
+    showToast("Generating race condition PoC...", "info");
+
+    try {
+      const fqn = iface.module + "." + iface.name;
+      const methodDef = MojoReflectionService.findMethodDefinition(fqn, method);
+      if (methodDef) methodDef._interfaceName = iface.name;
+
+      await PoCGenerator.downloadRacePoC(
+        iface, method, state.paramValues, methodDef, 10,
+      );
+
+      showToast(`Downloaded race PoC for ${iface.name}.${method}`, "success");
+    } catch (e) {
+      console.error("Race PoC generation failed:", e);
+      showToast(`Race PoC generation failed: ${e.message}`, "error");
     }
   }
 
@@ -1941,5 +2102,8 @@
     getMethodParams,
     findMethodDefinition,
     generateCode,
+    chromiumSearchUrl,
+    chromiumMojomUrl,
+    selectInterface,
   };
 })();

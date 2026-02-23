@@ -47,6 +47,15 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Save previous index.json for security diff
+        run: |
+          if [ -f bindings/index.json ]; then
+            cp bindings/index.json /tmp/index_old.json
+            echo "HAS_OLD_INDEX=true" >> $GITHUB_ENV
+          else
+            echo "HAS_OLD_INDEX=false" >> $GITHUB_ENV
+          fi
+
       - name: Create working directories
         run: |
           mkdir -p chromium_src
@@ -59,7 +68,8 @@ jobs:
           git remote add origin https://chromium.googlesource.com/chromium/src.git
           git config core.sparseCheckout true
 
-          # Get .mojom files, BUILD.gn for scrambling detection, and chrome/VERSION for salt
+          # Get .mojom files, BUILD.gn for scrambling detection, chrome/VERSION for salt,
+          # and binder source files for usage analysis + security gate extraction
           cat > .git/info/sparse-checkout << 'EOF'
           mojo/public/
           **/*.mojom
@@ -127,11 +137,186 @@ jobs:
           # Run the generation script
           CHROMIUM_VERSION="${{ env.TARGET_VERSION }}" python generate_bindings.py
 
+      - name: Generate security diff report
+        if: env.HAS_OLD_INDEX == 'true'
+        run: |
+          python3 << 'PYEOF'
+          import json, os, sys
+          from datetime import datetime
+
+          old_path = "/tmp/index_old.json"
+          new_path = "bindings/index.json"
+
+          with open(old_path, 'r') as f:
+              old_data = json.load(f)
+          with open(new_path, 'r') as f:
+              new_data = json.load(f)
+
+          old_ifaces = {i['module'] + '.' + i['name']: i for i in old_data.get('interfaces', [])}
+          new_ifaces = {i['module'] + '.' + i['name']: i for i in new_data.get('interfaces', [])}
+
+          old_keys = set(old_ifaces.keys())
+          new_keys = set(new_ifaces.keys())
+
+          added = sorted(new_keys - old_keys)
+          removed = sorted(old_keys - new_keys)
+
+          # Detect method changes on existing interfaces
+          changed = []
+          for fqn in sorted(old_keys & new_keys):
+              old_methods = set(old_ifaces[fqn].get('methods', []))
+              new_methods = set(new_ifaces[fqn].get('methods', []))
+              added_methods = sorted(new_methods - old_methods)
+              removed_methods = sorted(old_methods - new_methods)
+
+              old_cat = old_ifaces[fqn].get('metadata', {}).get('category', 'unknown')
+              new_cat = new_ifaces[fqn].get('metadata', {}).get('category', 'unknown')
+              cat_changed = old_cat != new_cat
+
+              old_gates = old_ifaces[fqn].get('metadata', {}).get('gates', [])
+              new_gates = new_ifaces[fqn].get('metadata', {}).get('gates', [])
+              gates_changed = set(old_gates) != set(new_gates)
+
+              if added_methods or removed_methods or cat_changed or gates_changed:
+                  entry = {'interface': fqn, 'category': new_cat}
+                  if added_methods:
+                      entry['methods_added'] = added_methods
+                  if removed_methods:
+                      entry['methods_removed'] = removed_methods
+                  if cat_changed:
+                      entry['category_change'] = f"{old_cat} -> {new_cat}"
+                  if gates_changed:
+                      entry['gates_added'] = sorted(set(new_gates) - set(old_gates))
+                      entry['gates_removed'] = sorted(set(old_gates) - set(new_gates))
+                  changed.append(entry)
+
+          version = os.environ.get('TARGET_VERSION', 'unknown')
+          report = {
+              'version': version,
+              'generated_at': datetime.utcnow().isoformat() + 'Z',
+              'old_interface_count': len(old_keys),
+              'new_interface_count': len(new_keys),
+              'summary': {
+                  'interfaces_added': len(added),
+                  'interfaces_removed': len(removed),
+                  'interfaces_changed': len(changed),
+              },
+              'added': [],
+              'removed': removed,
+              'changed': changed,
+          }
+
+          # Enrich added interfaces with their metadata
+          for fqn in added:
+              iface = new_ifaces[fqn]
+              entry = {
+                  'interface': fqn,
+                  'methods': iface.get('methods', []),
+                  'category': iface.get('metadata', {}).get('category', 'unknown'),
+                  'scope': iface.get('metadata', {}).get('scope', 'unknown'),
+              }
+              gates = iface.get('metadata', {}).get('gates', [])
+              if gates:
+                  entry['gates'] = gates
+              report['added'].append(entry)
+
+          # Write report
+          os.makedirs('security-reports', exist_ok=True)
+          report_path = f"security-reports/diff_{version.replace('.', '_')}.json"
+          with open(report_path, 'w') as f:
+              json.dump(report, f, indent=2)
+
+          # Also write a human-readable summary
+          summary_path = f"security-reports/diff_{version.replace('.', '_')}.md"
+          with open(summary_path, 'w') as f:
+              f.write(f"# Security Diff Report: {version}\n\n")
+              f.write(f"Generated: {report['generated_at']}\n\n")
+              f.write(f"| Metric | Count |\n|--------|-------|\n")
+              f.write(f"| Total interfaces (old) | {len(old_keys)} |\n")
+              f.write(f"| Total interfaces (new) | {len(new_keys)} |\n")
+              f.write(f"| Interfaces added | {len(added)} |\n")
+              f.write(f"| Interfaces removed | {len(removed)} |\n")
+              f.write(f"| Interfaces with method changes | {len(changed)} |\n\n")
+
+              if added:
+                  f.write("## New Interfaces\n\n")
+                  # Sort by direct category first (most interesting for security)
+                  sorted_added = sorted(report['added'], key=lambda x: 0 if x['category'] == 'direct' else 1)
+                  for entry in sorted_added:
+                      cat_badge = f"[{entry['category']}]"
+                      gates_str = ""
+                      if entry.get('gates'):
+                          gates_str = " | Gates: " + ", ".join(entry['gates'])
+                      f.write(f"- **{entry['interface']}** {cat_badge}{gates_str}\n")
+                      if entry.get('methods'):
+                          for m in entry['methods'][:10]:
+                              f.write(f"  - `{m}`\n")
+                          if len(entry['methods']) > 10:
+                              f.write(f"  - ... and {len(entry['methods']) - 10} more\n")
+                  f.write("\n")
+
+              if removed:
+                  f.write("## Removed Interfaces\n\n")
+                  for fqn in removed:
+                      f.write(f"- ~~{fqn}~~\n")
+                  f.write("\n")
+
+              if changed:
+                  f.write("## Changed Interfaces\n\n")
+                  for entry in changed:
+                      f.write(f"### {entry['interface']} [{entry.get('category', '?')}]\n")
+                      if 'category_change' in entry:
+                          f.write(f"- Category changed: {entry['category_change']}\n")
+                      if entry.get('methods_added'):
+                          f.write(f"- Methods added: {', '.join('`' + m + '`' for m in entry['methods_added'])}\n")
+                      if entry.get('methods_removed'):
+                          f.write(f"- Methods removed: {', '.join('~~`' + m + '`~~' for m in entry['methods_removed'])}\n")
+                      if entry.get('gates_added'):
+                          f.write(f"- Gates added: {', '.join(entry['gates_added'])}\n")
+                      if entry.get('gates_removed'):
+                          f.write(f"- Gates removed: {', '.join(entry['gates_removed'])}\n")
+                      f.write("\n")
+
+          # Print summary to stdout
+          print(f"\n{'='*60}")
+          print(f"SECURITY DIFF: {version}")
+          print(f"{'='*60}")
+          print(f"Interfaces added:   {len(added)}")
+          print(f"Interfaces removed: {len(removed)}")
+          print(f"Interfaces changed: {len(changed)}")
+          if added:
+              direct_added = [a for a in report['added'] if a['category'] == 'direct']
+              print(f"  -> {len(direct_added)} new DIRECT interfaces (renderer-accessible)")
+          print(f"Reports: {report_path}, {summary_path}")
+          print(f"{'='*60}")
+
+          # Set output for step summary
+          with open(os.environ.get('GITHUB_STEP_SUMMARY', '/dev/null'), 'a') as f:
+              f.write(f"## Security Diff: {version}\n")
+              f.write(f"- **{len(added)}** interfaces added")
+              if added:
+                  direct_added = [a for a in report['added'] if a['category'] == 'direct']
+                  f.write(f" ({len(direct_added)} direct)")
+              f.write(f"\n- **{len(removed)}** interfaces removed\n")
+              f.write(f"- **{len(changed)}** interfaces changed\n")
+
+          PYEOF
+
+      - name: Upload security diff report
+        if: env.HAS_OLD_INDEX == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-diff-report
+          path: security-reports/
+          retention-days: 90
+        continue-on-error: true
+
       - name: Cleanup temporary files
         run: |
           # Remove all temporary files that should NOT be committed
           rm -rf chromium_src/
           rm -f mojom_files.txt
+          rm -rf security-reports/
           echo "Cleaned up temporary files"
 
       - name: Commit only generated binding files

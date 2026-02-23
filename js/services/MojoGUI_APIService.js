@@ -925,6 +925,100 @@
     },
     // ---- Binding Loading ----
     ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName),
+
+    // ---- Security Research Shortcuts ----
+
+    /**
+     * One-shot research report for an interface.
+     * Returns security metadata, method signatures, code search links,
+     * and suggested fuzzing targets in a single call.
+     * @param {string} name - Interface name (simple or FQN)
+     * @returns {Object} Comprehensive research summary
+     */
+    researchInterface: async (name) => {
+      const details = await window.MojoGUI_API.getInterfaceDetails(name);
+      if (!details) return { error: `Interface "${name}" not found` };
+
+      const fqn = details.module + "." + details.name;
+      const internal = window.__MojoGUI_Internal || {};
+
+      // Security metadata
+      const module = details.module || "";
+      let boundary = "unknown";
+      if (module.startsWith("blink.mojom")) boundary = "renderer → browser";
+      else if (module.startsWith("content.mojom")) boundary = "renderer → browser";
+      else if (module.startsWith("network.mojom")) boundary = "browser → network";
+      else if (module.startsWith("device.mojom")) boundary = "browser → device";
+      else if (module.startsWith("media.mojom")) boundary = "renderer → GPU/utility";
+      else if (module.startsWith("viz.mojom")) boundary = "renderer → GPU";
+      else if (module.startsWith("gpu.mojom")) boundary = "renderer → GPU";
+      else if (module.startsWith("storage.mojom")) boundary = "renderer → browser";
+      else if (module.includes("mojom")) boundary = "cross-process";
+
+      // Code search links
+      const codeSearch = {
+        cppImpl: `https://source.chromium.org/search?q=${encodeURIComponent(details.name + "Impl " + module.replace(/\./g, "/"))}&ss=chromium`,
+        mojomIdl: `https://source.chromium.org/search?q=${encodeURIComponent("interface " + details.name + " file:" + module.replace(/\./g, "/") + ".mojom")}&ss=chromium`,
+      };
+
+      // Identify high-value fuzzing targets (methods that take complex input)
+      const fuzzTargets = (details.methods || [])
+        .filter((m) => m.parameters && m.parameters.length > 0)
+        .map((m) => {
+          const complexity = m.parameters.reduce((acc, p) => {
+            const t = typeof p.type === "string" ? p.type : (p.type?.type || "any");
+            if (t === "struct" || t === "union") return acc + 3;
+            if (t === "array" || t === "map") return acc + 2;
+            if (t === "string" || t === "Url" || t === "bigstring") return acc + 2;
+            if (t === "pending_remote" || t === "pending_receiver") return acc + 1;
+            return acc + 1;
+          }, 0);
+          return { method: m.name, paramCount: m.parameters.length, complexity };
+        })
+        .sort((a, b) => b.complexity - a.complexity);
+
+      return {
+        interface: fqn,
+        module: details.module,
+        file: details.file,
+        security: {
+          boundary,
+          methodCount: details.methods?.length || 0,
+          gates: details.metadata?.gates || [],
+        },
+        methods: details.methods,
+        codeSearch,
+        fuzzTargets,
+        quickStart: {
+          fuzzCommand: `MojoFuzzer.start() // Select "${fqn}" first, or use all_interfaces strategy`,
+          raceTestExample: `MojoFuzzer.raceTest("${fqn}", "${fuzzTargets[0]?.method || "methodName"}", 10)`,
+          interceptCommand: `MojoGUI_API.startInterceptor("${fqn}", "LOG")`,
+        },
+      };
+    },
+
+    /**
+     * Run a race condition test on a method.
+     * @param {string} ifaceName - Interface name
+     * @param {string} methodName - Method name
+     * @param {number} concurrency - Number of concurrent calls
+     * @returns {Object} Race test results
+     */
+    raceTest: async (ifaceName, methodName, concurrency = 10) => {
+      if (!window.MojoFuzzer) return { error: "Fuzzer not available" };
+      return await window.MojoFuzzer.raceTest(ifaceName, methodName, concurrency);
+    },
+
+    /**
+     * Run a sequence fuzz test on an interface.
+     * @param {string} ifaceName - Interface name
+     * @param {Array<string>} methods - Method names in order
+     * @param {number} iterations - Number of iterations
+     */
+    sequenceFuzz: async (ifaceName, methods, iterations = 10) => {
+      if (!window.MojoFuzzer) return { error: "Fuzzer not available" };
+      return await window.MojoFuzzer.sequenceFuzz(ifaceName, methods, iterations);
+    },
   };
 
   // Signal readiness

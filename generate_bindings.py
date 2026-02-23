@@ -1939,6 +1939,73 @@ def main():
                             except: pass
                             return found
 
+                        # Cache for binder file contents (read once, reuse)
+                        _binder_file_cache = {}
+
+                        def extract_security_gates(fqn, leaf_name, binder_files):
+                            """
+                            Extract feature flags, permission checks, and security
+                            gates near an interface's registration in binder source files.
+                            Returns a list of gate descriptions, e.g.:
+                              ["feature:kWebBluetooth", "permission:BLUETOOTH", "gesture:required"]
+                            """
+                            gates = []
+                            search_names = [leaf_name, fqn.replace('.', '::')]
+                            for fpath in binder_files:
+                                if not fpath or not os.path.exists(fpath):
+                                    continue
+                                if fpath not in _binder_file_cache:
+                                    try:
+                                        with open(fpath, 'r', encoding='utf-8', errors='ignore') as f:
+                                            _binder_file_cache[fpath] = f.read()
+                                    except:
+                                        _binder_file_cache[fpath] = ""
+                                content = _binder_file_cache[fpath]
+                                if not content:
+                                    continue
+
+                                # Find all locations where this interface is referenced
+                                for sn in search_names:
+                                    idx = 0
+                                    while True:
+                                        pos = content.find(sn, idx)
+                                        if pos == -1:
+                                            break
+                                        idx = pos + len(sn)
+                                        # Extract ~30 lines of surrounding context
+                                        ctx_start = max(0, content.rfind('\n', 0, max(0, pos - 1500)) + 1)
+                                        ctx_end = min(len(content), content.find('\n', min(len(content)-1, pos + 1500)))
+                                        ctx = content[ctx_start:ctx_end]
+
+                                        # Feature flags: base::FeatureList::IsEnabled(features::kFoo)
+                                        for fm in re.finditer(r'(?:base::FeatureList::IsEnabled|features?::)(k\w+)', ctx):
+                                            gate = f"feature:{fm.group(1)}"
+                                            if gate not in gates:
+                                                gates.append(gate)
+                                        # RuntimeEnabledFeatures checks
+                                        for fm in re.finditer(r'RuntimeEnabledFeatures::(\w+)Enabled', ctx):
+                                            gate = f"runtime_feature:{fm.group(1)}"
+                                            if gate not in gates:
+                                                gates.append(gate)
+                                        # Permission checks
+                                        for fm in re.finditer(r'(?:Permission|ContentSetting)Type::(\w+)', ctx):
+                                            gate = f"permission:{fm.group(1)}"
+                                            if gate not in gates:
+                                                gates.append(gate)
+                                        # User gesture requirements
+                                        if re.search(r'(?:HasTransientUserActivation|UserGestureRequired|user_gesture|HasStickyUserActivation)', ctx, re.IGNORECASE):
+                                            gate = "gesture:required"
+                                            if gate not in gates:
+                                                gates.append(gate)
+                                        # Secure context requirements
+                                        if re.search(r'(?:IsSecureContext|secure_context|kSecureContextRequired)', ctx, re.IGNORECASE):
+                                            gate = "context:secure_only"
+                                            if gate not in gates:
+                                                gates.append(gate)
+                                        # Only find first occurrence per file
+                                        break
+                            return gates
+
                         # A. Global Binders (Directly Callable - Context Scoped)
                         global_files = [
                             os.path.join(ROOT_DIR, "content/browser/browser_interface_binders.cc"),
@@ -2014,7 +2081,10 @@ def main():
                             associated_binders.update(extract_interfaces(af, r'PendingAssociatedReceiver<\s*([\w:]+)'))
                             associated_binders.update(extract_interfaces(af, r'associated_registry\.AddInterface<\s*([\w:]+)'))
 
-                    # 2. Apply Ground Truth Logic
+                    # 2. Extract feature flags and permission gates near this interface's binder registration
+                    security_gates = extract_security_gates(fqn, leaf_name, global_files + rph_files + [ccbc_file] + frame_files + webui_files)
+
+                    # 3. Apply Ground Truth Logic
                     scope = "context"
                     category = "internal" # Default to internal/unknown
                     leaf_name = fqn.split('.')[-1]
@@ -2072,16 +2142,20 @@ def main():
                              category = "internal"
                              usage['direct'].append("Internal Interface: Inferred (Not in Desktop BinderMap)")
 
+                    iface_metadata = {
+                        'usage': usage,
+                        'scope': scope,
+                        'category': category
+                    }
+                    if security_gates:
+                        iface_metadata['gates'] = security_gates
+
                     index_data['interfaces'].append({
                         'name': interface['name'],
                         'module': parsed['module'],
                         'file': out_filename,
                         'methods': [m['name'] for m in interface.get('methods', [])],
-                        'metadata': {
-                            'usage': usage,
-                            'scope': scope,
-                            'category': category
-                        }
+                        'metadata': iface_metadata
                     })
                 
                 index_data['files'].append({

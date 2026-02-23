@@ -1,13 +1,15 @@
-# Chromium Security Research WinDbg Toolkit
+# Chromium Security Research Debugger Toolkit
 
-An experimental WinDbg debugging toolkit for Chromium security researchers  
+An experimental debugging toolkit for Chromium security researchers
 Inspired by [spoof.js](https://github.com/shhnjk/spoof.js)
 
 > [!WARNING]
-> Avoid untrusted websites and networks while using this script!  
+> Avoid untrusted websites and networks while using this script!
 > Enables MojoJS and Chrome DevTools Protocol both make the browser less secure but help with security research.
 
 ## Quick Start
+
+### Windows (WinDbg)
 
 - Install [Chrome Canary](https://www.google.com/chrome/canary/)
 - Install [WinDbg from MS Store](https://apps.microsoft.com/detail/9pgjgd53tn86)
@@ -15,6 +17,17 @@ Inspired by [spoof.js](https://github.com/shhnjk/spoof.js)
 - When it says BUSY you need to click Break to use the command line
 
 Then in WinDbg: `!chelp`
+
+### Linux / macOS
+
+- Install Chrome/Chromium (Canary recommended)
+- Run `./debug_chrome.sh`
+- Choose launch mode: standalone, GDB, or LLDB
+
+```bash
+# Custom Chrome path
+CHROME_PATH=/opt/chromium/chrome ./debug_chrome.sh
+```
 
 ## Commands
 
@@ -49,6 +62,16 @@ Then in WinDbg: `!chelp`
 | `!trace_ipc`       | Enable IPC message logging                                |
 | `!mojo_interfaces` | **List mojo interfaces exposed to current renderer**      |
 
+### Mojo Security Research
+
+| Command             | Description                                             |
+| ------------------- | ------------------------------------------------------- |
+| `!bp_mojo_validate` | **Break on Mojo message validation errors**             |
+| `!bp_permissions`   | Break on permission & feature flag checks               |
+| `!bp_nav_commit`    | Break on navigation commit security checks              |
+| `!mojo_trace`       | **Live Mojo IPC tracing (bind/send/recv)**              |
+| `!renderer_sec`     | **Full renderer security dashboard**                    |
+
 ### Mojo Handle Hijacking & Mapping
 
 | Command                         | Description                                                     |
@@ -81,7 +104,7 @@ Then in WinDbg: `!chelp`
 | `!frame_origin(idx)`              | Get SecurityOrigin for frame at index               |
 | `!frame_elem(idx,"tag")`          | List elements by tag name in frame                  |
 | `!frame_getattr(el,"attr")`       | Get attribute value (decodes `WTF::String`, `KURL`) |
-| `!frame_setattr(el,"attr","val")` | Set attribute value ⚠️ **Memory mutation warning**  |
+| `!frame_setattr(el,"attr","val")` | Set attribute value                                 |
 | `!frame_attrs(el)`                | List attributes with direct string preview          |
 
 ### V8 Exploitation Hooks
@@ -103,10 +126,10 @@ Then in WinDbg: `!chelp`
 
 ### Vulnerability Hunting
 
-| Command      | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| `!vuln_hunt` | **Set UAF, type confusion, race condition breakpoints** |
-| `!heap_info` | PartitionAlloc/V8 heap inspection guide                 |
+| Command      | Description                                                |
+| ------------ | ---------------------------------------------------------- |
+| `!vuln_hunt` | **UAF, type confusion, race, Mojo lifetime breakpoints**   |
+| `!heap_info` | PartitionAlloc/V8 heap inspection guide                    |
 
 ### Origin Spoofing & Function Patching
 
@@ -149,11 +172,30 @@ Then in WinDbg: `!chelp`
 !exec "blink::Document::Url()->ProtocolIs(\"https\")"
 ```
 
+## Security Research Workflow
+
+A typical Mojo IPC security research session:
+
+```text
+1. !procs                     # Find renderer processes
+2. |2s                        # Switch to target renderer
+3. !renderer_sec              # Security dashboard overview
+4. !mojo_interfaces           # What's exposed?
+5. !bp_mojo_validate          # Catch validation failures
+6. !mojo_trace                # Watch message flow
+7. g                          # Continue execution
+   (trigger MojoGUI fuzzer)
+8. !vuln_hunt                 # Set vuln detection breakpoints
+9. !map_interfaces            # Get interface IDs for hijacking
+```
+
 ## Files
 
 ```
 chromiumdebug/
-├── debug_chrome.bat          # Launcher (auto-cleans old sessions)
-├── chromium_security.js      # Main WinDbg script
-└── init.txt                  # WinDbg init commands
+├── debug_chrome.bat          # Windows launcher (WinDbg + Chrome)
+├── debug_chrome.sh           # Linux/macOS launcher (GDB/LLDB + Chrome)
+├── chromium_security.js      # Main WinDbg script (11k+ lines)
+├── SECURITY.md               # Security policy
+└── init.txt                  # WinDbg init commands (auto-generated)
 ```

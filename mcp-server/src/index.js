@@ -1661,6 +1661,149 @@ server.tool(
   },
 );
 
+// ========================================
+// Security Research Tools
+// ========================================
+
+server.tool(
+  "research_interface",
+  "Get a comprehensive security research summary for a Mojo interface. Returns privilege boundary, security gates (feature flags, permissions, gesture requirements), code search links, methods ranked by fuzz complexity, and quick-start commands.",
+  {
+    name: z
+      .string()
+      .describe(
+        "Interface name (simple like 'BatteryMonitor' or FQN like 'device.mojom.BatteryMonitor')",
+      ),
+  },
+  async ({ name }) => {
+    const result = await executeInMojoGUI(`
+      const api = window.MojoGUI_API;
+      if (!api || !api.researchInterface) {
+        return { error: 'researchInterface API not available' };
+      }
+      return await api.researchInterface(${JSON.stringify(name)});
+    `);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "race_test",
+  "Fire N concurrent identical calls to the same Mojo method to detect TOCTOU race conditions. All calls use the same valid parameters and run simultaneously via Promise.all(). Results show how many succeeded vs errored, which can reveal unsafe shared state.",
+  {
+    interface: z
+      .string()
+      .describe("Fully qualified interface name (e.g. 'device.mojom.BatteryMonitor')"),
+    method: z.string().describe("Method name to race"),
+    concurrency: z
+      .number()
+      .optional()
+      .default(10)
+      .describe("Number of concurrent calls (default 10)"),
+  },
+  async ({ interface: ifaceName, method, concurrency = 10 }) => {
+    const result = await executeInMojoGUI(`
+      const api = window.MojoGUI_API;
+      if (!api || !api.raceTest) {
+        return { error: 'raceTest API not available' };
+      }
+      return await api.raceTest(
+        ${JSON.stringify(ifaceName)},
+        ${JSON.stringify(method)},
+        ${concurrency}
+      );
+    `);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "sequence_fuzz",
+  "Call multiple methods on the same interface in sequence to detect state-dependent bugs. Every 3rd iteration, the method order is shuffled to test order sensitivity. Each call uses a different fuzz technique (targeted, boundary, typeConfuse, etc.).",
+  {
+    interface: z
+      .string()
+      .describe("Fully qualified interface name"),
+    methods: z
+      .array(z.string())
+      .describe("Ordered list of method names to call in sequence"),
+    iterations: z
+      .number()
+      .optional()
+      .default(10)
+      .describe("Number of times to run the full sequence (default 10)"),
+  },
+  async ({ interface: ifaceName, methods, iterations = 10 }) => {
+    const result = await executeInMojoGUI(`
+      const api = window.MojoGUI_API;
+      if (!api || !api.sequenceFuzz) {
+        return { error: 'sequenceFuzz API not available' };
+      }
+      return await api.sequenceFuzz(
+        ${JSON.stringify(ifaceName)},
+        ${JSON.stringify(methods)},
+        ${iterations}
+      );
+    `);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "get_fuzzer_results",
+  "Export fuzzer results, statistics, unique errors, and crash data from the current or most recent fuzzing session. Useful for generating vulnerability reports.",
+  {
+    filter: z
+      .enum(["all", "errors", "crashes", "successes"])
+      .optional()
+      .default("all")
+      .describe("Filter results by status"),
+    limit: z
+      .number()
+      .optional()
+      .default(100)
+      .describe("Maximum number of results to return"),
+  },
+  async ({ filter = "all", limit = 100 }) => {
+    const result = await executeInMojoGUI(`
+      const fuzzer = window.MojoFuzzer;
+      if (!fuzzer) return { error: 'Fuzzer not available' };
+
+      let results = fuzzer.results || [];
+      const filterType = ${JSON.stringify(filter)};
+      if (filterType === 'errors') results = results.filter(r => r.status === 'error');
+      else if (filterType === 'crashes') results = results.filter(r => r.status === 'crash');
+      else if (filterType === 'successes') results = results.filter(r => r.status === 'success');
+
+      const limited = results.slice(-${limit});
+
+      const uniqueErrors = [];
+      for (const [key, data] of fuzzer.uniqueErrors || []) {
+        uniqueErrors.push({ key, ...data });
+      }
+
+      return {
+        stats: fuzzer.stats,
+        running: fuzzer.running,
+        totalResults: results.length,
+        returnedResults: limited.length,
+        uniqueErrorCount: (fuzzer.uniqueErrors || new Map()).size,
+        uniqueErrors: uniqueErrors,
+        results: limited,
+      };
+    `);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
 // Start the server
 async function main() {
   const transport = new StdioServerTransport();

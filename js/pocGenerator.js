@@ -111,6 +111,203 @@
     },
 
     /**
+     * Generate and download a race condition PoC that fires N concurrent
+     * identical calls to the same method via Promise.all().
+     * @param {Object} iface - Interface metadata
+     * @param {string} methodName - Method name to race
+     * @param {Object} paramValues - Parameter values from form
+     * @param {Object} methodDef - Method definition
+     * @param {number} concurrency - Number of concurrent calls (default 10)
+     */
+    async downloadRacePoC(iface, methodName, paramValues, methodDef, concurrency = 10) {
+      const scope = iface.metadata?.scope || "context";
+      const bindingFiles = await this._resolveBindingFiles(iface.file);
+      const fileContents = await this._fetchBindingContents(bindingFiles);
+      const helpersJs = this._extractHelpers(methodDef);
+
+      const fqn = `${iface.module}.${iface.name}`;
+      const enums = this._generateEnumDefinitions(methodDef, paramValues);
+      const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + "Remote";
+      const methodNameLower = methodName.charAt(0).toLowerCase() + methodName.slice(1);
+      const paramCode = this._buildParamCode(methodDef, paramValues);
+      const callArgs = methodDef?.parameters?.map((p) => p.name.replace(/^arg_/, "")).join(", ") || "";
+
+      // Build runtime script blocks (same as regular PoC)
+      const runtimeBlocks = this._buildRuntimeBlocks(fileContents, helpersJs);
+
+      const pocHtml = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Race PoC: ${fqn}.${methodName} x${concurrency}</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1a1a2e; color: #eee; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #4a90d9; color: white; border: none; border-radius: 4px; margin: 5px; }
+    button:hover { background: #357abd; }
+    pre { background: #16213e; padding: 15px; border-radius: 4px; overflow: auto; white-space: pre-wrap; }
+    h1 { color: #d94a4a; }
+    .info { color: #888; font-size: 12px; margin-bottom: 20px; }
+    .warn { color: #ffcc00; margin: 10px 0; }
+    .stat { display: inline-block; padding: 4px 12px; margin: 2px; border-radius: 4px; font-size: 14px; }
+    .stat-ok { background: #10b981; }
+    .stat-err { background: #ef4444; }
+    .stat-time { background: #3b82f6; }
+    #stats { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Race Condition PoC: ${methodName} x${concurrency}</h1>
+  <div class="info">Interface: ${fqn} | Concurrency: ${concurrency}</div>
+  <div class="warn">This PoC fires ${concurrency} concurrent identical calls to detect TOCTOU bugs.</div>
+  <button id="run">Run Race Test</button>
+  <button id="run10">Run 10x</button>
+  <div id="stats"></div>
+  <pre id="output">Click "Run Race Test" to execute...</pre>
+
+<script id="poc-code">
+${enums ? `// Enum definitions\\n${enums}\\n` : ""}
+
+async function bindInterface() {
+  const root = mojo.internal.bindings.${iface.module.replace(/\./g, ".")};
+  let remote;
+  if (typeof root.${iface.name}.getRemote === 'function') {
+    remote = root.${iface.name}.getRemote();
+  } else {
+    remote = new root.${iface.name}Remote();
+    const receiver = remote.bindNewPipeAndPassReceiver();
+    Mojo.bindInterface("${fqn}", receiver.handle || receiver, "${scope}");
+  }
+  return remote;
+}
+
+async function runRace(concurrency) {
+  const out = document.getElementById('output');
+  const statsEl = document.getElementById('stats');
+  out.textContent = 'Racing ' + concurrency + ' calls...\\n';
+
+${paramCode}
+
+  const start = performance.now();
+  const promises = [];
+
+  for (let i = 0; i < concurrency; i++) {
+    const ${remoteName} = await bindInterface();
+    promises.push(
+      ${remoteName}.${methodNameLower}(${callArgs})
+        .then(r => ({ index: i, status: 'ok', result: r, time: performance.now() - start }))
+        .catch(e => ({ index: i, status: 'error', error: e.message, time: performance.now() - start }))
+    );
+  }
+
+  const results = await Promise.allSettled(promises);
+  const elapsed = performance.now() - start;
+  const settled = results.map(r => r.value || r.reason);
+  const successes = settled.filter(r => r.status === 'ok').length;
+  const errors = settled.filter(r => r.status === 'error').length;
+
+  statsEl.innerHTML =
+    '<span class="stat stat-ok">' + successes + ' OK</span>' +
+    '<span class="stat stat-err">' + errors + ' Errors</span>' +
+    '<span class="stat stat-time">' + elapsed.toFixed(1) + ' ms</span>';
+
+  // Show timing for each call (useful for detecting serialization)
+  const timings = settled.map(r => r.time.toFixed(2) + 'ms').join(', ');
+  out.textContent += 'Timings: ' + timings + '\\n\\n';
+
+  // Show detailed results
+  for (const r of settled) {
+    const prefix = r.status === 'ok' ? '[OK]' : '[ERR]';
+    const detail = r.status === 'ok'
+      ? JSON.stringify(r.result, null, 2)
+      : r.error;
+    out.textContent += prefix + ' #' + r.index + ' (' + r.time.toFixed(1) + 'ms): ' + detail + '\\n';
+  }
+
+  return { successes, errors, elapsed };
+}
+
+document.getElementById('run').onclick = () => runRace(${concurrency});
+document.getElementById('run10').onclick = async () => {
+  const out = document.getElementById('output');
+  out.textContent = 'Running 10 rounds...\\n';
+  for (let round = 0; round < 10; round++) {
+    out.textContent += '\\n--- Round ' + (round + 1) + ' ---\\n';
+    const r = await runRace(${concurrency});
+    out.textContent += 'Result: ' + r.successes + ' ok, ' + r.errors + ' errors\\n';
+  }
+  out.textContent += '\\nDone.';
+};
+</script>
+
+<script id="version-detect">
+(async function() {
+  if (navigator.userAgentData) {
+    try {
+      const ua = await navigator.userAgentData.getHighEntropyValues(['fullVersionList']);
+      const ver = ua.fullVersionList.find(v => v.brand === 'Google Chrome' || v.brand === 'Chromium');
+      if (ver) { window.mojoVersion = ver.version; }
+    } catch (e) {}
+  }
+  if (!window.mojoVersion) {
+    const match = navigator.userAgent.match(/Chrome\\/([\\d.]+)/);
+    if (match) window.mojoVersion = match[1];
+  }
+})();
+</script>
+
+<script id="mojo-runtime">
+${runtimeBlocks.join("\n\n// ----------------------------------------\n\n")}
+</script>
+
+</body>
+</html>`;
+
+      const blob = new Blob([pocHtml], { type: "text/html" });
+      this._downloadBlob(blob, `poc_race_${iface.name}_${methodName}_x${concurrency}.html`);
+    },
+
+    /**
+     * Build the runtime script blocks for PoC HTML files.
+     * Shared between regular and race PoC generation.
+     */
+    _buildRuntimeBlocks(fileContents, helpersJs) {
+      const runtimeBlocks = [];
+
+      if (fileContents["mojo_bindings.js"]) {
+        runtimeBlocks.push(`// mojo_bindings.js\n${fileContents["mojo_bindings.js"]}`);
+      }
+      if (fileContents["bindings_lite.js"]) {
+        runtimeBlocks.push(`// bindings_lite.js\n${fileContents["bindings_lite.js"]}`);
+      }
+      runtimeBlocks.push(`// init_polyfills\n${INIT_POLYFILLS_CODE}`);
+      if (fileContents["mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"]) {
+        runtimeBlocks.push(`// pipe_control_messages.mojom.js\n${fileContents["mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"]}`);
+      }
+      if (fileContents["mojo_public_interfaces_bindings_interface_control_messages.mojom.js"]) {
+        runtimeBlocks.push(`// interface_control_messages.mojom.js\n${fileContents["mojo_public_interfaces_bindings_interface_control_messages.mojom.js"]}`);
+      }
+      runtimeBlocks.push(`// init_aliasing\n${INIT_ALIASING_CODE}`);
+      if (fileContents["interface_support.js"]) {
+        runtimeBlocks.push(`// interface_support.js\n${fileContents["interface_support.js"]}`);
+      }
+
+      const coreFiles = [
+        "mojo_bindings.js", "bindings_lite.js",
+        "mojo_public_interfaces_bindings_pipe_control_messages.mojom.js",
+        "mojo_public_interfaces_bindings_interface_control_messages.mojom.js",
+        "interface_support.js",
+      ];
+      for (const [filename, content] of Object.entries(fileContents)) {
+        if (!coreFiles.includes(filename)) {
+          runtimeBlocks.push(`// ${filename}\n${content}`);
+        }
+      }
+
+      runtimeBlocks.push(`// helpers.js\n${helpersJs}`);
+      return runtimeBlocks;
+    },
+
+    /**
      * Resolve all binding files needed for an interface, including dependencies.
      * Returns files in correct load order.
      */
