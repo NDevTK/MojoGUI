@@ -70,6 +70,15 @@
     _methodHints: new Map(), // "iface.method" → hints from PDB analysis
     _masterHandleIds: new Map(), // interfaceName → MojoHandleRegistry ID
     _masterHandleValues: new Map(), // interfaceName → raw native handle value
+    _fuzzEntries: [],     // Queue of fuzz_entry events from WinDbg (method was entered)
+    _bridgeStats: {       // Stats about bridge data received
+      validationErrorsTotal: 0,
+      crashReportsTotal: 0,
+      methodHintsTotal: 0,
+      interfaceSyncs: 0,
+      fuzzEntriesTotal: 0,
+      lastActivity: 0,
+    },
 
     // ── Lifecycle ───────────────────────────────────────────────
 
@@ -285,6 +294,9 @@
           }
         }
 
+        self._bridgeStats.interfaceSyncs++;
+        self._bridgeStats.lastActivity = Date.now();
+
         var summary = "WinDbg synced " + Object.keys(msg.data).length + " IDs";
         if (masterCount > 0) {
           summary += " + " + masterCount + " master handles (auto-hijack)";
@@ -300,18 +312,26 @@
       // tell us *exactly* which validation check failed (e.g.
       // "VALIDATION_ERROR_UNEXPECTED_NULL_POINTER"), which is far more
       // specific than the JS-level "connection lost" the fuzzer normally sees.
+      // With smart attribution, the interface/method are now extracted from
+      // the actual C++ call stack instead of always being "unknown".
       this.on("validation_error", function (msg) {
-        console.log("[DebugBridge] Validation error: " + msg.interface + "." + msg.method + ": " + msg.message);
+        var attributed = msg.attributed ? " [attributed]" : "";
+        console.log("[DebugBridge] Validation error" + attributed + ": " +
+          msg.interface + "." + msg.method + ": " + msg.message);
 
         // Accumulate in a queue the fuzzer can drain
         self._validationErrors.push({
           interface: msg.interface || "",
           method: msg.method || "",
           message: msg.message || "",
+          attributed: !!msg.attributed,
+          fuzzTarget: msg.fuzzTarget || null,
           timestamp: Date.now(),
         });
         // Cap queue
         if (self._validationErrors.length > 50) self._validationErrors.shift();
+        self._bridgeStats.validationErrorsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
       });
 
       // Consume crash reports from WinDbg (from previous renderer or live crash)
@@ -320,6 +340,8 @@
           " addr=" + msg.crashAddress + " frames=" + (msg.stackFrames || []).length);
         self._crashReports.push(msg);
         if (self._crashReports.length > 10) self._crashReports.shift();
+        self._bridgeStats.crashReportsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
 
         if (global.showToast) {
           global.showToast(
@@ -332,13 +354,35 @@
       // Consume PDB method analysis hints — the fuzzer uses these to generate
       // values near comparison constants, probe null-checked params, and
       // focus on methods that call ReportBadMessage.
+      // Enhanced hints now also include: string literals, callees, param
+      // signature, switch targets, and branch count.
       this.on("method_hints", function (msg) {
         var key = (msg.interface || "") + "." + (msg.method || "");
         self._methodHints.set(key, msg);
+        self._bridgeStats.methodHintsTotal++;
+        self._bridgeStats.lastActivity = Date.now();
         console.log("[DebugBridge] Method hints for " + key +
           ": cmp=" + (msg.cmpConstants || []).length +
+          " strs=" + (msg.stringLiterals || []).length +
+          " callees=" + (msg.callees || []).length +
+          " branches=" + (msg.branchCount || 0) +
           " nullChks=" + (msg.nullChecks || 0) +
           " badMsg=" + !!msg.callsReportBadMessage);
+      });
+
+      // Consume fuzz_entry events — WinDbg confirms the C++ impl was entered
+      // for the method we're currently fuzzing. This is a high-confidence signal
+      // that our IPC message actually reached the handler.
+      this.on("fuzz_entry", function (msg) {
+        self._fuzzEntries.push({
+          interface: msg.interface || "",
+          method: msg.method || "",
+          thisPtr: msg.thisPtr || null,
+          timestamp: Date.now(),
+        });
+        if (self._fuzzEntries.length > 50) self._fuzzEntries.shift();
+        self._bridgeStats.fuzzEntriesTotal++;
+        self._bridgeStats.lastActivity = Date.now();
       });
 
       // Handle pong (WinDbg responding to our ping)
@@ -429,6 +473,35 @@
     getAnyMasterHandleId: function () {
       if (this._masterHandleIds.size === 0) return null;
       return this._masterHandleIds.values().next().value;
+    },
+
+    /**
+     * Drain all queued fuzz_entry events from WinDbg.
+     * These confirm the C++ impl was entered for the method being fuzzed.
+     */
+    drainFuzzEntries: function () {
+      var entries = this._fuzzEntries;
+      this._fuzzEntries = [];
+      return entries;
+    },
+
+    /**
+     * Get bridge statistics for the UI status indicator.
+     */
+    getBridgeStats: function () {
+      return {
+        connected: this._connected,
+        validationErrorsTotal: this._bridgeStats.validationErrorsTotal,
+        crashReportsTotal: this._bridgeStats.crashReportsTotal,
+        methodHintsTotal: this._bridgeStats.methodHintsTotal,
+        interfaceSyncs: this._bridgeStats.interfaceSyncs,
+        fuzzEntriesTotal: this._bridgeStats.fuzzEntriesTotal,
+        lastActivity: this._bridgeStats.lastActivity,
+        masterHandleCount: this._masterHandleIds.size,
+        methodHintCount: this._methodHints.size,
+        pendingValidationErrors: this._validationErrors.length,
+        pendingCrashReports: this._crashReports.length,
+      };
     },
 
     // ── Debug Helpers ───────────────────────────────────────────

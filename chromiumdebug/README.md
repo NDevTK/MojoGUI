@@ -84,12 +84,13 @@ CHROME_PATH=/opt/chromium/chrome ./debug_chrome.sh
 
 | Command                                    | Description                                               |
 | ------------------------------------------ | --------------------------------------------------------- |
-| `!bridge`                                  | **Find & connect to MojoGUI's shared memory buffer**      |
-| `!bridge_status`                           | Show connection status and header values                   |
-| `!bridge_sync`                             | **Scan interfaces & push IDs to MojoGUI (no copy-paste)** |
+| `!bridge`                                  | **Full setup: connect, sync IDs, validation BPs, crash handler** |
+| `!bridge_status`                           | Show connection status, header values, and pending messages |
+| `!bridge_sync`                             | **Re-scan interfaces & push IDs + master handles**         |
+| `!bridge_analyze "iface" "method"`         | **PDB analysis: constants, strings, callees, security checks** |
 | `!bridge_read`                             | Read pending message from JS                               |
 | `!bridge_send "json"`                      | Send raw JSON message to JS                                |
-| `!bridge_push_validation(iface,method,msg)`| Push a validation error to MojoGUI's fuzzer                |
+| `!bridge_push_validation_smart`            | Push validation error with stack-based attribution         |
 | `!bridge_help`                             | Show bridge help                                           |
 
 ### Site Isolation Analysis
@@ -206,17 +207,27 @@ A typical Mojo IPC security research session:
 ```text
 1. !procs                     # Find renderer processes
 2. |2s                        # Switch to renderer running MojoGUI
-3. !bridge                    # Connect to MojoGUI's shared memory buffer
-4. !bridge_sync               # Scan interfaces & push IDs directly (no copy-paste)
-5. !bp_mojo_validate          # Catch validation failures
-6. g                          # Continue — start fuzzing in MojoGUI
-7. (break)
-8. !bridge_read               # Check if fuzzer sent any requests
+3. !bridge                    # One command does everything:
+                              #   - Finds shared memory buffer
+                              #   - Syncs interface IDs + master handles
+                              #   - Sets validation BPs (auto-push errors to fuzzer)
+                              #   - Crash capture on renderer exit
+                              #   - Processes pending JS requests
+4. g                          # Continue — start fuzzing in MojoGUI
+                              # Everything is now automatic!
 ```
 
 The bridge uses a shared `ArrayBuffer` in renderer memory. JS writes a sentinel
 (`MGUI_BRIDGE_V01`) that WinDbg scans for, then both sides exchange JSON messages
 through the same physical memory region — no CDP, no copy-paste.
+
+**What happens automatically with the bridge:**
+
+- **Smart validation attribution**: When `ReportBadMessage` or `ValidationError` fires, WinDbg walks the C++ call stack to identify the exact interface and method that triggered the error (not just "unknown")
+- **PDB code analysis**: The fuzzer auto-requests analysis of each method's C++ implementation. WinDbg extracts comparison constants, string literals, callee graphs, null check counts, switch table sizes, and security-relevant callees from the binary
+- **Code-aware fuzzing**: The fuzzer uses all this WinDbg data to generate highly targeted inputs — probing comparison boundaries, using string literals from the binary, adapting to security checks (origin validation, permission checks, WebUI restrictions)
+- **Fuzz target tracking**: When the fuzzer targets a method, WinDbg sets focused breakpoints on its C++ implementation to confirm the IPC message reached the handler
+- **Crash recovery**: Crash context (exception code, stack, registers, Mojo frame) is captured and pushed to the next renderer's bridge automatically
 
 ## Files
 
