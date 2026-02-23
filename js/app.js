@@ -75,6 +75,7 @@
     generatedCode: document.getElementById("generatedCode"),
     copyBtn: document.getElementById("copyBtn"),
     downloadPoCBtn: document.getElementById("downloadPoCBtn"),
+    downloadRacePoCBtn: document.getElementById("downloadRacePoCBtn"),
     executeBtn: document.getElementById("executeBtn"),
 
     // Toast
@@ -329,6 +330,11 @@
     // Download PoC button
     if (elements.downloadPoCBtn) {
       elements.downloadPoCBtn.addEventListener("click", downloadPoC);
+    }
+
+    // Download Race PoC button
+    if (elements.downloadRacePoCBtn) {
+      elements.downloadRacePoCBtn.addEventListener("click", downloadRacePoC);
     }
 
     // Execute button
@@ -689,14 +695,16 @@
           window.MojoLearnedProtocols &&
           window.MojoLearnedProtocols.has(iface.name);
 
-        const isAssociated = iface.metadata?.usage?.associated?.length > 0;
-        const assocBadge = isAssociated
-          ? '<span class="badge warning" title="Associated Interface">🔗</span>'
-          : "";
+        const category = iface.metadata?.category;
+        const catBadge = category === "associated"
+          ? '<span class="cat-badge cat-assoc" title="Associated Interface – requires parent pipe">A</span>'
+          : category === "internal"
+          ? '<span class="cat-badge cat-internal" title="Internal / non-renderer interface">I</span>'
+          : '<span class="cat-badge cat-direct" title="Direct – bindable from renderer">D</span>';
 
         return `
             <div class="interface-item" role="button" tabindex="0" data-index="${index}" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
-                <span class="name">${escapeHtml(iface.name)} ${assocBadge}</span>
+                <span class="name">${catBadge} ${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
@@ -1404,6 +1412,36 @@
     } catch (e) {
       console.error("PoC generation failed:", e);
       showToast(`PoC generation failed: ${e.message}`, "error");
+    }
+  }
+
+  /**
+   * Download a race condition PoC that fires concurrent calls.
+   */
+  async function downloadRacePoC() {
+    const iface = state.selectedInterface;
+    const method = state.selectedMethod;
+
+    if (!iface || !method) {
+      showToast("Select an interface and method first", "warning");
+      return;
+    }
+
+    showToast("Generating race condition PoC...", "info");
+
+    try {
+      const fqn = iface.module + "." + iface.name;
+      const methodDef = MojoReflectionService.findMethodDefinition(fqn, method);
+      if (methodDef) methodDef._interfaceName = iface.name;
+
+      await PoCGenerator.downloadRacePoC(
+        iface, method, state.paramValues, methodDef, 10,
+      );
+
+      showToast(`Downloaded race PoC for ${iface.name}.${method}`, "success");
+    } catch (e) {
+      console.error("Race PoC generation failed:", e);
+      showToast(`Race PoC generation failed: ${e.message}`, "error");
     }
   }
 

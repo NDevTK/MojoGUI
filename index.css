@@ -426,6 +426,23 @@ body::before {
 }
 
 /* Traffic Activity Badge */
+/* Category badges for interface list */
+.cat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.cat-direct { background: #10b981; color: #fff; }
+.cat-assoc { background: #f59e0b; color: #fff; }
+.cat-internal { background: #6366f1; color: #fff; }
+
 .badge {
   display: inline-flex;
   align-items: center;

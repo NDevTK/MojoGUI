@@ -1340,7 +1340,8 @@
         <div class="fuzzer-card" style="flex: 1; min-height: 0;">
           <h4>
             Results Log
-            <button class="btn btn-secondary btn-small" id="fuzzer-clear-btn" style="margin-left: auto; font-size: 0.7rem; padding: 2px 8px;">Clear</button>
+            <button class="btn btn-secondary btn-small" id="fuzzer-export-btn" style="margin-left: auto; font-size: 0.7rem; padding: 2px 8px;">Export JSON</button>
+            <button class="btn btn-secondary btn-small" id="fuzzer-clear-btn" style="font-size: 0.7rem; padding: 2px 8px;">Clear</button>
           </h4>
           <div class="fuzzer-results" id="fuzzer-results-log">
             <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 20px;">
@@ -1392,6 +1393,11 @@
       const stopBtn = container.querySelector("#fuzzer-stop-btn");
       if (stopBtn) {
         stopBtn.addEventListener("click", () => this.stop());
+      }
+
+      const exportBtn = container.querySelector("#fuzzer-export-btn");
+      if (exportBtn) {
+        exportBtn.addEventListener("click", () => this.exportResults());
       }
 
       const clearBtn = container.querySelector("#fuzzer-clear-btn");
@@ -2119,6 +2125,45 @@
           '<div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; padding: 20px;">Results cleared</div>',
         );
       }
+    },
+
+    /**
+     * Export all fuzzer results, stats, and unique errors as a downloadable JSON file.
+     */
+    exportResults() {
+      if (this.results.length === 0) {
+        global.showToast("No results to export", "warning");
+        return;
+      }
+
+      const uniqueErrors = [];
+      for (const [key, data] of this.uniqueErrors) {
+        uniqueErrors.push({ key, ...data });
+      }
+
+      const report = {
+        exported_at: new Date().toISOString(),
+        stats: { ...this.stats },
+        crashedTargets: Array.from(this._crashedTargets),
+        uniqueErrorCount: this.uniqueErrors.size,
+        uniqueErrors,
+        totalResults: this.results.length,
+        results: this.results,
+      };
+
+      const json = JSON.stringify(report, (key, value) =>
+        typeof value === "bigint" ? value.toString() + "n" : value, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `fuzzer_results_${Date.now()}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      global.showToast(`Exported ${this.results.length} results`, "success");
     },
   };
 
