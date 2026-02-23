@@ -1,11 +1,8 @@
 /**
  * MojoGUI Awards Feature
- * Displays curated high-risk Mojo interfaces with filtering,
- * Chromium Code Search links, and one-click research actions.
- *
- * Smart Picks: Auto-generates award candidates from index.json metadata
- * by identifying direct renderer-accessible interfaces with high method
- * counts, no gates, or hardware/device access patterns.
+ * Auto-generates high-value security research targets from index.json
+ * metadata. Scores every interface by: renderer accessibility, security
+ * gates, method risk patterns, domain risk, and attack surface size.
  */
 (function (global) {
   "use strict";
@@ -13,181 +10,189 @@
   const containerId = "tab-awards";
   let allAwards = [];
   let activeFilter = "all";
-  let activeSource = "all"; // "all", "curated", "smart"
 
-  /**
-   * Resolve an award entry to its matching interface in MojoGUI_State.
-   * Returns the interface object with metadata, or null.
-   */
-  function resolveInterface(award) {
-    const interfaces = (global.MojoGUI_State || {}).interfaces || [];
-    if (!interfaces.length) return null;
+  // ── Risk scoring tables ──────────────────────────────────────────
 
-    const file = (award.file || "").replace(/\\/g, "/");
-    const method = award.method || "";
-    const inferred = inferInterfaceName(award);
+  /** Method-name patterns that indicate dangerous primitives. */
+  const METHOD_RISK = [
+    { re: /^(Write|Send|Push|Transmit|Control)/i, weight: 2, tag: "write-primitive" },
+    { re: /^(Open|Create|Install|Execute|Run|Launch)/i, weight: 2, tag: "instantiation" },
+    { re: /(Unsanitized|Unsafe|Raw|Arbitrary)/i, weight: 3, tag: "unsanitized" },
+    { re: /(File|Path|Directory|FileDescriptor)/i, weight: 2, tag: "fs-access" },
+    { re: /(Socket|Port|Connect|Tcp|Udp)/i, weight: 2, tag: "network" },
+    { re: /(Deserialize|Parse|Decode|Compile|Wasm)/i, weight: 2, tag: "parser" },
+    { re: /(Navigate|Load|Redirect|Commit|Origin)/i, weight: 1, tag: "navigation" },
+    { re: /^(Register|Bind|Attach|Mount)/i, weight: 1, tag: "lifecycle" },
+    { re: /^(Delete|Remove|Drop|Clear|Reset)/i, weight: 1, tag: "destructive" },
+    { re: /(Transfer|Stream|Data|Buffer|Blob|Chunk)/i, weight: 1, tag: "data-flow" },
+  ];
 
-    // 1. Match by method presence + file path overlap
-    for (const iface of interfaces) {
-      const ifaceMethods = iface.methods || [];
-      if (method && ifaceMethods.includes(method)) {
-        // Check file path similarity (mojom source path)
-        const ifaceFile = (iface.file || "").toLowerCase();
-        const fileLeaf = file.split("/").pop().replace(".mojom", "").toLowerCase();
-        if (ifaceFile.includes(fileLeaf) || iface.name.toLowerCase() === inferred.toLowerCase()) {
-          return iface;
+  /** Module / interface name patterns that indicate high-risk domains. */
+  const DOMAIN_RISK = [
+    { re: /\b(usb|hid|serial|nfc|smart_card|midi|bluetooth)\b/i, weight: 3, label: "hardware" },
+    { re: /\b(direct_socket|tcp_socket|udp_socket)\b/i, weight: 3, label: "raw-network" },
+    { re: /\b(file_system|file_backed|clipboard)\b/i, weight: 2, label: "fs/clipboard" },
+    { re: /\b(blob|blob_url)\b/i, weight: 1, label: "blob" },
+    { re: /\b(ai_manager|webnn|translation|handwriting|speech_recogn|screen_ai)\b/i, weight: 2, label: "ai/ml" },
+    { re: /\b(print|pdf|media|codec|video|audio|renderer)\b/i, weight: 1, label: "media/parsing" },
+    { re: /\b(web_install|payment|webshare|webxr|web_lock)\b/i, weight: 1, label: "web-api" },
+    { re: /\b(shared_storage|fenced_frame|attribution|interest_group)\b/i, weight: 2, label: "privacy-sandbox" },
+    { re: /\b(devtools|extensions|plugin)\b/i, weight: 1, label: "privileged" },
+  ];
+
+  // ── Scoring engine ───────────────────────────────────────────────
+
+  function scoreInterface(iface) {
+    const meta = iface.metadata || {};
+    const category = meta.category || "internal";
+    const scope = meta.scope || "context";
+    const gates = meta.gates || [];
+    const methods = iface.methods || [];
+    const usage = meta.usage || {};
+    const usageDirect = (usage.direct || []).join(" ");
+    const usageAssoc = (usage.associated || []).join(" ");
+    const usageAll = usageDirect + " " + usageAssoc;
+    const name = iface.name || "";
+    const module = iface.module || "";
+    const moduleName = module + " " + name;
+
+    let score = 0;
+    const signals = [];
+    const tags = new Set();
+
+    // 1. Category: how reachable is this from the renderer?
+    if (category === "direct") {
+      score += 3;
+      signals.push("Directly bindable from renderer");
+    } else if (category === "associated") {
+      score += 2;
+      signals.push("Associated interface (frame-scoped)");
+    } else {
+      // Internal – only interesting if reachable through a manager
+      if (/\.(Get|Create|Open)\w+/.test(usageAll) ||
+          /Service\.\w+/.test(usageAll)) {
+        score += 1;
+        signals.push("Obtainable through manager interface");
+      }
+    }
+
+    // 2. Domain risk from module/interface name
+    const domainLabels = [];
+    for (const d of DOMAIN_RISK) {
+      if (d.re.test(moduleName) || d.re.test(iface.file || "")) {
+        score += d.weight;
+        domainLabels.push(d.label);
+        tags.add(d.label);
+      }
+    }
+    if (domainLabels.length) {
+      signals.push("Domain: " + domainLabels.join(", "));
+    }
+
+    // 3. Method risk analysis
+    const riskMethods = [];
+    for (const m of methods) {
+      for (const p of METHOD_RISK) {
+        if (p.re.test(m)) {
+          score += p.weight;
+          riskMethods.push(m);
+          tags.add(p.tag);
+          break; // one pattern per method
         }
       }
     }
 
-    // 2. Match by inferred name
-    const q = inferred.toLowerCase();
-    let match = interfaces.find((i) => i.name.toLowerCase() === q);
-    if (!match) {
-      match = interfaces.find((i) => i.name.toLowerCase().includes(q));
+    // 4. Attack surface size
+    if (methods.length >= 10) {
+      score += 2;
+      signals.push(methods.length + " methods (large surface)");
+    } else if (methods.length >= 5) {
+      score += 1;
+      signals.push(methods.length + " methods");
     }
-    return match || null;
+
+    // 5. No security gates (if the gates field exists)
+    if (gates.length === 0) {
+      // Only count as a strong signal for direct/associated (renderer can just bind it)
+      if (category === "direct" || category === "associated") {
+        score += 2;
+        signals.push("No security gates");
+      }
+    }
+
+    // 6. Process scope – available to entire renderer, not just one frame
+    if (scope === "process") {
+      score += 1;
+      signals.push("Process-scoped");
+    }
+
+    return { score, signals, riskMethods, tags: Array.from(tags) };
   }
 
-  /**
-   * Generate smart picks from loaded interfaces based on metadata signals.
-   * Identifies high-value targets that may not be in the curated list.
-   */
-  function generateSmartPicks(curatedFiles) {
+  // ── Award generation ─────────────────────────────────────────────
+
+  function generateAwards() {
     const interfaces = (global.MojoGUI_State || {}).interfaces || [];
     if (!interfaces.length) return [];
 
-    // Build set of already-curated interface names for dedup
-    const curatedNames = new Set();
-    for (const cf of curatedFiles) {
-      const name = inferInterfaceName(cf);
-      curatedNames.add(name.toLowerCase());
-    }
-
-    const picks = [];
-
-    // High-risk keyword patterns in method names
-    const riskPatterns = [
-      { re: /^(Write|Send|Push|Transmit|Control|Execute|Eval|Run|Install|Open|Create|Delete|Remove)/i, weight: 2, tag: "write-primitive" },
-      { re: /(File|Path|Directory|Blob|Stream|Socket|Port|Device|USB|HID|Serial|NFC|Bluetooth)/i, weight: 2, tag: "hw/fs-access" },
-      { re: /(Navigate|Load|Redirect|Commit|Url|Origin|Security|Permission|Policy)/i, weight: 1, tag: "nav/security" },
-      { re: /(Deserialize|Parse|Decode|Compile|Wasm|JIT)/i, weight: 2, tag: "parser" },
-      { re: /(Register|Bind|Connect|Attach|Mount)/i, weight: 1, tag: "lifecycle" },
-    ];
+    const awards = [];
 
     for (const iface of interfaces) {
-      const meta = iface.metadata || {};
-      const category = meta.category || "internal";
-      const scope = meta.scope || "context";
-      const gates = meta.gates || [];
-      const methods = iface.methods || [];
-      const name = iface.name || "";
+      const { score, signals, riskMethods, tags } = scoreInterface(iface);
 
-      // Skip if already curated
-      if (curatedNames.has(name.toLowerCase())) continue;
+      // Threshold: must score at least 5 to be worth showing
+      if (score < 5) continue;
 
-      // Only consider direct interfaces (renderer-accessible)
-      if (category !== "direct") continue;
+      // Priority mapping: 6-9
+      const priority = Math.min(9, Math.max(6, Math.floor(score / 3) + 5));
 
-      // Score the interface
-      let score = 0;
-      let reasons = [];
-      let tags = new Set();
+      // Pick the best method to highlight
+      const topMethod = riskMethods[0] || (iface.methods || [])[0] || iface.name;
 
-      // Signal: No security gates (no feature flag, no permission required)
-      if (gates.length === 0) {
-        score += 2;
-        reasons.push("No security gates");
-      }
-
-      // Signal: Many methods = large attack surface
-      if (methods.length >= 8) {
-        score += 2;
-        reasons.push(methods.length + " methods (large surface)");
-      } else if (methods.length >= 4) {
-        score += 1;
-      }
-
-      // Signal: Process-scoped (available to entire renderer process, not just frame)
-      if (scope === "process") {
-        score += 1;
-        reasons.push("Process-scoped");
-      }
-
-      // Signal: Method name risk analysis
-      let riskMethods = [];
-      for (const m of methods) {
-        for (const p of riskPatterns) {
-          if (p.re.test(m)) {
-            score += p.weight;
-            riskMethods.push(m);
-            tags.add(p.tag);
-            break; // Only count each method once
-          }
-        }
-      }
-
+      // Build reason from signals + risky methods
+      let reason = signals.join("; ");
       if (riskMethods.length > 0) {
-        reasons.push("Risk methods: " + riskMethods.slice(0, 3).join(", ") +
-          (riskMethods.length > 3 ? " (+" + (riskMethods.length - 3) + " more)" : ""));
+        const shown = riskMethods.slice(0, 4).join(", ");
+        const extra = riskMethods.length > 4 ? " (+" + (riskMethods.length - 4) + " more)" : "";
+        reason += ". Key methods: " + shown + extra;
       }
+      reason += ".";
 
-      // Threshold: must score at least 4 to be a smart pick
-      if (score < 4) continue;
-
-      // Map score to priority (6-9)
-      const priority = Math.min(9, Math.max(6, Math.floor(score / 2) + 5));
-
-      // Build a reason string
-      const reason = reasons.join("; ") + ".";
-
-      // Find the best method to highlight (highest-risk)
-      const topMethod = riskMethods[0] || methods[0] || name;
-
-      picks.push({
-        file: iface.module + " / " + name,
+      awards.push({
+        file: iface.module + " / " + iface.name,
         method: topMethod,
         reason: reason,
         priority: priority,
-        _source: "smart",
         _iface: iface,
-        _tags: Array.from(tags),
+        _tags: tags,
         _score: score,
       });
     }
 
-    // Sort by score descending, take top 30
-    picks.sort((a, b) => b._score - a._score);
-    return picks.slice(0, 30);
+    // Sort by score descending
+    awards.sort((a, b) => b._score - a._score);
+    return awards;
   }
 
-  async function loadAwards() {
-    try {
-      const response = await fetch("awards.json");
-      if (!response.ok) throw new Error("Failed to load awards.json");
-      const curated = await response.json();
+  // ── Loading ──────────────────────────────────────────────────────
 
-      // Mark curated awards
-      for (const a of curated) {
-        a._source = "curated";
-        a._iface = resolveInterface(a);
-      }
+  function loadAwards() {
+    allAwards = generateAwards();
 
-      // Generate smart picks from index.json metadata
-      const smart = generateSmartPicks(curated);
-
-      allAwards = [...curated, ...smart];
-      renderAwards(allAwards);
-    } catch (e) {
-      console.error("Awards load failed:", e);
+    if (allAwards.length === 0) {
       const container = document.getElementById(containerId);
       if (container) {
         container.innerHTML = MojoUtils.safeHTML(
-          `<div class="error-message">Failed to load awards: ${e.message}</div>`,
+          '<div class="empty-state"><p>No interfaces loaded yet. Awards are generated from the bindings index.</p></div>',
         );
       }
+      return;
     }
+
+    renderAwards(allAwards);
   }
+
+  // ── Rendering helpers ────────────────────────────────────────────
 
   function getPriorityLabel(priority) {
     if (priority >= 9) return "Critical";
@@ -201,34 +206,14 @@
     return "priority-medium";
   }
 
-  /**
-   * Build a Chromium Code Search URL for an award entry.
-   */
   function codeSearchUrl(award) {
-    const file = award.file || "";
+    const iface = award._iface;
     const method = award.method || "";
-    // Search for the method name within the file path context
-    const query = method + " " + file.replace(/\\/g, "/");
+    const source = (iface && iface.file) || award.file || "";
+    const query = method + " " + source;
     return `https://source.chromium.org/search?q=${encodeURIComponent(query)}&sq=&ss=chromium`;
   }
 
-  /**
-   * Extract interface name from a file path like "third_party/blink/...BlobRegistry..."
-   * Heuristic: take the last path component without extension.
-   */
-  function inferInterfaceName(award) {
-    const file = award.file || "";
-    const parts = file.replace(/\\/g, "/").split("/");
-    const filename = parts[parts.length - 1] || "";
-    // Remove extension and common suffixes
-    return filename
-      .replace(/\.(mojom|h|cc|cpp|java|mm)$/i, "")
-      .replace(/(Impl|Host|Client|Proxy|Stub)$/i, "");
-  }
-
-  /**
-   * Build metadata badges HTML for an award card.
-   */
   function renderMetaBadges(award) {
     const iface = award._iface;
     if (!iface) return "";
@@ -267,9 +252,15 @@
       }
     }
 
-    // No-gates indicator for direct interfaces (a positive signal)
-    if (category === "direct" && gates.length === 0) {
+    // Ungated indicator for direct/associated (positive signal for researchers)
+    if ((category === "direct" || category === "associated") && gates.length === 0) {
       badges += '<span class="award-meta-badge meta-ungated" title="No feature flags or permission checks found">Ungated</span>';
+    }
+
+    // Tag badges
+    const tagLabels = (award._tags || []).slice(0, 3);
+    for (const t of tagLabels) {
+      badges += `<span class="award-meta-badge meta-tag">${MojoUtils.escapeHtml(t)}</span>`;
     }
 
     // Method count
@@ -282,32 +273,24 @@
     return badges;
   }
 
+  // ── Main render ──────────────────────────────────────────────────
+
   function renderAwards(awards) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    if (awards.length === 0) {
-      container.innerHTML = MojoUtils.safeHTML(
-        `<div class="empty-state"><p>No awards found.</p></div>`,
-      );
-      return;
-    }
+    // Sort by priority then score
+    awards.sort((a, b) => (b.priority - a.priority) || (b._score - a._score));
 
-    // Sort by priority (descending)
-    awards.sort((a, b) => (b.priority || 0) - (a.priority || 0));
-
-    // Count by priority for filter tabs
-    const counts = { all: awards.length, critical: 0, high: 0, medium: 0, curated: 0, smart: 0 };
-    awards.forEach((a) => {
+    // Count by priority
+    const counts = { all: awards.length, critical: 0, high: 0, medium: 0 };
+    for (const a of awards) {
       const p = a.priority || 0;
       if (p >= 9) counts.critical++;
       else if (p >= 7) counts.high++;
       else counts.medium++;
-      if (a._source === "curated") counts.curated++;
-      else if (a._source === "smart") counts.smart++;
-    });
+    }
 
-    // Filter tabs
     let html = '<div class="awards-toolbar">';
     html += '<div class="awards-filters" role="tablist">';
     const filters = [
@@ -321,35 +304,18 @@
       html += `<button class="awards-filter-btn${active}" data-filter="${f.key}">${f.label} <span class="awards-filter-count">${f.count}</span></button>`;
     }
     html += "</div>";
-
-    // Source tabs
-    html += '<div class="awards-source-tabs">';
-    const sources = [
-      { key: "all", label: "All" },
-      { key: "curated", label: "Curated", count: counts.curated },
-      { key: "smart", label: "Smart Picks", count: counts.smart },
-    ];
-    for (const s of sources) {
-      const active = activeSource === s.key ? " active" : "";
-      const countHtml = s.count !== undefined ? ` <span class="awards-filter-count">${s.count}</span>` : "";
-      html += `<button class="awards-source-btn${active}" data-source="${s.key}">${s.label}${countHtml}</button>`;
-    }
-    html += "</div>";
-
-    // Search box
     html += '<input type="text" id="awards-search" class="awards-search" placeholder="Filter awards..." autocomplete="off">';
     html += "</div>";
 
-    // Award cards
     html += '<div class="awards-list" id="awards-list">';
-    html += renderAwardCards(awards, activeFilter, activeSource, "");
+    html += renderAwardCards(awards, activeFilter, "");
     html += "</div>";
 
     container.innerHTML = MojoUtils.safeHTML(html);
     bindAwardsEvents(container, awards);
   }
 
-  function renderAwardCards(awards, filter, source, searchQuery) {
+  function renderAwardCards(awards, filter, searchQuery) {
     const q = (searchQuery || "").toLowerCase();
     let html = "";
 
@@ -358,16 +324,10 @@
       const priorityLabel = getPriorityLabel(priorityVal);
       const priorityClass = getPriorityClass(priorityVal);
 
-      // Apply priority filter
       if (filter === "critical" && priorityVal < 9) continue;
       if (filter === "high" && (priorityVal < 7 || priorityVal >= 9)) continue;
       if (filter === "medium" && priorityVal >= 7) continue;
 
-      // Apply source filter
-      if (source === "curated" && award._source !== "curated") continue;
-      if (source === "smart" && award._source !== "smart") continue;
-
-      // Apply search
       const file = award.file || "";
       const method = award.method || "";
       const reason = award.reason || "";
@@ -381,17 +341,14 @@
       const methodHtml = MojoUtils.escapeHtml(method);
       const reasonHtml = MojoUtils.escapeHtml(reason);
       const searchUrl = codeSearchUrl(award);
-      const interfaceName = award._iface ? award._iface.name : inferInterfaceName(award);
-      const sourceTag = award._source === "smart"
-        ? '<span class="award-smart-tag" title="Auto-detected from index.json metadata">Smart Pick</span>'
-        : "";
+      const interfaceName = award._iface ? award._iface.name : "";
       const metaBadges = renderMetaBadges(award);
 
       html += `
         <div class="award-card ${priorityClass}" data-interface="${MojoUtils.escapeHtml(interfaceName)}">
           <div class="award-header">
             <div class="award-top-row">
-              <div class="award-method">${methodHtml} ${sourceTag}</div>
+              <div class="award-method">${methodHtml}</div>
               <span class="priority-badge ${priorityClass}">${priorityLabel}</span>
             </div>
             <div class="award-file">${fileHtml}</div>
@@ -410,22 +367,22 @@
     if (!html) {
       html = '<div class="empty-state"><p>No matching awards.</p></div>';
     }
-
     return html;
   }
+
+  // ── Events ───────────────────────────────────────────────────────
 
   function reRenderList(container, awards) {
     const searchVal = document.getElementById("awards-search")?.value || "";
     const listEl = document.getElementById("awards-list");
     if (listEl) {
       listEl.innerHTML = MojoUtils.safeHTML(
-        renderAwardCards(awards, activeFilter, activeSource, searchVal),
+        renderAwardCards(awards, activeFilter, searchVal),
       );
     }
   }
 
   function bindAwardsEvents(container, awards) {
-    // Priority filter buttons
     container.querySelectorAll(".awards-filter-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         activeFilter = btn.dataset.filter;
@@ -436,61 +393,37 @@
       });
     });
 
-    // Source filter buttons
-    container.querySelectorAll(".awards-source-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        activeSource = btn.dataset.source;
-        container.querySelectorAll(".awards-source-btn").forEach((b) =>
-          b.classList.toggle("active", b.dataset.source === activeSource),
-        );
-        reRenderList(container, awards);
-      });
-    });
-
-    // Search box
     const searchInput = container.querySelector("#awards-search");
     if (searchInput) {
       let debounce = null;
       searchInput.addEventListener("input", () => {
         clearTimeout(debounce);
-        debounce = setTimeout(() => {
-          reRenderList(container, awards);
-        }, 150);
+        debounce = setTimeout(() => reRenderList(container, awards), 150);
       });
     }
 
-    // Delegated click for action buttons
     container.addEventListener("click", (e) => {
       const researchBtn = e.target.closest(".award-action-research");
       if (researchBtn) {
-        const iName = researchBtn.dataset.interface;
-        navigateToInterface(iName);
+        navigateToInterface(researchBtn.dataset.interface);
         return;
       }
-
       const fuzzBtn = e.target.closest(".award-action-fuzz");
       if (fuzzBtn) {
-        const iName = fuzzBtn.dataset.interface;
-        navigateToInterface(iName);
-        // After navigating, switch to fuzzer tab
+        navigateToInterface(fuzzBtn.dataset.interface);
         setTimeout(() => {
           const tab = document.querySelector('[data-tab="fuzzer"]');
           if (tab) tab.click();
         }, 300);
-        return;
       }
     });
   }
 
-  /**
-   * Navigate the main interface panel to a given interface name (best-effort match).
-   */
   function navigateToInterface(name) {
     if (!name) return;
     const interfaces = (global.MojoGUI_State || {}).interfaces || [];
     const q = name.toLowerCase();
 
-    // Try exact name match, then partial
     let match = interfaces.find((i) => i.name.toLowerCase() === q);
     if (!match) {
       match = interfaces.find((i) => i.name.toLowerCase().includes(q));
@@ -502,31 +435,25 @@
     }
 
     if (match) {
-      // Switch to interfaces tab first
       const tab = document.querySelector('[data-tab="interfaces"]');
       if (tab) tab.click();
-
-      // Use the exposed selectInterface from app.js
       const internal = global.__MojoGUI_Internal;
       if (internal && internal.selectInterface) {
         internal.selectInterface(match.name, match.module);
       }
-    } else {
-      if (global.showToast) {
-        global.showToast(`Interface "${name}" not found in loaded bindings`, "warning");
-      }
+    } else if (global.showToast) {
+      global.showToast(`Interface "${name}" not found in loaded bindings`, "warning");
     }
   }
 
-  // Initialize
+  // ── Init ─────────────────────────────────────────────────────────
+
   document.addEventListener("DOMContentLoaded", () => {
     loadAwards();
   });
 
-  // Expose for debugging and API access
   global.MojoAwards = {
     load: loadAwards,
     navigateToInterface,
-    generateSmartPicks: () => generateSmartPicks(allAwards.filter((a) => a._source === "curated")),
   };
 })(this);
