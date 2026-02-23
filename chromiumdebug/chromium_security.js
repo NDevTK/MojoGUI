@@ -8372,6 +8372,7 @@ function initializeScript() {
     new host.functionAlias(bridge_push_validation, "bridge_push_validation"),
     new host.functionAlias(bridge_push_validation_smart, "bridge_push_validation_smart"),
     new host.functionAlias(bridge_capture_entry, "bridge_capture_entry"),
+    new host.functionAlias(bridge_mark_edge, "bridge_mark_edge"),
     new host.functionAlias(bridge_crash, "bridge_crash"),
     new host.functionAlias(bridge_analyze, "bridge_analyze"),
     // Debug-only (not needed for normal workflow)
@@ -12098,6 +12099,18 @@ function bridge_status() {
       Logger.empty();
       Logger.info("Pending JS message: " + JSON.stringify(msg));
     }
+
+    // Coverage stats
+    if (g_coverageTotalEdges > 0) {
+      var hitCount = 0;
+      for (var id in g_coverageMap) {
+        if (g_coverageMap[id].hit) hitCount++;
+      }
+      Logger.empty();
+      Logger.info("Coverage: " + hitCount + "/" + g_coverageTotalEdges +
+        " edges hit (session " + g_coverageSession + ")");
+      Logger.info("Pending edge reports: " + g_coverageNewEdges.length);
+    }
   } catch (e) {
     Logger.error("Error reading status: " + e);
   }
@@ -12296,8 +12309,9 @@ function bridge_help() {
   Logger.info("  - Interface IDs + master handles synced to MojoGUI (hijack enabled)");
   Logger.info("  - ReportBadMessage / ValidationError auto-pushed to fuzzer");
   Logger.info("  - Crash context captured and stashed across renderer restarts");
-  Logger.info("  - JS requests (analyze, resync, hijack) processed on BP hits");
+  Logger.info("  - JS requests (analyze, resync, hijack, coverage) processed on BP hits");
   Logger.info("  - PDB analysis triggered on-demand by fuzzer for each method");
+  Logger.info("  - Edge coverage via one-shot BPs on callees (coverage-guided fuzzing)");
   Logger.empty();
   Logger.header("DEBUG COMMANDS (normally not needed)");
   Logger.info("  !bridge_status       Show bridge connection diagnostics");
@@ -12480,6 +12494,211 @@ function bridge_capture_entry() {
   } catch (e) {}
 
   return "";
+}
+
+/// =============================================================================
+/// BRIDGE: EDGE COVERAGE TRACKING (COVERAGE-GUIDED FUZZING)
+/// =============================================================================
+///
+/// Uses one-shot breakpoints on callees of the current fuzz target to track
+/// which code paths are exercised during fuzzing. Each callee BP fires once,
+/// records the edge hit, auto-removes itself, and continues execution.
+///
+/// This gives "semantic coverage": we know which security checks, validators,
+/// and code paths were reached, rather than raw basic-block counts. The overhead
+/// is minimal — each BP fires at most once per coverage session.
+
+var g_coverageMap = {};         // edgeId → { name, hit }
+var g_coverageNewEdges = [];    // Newly-hit edge IDs since last report
+var g_coverageBpIds = [];       // BP identifiers for cleanup
+var g_coverageTotalEdges = 0;   // Total edges instrumented
+var g_coverageSession = 0;      // Session counter (incremented per new target)
+
+/**
+ * Set up coverage instrumentation for the given method's callees.
+ * Uses the method_hints data if already analyzed, otherwise runs analysis first.
+ *
+ * Called when JS sends a request_coverage message or when bridge_handle_fuzz_target
+ * runs on a new target.
+ */
+function bridge_setup_coverage(interfaceName, methodName) {
+  if (!g_bridgeAddr) return;
+
+  var iface = interfaceName ? interfaceName.toString().replace(/"/g, "") : "";
+  var method = methodName ? methodName.toString().replace(/"/g, "") : "";
+
+  if (!iface || !method) return;
+
+  // Clear previous coverage session
+  bridge_clear_coverage_bps();
+  g_coverageMap = {};
+  g_coverageNewEdges = [];
+  g_coverageTotalEdges = 0;
+  g_coverageSession++;
+
+  Logger.info("[Coverage] Setting up for " + iface + "::" + method);
+
+  // Resolve the C++ implementation symbol
+  var ifaceParts = iface.split(".");
+  var simpleName = ifaceParts[ifaceParts.length - 1];
+
+  var implCandidates = [
+    "chrome!*" + simpleName + "Impl::*" + method + "*",
+    "chrome!*" + simpleName + "Host::*" + method + "*",
+    "chrome!*" + simpleName + "::*" + method + "*",
+  ];
+
+  var implSymbol = null;
+  var implAddr = null;
+
+  for (var pattern of implCandidates) {
+    var symbols = SymbolUtils.findSymbols(pattern);
+    for (var sym of symbols) {
+      if (sym.name.indexOf("[thunk]") !== -1) continue;
+      if (sym.name.indexOf("~") !== -1) continue;
+      if (sym.name.indexOf("operator") !== -1) continue;
+      implSymbol = sym.name;
+      implAddr = sym.addr;
+      break;
+    }
+    if (implSymbol) break;
+  }
+
+  if (!implSymbol) {
+    Logger.info("[Coverage] Could not resolve impl for " + iface + "::" + method);
+    return;
+  }
+
+  // Disassemble to find callees (uf /c shows called functions)
+  var callees = [];
+  try {
+    var disasm = SymbolUtils.execute("uf /c 0x" + implAddr);
+    var seen = new Set();
+
+    for (var line of disasm) {
+      var lineStr = line.toString();
+      var callMatch = lineStr.match(/call\s+(?:0x[0-9a-f`]+\s+)?(\S+![\w:]+)/i);
+      if (callMatch) {
+        var callee = callMatch[1];
+        if (seen.has(callee)) continue;
+        seen.add(callee);
+
+        // Skip very common runtime/internal functions that add noise
+        if (callee.indexOf("std::") !== -1) continue;
+        if (callee.indexOf("operator") !== -1) continue;
+        if (callee.indexOf("__") === 0) continue;
+        if (callee.indexOf("mojo::internal") !== -1) continue;
+        if (callee.indexOf("base::RefCounted") !== -1) continue;
+        if (callee.indexOf("base::subtle") !== -1) continue;
+
+        callees.push(callee);
+      }
+    }
+  } catch (e) {
+    Logger.info("[Coverage] Disassembly failed: " + e.message);
+    return;
+  }
+
+  if (callees.length === 0) {
+    Logger.info("[Coverage] No instrumentable callees found");
+    return;
+  }
+
+  // Limit to 30 callees to keep overhead manageable
+  var maxEdges = Math.min(callees.length, 30);
+  var ctl = SymbolUtils.getControl();
+  var setCount = 0;
+
+  for (var i = 0; i < maxEdges; i++) {
+    var callee = callees[i];
+    var edgeId = i;
+    g_coverageMap[edgeId] = { name: callee, hit: false };
+
+    try {
+      // One-shot BP (/1): fires once, marks edge, auto-removes, continues
+      // The !bridge_mark_edge command is called inline from the BP
+      var cmd = 'bp /1 ' + callee +
+        ' ".printf \\"[COV] edge ' + edgeId + ': ' +
+        callee.replace(/"/g, '\\"').substring(0, 60) +
+        '\\\\n\\"; !bridge_mark_edge ' + edgeId + '; g"';
+      ctl.ExecuteCommand(cmd);
+      g_coverageBpIds.push(callee);
+      setCount++;
+    } catch (e) {
+      // Some symbols may not be resolvable to BPs
+    }
+  }
+
+  g_coverageTotalEdges = setCount;
+  Logger.info("[Coverage] Instrumented " + setCount + "/" + callees.length +
+    " callees for " + iface + "::" + method);
+}
+
+/**
+ * !bridge_mark_edge - Called from one-shot BP to record an edge hit.
+ * The BP auto-removes after first hit, so this is called at most once per edge.
+ */
+function bridge_mark_edge(edgeId) {
+  var id = parseInt(edgeId);
+  if (isNaN(id)) return "";
+
+  if (g_coverageMap[id] && !g_coverageMap[id].hit) {
+    g_coverageMap[id].hit = true;
+    g_coverageNewEdges.push({
+      id: id,
+      name: g_coverageMap[id].name,
+    });
+  }
+
+  // Auto-report coverage when we have new edges and the bridge is connected
+  // This piggybacks on the BP hit — no need to wait for a separate poll
+  if (g_coverageNewEdges.length > 0 && g_bridgeAddr) {
+    bridge_report_coverage();
+  }
+
+  return "";
+}
+
+/**
+ * Push coverage delta to MojoGUI via the bridge.
+ * Sends only newly-discovered edges since the last report.
+ */
+function bridge_report_coverage() {
+  if (!g_bridgeAddr || g_coverageNewEdges.length === 0) return;
+
+  var totalHit = 0;
+  for (var id in g_coverageMap) {
+    if (g_coverageMap[id].hit) totalHit++;
+  }
+
+  var payload = {
+    type: "edge_coverage",
+    newEdges: g_coverageNewEdges,
+    totalEdges: g_coverageTotalEdges,
+    totalHit: totalHit,
+    session: g_coverageSession,
+  };
+
+  bridge_write(JSON.stringify(payload));
+
+  // Clear the delta — these edges have been reported
+  g_coverageNewEdges = [];
+}
+
+/**
+ * Clear all coverage breakpoints from the previous session.
+ */
+function bridge_clear_coverage_bps() {
+  if (g_coverageBpIds.length === 0) return;
+  var ctl = SymbolUtils.getControl();
+
+  for (var sym of g_coverageBpIds) {
+    try {
+      ctl.ExecuteCommand("bc " + sym);
+    } catch (e) {}
+  }
+
+  g_coverageBpIds = [];
 }
 
 /// =============================================================================
@@ -12705,6 +12924,9 @@ function bridge_handle_message(msg) {
     }
   } else if (msg.type === "request_analyze") {
     bridge_analyze(msg.interface, msg.method);
+  } else if (msg.type === "request_coverage") {
+    // Set up edge coverage instrumentation for this method
+    bridge_setup_coverage(msg.interface, msg.method);
   } else if (msg.type === "fuzz_target") {
     // Track current fuzz target and optionally set focused BPs
     bridge_handle_fuzz_target(msg);

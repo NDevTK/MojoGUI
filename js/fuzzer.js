@@ -1110,11 +1110,91 @@
 
   FuzzTechniques.codeAware = codeAwareParams;
 
+  // ── Coverage-guided technique ──────────────────────────────────
+  // Mutates inputs from the coverage corpus — inputs that previously
+  // triggered new code paths (edges) in the C++ implementation.
+  // This is the highest-value technique when WinDbg coverage is active
+  // because it focuses on inputs that actually reach new code.
+
+  /**
+   * Generate params by mutating a corpus entry that found new coverage.
+   * Falls back to feedbackGuided if no corpus entries are available.
+   */
+  function coverageGuidedParams(methodDef, iteration) {
+    if (typeof DebugBridge === "undefined" || !DebugBridge.getCoverageStats().enabled) {
+      return feedbackGuidedParams(methodDef, iteration);
+    }
+
+    var corpusEntry = DebugBridge.getCorpusEntry();
+    if (!corpusEntry || !corpusEntry.params) {
+      return feedbackGuidedParams(methodDef, iteration);
+    }
+
+    // Mutate 1-2 params from the corpus entry
+    var params = {};
+    var corpusParams = corpusEntry.params;
+    var paramCount = methodDef.parameters.length;
+    var mutateCount = Math.min(paramCount, FuzzGenerators._pick([1, 1, 2]));
+    var mutateIndices = new Set();
+    while (mutateIndices.size < mutateCount && mutateIndices.size < paramCount) {
+      mutateIndices.add(Math.floor(Math.random() * paramCount));
+    }
+
+    for (var i = 0; i < paramCount; i++) {
+      var p = methodDef.parameters[i];
+      if (mutateIndices.has(i)) {
+        // Mutate this param: use a mix of strategies
+        var roll = Math.random();
+        if (roll < 0.3) {
+          // Boundary mutation of the corpus value
+          var corpusVal = corpusParams[p.name];
+          if (corpusVal !== undefined && corpusVal !== null) {
+            params[p.name] = mutateBoundary(
+              FeedbackEngine._serializeValue(corpusVal), p);
+          } else {
+            params[p.name] = FuzzGenerators.generate(p);
+          }
+        } else if (roll < 0.6) {
+          // Fresh fuzz value
+          params[p.name] = FuzzGenerators.generate(p);
+        } else {
+          // Use code-aware hints if available
+          var iface = MojoFuzzer._currentInterface || "";
+          var hints = DebugBridge.getMethodHints(iface, methodDef.name);
+          if (hints && hints.cmpConstants && hints.cmpConstants.length > 0) {
+            var pType = typeof p.type === "object" ? p.type.type : p.type;
+            if (pType === "number" || pType === "int64" || pType === "enum") {
+              var cmpVal = hints.cmpConstants[Math.floor(Math.random() * hints.cmpConstants.length)];
+              var delta = FuzzGenerators._pick([0, -1, 1, -2, 2]);
+              params[p.name] = pType === "int64" ? BigInt(cmpVal + delta) : (cmpVal + delta);
+            } else {
+              params[p.name] = FuzzGenerators.generate(p);
+            }
+          } else {
+            params[p.name] = FuzzGenerators.generate(p);
+          }
+        }
+      } else {
+        // Keep corpus value if available, otherwise generate valid
+        if (corpusParams[p.name] !== undefined) {
+          params[p.name] = corpusParams[p.name];
+        } else {
+          params[p.name] = ValidGenerators.generate(p);
+        }
+      }
+    }
+
+    return params;
+  }
+
+  FuzzTechniques.coverageGuided = coverageGuidedParams;
+
   /** Ordered list of techniques to cycle through */
   const TECHNIQUE_NAMES = [
     "targeted", "targeted", "targeted",  // Weight toward targeted
     "feedbackGuided", "feedbackGuided",   // Weight toward feedback-guided
     "codeAware", "codeAware",             // Weight toward code-aware (WinDbg data)
+    "coverageGuided", "coverageGuided",   // Weight toward coverage-guided (WinDbg coverage)
     "multiField",
     "nullOmit",
     "typeConfuse",
@@ -1499,6 +1579,7 @@
     _responseTimes: [],
     _currentInterface: null, // Tracked for feedback engine context
     _bridgeIdRequested: false, // Whether we've already asked WinDbg for IDs
+    _lastFuzzedParams: null, // Last fuzzed params for coverage correlation
     _bridgeStatusTimer: null, // Timer for updating bridge status indicator
     _confirmedMethods: new Set(), // Methods confirmed to reach C++ impl via fuzz_entry
     SLOW_CALL_THRESHOLD_MS: 5000, // Flag calls >5s as potential DoS vectors
@@ -1558,6 +1639,18 @@
           if (syncsEl) syncsEl.textContent = stats.interfaceSyncs;
           if (entriesEl) entriesEl.textContent = stats.fuzzEntriesTotal;
           if (handlesEl) handlesEl.textContent = stats.masterHandleCount;
+
+          // Coverage stats
+          const covDiv = document.getElementById("fuzzer-coverage-stats");
+          if (covDiv && stats.coverageTotalEdges > 0) {
+            covDiv.style.display = "block";
+            const covHitEl = document.getElementById("bridge-stat-cov-hit");
+            const covTotalEl = document.getElementById("bridge-stat-cov-total");
+            const corpusEl = document.getElementById("bridge-stat-corpus");
+            if (covHitEl) covHitEl.textContent = stats.coverageEdgesHit;
+            if (covTotalEl) covTotalEl.textContent = stats.coverageTotalEdges;
+            if (corpusEl) corpusEl.textContent = stats.coverageCorpusSize;
+          }
         }
       } else {
         dot.style.background = "var(--text-muted)";
@@ -1697,6 +1790,11 @@
       this.aborted = false;
       this._objectCache = {};
 
+      // Enable fast polling for tighter coverage feedback
+      if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
+        DebugBridge.setFastPoll(true);
+      }
+
       document.getElementById("fuzzer-start-btn").disabled = true;
       document.getElementById("fuzzer-stop-btn").disabled = false;
       document.getElementById("fuzzer-progress-card").style.display = "block";
@@ -1827,6 +1925,22 @@
               }
 
               FeedbackEngine.recordValidationError(errIface, errMethod, ve.message);
+            }
+          }
+
+          // Drain coverage deltas and save interesting inputs to corpus
+          if (typeof DebugBridge !== "undefined" && DebugBridge.getCoverageStats().enabled) {
+            const newEdges = DebugBridge.drainNewEdges();
+            if (newEdges.length > 0 && this._lastFuzzedParams) {
+              // This batch found new edges - save the input to corpus
+              DebugBridge.addToCorpus({
+                params: FeedbackEngine._cloneParams(this._lastFuzzedParams.params),
+                interface: this._lastFuzzedParams.interface,
+                method: this._lastFuzzedParams.method,
+                newEdgeCount: newEdges.length,
+                edgeIds: newEdges,
+                timestamp: Date.now(),
+              });
             }
           }
 
@@ -2094,6 +2208,10 @@
               <span>Syncs: <strong id="bridge-stat-syncs">0</strong></span>
               <span>Entries: <strong id="bridge-stat-entries">0</strong></span>
               <span>Handles: <strong id="bridge-stat-handles">0</strong></span>
+            </div>
+            <div id="fuzzer-coverage-stats" style="margin-top: 4px; display: none;">
+              <span>Coverage: <strong id="bridge-stat-cov-hit">0</strong>/<strong id="bridge-stat-cov-total">0</strong> edges</span>
+              <span>Corpus: <strong id="bridge-stat-corpus">0</strong></span>
             </div>
           </div>
         </div>
@@ -2447,6 +2565,11 @@
       this.aborted = true;
       this.running = false;
 
+      // Restore normal poll interval
+      if (typeof DebugBridge !== "undefined") {
+        DebugBridge.setFastPoll(false);
+      }
+
       // Only clear session if user explicitly stopped (not if we're about to resume)
       if (!keepSession) {
         this.clearSession();
@@ -2557,7 +2680,7 @@
       try {
         await MojoLoader.ensureBinding(interfaceFqn);
 
-        // Auto-request PDB analysis from WinDbg on first encounter
+        // Auto-request PDB analysis and coverage from WinDbg on first encounter
         if (typeof DebugBridge !== "undefined" && DebugBridge.isConnected()) {
           const hintsKey = interfaceFqn + "." + methodName;
           if (!DebugBridge.getMethodHints(interfaceFqn, methodName) &&
@@ -2565,6 +2688,12 @@
             if (!this._analysisRequested) this._analysisRequested = new Set();
             this._analysisRequested.add(hintsKey);
             DebugBridge.requestAnalysis(interfaceFqn, methodName);
+          }
+          // Request coverage instrumentation for this method
+          if (!this._coverageRequested?.has(hintsKey)) {
+            if (!this._coverageRequested) this._coverageRequested = new Set();
+            this._coverageRequested.add(hintsKey);
+            DebugBridge.requestCoverage(interfaceFqn, methodName);
           }
         }
 
@@ -2574,13 +2703,19 @@
         );
 
         if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
-          // Check if we have WinDbg hints for this method - if so, prefer
-          // code-aware techniques more heavily as they produce higher-value inputs
+          // Check if we have WinDbg hints or coverage for this method
           let techniqueName;
           const hasHints = (typeof DebugBridge !== "undefined") &&
             DebugBridge.getMethodHints(interfaceFqn, methodName);
+          const hasCoverage = (typeof DebugBridge !== "undefined") &&
+            DebugBridge.getCoverageStats().enabled;
+          const hasCorpus = hasCoverage &&
+            DebugBridge.getCoverageStats().corpusSize > 0;
 
-          if (hasHints && Math.random() < 0.4) {
+          if (hasCorpus && Math.random() < 0.5) {
+            // 50% chance of coverage-guided when we have corpus entries
+            techniqueName = "coverageGuided";
+          } else if (hasHints && Math.random() < 0.4) {
             // 40% chance of code-aware when we have WinDbg data
             techniqueName = "codeAware";
           } else {
@@ -2591,6 +2726,13 @@
           params = technique(methodDef, iteration);
           params.__technique = techniqueName;
         }
+
+        // Track for coverage correlation (which input triggered new edges)
+        this._lastFuzzedParams = {
+          interface: interfaceFqn,
+          method: methodName,
+          params: params,
+        };
 
         const resolved = this.resolveTarget(interfaceFqn);
 
@@ -3059,7 +3201,12 @@
       this._responseTimes = [];
       this._bridgeIdRequested = false;
       this._confirmedMethods = new Set();
+      this._coverageRequested = new Set();
+      this._lastFuzzedParams = null;
       FeedbackEngine.reset();
+      if (typeof DebugBridge !== "undefined") {
+        DebugBridge.resetCoverage();
+      }
       this.updateStats();
 
       const errorsCard = document.getElementById("fuzzer-errors-card");
@@ -3114,6 +3261,10 @@
         feedback: FeedbackEngine.exportKnowledge(),
         pdbHints: (typeof DebugBridge !== "undefined") ? DebugBridge.getAllMethodHints() : {},
         bridgeStats: (typeof DebugBridge !== "undefined") ? DebugBridge.getBridgeStats() : null,
+        coverage: (typeof DebugBridge !== "undefined") ? {
+          stats: DebugBridge.getCoverageStats(),
+          corpus: DebugBridge.getCorpus(),
+        } : null,
         confirmedMethods: Array.from(this._confirmedMethods),
         totalResults: this.results.length,
         results: this.results,
