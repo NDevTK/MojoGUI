@@ -1270,6 +1270,92 @@ const BREAKPOINT_CONFIGS = {
     ],
     desc: "JIT spray, code injection analysis",
   },
+  mojo_validate: {
+    title: "Mojo Message Validation Breakpoints",
+    targets: [
+      {
+        sym: "chrome!mojo::ReportBadMessage",
+        desc: "Bad message report (security kill)",
+      },
+      {
+        sym: "chrome!mojo::internal::ValidationError",
+        desc: "Message validation error",
+      },
+      {
+        sym: "chrome!mojo::internal::ReportValidationError",
+        desc: "Validation error report",
+      },
+      {
+        sym: "chrome!mojo::internal::ValidateMessageIsRequestWithoutResponse",
+        desc: "Wrong message type",
+      },
+      {
+        sym: "chrome!mojo::internal::ValidateMessageIsRequestExpectingResponse",
+        desc: "Missing expected response",
+      },
+      {
+        sym: "chrome!mojo::internal::ValidateMessagePayload",
+        desc: "Payload validation",
+      },
+    ],
+    desc: "Mojo message validation failures, bad IPC detection",
+  },
+  permissions: {
+    title: "Permission & Feature Flag Breakpoints",
+    targets: [
+      {
+        sym: "chrome!blink::PermissionService::HasPermission",
+        desc: "Permission query",
+      },
+      {
+        sym: "chrome!blink::PermissionService::RequestPermission",
+        desc: "Permission request",
+      },
+      {
+        sym: "chrome!content::PermissionServiceImpl::HasPermission",
+        desc: "Browser-side permission check",
+      },
+      {
+        sym: "chrome!blink::RuntimeEnabledFeatures::*Enabled",
+        desc: "Runtime feature check",
+      },
+      {
+        sym: "chrome!base::FeatureList::IsEnabled",
+        desc: "Feature flag check",
+      },
+      {
+        sym: "chrome!content::ContentBrowserClient::IsHandledURL",
+        desc: "URL scheme handler",
+      },
+    ],
+    desc: "Permission checks, feature flag gates, URL scheme validation",
+  },
+  nav_commit: {
+    title: "Navigation Commit Security Breakpoints",
+    targets: [
+      {
+        sym: "chrome!content::NavigationRequest::CommitNavigation",
+        desc: "Navigation commit",
+      },
+      {
+        sym: "chrome!content::NavigationRequest::OnRequestRedirected",
+        desc: "Navigation redirect",
+      },
+      {
+        sym: "chrome!content::RenderFrameHostImpl::ValidateDidCommitParams",
+        desc: "Commit param validation",
+      },
+      {
+        sym: "chrome!content::NavigationRequest::CheckCSPDirectives",
+        desc: "CSP directive check",
+      },
+      {
+        sym: "chrome!content::NavigationThrottleRunner::ProcessResponse",
+        desc: "Navigation throttle response",
+      },
+    ],
+    desc: "Navigation commit verification, redirect attacks, CSP bypasses",
+  },
 };
 
 /// Helper: Create breakpoint handler from config key
@@ -8271,6 +8357,12 @@ function initializeScript() {
     new host.functionAlias(list_mojo_js_handles, "list_js_handles"),
     new host.functionAlias(hijack_interface, "hijack_interface"),
     new host.functionAlias(map_all_interfaces, "map_interfaces"),
+    // Mojo Security
+    new host.functionAlias(bp_mojo_validate, "bp_mojo_validate"),
+    new host.functionAlias(bp_permissions, "bp_permissions"),
+    new host.functionAlias(bp_nav_commit, "bp_nav_commit"),
+    new host.functionAlias(mojo_trace, "mojo_trace"),
+    new host.functionAlias(renderer_security, "renderer_sec"),
     // Cache Management
     new host.functionAlias(cache_clear, "cache_clear"),
   ];
@@ -8356,9 +8448,27 @@ function help() {
   );
   Logger.empty();
 
+  Logger.info("MOJO SECURITY RESEARCH:");
+  Logger.info(
+    "  !bp_mojo_validate     - Break on Mojo message validation errors",
+  );
+  Logger.info(
+    "  !bp_permissions       - Break on permission & feature flag checks",
+  );
+  Logger.info(
+    "  !bp_nav_commit        - Break on navigation commit security checks",
+  );
+  Logger.info(
+    "  !mojo_trace           - Live Mojo IPC tracing (bind/send/recv)",
+  );
+  Logger.info(
+    "  !renderer_sec         - Full renderer security dashboard",
+  );
+  Logger.empty();
+
   Logger.info("VULNERABILITY HUNTING:");
   Logger.info(
-    "  !vuln_hunt            - UAF, type confusion, race condition breakpoints",
+    "  !vuln_hunt            - UAF, type confusion, race, Mojo breakpoints",
   );
   Logger.info(
     "  !heap_info            - PartitionAlloc/V8 heap inspection guide",
@@ -10860,6 +10970,40 @@ function vuln_hunt() {
           },
         ],
       },
+      {
+        name: "Mojo IPC Security",
+        targets: [
+          {
+            sym: "chrome!mojo::ReportBadMessage",
+            desc: "Bad Mojo message (renderer kill trigger)",
+          },
+          {
+            sym: "chrome!mojo::internal::ValidationError",
+            desc: "Message validation error",
+          },
+          {
+            sym: "chrome!content::BrowserInterfaceBrokerImpl::GetInterface",
+            desc: "Interface binding (attack surface entry)",
+          },
+        ],
+      },
+      {
+        name: "Mojo Lifetime & Ownership",
+        targets: [
+          {
+            sym: "chrome!mojo::InterfaceEndpointClient::~InterfaceEndpointClient",
+            desc: "Endpoint destructor (UAF in callbacks)",
+          },
+          {
+            sym: "chrome!mojo::Receiver::reset",
+            desc: "Receiver reset (dangling remote)",
+          },
+          {
+            sym: "chrome!mojo::Remote::reset",
+            desc: "Remote reset (pending callbacks)",
+          },
+        ],
+      },
     ];
 
     for (var c = 0; c < categories.length; c++) {
@@ -11014,6 +11158,275 @@ function bp_wasm() {
 
 function bp_jit() {
   return _bpFromConfig("jit");
+}
+
+/// =============================================================================
+/// MOJO SECURITY RESEARCH
+/// =============================================================================
+
+function bp_mojo_validate() {
+  return _bpFromConfig("mojo_validate");
+}
+
+function bp_permissions() {
+  return _bpFromConfig("permissions");
+}
+
+function bp_nav_commit() {
+  return _bpFromConfig("nav_commit");
+}
+
+/// Targeted Mojo IPC tracing with interface name resolution
+/// Logs every Mojo message dispatch with the interface name and method ordinal
+function mojo_trace() {
+  Logger.section("Mojo Interface Trace");
+
+  var ctl = SymbolUtils.getControl();
+
+  // Set up conditional breakpoints that log and continue
+  var targets = [
+    {
+      sym: "chrome!content::BrowserInterfaceBrokerImpl::GetInterface",
+      label: "BIND",
+      desc: "Interface bind request (browser broker)",
+      cmd: 'bp chrome!content::BrowserInterfaceBrokerImpl::GetInterface ".printf \\"[MOJO BIND] BrowserInterfaceBroker::GetInterface\\\\n\\"; dps @rcx L4; .echo; g"',
+    },
+    {
+      sym: "chrome!mojo::InterfaceEndpointClient::HandleIncomingMessage",
+      label: "RECV",
+      desc: "Inbound message on endpoint client",
+      cmd: 'bp chrome!mojo::InterfaceEndpointClient::HandleIncomingMessage ".printf \\"[MOJO RECV] InterfaceEndpointClient @ %p\\\\n\\", @rcx; dd @rdx L2; .echo; g"',
+    },
+    {
+      sym: "chrome!mojo::Connector::Accept",
+      label: "SEND",
+      desc: "Outbound message via connector",
+      cmd: 'bp chrome!mojo::Connector::Accept ".printf \\"[MOJO SEND] Connector::Accept @ %p\\\\n\\", @rcx; g"',
+    },
+    {
+      sym: "chrome!mojo::InterfaceEndpointClient::SendMessage",
+      label: "SEND",
+      desc: "Outbound message on endpoint client",
+      cmd: 'bp chrome!mojo::InterfaceEndpointClient::SendMessage ".printf \\"[MOJO SEND] EndpointClient::SendMessage @ %p\\\\n\\", @rcx; g"',
+    },
+  ];
+
+  var count = 0;
+  for (var t of targets) {
+    Logger.info("[" + t.label + "] " + t.desc);
+    Logger.info("  " + t.cmd);
+    try {
+      ctl.ExecuteCommand(t.cmd);
+      count++;
+    } catch (e) {
+      Logger.debug("Failed: " + t.sym + ": " + e.message);
+    }
+  }
+
+  Logger.empty();
+  Logger.info(count + " trace breakpoints set. Use 'bl' to list, 'bc *' to clear.");
+  Logger.info("Output will appear as [MOJO BIND/SEND/RECV] lines during execution.");
+  Logger.empty();
+
+  return "";
+}
+
+/// Comprehensive security dashboard for the current renderer process
+/// Shows sandbox state, exposed interfaces, security flags, and active spoofs
+function renderer_security() {
+  Logger.section("Renderer Security Dashboard");
+
+  var ctl = SymbolUtils.getControl();
+
+  // 1. Process identity
+  var cmdLine = getCommandLine();
+  var info = ProcessUtils.parseInfoWithFallback(cmdLine);
+  var pid = host.currentProcess.Id;
+
+  if (info.type !== "renderer") {
+    Logger.warn("This command must be run from a renderer process.");
+    Logger.info("Current process type: " + info.type);
+    Logger.info("Use !procs to list processes, then |<id>s to switch.");
+    Logger.empty();
+    return "";
+  }
+
+  var clientId = null;
+  if (cmdLine) {
+    var clientMatch = cmdLine.match(/--renderer-client-id=(\d+)/);
+    if (clientMatch) clientId = clientMatch[1];
+  }
+
+  Logger.info("PID: " + pid + " | Client ID: " + (clientId || "unknown"));
+  Logger.empty();
+
+  // 2. Security-relevant command line flags
+  Logger.header("Command Line Security Flags");
+  var securityFlags = [
+    "site-per-process",
+    "disable-site-isolation-trials",
+    "enable-blink-features",
+    "disable-web-security",
+    "allow-running-insecure-content",
+    "disable-kill-after-bad-ipc",
+    "no-sandbox",
+    "disable-gpu-sandbox",
+    "enable-features",
+    "disable-features",
+    "remote-debugging-port",
+  ];
+
+  if (cmdLine) {
+    var switches = CommandLineUtils.parseSwitches(cmdLine);
+    var found = 0;
+    for (var s of switches) {
+      if (securityFlags.indexOf(s.name) !== -1) {
+        var val = s.value ? "=" + s.value : "";
+        var warn = "";
+        if (
+          s.name === "no-sandbox" ||
+          s.name === "disable-web-security" ||
+          s.name === "disable-kill-after-bad-ipc"
+        ) {
+          warn = " [DANGEROUS]";
+        }
+        Logger.info("  --" + s.name + val + warn);
+        found++;
+      }
+    }
+    if (found === 0) {
+      Logger.info("  (no security-relevant flags detected)");
+    }
+  }
+  Logger.empty();
+
+  // 3. Sandbox state
+  Logger.header("Sandbox Status");
+  try {
+    var tokenOutput = ctl.ExecuteCommand("!token -n");
+    var integrity = "(unknown)";
+    for (var tLine of tokenOutput) {
+      var tStr = tLine.toString();
+      if (tStr.indexOf("Mandatory") !== -1 || tStr.indexOf("ntegrity") !== -1) {
+        integrity = tStr.trim();
+        break;
+      }
+    }
+    Logger.info("  Integrity: " + integrity);
+  } catch (e) {
+    Logger.info("  (Could not query token - symbols may be needed)");
+  }
+  Logger.empty();
+
+  // 4. Locked site (from browser process)
+  Logger.header("Site Lock");
+  try {
+    var site = renderer_site();
+    Logger.info("  " + (site && site !== "" ? site : "(no lock detected)"));
+  } catch (e) {
+    Logger.info("  (Could not query site lock)");
+  }
+  Logger.empty();
+
+  // 5. Active spoofs
+  if (clientId && g_spoofMap.has(clientId)) {
+    Logger.header("Active Spoofs");
+    var spoof = g_spoofMap.get(clientId);
+    Logger.info("  Spoofed origin: " + spoof.currentUrl);
+    Logger.empty();
+  }
+
+  // 6. Mojo interface count
+  Logger.header("Exposed Interfaces");
+  var originalId = ProcessUtils.getCurrentSysId();
+  var browserSysId = get_browser_sysid();
+  var interfaceCount = 0;
+
+  if (browserSysId !== null) {
+    try {
+      SymbolUtils.execute("|" + browserSysId + "s");
+
+      var frameMapAddr = SymbolUtils.findSymbolAddress(
+        "chrome!*g_routing_id_frame_map*",
+      );
+      if (frameMapAddr) {
+        var lazyAddrVal = BigInt("0x" + frameMapAddr);
+        var ptrValue = host.memory.readMemoryValues(
+          host.parseInt64(lazyAddrVal.toString(16), 16),
+          1,
+          8,
+        )[0];
+        var mapPtr = ptrValue.toString(16);
+
+        if (mapPtr && mapPtr !== "0") {
+          var dxCmd =
+            "dx -r6 (*((content::`anonymous namespace'::RoutingIDFrameMap*)0x" +
+            mapPtr +
+            "))";
+          var dxOutput = ctl.ExecuteCommand(dxCmd);
+
+          var foundInterfaces = new Set();
+          var currentProcessId = null;
+          for (var line of dxOutput) {
+            var lineStr = line.toString();
+            var processIdMatch =
+              lineStr.match(/child_id_.*?id_\s*[=:]\s*(\d+)/i) ||
+              lineStr.match(/child_id\s*[=:]\s*(\d+)/i);
+            if (processIdMatch) currentProcessId = processIdMatch[1];
+
+            var rfhMatch =
+              lineStr.match(/second\s*[=:]\s*(0x[0-9a-fA-F`]+)/i);
+            if (rfhMatch && currentProcessId === clientId) {
+              var rfhAddr = rfhMatch[1].replace(/`/g, "");
+              if (rfhAddr !== "0x0" && rfhAddr !== "0") {
+                try {
+                  var binderCmd =
+                    "dx -r6 ((content::RenderFrameHostImpl*)" +
+                    rfhAddr +
+                    ")->broker_holder_";
+                  var binderOutput = ctl.ExecuteCommand(binderCmd);
+                  for (var bLine of binderOutput) {
+                    var matches = bLine.toString().match(/"([^"]*\.mojom\.[^"]+)"/g);
+                    if (matches) {
+                      for (var m of matches) {
+                        foundInterfaces.add(m.replace(/"/g, ""));
+                      }
+                    }
+                  }
+                } catch (e) {}
+              }
+              currentProcessId = null;
+            }
+          }
+          interfaceCount = foundInterfaces.size;
+        }
+      }
+    } catch (e) {}
+
+    // Restore context
+    try {
+      if (originalId !== null && originalId !== 0) {
+        SymbolUtils.execute("|" + originalId + "s");
+      }
+    } catch (e) {}
+  }
+
+  Logger.info("  " + interfaceCount + " Mojo interface(s) bound to this renderer");
+  Logger.info("  Run !mojo_interfaces for full list");
+  Logger.empty();
+
+  // 7. Security research quick reference
+  Logger.header("Quick Research Commands");
+  Logger.info("  !bp_bad               - Break on mojo::ReportBadMessage");
+  Logger.info("  !bp_mojo_validate     - Break on message validation errors");
+  Logger.info("  !bp_permissions       - Break on permission & feature checks");
+  Logger.info("  !mojo_trace           - Live Mojo IPC message tracing");
+  Logger.info("  !mojo_interfaces      - List all exposed interfaces");
+  Logger.info("  !map_interfaces       - Map interfaces to IDs (for hijacking)");
+  Logger.info("  !vuln_hunt            - Set vulnerability detection breakpoints");
+  Logger.empty();
+
+  return "";
 }
 
 /// =============================================================================
