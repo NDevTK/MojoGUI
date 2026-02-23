@@ -9,6 +9,457 @@
   const escapeHtml = MojoUtils.escapeHtml;
 
   // ========================================
+  // Persistent Coverage Database (IndexedDB)
+  // ========================================
+  // Persists coverage corpus, feedback knowledge, and benchmark metrics
+  // across page reloads and browser sessions. This enables cumulative
+  // fuzzing progress that compounds over days/weeks — matching the
+  // persistence model of ClusterFuzz-backed fuzzers like MojoLPM.
+
+  const FuzzerDB = {
+    _db: null,
+    DB_NAME: "MojoGUI_Fuzzer",
+    DB_VERSION: 1,
+    STORE_CORPUS: "corpus",
+    STORE_KNOWLEDGE: "knowledge",
+    STORE_METRICS: "metrics",
+    STORE_EDGES: "edges",
+
+    /** Open or create the IndexedDB database. */
+    init() {
+      return new Promise((resolve, reject) => {
+        if (this._db) { resolve(this._db); return; }
+        if (typeof indexedDB === "undefined") { resolve(null); return; }
+
+        var request = indexedDB.open(this.DB_NAME, this.DB_VERSION);
+        request.onupgradeneeded = (event) => {
+          var db = event.target.result;
+          if (!db.objectStoreNames.contains(this.STORE_CORPUS)) {
+            var corpusStore = db.createObjectStore(this.STORE_CORPUS, { keyPath: "id", autoIncrement: true });
+            corpusStore.createIndex("interface_method", ["interface", "method"], { unique: false });
+            corpusStore.createIndex("timestamp", "timestamp", { unique: false });
+          }
+          if (!db.objectStoreNames.contains(this.STORE_KNOWLEDGE)) {
+            db.createObjectStore(this.STORE_KNOWLEDGE, { keyPath: "key" });
+          }
+          if (!db.objectStoreNames.contains(this.STORE_METRICS)) {
+            var metricsStore = db.createObjectStore(this.STORE_METRICS, { keyPath: "id", autoIncrement: true });
+            metricsStore.createIndex("session", "sessionId", { unique: false });
+            metricsStore.createIndex("timestamp", "timestamp", { unique: false });
+          }
+          if (!db.objectStoreNames.contains(this.STORE_EDGES)) {
+            db.createObjectStore(this.STORE_EDGES, { keyPath: "edgeId" });
+          }
+        };
+        request.onsuccess = (event) => {
+          this._db = event.target.result;
+          resolve(this._db);
+        };
+        request.onerror = () => { resolve(null); };
+      });
+    },
+
+    /** Save a corpus entry (input that found new coverage or interesting behavior). */
+    async saveCorpusEntry(entry) {
+      var db = await this.init();
+      if (!db) return;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_CORPUS, "readwrite");
+        var store = tx.objectStore(this.STORE_CORPUS);
+        var record = {
+          interface: entry.interface,
+          method: entry.method,
+          params: entry.params,
+          reason: entry.reason || "coverage",
+          edgeIds: entry.edgeIds || [],
+          newEdgeCount: entry.newEdgeCount || 0,
+          timestamp: Date.now(),
+        };
+        store.add(record);
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    },
+
+    /** Load all corpus entries, optionally filtered by interface+method. */
+    async loadCorpus(interfaceFqn, methodName) {
+      var db = await this.init();
+      if (!db) return [];
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_CORPUS, "readonly");
+        var store = tx.objectStore(this.STORE_CORPUS);
+        var results = [];
+        var request;
+        if (interfaceFqn && methodName) {
+          var index = store.index("interface_method");
+          request = index.openCursor(IDBKeyRange.only([interfaceFqn, methodName]));
+        } else {
+          request = store.openCursor();
+        }
+        request.onsuccess = (event) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            results.push(cursor.value);
+            cursor.continue();
+          } else {
+            resolve(results);
+          }
+        };
+        request.onerror = () => resolve([]);
+      });
+    },
+
+    /** Get corpus size count. */
+    async getCorpusSize() {
+      var db = await this.init();
+      if (!db) return 0;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_CORPUS, "readonly");
+        var store = tx.objectStore(this.STORE_CORPUS);
+        var request = store.count();
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => resolve(0);
+      });
+    },
+
+    /** Save learned feedback knowledge for a method. */
+    async saveKnowledge(methodKey, knowledge) {
+      var db = await this.init();
+      if (!db) return;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_KNOWLEDGE, "readwrite");
+        var store = tx.objectStore(this.STORE_KNOWLEDGE);
+        store.put({ key: methodKey, data: knowledge, updatedAt: Date.now() });
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    },
+
+    /** Load all persisted knowledge. Returns Map of key → knowledge. */
+    async loadAllKnowledge() {
+      var db = await this.init();
+      if (!db) return new Map();
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_KNOWLEDGE, "readonly");
+        var store = tx.objectStore(this.STORE_KNOWLEDGE);
+        var result = new Map();
+        var request = store.openCursor();
+        request.onsuccess = (event) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            result.set(cursor.value.key, cursor.value.data);
+            cursor.continue();
+          } else {
+            resolve(result);
+          }
+        };
+        request.onerror = () => resolve(new Map());
+      });
+    },
+
+    /** Save a discovered edge to the persistent edge set. */
+    async saveEdge(edgeId, metadata) {
+      var db = await this.init();
+      if (!db) return;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_EDGES, "readwrite");
+        var store = tx.objectStore(this.STORE_EDGES);
+        store.put({ edgeId: edgeId, name: metadata.name || "", firstHitTime: metadata.firstHitTime || Date.now() });
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    },
+
+    /** Get total persisted edge count. */
+    async getEdgeCount() {
+      var db = await this.init();
+      if (!db) return 0;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_EDGES, "readonly");
+        var store = tx.objectStore(this.STORE_EDGES);
+        var request = store.count();
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => resolve(0);
+      });
+    },
+
+    /** Save a benchmark metrics snapshot. */
+    async saveMetricsSnapshot(snapshot) {
+      var db = await this.init();
+      if (!db) return;
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_METRICS, "readwrite");
+        var store = tx.objectStore(this.STORE_METRICS);
+        store.add({ ...snapshot, timestamp: Date.now() });
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    },
+
+    /** Load all metrics for a session. */
+    async loadSessionMetrics(sessionId) {
+      var db = await this.init();
+      if (!db) return [];
+      return new Promise((resolve) => {
+        var tx = db.transaction(this.STORE_METRICS, "readonly");
+        var store = tx.objectStore(this.STORE_METRICS);
+        var index = store.index("session");
+        var results = [];
+        var request = index.openCursor(IDBKeyRange.only(sessionId));
+        request.onsuccess = (event) => {
+          var cursor = event.target.result;
+          if (cursor) {
+            results.push(cursor.value);
+            cursor.continue();
+          } else {
+            resolve(results);
+          }
+        };
+        request.onerror = () => resolve([]);
+      });
+    },
+
+    /** Clear all stored data. */
+    async clearAll() {
+      var db = await this.init();
+      if (!db) return;
+      var storeNames = [this.STORE_CORPUS, this.STORE_KNOWLEDGE, this.STORE_METRICS, this.STORE_EDGES];
+      for (var storeName of storeNames) {
+        await new Promise((resolve) => {
+          var tx = db.transaction(storeName, "readwrite");
+          tx.objectStore(storeName).clear();
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+      }
+    },
+
+    /** Export entire database as JSON (for corpus sharing / cross-tool compatibility). */
+    async exportAll() {
+      var corpus = await this.loadCorpus();
+      var knowledge = await this.loadAllKnowledge();
+      var edgeCount = await this.getEdgeCount();
+      var knowledgeObj = {};
+      for (var [k, v] of knowledge) { knowledgeObj[k] = v; }
+      return {
+        format: "mojogui_fuzzer_corpus_v1",
+        exportedAt: new Date().toISOString(),
+        corpusSize: corpus.length,
+        edgeCount: edgeCount,
+        corpus: corpus,
+        knowledge: knowledgeObj,
+      };
+    },
+
+    /** Import a previously exported corpus. */
+    async importCorpus(data) {
+      if (!data || data.format !== "mojogui_fuzzer_corpus_v1") return 0;
+      var imported = 0;
+      for (var entry of (data.corpus || [])) {
+        await this.saveCorpusEntry(entry);
+        imported++;
+      }
+      if (data.knowledge) {
+        for (var [key, val] of Object.entries(data.knowledge)) {
+          await this.saveKnowledge(key, val);
+        }
+      }
+      return imported;
+    },
+  };
+
+  // ========================================
+  // Multi-Tab Corpus Sharing (BroadcastChannel)
+  // ========================================
+  // Enables linear scaling: each tab fuzzes independently but shares
+  // coverage discoveries, interesting inputs, and feedback knowledge
+  // via BroadcastChannel. This gives practical parallelism with zero
+  // additional infrastructure — matching ClusterFuzz's distributed
+  // model at a smaller scale.
+
+  const CorpusSync = {
+    _channel: null,
+    _tabId: null,
+    _peerCount: 0,
+    _pendingCorpus: [],
+
+    init() {
+      if (typeof BroadcastChannel === "undefined") return;
+      this._tabId = "tab_" + Math.random().toString(36).substring(2, 8);
+      this._channel = new BroadcastChannel("mojogui_fuzzer_sync");
+      this._channel.onmessage = (event) => this._onMessage(event.data);
+      // Announce presence
+      this._send({ type: "hello", tabId: this._tabId });
+    },
+
+    _send(msg) {
+      if (!this._channel) return;
+      try { this._channel.postMessage(msg); } catch (e) { /* ignore */ }
+    },
+
+    _onMessage(msg) {
+      if (!msg || msg.tabId === this._tabId) return;
+
+      switch (msg.type) {
+        case "hello":
+          this._peerCount++;
+          // Reply with our existence so the new tab knows about us
+          this._send({ type: "hello_ack", tabId: this._tabId });
+          break;
+
+        case "hello_ack":
+          this._peerCount++;
+          break;
+
+        case "corpus_entry":
+          // Another tab found a new interesting input — add to our corpus
+          if (msg.entry) {
+            this._pendingCorpus.push(msg.entry);
+            // Also persist to IndexedDB
+            FuzzerDB.saveCorpusEntry(msg.entry);
+          }
+          break;
+
+        case "new_edges":
+          // Another tab discovered new edges — update our edge set
+          if (msg.edges && typeof DebugBridge !== "undefined") {
+            for (var edge of msg.edges) {
+              DebugBridge._coverageEdges.set(edge.id, { name: edge.name, firstHitTime: edge.time });
+              FuzzerDB.saveEdge(edge.id, { name: edge.name, firstHitTime: edge.time });
+            }
+          }
+          break;
+
+        case "knowledge_update":
+          // Another tab learned something about a method — merge it
+          if (msg.key && msg.knowledge) {
+            var existing = FeedbackEngine.getKnowledge(msg.knowledge.interface, msg.knowledge.method);
+            if (!existing || (msg.knowledge.successCount + msg.knowledge.errorCount) >
+                            (existing.successCount + existing.errorCount)) {
+              FuzzerDB.saveKnowledge(msg.key, msg.knowledge);
+            }
+          }
+          break;
+      }
+    },
+
+    /** Broadcast a new corpus entry to all peer tabs. */
+    shareCorpusEntry(entry) {
+      this._send({ type: "corpus_entry", tabId: this._tabId, entry: entry });
+    },
+
+    /** Broadcast newly discovered edges. */
+    shareNewEdges(edges) {
+      this._send({ type: "new_edges", tabId: this._tabId, edges: edges });
+    },
+
+    /** Broadcast updated method knowledge. */
+    shareKnowledge(key, knowledge) {
+      this._send({ type: "knowledge_update", tabId: this._tabId, key: key, knowledge: knowledge });
+    },
+
+    /** Drain corpus entries received from other tabs. */
+    drainPeerCorpus() {
+      var entries = this._pendingCorpus;
+      this._pendingCorpus = [];
+      return entries;
+    },
+
+    /** Get peer tab count. */
+    getPeerCount() { return this._peerCount; },
+
+    /** Get this tab's ID. */
+    getTabId() { return this._tabId; },
+  };
+
+  // ========================================
+  // Benchmark Metrics Tracker
+  // ========================================
+  // Follows FuzzBench and SoK: Prudent Evaluation Practices methodology.
+  // Captures time-series metrics for rigorous statistical analysis.
+
+  const BenchmarkTracker = {
+    _sessionId: null,
+    _startTime: 0,
+    _snapshots: [],
+    _snapshotInterval: null,
+    SNAPSHOT_INTERVAL_MS: 10000, // Every 10 seconds
+
+    start() {
+      this._sessionId = "session_" + Date.now() + "_" + Math.random().toString(36).substring(2, 6);
+      this._startTime = Date.now();
+      this._snapshots = [];
+      var self = this;
+      this._snapshotInterval = setInterval(function () {
+        self.captureSnapshot();
+      }, this.SNAPSHOT_INTERVAL_MS);
+    },
+
+    stop() {
+      if (this._snapshotInterval) {
+        clearInterval(this._snapshotInterval);
+        this._snapshotInterval = null;
+      }
+      // Final snapshot
+      this.captureSnapshot();
+    },
+
+    captureSnapshot() {
+      var elapsedMs = Date.now() - this._startTime;
+      var stats = MojoFuzzer.stats;
+      var coverageStats = (typeof DebugBridge !== "undefined") ? DebugBridge.getCoverageStats() : {};
+
+      var snapshot = {
+        sessionId: this._sessionId,
+        elapsedMs: elapsedMs,
+        elapsedSec: Math.round(elapsedMs / 1000),
+        calls: stats.calls,
+        successes: stats.successes,
+        errors: stats.errors,
+        crashes: stats.crashes,
+        slowCalls: stats.slowCalls,
+        uniqueErrors: MojoFuzzer.uniqueErrors.size,
+        execPerSec: elapsedMs > 0 ? (stats.calls / (elapsedMs / 1000)).toFixed(2) : "0",
+        edgesHit: coverageStats.edgesHit || 0,
+        totalEdges: coverageStats.totalEdges || 0,
+        corpusSize: coverageStats.corpusSize || 0,
+        confirmedMethods: MojoFuzzer._confirmedMethods.size,
+        peerTabs: CorpusSync.getPeerCount(),
+        feedbackKnowledgeSize: FeedbackEngine._methodKnowledge.size,
+        interestingInputs: Array.from(FeedbackEngine._methodKnowledge.values())
+          .reduce(function (sum, mk) { return sum + mk.interestingInputs.length; }, 0),
+        sequencesExplored: MojoFuzzer._sequenceTracker ? MojoFuzzer._sequenceTracker.uniqueSequences : 0,
+      };
+
+      this._snapshots.push(snapshot);
+      // Also persist to IndexedDB for cross-session analysis
+      FuzzerDB.saveMetricsSnapshot(snapshot);
+
+      return snapshot;
+    },
+
+    /** Get all snapshots for the current session. */
+    getSnapshots() { return this._snapshots; },
+
+    /** Get session ID. */
+    getSessionId() { return this._sessionId; },
+
+    /** Export metrics in a format suitable for statistical analysis. */
+    exportForAnalysis() {
+      return {
+        sessionId: this._sessionId,
+        startTime: this._startTime,
+        durationMs: Date.now() - this._startTime,
+        snapshotCount: this._snapshots.length,
+        snapshotIntervalMs: this.SNAPSHOT_INTERVAL_MS,
+        snapshots: this._snapshots,
+        // Final summary stats
+        finalStats: this._snapshots.length > 0 ? this._snapshots[this._snapshots.length - 1] : null,
+      };
+    },
+  };
+
+  // ========================================
   // Fuzz Value Generators
   // ========================================
   // ========================================
@@ -1189,12 +1640,181 @@
 
   FuzzTechniques.coverageGuided = coverageGuidedParams;
 
+  // ── Sequence-aware (stateful) technique ────────────────────────
+  // Generates params that set up cross-method state dependencies.
+  // The key insight from SGFuzz (260x more state sequences than AFLNet):
+  // most critical Mojo IPC bugs require specific method call orderings.
+  // This technique injects "state-priming" values and tracks which
+  // method sequences have been explored.
+
+  const SequenceTracker = {
+    /** Set of explored sequence hashes for dedup */
+    _explored: new Set(),
+    /** Number of unique sequences explored */
+    uniqueSequences: 0,
+    /** Recent method calls for state tracking: [{ iface, method, status }] */
+    _recentMethods: [],
+    MAX_RECENT: 10,
+
+    recordCall(interfaceFqn, methodName, status) {
+      this._recentMethods.push({ iface: interfaceFqn, method: methodName, status: status });
+      if (this._recentMethods.length > this.MAX_RECENT) {
+        this._recentMethods.shift();
+      }
+      // Hash the last 3 calls as a "state sequence"
+      if (this._recentMethods.length >= 3) {
+        var last3 = this._recentMethods.slice(-3)
+          .map(function (c) { return c.method + ":" + c.status; }).join("->");
+        if (!this._explored.has(last3)) {
+          this._explored.add(last3);
+          this.uniqueSequences++;
+        }
+      }
+    },
+
+    /** Get the last N successful method calls (for state-dependent param generation). */
+    getRecentSuccesses() {
+      return this._recentMethods.filter(function (c) { return c.status === "success"; });
+    },
+
+    reset() {
+      this._explored.clear();
+      this.uniqueSequences = 0;
+      this._recentMethods = [];
+    },
+  };
+
+  /**
+   * Sequence-aware param generation: biases params based on what methods
+   * were recently called successfully, to explore state-dependent paths.
+   */
+  function sequenceAwareParams(methodDef, iteration) {
+    var params = {};
+    var recent = SequenceTracker.getRecentSuccesses();
+
+    for (var pi = 0; pi < methodDef.parameters.length; pi++) {
+      var p = methodDef.parameters[pi];
+      var pType = typeof p.type === "object" ? p.type.type : p.type;
+      var nameLower = p.name.toLowerCase();
+
+      // If we have recent successful calls, try to reference their state
+      if (recent.length > 0 && Math.random() < 0.4) {
+        // For ID-like params, reuse IDs from recent calls
+        if (nameLower.includes("id") || nameLower.includes("token") ||
+            nameLower.includes("handle") || nameLower.includes("key")) {
+          if (pType === "number") {
+            // Use small sequential IDs matching recent call count
+            params[p.name] = FuzzGenerators._pick([0, 1, recent.length - 1, recent.length]);
+            continue;
+          }
+          if (pType === "string") {
+            params[p.name] = FuzzGenerators._pick(["0", "1", String(recent.length)]);
+            continue;
+          }
+        }
+
+        // For bool params after setup calls, try enabling features
+        if (pType === "bool" && recent.length >= 2) {
+          params[p.name] = true;
+          continue;
+        }
+      }
+
+      // Mix of valid (to pass validation) and fuzz values
+      if (Math.random() < 0.6) {
+        params[p.name] = ValidGenerators.generate(p);
+      } else {
+        params[p.name] = FuzzGenerators.generate(p);
+      }
+    }
+
+    return params;
+  }
+
+  FuzzTechniques.sequenceAware = sequenceAwareParams;
+
+  // ── Enhanced handle lifecycle technique ─────────────────────────
+  // Goes beyond simple null-handle testing to probe:
+  // - Use-after-close: create handle, close it, use it again
+  // - Double-bind: bind same handle to two different receivers
+  // - Cross-interface handle confusion: pass handles between interfaces
+  // - Handle type confusion: pass wrong handle type
+  // These are the bug classes behind CVE-2025-2783 and CVE-2025-4609.
+
+  function enhancedHandleLifecycleParams(methodDef, _iteration) {
+    var params = {};
+    var handleParamCount = 0;
+
+    for (var pi = 0; pi < methodDef.parameters.length; pi++) {
+      var p = methodDef.parameters[pi];
+      var t = typeof p.type === "object" ? p.type.type : p.type;
+
+      if (t === "pending_remote" || t === "pending_receiver" ||
+          t === "pending_associated_remote" || t === "pending_associated_receiver" ||
+          t === "mojo_handle") {
+        handleParamCount++;
+        var scenario = FuzzGenerators._pick([
+          "null",           // Missing handle (original behavior)
+          "stale",          // Reference to a handle that should be closed
+          "cross_type",     // Wrong handle type marker
+          "bind_listener",  // Create a listener to capture callbacks
+          "double_ref",     // Same handle value used twice
+        ]);
+
+        switch (scenario) {
+          case "null":
+            params[p.name] = null;
+            break;
+          case "stale":
+            // Marker for stale handle — execution service should interpret this
+            params[p.name] = { __mojoType: "Handle", action: "stale_handle", note: "use-after-close test" };
+            break;
+          case "cross_type":
+            // Try to pass a data pipe handle where a message pipe is expected (or vice versa)
+            params[p.name] = { __mojoType: "Handle", action: "cross_type",
+              expectedType: t, note: "handle type confusion test" };
+            break;
+          case "bind_listener":
+            if (p.interface || (t === "pending_remote" && p.type && p.type.interface)) {
+              params[p.name] = {
+                __mojoType: "Handle",
+                action: "bind_listener",
+                interface: p.interface || (p.type && p.type.interface) || "unknown",
+              };
+            } else {
+              params[p.name] = null;
+            }
+            break;
+          case "double_ref":
+            // Use same handle marker for multiple params (if there are multiple handle params)
+            params[p.name] = { __mojoType: "Handle", action: "double_ref",
+              refId: "shared_handle_0", note: "double-bind test" };
+            break;
+        }
+      } else {
+        // Non-handle params: use valid values so we actually reach the handle handling code
+        params[p.name] = ValidGenerators.generate(p);
+      }
+    }
+
+    // If no handle params exist, fall back to targeted fuzzing
+    if (handleParamCount === 0) {
+      return FuzzTechniques.targeted(methodDef, _iteration);
+    }
+
+    return params;
+  }
+
+  // Replace the simple handleReuse with the enhanced version
+  FuzzTechniques.handleReuse = enhancedHandleLifecycleParams;
+
   /** Ordered list of techniques to cycle through */
   const TECHNIQUE_NAMES = [
     "targeted", "targeted", "targeted",  // Weight toward targeted
     "feedbackGuided", "feedbackGuided",   // Weight toward feedback-guided
     "codeAware", "codeAware",             // Weight toward code-aware (WinDbg data)
     "coverageGuided", "coverageGuided",   // Weight toward coverage-guided (WinDbg coverage)
+    "sequenceAware", "sequenceAware",     // Weight toward sequence-aware (stateful)
     "multiField",
     "nullOmit",
     "typeConfuse",
@@ -1587,11 +2207,39 @@
     INFLIGHT_KEY: "mojofuzzer_inflight",
     SESSION_KEY: "mojofuzzer_session",
     _crashedTargets: new Set(),
+    _sequenceTracker: SequenceTracker,
 
     init() {
       this.renderUI();
       this.checkForCrash();
       this.startBridgeStatusUpdater();
+      // Initialize persistent storage and multi-tab sync
+      FuzzerDB.init().then(() => {
+        this._restoreFromDB();
+      });
+      CorpusSync.init();
+    },
+
+    /** Restore persisted knowledge from IndexedDB on startup. */
+    async _restoreFromDB() {
+      try {
+        var knowledge = await FuzzerDB.loadAllKnowledge();
+        if (knowledge.size > 0) {
+          for (var [key, data] of knowledge) {
+            if (!FeedbackEngine._methodKnowledge.has(key) && data) {
+              FeedbackEngine._methodKnowledge.set(key, data);
+            }
+          }
+          console.log("[Fuzzer] Restored " + knowledge.size + " method knowledge entries from IndexedDB");
+        }
+        var corpusSize = await FuzzerDB.getCorpusSize();
+        var edgeCount = await FuzzerDB.getEdgeCount();
+        if (corpusSize > 0 || edgeCount > 0) {
+          console.log("[Fuzzer] Persistent DB: " + corpusSize + " corpus entries, " + edgeCount + " edges");
+        }
+      } catch (e) {
+        console.warn("[Fuzzer] Failed to restore from IndexedDB:", e);
+      }
     },
 
     /** Periodically update the WinDbg bridge status indicator. */
@@ -1932,15 +2580,37 @@
           if (typeof DebugBridge !== "undefined" && DebugBridge.getCoverageStats().enabled) {
             const newEdges = DebugBridge.drainNewEdges();
             if (newEdges.length > 0 && this._lastFuzzedParams) {
-              // This batch found new edges - save the input to corpus
-              DebugBridge.addToCorpus({
+              var corpusEntry = {
                 params: FeedbackEngine._cloneParams(this._lastFuzzedParams.params),
                 interface: this._lastFuzzedParams.interface,
                 method: this._lastFuzzedParams.method,
+                reason: "coverage",
                 newEdgeCount: newEdges.length,
                 edgeIds: newEdges,
                 timestamp: Date.now(),
-              });
+              };
+              // Save to in-memory corpus (WinDbg bridge)
+              DebugBridge.addToCorpus(corpusEntry);
+              // Persist to IndexedDB for cross-session continuity
+              FuzzerDB.saveCorpusEntry(corpusEntry);
+              // Share with peer tabs via BroadcastChannel
+              CorpusSync.shareCorpusEntry(corpusEntry);
+              // Persist individual edges
+              for (var edgeId of newEdges) {
+                FuzzerDB.saveEdge(edgeId, { firstHitTime: Date.now() });
+              }
+              // Share edges with peer tabs
+              CorpusSync.shareNewEdges(
+                newEdges.map(function (id) { return { id: id, time: Date.now() }; })
+              );
+            }
+          }
+
+          // Also drain corpus entries from peer tabs
+          var peerCorpus = CorpusSync.drainPeerCorpus();
+          if (peerCorpus.length > 0 && typeof DebugBridge !== "undefined") {
+            for (var peerEntry of peerCorpus) {
+              DebugBridge.addToCorpus(peerEntry);
             }
           }
 
@@ -2265,6 +2935,24 @@
           <div class="fuzzer-errors-list" id="fuzzer-errors-list"></div>
         </div>
 
+        <div class="fuzzer-card" id="fuzzer-persistence-card">
+          <h4 style="display: flex; align-items: center; gap: 6px;">
+            Corpus &amp; Persistence
+            <span style="font-size: 0.7rem; font-weight: normal; color: var(--text-muted);" id="fuzzer-db-stats"></span>
+          </h4>
+          <div class="fuzzer-btn-row" style="flex-wrap: wrap; gap: 4px;">
+            <button class="btn btn-secondary btn-small" id="fuzzer-export-corpus-btn" title="Export persistent corpus for sharing or import into other tools">Export Corpus</button>
+            <button class="btn btn-secondary btn-small" id="fuzzer-import-corpus-btn" title="Import a previously exported corpus">Import Corpus</button>
+            <button class="btn btn-secondary btn-small" id="fuzzer-clear-db-btn" title="Clear all persistent data (corpus, knowledge, metrics)" style="color: var(--error-color);">Clear DB</button>
+            <input type="file" id="fuzzer-import-file" accept=".json" style="display: none;">
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">
+            Peers: <span id="fuzzer-peer-count">0</span> tabs
+            | Sequences: <span id="fuzzer-sequence-count">0</span>
+            | Session: <span id="fuzzer-session-id">-</span>
+          </div>
+        </div>
+
         <div class="fuzzer-card" style="flex: 1; min-height: 0;">
           <h4>
             Results Log
@@ -2359,6 +3047,31 @@
           const methods = selIface.methods.map(m => typeof m === "string" ? m : m.name);
           const iterations = parseInt(document.getElementById("fuzzer-iterations")?.value) || 10;
           this.sequenceFuzz(fqn, methods, iterations);
+        });
+      }
+
+      const exportCorpusBtn = container.querySelector("#fuzzer-export-corpus-btn");
+      if (exportCorpusBtn) {
+        exportCorpusBtn.addEventListener("click", () => this.exportCorpus());
+      }
+
+      const importCorpusBtn = container.querySelector("#fuzzer-import-corpus-btn");
+      const importFileInput = container.querySelector("#fuzzer-import-file");
+      if (importCorpusBtn && importFileInput) {
+        importCorpusBtn.addEventListener("click", () => importFileInput.click());
+        importFileInput.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) this.importCorpus(file);
+          importFileInput.value = "";
+        });
+      }
+
+      const clearDbBtn = container.querySelector("#fuzzer-clear-db-btn");
+      if (clearDbBtn) {
+        clearDbBtn.addEventListener("click", async () => {
+          await FuzzerDB.clearAll();
+          global.showToast("Persistent database cleared", "success");
+          this._updateDBStats();
         });
       }
 
@@ -2555,6 +3268,9 @@
       this._crashedTargets = new Set();
       this.resetStats();
 
+      // Start benchmark tracking
+      BenchmarkTracker.start();
+
       // Delegate to the shared run loop
       await this.resume({
         config: { strategy, interfaceFqn, methodName, iterations, concurrency, delay, callIndex: 0 },
@@ -2564,6 +3280,12 @@
     stop(keepSession) {
       this.aborted = true;
       this.running = false;
+
+      // Stop benchmark tracking and capture final metrics
+      BenchmarkTracker.stop();
+
+      // Persist learned knowledge to IndexedDB for cross-session continuity
+      this._persistKnowledgeToDB();
 
       // Restore normal poll interval
       if (typeof DebugBridge !== "undefined") {
@@ -2850,6 +3572,9 @@
         interfaceFqn, methodName, params, status, resultData, errorMsg, callDurationMs,
       );
 
+      // Track method sequence for stateful fuzzing
+      SequenceTracker.recordCall(interfaceFqn, methodName, status);
+
       this.addResult({
         index: iteration,
         interface: interfaceFqn,
@@ -2982,6 +3707,12 @@
       const elapsed = (Date.now() - this.stats.startTime) / 1000;
       const rate = elapsed > 0 ? (this.stats.calls / elapsed).toFixed(1) : "0";
       if (rateEl) rateEl.textContent = rate;
+
+      // Update persistence/multi-tab stats (non-blocking)
+      var peerEl = document.getElementById("fuzzer-peer-count");
+      if (peerEl) peerEl.textContent = CorpusSync.getPeerCount();
+      var seqEl = document.getElementById("fuzzer-sequence-count");
+      if (seqEl) seqEl.textContent = SequenceTracker.uniqueSequences;
 
       // Average response time
       if (avgTimeEl && this._responseTimes.length > 0) {
@@ -3150,6 +3881,7 @@
 
               this.stats.calls++;
               this.stats.successes++;
+              SequenceTracker.recordCall(interfaceFqn, methodName, "success");
               this.addResult({
                 index: this.stats.calls,
                 interface: interfaceFqn,
@@ -3163,6 +3895,16 @@
             } catch (e) {
               this.stats.calls++;
               this.stats.errors++;
+              SequenceTracker.recordCall(interfaceFqn, methodName, "error");
+              // Save interesting sequence failures to persistent corpus
+              FuzzerDB.saveCorpusEntry({
+                interface: interfaceFqn,
+                method: methodName,
+                params: params,
+                reason: "sequence_error",
+                edgeIds: [],
+                newEdgeCount: 0,
+              });
               this.addResult({
                 index: this.stats.calls,
                 interface: interfaceFqn,
@@ -3187,6 +3929,30 @@
       }
     },
 
+    /** Persist all learned knowledge to IndexedDB for cross-session continuity. */
+    async _persistKnowledgeToDB() {
+      try {
+        for (var [key, mk] of FeedbackEngine._methodKnowledge) {
+          await FuzzerDB.saveKnowledge(key, {
+            baseline: mk.baseline,
+            successCount: mk.successCount,
+            errorCount: mk.errorCount,
+            paramFeedback: mk.paramFeedback,
+            interestingInputs: mk.interestingInputs,
+          });
+          // Also share with peer tabs
+          CorpusSync.shareKnowledge(key, {
+            interface: key.split(".").slice(0, -1).join("."),
+            method: key.split(".").pop(),
+            successCount: mk.successCount,
+            errorCount: mk.errorCount,
+          });
+        }
+      } catch (e) {
+        console.warn("[Fuzzer] Failed to persist knowledge:", e);
+      }
+    },
+
     resetStats() {
       this.stats = {
         calls: 0,
@@ -3204,6 +3970,7 @@
       this._coverageRequested = new Set();
       this._lastFuzzedParams = null;
       FeedbackEngine.reset();
+      SequenceTracker.reset();
       if (typeof DebugBridge !== "undefined") {
         DebugBridge.resetCoverage();
       }
@@ -3253,6 +4020,7 @@
       const report = {
         exported_at: new Date().toISOString(),
         tool: "MojoGUI Fuzzer",
+        format: "mojogui_fuzzer_report_v2",
         stats: { ...this.stats },
         timing: timingStats,
         crashedTargets: Array.from(this._crashedTargets),
@@ -3266,6 +4034,15 @@
           corpus: DebugBridge.getCorpus(),
         } : null,
         confirmedMethods: Array.from(this._confirmedMethods),
+        sequenceStats: {
+          uniqueSequences: SequenceTracker.uniqueSequences,
+          recentMethods: SequenceTracker._recentMethods,
+        },
+        benchmark: BenchmarkTracker.exportForAnalysis(),
+        multiTab: {
+          tabId: CorpusSync.getTabId(),
+          peerCount: CorpusSync.getPeerCount(),
+        },
         totalResults: this.results.length,
         results: this.results,
       };
@@ -3285,6 +4062,64 @@
       global.showToast(`Exported ${this.results.length} results`, "success");
     },
   };
+
+  // ── Corpus export/import and DB stats methods ─────────────────
+
+  MojoFuzzer.exportCorpus = async function () {
+    try {
+      var data = await FuzzerDB.exportAll();
+      var json = JSON.stringify(data, null, 2);
+      var blob = new Blob([json], { type: "application/json" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "mojogui_corpus_" + Date.now() + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      global.showToast("Exported " + data.corpusSize + " corpus entries", "success");
+    } catch (e) {
+      global.showToast("Export failed: " + e.message, "error");
+    }
+  };
+
+  MojoFuzzer.importCorpus = async function (file) {
+    try {
+      var text = await file.text();
+      var data = JSON.parse(text);
+      var imported = await FuzzerDB.importCorpus(data);
+      global.showToast("Imported " + imported + " corpus entries", "success");
+      this._updateDBStats();
+    } catch (e) {
+      global.showToast("Import failed: " + e.message, "error");
+    }
+  };
+
+  MojoFuzzer._updateDBStats = async function () {
+    var statsEl = document.getElementById("fuzzer-db-stats");
+    if (!statsEl) return;
+    try {
+      var corpusSize = await FuzzerDB.getCorpusSize();
+      var edgeCount = await FuzzerDB.getEdgeCount();
+      statsEl.textContent = corpusSize + " entries, " + edgeCount + " edges";
+    } catch (e) {
+      statsEl.textContent = "DB unavailable";
+    }
+
+    // Also update peer count and sequence count
+    var peerEl = document.getElementById("fuzzer-peer-count");
+    if (peerEl) peerEl.textContent = CorpusSync.getPeerCount();
+    var seqEl = document.getElementById("fuzzer-sequence-count");
+    if (seqEl) seqEl.textContent = SequenceTracker.uniqueSequences;
+    var sessionEl = document.getElementById("fuzzer-session-id");
+    if (sessionEl) sessionEl.textContent = BenchmarkTracker.getSessionId() || "-";
+  };
+
+  // Also export subsystems for external access (MCP server, etc.)
+  global.FuzzerDB = FuzzerDB;
+  global.CorpusSync = CorpusSync;
+  global.BenchmarkTracker = BenchmarkTracker;
 
   global.MojoFuzzer = MojoFuzzer;
 
