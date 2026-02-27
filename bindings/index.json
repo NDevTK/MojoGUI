@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-23T10:18:38.935150Z",
-  "version": "147.0.7699.0",
+  "generated_at": "2026-02-27T10:29:26.764982Z",
+  "version": "147.0.7707.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3376,6 +3376,7 @@
         "SetTaskId",
         "IsZeroState",
         "IsAiPage",
+        "IsPendingErrorPage",
         "SetThreadTitle",
         "CloseSidePanel",
         "ShowThreadHistory",
@@ -3608,7 +3609,8 @@
       "methods": [
         "IntentToShow",
         "SetProfileReadyState",
-        "UpdatePageState"
+        "UpdatePageState",
+        "Zoom"
       ],
       "metadata": {
         "usage": {
@@ -3770,6 +3772,7 @@
         "UpdateSkill",
         "ShowManageSkillsUi",
         "GetSkill",
+        "RecordSkillsWebClientEvent",
         "SubscribeToPinCandidates",
         "CreateTask",
         "PerformActions",
@@ -3825,7 +3828,6 @@
         "GetZeroStateSuggestionsForFocusedTab",
         "MaybeRefreshUserStatus",
         "IsDebuggerAttached",
-        "OnViewChanged",
         "SubscribeToPageMetadata",
         "SwitchConversation",
         "RegisterConversation",
@@ -3891,7 +3893,6 @@
         "NotifySkillToInvokeChanged",
         "NotifyZeroStateSuggestionsChanged",
         "NotifyActorTaskStateChanged",
-        "RequestViewChange",
         "NotifyPageMetadataChanged",
         "NotifyDefaultTabContextPermissionStateChanged",
         "RequestToShowCredentialSelectionDialog",
@@ -3935,6 +3936,27 @@
       }
     },
     {
+      "name": "SelectionOverlayPageHandlerFactory",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
+      }
+    },
+    {
       "name": "SelectionOverlayPageHandler",
       "module": "glic.selection",
       "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
@@ -3947,11 +3969,14 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: glic.selection.SelectionOverlayPageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -3969,7 +3994,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -4101,7 +4129,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -4119,7 +4150,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -7127,7 +7161,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kGlicRegionSelectionNew"
         ]
       }
     },
@@ -7158,7 +7193,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kGlicRegionSelectionNew"
         ]
       }
     },
@@ -7185,7 +7221,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kGlicRegionSelectionNew"
         ]
       }
     },
@@ -7595,45 +7632,6 @@
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
-      }
-    },
-    {
-      "name": "LegionInternalsPage",
-      "module": "legion_internals.mojom",
-      "file": "chrome_browser_ui_webui_legion_internals_legion_internals.mojom.js",
-      "methods": [
-        "OnLogMessage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "LegionInternalsPageHandler",
-      "module": "legion_internals.mojom",
-      "file": "chrome_browser_ui_webui_legion_internals_legion_internals.mojom.js",
-      "methods": [
-        "SetPage",
-        "Connect",
-        "Close",
-        "SendRequest"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
       }
     },
     {
@@ -8259,7 +8257,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -8278,7 +8279,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -8880,6 +8884,45 @@
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
+      }
+    },
+    {
+      "name": "PrivateAiInternalsPage",
+      "module": "private_ai_internals.mojom",
+      "file": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
+      "methods": [
+        "OnLogMessage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PrivateAiInternalsPageHandler",
+      "module": "private_ai_internals.mojom",
+      "file": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
+      "methods": [
+        "SetPage",
+        "Connect",
+        "Close",
+        "SendRequest"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -10361,7 +10404,8 @@
         "ClearWhatsNewData",
         "ClearNtpPromoData",
         "ClearNtpPromoPreferences",
-        "LaunchWhatsNewStaging"
+        "LaunchWhatsNewStaging",
+        "UpdateWhatsNewVersionOverride"
       ],
       "metadata": {
         "usage": {
@@ -17339,7 +17383,9 @@
       "module": "ash.borealis_motd.mojom",
       "file": "chromeos_ash_experiences_guest_os_borealis_motd_borealis_motd.mojom.js",
       "methods": [
-        "OnDismiss"
+        "OnDismiss",
+        "OnUninstall",
+        "IsBorealisInstalled"
       ],
       "metadata": {
         "usage": {
@@ -19349,7 +19395,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicRegionSelectionNew"
+        ]
       }
     },
     {
@@ -20938,26 +20987,6 @@
       }
     },
     {
-      "name": "VideoConferenceManagerClient",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_video_conference.mojom.js",
-      "methods": [
-        "GetMediaApps",
-        "ReturnToApp",
-        "SetSystemMediaDeviceStatus"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "CfmBrowser",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
@@ -22306,7 +22335,8 @@
       "file": "components_browser_apis_tab_strip_tab_strip_experiment_api.mojom.js",
       "methods": [
         "UpdateTabGroupVisual",
-        "ShowTabContextMenu"
+        "ShowTabContextMenu",
+        "GetAllTabsForProfile"
       ],
       "metadata": {
         "usage": {
@@ -23193,7 +23223,9 @@
       "file": "components_guest_view_browser_slim_web_view_slim_web_view.mojom.js",
       "methods": [
         "CreateGuest",
-        "Navigate"
+        "SetSize",
+        "Navigate",
+        "SetPermission"
       ],
       "metadata": {
         "usage": {
@@ -24055,6 +24087,8 @@
         "QueryAutocomplete",
         "StopAutocomplete",
         "OpenAutocompleteMatch",
+        "SetPopupSelection",
+        "OpenPopupSelection",
         "OnNavigationLikely",
         "DeleteAutocompleteMatch",
         "ActivateKeyword",
@@ -24101,6 +24135,9 @@
       "methods": [
         "AutocompleteResultChanged",
         "UpdateSelection",
+        "StepSelection",
+        "OpenCurrentSelection",
+        "SetAimButtonVisible",
         "SetKeywordSelected",
         "OnShow",
         "SetInputText",
@@ -24743,6 +24780,7 @@
         "SetAnimationEnabled",
         "SetTransitionsToAnimate",
         "SetVisibleOnAllSpaces",
+        "MoveToActiveFullscreenSpace",
         "EnterFullscreen",
         "ExitFullscreen",
         "SetCanAppearInExistingFullscreenSpaces",
@@ -27220,7 +27258,8 @@
       "module": "content.mojom",
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
-        "UpdateConsumers"
+        "UpdateConsumers",
+        "EnableDiagnosticsReporting"
       ],
       "metadata": {
         "usage": {
@@ -27241,6 +27280,24 @@
         "BindCoordinator",
         "Register",
         "Unregister"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "MemoryCoordinatorDiagnosticsHost",
+      "module": "content.mojom",
+      "file": "content_common_memory_coordinator_mojom_memory_coordinator_diagnostics.mojom.js",
+      "methods": [
+        "OnMemoryLimitChanged"
       ],
       "metadata": {
         "usage": {
@@ -29917,9 +29974,7 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "scrambled": false
       }
     },
     {
@@ -30543,7 +30598,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebLockScreenApi"
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
     },
@@ -30564,7 +30620,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebLockScreenApi"
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
     },
@@ -30722,10 +30779,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -30828,10 +30882,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -31389,10 +31440,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -31428,10 +31476,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -31587,10 +31632,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -32314,7 +32356,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebLockScreenApi"
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
     },
@@ -32604,10 +32646,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -32990,8 +33029,11 @@
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
-        "CaptureFrame",
-        "SetComposeEnabled"
+        "Start",
+        "SetComposeEnabled",
+        "SetMaxFrameRate",
+        "Pause",
+        "BoostCaptureRate"
       ],
       "metadata": {
         "usage": {
@@ -33011,6 +33053,7 @@
       "methods": [
         "OnSharedMemoryRegionCreated",
         "OnSharedMemoryRegionReleased",
+        "OnFrameCaptureStart",
         "OnCaptureResult"
       ],
       "metadata": {
@@ -34532,7 +34575,8 @@
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork",
           "feature:kImeSystemEmojiPickerMojoSearch"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -34551,7 +34595,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34576,7 +34621,8 @@
         "category": "internal",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -34846,7 +34892,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34865,7 +34912,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34888,7 +34936,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -34907,7 +34956,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -37623,7 +37673,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kWebMachineLearningNeuralNetwork"
         ]
       }
@@ -37709,7 +37758,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kInterestGroupStorage"
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
     },
@@ -40011,7 +40061,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40033,7 +40084,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40052,7 +40104,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40071,7 +40124,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40090,7 +40144,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40109,7 +40164,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40138,7 +40194,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40157,7 +40214,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40176,7 +40234,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40195,7 +40254,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40214,7 +40274,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40225,7 +40286,8 @@
         "OnCompletion",
         "OnError",
         "OnStreaming",
-        "OnQuotaOverflow"
+        "OnToolCalls",
+        "OnContextOverflow"
       ],
       "metadata": {
         "usage": {
@@ -40235,7 +40297,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40255,7 +40318,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40273,7 +40337,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40291,7 +40356,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40311,7 +40377,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40329,7 +40396,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40348,7 +40416,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40366,7 +40435,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40383,7 +40453,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -40404,7 +40475,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -40422,7 +40494,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40442,7 +40515,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40466,7 +40540,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40487,7 +40562,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40507,7 +40583,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40527,7 +40604,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -40551,7 +40629,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40570,7 +40649,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40607,7 +40687,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40625,7 +40706,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40644,7 +40726,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40672,7 +40755,8 @@
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40692,7 +40776,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40712,7 +40797,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -40736,7 +40822,8 @@
           "feature:kServiceWorkerInDedicatedWorker",
           "feature:kServiceWorkerBackgroundSyncInDedicatedWorker",
           "feature:kLazyBrowserInterfaceBroker"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40889,7 +40976,8 @@
         "gates": [
           "feature:kLazyBrowserInterfaceBroker",
           "feature:kNtpFooter"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40912,7 +41000,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -40987,7 +41076,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41017,7 +41107,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41035,7 +41126,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41051,7 +41143,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41069,7 +41162,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41087,7 +41181,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41108,7 +41203,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41127,7 +41223,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41149,7 +41246,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41168,7 +41266,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41186,7 +41285,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41229,7 +41329,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41247,7 +41348,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41265,7 +41367,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41283,7 +41386,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41305,7 +41409,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41323,7 +41428,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41341,7 +41447,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41359,7 +41466,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41378,7 +41486,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41396,7 +41505,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41414,7 +41524,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41432,7 +41543,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41456,7 +41568,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41475,7 +41588,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41495,7 +41609,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41518,7 +41633,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41536,7 +41652,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41578,7 +41695,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41603,7 +41721,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41625,7 +41744,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41645,7 +41765,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -41663,7 +41784,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41687,7 +41809,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41711,7 +41834,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41732,7 +41856,8 @@
           ]
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -41751,7 +41876,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41770,7 +41896,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41788,7 +41915,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41814,7 +41942,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41837,7 +41966,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41881,7 +42011,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41899,7 +42030,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41920,7 +42052,8 @@
         "category": "direct",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41944,7 +42077,8 @@
         "category": "direct",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -41963,7 +42097,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -41982,7 +42117,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42004,7 +42140,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42029,7 +42166,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42077,7 +42215,8 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42093,7 +42232,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42115,7 +42255,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42153,7 +42294,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -42171,7 +42313,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42190,7 +42333,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42208,7 +42352,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42238,7 +42383,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42259,7 +42405,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42288,7 +42435,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42307,7 +42455,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42328,7 +42477,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42355,9 +42505,9 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+          "feature:kFontAccess"
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42375,7 +42525,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42394,7 +42545,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42416,7 +42568,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42435,7 +42588,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42455,7 +42609,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42473,7 +42628,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -42511,9 +42667,9 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42534,9 +42690,9 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+          "feature:kFontAccess"
+        ],
+        "scrambled": false
       }
     },
     {
@@ -42558,7 +42714,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43136,7 +43293,8 @@
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43175,7 +43333,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43197,7 +43356,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43219,7 +43379,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -43240,7 +43401,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43258,7 +43420,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43280,7 +43443,8 @@
         "gates": [
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43299,7 +43463,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43483,7 +43648,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43509,7 +43675,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43556,7 +43723,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -43588,7 +43756,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43608,7 +43777,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -43631,7 +43801,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43649,7 +43820,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43756,7 +43928,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43779,7 +43952,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43807,7 +43981,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43838,7 +44013,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43861,7 +44037,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43889,7 +44066,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43907,7 +44085,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43930,7 +44109,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -43958,7 +44138,8 @@
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -43982,7 +44163,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44001,7 +44183,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44020,7 +44203,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44036,7 +44220,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44054,7 +44239,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44086,7 +44272,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44102,7 +44289,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44125,7 +44313,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44148,7 +44337,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44164,7 +44354,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44183,7 +44374,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44207,7 +44399,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44228,7 +44421,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44246,7 +44440,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -44264,7 +44459,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44284,9 +44480,7 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "scrambled": false
       }
     },
     {
@@ -44304,7 +44498,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44323,9 +44518,7 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "scrambled": false
       }
     },
     {
@@ -44343,7 +44536,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44371,7 +44565,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44390,7 +44585,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44408,7 +44604,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44436,7 +44633,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44454,7 +44655,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44477,7 +44679,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44507,7 +44710,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44529,7 +44736,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44586,7 +44794,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44624,7 +44833,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44647,7 +44857,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44665,7 +44876,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44684,7 +44896,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -44703,7 +44916,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44721,7 +44935,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44739,7 +44954,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44936,7 +45152,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -44956,7 +45173,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -44976,7 +45194,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45005,7 +45224,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45038,7 +45258,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45062,7 +45283,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45087,7 +45309,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45119,9 +45342,9 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45139,7 +45362,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45157,7 +45381,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45175,7 +45400,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45204,7 +45430,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45227,7 +45454,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45246,7 +45474,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45266,7 +45495,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45287,7 +45517,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45305,7 +45536,8 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45331,7 +45563,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45354,7 +45587,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45374,7 +45608,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45403,7 +45638,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45424,7 +45660,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45442,7 +45679,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45539,7 +45777,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45562,7 +45801,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45580,7 +45820,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45677,7 +45918,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45699,7 +45941,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45717,7 +45960,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -45745,7 +45989,8 @@
         "category": "direct",
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45766,7 +46011,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -45788,7 +46034,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -45806,7 +46053,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46028,7 +46276,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46046,7 +46295,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46064,7 +46314,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46161,7 +46412,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46180,7 +46432,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46198,7 +46451,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46217,7 +46471,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46344,7 +46599,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -46367,7 +46623,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46391,7 +46648,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46409,7 +46667,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46433,7 +46692,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46459,7 +46719,8 @@
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kXuControls"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46511,7 +46772,8 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46558,9 +46820,9 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46581,7 +46843,8 @@
         "category": "direct",
         "gates": [
           "feature:kInterestGroupStorage"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46607,7 +46870,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kSubApps"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46625,7 +46889,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46651,7 +46916,8 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46703,7 +46969,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46734,7 +47001,8 @@
         "gates": [
           "feature:kWebOTP",
           "feature:kWebLockScreenApi"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46794,7 +47062,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kSubApps"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46814,9 +47083,9 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46837,7 +47106,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -46891,7 +47161,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46917,7 +47188,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -46942,7 +47214,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46962,7 +47235,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46982,7 +47256,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -47067,7 +47342,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47131,7 +47407,8 @@
         "gates": [
           "feature:kServiceWorkerInDedicatedWorker",
           "feature:kServiceWorkerBackgroundSyncInDedicatedWorker"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -47149,7 +47426,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47170,7 +47448,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -47188,7 +47467,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -49786,12 +50066,6 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_ui_webui_legion_internals_legion_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/legion_internals/legion_internals.mojom",
-      "module": "legion_internals.mojom",
-      "imports": []
-    },
-    {
       "filename": "chrome_browser_ui_webui_location_internals_location_internals.mojom.js",
       "source": "chrome/browser/ui/webui/location_internals/location_internals.mojom",
       "module": "mojom",
@@ -49969,6 +50243,12 @@
       "filename": "chrome_browser_ui_webui_privacy_sandbox_related_website_sets_related_website_sets.mojom.js",
       "source": "chrome/browser/ui/webui/privacy_sandbox/related_website_sets/related_website_sets.mojom",
       "module": "related_website_sets.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/private_ai_internals/private_ai_internals.mojom",
+      "module": "private_ai_internals.mojom",
       "imports": []
     },
     {
@@ -52396,7 +52676,6 @@
         "chromeos/crosapi/mojom/cros_display_config.mojom",
         "chromeos/crosapi/mojom/document_scan.mojom",
         "chromeos/crosapi/mojom/local_printer.mojom",
-        "chromeos/crosapi/mojom/print_preview_cros.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
         "chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom",
         "chromeos/crosapi/mojom/telemetry_event_service.mojom",
@@ -52442,18 +52721,6 @@
       "source": "chromeos/crosapi/mojom/nullable_primitives.mojom",
       "module": "crosapi.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_print_preview_cros.mojom.js",
-      "source": "chromeos/crosapi/mojom/print_preview_cros.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/local_printer.mojom",
-        "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/values.mojom",
-        "printing/mojom/print.mojom",
-        "url/mojom/url.mojom"
-      ]
     },
     {
       "filename": "chromeos_crosapi_mojom_probe_service.mojom.js",
@@ -53300,6 +53567,7 @@
       "module": "guest_view.mojom",
       "imports": [
         "mojo/public/mojom/base/values.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -53351,7 +53619,8 @@
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "third_party/blink/public/mojom/input/input_event_result.mojom",
         "third_party/blink/public/mojom/input/input_handler.mojom",
-        "third_party/blink/public/mojom/widget/platform_widget.mojom"
+        "third_party/blink/public/mojom/widget/platform_widget.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -53624,6 +53893,7 @@
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
       ]
@@ -54781,6 +55051,14 @@
     {
       "filename": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "source": "content/common/memory_coordinator/mojom/memory_coordinator.mojom",
+      "module": "content.mojom",
+      "imports": [
+        "content/common/memory_coordinator/mojom/memory_coordinator_diagnostics.mojom"
+      ]
+    },
+    {
+      "filename": "content_common_memory_coordinator_mojom_memory_coordinator_diagnostics.mojom.js",
+      "source": "content/common/memory_coordinator/mojom/memory_coordinator_diagnostics.mojom",
       "module": "content.mojom",
       "imports": []
     },
@@ -56958,6 +57236,7 @@
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "remoting/host/mojom/keyboard_layout.mojom",
         "remoting/host/mojom/webrtc_types.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
@@ -58295,6 +58574,7 @@
       "imports": [
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/file_path.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
@@ -60329,6 +60609,7 @@
       "source": "third_party/blink/public/mojom/ai/ai_language_model.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/values.mojom",
         "services/on_device_model/public/mojom/on_device_model.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom",
@@ -60390,6 +60671,7 @@
       "source": "third_party/blink/public/mojom/ai/model_streaming_responder.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/values.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom"
       ]
     },
@@ -62096,6 +62378,7 @@
         "services/device/public/mojom/screen_orientation_lock_types.mojom",
         "third_party/blink/public/mojom/manifest/display_mode.mojom",
         "third_party/blink/public/mojom/manifest/manifest_launch_handler.mojom",
+        "third_party/blink/public/mojom/manifest/manifest_migration_behavior.mojom",
         "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "third_party/blink/public/mojom/safe_url_pattern.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
@@ -62117,6 +62400,12 @@
         "third_party/blink/public/mojom/manifest/manifest.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_manifest_manifest_migration_behavior.mojom.js",
+      "source": "third_party/blink/public/mojom/manifest/manifest_migration_behavior.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_manifest_manifest_observer.mojom.js",
