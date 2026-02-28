@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-02-27T10:29:26.764982Z",
-  "version": "147.0.7707.0",
+  "generated_at": "2026-02-28T10:15:34.635906Z",
+  "version": "147.0.7709.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3492,10 +3492,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpFooter"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -3513,10 +3510,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpFooter"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -3534,10 +3528,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpFooter"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -7564,6 +7555,54 @@
       }
     },
     {
+      "name": "PageHandler",
+      "module": "feedback.report_unsafe_site.mojom",
+      "file": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
+      "methods": [
+        "CloseDialog",
+        "GetPageUrl"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feedback.report_unsafe_site.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "feedback.report_unsafe_site.mojom",
+      "file": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "Page",
       "module": "infobar_internals.mojom",
       "file": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
@@ -8485,6 +8524,72 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "omnibox_popup.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "omnibox_popup.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: omnibox_popup.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "omnibox_popup.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
+      "methods": [
+        "OnShow"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
@@ -22241,32 +22346,11 @@
       }
     },
     {
-      "name": "BrowserControlsObserver",
-      "module": "browser_controls_api.mojom",
-      "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
-      "methods": [
-        "OnNavigationControlsStateChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "BrowserControlsService",
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
       "methods": [
-        "Bind",
         "StopLoad",
-        "ShowContextMenu",
-        "OnPageInitialized",
         "ReloadFromClick",
         "SplitActiveTab"
       ],
@@ -22337,6 +22421,44 @@
         "UpdateTabGroupVisual",
         "ShowTabContextMenu",
         "GetAllTabsForProfile"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ToolbarUIObserver",
+      "module": "toolbar_ui_api.mojom",
+      "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
+      "methods": [
+        "OnNavigationControlsStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ToolbarUIService",
+      "module": "toolbar_ui_api.mojom",
+      "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
+      "methods": [
+        "Bind",
+        "ShowContextMenu",
+        "OnPageInitialized"
       ],
       "metadata": {
         "usage": {
@@ -24139,7 +24261,6 @@
         "OpenCurrentSelection",
         "SetAimButtonVisible",
         "SetKeywordSelected",
-        "OnShow",
         "SetInputText",
         "SetThumbnail",
         "OnContextualInputStatusChanged",
@@ -40286,7 +40407,6 @@
         "OnCompletion",
         "OnError",
         "OnStreaming",
-        "OnToolCalls",
         "OnContextOverflow"
       ],
       "metadata": {
@@ -44099,6 +44219,7 @@
         "RemoveFragments",
         "ExtractTextFragmentsMatches",
         "GetExistingSelectors",
+        "RequestSelectorForViewportCenter",
         "ExtractFirstFragmentRect"
       ],
       "metadata": {
@@ -50060,6 +50181,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
+      "source": "chrome/browser/ui/webui/feedback/report_unsafe_site/report_unsafe_site.mojom",
+      "module": "feedback.report_unsafe_site.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
       "source": "chrome/browser/ui/webui/infobar_internals/infobar_internals.mojom",
       "module": "infobar_internals.mojom",
@@ -50185,6 +50312,12 @@
       "imports": [
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup.mojom",
+      "module": "omnibox_popup.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup_aim.mojom.js",
@@ -53194,10 +53327,7 @@
       "source": "components/browser_apis/browser_controls/browser_controls_api.mojom",
       "module": "browser_controls_api.mojom",
       "imports": [
-        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
-        "ui/base/mojom/menu_source_type.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "mojo/public/mojom/base/error.mojom"
+        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom"
       ]
     },
     {
@@ -53255,6 +53385,23 @@
         "mojo/public/mojom/base/error.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
+      "source": "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api.mojom",
+      "module": "toolbar_ui_api.mojom",
+      "imports": [
+        "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
+        "ui/base/mojom/menu_source_type.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "mojo/public/mojom/base/error.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api_data_model.mojom.js",
+      "source": "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
+      "module": "toolbar_ui_api.mojom",
+      "imports": []
     },
     {
       "filename": "components_browsing_topics_mojom_browsing_topics_internals.mojom.js",
@@ -54000,11 +54147,12 @@
         "mojo/public/mojom/base/byte_count.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/request_priority.mojom",
         "third_party/blink/public/mojom/loader/javascript_framework_detection.mojom",
+        "third_party/blink/public/mojom/navigation/navigation_type_for_navigation_api.mojom",
         "third_party/blink/public/mojom/use_counter/use_counter_feature.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -60609,7 +60757,6 @@
       "source": "third_party/blink/public/mojom/ai/ai_language_model.mojom",
       "module": "blink.mojom",
       "imports": [
-        "mojo/public/mojom/base/values.mojom",
         "services/on_device_model/public/mojom/on_device_model.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom",
@@ -60671,7 +60818,6 @@
       "source": "third_party/blink/public/mojom/ai/model_streaming_responder.mojom",
       "module": "blink.mojom",
       "imports": [
-        "mojo/public/mojom/base/values.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom"
       ]
     },
@@ -62616,6 +62762,7 @@
         "third_party/blink/public/mojom/loader/referrer.mojom",
         "third_party/blink/public/mojom/messaging/task_attribution_id.mojom",
         "third_party/blink/public/mojom/navigation/navigation_api_history_entry_arrays.mojom",
+        "third_party/blink/public/mojom/navigation/navigation_type_for_navigation_api.mojom",
         "third_party/blink/public/mojom/navigation/navigation_policy.mojom",
         "third_party/blink/public/mojom/navigation/prefetched_signed_exchange_info.mojom",
         "third_party/blink/public/mojom/navigation/renderer_content_settings.mojom",
@@ -62634,6 +62781,12 @@
     {
       "filename": "third_party_blink_public_mojom_navigation_navigation_policy.mojom.js",
       "source": "third_party/blink/public/mojom/navigation/navigation_policy.mojom",
+      "module": "blink.mojom",
+      "imports": []
+    },
+    {
+      "filename": "third_party_blink_public_mojom_navigation_navigation_type_for_navigation_api.mojom.js",
+      "source": "third_party/blink/public/mojom/navigation/navigation_type_for_navigation_api.mojom",
       "module": "blink.mojom",
       "imports": []
     },
