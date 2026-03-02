@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7710.0';
+        const versionStr = window.mojoVersion || '147.0.7713.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
