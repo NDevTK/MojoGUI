@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7713.0';
+        const versionStr = window.mojoVersion || '147.0.7714.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -143,23 +143,18 @@ mojo.internal.bindings.blink.mojom.PolicyValueType = {
 // Union: PolicyValue
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PolicyValueSpec, 'blink.mojom.PolicyValue', {
-      'arg_null_value': {
+      'arg_bool_value': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
         'nullable': false,
       },
-      'arg_bool_value': {
-        'ordinal': 1,
-        'type': mojo.internal.Bool,
-        'nullable': false,
-      },
       'arg_dec_double_value': {
-        'ordinal': 2,
+        'ordinal': 1,
         'type': mojo.internal.Double,
         'nullable': false,
       },
       'arg_enum_value': {
-        'ordinal': 3,
+        'ordinal': 2,
         'type': mojo.internal.Int32,
         'nullable': false,
       },
