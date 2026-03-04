@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-03T10:31:43.541157Z",
-  "version": "147.0.7714.0",
+  "generated_at": "2026-03-04T10:27:44.788892Z",
+  "version": "147.0.7717.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8553,7 +8553,9 @@
       "name": "PageHandler",
       "module": "omnibox_popup.mojom",
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
-      "methods": [],
+      "methods": [
+        "ShowContextMenu"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -8621,7 +8623,8 @@
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup_aim.mojom.js",
       "methods": [
         "RequestClose",
-        "NavigateCurrentTab"
+        "NavigateCurrentTab",
+        "ShowContextMenu"
       ],
       "metadata": {
         "usage": {
@@ -8645,7 +8648,7 @@
       "methods": [
         "OnPopupShown",
         "AddContext",
-        "OnPopupHidden",
+        "ClearPopup",
         "SetPreserveContextOnClose"
       ],
       "metadata": {
@@ -8858,7 +8861,8 @@
         "SetAccountStorageEnabled",
         "ShouldShowAccountStorageSettingToggle",
         "IsPasswordManagerPinAvailable",
-        "SwitchBiometricAuthBeforeFillingState"
+        "SwitchBiometricAuthBeforeFillingState",
+        "StartPasswordChange"
       ],
       "metadata": {
         "usage": {
@@ -10075,16 +10079,11 @@
       "methods": [
         "CloseTab",
         "CloseWebUiTab",
-        "DeclutterTabs",
         "AcceptTabOrganization",
         "RejectTabOrganization",
         "RenameTabOrganization",
-        "ExcludeFromStaleTabs",
-        "ExcludeFromDuplicateTabs",
         "GetProfileData",
-        "GetUnusedTabs",
         "GetTabSearchSection",
-        "GetTabOrganizationFeature",
         "GetTabOrganizationSession",
         "GetTabOrganizationModelStrategy",
         "GetIsSplit",
@@ -10096,7 +10095,6 @@
         "ReplaceActiveSplitTab",
         "RestartSession",
         "SaveRecentlyClosedExpandedPref",
-        "SetOrganizationFeature",
         "StartTabGroupTutorial",
         "TriggerFeedback",
         "TriggerSignIn",
@@ -10135,10 +10133,8 @@
         "TabUpdated",
         "TabsRemoved",
         "TabSearchSectionChanged",
-        "TabOrganizationFeatureChanged",
         "ShowFREChanged",
         "TabOrganizationEnabledChanged",
-        "UnusedTabsChanged",
         "TabUnsplit"
       ],
       "metadata": {
@@ -14283,44 +14279,6 @@
       "methods": [
         "GetMantisFeatureStatus",
         "Initialize"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UserspaceSwapInitialization",
-      "module": "userspace_swap.mojom",
-      "file": "chromeos_ash_components_memory_userspace_swap_userspace_swap.mojom.js",
-      "methods": [
-        "TransferUserfaultFD"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UserspaceSwap",
-      "module": "userspace_swap.mojom",
-      "file": "chromeos_ash_components_memory_userspace_swap_userspace_swap.mojom.js",
-      "methods": [
-        "MovePTEsLeavingMapping",
-        "MapArea",
-        "GetPartitionAllocSuperPagesUsed"
       ],
       "metadata": {
         "usage": {
@@ -20732,51 +20690,6 @@
       }
     },
     {
-      "name": "CrosDisplayConfigController",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": [
-        "AddObserver",
-        "GetDisplayLayoutInfo",
-        "SetDisplayLayoutInfo",
-        "GetDisplayUnitInfoList",
-        "SetDisplayProperties",
-        "SetUnifiedDesktopEnabled",
-        "OverscanCalibration",
-        "TouchCalibration",
-        "HighlightDisplay",
-        "DragDisplayDelta"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindCrosDisplayConfigController"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "CrosDisplayConfigObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": [
-        "OnDisplayConfigChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "Crosapi",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_crosapi.mojom.js",
@@ -20784,7 +20697,6 @@
         "BindAccountManager",
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
-        "BindCrosDisplayConfigController",
         "BindDocumentScan",
         "BindInSessionAuth",
         "BindLocalPrinter",
@@ -24214,7 +24126,6 @@
         "OnNavigationLikely",
         "DeleteAutocompleteMatch",
         "ActivateKeyword",
-        "ShowContextMenu",
         "ExecuteAction",
         "OnThumbnailRemoved",
         "GetPlaceholderConfig",
@@ -28561,6 +28472,7 @@
         "SetPopupBlockingEnabled",
         "LoadURLForFrame",
         "SimulateScreenOrientationChanged",
+        "SimulateScreenOrientationLockChanged",
         "SetPermission",
         "BlockThirdPartyCookies",
         "GetWritableDirectory",
@@ -40407,6 +40319,7 @@
         "OnCompletion",
         "OnError",
         "OnStreaming",
+        "OnToolCalls",
         "OnContextOverflow"
       ],
       "metadata": {
@@ -45389,6 +45302,7 @@
       "file": "third_party_blink_public_mojom_payments_secure_payment_confirmation_service.mojom.js",
       "methods": [
         "SecurePaymentConfirmationAvailability",
+        "GetSecurePaymentConfirmationCapabilities",
         "StorePaymentCredential",
         "MakePaymentCredential"
       ],
@@ -50317,7 +50231,9 @@
       "filename": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "source": "chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup.mojom",
       "module": "omnibox_popup.mojom",
-      "imports": []
+      "imports": [
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup_aim.mojom.js",
@@ -50325,7 +50241,7 @@
       "module": "omnibox_popup_aim.mojom",
       "imports": [
         "components/omnibox/browser/searchbox.mojom",
-        "mojo/public/mojom/base/work_in_progress.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -51470,12 +51386,6 @@
         "chromeos/services/machine_learning/public/mojom/text_classifier.mojom",
         "mojo/public/mojom/base/uuid.mojom"
       ]
-    },
-    {
-      "filename": "chromeos_ash_components_memory_userspace_swap_userspace_swap.mojom.js",
-      "source": "chromeos/ash/components/memory/userspace_swap/userspace_swap.mojom",
-      "module": "userspace_swap.mojom",
-      "imports": []
     },
     {
       "filename": "chromeos_ash_components_mojo_service_manager_mojom_mojo_service_manager.mojom.js",
@@ -55607,7 +55517,8 @@
         "third_party/blink/public/mojom/webpreferences/web_preferences.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom",
-        "third_party/blink/public/mojom/tokens/tokens.mojom"
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
+        "services/device/public/mojom/screen_orientation_lock_types.mojom"
       ]
     },
     {
@@ -60757,6 +60668,7 @@
       "source": "third_party/blink/public/mojom/ai/ai_language_model.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/values.mojom",
         "services/on_device_model/public/mojom/on_device_model.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom",
@@ -60818,6 +60730,7 @@
       "source": "third_party/blink/public/mojom/ai/model_streaming_responder.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/values.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom"
       ]
     },
