@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-04T10:27:44.788892Z",
-  "version": "147.0.7717.0",
+  "generated_at": "2026-03-05T10:31:04.169124Z",
+  "version": "147.0.7718.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3425,6 +3425,7 @@
         "HideInput",
         "RestoreInput",
         "InjectInput",
+        "InjectInputWithIcon",
         "RemoveInjectedInput",
         "OnZeroStateChange",
         "OnAiPageStatusChanged",
@@ -3954,7 +3955,10 @@
       "methods": [
         "DismissOverlay",
         "AdjustRegion",
-        "DeleteRegion"
+        "DeleteRegion",
+        "ClosePreselectionBubble",
+        "AddBackgroundBlur",
+        "SetLiveBlur"
       ],
       "metadata": {
         "usage": {
@@ -3975,7 +3979,8 @@
       "module": "glic.selection",
       "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
       "methods": [
-        "ScreenshotReceived"
+        "ScreenshotReceived",
+        "SetPostRegionSelections"
       ],
       "metadata": {
         "usage": {
@@ -43735,6 +43740,7 @@
         "CenterSelection",
         "Paste",
         "PasteAndMatchStyle",
+        "PasteFromImageBytes",
         "Delete",
         "SelectAll",
         "CollapseSelection",
@@ -62057,6 +62063,7 @@
         "cc/mojom/browser_controls_state.mojom",
         "cc/mojom/overscroll_behavior.mojom",
         "cc/mojom/touch_action.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/input/gesture_event.mojom",

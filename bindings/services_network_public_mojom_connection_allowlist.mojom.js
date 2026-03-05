@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -150,8 +150,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_allowlist', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirection_allowed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webrtc_allowed', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ConnectionAllowlists
 mojo.internal.Struct(

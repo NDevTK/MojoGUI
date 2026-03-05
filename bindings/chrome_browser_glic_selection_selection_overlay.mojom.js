@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -147,12 +147,20 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AdjustRegion_P
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AdjustRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AdjustRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AdjustRegion_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_DeleteRegion_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_DeleteRegion_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_DeleteRegion_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_DeleteRegion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_DeleteRegion_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPage = mojo.internal.bindings.glic.selection.SelectionOverlayPage || {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec || { $ : {} };
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$ = {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPage.$interfaceName = 'glic.selection.SelectionOverlayPage';
 mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -345,12 +353,24 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemote = class 
   deleteRegion(arg_id) {
     return this.$.deleteRegion(arg_id);
   }
+  closePreselectionBubble() {
+    return this.$.closePreselectionBubble();
+  }
+  addBackgroundBlur() {
+    return this.$.addBackgroundBlur();
+  }
+  setLiveBlur(arg_enabled) {
+    return this.$.setLiveBlur(arg_enabled);
+  }
 };
 
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -384,6 +404,33 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemoteCallHandl
       false);
   }
 
+  closePreselectionBubble() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  addBackgroundBlur() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  setLiveBlur(arg_enabled) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec,
+      null,
+      [arg_enabled],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler.getRemote = function() {
@@ -402,6 +449,9 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerReceiver = clas
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -469,6 +519,27 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerReceiver = clas
           const result = this.impl.deleteRegion(params.arg_id);
           break;
         }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closePreselectionBubble');
+          const result = this.impl.closePreselectionBubble();
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.addBackgroundBlur');
+          const result = this.impl.addBackgroundBlur();
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setLiveBlur');
+          const result = this.impl.setLiveBlur(params.arg_enabled);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -516,12 +587,16 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageRemote = class {
   screenshotReceived(arg_screenshot) {
     return this.$.screenshotReceived(arg_screenshot);
   }
+  setPostRegionSelections(arg_regions) {
+    return this.$.setPostRegionSelections(arg_regions);
+  }
 };
 
 mojo.internal.bindings.glic.selection.SelectionOverlayPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPage', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -532,6 +607,15 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageRemoteCallHandler = cl
       mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec,
       null,
       [arg_screenshot],
+      false);
+  }
+
+  setPostRegionSelections(arg_regions) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec,
+      null,
+      [arg_regions],
       false);
   }
 
@@ -553,6 +637,7 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPage', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -604,6 +689,13 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageReceiver = class {
           const result = this.impl.screenshotReceived(params.arg_screenshot);
           break;
         }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPostRegionSelections');
+          const result = this.impl.setPostRegionSelections(params.arg_regions);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -653,8 +745,30 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_ClosePreselectionBubble_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_AddBackgroundBlur_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_SetLiveBlur_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_SetLiveBlur_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec, 'glic.selection.SelectionOverlayPage_ScreenshotReceived_Params', [
       mojo.internal.StructField('arg_screenshot', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.selection.SelectionOverlayPage_SetPostRegionSelections_ParamsSpec, 'glic.selection.SelectionOverlayPage_SetPostRegionSelections_Params', [
+      mojo.internal.StructField('arg_regions', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.selection.SelectedRegionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

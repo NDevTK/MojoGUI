@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -788,12 +788,11 @@ mojo.internal.Struct(
 // Struct: ScriptToolResponse
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec, 'actor.mojom.ScriptToolResponse', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_arguments', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool', 16, 0, mojo.internal.bindings.blink.mojom.ScriptToolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_arguments', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool', 8, 0, mojo.internal.bindings.blink.mojom.ScriptToolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: ActionResult
 mojo.internal.Struct(

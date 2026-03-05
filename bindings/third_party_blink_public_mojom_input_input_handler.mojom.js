@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -237,6 +237,10 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec = mo
 if (mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec = mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec || { $: {} };
@@ -385,6 +389,9 @@ mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.Siz
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojom.Vector2dFSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -834,6 +841,9 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemote = class {
   pasteAndMatchStyle() {
     return this.$.pasteAndMatchStyle();
   }
+  pasteFromImageBytes(arg_image_bytes, arg_media_format) {
+    return this.$.pasteFromImageBytes(arg_image_bytes, arg_media_format);
+  }
   delete() {
     return this.$.delete();
   }
@@ -876,6 +886,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidgetInputHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1071,9 +1082,18 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
       false);
   }
 
-  delete() {
+  pasteFromImageBytes(arg_image_bytes, arg_media_format) {
     return this.proxy.sendMessage(
       this.ordinals[18],  // ordinal
+      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec,
+      [arg_image_bytes, arg_media_format],
+      false);
+  }
+
+  delete() {
+    return this.proxy.sendMessage(
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec,
       null,
       [],
@@ -1082,7 +1102,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   selectAll() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec,
       null,
       [],
@@ -1091,7 +1111,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   collapseSelection() {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec,
       null,
       [],
@@ -1100,7 +1120,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   replace(arg_word) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec,
       null,
       [arg_word],
@@ -1109,7 +1129,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   replaceMisspelling(arg_word) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec,
       null,
       [arg_word],
@@ -1118,7 +1138,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   selectRange(arg_base, arg_extent) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec,
       null,
       [arg_base, arg_extent],
@@ -1127,7 +1147,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   adjustSelectionByCharacterOffset(arg_start, arg_end, arg_behavior) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec,
       null,
       [arg_start, arg_end, arg_behavior],
@@ -1136,7 +1156,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   selectAroundCaret(arg_granularity, arg_should_show_handle, arg_should_show_context_menu) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
       [arg_granularity, arg_should_show_handle, arg_should_show_context_menu],
@@ -1145,7 +1165,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   moveRangeSelectionExtent(arg_extent) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec,
       null,
       [arg_extent],
@@ -1154,7 +1174,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   scrollFocusedEditableNodeIntoView() {
     return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec,
       null,
       [],
@@ -1163,7 +1183,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   waitForPageScaleAnimationForTesting() {
     return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
+      this.ordinals[29],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec,
       [],
@@ -1172,7 +1192,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = cl
 
   moveCaret(arg_point) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[30],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec,
       null,
       [arg_point],
@@ -1197,6 +1217,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FrameWidgetInputHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1409,54 +1430,72 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.pasteFromImageBytes');
+          const result = this.impl.pasteFromImageBytes(params.arg_image_bytes, params.arg_media_format);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] pasteFromImageBytes FAILED:', e));
+          }
+          break;
+        }
+        case 19: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
           const result = this.impl.delete();
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectAll');
           const result = this.impl.selectAll();
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.collapseSelection');
           const result = this.impl.collapseSelection();
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replace');
           const result = this.impl.replace(params.arg_word);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceMisspelling');
           const result = this.impl.replaceMisspelling(params.arg_word);
           break;
         }
-        case 23: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectRange');
           const result = this.impl.selectRange(params.arg_base, params.arg_extent);
           break;
         }
-        case 24: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.adjustSelectionByCharacterOffset');
           const result = this.impl.adjustSelectionByCharacterOffset(params.arg_start, params.arg_end, params.arg_behavior);
           break;
         }
-        case 25: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectAroundCaret');
@@ -1474,21 +1513,21 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveRangeSelectionExtent');
           const result = this.impl.moveRangeSelectionExtent(params.arg_extent);
           break;
         }
-        case 27: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollFocusedEditableNodeIntoView');
           const result = this.impl.scrollFocusedEditableNodeIntoView();
           break;
         }
-        case 28: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForPageScaleAnimationForTesting');
@@ -1505,7 +1544,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           }
           break;
         }
-        case 29: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCaret');
@@ -2404,6 +2443,19 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_Params', [
+      mojo.internal.StructField('arg_image_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_format', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParamsSpec, 'blink.mojom.FrameWidgetInputHandler_PasteFromImageBytes_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec, 'blink.mojom.FrameWidgetInputHandler_Delete_Params', [

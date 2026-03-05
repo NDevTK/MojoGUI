@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
+mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec = mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec = mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.TabContextSpec = mojo.internal.bindings.contextual_tasks.mojom.TabContextSpec || { $: {} };
@@ -224,6 +225,8 @@ mojo.internal.bindings.contextual_tasks.mojom.Page_RestoreInput_ParamsSpec = moj
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec || { $: {} };
@@ -267,6 +270,16 @@ mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = mojo.internal.bindin
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: IconType
+mojo.internal.bindings.contextual_tasks.mojom.IconType = {
+  kUnspecified: 0,
+  kAdd: 9,
+  kCheck: 30,
+  kFormatQuoteFilled: 79,
+  kImage: 84,
+  kDrivePdf: 101,
+};
 
 // Interface: PageHandler
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerPendingReceiver = class {
@@ -963,6 +976,9 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   injectInput(arg_title, arg_thumbnail, arg_file_token) {
     return this.$.injectInput(arg_title, arg_thumbnail, arg_file_token);
   }
+  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token) {
+    return this.$.injectInputWithIcon(arg_title, arg_icon_id, arg_file_token);
+  }
   removeInjectedInput(arg_file_token) {
     return this.$.removeInjectedInput(arg_file_token);
   }
@@ -999,6 +1015,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1122,9 +1139,18 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  removeInjectedInput(arg_file_token) {
+  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token) {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec,
+      null,
+      [arg_title, arg_icon_id, arg_file_token],
+      false);
+  }
+
+  removeInjectedInput(arg_file_token) {
+    return this.proxy.sendMessage(
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec,
       null,
       [arg_file_token],
@@ -1133,7 +1159,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   onZeroStateChange(arg_is_zero_state) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec,
       null,
       [arg_is_zero_state],
@@ -1142,7 +1168,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   onAiPageStatusChanged(arg_is_ai_page) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec,
       null,
       [arg_is_ai_page],
@@ -1151,7 +1177,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   onLensOverlayStateChanged(arg_is_showing, arg_maybe_show_overlay_hint_text) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec,
       null,
       [arg_is_showing, arg_maybe_show_overlay_hint_text],
@@ -1160,7 +1186,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   showErrorPage() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec,
       null,
       [],
@@ -1169,7 +1195,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   hideErrorPage() {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec,
       null,
       [],
@@ -1178,7 +1204,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   showOauthErrorDialog() {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec,
       null,
       [],
@@ -1187,7 +1213,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   updateComposeboxPosition(arg_position) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_UpdateComposeboxPosition_ParamsSpec,
       null,
       [arg_position],
@@ -1196,7 +1222,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   lockInput() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_LockInput_ParamsSpec,
       null,
       [],
@@ -1205,7 +1231,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
 
   unlockInput() {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec,
       null,
       [],
@@ -1230,6 +1256,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1373,68 +1400,75 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.injectInputWithIcon');
+          const result = this.impl.injectInputWithIcon(params.arg_title, params.arg_icon_id, params.arg_file_token);
+          break;
+        }
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_RemoveInjectedInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeInjectedInput');
           const result = this.impl.removeInjectedInput(params.arg_file_token);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onZeroStateChange');
           const result = this.impl.onZeroStateChange(params.arg_is_zero_state);
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAiPageStatusChanged');
           const result = this.impl.onAiPageStatusChanged(params.arg_is_ai_page);
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLensOverlayStateChanged');
           const result = this.impl.onLensOverlayStateChanged(params.arg_is_showing, params.arg_maybe_show_overlay_hint_text);
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showErrorPage');
           const result = this.impl.showErrorPage();
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideErrorPage');
           const result = this.impl.hideErrorPage();
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_ShowOauthErrorDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showOauthErrorDialog');
           const result = this.impl.showOauthErrorDialog();
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_UpdateComposeboxPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateComposeboxPosition');
           const result = this.impl.updateComposeboxPosition(params.arg_position);
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_LockInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockInput');
           const result = this.impl.lockInput();
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unlockInput');
@@ -1874,6 +1908,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec, 'contextual_tasks.mojom.Page_InjectInput_Params', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_thumbnail', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec, 'contextual_tasks.mojom.Page_InjectInputWithIcon_Params', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_id', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

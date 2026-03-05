@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -410,6 +410,7 @@ mojo.internal.bindings.blink.mojom.GenericIssueErrorType = {
   kAutofillAndManualTextPolicyControlledFeaturesInfo: 12,
   kAutofillPolicyControlledFeatureInfo: 13,
   kManualTextPolicyControlledFeatureInfo: 14,
+  kFormModelContextParameterMissingTitleAndDescription: 15,
 };
 
 // Enum: DeprecationIssueType

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7717.0';
+        const versionStr = window.mojoVersion || '147.0.7718.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -156,9 +156,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec, 'network.mojom.LoadTimingInternalInfo', [
       mojo.internal.StructField('arg_create_stream_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_connected_callback_delay', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initialize_stream_delay', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_source', 24, 0, mojo.internal.bindings.network.mojom.SessionSourceSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_advertised_alt_svc_state', 28, 0, mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_network_session_quic_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_ch_frame_received', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_http_network_session_quic_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_session_source', 20, 0, mojo.internal.bindings.network.mojom.SessionSourceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initialize_stream_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_advertised_alt_svc_state', 32, 0, mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
