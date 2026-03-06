@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-05T10:31:04.169124Z",
-  "version": "147.0.7718.0",
+  "generated_at": "2026-03-06T10:26:37.324137Z",
+  "version": "147.0.7721.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9986,6 +9986,7 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "SubmitSkill",
+        "DeleteSkill",
         "RefineSkill",
         "CloseDialog",
         "ShowEmojiPicker",
@@ -10414,8 +10415,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -10441,8 +10441,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10463,8 +10462,7 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kNtpFooter"
+          "feature:kInstallElement"
         ]
       }
     },
@@ -22017,6 +22015,7 @@
       "module": "autofill.mojom",
       "file": "components_autofill_content_common_mojom_autofill_agent.mojom.js",
       "methods": [
+        "ScrollFieldIntoView",
         "TriggerFormExtraction",
         "TriggerFormExtractionWithResponse",
         "ApplyFieldsAction",
@@ -32962,6 +32961,7 @@
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
         "CreateDesktopSession",
+        "ReconnectDesktopSession",
         "CloseDesktopSession",
         "SetScreenResolution"
       ],
@@ -33155,6 +33155,24 @@
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
         "CrashProcess"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DesktopProcessControl",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_desktop_session.mojom.js",
+      "methods": [
+        "ReconnectNetworkChannel"
       ],
       "metadata": {
         "usage": {
@@ -43085,7 +43103,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -46031,6 +46050,27 @@
         "gates": [
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
+        "scrambled": false
+      }
+    },
+    {
+      "name": "RTCLoggingDispatcher",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_rtc_logging_rtc_logging.mojom.js",
+      "methods": [
+        "StartDiagnosticLogging",
+        "FinishDiagnosticLogging",
+        "CancelDiagnosticLogging"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
         "scrambled": false
       }
     },
@@ -51103,6 +51143,7 @@
         "chromecast/bindings/public/mojom/api_bindings.mojom",
         "chromecast/mojo/mojom/remote_interfaces.mojom",
         "components/url_rewrite/mojom/url_request_rewrite.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "mojo/public/mojom/base/values.mojom",
         "url/mojom/url.mojom"
       ]
@@ -55605,6 +55646,7 @@
         "gpu/ipc/common/luid.mojom",
         "gpu/ipc/common/sync_token.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "services/viz/public/mojom/gpu.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
@@ -62276,7 +62318,7 @@
       "module": "blink.mojom",
       "imports": [
         "url/mojom/url.mojom",
-        "services/network/public/mojom/referrer_policy.mojom"
+        "third_party/blink/public/mojom/frame/policy_container.mojom"
       ]
     },
     {
@@ -63166,6 +63208,12 @@
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_rtc_logging_rtc_logging.mojom.js",
+      "source": "third_party/blink/public/mojom/rtc_logging/rtc_logging.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_runtime_feature_state_runtime_feature.mojom.js",
