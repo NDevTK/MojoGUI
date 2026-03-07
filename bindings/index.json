@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-06T10:26:37.324137Z",
-  "version": "147.0.7721.0",
+  "generated_at": "2026-03-07T10:16:06.766143Z",
+  "version": "147.0.7723.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3391,7 +3391,8 @@
         "OnImageClickedFromSourcesMenu",
         "OnWebviewMessage",
         "GetCommonSearchParams",
-        "OnboardingTooltipDismissed"
+        "OnboardingTooltipDismissed",
+        "ReopenTabs"
       ],
       "metadata": {
         "usage": {
@@ -3435,7 +3436,8 @@
         "ShowOauthErrorDialog",
         "UpdateComposeboxPosition",
         "LockInput",
-        "UnlockInput"
+        "UnlockInput",
+        "SetShowReopenTabs"
       ],
       "metadata": {
         "usage": {
@@ -10085,31 +10087,16 @@
       "methods": [
         "CloseTab",
         "CloseWebUiTab",
-        "AcceptTabOrganization",
-        "RejectTabOrganization",
-        "RenameTabOrganization",
         "GetProfileData",
         "GetTabSearchSection",
-        "GetTabOrganizationSession",
-        "GetTabOrganizationModelStrategy",
         "GetIsSplit",
         "SwitchToTab",
         "OpenRecentlyClosedEntry",
-        "RequestTabOrganization",
-        "RemoveTabFromOrganization",
-        "RejectSession",
         "ReplaceActiveSplitTab",
-        "RestartSession",
         "SaveRecentlyClosedExpandedPref",
         "StartTabGroupTutorial",
-        "TriggerFeedback",
         "TriggerSignIn",
-        "OpenHelpPage",
-        "SetTabOrganizationModelStrategy",
-        "SetTabOrganizationUserInstruction",
-        "SetUserFeedback",
-        "NotifyOrganizationUIReadyToShow",
-        "NotifySearchUIReadyToShow"
+        "MaybeShowUI"
       ],
       "metadata": {
         "usage": {
@@ -10132,15 +10119,11 @@
       "module": "tab_search.mojom",
       "file": "chrome_browser_ui_webui_tab_search_tab_search.mojom.js",
       "methods": [
-        "TabOrganizationSessionUpdated",
-        "TabOrganizationModelStrategyUpdated",
         "HostWindowChanged",
         "TabsChanged",
         "TabUpdated",
         "TabsRemoved",
         "TabSearchSectionChanged",
-        "ShowFREChanged",
-        "TabOrganizationEnabledChanged",
         "TabUnsplit"
       ],
       "metadata": {
@@ -20693,6 +20676,51 @@
       }
     },
     {
+      "name": "CrosDisplayConfigController",
+      "module": "crosapi.mojom",
+      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
+      "methods": [
+        "AddObserver",
+        "GetDisplayLayoutInfo",
+        "SetDisplayLayoutInfo",
+        "GetDisplayUnitInfoList",
+        "SetDisplayProperties",
+        "SetUnifiedDesktopEnabled",
+        "OverscanCalibration",
+        "TouchCalibration",
+        "HighlightDisplay",
+        "DragDisplayDelta"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: crosapi.mojom.Crosapi.BindCrosDisplayConfigController"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "CrosDisplayConfigObserver",
+      "module": "crosapi.mojom",
+      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
+      "methods": [
+        "OnDisplayConfigChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "Crosapi",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_crosapi.mojom.js",
@@ -20700,6 +20728,7 @@
         "BindAccountManager",
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
+        "BindCrosDisplayConfigController",
         "BindDocumentScan",
         "BindInSessionAuth",
         "BindLocalPrinter",
@@ -20742,24 +20771,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: crosapi.mojom.Crosapi.BindDocumentScan"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SearchResultConsumer",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_launcher_search.mojom.js",
-      "methods": [
-        "OnFaviconReceived"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -22268,7 +22279,10 @@
       "methods": [
         "StopLoad",
         "ReloadFromClick",
-        "SplitActiveTab"
+        "SplitActiveTab",
+        "Back",
+        "Forward",
+        "BackButtonHovered"
       ],
       "metadata": {
         "usage": {
@@ -40102,6 +40116,45 @@
       }
     },
     {
+      "name": "AIManagerCreateClassifierClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
+      "methods": [
+        "OnResult",
+        "OnError"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "AIClassifier",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
+      "methods": [
+        "Classify"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "AIManagerCreateLanguageModelClient",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_language_model.mojom.js",
@@ -48774,6 +48827,8 @@
       "module": "tracked_element.mojom",
       "file": "ui_webui_resources_js_tracked_element_tracked_element.mojom.js",
       "methods": [
+        "SetManager",
+        "TrackedElementCanHighlightChanged",
         "TrackedElementVisibilityChanged",
         "TrackedElementActivated",
         "TrackedElementCustomEvent"
@@ -48790,6 +48845,24 @@
         "gates": [
           "feature:kNtpFooter"
         ]
+      }
+    },
+    {
+      "name": "TrackedElementManager",
+      "module": "tracked_element.mojom",
+      "file": "ui_webui_resources_js_tracked_element_tracked_element.mojom.js",
+      "methods": [
+        "OnElementHighlightChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -60259,7 +60332,8 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/display_color_spaces.mojom",
         "ui/gfx/mojom/overlay_transform.mojom",
-        "ui/gfx/mojom/delegated_ink_metadata.mojom"
+        "ui/gfx/mojom/delegated_ink_metadata.mojom",
+        "ui/latency/mojom/latency_info.mojom"
       ]
     },
     {
@@ -60703,6 +60777,16 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/int128.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
+      "source": "third_party/blink/public/mojom/ai/ai_classifier.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/ai/ai_common.mojom",
+        "third_party/blink/public/mojom/ai/model_streaming_responder.mojom",
+        "mojo/public/mojom/base/work_in_progress.mojom"
       ]
     },
     {
