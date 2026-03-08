@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7723.0';
+        const versionStr = window.mojoVersion || '147.0.7724.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -998,11 +998,11 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   restoreInput() {
     return this.$.restoreInput();
   }
-  injectInput(arg_title, arg_thumbnail, arg_file_token) {
-    return this.$.injectInput(arg_title, arg_thumbnail, arg_file_token);
+  injectInput(arg_title, arg_thumbnail, arg_file_token, arg_supports_unimodal) {
+    return this.$.injectInput(arg_title, arg_thumbnail, arg_file_token, arg_supports_unimodal);
   }
-  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token) {
-    return this.$.injectInputWithIcon(arg_title, arg_icon_id, arg_file_token);
+  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token, arg_supports_unimodal) {
+    return this.$.injectInputWithIcon(arg_title, arg_icon_id, arg_file_token, arg_supports_unimodal);
   }
   removeInjectedInput(arg_file_token) {
     return this.$.removeInjectedInput(arg_file_token);
@@ -1159,21 +1159,21 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  injectInput(arg_title, arg_thumbnail, arg_file_token) {
+  injectInput(arg_title, arg_thumbnail, arg_file_token, arg_supports_unimodal) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec,
       null,
-      [arg_title, arg_thumbnail, arg_file_token],
+      [arg_title, arg_thumbnail, arg_file_token, arg_supports_unimodal],
       false);
   }
 
-  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token) {
+  injectInputWithIcon(arg_title, arg_icon_id, arg_file_token, arg_supports_unimodal) {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec,
       null,
-      [arg_title, arg_icon_id, arg_file_token],
+      [arg_title, arg_icon_id, arg_file_token, arg_supports_unimodal],
       false);
   }
 
@@ -1434,14 +1434,14 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectInput');
-          const result = this.impl.injectInput(params.arg_title, params.arg_thumbnail, params.arg_file_token);
+          const result = this.impl.injectInput(params.arg_title, params.arg_thumbnail, params.arg_file_token, params.arg_supports_unimodal);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.injectInputWithIcon');
-          const result = this.impl.injectInputWithIcon(params.arg_title, params.arg_icon_id, params.arg_file_token);
+          const result = this.impl.injectInputWithIcon(params.arg_title, params.arg_icon_id, params.arg_file_token, params.arg_supports_unimodal);
           break;
         }
         case 12: {
@@ -1960,13 +1960,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_thumbnail', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_unimodal', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_InjectInputWithIcon_ParamsSpec, 'contextual_tasks.mojom.Page_InjectInputWithIcon_Params', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_id', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_unimodal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_file_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
