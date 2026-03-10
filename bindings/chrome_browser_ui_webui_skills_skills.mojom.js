@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7725.0';
+        const versionStr = window.mojoVersion || '147.0.7727.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -157,6 +157,8 @@ mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ParamsSpec = mo
 if (mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec = mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec = mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPage = mojo.internal.bindings.skills.mojom.SkillsPage || {};
 mojo.internal.bindings.skills.mojom.SkillsPageSpec = mojo.internal.bindings.skills.mojom.SkillsPageSpec || { $ : {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageSpec.$ = {};
@@ -198,6 +200,12 @@ if (mojo.internal.bindings.skills.mojom.DialogHandler_GetSignedInEmail_ResponseP
 mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
 mojo.internal.bindings.skills.mojom = mojo.internal.bindings.skills.mojom || {};
 mojo.internal.bindings.skills.mojom.SkillSpec = mojo.internal.bindings.skills.mojom.SkillSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
+mojo.internal.bindings.skills.mojom = mojo.internal.bindings.skills.mojom || {};
+mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec = mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
+mojo.internal.bindings.skills.mojom = mojo.internal.bindings.skills.mojom || {};
+mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec = mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: SkillsDialogType
 mojo.internal.bindings.skills.mojom.SkillsDialogType = {
@@ -409,12 +417,16 @@ mojo.internal.bindings.skills.mojom.PageHandlerRemote = class {
   maybeSave1PSkill(arg_skill_id) {
     return this.$.maybeSave1PSkill(arg_skill_id);
   }
+  recordSkillsManagementAction(arg_page, arg_action) {
+    return this.$.recordSkillsManagementAction(arg_page, arg_action);
+  }
 };
 
 mojo.internal.bindings.skills.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('skills.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -478,6 +490,15 @@ mojo.internal.bindings.skills.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
+  recordSkillsManagementAction(arg_page, arg_action) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec,
+      null,
+      [arg_page, arg_action],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.skills.mojom.PageHandler.getRemote = function() {
@@ -496,6 +517,7 @@ mojo.internal.bindings.skills.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('skills.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -618,6 +640,13 @@ mojo.internal.bindings.skills.mojom.PageHandlerReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] maybeSave1PSkill FAILED:', e));
           }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.recordSkillsManagementAction');
+          const result = this.impl.recordSkillsManagementAction(params.arg_page, params.arg_action);
           break;
         }
       }
@@ -1179,6 +1208,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParamsSpec, 'skills.mojom.PageHandler_MaybeSave1PSkill_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.PageHandler_RecordSkillsManagementAction_ParamsSpec, 'skills.mojom.PageHandler_RecordSkillsManagementAction_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

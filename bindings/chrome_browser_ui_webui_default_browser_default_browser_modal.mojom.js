@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7725.0';
+        const versionStr = window.mojoVersion || '147.0.7727.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,6 +138,8 @@ mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Confirm_ParamsSpe
 if (mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Confirm_ParamsSpec.$.structSpec && mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Confirm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Confirm_ParamsSpec.$ = {};
 mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec = mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec && mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec.$ = {};
+mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec = mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec.$.structSpec && mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec.$ = {};
 mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactory = mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactorySpec = mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactorySpec.$ = {};
@@ -295,12 +297,16 @@ mojo.internal.bindings.default_browser_modal.mojom.PageHandlerRemote = class {
   cancel() {
     return this.$.cancel();
   }
+  contentReady(arg_height) {
+    return this.$.contentReady(arg_height);
+  }
 };
 
 mojo.internal.bindings.default_browser_modal.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('default_browser_modal.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -324,6 +330,15 @@ mojo.internal.bindings.default_browser_modal.mojom.PageHandlerRemoteCallHandler 
       false);
   }
 
+  contentReady(arg_height) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec,
+      null,
+      [arg_height],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.default_browser_modal.mojom.PageHandler.getRemote = function() {
@@ -342,6 +357,7 @@ mojo.internal.bindings.default_browser_modal.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('default_browser_modal.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -399,6 +415,13 @@ mojo.internal.bindings.default_browser_modal.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.contentReady');
+          const result = this.impl.contentReady(params.arg_height);
           break;
         }
       }
@@ -560,6 +583,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.default_browser_modal.mojom.PageHandler_Cancel_ParamsSpec, 'default_browser_modal.mojom.PageHandler_Cancel_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.default_browser_modal.mojom.PageHandler_ContentReady_ParamsSpec, 'default_browser_modal.mojom.PageHandler_ContentReady_Params', [
+      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.default_browser_modal.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'default_browser_modal.mojom.PageHandlerFactory_CreatePageHandler_Params', [

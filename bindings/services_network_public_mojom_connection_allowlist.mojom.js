@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7725.0';
+        const versionStr = window.mojoVersion || '147.0.7727.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.RedirectBehaviorSpec = mojo.internal.bindings.network.mojom.RedirectBehaviorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.WebRtcBehaviorSpec = mojo.internal.bindings.network.mojom.WebRtcBehaviorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$.structSpec && mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$ = {};
 mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec || { $: {} };
@@ -142,6 +144,18 @@ mojo.internal.bindings.network.mojom.ConnectionAllowlistIssue = {
   kInvalidUrlPattern: 5,
 };
 
+// Enum: RedirectBehavior
+mojo.internal.bindings.network.mojom.RedirectBehavior = {
+  kAllow: 0,
+  kBlock: 1,
+};
+
+// Enum: WebRtcBehavior
+mojo.internal.bindings.network.mojom.WebRtcBehavior = {
+  kAllow: 0,
+  kBlock: 1,
+};
+
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
 // Struct: ConnectionAllowlist
@@ -150,8 +164,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_allowlist', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_redirection_allowed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webrtc_allowed', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_behavior', 24, 0, mojo.internal.bindings.network.mojom.RedirectBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_webrtc_behavior', 28, 0, mojo.internal.bindings.network.mojom.WebRtcBehaviorSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

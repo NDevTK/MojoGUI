@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '147.0.7725.0';
+        const versionStr = window.mojoVersion || '147.0.7727.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,23 +126,29 @@ mojo.internal.bindings.feedback.report_unsafe_site = mojo.internal.bindings.feed
 mojo.internal.bindings.feedback.report_unsafe_site.mojom = mojo.internal.bindings.feedback.report_unsafe_site.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler || {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler.$interfaceName = 'feedback.report_unsafe_site.mojom.PageHandler';
+mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec.$ = {};
-mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec.$ = {};
-mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactorySpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory.$interfaceName = 'feedback.report_unsafe_site.mojom.PageHandlerFactory';
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandler
 mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerPendingReceiver = class {
@@ -174,11 +180,11 @@ mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerRemote = cla
   close() {
     this.proxy.close();
   }
+  getTriggeringPageInfo() {
+    return this.$.getTriggeringPageInfo();
+  }
   closeDialog() {
     return this.$.closeDialog();
-  }
-  getPageUrl() {
-    return this.$.getPageUrl();
   }
 };
 
@@ -191,20 +197,20 @@ mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerRemoteCallHa
     ]);
   }
 
-  closeDialog() {
+  getTriggeringPageInfo() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec,
-      null,
+      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec,
+      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec,
       [],
       false);
   }
 
-  getPageUrl() {
+  closeDialog() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec,
-      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec,
+      mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec,
+      null,
       [],
       false);
   }
@@ -274,27 +280,26 @@ mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerReceiver = c
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeDialog');
-          const result = this.impl.closeDialog();
+          const params = decoder.decodeStructInline(mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTriggeringPageInfo');
+          const result = this.impl.getTriggeringPageInfo();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getTriggeringPageInfo FAILED:', e));
+          }
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getPageUrl');
-          const result = this.impl.getPageUrl();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_page_url' in response) ? response['arg_page_url'] : response;
-              const resp_obj = { 'arg_page_url': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getPageUrl FAILED:', e));
-          }
+          const params = decoder.decodeStructInline(mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closeDialog');
+          const result = this.impl.closeDialog();
           break;
         }
       }
@@ -448,20 +453,21 @@ mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactoryReque
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
+    mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandler_GetTriggeringPageInfo_ResponseParams', [
+      mojo.internal.StructField('arg_pageUrl', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshotDataUri', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_ParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandler_CloseDialog_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandler_GetPageUrl_ResponseParams', [
-      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'feedback.report_unsafe_site.mojom.PageHandlerFactory_CreatePageHandler_Params', [

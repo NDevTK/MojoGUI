@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-09T10:37:37.245763Z",
-  "version": "147.0.7725.0",
+  "generated_at": "2026-03-10T10:30:59.918621Z",
+  "version": "147.0.7727.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7252,7 +7252,8 @@
       "file": "chrome_browser_ui_webui_default_browser_default_browser_modal.mojom.js",
       "methods": [
         "Confirm",
-        "Cancel"
+        "Cancel",
+        "ContentReady"
       ],
       "metadata": {
         "usage": {
@@ -7566,8 +7567,8 @@
       "module": "feedback.report_unsafe_site.mojom",
       "file": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
       "methods": [
-        "CloseDialog",
-        "GetPageUrl"
+        "GetTriggeringPageInfo",
+        "CloseDialog"
       ],
       "metadata": {
         "usage": {
@@ -9945,7 +9946,8 @@
         "GetInitial1PSkills",
         "Request1PSkills",
         "DeleteSkill",
-        "MaybeSave1PSkill"
+        "MaybeSave1PSkill",
+        "RecordSkillsManagementAction"
       ],
       "metadata": {
         "usage": {
@@ -50217,7 +50219,9 @@
       "filename": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
       "source": "chrome/browser/ui/webui/feedback/report_unsafe_site/report_unsafe_site.mojom",
       "module": "feedback.report_unsafe_site.mojom",
-      "imports": []
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
@@ -50517,7 +50521,8 @@
       "source": "chrome/browser/ui/webui/skills/skills.mojom",
       "module": "skills.mojom",
       "imports": [
-        "components/skills/public/skill.mojom"
+        "components/skills/public/skill.mojom",
+        "components/skills/public/skill_metrics.mojom"
       ]
     },
     {
@@ -54779,6 +54784,12 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom"
       ]
+    },
+    {
+      "filename": "components_skills_public_skill_metrics.mojom.js",
+      "source": "components/skills/public/skill_metrics.mojom",
+      "module": "skills.mojom",
+      "imports": []
     },
     {
       "filename": "components_spellcheck_common_spellcheck.mojom.js",
