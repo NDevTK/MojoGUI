@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-10T10:30:59.918621Z",
-  "version": "147.0.7727.0",
+  "generated_at": "2026-03-11T10:30:51.104595Z",
+  "version": "148.0.7728.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -2575,7 +2575,8 @@
         "SetQuietMode",
         "CanUseSpeakerLabel",
         "RecordSpeakerLabelConsent",
-        "CanCaptureSystemAudioWithLoopback"
+        "CanCaptureSystemAudioWithLoopback",
+        "RecordStructuredMetrics"
       ],
       "metadata": {
         "usage": {
@@ -3695,9 +3696,7 @@
         "SignInAndClosePanel",
         "ResizeWidget",
         "EnableDragResize",
-        "WebUiStateChanged",
-        "GetInternalsDataPayload",
-        "SetGuestUrlPresets"
+        "WebUiStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -3712,6 +3711,49 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "InternalsPageHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "GetInternalsDataPayload",
+        "SetGuestUrlPresets",
+        "TriggerInvokeFromInternalsAction"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.InternalsPageHandlerFactory.CreateInternalsPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
+      }
+    },
+    {
+      "name": "InternalsPageHandlerFactory",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "CreateInternalsPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -7568,6 +7610,7 @@
       "file": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
       "methods": [
         "GetTriggeringPageInfo",
+        "SendReport",
         "CloseDialog"
       ],
       "metadata": {
@@ -10090,7 +10133,6 @@
         "CloseTab",
         "CloseWebUiTab",
         "GetProfileData",
-        "GetTabSearchSection",
         "GetIsSplit",
         "SwitchToTab",
         "OpenRecentlyClosedEntry",
@@ -10125,7 +10167,6 @@
         "TabsChanged",
         "TabUpdated",
         "TabsRemoved",
-        "TabSearchSectionChanged",
         "TabUnsplit"
       ],
       "metadata": {
@@ -11274,6 +11315,25 @@
         "StartImport",
         "CancelImport",
         "ReportImportItemFinished"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "IndigoAgent",
+      "module": "chrome.mojom",
+      "file": "chrome_common_indigo_indigo.mojom.js",
+      "methods": [
+        "InjectScript",
+        "Invoke"
       ],
       "metadata": {
         "usage": {
@@ -20840,10 +20900,7 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "GetPrinters",
-        "GetCapability",
         "GetEulaUrl",
-        "GetStatus",
         "ShowSystemPrintSettings",
         "CreatePrintJob",
         "CancelPrintJob",
@@ -20882,24 +20939,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: crosapi.mojom.Crosapi.BindTelemetryProbeService"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "StructuredMetricsService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_structured_metrics_service.mojom.js",
-      "methods": [
-        "Record"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -22351,6 +22390,7 @@
       "file": "components_browser_apis_tab_strip_tab_strip_experiment_api.mojom.js",
       "methods": [
         "UpdateTabGroupVisual",
+        "ReplaceTabInSplit",
         "ShowTabContextMenu",
         "GetAllTabsForProfile"
       ],
@@ -28516,7 +28556,9 @@
         "SetAcceptLanguages",
         "SetRegisterProtocolHandlerMode",
         "EnableAutoResize",
-        "DisableAutoResize"
+        "DisableAutoResize",
+        "GetClipboardReadState",
+        "ResetClipboardReadTracking"
       ],
       "metadata": {
         "usage": {
@@ -37773,7 +37815,8 @@
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
       "methods": [
         "OnResponse",
-        "OnComplete"
+        "OnComplete",
+        "OnToolCalls"
       ],
       "metadata": {
         "usage": {
@@ -43580,6 +43623,44 @@
       }
     },
     {
+      "name": "ImageReplacement",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_image_replacement_image_replacement.mojom.js",
+      "methods": [
+        "StartReplacement"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "ImageReplacementHost",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_image_replacement_image_replacement.mojom.js",
+      "methods": [
+        "ReplacementFrameAttached"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "IDBFactoryClient",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_indexeddb_indexeddb.mojom.js",
@@ -49314,6 +49395,7 @@
       "module": "ash.recorder_app.mojom",
       "imports": [
         "chromeos/services/machine_learning/public/mojom/soda.mojom",
+        "components/metrics/structured/mojom/event.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/uuid.mojom",
         "services/on_device_model/public/mojom/on_device_model.mojom",
@@ -50744,6 +50826,16 @@
       "imports": [
         "mojo/public/mojom/base/string16.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_common_indigo_indigo.mojom.js",
+      "source": "chrome/common/indigo/indigo.mojom",
+      "module": "chrome.mojom",
+      "imports": [
+        "mojo/public/mojom/base/big_string.mojom",
+        "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -52863,16 +52955,6 @@
       "imports": []
     },
     {
-      "filename": "chromeos_crosapi_mojom_launcher_search.mojom.js",
-      "source": "chromeos/crosapi/mojom/launcher_search.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom",
-        "ui/gfx/image/mojom/image.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "source": "chromeos/crosapi/mojom/local_printer.mojom",
       "module": "crosapi.mojom",
@@ -52897,14 +52979,6 @@
       "imports": [
         "chromeos/crosapi/mojom/nullable_primitives.mojom",
         "chromeos/services/network_health/public/mojom/network_health_types.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_structured_metrics_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/structured_metrics_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "components/metrics/structured/mojom/event.mojom"
       ]
     },
     {
@@ -53391,6 +53465,7 @@
       "imports": [
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
         "components/tab_groups/public/mojom/tab_group_types.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -59480,6 +59555,7 @@
       "imports": [
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/file_path.mojom",
+        "mojo/public/mojom/base/values.mojom",
         "skia/public/mojom/bitmap.mojom"
       ]
     },
@@ -62137,6 +62213,14 @@
         "skia/public/mojom/bitmap.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_image_replacement_image_replacement.mojom.js",
+      "source": "third_party/blink/public/mojom/image_replacement/image_replacement.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
     },
     {
