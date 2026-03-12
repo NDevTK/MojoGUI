@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-11T10:30:51.104595Z",
-  "version": "148.0.7728.0",
+  "generated_at": "2026-03-12T10:31:50.973037Z",
+  "version": "148.0.7730.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3720,7 +3720,8 @@
       "methods": [
         "GetInternalsDataPayload",
         "SetGuestUrlPresets",
-        "TriggerInvokeFromInternalsAction"
+        "TriggerInvokeFromInternalsAction",
+        "SetWebContinuityOriginatingHostUrlPreset"
       ],
       "metadata": {
         "usage": {
@@ -4674,7 +4675,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -4696,6 +4698,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4718,6 +4721,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -7359,7 +7363,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -7405,7 +7412,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -7424,7 +7434,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -7739,7 +7752,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -8173,12 +8189,8 @@
       "file": "chrome_browser_ui_webui_new_tab_page_ntp_promo_ntp_promo.mojom.js",
       "methods": [
         "RequestPromos",
-        "OnPromosShown",
-        "OnPromoClicked",
-        "SnoozeSetupList",
-        "UnsnoozeSetupList",
-        "DisableSetupList",
-        "UndisableSetupList"
+        "OnPromoShown",
+        "OnPromoClicked"
       ],
       "metadata": {
         "usage": {
@@ -8201,7 +8213,7 @@
       "module": "ntp_promo.mojom",
       "file": "chrome_browser_ui_webui_new_tab_page_ntp_promo_ntp_promo.mojom.js",
       "methods": [
-        "SetPromos"
+        "SetPromo"
       ],
       "metadata": {
         "usage": {
@@ -8976,6 +8988,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8998,7 +9011,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -9170,6 +9184,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -9196,6 +9211,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9221,7 +9237,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -10037,7 +10054,7 @@
         "RefineSkill",
         "CloseDialog",
         "ShowEmojiPicker",
-        "GetInitialSkill",
+        "GetInitialState",
         "GetSignedInEmail"
       ],
       "metadata": {
@@ -10652,7 +10669,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -10689,7 +10709,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -19508,6 +19531,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicRegionSelectionNew"
         ]
       }
@@ -22599,7 +22623,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -22621,7 +22648,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -22953,6 +22983,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -22977,6 +23008,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -23001,7 +23033,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -23121,6 +23154,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -24395,6 +24429,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -24420,7 +24455,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -24629,6 +24665,64 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "PolicyPageHandler",
+      "module": "policy.mojom",
+      "file": "components_policy_resources_webui_mojom_policy.mojom.js",
+      "methods": [
+        "GetDebugString"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: policy.mojom.PolicyPageHandlerFactory.CreateHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
+      }
+    },
+    {
+      "name": "PolicyPageClient",
+      "module": "policy.mojom",
+      "file": "components_policy_resources_webui_mojom_policy.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PolicyPageHandlerFactory",
+      "module": "policy.mojom",
+      "file": "components_policy_resources_webui_mojom_policy.mojom.js",
+      "methods": [
+        "CreateHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -26573,6 +26667,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -26597,6 +26692,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -26619,7 +26715,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -33096,6 +33193,7 @@
       "methods": [
         "CreateVideoCapturer",
         "SetScreenResolution",
+        "SetVideoLayout",
         "LockWorkstation",
         "InjectSendAttentionSequence",
         "InjectClipboardEvent",
@@ -33231,6 +33329,24 @@
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
         "ReconnectNetworkChannel"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "LoginSessionService",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_login_session.mojom.js",
+      "methods": [
+        "IsRunningInCrdSession"
       ],
       "metadata": {
         "usage": {
@@ -38495,7 +38611,8 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching",
-          "feature:kPrintPreviewCrosPrimary"
+          "feature:kPrintPreviewCrosPrimary",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -54346,6 +54463,12 @@
       "imports": [
         "components/sqlite_vfs/mojom/sqlite_vfs.mojom"
       ]
+    },
+    {
+      "filename": "components_policy_resources_webui_mojom_policy.mojom.js",
+      "source": "components/policy/resources/webui/mojom/policy.mojom",
+      "module": "policy.mojom",
+      "imports": []
     },
     {
       "filename": "components_printing_common_print.mojom.js",
