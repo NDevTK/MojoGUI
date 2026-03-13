@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7730.0';
+        const versionStr = window.mojoVersion || '148.0.7732.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -303,7 +303,8 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const resp_obj = response;
+              const val = (response && typeof response === 'object' && 'arg_decoded_image' in response) ? response['arg_decoded_image'] : response;
+              const resp_obj = { 'arg_decoded_image': val };
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -365,10 +366,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParams', [
-      mojo.internal.StructField('arg_decoding_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoded_image', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_decoded_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [

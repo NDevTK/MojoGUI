@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-12T10:31:50.973037Z",
-  "version": "148.0.7730.0",
+  "generated_at": "2026-03-13T10:28:03.574531Z",
+  "version": "148.0.7732.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7986,7 +7986,8 @@
       "file": "chrome_browser_ui_webui_new_tab_page_action_chips_action_chips.mojom.js",
       "methods": [
         "StartActionChipsRetrieval",
-        "ActivateMetricsFunnel"
+        "ActivateMetricsFunnel",
+        "SetActionChipsVisibility"
       ],
       "metadata": {
         "usage": {
@@ -26299,7 +26300,8 @@
       "module": "surface_embed.mojom",
       "file": "components_surface_embed_common_surface_embed.mojom.js",
       "methods": [
-        "SetFrameSinkId"
+        "SetFrameSinkId",
+        "UpdateLocalSurfaceIdFromChild"
       ],
       "metadata": {
         "usage": {
@@ -26324,6 +26326,7 @@
       "file": "components_surface_embed_common_surface_embed.mojom.js",
       "methods": [
         "SetSurfaceEmbed",
+        "AttachConnector",
         "SynchronizeVisualProperties"
       ],
       "metadata": {
@@ -29746,6 +29749,7 @@
       "methods": [
         "ActivateExtension",
         "SetActivityLoggingEnabled",
+        "SetPolicyActivityLoggingEnabled",
         "LoadExtensions",
         "UnloadExtension",
         "SuspendExtension",
@@ -55039,7 +55043,9 @@
       "source": "components/surface_embed/common/surface_embed.mojom",
       "module": "surface_embed.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "third_party/blink/public/mojom/frame/frame_visual_properties.mojom"
       ]
     },

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7730.0';
+        const versionStr = window.mojoVersion || '148.0.7732.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,6 +138,8 @@ mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec = 
 if (mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$ = {};
+mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$ = {};
 mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec = mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec || { $: {} };
@@ -258,6 +260,9 @@ mojo.internal.bindings.extensions.mojom.RendererRemote = class {
   setActivityLoggingEnabled(arg_enabled) {
     return this.$.setActivityLoggingEnabled(arg_enabled);
   }
+  setPolicyActivityLoggingEnabled(arg_enabled) {
+    return this.$.setPolicyActivityLoggingEnabled(arg_enabled);
+  }
   loadExtensions(arg_params) {
     return this.$.loadExtensions(arg_params);
   }
@@ -350,6 +355,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -371,9 +377,18 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       false);
   }
 
-  loadExtensions(arg_params) {
+  setPolicyActivityLoggingEnabled(arg_enabled) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
+      mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec,
+      null,
+      [arg_enabled],
+      false);
+  }
+
+  loadExtensions(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
       [arg_params],
@@ -382,7 +397,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   unloadExtension(arg_extension_id) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
       [arg_extension_id],
@@ -391,7 +406,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   suspendExtension(arg_extension_id) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec,
       [arg_extension_id],
@@ -400,7 +415,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   cancelSuspendExtension(arg_extension_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
       [arg_extension_id],
@@ -409,7 +424,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setDeveloperMode(arg_developer_mode_only) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
       [arg_developer_mode_only],
@@ -418,7 +433,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setUserScriptsAllowed(arg_extension_id, arg_allowed) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
       [arg_extension_id, arg_allowed],
@@ -427,7 +442,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setSessionInfo(arg_channel, arg_session) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
       [arg_channel, arg_session],
@@ -436,7 +451,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setSystemFont(arg_font_family, arg_font_size) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
       [arg_font_family, arg_font_size],
@@ -445,7 +460,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setWebViewPartitionID(arg_partition_id) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
       [arg_partition_id],
@@ -454,7 +469,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   setScriptingAllowlist(arg_extension_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
       [arg_extension_ids],
@@ -463,7 +478,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updateUserScriptWorlds(arg_infos) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
       [arg_infos],
@@ -472,7 +487,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   clearUserScriptWorldConfig(arg_extension_id, arg_world_id) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
       [arg_extension_id, arg_world_id],
@@ -481,7 +496,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   shouldSuspend() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec,
       [],
@@ -490,7 +505,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   transferBlobs() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec,
       [],
@@ -499,7 +514,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updatePermissions(arg_extension_id, arg_active_permissions, arg_withheld_permissions, arg_policy_blocked_hosts, arg_policy_allowed_hosts, arg_uses_default_policy_host_restrictions) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
       [arg_extension_id, arg_active_permissions, arg_withheld_permissions, arg_policy_blocked_hosts, arg_policy_allowed_hosts, arg_uses_default_policy_host_restrictions],
@@ -508,7 +523,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updateDefaultPolicyHostRestrictions(arg_default_policy_blocked_hosts, arg_default_policy_allowed_hosts) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
       [arg_default_policy_blocked_hosts, arg_default_policy_allowed_hosts],
@@ -517,7 +532,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updateUserHostRestrictions(arg_user_blocked_hosts, arg_user_allowed_hosts) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
       [arg_user_blocked_hosts, arg_user_allowed_hosts],
@@ -526,7 +541,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updateTabSpecificPermissions(arg_extension_id, arg_new_hosts, arg_tab_id, arg_update_origin_allowlist) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
       [arg_extension_id, arg_new_hosts, arg_tab_id, arg_update_origin_allowlist],
@@ -535,7 +550,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   updateUserScripts(arg_region, arg_owner) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
       [arg_region, arg_owner],
@@ -544,7 +559,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   clearTabSpecificPermissions(arg_extension_ids, arg_tab_id, arg_update_origin_allowlist) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
       [arg_extension_ids, arg_tab_id, arg_update_origin_allowlist],
@@ -553,7 +568,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
 
   watchPages(arg_css_selectors) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec,
       null,
       [arg_css_selectors],
@@ -578,6 +593,7 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('extensions.mojom.Renderer', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -660,19 +676,26 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPolicyActivityLoggingEnabled');
+          const result = this.impl.setPolicyActivityLoggingEnabled(params.arg_enabled);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadExtensions');
           const result = this.impl.loadExtensions(params.arg_params);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unloadExtension');
           const result = this.impl.unloadExtension(params.arg_extension_id);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspendExtension');
@@ -689,70 +712,70 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelSuspendExtension');
           const result = this.impl.cancelSuspendExtension(params.arg_extension_id);
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeveloperMode');
           const result = this.impl.setDeveloperMode(params.arg_developer_mode_only);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserScriptsAllowed');
           const result = this.impl.setUserScriptsAllowed(params.arg_extension_id, params.arg_allowed);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSessionInfo');
           const result = this.impl.setSessionInfo(params.arg_channel, params.arg_session);
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemFont');
           const result = this.impl.setSystemFont(params.arg_font_family, params.arg_font_size);
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebViewPartitionID');
           const result = this.impl.setWebViewPartitionID(params.arg_partition_id);
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScriptingAllowlist');
           const result = this.impl.setScriptingAllowlist(params.arg_extension_ids);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserScriptWorlds');
           const result = this.impl.updateUserScriptWorlds(params.arg_infos);
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUserScriptWorldConfig');
           const result = this.impl.clearUserScriptWorldConfig(params.arg_extension_id, params.arg_world_id);
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldSuspend');
@@ -769,7 +792,7 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferBlobs');
@@ -786,49 +809,49 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
           const result = this.impl.updatePermissions(params.arg_extension_id, params.arg_active_permissions, params.arg_withheld_permissions, params.arg_policy_blocked_hosts, params.arg_policy_allowed_hosts, params.arg_uses_default_policy_host_restrictions);
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDefaultPolicyHostRestrictions');
           const result = this.impl.updateDefaultPolicyHostRestrictions(params.arg_default_policy_blocked_hosts, params.arg_default_policy_allowed_hosts);
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserHostRestrictions');
           const result = this.impl.updateUserHostRestrictions(params.arg_user_blocked_hosts, params.arg_user_allowed_hosts);
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTabSpecificPermissions');
           const result = this.impl.updateTabSpecificPermissions(params.arg_extension_id, params.arg_new_hosts, params.arg_tab_id, params.arg_update_origin_allowlist);
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUserScripts');
           const result = this.impl.updateUserScripts(params.arg_region, params.arg_owner);
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTabSpecificPermissions');
           const result = this.impl.clearTabSpecificPermissions(params.arg_extension_ids, params.arg_tab_id, params.arg_update_origin_allowlist);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.watchPages');
@@ -888,6 +911,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec, 'extensions.mojom.Renderer_SetActivityLoggingEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_ParamsSpec, 'extensions.mojom.Renderer_SetPolicyActivityLoggingEnabled_Params', [
       mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

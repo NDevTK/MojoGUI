@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7730.0';
+        const versionStr = window.mojoVersion || '148.0.7732.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,6 +144,8 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRet
 if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec.$ = {};
+mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec = mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.Page = mojo.internal.bindings.action_chips.mojom.Page || {};
 mojo.internal.bindings.action_chips.mojom.PageSpec = mojo.internal.bindings.action_chips.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.action_chips.mojom.PageSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.PageSpec.$ = {};
@@ -216,12 +218,16 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote = class {
   activateMetricsFunnel(arg_funnel_name) {
     return this.$.activateMetricsFunnel(arg_funnel_name);
   }
+  setActionChipsVisibility(arg_is_visible) {
+    return this.$.setActionChipsVisibility(arg_is_visible);
+  }
 };
 
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -245,6 +251,15 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemoteCallHandler = 
       false);
   }
 
+  setActionChipsVisibility(arg_is_visible) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec,
+      null,
+      [arg_is_visible],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandler.getRemote = function() {
@@ -263,6 +278,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('action_chips.mojom.ActionChipsHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -320,6 +336,13 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateMetricsFunnel');
           const result = this.impl.activateMetricsFunnel(params.arg_funnel_name);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setActionChipsVisibility');
+          const result = this.impl.setActionChipsVisibility(params.arg_is_visible);
           break;
         }
       }
@@ -651,6 +674,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_ActivateMetricsFunnel_Params', [
       mojo.internal.StructField('arg_funnel_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_SetActionChipsVisibility_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

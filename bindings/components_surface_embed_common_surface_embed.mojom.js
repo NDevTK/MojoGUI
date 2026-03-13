@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7730.0';
+        const versionStr = window.mojoVersion || '148.0.7732.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,12 +134,16 @@ if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedSpec.$.structSpec && 
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed.$interfaceName = 'surface_embed.mojom.SurfaceEmbed';
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec.$ = {};
+mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost || {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostSpec || { $ : {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost.$interfaceName = 'surface_embed.mojom.SurfaceEmbedHost';
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$ = {};
+mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$ = {};
 
@@ -147,9 +151,15 @@ if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisua
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FrameVisualPropertiesSpec = mojo.internal.bindings.blink.mojom.FrameVisualPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec = mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SurfaceEmbed
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedPendingReceiver = class {
@@ -184,12 +194,16 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedRemote = class {
   setFrameSinkId(arg_frame_sink_id) {
     return this.$.setFrameSinkId(arg_frame_sink_id);
   }
+  updateLocalSurfaceIdFromChild(arg_local_surface_id) {
+    return this.$.updateLocalSurfaceIdFromChild(arg_local_surface_id);
+  }
 };
 
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbed', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -200,6 +214,15 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedRemoteCallHandler = class
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_SetFrameSinkId_ParamsSpec,
       null,
       [arg_frame_sink_id],
+      false);
+  }
+
+  updateLocalSurfaceIdFromChild(arg_local_surface_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec,
+      null,
+      [arg_local_surface_id],
       false);
   }
 
@@ -221,6 +244,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbed', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -272,6 +296,13 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedReceiver = class {
           const result = this.impl.setFrameSinkId(params.arg_frame_sink_id);
           break;
         }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateLocalSurfaceIdFromChild');
+          const result = this.impl.updateLocalSurfaceIdFromChild(params.arg_local_surface_id);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -319,6 +350,9 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemote = class {
   setSurfaceEmbed(arg_surface_embed) {
     return this.$.setSurfaceEmbed(arg_surface_embed);
   }
+  attachConnector(arg_content_id) {
+    return this.$.attachConnector(arg_content_id);
+  }
   synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
     return this.$.synchronizeVisualProperties(arg_visual_properties, arg_is_visible);
   }
@@ -328,6 +362,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbedHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -342,9 +377,18 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
       false);
   }
 
-  synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
+  attachConnector(arg_content_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec,
+      null,
+      [arg_content_id],
+      false);
+  }
+
+  synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec,
       null,
       [arg_visual_properties, arg_is_visible],
@@ -369,6 +413,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbedHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -423,6 +468,13 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.attachConnector');
+          const result = this.impl.attachConnector(params.arg_content_id);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.synchronizeVisualProperties');
           const result = this.impl.synchronizeVisualProperties(params.arg_visual_properties, params.arg_is_visible);
@@ -450,8 +502,20 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_ParamsSpec, 'surface_embed.mojom.SurfaceEmbed_UpdateLocalSurfaceIdFromChild_Params', [
+      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec, 'surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_Params', [
       mojo.internal.StructField('arg_surface_embed', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec, 'surface_embed.mojom.SurfaceEmbedHost_AttachConnector_Params', [
+      mojo.internal.StructField('arg_content_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

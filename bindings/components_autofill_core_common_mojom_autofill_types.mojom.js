@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7730.0';
+        const versionStr = window.mojoVersion || '148.0.7732.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -423,6 +423,7 @@ mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSource = {
   kProactivePasswordRecovery: 20,
   kGlic: 21,
   kAtMemory: 22,
+  kAtMemoryContextMenu: 23,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -491,50 +492,52 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id_attribute', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name_attribute', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_type', 48, 0, mojo.internal.bindings.autofill.mojom.FormControlTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties_mask', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autocomplete_attribute', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parsed_autocomplete', 64, 0, mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pattern', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_placeholder', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_css_classes', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aria_label', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aria_description', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_id', 120, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_form_id', 128, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_ax_id', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_autofilled_according_to_renderer', 140, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_focusable', 140, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_visible', 140, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_autocomplete', 140, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 140, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_readonly', 140, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allows_writing_suggestions', 140, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_override', 140, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_length', 144, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_check_status', 152, 0, mojo.internal.bindings.autofill.mojom.CheckStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_role', 156, 0, mojo.internal.bindings.autofill.mojom.RoleAttributeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction', 160, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label_source', 164, 0, mojo.internal.bindings.autofill.mojom.LabelSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_input', 168, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 176, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 184, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_datalist_options', 192, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_option_text', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_selected_text', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_type', 56, 0, mojo.internal.bindings.autofill.mojom.FormControlTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties_mask', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_attribute', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parsed_autocomplete', 72, 0, mojo.internal.bindings.autofill.mojom.AutocompleteParsingResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_placeholder', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_classes', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aria_label', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aria_description', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_id', 128, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_form_id', 136, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_ax_id', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_autofilled_according_to_renderer', 148, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_focusable', 148, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_visible', 148, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_autocomplete', 148, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 148, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_readonly', 148, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allows_writing_suggestions', 148, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_override', 148, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_length', 152, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_check_status', 160, 0, mojo.internal.bindings.autofill.mojom.CheckStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 164, 0, mojo.internal.bindings.autofill.mojom.RoleAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 168, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label_source', 172, 0, mojo.internal.bindings.autofill.mojom.LabelSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_input', 176, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 184, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 192, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_datalist_options', 200, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
     ],
-    [[0, 208]]);
+    [[0, 216]]);
 
 // Struct: FormFieldData_FillData
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormFieldData_FillDataSpec, 'autofill.mojom.FormFieldData_FillData', [
       mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_form_id', 16, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_autofilled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_override', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_option_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_renderer_id', 16, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_form_id', 24, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_autofilled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_override', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: ButtonTitleInfo
 mojo.internal.Struct(
