@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-13T10:28:03.574531Z",
-  "version": "148.0.7732.0",
+  "generated_at": "2026-03-14T10:19:50.275890Z",
+  "version": "148.0.7733.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -20763,51 +20763,6 @@
       }
     },
     {
-      "name": "CrosDisplayConfigController",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": [
-        "AddObserver",
-        "GetDisplayLayoutInfo",
-        "SetDisplayLayoutInfo",
-        "GetDisplayUnitInfoList",
-        "SetDisplayProperties",
-        "SetUnifiedDesktopEnabled",
-        "OverscanCalibration",
-        "TouchCalibration",
-        "HighlightDisplay",
-        "DragDisplayDelta"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindCrosDisplayConfigController"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "CrosDisplayConfigObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "methods": [
-        "OnDisplayConfigChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "Crosapi",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_crosapi.mojom.js",
@@ -20815,7 +20770,6 @@
         "BindAccountManager",
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
-        "BindCrosDisplayConfigController",
         "BindDocumentScan",
         "BindInSessionAuth",
         "BindLocalPrinter",
