@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -178,10 +178,9 @@ mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.moj
 // Enum: AnnotationType
 mojo.internal.bindings.blink.mojom.AnnotationType = {
   kSharedHighlight: 0,
-  kUserNote: 1,
-  kTextFinder: 2,
-  kGlic: 3,
-  kScrollOnly: 4,
+  kTextFinder: 1,
+  kGlic: 2,
+  kScrollOnly: 3,
 };
 
 // Enum: AttachmentResult

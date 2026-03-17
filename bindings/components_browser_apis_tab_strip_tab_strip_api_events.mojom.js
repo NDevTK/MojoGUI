@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,12 +126,18 @@ mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$ = {};
-mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec || { $: {} };
-if (mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabChangeSpec = mojo.internal.bindings.tabs_api.mojom.TabChangeSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabChangeSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabChangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabChangeSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec = mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec = mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec || { $: {} };
@@ -143,18 +149,47 @@ mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom ||
 mojo.internal.bindings.tabs_api.mojom.ContainerSpec = mojo.internal.bindings.tabs_api.mojom.ContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
-mojo.internal.bindings.tabs_api.mojom.DataSpec = mojo.internal.bindings.tabs_api.mojom.DataSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
-mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.tabs_api.mojom.NodeIdSpec = mojo.internal.bindings.tabs_api.mojom.NodeIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.tabs_api.mojom.PositionSpec = mojo.internal.bindings.tabs_api.mojom.PositionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.SplitTabSpec = mojo.internal.bindings.tabs_api.mojom.SplitTabSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.TabSpec = mojo.internal.bindings.tabs_api.mojom.TabSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec = mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.tabs_api.mojom.TabGroupSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: OnDataChangedEvent
+mojo.internal.Union(
+    mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec, 'tabs_api.mojom.OnDataChangedEvent', {
+      'arg_tab': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.tabs_api.mojom.TabChangeSpec,
+        'nullable': false,
+      },
+      'arg_tab_group': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec,
+        'nullable': false,
+      },
+      'arg_split_tab': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec,
+        'nullable': false,
+      },
+    });
 
 // Struct: OnTabsCreatedEvent
 mojo.internal.Struct(
@@ -170,12 +205,27 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-// Struct: OnDataChangedEvent
+// Struct: TabChange
 mojo.internal.Struct(
-    mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec, 'tabs_api.mojom.OnDataChangedEvent', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.DataSpec, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabChangeSpec, 'tabs_api.mojom.TabChange', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.TabSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: TabGroupChange
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.TabGroupChangeSpec, 'tabs_api.mojom.TabGroupChange', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SplitTabChange
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.SplitTabChangeSpec, 'tabs_api.mojom.SplitTabChange', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tabs_api.mojom.SplitTabSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OnCollectionCreatedEvent
 mojo.internal.Struct(

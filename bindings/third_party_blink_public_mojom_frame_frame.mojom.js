@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -329,8 +329,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_
 if (mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec.$ = {};
-mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec || { $: {} };
@@ -823,9 +821,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.SourceLocationSpec = mojo.internal.bindings.network.mojom.SourceLocationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec = mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
@@ -1191,9 +1186,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemote = class {
   notifyDocumentInteractive() {
     return this.$.notifyDocumentInteractive();
   }
-  setStorageAccessApiStatus(arg_status) {
-    return this.$.setStorageAccessApiStatus(arg_status);
-  }
   initializeCrashReportContext(arg_length) {
     return this.$.initializeCrashReportContext(arg_length);
   }
@@ -1203,7 +1195,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1998,18 +1989,9 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
       false);
   }
 
-  setStorageAccessApiStatus(arg_status) {
-    return this.proxy.sendMessage(
-      this.ordinals[79],  // ordinal
-      mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec,
-      null,
-      [arg_status],
-      false);
-  }
-
   initializeCrashReportContext(arg_length) {
     return this.proxy.sendMessage(
-      this.ordinals[80],  // ordinal
+      this.ordinals[79],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ResponseParamsSpec,
       [arg_length],
@@ -2034,7 +2016,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2785,13 +2766,6 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           break;
         }
         case 79: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setStorageAccessApiStatus');
-          const result = this.impl.setStorageAccessApiStatus(params.arg_status);
-          break;
-        }
-        case 80: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeCrashReportContext');
@@ -5762,12 +5736,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyDocumentInteractive_ParamsSpec, 'blink.mojom.LocalFrameHost_NotifyDocumentInteractive_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_ParamsSpec, 'blink.mojom.LocalFrameHost_SetStorageAccessApiStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportContext_ParamsSpec, 'blink.mojom.LocalFrameHost_InitializeCrashReportContext_Params', [

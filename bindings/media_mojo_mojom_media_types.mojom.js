@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -666,17 +666,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.AudioCodecSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sample_format', 4, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_layout', 8, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_samples_per_second', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_scheme', 24, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec_delay', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channels', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_samples_per_second', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_scheme', 20, 0, mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_seek_preroll', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 40, 0, mojo.internal.bindings.media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_output_channel_layout', 44, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_output_sample_format', 48, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_should_discard_decoder_delay', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_codec_delay', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 44, 0, mojo.internal.bindings.media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_output_channel_layout', 48, 0, mojo.internal.bindings.media.mojom.ChannelLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_output_sample_format', 52, 0, mojo.internal.bindings.media.mojom.SampleFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_should_discard_decoder_delay', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: VideoDecoderConfig
 mojo.internal.Struct(

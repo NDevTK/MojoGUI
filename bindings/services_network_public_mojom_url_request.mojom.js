@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -334,6 +334,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_user_activation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_allow_cookies_from_browser', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_include_request_cookies_with_response', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_auction_trusted_signals_request', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_response_body_stream', 12, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_enabled_client_hints', 16, 0, mojo.internal.bindings.network.mojom.EnabledClientHintsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_cookie_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieAccessObserverRemote), null, true, 0, undefined),

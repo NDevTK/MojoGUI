@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -240,8 +240,6 @@ mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_Params
 if (mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec = mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$ = {};
-mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec = mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec = mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$ = {};
 
@@ -622,9 +620,6 @@ mojo.internal.bindings.network.mojom.CookieManagerRemote = class {
   setMitigationsEnabledFor3pcd(arg_enable) {
     return this.$.setMitigationsEnabledFor3pcd(arg_enable);
   }
-  setTrackingProtectionEnabledFor3pcd(arg_enable) {
-    return this.$.setTrackingProtectionEnabledFor3pcd(arg_enable);
-  }
   setPreCommitCallbackDelayForTesting(arg_delay) {
     return this.$.setPreCommitCallbackDelayForTesting(arg_delay);
   }
@@ -634,7 +629,6 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieManager', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -809,18 +803,9 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       false);
   }
 
-  setTrackingProtectionEnabledFor3pcd(arg_enable) {
-    return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
-      mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec,
-      null,
-      [arg_enable],
-      false);
-  }
-
   setPreCommitCallbackDelayForTesting(arg_delay) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec,
       null,
       [arg_delay],
@@ -845,7 +830,6 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.CookieManager', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1145,13 +1129,6 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setTrackingProtectionEnabledFor3pcd');
-          const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.arg_enable);
-          break;
-        }
-        case 18: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreCommitCallbackDelayForTesting');
           const result = this.impl.setPreCommitCallbackDelayForTesting(params.arg_delay);
@@ -1192,9 +1169,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManagerParamsSpec, 'network.mojom.CookieManagerParams', [
       mojo.internal.StructField('arg_block_third_party_cookies', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tracking_protection_enabled_for_3pcd', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mitigations_enabled_for_3pcd', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_file_scheme_cookies', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mitigations_enabled_for_3pcd', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_file_scheme_cookies', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_cookie_access_delegate_type', 4, 0, mojo.internal.bindings.network.mojom.CookieAccessDelegateTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_content_settings', 8, 0, mojo.internal.Map(mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_secure_origin_cookies_allowed_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
@@ -1507,12 +1483,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec, 'network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_Params', [
-      mojo.internal.StructField('arg_enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec, 'network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_Params', [
       mojo.internal.StructField('arg_enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

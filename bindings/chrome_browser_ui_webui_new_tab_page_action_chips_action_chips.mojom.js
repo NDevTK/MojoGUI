@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.action_chips.mojom.IconTypeSpec = mojo.internal.bindings.action_chips.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.action_chips.mojom.ToolModeSpec = mojo.internal.bindings.action_chips.mojom.ToolModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.action_chips.mojom.TabInfoSpec = mojo.internal.bindings.action_chips.mojom.TabInfoSpec || { $: {} };
 if (mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$.structSpec && mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.action_chips.mojom.TabInfoSpec.$ = {};
 mojo.internal.bindings.action_chips.mojom.FormattedStringSpec = mojo.internal.bindings.action_chips.mojom.FormattedStringSpec || { $: {} };
@@ -180,6 +181,21 @@ mojo.internal.bindings.action_chips.mojom.IconType = {
   kFavicon: 8,
   kNotesSpark: 9,
   kDraftSpark: 10,
+};
+
+// Enum: ToolMode
+mojo.internal.bindings.action_chips.mojom.ToolMode = {
+  kUnspecified: 0,
+  kDeepSearch: 1,
+  kCanvas: 2,
+  kGeminiPro: 3,
+  kImageGen: 4,
+  kDeepBrowse: 5,
+  kImageGenSelfie: 6,
+  kImageGenUpload: 7,
+  kDisableSuggest: 8,
+  kAim: 9,
+  kAimGenPrompt: 10,
 };
 
 // Interface: ActionChipsHandler
@@ -653,6 +669,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.action_chips.mojom.SuggestTemplateInfoSpec, 'action_chips.mojom.SuggestTemplateInfo', [
       mojo.internal.StructField('arg_type_icon', 0, 0, mojo.internal.bindings.action_chips.mojom.IconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preselected_tool', 4, 0, mojo.internal.bindings.action_chips.mojom.ToolModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_primary_text', 8, 0, mojo.internal.bindings.action_chips.mojom.FormattedStringSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_secondary_text', 16, 0, mojo.internal.bindings.action_chips.mojom.FormattedStringSpec, null, true, 0, undefined),
     ],

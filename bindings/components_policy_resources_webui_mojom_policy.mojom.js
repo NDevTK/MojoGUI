@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,22 @@ mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ParamsSpec 
 if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ParamsSpec.$ = {};
 mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec.$ = {};
+mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec = mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.policy.mojom.PolicyPageClient = mojo.internal.bindings.policy.mojom.PolicyPageClient || {};
 mojo.internal.bindings.policy.mojom.PolicyPageClientSpec = mojo.internal.bindings.policy.mojom.PolicyPageClientSpec || { $ : {} };
 if (mojo.internal.bindings.policy.mojom.PolicyPageClientSpec.$.structSpec && mojo.internal.bindings.policy.mojom.PolicyPageClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.PolicyPageClientSpec.$ = {};
@@ -178,12 +194,32 @@ mojo.internal.bindings.policy.mojom.PolicyPageHandlerRemote = class {
   getDebugString() {
     return this.$.getDebugString();
   }
+  restartBrowser(arg_policies) {
+    return this.$.restartBrowser(arg_policies);
+  }
+  setUserAffiliated(arg_affiliated) {
+    return this.$.setUserAffiliated(arg_affiliated);
+  }
+  getAppliedTestPolicies() {
+    return this.$.getAppliedTestPolicies();
+  }
+  revertLocalTestPolicies() {
+    return this.$.revertLocalTestPolicies();
+  }
+  setLocalTestPolicies(arg_policies, arg_profile_separation_response) {
+    return this.$.setLocalTestPolicies(arg_policies, arg_profile_separation_response);
+  }
 };
 
 mojo.internal.bindings.policy.mojom.PolicyPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('policy.mojom.PolicyPageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -194,6 +230,51 @@ mojo.internal.bindings.policy.mojom.PolicyPageHandlerRemoteCallHandler = class {
       mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ParamsSpec,
       mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec,
       [],
+      false);
+  }
+
+  restartBrowser(arg_policies) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec,
+      null,
+      [arg_policies],
+      false);
+  }
+
+  setUserAffiliated(arg_affiliated) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec,
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec,
+      [arg_affiliated],
+      false);
+  }
+
+  getAppliedTestPolicies() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec,
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  revertLocalTestPolicies() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  setLocalTestPolicies(arg_policies, arg_profile_separation_response) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec,
+      mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec,
+      [arg_policies, arg_profile_separation_response],
       false);
   }
 
@@ -215,6 +296,11 @@ mojo.internal.bindings.policy.mojom.PolicyPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('policy.mojom.PolicyPageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -274,6 +360,72 @@ mojo.internal.bindings.policy.mojom.PolicyPageHandlerReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetDebugString_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getDebugString FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.restartBrowser');
+          const result = this.impl.restartBrowser(params.arg_policies);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setUserAffiliated');
+          const result = this.impl.setUserAffiliated(params.arg_affiliated);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setUserAffiliated FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getAppliedTestPolicies');
+          const result = this.impl.getAppliedTestPolicies();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_policies' in response) ? response['arg_policies'] : response;
+              const resp_obj = { 'arg_policies': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getAppliedTestPolicies FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.revertLocalTestPolicies');
+          const result = this.impl.revertLocalTestPolicies();
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setLocalTestPolicies');
+          const result = this.impl.setLocalTestPolicies(params.arg_policies, params.arg_profile_separation_response);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setLocalTestPolicies FAILED:', e));
           }
           break;
         }
@@ -551,6 +703,51 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_RestartBrowser_ParamsSpec, 'policy.mojom.PolicyPageHandler_RestartBrowser_Params', [
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ParamsSpec, 'policy.mojom.PolicyPageHandler_SetUserAffiliated_Params', [
+      mojo.internal.StructField('arg_affiliated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParamsSpec, 'policy.mojom.PolicyPageHandler_SetUserAffiliated_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ParamsSpec, 'policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParamsSpec, 'policy.mojom.PolicyPageHandler_GetAppliedTestPolicies_ResponseParams', [
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_ParamsSpec, 'policy.mojom.PolicyPageHandler_RevertLocalTestPolicies_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ParamsSpec, 'policy.mojom.PolicyPageHandler_SetLocalTestPolicies_Params', [
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_separation_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParamsSpec, 'policy.mojom.PolicyPageHandler_SetLocalTestPolicies_ResponseParams', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.policy.mojom.PolicyPageHandlerFactory_CreateHandler_ParamsSpec, 'policy.mojom.PolicyPageHandlerFactory_CreateHandler_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,9 +135,16 @@ mojo.internal.bindings.blink.mojom.RpContextSpec = mojo.internal.bindings.blink.
 mojo.internal.bindings.blink.mojom.RpModeSpec = mojo.internal.bindings.blink.mojom.RpModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec = mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FormatSpec = mojo.internal.bindings.blink.mojom.FormatSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink.mojom.FedCmRedirectMethodSpec = mojo.internal.bindings.blink.mojom.FedCmRedirectMethodSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.RedirectParamsSpec = mojo.internal.bindings.blink.mojom.RedirectParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RedirectParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RedirectParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RedirectParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec = mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec = mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec = mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec = mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec = mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.IdentityProviderRequestOptionsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec = mojo.internal.bindings.blink.mojom.IdentityCredentialDisconnectOptionsSpec || { $: {} };
@@ -197,6 +204,12 @@ if (mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseP
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec = mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.RedirectParamsSpec = mojo.internal.bindings.blink.mojom.RedirectParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec = mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -266,12 +279,6 @@ mojo.internal.bindings.blink.mojom.Format = {
   kSdJwt: 0,
 };
 
-// Enum: FedCmRedirectMethod
-mojo.internal.bindings.blink.mojom.FedCmRedirectMethod = {
-  kGet: 0,
-  kPost: 1,
-};
-
 // Interface: FederatedAuthRequest
 mojo.internal.bindings.blink.mojom.FederatedAuthRequestPendingReceiver = class {
   constructor(handle) {
@@ -311,8 +318,8 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemote = class {
   cancelTokenRequest() {
     return this.$.cancelTokenRequest();
   }
-  resolveTokenRequest(arg_account_id, arg_method, arg_redirect_to, arg_request_body, arg_token) {
-    return this.$.resolveTokenRequest(arg_account_id, arg_method, arg_redirect_to, arg_request_body, arg_token);
+  resolveTokenRequest(arg_account_id, arg_params) {
+    return this.$.resolveTokenRequest(arg_account_id, arg_params);
   }
   setIdpSigninStatus(arg_origin, arg_status, arg_options) {
     return this.$.setIdpSigninStatus(arg_origin, arg_status, arg_options);
@@ -378,12 +385,12 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       false);
   }
 
-  resolveTokenRequest(arg_account_id, arg_method, arg_redirect_to, arg_request_body, arg_token) {
+  resolveTokenRequest(arg_account_id, arg_params) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      [arg_account_id, arg_method, arg_redirect_to, arg_request_body, arg_token],
+      [arg_account_id, arg_params],
       false);
   }
 
@@ -557,7 +564,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveTokenRequest');
-          const result = this.impl.resolveTokenRequest(params.arg_account_id, params.arg_method, params.arg_redirect_to, params.arg_request_body, params.arg_token);
+          const result = this.impl.resolveTokenRequest(params.arg_account_id, params.arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -682,6 +689,36 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRequest = mojo.internal.b
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
+// Union: RedirectParams
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.RedirectParamsSpec, 'blink.mojom.RedirectParams', {
+      'arg_get': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec,
+        'nullable': false,
+      },
+      'arg_post': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: ResolveTokenParams
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec, 'blink.mojom.ResolveTokenParams', {
+      'arg_token': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.ValueSpec,
+        'nullable': false,
+      },
+      'arg_redirect_to': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.RedirectParamsSpec,
+        'nullable': false,
+      },
+    });
+
 // Struct: IdentityProviderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IdentityProviderConfigSpec, 'blink.mojom.IdentityProviderConfig', [
@@ -691,6 +728,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
+
+// Struct: RedirectGetParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RedirectGetParamsSpec, 'blink.mojom.RedirectGetParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: RedirectPostParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RedirectPostParamsSpec, 'blink.mojom.RedirectPostParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: IdentityProviderRequestOptions
 mojo.internal.Struct(
@@ -796,12 +848,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec, 'blink.mojom.FederatedAuthRequest_ResolveTokenRequest_Params', [
       mojo.internal.StructField('arg_account_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.bindings.blink.mojom.FedCmRedirectMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_redirect_to', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec, 'blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParams', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
+mojo.internal.bindings.on_device_model.mojom.GenerateErrorSpec = mojo.internal.bindings.on_device_model.mojom.GenerateErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.TokenSpec = mojo.internal.bindings.on_device_model.mojom.TokenSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.InputSourceSpec = mojo.internal.bindings.on_device_model.mojom.InputSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.on_device_model.mojom.PrioritySpec = mojo.internal.bindings.on_device_model.mojom.PrioritySpec || { $: mojo.internal.Enum().$ };
@@ -289,6 +290,12 @@ mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec = mojo.inter
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: GenerateError
+mojo.internal.bindings.on_device_model.mojom.GenerateError = {
+  kUnknown: 0,
+  kInvalidConstraint: 1,
+};
 
 // Enum: Token
 mojo.internal.bindings.on_device_model.mojom.Token = {

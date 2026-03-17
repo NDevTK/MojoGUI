@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7733.0';
+        const versionStr = window.mojoVersion || '148.0.7737.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,6 +133,8 @@ mojo.internal.bindings.tabs_api.mojom.PathSpec = mojo.internal.bindings.tabs_api
 if (mojo.internal.bindings.tabs_api.mojom.PathSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.PathSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.PathSpec.$ = {};
 mojo.internal.bindings.tabs_api.mojom.PositionSpec = mojo.internal.bindings.tabs_api.mojom.PositionSpec || { $: {} };
 if (mojo.internal.bindings.tabs_api.mojom.PositionSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.PositionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.PositionSpec.$ = {};
+mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec = mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec || { $: {} };
+if (mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec.$ = {};
 
 // Enum: Type
 mojo.internal.bindings.tabs_api.mojom.Type = {
@@ -166,3 +168,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: TabFieldMask
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.TabFieldMaskSpec, 'tabs_api.mojom.TabFieldMask', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_alert_states', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_network_state', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_selected', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_blocked', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
