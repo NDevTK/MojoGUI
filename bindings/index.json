@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-17T10:41:31.817356Z",
-  "version": "148.0.7737.0",
+  "generated_at": "2026-03-18T10:42:35.407804Z",
+  "version": "148.0.7739.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4730,6 +4730,27 @@
     },
     {
       "name": "PageHandlerFactory",
+      "module": "ai_overlay_dialog.mojom",
+      "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
       "module": "app_home.mojom",
       "file": "chrome_browser_ui_webui_app_home_app_home.mojom.js",
       "methods": [
@@ -7080,6 +7101,7 @@
       "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
       "methods": [
         "Start",
+        "GetFindsServiceModelResponse",
         "GetHistoryJson"
       ],
       "metadata": {
@@ -8712,6 +8734,7 @@
       "methods": [
         "OnPopupShown",
         "AddContext",
+        "FocusInput",
         "ClearPopup",
         "SetPreserveContextOnClose"
       ],
@@ -8926,7 +8949,8 @@
         "ShouldShowAccountStorageSettingToggle",
         "IsPasswordManagerPinAvailable",
         "SwitchBiometricAuthBeforeFillingState",
-        "StartPasswordChange"
+        "StartPasswordChange",
+        "GetPasswordManagerActionableError"
       ],
       "metadata": {
         "usage": {
@@ -10054,6 +10078,7 @@
         "SubmitSkill",
         "DeleteSkill",
         "RefineSkill",
+        "GenerateNameAndEmoji",
         "CloseDialog",
         "ShowEmojiPicker",
         "GetInitialState",
@@ -11757,7 +11782,8 @@
         "TogglePinState",
         "SendPinStateRequest",
         "TogglePresentation",
-        "AckReadingModeHidden"
+        "AckReadingModeHidden",
+        "OnSpeechEngineStalled"
       ],
       "metadata": {
         "usage": {
@@ -24192,7 +24218,9 @@
         "OpenLensSearch",
         "SetActiveToolMode",
         "SetActiveModelMode",
-        "ActivateMetricsFunnel"
+        "ActivateMetricsFunnel",
+        "RecordToolSelectionAction",
+        "RecordModelSelectionAction"
       ],
       "metadata": {
         "usage": {
@@ -24442,7 +24470,8 @@
       "file": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "methods": [
         "Unavailable",
-        "Available"
+        "Available",
+        "CapabilitiesUpdated"
       ],
       "metadata": {
         "usage": {
@@ -41505,6 +41534,31 @@
       }
     },
     {
+      "name": "IsolatedWebAppApiBridge",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_chromeos_isolated_web_app_api_bridge.mojom.js",
+      "methods": [
+        "SetShape"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kSubApps"
+        ],
+        "scrambled": false
+      }
+    },
+    {
       "name": "ClipboardListener",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_clipboard_clipboard.mojom.js",
@@ -50014,6 +50068,12 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
+      "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
+      "module": "ai_overlay_dialog.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_app_home_app_home.mojom.js",
@@ -61286,6 +61346,14 @@
       ]
     },
     {
+      "filename": "third_party_blink_public_mojom_chromeos_isolated_web_app_api_bridge.mojom.js",
+      "source": "third_party/blink/public/mojom/chromeos/isolated_web_app_api_bridge.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
       "filename": "third_party_blink_public_mojom_clipboard_clipboard.mojom.js",
       "source": "third_party/blink/public/mojom/clipboard/clipboard.mojom",
       "module": "blink.mojom",
@@ -61350,13 +61418,13 @@
       "source": "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
       "module": "blink.mojom",
       "imports": [
+        "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
         "third_party/blink/public/mojom/forms/form_control_type.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/accessibility/ax_enums.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom",
-        "third_party/blink/public/mojom/content_extraction/script_tools.mojom"
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -61605,7 +61673,10 @@
       "filename": "third_party_blink_public_mojom_dom_storage_storage_area.mojom.js",
       "source": "third_party/blink/public/mojom/dom_storage/storage_area.mojom",
       "module": "blink.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/token.mojom",
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_drag_drag.mojom.js",
