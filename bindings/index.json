@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-19T10:32:13.141860Z",
-  "version": "148.0.7741.0",
+  "generated_at": "2026-03-20T10:30:19.616242Z",
+  "version": "148.0.7743.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3824,6 +3824,7 @@
         "ResizeWidget",
         "CaptureScreenshot",
         "CaptureRegion",
+        "DeleteCapturedRegion",
         "SetAudioDucking",
         "SetPanelDraggableAreas",
         "SetMinimumPanelSize",
@@ -4763,7 +4764,8 @@
       "module": "ai_overlay_dialog.mojom",
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
-        "GetApiKey"
+        "GetApiKey",
+        "GetMockAudioData"
       ],
       "metadata": {
         "usage": {
@@ -8201,7 +8203,6 @@
         "UpdateFooterVisibility",
         "IncrementComposeButtonShownCount",
         "MaybeTriggerAutomaticCustomizeChromePromo",
-        "RecordContextMenuClick",
         "OnOneGoogleBarRendered",
         "OnPromoRendered",
         "OnCustomizeDialogAction",
@@ -10555,7 +10556,8 @@
         "GetUpdaterStates",
         "GetEnterpriseCompanionState",
         "GetAppStates",
-        "ShowDirectory"
+        "ShowDirectory",
+        "UnzipUpdaterHistoryFiles"
       ],
       "metadata": {
         "usage": {
@@ -22462,7 +22464,8 @@
         "SplitActiveTab",
         "Back",
         "Forward",
-        "BackButtonHovered"
+        "BackButtonHovered",
+        "NavigateHome"
       ],
       "metadata": {
         "usage": {
@@ -24453,7 +24456,7 @@
       }
     },
     {
-      "name": "Translator",
+      "name": "OnDeviceTranslator",
       "module": "on_device_translation.mojom",
       "file": "components_on_device_translation_public_mojom_translator.mojom.js",
       "methods": [
@@ -33435,7 +33438,8 @@
         "OnMouseCursorFractionalPositionChanged",
         "OnKeyboardLayoutChanged",
         "OnLocalMouseMoveDetected",
-        "OnLocalKeyboardInputDetected"
+        "OnLocalKeyboardInputDetected",
+        "OnSecurityKeyConnection"
       ],
       "metadata": {
         "usage": {
@@ -33531,7 +33535,8 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder"
+            "Internal Interface: remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder",
+            "Internal Interface: remoting.mojom.DesktopSessionEventHandler.OnSecurityKeyConnection"
           ]
         },
         "scope": "context",
@@ -48532,7 +48537,8 @@
         "FocusChanged",
         "HandleLensButtonClick",
         "HandleFileUpload",
-        "NavigateUrl"
+        "NavigateUrl",
+        "CloseLensOverlayFromWebUI"
       ],
       "metadata": {
         "usage": {
@@ -51023,6 +51029,7 @@
       "module": "updater_ui.mojom",
       "imports": [
         "chrome/updater/mojom/updater_service.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
@@ -57880,6 +57887,7 @@
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
         "remoting/host/mojom/keyboard_layout.mojom",
+        "remoting/host/mojom/remote_security_key.mojom",
         "remoting/host/mojom/webrtc_types.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
@@ -59140,6 +59148,7 @@
         "mojo/public/mojom/base/values.mojom",
         "sandbox/policy/mojom/context.mojom",
         "services/network/public/mojom/address_list.mojom",
+        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/cache_encryption_provider.mojom",
         "services/network/public/mojom/cert_verifier_service.mojom",
         "services/network/public/mojom/clear_data_filter.mojom",
