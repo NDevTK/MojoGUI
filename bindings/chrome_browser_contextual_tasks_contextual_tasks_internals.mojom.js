@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7745.0';
+        const versionStr = window.mojoVersion || '148.0.7747.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,6 +148,12 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage || {};
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec || { $ : {} };
 if (mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$.structSpec && mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageSpec.$ = {};
@@ -334,12 +340,20 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
   getRelevantContext(arg_request) {
     return this.$.getRelevantContext(arg_request);
   }
+  setForcedEmbeddedPageHost(arg_host) {
+    return this.$.setForcedEmbeddedPageHost(arg_host);
+  }
+  getForcedEmbeddedPageHost() {
+    return this.$.getForcedEmbeddedPageHost();
+  }
 };
 
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -350,6 +364,24 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec,
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
       [arg_request],
+      false);
+  }
+
+  setForcedEmbeddedPageHost(arg_host) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec,
+      null,
+      [arg_host],
+      false);
+  }
+
+  getForcedEmbeddedPageHost() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec,
+      mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec,
+      [],
       false);
   }
 
@@ -371,6 +403,8 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -430,6 +464,31 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
                 header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getRelevantContext FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setForcedEmbeddedPageHost');
+          const result = this.impl.setForcedEmbeddedPageHost(params.arg_host);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getForcedEmbeddedPageHost');
+          const result = this.impl.getForcedEmbeddedPageHost();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_host' in response) ? response['arg_host'] : response;
+              const resp_obj = { 'arg_host': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getForcedEmbeddedPageHost FAILED:', e));
           }
           break;
         }
@@ -623,6 +682,23 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_SetForcedEmbeddedPageHost_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetForcedEmbeddedPageHost_ResponseParams', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

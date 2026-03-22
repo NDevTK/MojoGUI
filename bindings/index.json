@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-21T10:18:19.063937Z",
-  "version": "148.0.7745.0",
+  "generated_at": "2026-03-22T10:18:51.398466Z",
+  "version": "148.0.7747.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3405,9 +3405,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3453,7 +3453,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -3474,10 +3474,10 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3496,7 +3496,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3504,7 +3507,9 @@
       "module": "contextual_tasks_internals.mojom",
       "file": "chrome_browser_contextual_tasks_contextual_tasks_internals.mojom.js",
       "methods": [
-        "GetRelevantContext"
+        "GetRelevantContext",
+        "SetForcedEmbeddedPageHost",
+        "GetForcedEmbeddedPageHost"
       ],
       "metadata": {
         "usage": {
@@ -3514,7 +3519,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3532,7 +3540,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -3754,7 +3765,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7540,10 +7554,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -40232,7 +40243,8 @@
       "methods": [
         "SetVisible",
         "UpdateDisplayTree",
-        "UpdateDisplayTiling"
+        "UpdateDisplayTiling",
+        "SetTargetLocalSurfaceId"
       ],
       "metadata": {
         "usage": {
