@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-23T10:44:27.533102Z",
-  "version": "148.0.7749.0",
+  "generated_at": "2026-03-24T10:42:46.668502Z",
+  "version": "148.0.7751.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -11483,6 +11483,24 @@
       }
     },
     {
+      "name": "IndigoAgentHost",
+      "module": "chrome.mojom",
+      "file": "chrome_common_indigo_indigo.mojom.js",
+      "methods": [
+        "StartImageReplacement"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "IndigoAgent",
       "module": "chrome.mojom",
       "file": "chrome_common_indigo_indigo.mojom.js",
@@ -22535,7 +22553,7 @@
         "GetTabs",
         "GetTab",
         "CreateTabAt",
-        "CloseTabs",
+        "CloseNodes",
         "ActivateTab",
         "SetSelectedTabs",
         "MoveNode"
@@ -27414,7 +27432,6 @@
         "SetWantErrorMessageStackTrace",
         "Unload",
         "Delete",
-        "UndoCommitNavigation",
         "GetInterfaceProvider",
         "SnapshotAccessibilityTree",
         "GetSerializedHtmlWithLocalLinks"
@@ -49984,8 +50001,8 @@
       "imports": [
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "services/viz/public/mojom/compositing/selection.mojom",
+        "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
         "services/viz/public/mojom/compositing/vertical_scroll_direction.mojom",
-        "cc/mojom/tracked_element_rects.mojom",
         "skia/public/mojom/skcolor4f.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
@@ -50015,15 +50032,6 @@
       "source": "cc/mojom/touch_action.mojom",
       "module": "cc.mojom",
       "imports": []
-    },
-    {
-      "filename": "cc_mojom_tracked_element_rects.mojom.js",
-      "source": "cc/mojom/tracked_element_rects.mojom",
-      "module": "cc.mojom",
-      "imports": [
-        "mojo/public/mojom/base/token.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
     },
     {
       "filename": "cc_mojom_ui_resource_id.mojom.js",
@@ -51242,6 +51250,7 @@
       "module": "chrome.mojom",
       "imports": [
         "mojo/public/mojom/base/big_string.mojom",
+        "third_party/blink/public/mojom/image_replacement/image_replacement.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
@@ -53323,15 +53332,6 @@
       ]
     },
     {
-      "filename": "chromeos_crosapi_mojom_cros_display_config.mojom.js",
-      "source": "chromeos/crosapi/mojom/cros_display_config.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/display/mojom/display.mojom"
-      ]
-    },
-    {
       "filename": "chromeos_crosapi_mojom_crosapi.mojom.js",
       "source": "chromeos/crosapi/mojom/crosapi.mojom",
       "module": "crosapi.mojom",
@@ -53340,7 +53340,6 @@
         "chromeos/components/payments/mojom/payment_app.mojom",
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
-        "chromeos/crosapi/mojom/cros_display_config.mojom",
         "chromeos/crosapi/mojom/document_scan.mojom",
         "chromeos/crosapi/mojom/local_printer.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
@@ -53929,7 +53928,8 @@
       "module": "toolbar_ui_api.mojom",
       "imports": [
         "components/content_settings/core/common/content_settings_types.mojom",
-        "mojo/public/mojom/base/string16.mojom"
+        "mojo/public/mojom/base/string16.mojom",
+        "ui/gfx/range/mojom/range.mojom"
       ]
     },
     {
@@ -61017,6 +61017,15 @@
         "skia/public/mojom/skcolor4f.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "cc/mojom/missing_tile_reason.mojom"
+      ]
+    },
+    {
+      "filename": "services_viz_public_mojom_compositing_tracked_element_rects.mojom.js",
+      "source": "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
+      "module": "viz.mojom",
+      "imports": [
+        "mojo/public/mojom/base/token.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
