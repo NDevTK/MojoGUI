@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-24T10:42:46.668502Z",
-  "version": "148.0.7751.0",
+  "generated_at": "2026-03-25T10:40:45.684249Z",
+  "version": "148.0.7753.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3378,6 +3378,7 @@
         "IsZeroState",
         "IsAiPage",
         "IsPendingErrorPage",
+        "IsEmbeddedPageErrorDocument",
         "SetThreadTitle",
         "CloseSidePanel",
         "ShowThreadHistory",
@@ -3509,7 +3510,8 @@
       "methods": [
         "GetRelevantContext",
         "SetForcedEmbeddedPageHost",
-        "GetForcedEmbeddedPageHost"
+        "GetForcedEmbeddedPageHost",
+        "GetEligibilityState"
       ],
       "metadata": {
         "usage": {
@@ -7801,7 +7803,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -10279,7 +10280,6 @@
         "ReplaceActiveSplitTab",
         "SaveRecentlyClosedExpandedPref",
         "StartTabGroupTutorial",
-        "TriggerSignIn",
         "MaybeShowUI"
       ],
       "metadata": {
@@ -12964,8 +12964,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -25232,6 +25230,8 @@
         "GetWidgetIsModal",
         "GetIsFocusedViewTextual",
         "OnWindowGeometryChanged",
+        "OnWindowWillMove",
+        "OnWindowDidEndMove",
         "OnWindowWillStartLiveResize",
         "OnWindowDidEndLiveResize",
         "OnWindowFullscreenTransitionStart",
@@ -38226,7 +38226,10 @@
         "category": "internal",
         "gates": [
           "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -42115,6 +42118,10 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ],
         "scrambled": false
       }
     },
@@ -43825,6 +43832,7 @@
       "file": "third_party_blink_public_mojom_frame_sinks_embedded_frame_sink.mojom.js",
       "methods": [
         "RegisterEmbeddedFrameSink",
+        "SetParentFrameSinkId",
         "RegisterEmbeddedFrameSinkBundle",
         "CreateCompositorFrameSink",
         "CreateBundledCompositorFrameSink",
@@ -44043,7 +44051,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_image_replacement_image_replacement.mojom.js",
       "methods": [
-        "StartReplacement"
+        "StartReplacement",
+        "RenderReplacement"
       ],
       "metadata": {
         "usage": {
@@ -48841,6 +48850,57 @@
       }
     },
     {
+      "name": "ForeignSessionPageHandler",
+      "module": "history.mojom",
+      "file": "ui_webui_resources_cr_components_history_foreign_sessions.mojom.js",
+      "methods": [
+        "SetPage",
+        "GetForeignSessions",
+        "OpenForeignSessionAllTabs",
+        "OpenForeignSessionTab",
+        "DeleteForeignSession",
+        "SetForeignSessionCollapsed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "ForeignSessionPage",
+      "module": "history.mojom",
+      "file": "ui_webui_resources_cr_components_history_foreign_sessions.mojom.js",
+      "methods": [
+        "OnForeignSessionsChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "history.mojom",
       "file": "ui_webui_resources_cr_components_history_history.mojom.js",
@@ -51036,12 +51096,12 @@
       "source": "chrome/browser/ui/webui/tab_search/tab_search.mojom",
       "module": "tab_search.mojom",
       "imports": [
-        "mojo/public/mojom/base/string16.mojom",
         "components/tab_groups/public/mojom/tab_group_types.mojom",
+        "components/tabs/public/mojom/tabs.mojom",
+        "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/token.mojom",
-        "url/mojom/url.mojom",
-        "chrome/browser/ui/webui/tabs/tabs.mojom"
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -51049,7 +51109,7 @@
       "source": "chrome/browser/ui/webui/tab_strip/tab_strip.mojom",
       "module": "tab_strip.mojom",
       "imports": [
-        "chrome/browser/ui/webui/tabs/tabs.mojom",
+        "components/tabs/public/mojom/tabs.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -51058,19 +51118,13 @@
       "source": "chrome/browser/ui/webui/tab_strip_internals/tab_strip_internals.mojom",
       "module": "tab_strip_internals.mojom",
       "imports": [
-        "chrome/browser/ui/webui/tabs/tabs.mojom",
         "components/tab_groups/public/mojom/tab_group_types.mojom",
-        "mojo/public/mojom/base/token.mojom",
-        "mojo/public/mojom/base/time.mojom",
+        "components/tabs/public/mojom/tabs.mojom",
         "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/token.mojom",
         "url/mojom/url.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_tabs_tabs.mojom.js",
-      "source": "chrome/browser/ui/webui/tabs/tabs.mojom",
-      "module": "tabs.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
@@ -53879,6 +53933,7 @@
       "imports": [
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
         "components/tab_groups/public/mojom/tab_group_types.mojom",
+        "components/tabs/public/mojom/tabs.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
@@ -55362,6 +55417,12 @@
       "filename": "components_tab_groups_public_mojom_tab_group_types.mojom.js",
       "source": "components/tab_groups/public/mojom/tab_group_types.mojom",
       "module": "tab_groups.mojom",
+      "imports": []
+    },
+    {
+      "filename": "components_tabs_public_mojom_tabs.mojom.js",
+      "source": "components/tabs/public/mojom/tabs.mojom",
+      "module": "tabs.mojom",
       "imports": []
     },
     {
@@ -65656,6 +65717,15 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "ui/webui/resources/js/tracked_element/tracked_element.mojom"
+      ]
+    },
+    {
+      "filename": "ui_webui_resources_cr_components_history_foreign_sessions.mojom.js",
+      "source": "ui/webui/resources/cr_components/history/foreign_sessions.mojom",
+      "module": "history.mojom",
+      "imports": [
+        "ui/base/mojom/window_open_disposition.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
