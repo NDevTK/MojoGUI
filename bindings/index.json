@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-25T10:40:45.684249Z",
-  "version": "148.0.7753.0",
+  "generated_at": "2026-03-26T10:44:27.050893Z",
+  "version": "148.0.7755.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4379,27 +4379,6 @@
       }
     },
     {
-      "name": "SafeBrowsingHandler",
-      "module": "ntp.safe_browsing.mojom",
-      "file": "chrome_browser_new_tab_page_modules_safe_browsing_safe_browsing.mojom.js",
-      "methods": [
-        "CanShowModule",
-        "ProcessModuleClick",
-        "DismissModule",
-        "RestoreModule"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "MicrosoftAuthPageHandler",
       "module": "ntp.authentication.mojom",
       "file": "chrome_browser_new_tab_page_modules_v2_authentication_microsoft_auth.mojom.js",
@@ -4806,7 +4785,7 @@
       "module": "ai_overlay_dialog.mojom",
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
-        "InvalidatePageContext",
+        "DidChangePage",
         "UpdateCurrentPageContext"
       ],
       "metadata": {
@@ -7199,6 +7178,7 @@
       "methods": [
         "Start",
         "GetFindsServiceModelResponse",
+        "TriggerFindsTestNotification",
         "GetHistoryJson"
       ],
       "metadata": {
@@ -20953,8 +20933,7 @@
         "StartPreparedScan",
         "ReadScanData",
         "SetOptions",
-        "GetOptionGroups",
-        "CancelScan"
+        "GetOptionGroups"
       ],
       "metadata": {
         "usage": {
@@ -24461,8 +24440,7 @@
         "UpdateAutoSuggestedTabContext",
         "UpdateLensSearchEligibility",
         "UpdateContentSharingPolicy",
-        "UpdateAimEligibility",
-        "OnShowAiModePrefChanged"
+        "UpdateAimPopupEligibility"
       ],
       "metadata": {
         "usage": {
@@ -50305,12 +50283,6 @@
       "imports": [
         "chrome/browser/new_tab_page/modules/file_suggestion/file_suggestion.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_new_tab_page_modules_safe_browsing_safe_browsing.mojom.js",
-      "source": "chrome/browser/new_tab_page/modules/safe_browsing/safe_browsing.mojom",
-      "module": "ntp.safe_browsing.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_new_tab_page_modules_v2_authentication_microsoft_auth.mojom.js",
