@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-26T10:44:27.050893Z",
-  "version": "148.0.7755.0",
+  "generated_at": "2026-03-27T10:39:37.829771Z",
+  "version": "148.0.7757.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4760,7 +4760,6 @@
       "module": "ai_overlay_dialog.mojom",
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
-        "GetApiKey",
         "GetMockAudioData"
       ],
       "metadata": {
@@ -30298,6 +30297,74 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "inspect.mojom",
+      "file": "ios_chrome_browser_webui_ui_bundled_inspect_inspect.mojom.js",
+      "methods": [
+        "SetLoggingEnabled"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: inspect.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "inspect.mojom",
+      "file": "ios_chrome_browser_webui_ui_bundled_inspect_inspect.mojom.js",
+      "methods": [
+        "LogMessageReceived"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "inspect.mojom",
+      "file": "ios_chrome_browser_webui_ui_bundled_inspect_inspect.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -56864,6 +56931,12 @@
       ]
     },
     {
+      "filename": "ios_chrome_browser_webui_ui_bundled_inspect_inspect.mojom.js",
+      "source": "ios/chrome/browser/webui/ui_bundled/inspect/inspect.mojom",
+      "module": "inspect.mojom",
+      "imports": []
+    },
+    {
       "filename": "ios_web_shell_web_usage_controller.mojom.js",
       "source": "ios/web/shell/web_usage_controller.mojom",
       "module": "web.mojom",
@@ -64550,6 +64623,7 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "skia/public/mojom/skcolor.mojom",
         "third_party/blink/public/mojom/css/preferred_color_scheme.mojom",
         "third_party/blink/public/mojom/css/preferred_contrast.mojom",
