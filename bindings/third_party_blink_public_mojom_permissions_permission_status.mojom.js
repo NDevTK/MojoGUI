@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,16 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec = mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.PermissionDetailsSpec = mojo.internal.bindings.blink.mojom.PermissionDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionDetailsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec = mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionDetailsSpec = mojo.internal.bindings.blink.mojom.PermissionDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: PermissionStatus
 mojo.internal.bindings.blink.mojom.PermissionStatus = {
@@ -136,4 +146,28 @@ mojo.internal.bindings.blink.mojom.PermissionStatus = {
   LAST: 2,
 };
 
+// Enum: GeolocationAccuracy
+mojo.internal.bindings.blink.mojom.GeolocationAccuracy = {
+  kPrecise: 0,
+  kApproximate: 1,
+};
+
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: PermissionDetails
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.PermissionDetailsSpec, 'blink.mojom.PermissionDetails', {
+      'arg_geolocation_accuracy': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: PermissionStatusWithDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec, 'blink.mojom.PermissionStatusWithDetails', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.blink.mojom.PermissionDetailsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

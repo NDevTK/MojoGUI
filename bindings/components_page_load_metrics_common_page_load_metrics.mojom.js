@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -176,8 +176,6 @@ if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsSpec.$.structS
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics.$interfaceName = 'page_load_metrics.mojom.PageLoadMetrics';
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$ = {};
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$ = {};
 
@@ -197,9 +195,6 @@ mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.Rec
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteCountSpec = mojo.internal.bindings.mojo_base.mojom.ByteCountSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -256,9 +251,6 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote = class {
   updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings) {
     return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings);
   }
-  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
-    return this.$.setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory);
-  }
   addCustomUserTiming(arg_custom_user_timing) {
     return this.$.addCustomUserTiming(arg_custom_user_timing);
   }
@@ -268,7 +260,6 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -283,18 +274,9 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       false);
   }
 
-  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
-      null,
-      [arg_dropped_frames_memory],
-      false);
-  }
-
   addCustomUserTiming(arg_custom_user_timing) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
       [arg_custom_user_timing],
@@ -319,7 +301,6 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -373,13 +354,6 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
           break;
         }
         case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
-          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.arg_dropped_frames_memory);
-          break;
-        }
-        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
@@ -666,12 +640,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_custom_user_timings', 80, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec, false), null, false, 0, undefined),
     ],
     [[0, 96]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_Params', [
-      mojo.internal.StructField('arg_dropped_frames_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_Params', [

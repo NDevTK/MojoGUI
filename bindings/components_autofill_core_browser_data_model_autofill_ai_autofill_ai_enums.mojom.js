@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,6 +138,7 @@ mojo.internal.bindings.autofill.mojom.EntityTypeName = {
   kRedressNumber: 5,
   kFlightReservation: 6,
   kOrder: 7,
+  kShipment: 8,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

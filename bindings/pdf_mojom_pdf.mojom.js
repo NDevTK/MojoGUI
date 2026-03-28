@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -177,8 +177,8 @@ mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = moj
 if (mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$ = {};
-mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$ = {};
+mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec || { $: {} };
@@ -196,12 +196,6 @@ mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.ReferrerPolicySpec = mojo.internal.bindings.network.mojom.ReferrerPolicySpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
-mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SaveRequestType
 mojo.internal.bindings.pdf.mojom.SaveRequestType = {
@@ -707,8 +701,8 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemote = class {
   updateContentRestrictions(arg_restrictions) {
     return this.$.updateContentRestrictions(arg_restrictions);
   }
-  saveUrlAs(arg_url, arg_policy) {
-    return this.$.saveUrlAs(arg_url, arg_policy);
+  savePdf() {
+    return this.$.savePdf();
   }
   selectionChanged(arg_left, arg_left_height, arg_right, arg_right_height) {
     return this.$.selectionChanged(arg_left, arg_left_height, arg_right, arg_right_height);
@@ -762,12 +756,12 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       false);
   }
 
-  saveUrlAs(arg_url, arg_policy) {
+  savePdf() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec,
+      mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec,
       null,
-      [arg_url, arg_policy],
+      [],
       false);
   }
 
@@ -889,9 +883,9 @@ mojo.internal.bindings.pdf.mojom.PdfHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.saveUrlAs');
-          const result = this.impl.saveUrlAs(params.arg_url, params.arg_policy);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.savePdf');
+          const result = this.impl.savePdf();
           break;
         }
         case 4: {
@@ -1038,11 +1032,9 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec, 'pdf.mojom.PdfHost_SaveUrlAs_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+    mojo.internal.bindings.pdf.mojom.PdfHost_SavePdf_ParamsSpec, 'pdf.mojom.PdfHost_SavePdf_Params', [
     ],
-    [[0, 24]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec, 'pdf.mojom.PdfHost_SelectionChanged_Params', [

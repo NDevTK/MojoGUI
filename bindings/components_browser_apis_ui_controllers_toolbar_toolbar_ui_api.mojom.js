@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -149,6 +149,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPageInitialized_P
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPageInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPageInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPageInitialized_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
@@ -163,6 +165,9 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuTypeSpec = mojo.internal.
 mojo.internal.bindings.toolbar_ui_api = mojo.internal.bindings.toolbar_ui_api || {};
 mojo.internal.bindings.toolbar_ui_api.mojom = mojo.internal.bindings.toolbar_ui_api.mojom || {};
 mojo.internal.bindings.toolbar_ui_api.mojom.NavigationControlsStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.NavigationControlsStateSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.toolbar_ui_api = mojo.internal.bindings.toolbar_ui_api || {};
+mojo.internal.bindings.toolbar_ui_api.mojom = mojo.internal.bindings.toolbar_ui_api.mojom || {};
+mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec = mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec || { $: mojo.internal.Enum().$ };
@@ -344,12 +349,16 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   showContentSettingsBubble(arg_type) {
     return this.$.showContentSettingsBubble(arg_type);
   }
+  invokePinnedToolbarAction(arg_action_id) {
+    return this.$.invokePinnedToolbarAction(arg_action_id);
+  }
 };
 
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -393,6 +402,15 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
+  invokePinnedToolbarAction(arg_action_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec,
+      null,
+      [arg_action_id],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService.getRemote = function() {
@@ -411,6 +429,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -486,6 +505,13 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const result = this.impl.showContentSettingsBubble(params.arg_type);
           break;
         }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.invokePinnedToolbarAction');
+          const result = this.impl.invokePinnedToolbarAction(params.arg_action_id);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -536,6 +562,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_ShowContentSettingsBubble_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_InvokePinnedToolbarAction_Params', [
+      mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

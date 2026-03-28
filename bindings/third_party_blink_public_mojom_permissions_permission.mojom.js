@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -209,6 +209,9 @@ mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec = mojo.inte
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec = mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1038,7 +1041,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_HasPermission_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1072,7 +1075,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPermission_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1104,8 +1107,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
       mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusWithDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-27T10:39:37.829771Z",
-  "version": "148.0.7757.0",
+  "generated_at": "2026-03-28T10:23:44.553502Z",
+  "version": "148.0.7759.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4760,7 +4760,9 @@
       "module": "ai_overlay_dialog.mojom",
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
-        "GetMockAudioData"
+        "GetMockAudioData",
+        "GetToolDefinitions",
+        "ExecuteTool"
       ],
       "metadata": {
         "usage": {
@@ -10762,7 +10764,8 @@
       "file": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
       "methods": [
         "SetGraphRecordEnabled",
-        "IsGraphRecording"
+        "IsGraphRecording",
+        "RequestExistingContextsDetails"
       ],
       "metadata": {
         "usage": {
@@ -10785,7 +10788,8 @@
       "file": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",
       "methods": [
         "ExportGraphRecorded",
-        "OnGraphRecordEnabledChanged"
+        "OnGraphRecordEnabledChanged",
+        "OnUpdateExistingContextDetails"
       ],
       "metadata": {
         "usage": {
@@ -22613,7 +22617,8 @@
         "Bind",
         "ShowContextMenu",
         "OnPageInitialized",
-        "ShowContentSettingsBubble"
+        "ShowContentSettingsBubble",
+        "InvokePinnedToolbarAction"
       ],
       "metadata": {
         "usage": {
@@ -24710,7 +24715,6 @@
       "file": "components_page_load_metrics_common_page_load_metrics.mojom.js",
       "methods": [
         "UpdateTiming",
-        "SetUpSharedMemoryForDroppedFrames",
         "AddCustomUserTiming"
       ],
       "metadata": {
@@ -33308,7 +33312,7 @@
         "SetListener",
         "OnDocumentLoadComplete",
         "UpdateContentRestrictions",
-        "SaveUrlAs",
+        "SavePdf",
         "SelectionChanged",
         "SetPluginCanSave",
         "OnSearchifyStarted"
@@ -43419,8 +43423,6 @@
         "SetNeedsOcclusionTracking",
         "SetVirtualKeyboardMode",
         "VisibilityChanged",
-        "DidChangeThemeColor",
-        "DidChangeBackgroundColor",
         "DidFailLoadWithError",
         "DidFocusFrame",
         "DidCallFocus",
@@ -43635,6 +43637,8 @@
         "SetWindowRect",
         "DidFirstVisuallyNonEmptyPaint",
         "DidAccessInitialMainDocument",
+        "DidChangeThemeColor",
+        "DidChangeBackgroundColor",
         "Maximize",
         "Minimize",
         "Restore",
@@ -51221,7 +51225,8 @@
       "source": "chrome/browser/ui/webui/webnn_internals/webnn_internals.mojom",
       "module": "webnn_internals.mojom",
       "imports": [
-        "mojo/public/mojom/base/big_buffer.mojom"
+        "mojo/public/mojom/base/big_buffer.mojom",
+        "services/webnn/public/mojom/webnn_service_introspection.mojom"
       ]
     },
     {

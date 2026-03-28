@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,7 +127,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 
-mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec = mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.GeolocationService = mojo.internal.bindings.blink.mojom.GeolocationService || {};
 mojo.internal.bindings.blink.mojom.GeolocationServiceSpec = mojo.internal.bindings.blink.mojom.GeolocationServiceSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.GeolocationServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.GeolocationServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.GeolocationServiceSpec.$ = {};
@@ -140,18 +139,15 @@ if (mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_Resp
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec = mojo.internal.bindings.blink.mojom.GeolocationAccuracySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PermissionStatusSpec = mojo.internal.bindings.blink.mojom.PermissionStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device = mojo.internal.bindings.device || {};
 mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.device.mojom.GeolocationSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.device.mojom.GeolocationRemote = mojo.internal.bindings.device.mojom.GeolocationRemote || class {};
 mojo.internal.bindings.device.mojom.GeolocationPendingReceiver = mojo.internal.bindings.device.mojom.GeolocationPendingReceiver || class { constructor(handle) { this.handle = handle; } };
-
-// Enum: GeolocationAccuracy
-mojo.internal.bindings.blink.mojom.GeolocationAccuracy = {
-  kPrecise: 0,
-  kApproximate: 1,
-};
 
 // Interface: GeolocationService
 mojo.internal.bindings.blink.mojom.GeolocationServicePendingReceiver = class {

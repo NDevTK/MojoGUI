@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -171,6 +171,7 @@ mojo.internal.bindings.glic.mojom.LightweightPageFeatureSpec = mojo.internal.bin
 mojo.internal.bindings.glic.mojom.CaptureRegionErrorReasonSpec = mojo.internal.bindings.glic.mojom.CaptureRegionErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec = mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.HostCapabilitySpec = mojo.internal.bindings.glic.mojom.HostCapabilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.ClientCapabilitiesSpec = mojo.internal.bindings.glic.mojom.ClientCapabilitiesSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec = mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GetContextResultSpec = mojo.internal.bindings.glic.mojom.GetContextResultSpec || { $: {} };
@@ -1199,6 +1200,12 @@ mojo.internal.bindings.glic.mojom.HostCapability = {
   kShareAdditionalImageContext: 6,
   kPdfZeroState: 7,
   kInvoke: 8,
+  kNoLiveMode: 9,
+};
+
+// Enum: ClientCapabilities
+mojo.internal.bindings.glic.mojom.ClientCapabilities = {
+  kIgnoresTabDataFavicons: 0,
 };
 
 // Interface: PreloadPage

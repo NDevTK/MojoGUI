@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.webnn_internals.mojom = mojo.internal.bindings.webnn_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 
 mojo.internal.bindings.webnn_internals.mojom.PageHandler = mojo.internal.bindings.webnn_internals.mojom.PageHandler || {};
 mojo.internal.bindings.webnn_internals.mojom.PageHandlerSpec = mojo.internal.bindings.webnn_internals.mojom.PageHandlerSpec || { $ : {} };
@@ -136,6 +137,10 @@ mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_Params
 if (mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ParamsSpec.$ = {};
 mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ResponseParamsSpec = mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageHandler_IsGraphRecording_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec = mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec = mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.webnn_internals.mojom.Page = mojo.internal.bindings.webnn_internals.mojom.Page || {};
 mojo.internal.bindings.webnn_internals.mojom.PageSpec = mojo.internal.bindings.webnn_internals.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.webnn_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageSpec.$ = {};
@@ -144,6 +149,8 @@ mojo.internal.bindings.webnn_internals.mojom.Page_ExportGraphRecorded_ParamsSpec
 if (mojo.internal.bindings.webnn_internals.mojom.Page_ExportGraphRecorded_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.Page_ExportGraphRecorded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.Page_ExportGraphRecorded_ParamsSpec.$ = {};
 mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec = mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec = mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec.$ = {};
 mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactory = mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactorySpec.$ = {};
@@ -155,6 +162,9 @@ if (mojo.internal.bindings.webnn_internals.mojom.PageHandlerFactory_CreatePageHa
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec = mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandler
 mojo.internal.bindings.webnn_internals.mojom.PageHandlerPendingReceiver = class {
@@ -192,12 +202,16 @@ mojo.internal.bindings.webnn_internals.mojom.PageHandlerRemote = class {
   isGraphRecording() {
     return this.$.isGraphRecording();
   }
+  requestExistingContextsDetails() {
+    return this.$.requestExistingContextsDetails();
+  }
 };
 
 mojo.internal.bindings.webnn_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('webnn_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -221,6 +235,15 @@ mojo.internal.bindings.webnn_internals.mojom.PageHandlerRemoteCallHandler = clas
       false);
   }
 
+  requestExistingContextsDetails() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec,
+      mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.webnn_internals.mojom.PageHandler.getRemote = function() {
@@ -239,6 +262,7 @@ mojo.internal.bindings.webnn_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('webnn_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -309,6 +333,24 @@ mojo.internal.bindings.webnn_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestExistingContextsDetails');
+          const result = this.impl.requestExistingContextsDetails();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_contexts_info' in response) ? response['arg_contexts_info'] : response;
+              const resp_obj = { 'arg_contexts_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] requestExistingContextsDetails FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -359,12 +401,16 @@ mojo.internal.bindings.webnn_internals.mojom.PageRemote = class {
   onGraphRecordEnabledChanged(arg_is_enabled) {
     return this.$.onGraphRecordEnabledChanged(arg_is_enabled);
   }
+  onUpdateExistingContextDetails(arg_contexts_info) {
+    return this.$.onUpdateExistingContextDetails(arg_contexts_info);
+  }
 };
 
 mojo.internal.bindings.webnn_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('webnn_internals.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -388,6 +434,15 @@ mojo.internal.bindings.webnn_internals.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  onUpdateExistingContextDetails(arg_contexts_info) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec,
+      null,
+      [arg_contexts_info],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.webnn_internals.mojom.Page.getRemote = function() {
@@ -406,6 +461,7 @@ mojo.internal.bindings.webnn_internals.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('webnn_internals.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -463,6 +519,13 @@ mojo.internal.bindings.webnn_internals.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGraphRecordEnabledChanged');
           const result = this.impl.onGraphRecordEnabledChanged(params.arg_is_enabled);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onUpdateExistingContextDetails');
+          const result = this.impl.onUpdateExistingContextDetails(params.arg_contexts_info);
           break;
         }
       }
@@ -633,6 +696,17 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ParamsSpec, 'webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParamsSpec, 'webnn_internals.mojom.PageHandler_RequestExistingContextsDetails_ResponseParams', [
+      mojo.internal.StructField('arg_contexts_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.webnn_internals.mojom.Page_ExportGraphRecorded_ParamsSpec, 'webnn_internals.mojom.Page_ExportGraphRecorded_Params', [
       mojo.internal.StructField('arg_json_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
@@ -641,6 +715,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_ParamsSpec, 'webnn_internals.mojom.Page_OnGraphRecordEnabledChanged_Params', [
       mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn_internals.mojom.Page_OnUpdateExistingContextDetails_ParamsSpec, 'webnn_internals.mojom.Page_OnUpdateExistingContextDetails_Params', [
+      mojo.internal.StructField('arg_contexts_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

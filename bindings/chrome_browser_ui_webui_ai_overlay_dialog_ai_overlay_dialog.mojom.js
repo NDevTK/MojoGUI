@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,6 +140,14 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_Para
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.Page = mojo.internal.bindings.ai_overlay_dialog.mojom.Page || {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$ = {};
@@ -317,12 +325,20 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemote = class {
   getMockAudioData() {
     return this.$.getMockAudioData();
   }
+  getToolDefinitions() {
+    return this.$.getToolDefinitions();
+  }
+  executeTool(arg_name, arg_json_args) {
+    return this.$.executeTool(arg_name, arg_json_args);
+  }
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -333,6 +349,24 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = cl
       mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ParamsSpec,
       mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec,
       [],
+      false);
+  }
+
+  getToolDefinitions() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec,
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  executeTool(arg_name, arg_json_args) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec,
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec,
+      [arg_name, arg_json_args],
       false);
   }
 
@@ -354,6 +388,8 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -413,6 +449,42 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getMockAudioData FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getToolDefinitions');
+          const result = this.impl.getToolDefinitions();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_tool_definitions_json' in response) ? response['arg_tool_definitions_json'] : response;
+              const resp_obj = { 'arg_tool_definitions_json': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getToolDefinitions FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.executeTool');
+          const result = this.impl.executeTool(params.arg_name, params.arg_json_args);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_json_result' in response) ? response['arg_json_result'] : response;
+              const resp_obj = { 'arg_json_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] executeTool FAILED:', e));
           }
           break;
         }
@@ -602,6 +674,30 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParams', [
       mojo.internal.StructField('arg_json_data', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetToolDefinitions_ResponseParams', [
+      mojo.internal.StructField('arg_tool_definitions_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_ExecuteTool_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_args', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_ExecuteTool_ResponseParams', [
+      mojo.internal.StructField('arg_json_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7757.0';
+        const versionStr = window.mojoVersion || '148.0.7759.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,8 +126,6 @@ mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
-mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec = mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec || { $: {} };
-if (mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.LoginSessionService = mojo.internal.bindings.remoting.mojom.LoginSessionService || {};
 mojo.internal.bindings.remoting.mojom.LoginSessionServiceSpec = mojo.internal.bindings.remoting.mojom.LoginSessionServiceSpec || { $ : {} };
 if (mojo.internal.bindings.remoting.mojom.LoginSessionServiceSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.LoginSessionServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.LoginSessionServiceSpec.$ = {};
@@ -284,17 +282,6 @@ mojo.internal.bindings.remoting.mojom.LoginSessionServiceRequest = mojo.internal
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
-
-// Struct: LoginSessionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.LoginSessionInfoSpec, 'remoting.mojom.LoginSessionInfo', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_xdg_current_desktop', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dbus_session_bus_address', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wayland_display', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.LoginSessionService_IsRunningInCrdSession_ParamsSpec, 'remoting.mojom.LoginSessionService_IsRunningInCrdSession_Params', [
     ],
