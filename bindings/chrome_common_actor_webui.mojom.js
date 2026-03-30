@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7761.0';
+        const versionStr = window.mojoVersion || '148.0.7763.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.actor.webui.mojom.TaskDurationSpec = mojo.internal.bindings.actor.webui.mojom.TaskDurationSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec = mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDurationSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.webui.mojom.CredentialTypeSpec = mojo.internal.bindings.actor.webui.mojom.CredentialTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec = mojo.internal.bindings.actor.webui.mojom.SelectCredentialDialogErrorReasonSpec || { $: mojo.internal.Enum().$ };
@@ -190,6 +191,12 @@ mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mo
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: TaskDuration
+mojo.internal.bindings.actor.webui.mojom.TaskDuration = {
+  kDefault: 1,
+  kTransient: 2,
+};
 
 // Enum: UserGrantedPermissionDuration
 mojo.internal.bindings.actor.webui.mojom.UserGrantedPermissionDuration = {
@@ -272,8 +279,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.actor.webui.mojom.TaskOptionsSpec, 'actor.webui.mojom.TaskOptions', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.actor.webui.mojom.TaskDurationSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: Credential
 mojo.internal.Struct(
