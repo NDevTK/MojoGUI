@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7763.0';
+        const versionStr = window.mojoVersion || '148.0.7765.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -253,7 +253,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shrinks_standalone_images_to_fit', 81, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_text_areas_are_resizable', 81, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_allow_scripts_to_close_windows', 81, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_window_focus_without_user_gesture', 81, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_unrestricted_window_focus', 81, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_remote_fonts_enabled', 81, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_javascript_can_access_clipboard', 81, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_dns_prefetching_enabled', 81, 6, mojo.internal.Bool, false, false, 0, undefined),

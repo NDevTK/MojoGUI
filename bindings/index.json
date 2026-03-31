@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-30T10:55:27.883891Z",
-  "version": "148.0.7763.0",
+  "generated_at": "2026-03-31T10:46:22.999705Z",
+  "version": "148.0.7765.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10133,7 +10133,7 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "UpdateSkill",
+        "UpdateSkills",
         "RemoveSkill",
         "Update1PMap"
       ],

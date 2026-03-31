@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7763.0';
+        const versionStr = window.mojoVersion || '148.0.7765.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -181,6 +181,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineType = {
   kArcHttp: 18,
   kArcPing: 19,
   kArcDnsResolution: 20,
+  kGoogleServicesConnectivity: 21,
 };
 
 // Enum: StandardRoutineResult
@@ -524,8 +525,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
       mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, null, false, 0, undefined),

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7763.0';
+        const versionStr = window.mojoVersion || '148.0.7765.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,8 +133,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabActiveLocationSpec = mojo.in
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarButtonTypeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarButtonTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec || { $: {} };
-if (mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ReloadControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ReloadControlStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ReloadControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ReloadControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ReloadControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabsControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabsControlStateSpec || { $: {} };
@@ -230,11 +230,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
-// Struct: ButtonState
+// Struct: BackForwardButtonState
 mojo.internal.Struct(
-    mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec, 'toolbar_ui_api.mojom.ButtonState', [
+    mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec, 'toolbar_ui_api.mojom.BackForwardButtonState', [
       mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_visible', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_context_menu_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -260,8 +261,8 @@ mojo.internal.Struct(
 // Struct: BackForwardControlState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec, 'toolbar_ui_api.mojom.BackForwardControlState', [
-      mojo.internal.StructField('arg_back_button_state', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_forward_button_state', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.ButtonStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_back_button_state', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_forward_button_state', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardButtonStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_back_button_leading_margin', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

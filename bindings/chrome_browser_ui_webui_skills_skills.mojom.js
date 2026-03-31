@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7763.0';
+        const versionStr = window.mojoVersion || '148.0.7765.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -164,8 +164,8 @@ mojo.internal.bindings.skills.mojom.SkillsPage = mojo.internal.bindings.skills.m
 mojo.internal.bindings.skills.mojom.SkillsPageSpec = mojo.internal.bindings.skills.mojom.SkillsPageSpec || { $ : {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPage.$interfaceName = 'skills.mojom.SkillsPage';
-mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPage_RemoveSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPage_RemoveSkill_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPage_RemoveSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPage_RemoveSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPage_RemoveSkill_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPage_Update1PMap_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPage_Update1PMap_ParamsSpec || { $: {} };
@@ -695,8 +695,8 @@ mojo.internal.bindings.skills.mojom.SkillsPageRemote = class {
   close() {
     this.proxy.close();
   }
-  updateSkill(arg_skill) {
-    return this.$.updateSkill(arg_skill);
+  updateSkills(arg_skills) {
+    return this.$.updateSkills(arg_skills);
   }
   removeSkill(arg_skill_id) {
     return this.$.removeSkill(arg_skill_id);
@@ -716,12 +716,12 @@ mojo.internal.bindings.skills.mojom.SkillsPageRemoteCallHandler = class {
     ]);
   }
 
-  updateSkill(arg_skill) {
+  updateSkills(arg_skills) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec,
+      mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec,
       null,
-      [arg_skill],
+      [arg_skills],
       false);
   }
 
@@ -809,9 +809,9 @@ mojo.internal.bindings.skills.mojom.SkillsPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateSkill');
-          const result = this.impl.updateSkill(params.arg_skill);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateSkills');
+          const result = this.impl.updateSkills(params.arg_skills);
           break;
         }
         case 1: {
@@ -1261,8 +1261,8 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkill_ParamsSpec, 'skills.mojom.SkillsPage_UpdateSkill_Params', [
-      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.skills.mojom.SkillSpec, null, false, 0, undefined),
+    mojo.internal.bindings.skills.mojom.SkillsPage_UpdateSkills_ParamsSpec, 'skills.mojom.SkillsPage_UpdateSkills_Params', [
+      mojo.internal.StructField('arg_skills', 0, 0, mojo.internal.Array(mojo.internal.bindings.skills.mojom.SkillSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7763.0';
+        const versionStr = window.mojoVersion || '148.0.7765.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -716,6 +716,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_aim_eligible', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_cobrowse_eligible', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_context_sharing_enabled', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_default_search_engine_google', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(
