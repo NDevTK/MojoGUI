@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-31T10:46:22.999705Z",
-  "version": "148.0.7765.0",
+  "generated_at": "2026-04-01T10:47:12.139743Z",
+  "version": "148.0.7766.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3887,7 +3887,8 @@
         "SwitchConversation",
         "RegisterConversation",
         "SetOnboardingCompleted",
-        "SubscribeToTabData"
+        "SubscribeToTabData",
+        "SubscribeToTabFavicon"
       ],
       "metadata": {
         "usage": {
@@ -3906,6 +3907,24 @@
       "file": "chrome_browser_glic_host_glic.mojom.js",
       "methods": [
         "OnTabDataChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "TabFaviconHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "OnTabFaviconChanged"
       ],
       "metadata": {
         "usage": {
@@ -4762,7 +4781,8 @@
       "methods": [
         "GetMockAudioData",
         "GetToolDefinitions",
-        "ExecuteTool"
+        "ExecuteTool",
+        "UpdateAudioEnergy"
       ],
       "metadata": {
         "usage": {
@@ -11060,7 +11080,8 @@
         "Minimize",
         "Maximize",
         "Restore",
-        "Close"
+        "Close",
+        "ShowBackForwardMenu"
       ],
       "metadata": {
         "usage": {
@@ -44789,6 +44810,7 @@
       "methods": [
         "GetPendingBackend",
         "DidGenerateCacheableMetadata",
+        "DidGenerateSourceKeyedCacheableMetadata",
         "FetchCachedCode",
         "ClearCodeCacheEntry",
         "DidGenerateCacheableMetadataInCacheStorage"
@@ -53948,7 +53970,9 @@
       "source": "components/browser_apis/browser_controls/browser_controls_api.mojom",
       "module": "browser_controls_api.mojom",
       "imports": [
-        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom"
+        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom"
       ]
     },
     {
@@ -63055,7 +63079,6 @@
         "components/persistent_cache/mojom/persistent_cache.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/time.mojom",
-        "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
     },
