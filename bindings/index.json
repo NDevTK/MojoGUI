@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-01T10:47:12.139743Z",
-  "version": "148.0.7766.0",
+  "generated_at": "2026-04-02T10:43:55.609187Z",
+  "version": "148.0.7768.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4780,8 +4780,6 @@
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
         "GetMockAudioData",
-        "GetToolDefinitions",
-        "ExecuteTool",
         "UpdateAudioEnergy"
       ],
       "metadata": {
@@ -4825,6 +4823,35 @@
           "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
+      }
+    },
+    {
+      "name": "AiOverlayTools",
+      "module": "ai_overlay_dialog.mojom",
+      "file": "chrome_browser_ui_webui_ai_overlay_dialog_tools_tools.mojom.js",
+      "methods": [
+        "OpenUrl",
+        "PerformSearch",
+        "SwitchTab",
+        "CloseCurrentTab",
+        "GoBack",
+        "GoForward",
+        "ReloadPage",
+        "FindAndHighlight",
+        "Scroll",
+        "PlayVideo",
+        "PauseVideo",
+        "SeekToTimestamp"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: ai_overlay_dialog.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -10596,6 +10623,7 @@
         "GetEnterpriseCompanionState",
         "GetAppStates",
         "ShowDirectory",
+        "RecordFilterChange",
         "UnzipUpdaterHistoryFiles"
       ],
       "metadata": {
@@ -50473,7 +50501,17 @@
       "filename": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
       "module": "ai_overlay_dialog.mojom",
-      "imports": []
+      "imports": [
+        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_ai_overlay_dialog_tools_tools.mojom.js",
+      "source": "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
+      "module": "ai_overlay_dialog.mojom",
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_app_home_app_home.mojom.js",
@@ -56013,6 +56051,7 @@
       "imports": [
         "content/public/common/drop_data.mojom",
         "mojo/public/mojom/base/file_path.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/events/mojom/event.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/image/mojom/image.mojom",
@@ -60773,6 +60812,7 @@
         "services/viz/public/mojom/compositing/frame_deadline.mojom",
         "services/viz/public/mojom/compositing/frame_interval_inputs.mojom",
         "services/viz/public/mojom/compositing/region_capture_bounds.mojom",
+        "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
         "services/viz/public/mojom/compositing/trees_in_viz_timing.mojom",
         "services/viz/public/mojom/compositing/selection.mojom",
         "services/viz/public/mojom/compositing/surface_id.mojom",
