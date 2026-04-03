@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.RedirectBehaviorSpec = mojo.internal.bindings.network.mojom.RedirectBehaviorSpec || { $: mojo.internal.Enum().$ };
@@ -133,6 +134,11 @@ mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec = mojo.internal.bin
 if (mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$.structSpec && mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$ = {};
 mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec = mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: ConnectionAllowlistIssue
 mojo.internal.bindings.network.mojom.ConnectionAllowlistIssue = {
@@ -172,7 +178,8 @@ mojo.internal.Struct(
 // Struct: ConnectionAllowlists
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec, 'network.mojom.ConnectionAllowlists', [
-      mojo.internal.StructField('arg_enforced', 0, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only', 8, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enforced', 8, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only', 16, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

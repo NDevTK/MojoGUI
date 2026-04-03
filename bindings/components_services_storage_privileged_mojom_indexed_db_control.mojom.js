@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,7 +127,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec = mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.storage.mojom.IndexedDBObserver = mojo.internal.bindings.storage.mojom.IndexedDBObserver || {};
 mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec || { $ : {} };
 if (mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$.structSpec && mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.storage.mojom.IndexedDBObserverSpec.$ = {};
@@ -211,13 +210,6 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestPendingReceiver = mojo.
 mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec = mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
-
-// Enum: ForceCloseReason
-mojo.internal.bindings.storage.mojom.ForceCloseReason = {
-  FORCE_CLOSE_DELETE_ORIGIN: 0,
-  FORCE_CLOSE_BACKING_STORE_FAILURE: 1,
-  FORCE_CLOSE_INTERNALS_PAGE: 2,
-};
 
 // Interface: IndexedDBObserver
 mojo.internal.bindings.storage.mojom.IndexedDBObserverPendingReceiver = class {
@@ -408,8 +400,8 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemote = class {
   bindIndexedDB(arg_bucket_locator, arg_client_info, arg_client_state_checker_remote, arg_receiver) {
     return this.$.bindIndexedDB(arg_bucket_locator, arg_client_info, arg_client_state_checker_remote, arg_receiver);
   }
-  forceClose(arg_bucket_id, arg_reason) {
-    return this.$.forceClose(arg_bucket_id, arg_reason);
+  forceClose(arg_bucket_id) {
+    return this.$.forceClose(arg_bucket_id);
   }
   downloadBucketData(arg_bucket_id) {
     return this.$.downloadBucketData(arg_bucket_id);
@@ -463,12 +455,12 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       false);
   }
 
-  forceClose(arg_bucket_id, arg_reason) {
+  forceClose(arg_bucket_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec,
-      [arg_bucket_id, arg_reason],
+      [arg_bucket_id],
       false);
   }
 
@@ -626,7 +618,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceClose');
-          const result = this.impl.forceClose(params.arg_bucket_id, params.arg_reason);
+          const result = this.impl.forceClose(params.arg_bucket_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -777,9 +769,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_Params', [
       mojo.internal.StructField('arg_bucket_id', 0, 0, mojo.internal.bindings.storage.mojom.BucketIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_ResponseParams', [

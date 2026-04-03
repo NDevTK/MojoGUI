@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-02T10:43:55.609187Z",
-  "version": "148.0.7768.0",
+  "generated_at": "2026-04-03T10:35:15.482294Z",
+  "version": "148.0.7770.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8336,7 +8336,8 @@
       "methods": [
         "RequestPromos",
         "OnPromoShown",
-        "OnPromoClicked"
+        "OnPromoClicked",
+        "OnPromoDismissed"
       ],
       "metadata": {
         "usage": {
@@ -20984,8 +20985,7 @@
         "CloseScanner",
         "StartPreparedScan",
         "ReadScanData",
-        "SetOptions",
-        "GetOptionGroups"
+        "SetOptions"
       ],
       "metadata": {
         "usage": {
@@ -45797,7 +45797,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -45817,11 +45821,15 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: BrowserInterfaceBroker (Global Broker)"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ]
       }
     },
     {
@@ -47241,7 +47249,6 @@
       "file": "third_party_blink_public_mojom_shared_storage_shared_storage.mojom.js",
       "methods": [
         "CreateWorklet",
-        "SharedStorageGet",
         "SharedStorageUpdate",
         "SharedStorageBatchUpdate"
       ],
@@ -53586,17 +53593,6 @@
       "imports": []
     },
     {
-      "filename": "chromeos_crosapi_mojom_video_conference.mojom.js",
-      "source": "chromeos/crosapi/mojom/video_conference.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
       "source": "chromeos/services/chromebox_for_meetings/public/mojom/cfm_browser.mojom",
       "module": "chromeos.cfm.mojom",
@@ -58920,7 +58916,9 @@
       "filename": "services_network_public_mojom_connection_allowlist.mojom.js",
       "source": "services/network/public/mojom/connection_allowlist.mojom",
       "module": "network.mojom",
-      "imports": []
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "services_network_public_mojom_connection_change_observer_client.mojom.js",

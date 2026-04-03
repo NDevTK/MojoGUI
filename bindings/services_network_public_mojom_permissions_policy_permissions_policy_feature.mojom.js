@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -221,7 +221,6 @@ mojo.internal.bindings.network.mojom.PermissionsPolicyFeature = {
   kWebAppInstallation: 124,
   kControlledFrame: 125,
   kDirectSocketsPrivate: 126,
-  kFencedUnpartitionedStorageRead: 127,
   kDeferredFetchMinimal: 128,
   kClientHintUAHighEntropyValues: 129,
   kSummarizer: 130,

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,7 +128,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec = mojo.internal.bindings.blink.mojom.SharedStorageDataOriginTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec = mojo.internal.bindings.blink.mojom.SharedStorageUrlWithMetadataSpec || { $: {} };
@@ -155,10 +154,6 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_Pa
 if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$ = {};
-mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec || { $: {} };
@@ -195,9 +190,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec = mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec = mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
@@ -205,13 +197,6 @@ mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.O
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
-
-// Enum: SharedStorageGetStatus
-mojo.internal.bindings.blink.mojom.SharedStorageGetStatus = {
-  kSuccess: 0,
-  kNotFound: 1,
-  kError: 2,
-};
 
 // Enum: SharedStorageWorkletCreationMethod
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethod = {
@@ -435,9 +420,6 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemote = class {
   createWorklet(arg_script_source_url, arg_data_origin, arg_data_origin_type, arg_credentials_mode, arg_creation_method, arg_origin_trial_features, arg_worklet_host) {
     return this.$.createWorklet(arg_script_source_url, arg_data_origin, arg_data_origin_type, arg_credentials_mode, arg_creation_method, arg_origin_trial_features, arg_worklet_host);
   }
-  sharedStorageGet(arg_key) {
-    return this.$.sharedStorageGet(arg_key);
-  }
   sharedStorageUpdate(arg_method_with_options) {
     return this.$.sharedStorageUpdate(arg_method_with_options);
   }
@@ -453,7 +435,6 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -466,18 +447,9 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       false);
   }
 
-  sharedStorageGet(arg_key) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec,
-      [arg_key],
-      false);
-  }
-
   sharedStorageUpdate(arg_method_with_options) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec,
       [arg_method_with_options],
@@ -486,7 +458,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
 
   sharedStorageBatchUpdate(arg_methods_with_options, arg_with_lock) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec,
       [arg_methods_with_options, arg_with_lock],
@@ -511,7 +483,6 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedStorageDocumentService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -577,23 +548,6 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
-          const result = this.impl.sharedStorageGet(params.arg_key);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const resp_obj = response;
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] sharedStorageGet FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.arg_method_with_options);
@@ -610,7 +564,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceReceiver = class 
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
@@ -718,20 +672,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageGet_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_Params', [

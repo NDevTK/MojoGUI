@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -139,6 +139,8 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoShown_ParamsSpec =
 if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoShown_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoShown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoShown_ParamsSpec.$ = {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec.$ = {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient = mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient || {};
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec = mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec || { $ : {} };
 if (mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$.structSpec && mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientSpec.$ = {};
@@ -198,12 +200,16 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote = class {
   onPromoClicked(arg_promo_id) {
     return this.$.onPromoClicked(arg_promo_id);
   }
+  onPromoDismissed(arg_promo_id) {
+    return this.$.onPromoDismissed(arg_promo_id);
+  }
 };
 
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -237,6 +243,15 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       false);
   }
 
+  onPromoDismissed(arg_promo_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec,
+      null,
+      [arg_promo_id],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
@@ -255,6 +270,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ntp_promo.mojom.NtpPromoHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -320,6 +336,13 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
           const result = this.impl.onPromoClicked(params.arg_promo_id);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onPromoDismissed');
+          const result = this.impl.onPromoDismissed(params.arg_promo_id);
           break;
         }
       }
@@ -630,6 +653,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params', [
+      mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromoDismissed_Params', [
       mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);

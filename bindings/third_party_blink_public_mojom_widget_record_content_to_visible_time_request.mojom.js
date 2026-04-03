@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,22 +126,58 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec = mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec.$.structSpec && mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec.$ = {};
+mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec = mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec.$.structSpec && mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec.$ = {};
+mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec = mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec.$.structSpec && mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec.$ = {};
 mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec = mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec = mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
+// Union: VisibleTimeEventReason
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec, 'blink.mojom.VisibleTimeEventReason', {
+      'arg_tab_switch': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec,
+        'nullable': false,
+      },
+      'arg_bfcache_restore': {
+        'ordinal': 1,
+        'type': mojo.internal.Bool,
+        'nullable': false,
+      },
+    });
+
+// Struct: VisibleTimeTabSwitchReason
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.VisibleTimeTabSwitchReasonSpec, 'blink.mojom.VisibleTimeTabSwitchReason', [
+      mojo.internal.StructField('arg_destination_is_loaded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: VisibleTimeEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec, 'blink.mojom.VisibleTimeEvent', [
+      mojo.internal.StructField('arg_event_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.blink.mojom.VisibleTimeEventReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: RecordContentToVisibleTimeRequest
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, 'blink.mojom.RecordContentToVisibleTimeRequest', [
-      mojo.internal.StructField('arg_event_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_is_loaded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_reason_tab_switching', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_reason_bfcache_restore', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.VisibleTimeEventSpec, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

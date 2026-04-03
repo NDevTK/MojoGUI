@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -195,10 +195,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = mojo.i
 if (mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
@@ -331,9 +327,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemote = class {
   setOptions(arg_scanner_handle, arg_options) {
     return this.$.setOptions(arg_scanner_handle, arg_options);
   }
-  getOptionGroups(arg_scanner_handle) {
-    return this.$.getOptionGroups(arg_scanner_handle);
-  }
 };
 
 mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
@@ -345,7 +338,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       { explicit: 5 },
       { explicit: 6 },
       { explicit: 7 },
-      { explicit: 8 },
     ]);
   }
 
@@ -394,15 +386,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       false);
   }
 
-  getOptionGroups(arg_scanner_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
-      [arg_scanner_handle],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.crosapi.mojom.DocumentScan.getRemote = function() {
@@ -426,7 +409,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
       { explicit: 5 },
       { explicit: 6 },
       { explicit: 7 },
-      { explicit: 8 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -557,24 +539,6 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] setOptions FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getOptionGroups');
-          const result = this.impl.getOptionGroups(params.arg_scanner_handle);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getOptionGroups FAILED:', e));
           }
           break;
         }
@@ -885,18 +849,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_SetOptions_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.SetOptionsResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec, 'crosapi.mojom.DocumentScan_GetOptionGroups_Params', [
-      mojo.internal.StructField('arg_scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.GetOptionGroupsResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

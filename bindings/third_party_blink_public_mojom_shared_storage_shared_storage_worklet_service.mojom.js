@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec = mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.GetInterestGroupsResultSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec || { $: {} };
@@ -216,9 +217,6 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemote = mojo.internal.
 mojo.internal.bindings.blink.mojom.PrivateAggregationHostPendingReceiver = mojo.internal.bindings.blink.mojom.PrivateAggregationHostPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
-mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec = mojo.internal.bindings.blink.mojom.SharedStorageGetStatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
@@ -249,6 +247,13 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryPendingReceiver = mojo.inte
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: SharedStorageGetStatus
+mojo.internal.bindings.blink.mojom.SharedStorageGetStatus = {
+  kSuccess: 0,
+  kNotFound: 1,
+  kError: 2,
+};
 
 // Interface: SharedStorageEntriesListener
 mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerPendingReceiver = class {

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7768.0';
+        const versionStr = window.mojoVersion || '148.0.7770.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -262,8 +262,8 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemote = class {
   close() {
     this.proxy.close();
   }
-  requestPlay() {
-    return this.$.requestPlay();
+  requestPlay(arg_triggered_by_user) {
+    return this.$.requestPlay(arg_triggered_by_user);
   }
   requestPause(arg_triggered_by_user) {
     return this.$.requestPause(arg_triggered_by_user);
@@ -331,12 +331,12 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
     ]);
   }
 
-  requestPlay() {
+  requestPlay(arg_triggered_by_user) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec,
       null,
-      [],
+      [arg_triggered_by_user],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPlay');
-          const result = this.impl.requestPlay();
+          const result = this.impl.requestPlay(params.arg_triggered_by_user);
           break;
         }
         case 1: {
@@ -1343,8 +1343,9 @@ mojo.internal.bindings.media.mojom.MediaPlayerHostRequest = mojo.internal.bindin
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec, 'media.mojom.MediaPlayer_RequestPlay_Params', [
+      mojo.internal.StructField('arg_triggered_by_user', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayer_RequestPause_ParamsSpec, 'media.mojom.MediaPlayer_RequestPause_Params', [
