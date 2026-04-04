@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-03T10:35:15.482294Z",
-  "version": "148.0.7770.0",
+  "generated_at": "2026-04-04T10:25:01.757490Z",
+  "version": "148.0.7772.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3384,7 +3384,7 @@
         "ShowThreadHistory",
         "IsShownInTab",
         "OpenMyActivityUi",
-        "OpenHelpUi",
+        "OpenFeedbackUi",
         "OpenOnboardingHelpUi",
         "OpenUrl",
         "MoveTaskUiToNewTab",
@@ -7831,7 +7831,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -8835,7 +8834,6 @@
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup_aim.mojom.js",
       "methods": [
         "RequestClose",
-        "NavigateCurrentTab",
         "ShowContextMenu"
       ],
       "metadata": {
@@ -21059,7 +21057,6 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "GetEulaUrl",
         "ShowSystemPrintSettings",
         "CreatePrintJob",
         "CancelPrintJob",
@@ -21067,11 +21064,8 @@
         "ChoosePrintServers",
         "AddPrintServerObserver",
         "GetPolicies",
-        "GetUsernamePerPolicy",
         "GetPrinterTypeDenyList",
         "AddPrintJobObserver",
-        "GetOAuthAccessToken",
-        "GetIppClientInfo",
         "AddLocalPrintersObserver"
       ],
       "metadata": {
@@ -29154,8 +29148,9 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -36982,6 +36977,7 @@
         "GetPrivateStateTokenRedemptionRecords",
         "DeleteStoredTrustTokens",
         "SetBlockTrustTokens",
+        "SetDohFallbackUpgradeAllowed",
         "ClearNetworkingHistoryBetween",
         "ClearHttpCache",
         "ComputeHttpCacheSize",
@@ -39455,8 +39451,9 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },

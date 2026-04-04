@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -181,8 +181,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseP
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$ = {};
-mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec || { $: {} };
@@ -355,8 +355,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemote = class {
   openMyActivityUi() {
     return this.$.openMyActivityUi();
   }
-  openHelpUi() {
-    return this.$.openHelpUi();
+  openFeedbackUi() {
+    return this.$.openFeedbackUi();
   }
   openOnboardingHelpUi() {
     return this.$.openOnboardingHelpUi();
@@ -528,10 +528,10 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       false);
   }
 
-  openHelpUi() {
+  openFeedbackUi() {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec,
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec,
       null,
       [],
       false);
@@ -874,9 +874,9 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openHelpUi');
-          const result = this.impl.openHelpUi();
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openFeedbackUi');
+          const result = this.impl.openFeedbackUi();
           break;
         }
         case 13: {
@@ -1875,7 +1875,7 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec, 'contextual_tasks.mojom.PageHandler_OpenHelpUi_Params', [
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenFeedbackUi_ParamsSpec, 'contextual_tasks.mojom.PageHandler_OpenFeedbackUi_Params', [
     ],
     [[0, 8]]);
 

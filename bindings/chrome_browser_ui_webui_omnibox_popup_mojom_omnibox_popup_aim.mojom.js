@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -141,8 +141,6 @@ if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerSpec.$.structSpec 
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler.$interfaceName = 'omnibox_popup_aim.mojom.PageHandler';
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$ = {};
-mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec = mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup_aim.mojom.Page = mojo.internal.bindings.omnibox_popup_aim.mojom.Page || {};
@@ -169,9 +167,6 @@ mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.Po
 mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
 mojo.internal.bindings.searchbox.mojom.SearchContextSpec = mojo.internal.bindings.searchbox.mojom.SearchContextSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
-mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver = class {
@@ -341,9 +336,6 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemote = class {
   requestClose() {
     return this.$.requestClose();
   }
-  navigateCurrentTab(arg_url) {
-    return this.$.navigateCurrentTab(arg_url);
-  }
   showContextMenu(arg_point) {
     return this.$.showContextMenu(arg_point);
   }
@@ -353,7 +345,6 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -368,18 +359,9 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
       false);
   }
 
-  navigateCurrentTab(arg_url) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
-      null,
-      [arg_url],
-      false);
-  }
-
   showContextMenu(arg_point) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [arg_point],
@@ -404,7 +386,6 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup_aim.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -458,13 +439,6 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.navigateCurrentTab');
-          const result = this.impl.navigateCurrentTab(params.arg_url);
-          break;
-        }
-        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
@@ -727,12 +701,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_RequestClose_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_Params', [

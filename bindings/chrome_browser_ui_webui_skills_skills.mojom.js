@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -214,6 +214,9 @@ mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec = mojo.internal.b
 mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
 mojo.internal.bindings.skills.mojom = mojo.internal.bindings.skills.mojom || {};
 mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec = mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skills = mojo.internal.bindings.skills || {};
+mojo.internal.bindings.skills.mojom = mojo.internal.bindings.skills.mojom || {};
+mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcomeSpec = mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcomeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.skills.mojom.PageHandlerFactoryPendingReceiver = class {
@@ -872,8 +875,8 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  submitSkill(arg_skill) {
-    return this.$.submitSkill(arg_skill);
+  submitSkill(arg_skill, arg_refinement_outcome) {
+    return this.$.submitSkill(arg_skill, arg_refinement_outcome);
   }
   deleteSkill(arg_skill_id) {
     return this.$.deleteSkill(arg_skill_id);
@@ -913,12 +916,12 @@ mojo.internal.bindings.skills.mojom.DialogHandlerRemoteCallHandler = class {
     ]);
   }
 
-  submitSkill(arg_skill) {
+  submitSkill(arg_skill, arg_refinement_outcome) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec,
       mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ResponseParamsSpec,
-      [arg_skill],
+      [arg_skill, arg_refinement_outcome],
       false);
   }
 
@@ -1058,7 +1061,7 @@ mojo.internal.bindings.skills.mojom.DialogHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitSkill');
-          const result = this.impl.submitSkill(params.arg_skill);
+          const result = this.impl.submitSkill(params.arg_skill, params.arg_refinement_outcome);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1281,8 +1284,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ParamsSpec, 'skills.mojom.DialogHandler_SubmitSkill_Params', [
       mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.skills.mojom.SkillSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refinement_outcome', 8, 0, mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcomeSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.DialogHandler_SubmitSkill_ResponseParamsSpec, 'skills.mojom.DialogHandler_SubmitSkill_ResponseParams', [

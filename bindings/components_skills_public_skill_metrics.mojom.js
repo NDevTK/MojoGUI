@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec = mojo.internal.bindings.skills.mojom.SkillsManagementPageSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec = mojo.internal.bindings.skills.mojom.SkillsManagementActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcomeSpec = mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcomeSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: SkillsManagementPage
 mojo.internal.bindings.skills.mojom.SkillsManagementPage = {
@@ -144,6 +145,13 @@ mojo.internal.bindings.skills.mojom.SkillsManagementAction = {
   kClickedDeleteSkill: 3,
   kClickedCopyInstructions: 4,
   kClickedBrowseSkills: 5,
+};
+
+// Enum: SkillsPromptRefinementOutcome
+mojo.internal.bindings.skills.mojom.SkillsPromptRefinementOutcome = {
+  kNotRefined: 0,
+  kUsedRefinedPrompt: 1,
+  kRevertedAndNotUsed: 2,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

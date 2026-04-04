@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -5036,7 +5036,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kV8Origin_FromURL_Method: 5727,
   kV8Origin_Parse_Method: 5728,
   kExtendedTextMetrics: 5729,
-  kUseCssSizingProperties: 5730,
+  kOBSOLETE_UseCssSizingProperties: 5730,
   kSharedStorageAPIAll: 5731,
   kGamepadRawInputChangeEventListener: 5732,
   kLetterSpacingWithMargin: 5733,

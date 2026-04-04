@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -247,6 +247,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
   kTaskManager: 18,
   kDevTools: 19,
   kTabSearch: 20,
+  kSidePanelShowContextualTasks: 21,
+  kSidePanelShowLens: 22,
+  kSidePanelShowAboutThisSite: 23,
+  kSidePanelShowCustomizeChrome: 24,
+  kSidePanelShowShoppingInsights: 25,
+  kSidePanelShowMerchantTrust: 26,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -335,8 +341,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_highlighted', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tooltip', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: LocationBarState
 mojo.internal.Struct(

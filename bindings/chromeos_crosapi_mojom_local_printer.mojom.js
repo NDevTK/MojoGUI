@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,8 +140,6 @@ mojo.internal.bindings.crosapi.mojom.BackgroundGraphicsModeRestrictionSpec = moj
 mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec = mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec = mojo.internal.bindings.crosapi.mojom.PrintJobStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.PrintJobSourceSpec = mojo.internal.bindings.crosapi.mojom.PrintJobSourceSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec = mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec = mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec = mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec || { $: {} };
@@ -178,12 +176,6 @@ mojo.internal.bindings.crosapi.mojom.PoliciesSpec = mojo.internal.bindings.crosa
 if (mojo.internal.bindings.crosapi.mojom.PoliciesSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PoliciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PoliciesSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec = mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintJobUpdateSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec = mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec = mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec = mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.PrintServerObserver = mojo.internal.bindings.crosapi.mojom.PrintServerObserver || {};
 mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec = mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec || { $ : {} };
 if (mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.PrintServerObserverSpec.$ = {};
@@ -210,10 +202,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinter = mojo.internal.bindings.crosa
 mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec || { $ : {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinterSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter.$interfaceName = 'crosapi.mojom.LocalPrinter';
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec || { $: {} };
@@ -242,10 +230,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec = mojo.
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec || { $: {} };
@@ -254,23 +238,12 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$ = {};
-mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$ = {};
 mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec = mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
-mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
-mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
-mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec = mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -283,9 +256,6 @@ mojo.internal.bindings.printing.mojom.ColorModelSpec = mojo.internal.bindings.pr
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec = mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
-mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
-mojo.internal.bindings.printing.mojom.IppClientInfoSpec = mojo.internal.bindings.printing.mojom.IppClientInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec = mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -878,9 +848,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemote = class {
   close() {
     this.proxy.close();
   }
-  getEulaUrl(arg_printer_id) {
-    return this.$.getEulaUrl(arg_printer_id);
-  }
   showSystemPrintSettings() {
     return this.$.showSystemPrintSettings();
   }
@@ -902,20 +869,11 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemote = class {
   getPolicies() {
     return this.$.getPolicies();
   }
-  getUsernamePerPolicy() {
-    return this.$.getUsernamePerPolicy();
-  }
   getPrinterTypeDenyList() {
     return this.$.getPrinterTypeDenyList();
   }
   addPrintJobObserver(arg_observer, arg_source) {
     return this.$.addPrintJobObserver(arg_observer, arg_source);
-  }
-  getOAuthAccessToken(arg_printer_id) {
-    return this.$.getOAuthAccessToken(arg_printer_id);
-  }
-  getIppClientInfo(arg_printer_id) {
-    return this.$.getIppClientInfo(arg_printer_id);
   }
   addLocalPrintersObserver(arg_observer) {
     return this.$.addLocalPrintersObserver(arg_observer);
@@ -926,7 +884,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrinter', [
-      { explicit: 2 },
       { explicit: 4 },
       { explicit: 5 },
       { explicit: 12 },
@@ -934,27 +891,15 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       { explicit: 7 },
       { explicit: 8 },
       { explicit: 9 },
-      { explicit: 10 },
       { explicit: 11 },
       { explicit: 13 },
-      { explicit: 14 },
-      { explicit: 15 },
       { explicit: 16 },
     ]);
   }
 
-  getEulaUrl(arg_printer_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec,
-      [arg_printer_id],
-      false);
-  }
-
   showSystemPrintSettings() {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec,
       [],
@@ -963,7 +908,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   createPrintJob(arg_job) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec,
       [arg_job],
@@ -972,7 +917,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   cancelPrintJob(arg_printer_id, arg_job_id) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec,
       [arg_printer_id, arg_job_id],
@@ -981,7 +926,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   getPrintServersConfig() {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec,
       [],
@@ -990,7 +935,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   choosePrintServers(arg_print_server_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec,
       [arg_print_server_ids],
@@ -999,7 +944,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   addPrintServerObserver(arg_observer) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec,
       [arg_observer],
@@ -1008,25 +953,16 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   getPolicies() {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec,
       [],
       false);
   }
 
-  getUsernamePerPolicy() {
-    return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   getPrinterTypeDenyList() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec,
       [],
@@ -1035,34 +971,16 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
 
   addPrintJobObserver(arg_observer, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec,
       [arg_observer, arg_source],
       false);
   }
 
-  getOAuthAccessToken(arg_printer_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec,
-      [arg_printer_id],
-      false);
-  }
-
-  getIppClientInfo(arg_printer_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec,
-      [arg_printer_id],
-      false);
-  }
-
   addLocalPrintersObserver(arg_observer) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec,
       [arg_observer],
@@ -1087,7 +1005,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.LocalPrinter', [
-      { explicit: 2 },
       { explicit: 4 },
       { explicit: 5 },
       { explicit: 12 },
@@ -1095,11 +1012,8 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
       { explicit: 7 },
       { explicit: 8 },
       { explicit: 9 },
-      { explicit: 10 },
       { explicit: 11 },
       { explicit: 13 },
-      { explicit: 14 },
-      { explicit: 15 },
       { explicit: 16 },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1146,24 +1060,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getEulaUrl');
-          const result = this.impl.getEulaUrl(params.arg_printer_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_url' in response) ? response['arg_url'] : response;
-              const resp_obj = { 'arg_url': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getEulaUrl FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSystemPrintSettings');
           const result = this.impl.showSystemPrintSettings();
@@ -1179,7 +1075,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPrintJob');
@@ -1196,7 +1092,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPrintJob');
@@ -1214,7 +1110,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrintServersConfig');
@@ -1232,7 +1128,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.choosePrintServers');
@@ -1249,7 +1145,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintServerObserver');
@@ -1266,7 +1162,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPolicies');
@@ -1284,25 +1180,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getUsernamePerPolicy');
-          const result = this.impl.getUsernamePerPolicy();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_username' in response) ? response['arg_username'] : response;
-              const resp_obj = { 'arg_username': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getUsernamePerPolicy FAILED:', e));
-          }
-          break;
-        }
-        case 9: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrinterTypeDenyList');
@@ -1320,7 +1198,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPrintJobObserver');
@@ -1337,43 +1215,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           }
           break;
         }
-        case 11: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getOAuthAccessToken');
-          const result = this.impl.getOAuthAccessToken(params.arg_printer_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_oauth_result' in response) ? response['arg_oauth_result'] : response;
-              const resp_obj = { 'arg_oauth_result': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getOAuthAccessToken FAILED:', e));
-          }
-          break;
-        }
-        case 12: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getIppClientInfo');
-          const result = this.impl.getIppClientInfo(params.arg_printer_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_settings' in response) ? response['arg_settings'] : response;
-              const resp_obj = { 'arg_settings': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getIppClientInfo FAILED:', e));
-          }
-          break;
-        }
-        case 13: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLocalPrintersObserver');
@@ -1406,26 +1248,6 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRequest = mojo.internal.binding
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
-
-// Union: GetOAuthAccessTokenResult
-mojo.internal.Union(
-    mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec, 'crosapi.mojom.GetOAuthAccessTokenResult', {
-      'arg_none': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec,
-        'nullable': false,
-      },
-      'arg_token': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec,
-        'nullable': false,
-      },
-    });
 
 // Struct: LocalDestinationInfo
 mojo.internal.Struct(
@@ -1612,25 +1434,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pages_printed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
-
-// Struct: OAuthNotNeeded
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.OAuthNotNeededSpec, 'crosapi.mojom.OAuthNotNeeded', [
-    ],
-    [[0, 8]]);
-
-// Struct: OAuthError
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.OAuthErrorSpec, 'crosapi.mojom.OAuthError', [
-    ],
-    [[0, 8]]);
-
-// Struct: OAuthAccessToken
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.OAuthAccessTokenSpec, 'crosapi.mojom.OAuthAccessToken', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec, 'crosapi.mojom.PrintServerObserver_OnPrintServersChanged_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.crosapi.mojom.PrintServersConfigSpec, null, false, 0, undefined),
@@ -1661,18 +1464,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec, 'crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_Params', [
       mojo.internal.StructField('arg_printers', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.LocalDestinationInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetEulaUrl_Params', [
-      mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1755,17 +1546,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParams', [
-      mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_Params', [
     ],
     [[0, 8]]);
@@ -1787,30 +1567,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParams', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetOAuthAccessToken_Params', [
-      mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParams', [
-      mojo.internal.StructField('arg_oauth_result', 0, 0, mojo.internal.bindings.crosapi.mojom.GetOAuthAccessTokenResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec, 'crosapi.mojom.LocalPrinter_GetIppClientInfo_Params', [
-      mojo.internal.StructField('arg_printer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec, 'crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParams', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.IppClientInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec, 'crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_Params', [

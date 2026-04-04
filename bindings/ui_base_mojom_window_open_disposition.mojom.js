@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7770.0';
+        const versionStr = window.mojoVersion || '148.0.7772.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,6 +144,7 @@ mojo.internal.bindings.ui.mojom.WindowOpenDisposition = {
   IGNORE_ACTION: 9,
   SWITCH_TO_TAB: 10,
   NEW_PICTURE_IN_PICTURE: 11,
+  NEW_SPLIT_VIEW: 12,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
