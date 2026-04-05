@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '148.0.7772.0';
+        const versionStr = window.mojoVersion || '148.0.7774.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -253,6 +253,9 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
   kSidePanelShowCustomizeChrome: 24,
   kSidePanelShowShoppingInsights: 25,
   kSidePanelShowMerchantTrust: 26,
+  kSendSharedTabGroupFeedback: 27,
+  kSidePanelShowComments: 28,
+  kDivider: 29,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -343,8 +346,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_tooltip', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_accessibility_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_element_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: LocationBarState
 mojo.internal.Struct(
