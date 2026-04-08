@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-07T10:48:13.805345Z",
-  "version": "148.0.7776.0",
+  "generated_at": "2026-04-08T10:50:16.238365Z",
+  "version": "149.0.7779.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4166,7 +4166,6 @@
         "ObjectsReceived",
         "TextReceived",
         "RegionTextReceived",
-        "ThemeReceived",
         "ShouldShowContextualSearchBox",
         "PageContentTypeChanged",
         "SetPostRegionSelection",
@@ -9123,7 +9122,6 @@
       "methods": [
         "ReadPrefsWithPrefixes",
         "ReadContentSettings",
-        "GetTpcdMetadataGrants",
         "ContentSettingsPatternToString",
         "StringToContentSettingsPattern"
       ],
@@ -11551,6 +11549,27 @@
       }
     },
     {
+      "name": "IndigoOnboardingDialogHost",
+      "module": "chrome.mojom",
+      "file": "chrome_common_indigo_indigo.mojom.js",
+      "methods": [
+        "AcknowledgeChromeDisclaimer"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated",
+        "gates": [
+          "feature:kIndigo"
+        ]
+      }
+    },
+    {
       "name": "AppShim",
       "module": "chrome.mojom",
       "file": "chrome_common_mac_app_shim.mojom.js",
@@ -12195,7 +12214,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -14560,7 +14582,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -20347,7 +20372,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -20367,7 +20395,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -20394,7 +20425,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -20980,7 +21014,6 @@
       "file": "chromeos_crosapi_mojom_document_scan.mojom.js",
       "methods": [
         "OpenScanner",
-        "CloseScanner",
         "StartPreparedScan",
         "ReadScanData",
         "SetOptions"
@@ -21020,26 +21053,7 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "OnPrintJobUpdateDeprecated",
         "OnPrintJobUpdate"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "LocalPrintersObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": [
-        "OnLocalPrintersUpdated"
       ],
       "metadata": {
         "usage": {
@@ -21065,8 +21079,7 @@
         "AddPrintServerObserver",
         "GetPolicies",
         "GetPrinterTypeDenyList",
-        "AddPrintJobObserver",
-        "AddLocalPrintersObserver"
+        "AddPrintJobObserver"
       ],
       "metadata": {
         "usage": {
@@ -22223,7 +22236,8 @@
       "module": "accessibility_annotator_internals.mojom",
       "file": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
       "methods": [
-        "GetAnnotatedContent"
+        "GetAnnotatedContent",
+        "ClearAnnotatedContent"
       ],
       "metadata": {
         "usage": {
@@ -22579,7 +22593,8 @@
         "CloseNodes",
         "ActivateTab",
         "SetSelectedTabs",
-        "MoveNode"
+        "MoveNode",
+        "Update"
       ],
       "metadata": {
         "usage": {
@@ -22618,7 +22633,6 @@
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_strip_tab_strip_experiment_api.mojom.js",
       "methods": [
-        "UpdateTabGroupVisual",
         "ReplaceTabInSplit",
         "ShowTabContextMenu",
         "GetAllTabsForProfile"
@@ -25544,7 +25558,8 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kPrintPreviewCrosPrimary"
+          "feature:kPrintPreviewCrosPrimary",
+          "feature:kIndigo"
         ]
       }
     },
@@ -26490,7 +26505,8 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kPrintPreviewCrosPrimary"
+          "feature:kPrintPreviewCrosPrimary",
+          "feature:kIndigo"
         ]
       }
     },
@@ -27498,6 +27514,24 @@
       "file": "content_common_frame.mojom.js",
       "methods": [
         "RendererCancellationWindowEnded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: content.mojom.FrameHost.BeginNavigation"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "NavigationRendererIgnoreDuplicateNavigationListener",
+      "module": "content.mojom",
+      "file": "content_common_frame.mojom.js",
+      "methods": [
+        "DidIgnoreDuplicateNavigation"
       ],
       "metadata": {
         "usage": {
@@ -31748,7 +31782,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -37173,7 +37210,6 @@
         "EnableDataUseUpdates",
         "SetIPv6ReachabilityOverride",
         "SetNetworkAnnotationMonitor",
-        "SetTpcdMetadataGrants",
         "InterceptUrlLoaderForBodyDecoding",
         "DecodeContentEncoding",
         "SetTLS13EarlyDataEnabled",
@@ -38989,6 +39025,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kIndigo",
           "feature:kSharedStorageAPI"
         ]
       }
@@ -39049,7 +39086,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -40096,7 +40136,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kIndigo"
+        ]
       }
     },
     {
@@ -40447,7 +40490,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFontSrcLocalMatching"
+          "feature:kFontSrcLocalMatching",
+          "feature:kIndigo"
         ]
       }
     },
@@ -49515,7 +49559,13 @@
       "module": "tracked_element.mojom",
       "file": "ui_webui_resources_js_tracked_element_tracked_element.mojom.js",
       "methods": [
-        "OnElementHighlightChanged"
+        "OnElementHighlightChanged",
+        "ClickElement",
+        "FocusElement",
+        "SelectTab",
+        "SelectDropdownItem",
+        "EnterText",
+        "Confirm"
       ],
       "metadata": {
         "usage": {
@@ -58914,6 +58964,7 @@
       "source": "services/network/public/mojom/connection_allowlist.mojom",
       "module": "network.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -64491,7 +64542,7 @@
       "source": "third_party/blink/public/mojom/storage_access/storage_access_handle.mojom",
       "module": "blink.mojom",
       "imports": [
-        "mojo/public/mojom/base/byte_count.mojom",
+        "mojo/public/mojom/base/byte_size.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
         "third_party/blink/public/mojom/broadcastchannel/broadcast_channel.mojom",
         "third_party/blink/public/mojom/cache_storage/cache_storage.mojom",
@@ -65911,6 +65962,7 @@
       "source": "ui/webui/resources/js/tracked_element/tracked_element.mojom",
       "module": "tracked_element.mojom",
       "imports": [
+        "mojo/public/mojom/base/string16.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
