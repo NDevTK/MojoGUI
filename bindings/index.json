@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-08T10:50:16.238365Z",
-  "version": "149.0.7779.0",
+  "generated_at": "2026-04-09T10:54:19.230822Z",
+  "version": "149.0.7781.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1834,8 +1834,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -2424,8 +2423,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -3142,7 +3140,6 @@
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -4673,6 +4670,35 @@
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "accessibility_annotator.info.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_accessibility_annotator_info.mojom.js",
+      "methods": [
+        "GetAccountInfo",
+        "OnInfoAcknowledged",
+        "OnInfoDismissed",
+        "OnManageSettingsClicked",
+        "OnLearnMoreClicked"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -7009,8 +7035,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -7768,6 +7793,7 @@
       "module": "feedback.report_unsafe_site.mojom",
       "file": "chrome_browser_ui_webui_feedback_report_unsafe_site_report_unsafe_site.mojom.js",
       "methods": [
+        "ShowUi",
         "GetTriggeringPageInfo",
         "SendReport",
         "CloseDialog"
@@ -9756,8 +9782,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -9789,8 +9814,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -21684,8 +21708,7 @@
         "gates": [
           "feature:kWebLockScreenApi",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -22675,7 +22698,11 @@
         "ShowContextMenu",
         "OnPageInitialized",
         "ShowContentSettingsBubble",
-        "InvokePinnedToolbarAction"
+        "InvokePinnedToolbarAction",
+        "OnLhsChipMousePressed",
+        "OnLhsChipClicked",
+        "OnLhsChipExpandAnimationEnded",
+        "OnLhsChipCollapseAnimationEnded"
       ],
       "metadata": {
         "usage": {
@@ -27514,24 +27541,6 @@
       "file": "content_common_frame.mojom.js",
       "methods": [
         "RendererCancellationWindowEnded"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: content.mojom.FrameHost.BeginNavigation"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "NavigationRendererIgnoreDuplicateNavigationListener",
-      "module": "content.mojom",
-      "file": "content_common_frame.mojom.js",
-      "methods": [
-        "DidIgnoreDuplicateNavigation"
       ],
       "metadata": {
         "usage": {
@@ -33406,10 +33415,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kPrintPreviewCrosPrimary"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -38357,8 +38363,6 @@
         "gates": [
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -47422,8 +47426,7 @@
       "file": "third_party_blink_public_mojom_speculation_rules_speculation_rules.mojom.js",
       "methods": [
         "UpdateSpeculationCandidates",
-        "OnLCPPredicted",
-        "InitiatePreview"
+        "OnLCPPredicted"
       ],
       "metadata": {
         "usage": {
@@ -49018,8 +49021,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -49041,8 +49042,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -49143,8 +49142,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49172,8 +49170,7 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kNtpNextFeatures"
+          "feature:kInstallElement"
         ]
       }
     },
@@ -50542,6 +50539,12 @@
       "imports": [
         "components/media_router/common/mojom/route_request_result_code.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_accessibility_annotator_accessibility_annotator_info.mojom.js",
+      "source": "chrome/browser/ui/webui/accessibility_annotator/accessibility_annotator_info.mojom",
+      "module": "accessibility_annotator.info.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
@@ -55042,8 +55045,8 @@
       "source": "components/remote_cocoa/common/native_widget_ns_window.mojom",
       "module": "remote_cocoa.mojom",
       "imports": [
-        "components/remote_cocoa/common/select_file_dialog.mojom",
         "components/remote_cocoa/common/menu.mojom",
+        "components/remote_cocoa/common/select_file_dialog.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "services/network/public/mojom/network_param.mojom",
@@ -59025,6 +59028,7 @@
         "services/network/public/mojom/cookie_partition_key.mojom",
         "services/network/public/mojom/first_party_sets.mojom",
         "services/network/public/mojom/schemeful_site.mojom",
+        "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -59118,10 +59122,11 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/alternate_protocol_usage.mojom",
         "services/network/public/mojom/client_security_state.mojom",
+        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/cookie_manager.mojom",
         "services/network/public/mojom/cookie_partition_key.mojom",
         "services/network/public/mojom/cors.mojom",
@@ -59130,18 +59135,17 @@
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/http_request_headers.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
+        "services/network/public/mojom/ip_endpoint.mojom",
+        "services/network/public/mojom/load_timing_info.mojom",
+        "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/referrer_policy.mojom",
         "services/network/public/mojom/request_priority.mojom",
         "services/network/public/mojom/service_worker_router_info.mojom",
         "services/network/public/mojom/shared_dictionary_error.mojom",
         "services/network/public/mojom/sri_message_signature.mojom",
-        "services/network/public/mojom/unencoded_digest.mojom",
-        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/trust_tokens.mojom",
-        "services/network/public/mojom/ip_endpoint.mojom",
+        "services/network/public/mojom/unencoded_digest.mojom",
         "services/network/public/mojom/url_loader_completion_status.mojom",
-        "services/network/public/mojom/network_param.mojom",
-        "services/network/public/mojom/load_timing_info.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
@@ -59421,11 +59425,11 @@
         "mojo/public/mojom/base/values.mojom",
         "sandbox/policy/mojom/context.mojom",
         "services/network/public/mojom/address_list.mojom",
-        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/cache_encryption_provider.mojom",
         "services/network/public/mojom/cert_verifier_service.mojom",
         "services/network/public/mojom/clear_data_filter.mojom",
         "services/network/public/mojom/client_security_state.mojom",
+        "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/connection_change_observer_client.mojom",
         "services/network/public/mojom/cookie_access_observer.mojom",
         "services/network/public/mojom/cookie_encryption_provider.mojom",
@@ -59434,7 +59438,6 @@
         "services/network/public/mojom/cors_origin_pattern.mojom",
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
         "services/network/public/mojom/ct_policy.mojom",
-        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/default_credentials.mojom",
         "services/network/public/mojom/device_bound_sessions.mojom",
         "services/network/public/mojom/devtools_observer.mojom",
@@ -59457,6 +59460,7 @@
         "services/network/public/mojom/network_isolation_key.mojom",
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/oblivious_http_request.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/parsed_headers.mojom",
         "services/network/public/mojom/proxy_config.mojom",
         "services/network/public/mojom/proxy_config_with_annotation.mojom",
@@ -59560,12 +59564,12 @@
       "module": "network.mojom",
       "imports": [
         "components/content_settings/core/common/content_settings.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom",
-        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/proto_wrapper.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/values.mojom",
         "sandbox/policy/mojom/context.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
@@ -59575,7 +59579,6 @@
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
-        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/key_pinning.mojom",
         "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
         "services/network/public/mojom/net_log.mojom",
@@ -59587,6 +59590,7 @@
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/network_quality_estimator_manager.mojom",
         "services/network/public/mojom/network_service_test.mojom",
+        "services/network/public/mojom/originating_process_id.mojom",
         "services/network/public/mojom/parsed_headers.mojom",
         "services/network/public/mojom/proxy_config.mojom",
         "services/network/public/mojom/schemeful_site.mojom",
@@ -59595,10 +59599,10 @@
         "services/network/public/mojom/trust_tokens.mojom",
         "services/network/public/mojom/url_loader.mojom",
         "services/network/public/mojom/url_loader_network_service_observer.mojom",
+        "services/network/public/mojom/url_request.mojom",
         "services/network/public/mojom/url_response_head.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom",
-        "services/network/public/mojom/url_request.mojom"
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -59612,12 +59616,12 @@
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/address_list.mojom",
         "services/network/public/mojom/host_resolver.mojom",
+        "services/network/public/mojom/http_cache_backend_file_operations.mojom",
+        "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/network_change_manager.mojom",
         "services/network/public/mojom/network_interface_change_listener.mojom",
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/network_types.mojom",
-        "services/network/public/mojom/http_cache_backend_file_operations.mojom",
-        "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/transferable_socket.mojom"
       ]
     },
@@ -59950,11 +59954,11 @@
       "imports": [
         "services/network/public/mojom/address_list.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
-        "services/network/public/mojom/ssl_config.mojom",
-        "services/network/public/mojom/tls_socket.mojom",
-        "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
-        "services/network/public/mojom/socket_connection_tracker.mojom"
+        "services/network/public/mojom/network_param.mojom",
+        "services/network/public/mojom/socket_connection_tracker.mojom",
+        "services/network/public/mojom/ssl_config.mojom",
+        "services/network/public/mojom/tls_socket.mojom"
       ]
     },
     {
@@ -60042,9 +60046,9 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
-        "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/blocked_by_response_reason.mojom",
         "services/network/public/mojom/cors.mojom",
+        "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/trust_tokens.mojom"
       ]
     },
@@ -60183,9 +60187,9 @@
       "source": "services/network/public/mojom/websocket.mojom",
       "module": "network.mojom",
       "imports": [
-        "url/mojom/url.mojom",
+        "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/network_param.mojom",
-        "services/network/public/mojom/ip_endpoint.mojom"
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -62307,9 +62311,9 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/fetch_api.mojom",
-        "services/network/public/mojom/parsed_headers.mojom",
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/network_types.mojom",
+        "services/network/public/mojom/parsed_headers.mojom",
         "third_party/blink/public/mojom/blob/serialized_blob.mojom",
         "third_party/blink/public/mojom/service_worker/service_worker_error_type.mojom",
         "url/mojom/url.mojom"
