@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-09T10:54:19.230822Z",
-  "version": "149.0.7781.0",
+  "generated_at": "2026-04-10T10:45:04.126719Z",
+  "version": "149.0.7783.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4830,7 +4830,9 @@
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
         "DidChangePage",
-        "UpdateCurrentPageContext"
+        "UpdateCurrentPageContext",
+        "SetCaptionsVisible",
+        "SetUsePersona"
       ],
       "metadata": {
         "usage": {
@@ -12169,10 +12171,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kPrintPreviewCrosPrimary"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -12193,10 +12192,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kPrintPreviewCrosPrimary"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -22702,7 +22698,9 @@
         "OnLhsChipMousePressed",
         "OnLhsChipClicked",
         "OnLhsChipExpandAnimationEnded",
-        "OnLhsChipCollapseAnimationEnded"
+        "OnLhsChipCollapseAnimationEnded",
+        "OnHomeButtonDropUrl",
+        "OnHomeButtonDropFile"
       ],
       "metadata": {
         "usage": {
@@ -24489,7 +24487,9 @@
         "SetActiveModelMode",
         "ActivateMetricsFunnel",
         "RecordToolSelectionAction",
-        "RecordModelSelectionAction"
+        "RecordModelSelectionAction",
+        "ShouldShowDriveDisclaimer",
+        "OnDriveDisclaimerAccepted"
       ],
       "metadata": {
         "usage": {
@@ -25063,10 +25063,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kPrintPreviewCrosPrimary"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -25585,7 +25582,6 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kPrintPreviewCrosPrimary",
           "feature:kIndigo"
         ]
       }
@@ -25632,7 +25628,6 @@
         "FallbackFontForCharacter",
         "FontRenderStyleForStrike",
         "MatchFontByPostscriptNameOrFullFontName",
-        "ListFamilies",
         "MatchFontWithFallback"
       ],
       "metadata": {
@@ -26532,7 +26527,6 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kPrintPreviewCrosPrimary",
           "feature:kIndigo"
         ]
       }
@@ -27541,6 +27535,24 @@
       "file": "content_common_frame.mojom.js",
       "methods": [
         "RendererCancellationWindowEnded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: content.mojom.FrameHost.BeginNavigation"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "NavigationRendererIgnoreDuplicateNavigationListener",
+      "module": "content.mojom",
+      "file": "content_common_frame.mojom.js",
+      "methods": [
+        "DidIgnoreDuplicateNavigation"
       ],
       "metadata": {
         "usage": {
@@ -30174,6 +30186,7 @@
         "CrashForTesting",
         "TerminateForTesting",
         "GetChannelToken",
+        "GetGPUInfo",
         "Flush",
         "GetSharedMemoryForFlushId",
         "CreateCommandBuffer",
@@ -38984,7 +38997,6 @@
         "category": "internal",
         "gates": [
           "feature:kFontSrcLocalMatching",
-          "feature:kPrintPreviewCrosPrimary",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -40699,26 +40711,6 @@
       }
     },
     {
-      "name": "AIManagerCreateClassifierClient",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
-      "methods": [
-        "OnResult",
-        "OnError"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
       "name": "AIClassifier",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
@@ -40861,6 +40853,26 @@
       }
     },
     {
+      "name": "AIManagerCreateClassifierClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
+      "methods": [
+        "OnResult",
+        "OnError"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "AIManager",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
@@ -40876,6 +40888,8 @@
         "CreateRewriter",
         "CanCreateProofreader",
         "CreateProofreader",
+        "CanCreateClassifier",
+        "CreateClassifier",
         "AddModelDownloadProgressObserver"
       ],
       "metadata": {
@@ -54126,7 +54140,9 @@
         "components/content_settings/core/common/content_settings_types.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "mojo/public/mojom/base/error.mojom"
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -56858,7 +56874,10 @@
         "gpu/ipc/common/constants.mojom",
         "gpu/ipc/common/context_result.mojom",
         "gpu/ipc/common/context_type.mojom",
+        "gpu/ipc/common/gpu_feature_info.mojom",
+        "gpu/ipc/common/gpu_info.mojom",
         "gpu/ipc/common/mailbox.mojom",
+        "gpu/ipc/common/shared_image_capabilities.mojom",
         "gpu/ipc/common/shared_image_metadata.mojom",
         "gpu/ipc/common/shared_image_pool_id.mojom",
         "gpu/ipc/common/shared_image_pool_client_interface.mojom",
@@ -61584,7 +61603,8 @@
         "third_party/blink/public/mojom/ai/ai_proofreader.mojom",
         "third_party/blink/public/mojom/ai/ai_rewriter.mojom",
         "third_party/blink/public/mojom/ai/ai_summarizer.mojom",
-        "third_party/blink/public/mojom/ai/ai_writer.mojom"
+        "third_party/blink/public/mojom/ai/ai_writer.mojom",
+        "third_party/blink/public/mojom/ai/ai_classifier.mojom"
       ]
     },
     {
