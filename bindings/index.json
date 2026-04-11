@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-10T10:45:04.126719Z",
-  "version": "149.0.7783.0",
+  "generated_at": "2026-04-11T10:25:22.350976Z",
+  "version": "149.0.7785.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -21035,7 +21035,6 @@
       "methods": [
         "OpenScanner",
         "StartPreparedScan",
-        "ReadScanData",
         "SetOptions"
       ],
       "metadata": {
@@ -24455,11 +24454,34 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "searchbox.mojom",
+      "file": "components_omnibox_browser_searchbox.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpTabGroupsModule"
+        ]
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "searchbox.mojom",
       "file": "components_omnibox_browser_searchbox.mojom.js",
       "methods": [
-        "SetPage",
         "OnFocusChanged",
         "QueryAutocomplete",
         "StopAutocomplete",
@@ -24489,14 +24511,15 @@
         "RecordToolSelectionAction",
         "RecordModelSelectionAction",
         "ShouldShowDriveDisclaimer",
-        "OnDriveDisclaimerAccepted"
+        "OnDriveDisclaimerAccepted",
+        "GetPageClassification"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)",
-            "composebox.mojom.PageHandlerFactory.CreatePageHandler"
+            "Internal Interface: searchbox.mojom.PageHandlerFactory.CreatePageHandler",
+            "Internal Interface: composebox.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -24758,6 +24781,7 @@
       "file": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "methods": [
         "Subscribe",
+        "GetConfig",
         "AddModelDownloadProgressObserver",
         "RequestAssetsFor"
       ],
@@ -48778,7 +48802,9 @@
         "HandleLensButtonClick",
         "HandleFileUpload",
         "NavigateUrl",
-        "CloseLensOverlayFromWebUI"
+        "CloseLensOverlayFromWebUI",
+        "SetSmartTabSharingActive",
+        "GetSmartTabSharingActive"
       ],
       "metadata": {
         "usage": {
