@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7785.0';
+        const versionStr = window.mojoVersion || '149.0.7787.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1124,6 +1124,8 @@ mojo.internal.bindings.glic.mojom.InvocationSource = {
   kNudge: 6,
   kThreeDotsMenu: 7,
   kUnsupported: 8,
+  MinVersion: 8,
+  MinVersion: 8,
   MinVersion: 8,
   MinVersion: 8,
   MinVersion: 8,
