@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-13T11:10:34.628734Z",
-  "version": "149.0.7789.0",
+  "generated_at": "2026-04-14T10:56:57.872312Z",
+  "version": "149.0.7790.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3391,7 +3391,9 @@
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
-        "ReopenTabs"
+        "ReopenTabs",
+        "PinSidePanel",
+        "UnpinSidePanel"
       ],
       "metadata": {
         "usage": {
@@ -3436,7 +3438,8 @@
         "UpdateComposeboxPosition",
         "LockInput",
         "UnlockInput",
-        "SetShowReopenTabs"
+        "SetShowReopenTabs",
+        "OnSidePanelPinStateChanged"
       ],
       "metadata": {
         "usage": {

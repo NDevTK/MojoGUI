@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7789.0';
+        const versionStr = window.mojoVersion || '149.0.7790.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
+mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec = mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec.$ = {};
+mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec = mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec || { $: {} };
@@ -244,8 +248,8 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote = class {
   dispatchFetchEventForSubresource(arg_params, arg_response_callback) {
     return this.$.dispatchFetchEventForSubresource(arg_params, arg_response_callback);
   }
-  clone(arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter) {
-    return this.$.clone(arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter);
+  clone(arg_receiver, arg_cross_origin_embedder_policy, arg_document_isolation_policy) {
+    return this.$.clone(arg_receiver, arg_cross_origin_embedder_policy, arg_document_isolation_policy);
   }
 };
 
@@ -267,12 +271,12 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = cl
       false);
   }
 
-  clone(arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter) {
+  clone(arg_receiver, arg_cross_origin_embedder_policy, arg_document_isolation_policy) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
-      [arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter],
+      [arg_receiver, arg_cross_origin_embedder_policy, arg_document_isolation_policy],
       false);
   }
 
@@ -361,7 +365,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiver, params.arg_cross_origin_embedder_policy, params.arg_coep_reporter, params.arg_document_isolation_policy, params.arg_dip_reporter);
+          const result = this.impl.clone(params.arg_receiver, params.arg_cross_origin_embedder_policy, params.arg_document_isolation_policy);
           break;
         }
       }
@@ -515,6 +519,22 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorRequest = moj
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
+// Struct: CrossOriginEmbedderPolicyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec, 'blink.mojom.CrossOriginEmbedderPolicyInfo', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DocumentIsolationPolicyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec, 'blink.mojom.DocumentIsolationPolicyInfo', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: ServiceWorkerRouterData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec, 'blink.mojom.ServiceWorkerRouterData', [
@@ -539,8 +559,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fetch_request_window_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_object_info', 56, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_used_features', 64, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 72, 0, mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_document_isolation_policy', 80, 0, mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 96]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec, 'blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec, null, false, 0, undefined),
@@ -557,12 +579,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec, 'blink.mojom.ControllerServiceWorker_Clone_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_isolation_policy', 24, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporter', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.blink.mojom.CrossOriginEmbedderPolicyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_document_isolation_policy', 16, 0, mojo.internal.bindings.blink.mojom.DocumentIsolationPolicyInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec, 'blink.mojom.ControllerServiceWorkerConnector_UpdateController_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7789.0';
+        const versionStr = window.mojoVersion || '149.0.7790.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -205,6 +205,10 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismi
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ReopenTabs_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ReopenTabs_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ReopenTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ReopenTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ReopenTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page = mojo.internal.bindings.contextual_tasks.mojom.Page || {};
 mojo.internal.bindings.contextual_tasks.mojom.PageSpec = mojo.internal.bindings.contextual_tasks.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageSpec.$ = {};
@@ -255,6 +259,8 @@ mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec = mojo
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_UnlockInput_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$ = {};
@@ -388,12 +394,20 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemote = class {
   reopenTabs() {
     return this.$.reopenTabs();
   }
+  pinSidePanel() {
+    return this.$.pinSidePanel();
+  }
+  unpinSidePanel() {
+    return this.$.unpinSidePanel();
+  }
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -627,6 +641,24 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       false);
   }
 
+  pinSidePanel() {
+    return this.proxy.sendMessage(
+      this.ordinals[23],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  unpinSidePanel() {
+    return this.proxy.sendMessage(
+      this.ordinals[24],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler.getRemote = function() {
@@ -645,6 +677,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -960,6 +994,20 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const result = this.impl.reopenTabs();
           break;
         }
+        case 23: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.pinSidePanel');
+          const result = this.impl.pinSidePanel();
+          break;
+        }
+        case 24: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.unpinSidePanel');
+          const result = this.impl.unpinSidePanel();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1073,12 +1121,16 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   setShowReopenTabs(arg_show) {
     return this.$.setShowReopenTabs(arg_show);
   }
+  onSidePanelPinStateChanged(arg_is_pinned) {
+    return this.$.onSidePanelPinStateChanged(arg_is_pinned);
+  }
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1312,6 +1364,15 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  onSidePanelPinStateChanged(arg_is_pinned) {
+    return this.proxy.sendMessage(
+      this.ordinals[23],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec,
+      null,
+      [arg_is_pinned],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.Page.getRemote = function() {
@@ -1330,6 +1391,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1555,6 +1617,13 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowReopenTabs');
           const result = this.impl.setShowReopenTabs(params.arg_show);
+          break;
+        }
+        case 23: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSidePanelPinStateChanged');
+          const result = this.impl.onSidePanelPinStateChanged(params.arg_is_pinned);
           break;
         }
       }
@@ -1945,6 +2014,16 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_PinSidePanel_ParamsSpec, 'contextual_tasks.mojom.PageHandler_PinSidePanel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_UnpinSidePanel_ParamsSpec, 'contextual_tasks.mojom.PageHandler_UnpinSidePanel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec, 'contextual_tasks.mojom.Page_SetThreadTitle_Params', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -2077,6 +2156,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec, 'contextual_tasks.mojom.Page_SetShowReopenTabs_Params', [
       mojo.internal.StructField('arg_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec, 'contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_Params', [
+      mojo.internal.StructField('arg_is_pinned', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
