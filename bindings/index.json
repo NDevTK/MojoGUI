@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-14T10:56:57.872312Z",
-  "version": "149.0.7790.0",
+  "generated_at": "2026-04-15T10:54:25.864886Z",
+  "version": "149.0.7793.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4706,6 +4706,52 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "browser.accessibility_annotator_internals.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "browser.accessibility_annotator_internals.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
+      "methods": [
+        "TriggerFirstRun"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: browser.accessibility_annotator_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
       "name": "Page",
       "module": "actor_internals.mojom",
       "file": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
@@ -7591,10 +7637,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -10240,6 +10283,47 @@
           "associated": [],
           "direct": [
             "Internal Interface: skills.mojom.PageHandlerFactory.CreateDialogHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SubresourceFilterInternalsHandler",
+      "module": "subresource_filter.mojom",
+      "file": "chrome_browser_ui_webui_subresource_filter_subresource_filter_internals.mojom.js",
+      "methods": [
+        "GetInternalsPageSettings",
+        "SetInternalsPageSettings",
+        "ObserveInternalsPageSettings"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
+      }
+    },
+    {
+      "name": "SubresourceFilterInternalsObserver",
+      "module": "subresource_filter.mojom",
+      "file": "chrome_browser_ui_webui_subresource_filter_subresource_filter_internals.mojom.js",
+      "methods": [
+        "OnInternalsPageSettingsChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -16252,8 +16336,7 @@
         "category": "internal",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kFontSrcLocalMatching"
+          "feature:kBrowsingTopicsDocumentAPI"
         ]
       }
     },
@@ -21037,7 +21120,6 @@
       "file": "chromeos_crosapi_mojom_document_scan.mojom.js",
       "methods": [
         "OpenScanner",
-        "StartPreparedScan",
         "SetOptions"
       ],
       "metadata": {
@@ -22245,10 +22327,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -22272,9 +22351,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -22296,9 +22373,9 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -24270,10 +24347,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -24291,10 +24365,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -24956,7 +25027,8 @@
         "SetUserAffiliated",
         "GetAppliedTestPolicies",
         "RevertLocalTestPolicies",
-        "SetLocalTestPolicies"
+        "SetLocalTestPolicies",
+        "GetPolicyLogs"
       ],
       "metadata": {
         "usage": {
@@ -25997,10 +26069,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -29230,7 +29299,6 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
-          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -31946,6 +32014,7 @@
         "RegisterMuteStateObserver",
         "CreateDCOMPSurfaceRegistry",
         "GetCdmOrigin",
+        "GetFrameScreenRect",
         "BindEmbedderReceiver"
       ],
       "metadata": {
@@ -35786,9 +35855,9 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -36434,7 +36503,6 @@
         "SetContentSettings",
         "SetForceKeepSessionState",
         "BlockThirdPartyCookies",
-        "SetMitigationsEnabledFor3pcd",
         "SetPreCommitCallbackDelayForTesting"
       ],
       "metadata": {
@@ -38837,7 +38905,6 @@
         "scope": "process",
         "category": "direct",
         "gates": [
-          "feature:kFontSrcLocalMatching",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -38859,10 +38926,7 @@
           ]
         },
         "scope": "process",
-        "category": "direct",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -39023,7 +39087,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFontSrcLocalMatching",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -39534,7 +39597,6 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
-          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -40533,7 +40595,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFontSrcLocalMatching",
           "feature:kIndigo"
         ]
       }
@@ -41418,8 +41479,7 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFontSrcLocalMatching"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -42812,9 +42872,6 @@
         },
         "scope": "process",
         "category": "direct",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -42837,9 +42894,6 @@
         },
         "scope": "process",
         "category": "direct",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -42952,10 +43006,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -43428,8 +43479,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFontSrcLocalMatching"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -43474,9 +43524,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -43764,7 +43811,6 @@
       "methods": [
         "ScaleFactorChanged",
         "ContentsPreferredSizeChanged",
-        "TextAutosizerPageInfoChanged",
         "FocusPage",
         "TakeFocus",
         "UpdateTargetURL",
@@ -43915,9 +43961,7 @@
       "name": "RemoteMainFrame",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_frame_remote_frame.mojom.js",
-      "methods": [
-        "UpdateTextAutosizerPageInfo"
-      ],
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -44075,10 +44119,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -44162,9 +44203,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -45539,9 +45577,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -45597,9 +45632,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFontSrcLocalMatching"
-        ],
         "scrambled": false
       }
     },
@@ -45972,7 +46004,7 @@
     {
       "name": "PaymentHandlerResponseCallback",
       "module": "payments.mojom",
-      "file": "third_party_blink_public_mojom_payments_payment_app.mojom.js",
+      "file": "third_party_blink_public_mojom_payments_payment_app_events.mojom.js",
       "methods": [
         "OnResponseForAbortPayment",
         "OnResponseForCanMakePayment",
@@ -50590,6 +50622,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/accessibility_annotator_internals/accessibility_annotator_internals.mojom",
+      "module": "browser.accessibility_annotator_internals.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
       "source": "chrome/browser/ui/webui/actor_internals/actor_internals.mojom",
       "module": "actor_internals.mojom",
@@ -51283,6 +51321,12 @@
         "components/skills/public/skill.mojom",
         "components/skills/public/skill_metrics.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_subresource_filter_subresource_filter_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/subresource_filter/subresource_filter_internals.mojom",
+      "module": "subresource_filter.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_suggest_internals_suggest_internals.mojom.js",
@@ -57480,7 +57524,8 @@
         "media/mojo/mojom/provision_fetcher.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
         "url/mojom/origin.mojom",
-        "media/mojo/mojom/dcomp_surface_registry.mojom"
+        "media/mojo/mojom/dcomp_surface_registry.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -62651,7 +62696,6 @@
         "third_party/blink/public/mojom/frame/remote_frame.mojom",
         "third_party/blink/public/mojom/frame/reporting_observer.mojom",
         "third_party/blink/public/mojom/frame/sudden_termination_disabler_type.mojom",
-        "third_party/blink/public/mojom/frame/text_autosizer_page_info.mojom",
         "third_party/blink/public/mojom/frame/user_activation_notification_type.mojom",
         "third_party/blink/public/mojom/frame/user_activation_update_types.mojom",
         "third_party/blink/public/mojom/frame/view_transition_state.mojom",
@@ -62794,7 +62838,6 @@
         "third_party/blink/public/mojom/frame/intrinsic_sizing_info.mojom",
         "third_party/blink/public/mojom/frame/lifecycle.mojom",
         "third_party/blink/public/mojom/frame/policy_container.mojom",
-        "third_party/blink/public/mojom/frame/text_autosizer_page_info.mojom",
         "third_party/blink/public/mojom/frame/tree_scope_type.mojom",
         "third_party/blink/public/mojom/frame/triggering_event_info.mojom",
         "third_party/blink/public/mojom/frame/user_activation_notification_type.mojom",
@@ -62828,12 +62871,6 @@
     {
       "filename": "third_party_blink_public_mojom_frame_sudden_termination_disabler_type.mojom.js",
       "source": "third_party/blink/public/mojom/frame/sudden_termination_disabler_type.mojom",
-      "module": "blink.mojom",
-      "imports": []
-    },
-    {
-      "filename": "third_party_blink_public_mojom_frame_text_autosizer_page_info.mojom.js",
-      "source": "third_party/blink/public/mojom/frame/text_autosizer_page_info.mojom",
       "module": "blink.mojom",
       "imports": []
     },
@@ -63861,8 +63898,16 @@
       "source": "third_party/blink/public/mojom/payments/payment_app.mojom",
       "module": "payments.mojom",
       "imports": [
-        "components/payments/mojom/payment_request_data.mojom",
         "third_party/blink/public/mojom/manifest/manifest.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_payments_payment_app_events.mojom.js",
+      "source": "third_party/blink/public/mojom/payments/payment_app_events.mojom",
+      "module": "payments.mojom",
+      "imports": [
+        "components/payments/mojom/payment_request_data.mojom",
         "third_party/blink/public/mojom/payments/payment_request.mojom",
         "third_party/blink/public/mojom/payments/payment_handler_host.mojom",
         "url/mojom/url.mojom"
@@ -64321,7 +64366,7 @@
         "third_party/blink/public/mojom/loader/url_loader_factory_bundle.mojom",
         "third_party/blink/public/mojom/messaging/transferable_message.mojom",
         "third_party/blink/public/mojom/notifications/notification.mojom",
-        "third_party/blink/public/mojom/payments/payment_app.mojom",
+        "third_party/blink/public/mojom/payments/payment_app_events.mojom",
         "third_party/blink/public/mojom/push_messaging/push_messaging.mojom",
         "third_party/blink/public/mojom/service_worker/dispatch_fetch_event_params.mojom",
         "third_party/blink/public/mojom/service_worker/service_worker_ancestor_frame_type.mojom",
