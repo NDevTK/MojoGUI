@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-16T10:56:30.221352Z",
-  "version": "149.0.7795.0",
+  "generated_at": "2026-04-17T10:47:38.099223Z",
+  "version": "149.0.7797.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -24901,6 +24901,26 @@
       }
     },
     {
+      "name": "ModelBrokerDebug",
+      "module": "optimization_guide.mojom",
+      "file": "components_optimization_guide_public_mojom_model_broker_debug.mojom.js",
+      "methods": [
+        "GetStateInfo",
+        "SetUseCaseRequested",
+        "UninstallModels"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageImageServiceHandler",
       "module": "page_image_service.mojom",
       "file": "components_page_image_service_mojom_page_image_service.mojom.js",
@@ -40810,6 +40830,7 @@
         "ReadTensor",
         "WriteTensor",
         "ExportTensor",
+        "ExportTensorSync",
         "ImportTensor"
       ],
       "metadata": {
@@ -55009,6 +55030,17 @@
       ]
     },
     {
+      "filename": "components_optimization_guide_public_mojom_model_broker_debug.mojom.js",
+      "source": "components/optimization_guide/public/mojom/model_broker_debug.mojom",
+      "module": "optimization_guide.mojom",
+      "imports": [
+        "components/optimization_guide/public/mojom/model_broker.mojom",
+        "mojo/public/mojom/base/proto_wrapper.mojom",
+        "services/on_device_model/public/mojom/download_observer.mojom",
+        "services/on_device_model/public/mojom/on_device_model.mojom"
+      ]
+    },
+    {
       "filename": "components_origin_matcher_origin_matcher.mojom.js",
       "source": "components/origin_matcher/origin_matcher.mojom",
       "module": "origin_matcher.mojom",
@@ -57471,7 +57503,10 @@
       "filename": "media_mojo_mojom_audio_parameters.mojom.js",
       "source": "media/mojo/mojom/audio_parameters.mojom",
       "module": "media.mojom",
-      "imports": []
+      "imports": [
+        "media/mojo/mojom/channel_layout.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
     },
     {
       "filename": "media_mojo_mojom_audio_processing.mojom.js",
@@ -57543,6 +57578,12 @@
     {
       "filename": "media_mojo_mojom_cdm_storage.mojom.js",
       "source": "media/mojo/mojom/cdm_storage.mojom",
+      "module": "media.mojom",
+      "imports": []
+    },
+    {
+      "filename": "media_mojo_mojom_channel_layout.mojom.js",
+      "source": "media/mojo/mojom/channel_layout.mojom",
       "module": "media.mojom",
       "imports": []
     },
@@ -57723,6 +57764,7 @@
         "gpu/ipc/common/sync_token.mojom",
         "gpu/ipc/common/vulkan_ycbcr_info.mojom",
         "media/mojo/mojom/audio_data.mojom",
+        "media/mojo/mojom/channel_layout.mojom",
         "media/mojo/mojom/encryption_pattern.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
