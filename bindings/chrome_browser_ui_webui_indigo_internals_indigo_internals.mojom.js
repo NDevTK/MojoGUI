@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.indigo_internals.mojom.LocalEligibilitySpec = mojo.internal.bindings.indigo_internals.mojom.LocalEligibilitySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.indigo_internals.mojom.OptimizationGuideStatusSpec = mojo.internal.bindings.indigo_internals.mojom.OptimizationGuideStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.indigo_internals.mojom.RemoteEligibilitySpec = mojo.internal.bindings.indigo_internals.mojom.RemoteEligibilitySpec || { $: {} };
 if (mojo.internal.bindings.indigo_internals.mojom.RemoteEligibilitySpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.RemoteEligibilitySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.RemoteEligibilitySpec.$ = {};
 mojo.internal.bindings.indigo_internals.mojom.CombinedEligibilitySpec = mojo.internal.bindings.indigo_internals.mojom.CombinedEligibilitySpec || { $: {} };
@@ -151,12 +152,18 @@ mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetCombinedEligibility
 if (mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetCombinedEligibility_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetCombinedEligibility_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetCombinedEligibility_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.indigo_internals.mojom.PageHandler_InvalidateRemoteEligibility_ParamsSpec = mojo.internal.bindings.indigo_internals.mojom.PageHandler_InvalidateRemoteEligibility_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.indigo_internals.mojom.PageHandler_InvalidateRemoteEligibility_ParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.PageHandler_InvalidateRemoteEligibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.PageHandler_InvalidateRemoteEligibility_ParamsSpec.$ = {};
+mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec = mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec = mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.indigo_internals.mojom.Page = mojo.internal.bindings.indigo_internals.mojom.Page || {};
 mojo.internal.bindings.indigo_internals.mojom.PageSpec = mojo.internal.bindings.indigo_internals.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.indigo_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.indigo_internals.mojom.Page.$interfaceName = 'indigo_internals.mojom.Page';
 mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec = mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec = mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec.$ = {};
 
 // Enum: LocalEligibility
 mojo.internal.bindings.indigo_internals.mojom.LocalEligibility = {
@@ -164,6 +171,13 @@ mojo.internal.bindings.indigo_internals.mojom.LocalEligibility = {
   kNotSignedIn: 1,
   kMissingCapabilities: 2,
   kDisabledByPolicy: 3,
+};
+
+// Enum: OptimizationGuideStatus
+mojo.internal.bindings.indigo_internals.mojom.OptimizationGuideStatus = {
+  kDisabled: 0,
+  kNotPermitted: 1,
+  kEnabled: 2,
 };
 
 // Interface: PageHandlerFactory
@@ -340,12 +354,16 @@ mojo.internal.bindings.indigo_internals.mojom.PageHandlerRemote = class {
   invalidateRemoteEligibility() {
     return this.$.invalidateRemoteEligibility();
   }
+  getOptimizationGuideStatus() {
+    return this.$.getOptimizationGuideStatus();
+  }
 };
 
 mojo.internal.bindings.indigo_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('indigo_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -379,6 +397,15 @@ mojo.internal.bindings.indigo_internals.mojom.PageHandlerRemoteCallHandler = cla
       false);
   }
 
+  getOptimizationGuideStatus() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec,
+      mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.indigo_internals.mojom.PageHandler.getRemote = function() {
@@ -397,6 +424,7 @@ mojo.internal.bindings.indigo_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('indigo_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -486,6 +514,24 @@ mojo.internal.bindings.indigo_internals.mojom.PageHandlerReceiver = class {
           const result = this.impl.invalidateRemoteEligibility();
           break;
         }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getOptimizationGuideStatus');
+          const result = this.impl.getOptimizationGuideStatus();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getOptimizationGuideStatus FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -533,12 +579,16 @@ mojo.internal.bindings.indigo_internals.mojom.PageRemote = class {
   onLocalEligibilityChanged(arg_status) {
     return this.$.onLocalEligibilityChanged(arg_status);
   }
+  onOptimizationGuideStatusChanged(arg_status) {
+    return this.$.onOptimizationGuideStatusChanged(arg_status);
+  }
 };
 
 mojo.internal.bindings.indigo_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('indigo_internals.mojom.Page', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -547,6 +597,15 @@ mojo.internal.bindings.indigo_internals.mojom.PageRemoteCallHandler = class {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec,
+      null,
+      [arg_status],
+      false);
+  }
+
+  onOptimizationGuideStatusChanged(arg_status) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec,
       null,
       [arg_status],
       false);
@@ -570,6 +629,7 @@ mojo.internal.bindings.indigo_internals.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('indigo_internals.mojom.Page', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -619,6 +679,13 @@ mojo.internal.bindings.indigo_internals.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalEligibilityChanged');
           const result = this.impl.onLocalEligibilityChanged(params.arg_status);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onOptimizationGuideStatusChanged');
+          const result = this.impl.onOptimizationGuideStatusChanged(params.arg_status);
           break;
         }
       }
@@ -690,8 +757,25 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ParamsSpec, 'indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParamsSpec, 'indigo_internals.mojom.PageHandler_GetOptimizationGuideStatus_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.indigo_internals.mojom.OptimizationGuideStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.indigo_internals.mojom.Page_OnLocalEligibilityChanged_ParamsSpec, 'indigo_internals.mojom.Page_OnLocalEligibilityChanged_Params', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.indigo_internals.mojom.LocalEligibilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_ParamsSpec, 'indigo_internals.mojom.Page_OnOptimizationGuideStatusChanged_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.indigo_internals.mojom.OptimizationGuideStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

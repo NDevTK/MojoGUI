@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -152,6 +152,8 @@ mojo.internal.bindings.accessibility_annotator_internals.mojom.Page = mojo.inter
 mojo.internal.bindings.accessibility_annotator_internals.mojom.PageSpec = mojo.internal.bindings.accessibility_annotator_internals.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.accessibility_annotator_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.accessibility_annotator_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.accessibility_annotator_internals.mojom.PageSpec.$ = {};
 mojo.internal.bindings.accessibility_annotator_internals.mojom.Page.$interfaceName = 'accessibility_annotator_internals.mojom.Page';
+mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec = mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -533,13 +535,26 @@ mojo.internal.bindings.accessibility_annotator_internals.mojom.PageRemote = clas
   close() {
     this.proxy.close();
   }
+  onContentAnnotationsAdded(arg_content) {
+    return this.$.onContentAnnotationsAdded(arg_content);
+  }
 };
 
 mojo.internal.bindings.accessibility_annotator_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('accessibility_annotator_internals.mojom.Page', [
+      { explicit: null },
     ]);
+  }
+
+  onContentAnnotationsAdded(arg_content) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec,
+      null,
+      [arg_content],
+      false);
   }
 
 };
@@ -560,6 +575,7 @@ mojo.internal.bindings.accessibility_annotator_internals.mojom.PageReceiver = cl
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('accessibility_annotator_internals.mojom.Page', [
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -603,6 +619,13 @@ mojo.internal.bindings.accessibility_annotator_internals.mojom.PageReceiver = cl
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onContentAnnotationsAdded');
+          const result = this.impl.onContentAnnotationsAdded(params.arg_content);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -658,4 +681,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_ParamsSpec, 'accessibility_annotator_internals.mojom.Page_OnContentAnnotationsAdded_Params', [
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

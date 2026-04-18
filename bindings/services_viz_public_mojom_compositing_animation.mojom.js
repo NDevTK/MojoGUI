@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -367,9 +367,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_playback_rate', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_iterations', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_iteration_start', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time_offset', 88, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_delay', 88, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hold_time', 96, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 112]]);
 
 // Struct: Animation
 mojo.internal.Struct(

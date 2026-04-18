@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-17T10:47:38.099223Z",
-  "version": "149.0.7797.0",
+  "generated_at": "2026-04-18T10:33:25.230556Z",
+  "version": "149.0.7799.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3734,7 +3734,8 @@
         "GetInternalsDataPayload",
         "SetGuestUrlPresets",
         "TriggerInvokeFromInternalsAction",
-        "SetWebContinuityOriginatingHostUrlPreset"
+        "SetWebContinuityOriginatingHostUrlPreset",
+        "SetShowErrorAllowed"
       ],
       "metadata": {
         "usage": {
@@ -3870,7 +3871,6 @@
         "OnResponseStopped",
         "OnSessionTerminated",
         "OnTurnCompleted",
-        "OnRecordUseCounter",
         "OnResponseRated",
         "OnClosedCaptionsShown",
         "OnActionSubmitted",
@@ -4722,6 +4722,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -4745,9 +4746,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7588,10 +7589,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -7916,7 +7914,8 @@
       "methods": [
         "GetLocalEligibility",
         "GetCombinedEligibility",
-        "InvalidateRemoteEligibility"
+        "InvalidateRemoteEligibility",
+        "GetOptimizationGuideStatus"
       ],
       "metadata": {
         "usage": {
@@ -7938,7 +7937,8 @@
       "module": "indigo_internals.mojom",
       "file": "chrome_browser_ui_webui_indigo_internals_indigo_internals.mojom.js",
       "methods": [
-        "OnLocalEligibilityChanged"
+        "OnLocalEligibilityChanged",
+        "OnOptimizationGuideStatusChanged"
       ],
       "metadata": {
         "usage": {
@@ -22351,9 +22351,13 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -22376,9 +22380,12 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -22386,7 +22393,9 @@
       "name": "Page",
       "module": "accessibility_annotator_internals.mojom",
       "file": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnContentAnnotationsAdded"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -22400,9 +22409,10 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -29390,6 +29400,7 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
+          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -35946,9 +35957,10 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -37294,7 +37306,8 @@
         "Prefetch",
         "GetBoundNetworkForTesting",
         "GetDeviceBoundSessionManager",
-        "AddQuicHints"
+        "AddQuicHints",
+        "SetVariationsHeaders"
       ],
       "metadata": {
         "usage": {
@@ -37404,7 +37417,6 @@
         "GetNetworkList",
         "OnTrustStoreChanged",
         "OnClientCertStoreChanged",
-        "SetEncryptionKey",
         "OnPeerToPeerConnectionsCountChange",
         "SetTrustTokenKeyCommitments",
         "UpdateKeyPinsList",
@@ -39688,6 +39700,7 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kXuControls",
+          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -42667,9 +42680,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_device_posture_device_posture_provider.mojom.js",
       "methods": [
-        "AddListenerAndGetCurrentPosture",
-        "OverrideDevicePostureForEmulation",
-        "DisableDevicePostureOverrideForEmulation"
+        "AddListenerAndGetCurrentPosture"
       ],
       "metadata": {
         "usage": {
@@ -59663,6 +59674,7 @@
       "imports": [
         "components/content_settings/core/common/content_settings.mojom",
         "components/unexportable_keys/mojom/unexportable_key_service.mojom",
+        "components/variations/variations.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom",

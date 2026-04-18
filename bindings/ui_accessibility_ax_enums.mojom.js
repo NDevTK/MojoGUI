@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -187,6 +187,7 @@ mojo.internal.bindings.ax.mojom.Event = {
   kDocumentSelectionChanged: 10,
   kDocumentTitleChanged: 11,
   kEndOfTest: 12,
+  MinVersion: 12,
   kExpandedChanged: 13,
   kFocus: 14,
   kFocusAfterMenuClose: 15,
@@ -833,6 +834,8 @@ mojo.internal.bindings.ax.mojom.Command = {
   kMarker: 8,
   kMoveSelection: 9,
   kSetSelection: 10,
+  MinVersion: 10,
+  MinVersion: 10,
 };
 
 // Enum: InputEventType

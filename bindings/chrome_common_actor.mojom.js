@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -282,6 +282,7 @@ mojo.internal.bindings.actor.mojom.ActionResultCode = {
   kActionsBlockedByEnterprisePolicy: 46,
   kActionsBlockedForScheme: 47,
   kActionsBlockedOnErrorPage: 48,
+  kActionBlockedByEnterpriseContentScan: 49,
   kNavigateInvalidUrl: 100,
   kNavigateFailedToStart: 101,
   kNavigateCommittedErrorPage: 102,

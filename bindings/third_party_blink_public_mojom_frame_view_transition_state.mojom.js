@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -152,7 +152,7 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojom.TransformSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.Vector2dSpec = mojo.internal.bindings.gfx.mojom.Vector2dSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gfx.mojom.Vector2dFSpec = mojo.internal.bindings.gfx.mojom.Vector2dFSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -198,7 +198,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_paint_order', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_captured_css_properties', 56, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_group_children_css_properties', 64, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_border_offset', 72, 0, mojo.internal.bindings.gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_offset', 72, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_class_list', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_containing_group_name', 88, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_layered_box_properties', 96, 0, mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, null, true, 0, undefined),

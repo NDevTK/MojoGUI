@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,10 +135,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurren
 if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$ = {};
-mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.DevicePostureClient = mojo.internal.bindings.blink.mojom.DevicePostureClient || {};
 mojo.internal.bindings.blink.mojom.DevicePostureClientSpec = mojo.internal.bindings.blink.mojom.DevicePostureClientSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.DevicePostureClientSpec.$ = {};
@@ -185,20 +181,12 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemote = class {
   addListenerAndGetCurrentPosture(arg_client) {
     return this.$.addListenerAndGetCurrentPosture(arg_client);
   }
-  overrideDevicePostureForEmulation(arg_posture) {
-    return this.$.overrideDevicePostureForEmulation(arg_posture);
-  }
-  disableDevicePostureOverrideForEmulation() {
-    return this.$.disableDevicePostureOverrideForEmulation();
-  }
 };
 
 mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevicePostureProvider', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -209,24 +197,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
       [arg_client],
-      false);
-  }
-
-  overrideDevicePostureForEmulation(arg_posture) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
-      null,
-      [arg_posture],
-      false);
-  }
-
-  disableDevicePostureOverrideForEmulation() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
-      null,
-      [],
       false);
   }
 
@@ -248,8 +218,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.DevicePostureProvider', [
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -310,20 +278,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] addListenerAndGetCurrentPosture FAILED:', e));
           }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.overrideDevicePostureForEmulation');
-          const result = this.impl.overrideDevicePostureForEmulation(params.arg_posture);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.disableDevicePostureOverrideForEmulation');
-          const result = this.impl.disableDevicePostureOverrideForEmulation();
           break;
         }
       }
@@ -487,17 +441,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [

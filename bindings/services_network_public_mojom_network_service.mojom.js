@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -179,8 +179,6 @@ mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSp
 if (mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$ = {};
-mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec || { $: {} };
@@ -240,9 +238,6 @@ if (mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_Respon
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -451,9 +446,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemote = class {
   onClientCertStoreChanged() {
     return this.$.onClientCertStoreChanged();
   }
-  setEncryptionKey(arg_encryption_key) {
-    return this.$.setEncryptionKey(arg_encryption_key);
-  }
   onPeerToPeerConnectionsCountChange(arg_count) {
     return this.$.onPeerToPeerConnectionsCountChange(arg_count);
   }
@@ -502,7 +494,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -690,18 +681,9 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       false);
   }
 
-  setEncryptionKey(arg_encryption_key) {
-    return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
-      mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec,
-      null,
-      [arg_encryption_key],
-      false);
-  }
-
   onPeerToPeerConnectionsCountChange(arg_count) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec,
       null,
       [arg_count],
@@ -710,7 +692,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setTrustTokenKeyCommitments(arg_raw_commitments) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec,
       [arg_raw_commitments],
@@ -719,7 +701,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   updateKeyPinsList(arg_pin_list, arg_update_time) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
       null,
       [arg_pin_list, arg_update_time],
@@ -728,7 +710,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   bindTestInterfaceForTesting(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
       null,
       [arg_receiver],
@@ -737,7 +719,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setFirstPartySets(arg_sets) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
       null,
       [arg_sets],
@@ -746,7 +728,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setExplicitlyAllowedPorts(arg_ports) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
       null,
       [arg_ports],
@@ -755,7 +737,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   parseHeaders(arg_url, arg_headers) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
       [arg_url, arg_headers],
@@ -764,7 +746,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   enableDataUseUpdates(arg_enable) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
       null,
       [arg_enable],
@@ -773,7 +755,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setIPv6ReachabilityOverride(arg_reachability_override) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
       null,
       [arg_reachability_override],
@@ -782,7 +764,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setNetworkAnnotationMonitor(arg_remote) {
     return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
       null,
       [arg_remote],
@@ -791,7 +773,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   interceptUrlLoaderForBodyDecoding(arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client) {
     return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
       null,
       [arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client],
@@ -800,7 +782,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   decodeContentEncoding(arg_content_encoding_types, arg_source_body, arg_dest_body) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
       [arg_content_encoding_types, arg_source_body, arg_dest_body],
@@ -809,7 +791,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   setTLS13EarlyDataEnabled(arg_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
+      this.ordinals[29],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
       null,
       [arg_enabled],
@@ -818,7 +800,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
 
   addDurableMessageCollector(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
+      this.ordinals[30],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
       null,
       [arg_receiver],
@@ -843,7 +825,6 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1050,19 +1031,12 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setEncryptionKey');
-          const result = this.impl.setEncryptionKey(params.arg_encryption_key);
-          break;
-        }
-        case 18: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPeerToPeerConnectionsCountChange');
           const result = this.impl.onPeerToPeerConnectionsCountChange(params.arg_count);
           break;
         }
-        case 19: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
@@ -1079,35 +1053,35 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateKeyPinsList');
           const result = this.impl.updateKeyPinsList(params.arg_pin_list, params.arg_update_time);
           break;
         }
-        case 21: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
           const result = this.impl.bindTestInterfaceForTesting(params.arg_receiver);
           break;
         }
-        case 22: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFirstPartySets');
           const result = this.impl.setFirstPartySets(params.arg_sets);
           break;
         }
-        case 23: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExplicitlyAllowedPorts');
           const result = this.impl.setExplicitlyAllowedPorts(params.arg_ports);
           break;
         }
-        case 24: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseHeaders');
@@ -1125,35 +1099,35 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDataUseUpdates');
           const result = this.impl.enableDataUseUpdates(params.arg_enable);
           break;
         }
-        case 26: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIPv6ReachabilityOverride');
           const result = this.impl.setIPv6ReachabilityOverride(params.arg_reachability_override);
           break;
         }
-        case 27: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkAnnotationMonitor');
           const result = this.impl.setNetworkAnnotationMonitor(params.arg_remote);
           break;
         }
-        case 28: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.interceptUrlLoaderForBodyDecoding');
           const result = this.impl.interceptUrlLoaderForBodyDecoding(params.arg_content_encoding_types, params.arg_source_body, params.arg_dest_body, params.arg_source_url_loader, params.arg_source_url_loader_client, params.arg_dest_url_loader, params.arg_dest_url_loader_client);
           break;
         }
-        case 29: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeContentEncoding');
@@ -1171,14 +1145,14 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 30: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTLS13EarlyDataEnabled');
           const result = this.impl.setTLS13EarlyDataEnabled(params.arg_enabled);
           break;
         }
-        case 31: {
+        case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDurableMessageCollector');
@@ -1610,12 +1584,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec, 'network.mojom.NetworkService_OnClientCertStoreChanged_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec, 'network.mojom.NetworkService_SetEncryptionKey_Params', [
-      mojo.internal.StructField('arg_encryption_key', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec, 'network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_Params', [

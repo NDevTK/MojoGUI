@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7797.0';
+        const versionStr = window.mojoVersion || '149.0.7799.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.unexportable_keys = mojo.internal.bindings.unexportable_keys || {};
+mojo.internal.bindings.variations = mojo.internal.bindings.variations || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
 mojo.internal.bindings.proxy_resolver = mojo.internal.bindings.proxy_resolver || {};
@@ -478,6 +479,8 @@ mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager
 if (mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.cert_verifier = mojo.internal.bindings.cert_verifier || {};
@@ -898,6 +901,9 @@ mojo.internal.bindings.url.mojom.SchemeHostPortSpec = mojo.internal.bindings.url
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.variations = mojo.internal.bindings.variations || {};
+mojo.internal.bindings.variations.mojom = mojo.internal.bindings.variations.mojom || {};
+mojo.internal.bindings.variations.mojom.VariationsHeadersSpec = mojo.internal.bindings.variations.mojom.VariationsHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.network.mojom.kWebSocketOptionNone = 0;
 
@@ -1965,12 +1971,16 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   addQuicHints(arg_origins, arg_network_anonymization_key) {
     return this.$.addQuicHints(arg_origins, arg_network_anonymization_key);
   }
+  setVariationsHeaders(arg_variations_headers) {
+    return this.$.setVariationsHeaders(arg_variations_headers);
+  }
 };
 
 mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2864,6 +2874,15 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
+  setVariationsHeaders(arg_variations_headers) {
+    return this.proxy.sendMessage(
+      this.ordinals[89],  // ordinal
+      mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec,
+      null,
+      [arg_variations_headers],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.network.mojom.NetworkContext.getRemote = function() {
@@ -2882,6 +2901,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4133,6 +4153,13 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
           const result = this.impl.addQuicHints(params.arg_origins, params.arg_network_anonymization_key);
           break;
         }
+        case 89: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setVariationsHeaders');
+          const result = this.impl.setVariationsHeaders(params.arg_variations_headers);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -4262,8 +4289,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_bound_network', 232, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_quic_idle_connection_timeout_seconds_$value', 240, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_quic_idle_connection_timeout_seconds_$flag', originalFieldName: 'arg_quic_idle_connection_timeout_seconds' }),
       mojo.internal.StructField('arg_bound_sessions_unexportable_key_service', 248, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_initial_variations_headers', 256, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
     ],
-    [[0, 264]]);
+    [[0, 272]]);
 
 // Struct: NetworkConditions
 mojo.internal.Struct(
@@ -5348,4 +5376,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec, 'network.mojom.NetworkContext_SetVariationsHeaders_Params', [
+      mojo.internal.StructField('arg_variations_headers', 0, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
