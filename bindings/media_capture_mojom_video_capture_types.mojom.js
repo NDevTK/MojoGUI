@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,6 +137,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureTransportTypeSpec = mojo.internal
 mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec = mojo.internal.bindings.media.mojom.VideoCaptureBufferTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec = mojo.internal.bindings.media.mojom.VideoCaptureErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec = mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.media.mojom.CaptureSourceRequestTypeSpec = mojo.internal.bindings.media.mojom.CaptureSourceRequestTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec = mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec = mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.media.mojom.DeviceEnumerationResultSpec = mojo.internal.bindings.media.mojom.DeviceEnumerationResultSpec || { $: mojo.internal.Enum().$ };
@@ -455,6 +456,13 @@ mojo.internal.bindings.media.mojom.VideoCaptureFrameDropReason = {
   kOldCaptureVersion: 33,
 };
 
+// Enum: CaptureSourceRequestType
+mojo.internal.bindings.media.mojom.CaptureSourceRequestType = {
+  kUnknown: 0,
+  kGetUserMedia: 1,
+  kGetDisplayMedia: 2,
+};
+
 // Enum: SubCaptureTargetType
 mojo.internal.bindings.media.mojom.SubCaptureTargetType = {
   kCropTarget: 0,
@@ -509,6 +517,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_enable_face_detection', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_high_dpi_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_capture_version_source', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 28, 0, mojo.internal.bindings.media.mojom.CaptureSourceRequestTypeSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

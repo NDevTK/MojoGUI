@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-20T11:12:34.146585Z",
-  "version": "149.0.7802.0",
+  "generated_at": "2026-04-21T11:01:33.548939Z",
+  "version": "149.0.7804.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3825,6 +3825,7 @@
         "CreateSkill",
         "UpdateSkill",
         "ShowManageSkillsUi",
+        "ShowBrowseSkillsUi",
         "GetSkill",
         "RecordSkillsWebClientEvent",
         "SubscribeToPinCandidates",
@@ -9378,7 +9379,8 @@
         "Connect",
         "Close",
         "SendRequest",
-        "SendZssRequest"
+        "SendZssRequest",
+        "SendFormsAiRequest"
       ],
       "metadata": {
         "usage": {
@@ -25849,7 +25851,8 @@
         "MatchFamilyName",
         "MatchFamilyNameCharacter",
         "GetAllFamilyNames",
-        "LegacyMakeTypeface"
+        "LegacyMakeTypeface",
+        "MatchLocalFont"
       ],
       "metadata": {
         "usage": {
@@ -63229,7 +63232,8 @@
       "source": "third_party/blink/public/mojom/image_replacement/image_replacement.mojom",
       "module": "blink.mojom",
       "imports": [
-        "third_party/blink/public/mojom/tokens/tokens.mojom"
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {

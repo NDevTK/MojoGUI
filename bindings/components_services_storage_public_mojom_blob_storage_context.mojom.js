@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -404,8 +404,8 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemote = class {
   registerFromMemory(arg_blob, arg_uuid, arg_data) {
     return this.$.registerFromMemory(arg_blob, arg_uuid, arg_data);
   }
-  writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified) {
-    return this.$.writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified);
+  writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified, arg_expected_size) {
+    return this.$.writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified, arg_expected_size);
   }
   clone(arg_receiver) {
     return this.$.clone(arg_receiver);
@@ -441,12 +441,12 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       false);
   }
 
-  writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified) {
+  writeBlobToFile(arg_blob, arg_path, arg_flush_on_write, arg_last_modified, arg_expected_size) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
-      [arg_blob, arg_path, arg_flush_on_write, arg_last_modified],
+      [arg_blob, arg_path, arg_flush_on_write, arg_last_modified, arg_expected_size],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeBlobToFile');
-          const result = this.impl.writeBlobToFile(params.arg_blob, params.arg_path, params.arg_flush_on_write, params.arg_last_modified);
+          const result = this.impl.writeBlobToFile(params.arg_blob, params.arg_path, params.arg_flush_on_write, params.arg_last_modified, params.arg_expected_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -637,8 +637,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_flush_on_write', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_last_modified', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expected_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec, 'storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParams', [

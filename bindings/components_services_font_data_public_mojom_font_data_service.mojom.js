@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -159,6 +159,10 @@ mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypefac
 if (mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec && mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$ = {};
 mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec = mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec.$.structSpec && mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec.$ = {};
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec = mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.font_data_service = mojo.internal.bindings.font_data_service || {};
@@ -220,12 +224,16 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemote = class {
   legacyMakeTypeface(arg_family_name, arg_style) {
     return this.$.legacyMakeTypeface(arg_family_name, arg_style);
   }
+  matchLocalFont(arg_font_unique_name) {
+    return this.$.matchLocalFont(arg_font_unique_name);
+  }
 };
 
 mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('font_data_service.mojom.FontDataService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -269,6 +277,15 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       false);
   }
 
+  matchLocalFont(arg_font_unique_name) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec,
+      [arg_font_unique_name],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.font_data_service.mojom.FontDataService.getRemote = function() {
@@ -287,6 +304,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('font_data_service.mojom.FontDataService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -403,6 +421,24 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] legacyMakeTypeface FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.matchLocalFont');
+          const result = this.impl.matchLocalFont(params.arg_font_unique_name);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] matchLocalFont FAILED:', e));
           }
           break;
         }
@@ -528,6 +564,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchLocalFont_Params', [
+      mojo.internal.StructField('arg_font_unique_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchLocalFont_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);

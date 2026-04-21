@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -157,6 +157,10 @@ mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_
 if (mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ParamsSpec.$ = {};
 mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec = mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec = mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec = mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec.$ = {};
 
 // Enum: LogLevel
 mojo.internal.bindings.private_ai_internals.mojom.LogLevel = {
@@ -344,12 +348,16 @@ mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandlerR
   sendZssRequest(arg_inner_text) {
     return this.$.sendZssRequest(arg_inner_text);
   }
+  sendFormsAiRequest(arg_url) {
+    return this.$.sendFormsAiRequest(arg_url);
+  }
 };
 
 mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('private_ai_internals.mojom.PrivateAiInternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -403,6 +411,15 @@ mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandlerR
       false);
   }
 
+  sendFormsAiRequest(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec,
+      mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec,
+      [arg_url],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler.getRemote = function() {
@@ -421,6 +438,7 @@ mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandlerR
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('private_ai_internals.mojom.PrivateAiInternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -546,6 +564,24 @@ mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandlerR
           }
           break;
         }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.sendFormsAiRequest');
+          const result = this.impl.sendFormsAiRequest(params.arg_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
+              const resp_obj = { 'arg_response': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] sendFormsAiRequest FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -627,6 +663,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParamsSpec, 'private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendZssRequest_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.private_ai_internals.mojom.PrivateAiResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ParamsSpec, 'private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParamsSpec, 'private_ai_internals.mojom.PrivateAiInternalsPageHandler_SendFormsAiRequest_ResponseParams', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.private_ai_internals.mojom.PrivateAiResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

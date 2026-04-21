@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -253,21 +253,25 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
   kShowTranslate: 12,
   kQrCodeGenerator: 13,
   kRouteMedia: 14,
-  kSidePanelShowReadAnything: 15,
-  kCopyUrl: 16,
-  kSendTabToSelf: 17,
-  kTaskManager: 18,
-  kDevTools: 19,
-  kTabSearch: 20,
-  kSidePanelShowContextualTasks: 21,
-  kSidePanelShowLens: 22,
-  kSidePanelShowAboutThisSite: 23,
-  kSidePanelShowCustomizeChrome: 24,
-  kSidePanelShowShoppingInsights: 25,
-  kSidePanelShowMerchantTrust: 26,
-  kSendSharedTabGroupFeedback: 27,
-  kSidePanelShowComments: 28,
-  kDivider: 29,
+  kRouteMediaIdle: 15,
+  kRouteMediaWarning: 16,
+  kRouteMediaPaused: 17,
+  kRouteMediaActive: 18,
+  kSidePanelShowReadAnything: 19,
+  kCopyUrl: 20,
+  kSendTabToSelf: 21,
+  kTaskManager: 22,
+  kDevTools: 23,
+  kTabSearch: 24,
+  kSidePanelShowContextualTasks: 25,
+  kSidePanelShowLens: 26,
+  kSidePanelShowAboutThisSite: 27,
+  kSidePanelShowCustomizeChrome: 28,
+  kSidePanelShowShoppingInsights: 29,
+  kSidePanelShowMerchantTrust: 30,
+  kSendSharedTabGroupFeedback: 31,
+  kSidePanelShowComments: 32,
+  kDivider: 33,
 };
 
 // Enum: LhsChipIdentifier

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,9 +155,10 @@ if (mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePage
 // Enum: InfoBarType
 mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
   kDefaultBrowser: 0,
-  kInstallerDownloader: 1,
-  kSessionRestore: 2,
-  kStartupLaunch: 3,
+  kDevTools: 1,
+  kInstallerDownloader: 2,
+  kSessionRestore: 3,
+  kStartupLaunch: 4,
 };
 
 // Interface: Page

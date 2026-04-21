@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7802.0';
+        const versionStr = window.mojoVersion || '149.0.7804.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -433,15 +433,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
       mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_refresh_policy', 4, 0, mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_key_commitment', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_issuer', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_sign_request_data', 24, 0, mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_include_timestamp_header', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_issuers', 32, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_signed_headers', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_possibly_unsafe_additional_signing_data', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_sign_request_data', 8, 0, mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_include_timestamp_header', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_issuers', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_signed_headers', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_possibly_unsafe_additional_signing_data', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 48]]);
 
 // Struct: HasTrustTokensResult
 mojo.internal.Struct(
