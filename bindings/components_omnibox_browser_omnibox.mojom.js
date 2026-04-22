@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -163,6 +163,15 @@ mojo.internal.bindings.omnibox.mojom.PageClassification = {
   LENS_SIDE_PANEL_SEARCHBOX: 26,
   SEARCH_RESULT_PAGE_ON_CCT: 27,
   OTHER_ON_CCT: 28,
+  ANDROID_HUB: 29,
+  JUMP_START: 30,
+  NTP_COMPOSEBOX: 31,
+  LENS_SIDE_PANEL_COMPOSEBOX: 32,
+  NTP_OMNIBOX_COMPOSEBOX: 33,
+  SRP_OMNIBOX_COMPOSEBOX: 34,
+  OTHER_OMNIBOX_COMPOSEBOX: 35,
+  CO_BROWSING_COMPOSEBOX: 36,
+  NTP_COMPOSEBOX_PREFETCH: 37,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

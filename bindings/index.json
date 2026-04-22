@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-21T11:01:33.548939Z",
-  "version": "149.0.7804.0",
+  "generated_at": "2026-04-22T10:59:24.685038Z",
+  "version": "149.0.7806.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4212,6 +4212,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
@@ -4234,6 +4235,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
@@ -7526,7 +7528,7 @@
       "methods": [
         "Confirm",
         "Cancel",
-        "ContentReady"
+        "ShowUI"
       ],
       "metadata": {
         "usage": {
@@ -8215,7 +8217,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -8244,7 +8247,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -8559,7 +8563,8 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -8582,7 +8587,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -8606,7 +8612,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -9060,7 +9067,8 @@
         "GetPageData",
         "SetFeatureRecentlyUsedState",
         "DecodeBitmap",
-        "ResetModelCrashCount"
+        "ResetModelCrashCount",
+        "BindModelBrokerDebug"
       ],
       "metadata": {
         "usage": {
@@ -11167,7 +11175,8 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11191,7 +11200,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11218,7 +11228,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11243,7 +11254,8 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11271,7 +11283,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11305,7 +11318,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11355,7 +11369,8 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11380,7 +11395,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -11406,7 +11422,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -19871,6 +19888,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
@@ -22456,7 +22474,6 @@
         "FieldTypePredictionsAvailable",
         "ExposeDomNodeIds",
         "ClearPreviewedForm",
-        "FindPotentialSiwgButtons",
         "TriggerSuggestions",
         "SetSuggestionAvailability",
         "AcceptDataListSuggestion",
@@ -22715,7 +22732,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -22743,7 +22760,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -22828,7 +22846,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
       }
     },
     {
@@ -24614,6 +24635,7 @@
         "NotifySessionAbandoned",
         "AddFileContext",
         "AddTabContext",
+        "AddDriveContext",
         "DeleteContext",
         "ClearFiles",
         "SubmitQuery",
@@ -24925,7 +24947,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: on_device_internals.mojom.PageHandler.BindModelBrokerDebug"
           ]
         },
         "scope": "context",
@@ -38561,7 +38583,8 @@
         "Clone",
         "GetProbabilitiesBlocking",
         "SetPriority",
-        "AsrStream"
+        "AsrStream",
+        "Hint"
       ],
       "metadata": {
         "usage": {
@@ -49728,7 +49751,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -51282,6 +51306,7 @@
       "source": "chrome/browser/ui/webui/on_device_internals/on_device_internals_page.mojom",
       "module": "on_device_internals.mojom",
       "imports": [
+        "components/optimization_guide/public/mojom/model_broker_debug.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom",

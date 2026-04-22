@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -156,10 +156,6 @@ mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec 
 if (mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$ = {};
-mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec.$ = {};
-mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec || { $: {} };
@@ -272,9 +268,6 @@ mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec = mojo.inte
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
-mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
-mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec = mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -339,9 +332,6 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemote = class {
   clearPreviewedForm() {
     return this.$.clearPreviewedForm();
   }
-  findPotentialSiwgButtons() {
-    return this.$.findPotentialSiwgButtons();
-  }
   triggerSuggestions(arg_field, arg_trigger_source) {
     return this.$.triggerSuggestions(arg_field, arg_trigger_source);
   }
@@ -369,7 +359,6 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillAgent', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -480,18 +469,9 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       false);
   }
 
-  findPotentialSiwgButtons() {
-    return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
-      mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec,
-      mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   triggerSuggestions(arg_field, arg_trigger_source) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec,
       null,
       [arg_field, arg_trigger_source],
@@ -500,7 +480,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   setSuggestionAvailability(arg_field, arg_suggestion_availability) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec,
       null,
       [arg_field, arg_suggestion_availability],
@@ -509,7 +489,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   acceptDataListSuggestion(arg_field, arg_value) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec,
       null,
       [arg_field, arg_value],
@@ -518,7 +498,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   previewPasswordSuggestion(arg_username, arg_password) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec,
       null,
       [arg_username, arg_password],
@@ -527,7 +507,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   previewPasswordGenerationSuggestion(arg_password) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec,
       null,
       [arg_password],
@@ -536,7 +516,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   getPotentialLastFourCombinationsForStandaloneCvc() {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec,
       [],
@@ -545,7 +525,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
 
   dispatchEmailVerifiedEvent(arg_field_id, arg_presentation_token) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec,
       null,
       [arg_field_id, arg_presentation_token],
@@ -570,7 +550,6 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillAgent', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -736,58 +715,40 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.findPotentialSiwgButtons');
-          const result = this.impl.findPotentialSiwgButtons();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_siwg_button_data' in response) ? response['arg_siwg_button_data'] : response;
-              const resp_obj = { 'arg_siwg_button_data': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] findPotentialSiwgButtons FAILED:', e));
-          }
-          break;
-        }
-        case 11: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerSuggestions');
           const result = this.impl.triggerSuggestions(params.arg_field, params.arg_trigger_source);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSuggestionAvailability');
           const result = this.impl.setSuggestionAvailability(params.arg_field, params.arg_suggestion_availability);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptDataListSuggestion');
           const result = this.impl.acceptDataListSuggestion(params.arg_field, params.arg_value);
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordSuggestion');
           const result = this.impl.previewPasswordSuggestion(params.arg_username, params.arg_password);
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordGenerationSuggestion');
           const result = this.impl.previewPasswordGenerationSuggestion(params.arg_password);
           break;
         }
-        case 16: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPotentialLastFourCombinationsForStandaloneCvc');
@@ -805,7 +766,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmailVerifiedEvent');
@@ -1549,17 +1510,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec, 'autofill.mojom.AutofillAgent_ClearPreviewedForm_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ParamsSpec, 'autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParamsSpec, 'autofill.mojom.AutofillAgent_FindPotentialSiwgButtons_ResponseParams', [
-      mojo.internal.StructField('arg_siwg_button_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec, 'autofill.mojom.AutofillAgent_TriggerSuggestions_Params', [

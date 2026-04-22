@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -205,11 +205,11 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemote = class {
   writeTensor(arg_src_buffer) {
     return this.$.writeTensor(arg_src_buffer);
   }
-  exportTensor(arg_flow_id, arg_sync_token) {
-    return this.$.exportTensor(arg_flow_id, arg_sync_token);
+  exportTensor(arg_flow_id, arg_release) {
+    return this.$.exportTensor(arg_flow_id, arg_release);
   }
-  exportTensorSync(arg_flow_id, arg_sync_token) {
-    return this.$.exportTensorSync(arg_flow_id, arg_sync_token);
+  exportTensorSync(arg_flow_id, arg_release) {
+    return this.$.exportTensorSync(arg_flow_id, arg_release);
   }
   importTensor(arg_flow_id, arg_fence) {
     return this.$.importTensor(arg_flow_id, arg_fence);
@@ -246,21 +246,21 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       false);
   }
 
-  exportTensor(arg_flow_id, arg_sync_token) {
+  exportTensor(arg_flow_id, arg_release) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
-      [arg_flow_id, arg_sync_token],
+      [arg_flow_id, arg_release],
       false);
   }
 
-  exportTensorSync(arg_flow_id, arg_sync_token) {
+  exportTensorSync(arg_flow_id, arg_release) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensorSync_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensorSync_ResponseParamsSpec,
-      [arg_flow_id, arg_sync_token],
+      [arg_flow_id, arg_release],
       false);
   }
 
@@ -368,14 +368,14 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportTensor');
-          const result = this.impl.exportTensor(params.arg_flow_id, params.arg_sync_token);
+          const result = this.impl.exportTensor(params.arg_flow_id, params.arg_release);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensorSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exportTensorSync');
-          const result = this.impl.exportTensorSync(params.arg_flow_id, params.arg_sync_token);
+          const result = this.impl.exportTensorSync(params.arg_flow_id, params.arg_release);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -463,14 +463,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensor_Params', [
       mojo.internal.StructField('arg_flow_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensorSync_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensorSync_Params', [
       mojo.internal.StructField('arg_flow_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

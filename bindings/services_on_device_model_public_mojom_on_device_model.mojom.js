@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,6 +158,8 @@ mojo.internal.bindings.on_device_model.mojom.InputSpec = mojo.internal.bindings.
 if (mojo.internal.bindings.on_device_model.mojom.InputSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.InputSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.InputSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec = mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.AppendOptionsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec = mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec = mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.ToolDeclarationSpec = mojo.internal.bindings.on_device_model.mojom.ToolDeclarationSpec || { $: {} };
@@ -218,6 +220,8 @@ mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec = mo
 if (mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec = mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModel = mojo.internal.bindings.on_device_model.mojom.OnDeviceModel || {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $ : {} };
 if (mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec.$.structSpec && mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec.$ = {};
@@ -714,6 +718,9 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemote = class {
   asrStream(arg_options, arg_stream, arg_responder) {
     return this.$.asrStream(arg_options, arg_stream, arg_responder);
   }
+  hint(arg_options) {
+    return this.$.hint(arg_options);
+  }
 };
 
 mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
@@ -728,6 +735,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       { explicit: 8 },
       { explicit: 9 },
       { explicit: 10 },
+      { explicit: 11 },
     ]);
   }
 
@@ -803,6 +811,15 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       false);
   }
 
+  hint(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec,
+      null,
+      [arg_options],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.on_device_model.mojom.Session.getRemote = function() {
@@ -829,6 +846,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
       { explicit: 8 },
       { explicit: 9 },
       { explicit: 10 },
+      { explicit: 11 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -959,6 +977,13 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.asrStream');
           const result = this.impl.asrStream(params.arg_options, params.arg_stream, params.arg_responder);
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.hint');
+          const result = this.impl.hint(params.arg_options);
           break;
         }
       }
@@ -1953,6 +1978,13 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: HintOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec, 'on_device_model.mojom.HintOptions', [
+      mojo.internal.StructField('arg_constrained_decoding_hint', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: GenerateOptions
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec, 'on_device_model.mojom.GenerateOptions', [
@@ -2125,6 +2157,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_responder', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_model.mojom.Session_Hint_ParamsSpec, 'on_device_model.mojom.Session_Hint_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.on_device_model.mojom.HintOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [

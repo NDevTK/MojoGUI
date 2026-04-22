@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -183,8 +183,6 @@ mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.inter
 if (mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.ParsingResultSpec = mojo.internal.bindings.autofill.mojom.ParsingResultSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$ = {};
-mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec = mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec || { $: {} };
-if (mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -662,17 +660,3 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_confirm_password_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
-
-// Struct: SiwgButtonData
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.SiwgButtonDataSpec, 'autofill.mojom.SiwgButtonData', [
-      mojo.internal.StructField('arg_dom_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id_attribute', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_class_attribute', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aria_label', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_href_attribute', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_role', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tag_name', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 72]]);

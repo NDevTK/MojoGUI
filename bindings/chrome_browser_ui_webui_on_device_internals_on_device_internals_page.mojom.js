@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.on_device_internals.mojom = mojo.internal.bindings.on_device_internals.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_guide || {};
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
@@ -178,6 +179,8 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_Respon
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$ = {};
+mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.Page = mojo.internal.bindings.on_device_internals.mojom.Page || {};
 mojo.internal.bindings.on_device_internals.mojom.PageSpec = mojo.internal.bindings.on_device_internals.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageSpec.$ = {};
@@ -217,6 +220,11 @@ mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote || class {};
 mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPendingReceiver || class { constructor(handle) { this.handle = handle; } };
+mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_guide || {};
+mojo.internal.bindings.optimization_guide.mojom = mojo.internal.bindings.optimization_guide.mojom || {};
+mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugSpec = mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugRemote = mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugRemote || class {};
+mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugPendingReceiver = mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec = mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -413,12 +421,16 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemote = class {
   resetModelCrashCount() {
     return this.$.resetModelCrashCount();
   }
+  bindModelBrokerDebug(arg_receiver) {
+    return this.$.bindModelBrokerDebug(arg_receiver);
+  }
 };
 
 mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -512,6 +524,15 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
+  bindModelBrokerDebug(arg_receiver) {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
+      mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec,
+      null,
+      [arg_receiver],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.on_device_internals.mojom.PageHandler.getRemote = function() {
@@ -530,6 +551,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -707,6 +729,13 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetModelCrashCount');
           const result = this.impl.resetModelCrashCount();
+          break;
+        }
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.bindModelBrokerDebug');
+          const result = this.impl.bindModelBrokerDebug(params.arg_receiver);
           break;
         }
       }
@@ -1029,6 +1058,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec, 'on_device_internals.mojom.PageHandler_ResetModelCrashCount_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec, 'on_device_internals.mojom.PageHandler_BindModelBrokerDebug_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.optimization_guide.mojom.ModelBrokerDebugPendingReceiver), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'on_device_internals.mojom.Page_OnLogMessageAdded_Params', [

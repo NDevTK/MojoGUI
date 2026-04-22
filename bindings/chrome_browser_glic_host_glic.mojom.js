@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -203,6 +203,8 @@ mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec = mojo.internal.binding
 if (mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$ = {};
 mojo.internal.bindings.glic.mojom.NewTabMojoSpec = mojo.internal.bindings.glic.mojom.NewTabMojoSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$ = {};
+mojo.internal.bindings.glic.mojom.ZssConfigSpec = mojo.internal.bindings.glic.mojom.ZssConfigSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZssConfigSpec.$ = {};
 mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec = mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec = mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec || { $: {} };
@@ -253,8 +255,6 @@ mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec = mojo.internal.bindings.
 if (mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$.structSpec && mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$ = {};
 mojo.internal.bindings.glic.mojom.PanelStateSpec = mojo.internal.bindings.glic.mojom.PanelStateSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.PanelStateSpec.$.structSpec && mojo.internal.bindings.glic.mojom.PanelStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.PanelStateSpec.$ = {};
-mojo.internal.bindings.glic.mojom.ZssConfigSpec = mojo.internal.bindings.glic.mojom.ZssConfigSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZssConfigSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InvokeOptionsSpec = mojo.internal.bindings.glic.mojom.InvokeOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InvokeOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec = mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec || { $: {} };
@@ -1071,6 +1071,12 @@ mojo.internal.bindings.glic.mojom.SkillsWebClientEvent = {
   kClickedAddOn1pSkill: 8,
   kClickedSaveAsSkillHoverChip: 9,
   MinVersion: 9,
+  MinVersion: 9,
+  MinVersion: 9,
+  MinVersion: 9,
+  MinVersion: 9,
+  MinVersion: 9,
+  MinVersion: 9,
   kSkillBuilderClickedPromoChip: 20,
   kSkillBuilderPromptGenerated: 21,
   kSkillBuilderClickedSaveAsSkill: 22,
@@ -1164,7 +1170,6 @@ mojo.internal.bindings.glic.mojom.FeatureMode = {
   kUnspecified: 0,
   kImageGeneration: 1,
   kActuation: 2,
-  kBluedog: 2,
 };
 
 // Enum: WebClientMode
@@ -6946,6 +6951,13 @@ mojo.internal.Struct(
     ],
     [[0, 8]]);
 
+// Struct: ZssConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.ZssConfigSpec, 'glic.mojom.ZssConfig', [
+      mojo.internal.StructField('arg_additional_content', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: TriggerInvokeFromInternalsOptions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec, 'glic.mojom.TriggerInvokeFromInternalsOptions', [
@@ -6958,13 +6970,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_auto_submit', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_wait_for_panel_open', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_allowed_inflight_navigation', 44, 0, mojo.internal.bindings.glic.mojom.AllowedInflightNavigationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_skill_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_fre_override', 72, 0, mojo.internal.bindings.glic.mojom.FreOverrideSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_surface', 80, 0, mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zss_config', 48, 0, mojo.internal.bindings.glic.mojom.ZssConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_skill_id', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fre_override', 80, 0, mojo.internal.bindings.glic.mojom.FreOverrideSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_surface', 88, 0, mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec, null, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 112]]);
 
 // Struct: GetContextResultWithActionResultCode
 mojo.internal.Struct(
@@ -7226,13 +7239,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_window_id_$flag', originalFieldName: 'arg_window_id' }),
     ],
     [[0, 24]]);
-
-// Struct: ZssConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.ZssConfigSpec, 'glic.mojom.ZssConfig', [
-      mojo.internal.StructField('arg_additional_content', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
 
 // Struct: InvokeOptions
 mojo.internal.Struct(

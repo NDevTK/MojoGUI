@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7804.0';
+        const versionStr = window.mojoVersion || '149.0.7806.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -561,7 +561,7 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kLoadingLazyMedia: 428,
   kManifestLocalization: 429,
   kContrastColor: 430,
-  kDRAFT_WebAppMigration: 431,
+  kAppMigration: 431,
   kDeclarativeWebmcp: 432,
   kWebgl: 433,
   kWebgl2: 434,
