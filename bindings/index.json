@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T10:59:24.685038Z",
-  "version": "149.0.7806.0",
+  "generated_at": "2026-04-23T11:02:50.406073Z",
+  "version": "149.0.7808.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3430,6 +3430,7 @@
         "InjectInputWithIcon",
         "RemoveInjectedInput",
         "OnZeroStateChange",
+        "SetInNlm",
         "OnAiPageStatusChanged",
         "OnLensOverlayStateChanged",
         "ShowErrorPage",
@@ -4921,7 +4922,8 @@
         "Scroll",
         "PlayVideo",
         "PauseVideo",
-        "SeekToTimestamp"
+        "SeekToTimestamp",
+        "TranslatePage"
       ],
       "metadata": {
         "usage": {
@@ -7756,6 +7758,22 @@
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
+      }
+    },
+    {
+      "name": "DrivePickerHostHandler",
+      "module": "drive_picker_host.mojom",
+      "file": "chrome_browser_ui_webui_drive_picker_host_drive_picker_host.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -25109,7 +25127,11 @@
         "GetAppliedTestPolicies",
         "RevertLocalTestPolicies",
         "SetLocalTestPolicies",
-        "GetPolicyLogs"
+        "GetPolicyLogs",
+        "CheckPromotionEligibility",
+        "SetBannerDismissed",
+        "RecordBannerRedirected",
+        "GetPoliciesJson"
       ],
       "metadata": {
         "usage": {
@@ -49751,8 +49773,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kWebUIToolbarProcessOverheadExperiment",
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -50778,6 +50800,7 @@
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
       "module": "ai_overlay_dialog.mojom",
       "imports": [
+        "mojo/public/mojom/base/empty.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -51126,6 +51149,12 @@
         "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_drive_picker_host_drive_picker_host.mojom.js",
+      "source": "chrome/browser/ui/webui/drive_picker_host/drive_picker_host.mojom",
+      "module": "drive_picker_host.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_extensions_zero_state_promo_zero_state_promo.mojom.js",
