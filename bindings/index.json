@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-23T11:02:50.406073Z",
-  "version": "149.0.7808.0",
+  "generated_at": "2026-04-24T10:59:48.576762Z",
+  "version": "149.0.7810.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3704,6 +3704,7 @@
         "CreateWebClient",
         "PrepareForClient",
         "WebviewCommitted",
+        "OnZoomLevelChange",
         "ClosePanel",
         "OpenProfilePickerAndClosePanel",
         "OpenDisabledByAdminLinkAndClosePanel",
@@ -3724,54 +3725,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "InternalsPageHandler",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "GetInternalsDataPayload",
-        "SetGuestUrlPresets",
-        "TriggerInvokeFromInternalsAction",
-        "SetWebContinuityOriginatingHostUrlPreset",
-        "SetShowErrorAllowed"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: glic.mojom.InternalsPageHandlerFactory.CreateInternalsPageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
-        ]
-      }
-    },
-    {
-      "name": "InternalsPageHandlerFactory",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "CreateInternalsPageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -3940,6 +3893,24 @@
       }
     },
     {
+      "name": "ExperimentalTriggeringUpdatesHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "OnUpdate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebClient",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -3948,6 +3919,7 @@
         "NotifyPanelWasClosed",
         "NotifyPanelStateChange",
         "NotifyPanelActiveChange",
+        "NotifyIsInvoking",
         "NotifyPanelCanAttachChange",
         "NotifyMicrophonePermissionStateChanged",
         "StopMicrophone",
@@ -3980,7 +3952,8 @@
         "NotifyActOnWebCapabilityChanged",
         "NotifyOnboardingCompletedChanged",
         "NotifyActorTaskListRowClicked",
-        "Invoke"
+        "Invoke",
+        "GetExperimentalTriggeringUpdates"
       ],
       "metadata": {
         "usage": {
@@ -4009,6 +3982,54 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "InternalsPageHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_internals.mojom.js",
+      "methods": [
+        "GetInternalsDataPayload",
+        "SetGuestUrlPresets",
+        "TriggerInvokeFromInternalsAction",
+        "SetWebContinuityOriginatingHostUrlPreset",
+        "SetShowErrorAllowed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.InternalsPageHandlerFactory.CreateInternalsPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
+      }
+    },
+    {
+      "name": "InternalsPageHandlerFactory",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_internals.mojom.js",
+      "methods": [
+        "CreateInternalsPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -4923,7 +4944,8 @@
         "PlayVideo",
         "PauseVideo",
         "SeekToTimestamp",
-        "TranslatePage"
+        "TranslatePage",
+        "InvokeGlic"
       ],
       "metadata": {
         "usage": {
@@ -8235,8 +8257,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -8265,8 +8286,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -19906,7 +19926,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
@@ -22818,7 +22837,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -22846,6 +22869,7 @@
       "methods": [
         "Bind",
         "ShowContextMenu",
+        "OnOmniboxAction",
         "OnPageInitialized",
         "ShowContentSettingsBubble",
         "InvokePinnedToolbarAction",
@@ -24624,8 +24648,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpTabGroupsModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -24679,8 +24702,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -24718,8 +24740,7 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kNtpTabGroupsModule"
+          "feature:kInstallElement"
         ]
       }
     },
@@ -26943,7 +26964,7 @@
         "GenerateSigningKey",
         "FromWrappedSigningKey",
         "Sign",
-        "GetAllSigningKeysForGarbageCollection",
+        "GetAllKeysForGarbageCollection",
         "DeleteKeys",
         "DeleteAllKeys"
       ],
@@ -27031,6 +27052,55 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "VrpFlags",
+      "module": "vrp_flags.mojom",
+      "file": "components_vrp_flags_vrp_flags.mojom.js",
+      "methods": [
+        "GetWriteLocations",
+        "WriteAttempted",
+        "GetReadPrefix",
+        "ReadAttempted"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindBrowserVrpFlags",
+            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindNetworkVrpFlags",
+            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindGpuVrpFlags"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
+      }
+    },
+    {
+      "name": "VrpFlagsFactory",
+      "module": "vrp_flags.mojom",
+      "file": "components_vrp_flags_vrp_flags.mojom.js",
+      "methods": [
+        "BindBrowserVrpFlags",
+        "BindNetworkVrpFlags",
+        "BindGpuVrpFlags"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "gates": [
+          "feature:kWebLockScreenApi"
+        ]
       }
     },
     {
@@ -37477,7 +37547,8 @@
         "InterceptUrlLoaderForBodyDecoding",
         "DecodeContentEncoding",
         "SetTLS13EarlyDataEnabled",
-        "AddDurableMessageCollector"
+        "AddDurableMessageCollector",
+        "GetVrpFlags"
       ],
       "metadata": {
         "usage": {
@@ -40451,7 +40522,8 @@
         "GetDawnInfo",
         "Crash",
         "Hang",
-        "ThrowJavaException"
+        "ThrowJavaException",
+        "GetVrpFlags"
       ],
       "metadata": {
         "usage": {
@@ -49046,8 +49118,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -49070,8 +49141,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -49773,8 +49843,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kNtpFooter"
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -50555,11 +50624,22 @@
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "mojo/public/mojom/base/values.mojom",
         "mojo/public/mojom/base/version.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/content_extraction/ai_page_content_metadata.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_glic_host_glic_internals.mojom.js",
+      "source": "chrome/browser/glic/host/glic_internals.mojom",
+      "module": "glic.mojom",
+      "imports": [
+        "chrome/browser/glic/host/glic.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -51647,11 +51727,12 @@
       "source": "chrome/common/actor.mojom",
       "module": "actor.mojom",
       "imports": [
+        "components/actor/public/mojom/actor_types.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
         "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "mojo/public/mojom/base/unguessable_token.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -54158,6 +54239,12 @@
       "imports": []
     },
     {
+      "filename": "components_actor_public_mojom_actor_types.mojom.js",
+      "source": "components/actor/public/mojom/actor_types.mojom",
+      "module": "actor.mojom",
+      "imports": []
+    },
+    {
       "filename": "components_attribution_reporting_data_host.mojom.js",
       "source": "components/attribution_reporting/data_host.mojom",
       "module": "attribution_reporting.mojom",
@@ -55905,6 +55992,14 @@
       "module": "viz.mojom",
       "imports": [
         "mojo/public/mojom/base/values.mojom"
+      ]
+    },
+    {
+      "filename": "components_vrp_flags_vrp_flags.mojom.js",
+      "source": "components/vrp_flags/vrp_flags.mojom",
+      "module": "vrp_flags.mojom",
+      "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
@@ -59922,7 +60017,8 @@
         "services/network/public/mojom/url_request.mojom",
         "services/network/public/mojom/url_response_head.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "components/vrp_flags/vrp_flags.mojom"
       ]
     },
     {
@@ -61146,7 +61242,8 @@
         "ui/gfx/mojom/buffer_types.mojom",
         "ui/gl/mojom/gpu_preference.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
-        "ui/gfx/mojom/dxgi_info.mojom"
+        "ui/gfx/mojom/dxgi_info.mojom",
+        "components/vrp_flags/vrp_flags.mojom"
       ]
     },
     {
@@ -63286,6 +63383,7 @@
       "source": "third_party/blink/public/mojom/image_replacement/image_replacement.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
