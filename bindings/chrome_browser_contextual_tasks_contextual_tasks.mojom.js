@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7810.0';
+        const versionStr = window.mojoVersion || '149.0.7811.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -263,6 +263,8 @@ mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec 
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_SetShowReopenTabs_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactorySpec.$ = {};
@@ -1129,12 +1131,16 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   onSidePanelPinStateChanged(arg_is_pinned) {
     return this.$.onSidePanelPinStateChanged(arg_is_pinned);
   }
+  setExpandButtonEnabled(arg_enabled) {
+    return this.$.setExpandButtonEnabled(arg_enabled);
+  }
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1388,6 +1394,15 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  setExpandButtonEnabled(arg_enabled) {
+    return this.proxy.sendMessage(
+      this.ordinals[25],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec,
+      null,
+      [arg_enabled],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.Page.getRemote = function() {
@@ -1406,6 +1421,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1647,6 +1663,13 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSidePanelPinStateChanged');
           const result = this.impl.onSidePanelPinStateChanged(params.arg_is_pinned);
+          break;
+        }
+        case 25: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setExpandButtonEnabled');
+          const result = this.impl.setExpandButtonEnabled(params.arg_enabled);
           break;
         }
       }
@@ -2191,6 +2214,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_ParamsSpec, 'contextual_tasks.mojom.Page_OnSidePanelPinStateChanged_Params', [
       mojo.internal.StructField('arg_is_pinned', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.Page_SetExpandButtonEnabled_ParamsSpec, 'contextual_tasks.mojom.Page_SetExpandButtonEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7810.0';
+        const versionStr = window.mojoVersion || '149.0.7811.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,6 +142,10 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_Param
 if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec || { $: {} };
@@ -192,6 +196,9 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote = class {
   startProfiling(arg_params) {
     return this.$.startProfiling(arg_params);
   }
+  stopProfiling() {
+    return this.$.stopProfiling();
+  }
   retrieveHeapProfile() {
     return this.$.retrieveHeapProfile();
   }
@@ -201,6 +208,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.ProfilingClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -215,9 +223,18 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
       false);
   }
 
-  retrieveHeapProfile() {
+  stopProfiling() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec,
+      mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  retrieveHeapProfile() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
       [],
@@ -242,6 +259,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.ProfilingClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -305,6 +323,23 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
           break;
         }
         case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.stopProfiling');
+          const result = this.impl.stopProfiling();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] stopProfiling FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieveHeapProfile');
@@ -372,6 +407,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_StopProfiling_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_StopProfiling_ResponseParams', [
     ],
     [[0, 8]]);
 

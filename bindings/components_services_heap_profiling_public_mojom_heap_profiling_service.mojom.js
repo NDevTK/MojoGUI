@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7810.0';
+        const versionStr = window.mojoVersion || '149.0.7811.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -139,6 +139,10 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_Par
 if (mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$ = {};
 mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec.$ = {};
+mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec = mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.heap_profiling = mojo.internal.bindings.heap_profiling || {};
@@ -198,12 +202,16 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemote = class {
   getProfiledPids() {
     return this.$.getProfiledPids();
   }
+  stopProfilingAllClients() {
+    return this.$.stopProfilingAllClients();
+  }
 };
 
 mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.ProfilingService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -227,6 +235,15 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemoteCallHandler = 
       false);
   }
 
+  stopProfilingAllClients() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec,
+      mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.heap_profiling.mojom.ProfilingService.getRemote = function() {
@@ -245,6 +262,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('heap_profiling.mojom.ProfilingService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -326,6 +344,24 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
           }
           break;
         }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.stopProfilingAllClients');
+          const result = this.impl.stopProfilingAllClients();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] stopProfilingAllClients FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -364,6 +400,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParams', [
       mojo.internal.StructField('arg_pids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ParamsSpec, 'heap_profiling.mojom.ProfilingService_StopProfilingAllClients_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_StopProfilingAllClients_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

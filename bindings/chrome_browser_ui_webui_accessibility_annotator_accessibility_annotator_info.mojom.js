@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7810.0';
+        const versionStr = window.mojoVersion || '149.0.7811.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,8 @@ mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnManageSe
 if (mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec = mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec = mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec.$.structSpec && mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec.$ = {};
 
 // Interface: PageHandler
 mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerPendingReceiver = class {
@@ -191,12 +193,16 @@ mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerRemote = cl
   onLearnMoreClicked() {
     return this.$.onLearnMoreClicked();
   }
+  showUi() {
+    return this.$.showUi();
+  }
 };
 
 mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('accessibility_annotator.info.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -250,6 +256,15 @@ mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerRemoteCallH
       false);
   }
 
+  showUi() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler.getRemote = function() {
@@ -268,6 +283,7 @@ mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerReceiver = 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('accessibility_annotator.info.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -362,6 +378,13 @@ mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandlerReceiver = 
           const result = this.impl.onLearnMoreClicked();
           break;
         }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showUi');
+          const result = this.impl.showUi();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -413,6 +436,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec, 'accessibility_annotator.info.mojom.PageHandler_OnLearnMoreClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.accessibility_annotator.info.mojom.PageHandler_ShowUi_ParamsSpec, 'accessibility_annotator.info.mojom.PageHandler_ShowUi_Params', [
     ],
     [[0, 8]]);
 

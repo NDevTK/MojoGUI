@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-24T10:59:48.576762Z",
-  "version": "149.0.7810.0",
+  "generated_at": "2026-04-25T10:36:09.865924Z",
+  "version": "149.0.7811.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3440,7 +3440,8 @@
         "LockInput",
         "UnlockInput",
         "SetShowReopenTabs",
-        "OnSidePanelPinStateChanged"
+        "OnSidePanelPinStateChanged",
+        "SetExpandButtonEnabled"
       ],
       "metadata": {
         "usage": {
@@ -4710,7 +4711,8 @@
         "OnInfoAcknowledged",
         "OnInfoDismissed",
         "OnManageSettingsClicked",
-        "OnLearnMoreClicked"
+        "OnLearnMoreClicked",
+        "ShowUi"
       ],
       "metadata": {
         "usage": {
@@ -22628,7 +22630,6 @@
         "RecordSavePasswordProgress",
         "UserModifiedPasswordField",
         "UserModifiedNonPasswordField",
-        "ShowPasswordSuggestions",
         "CheckSafeBrowsingReputation",
         "FocusedInputChanged",
         "LogFirstFillingResult"
@@ -25936,6 +25937,7 @@
       "file": "components_services_heap_profiling_public_mojom_heap_profiling_client.mojom.js",
       "methods": [
         "StartProfiling",
+        "StopProfiling",
         "RetrieveHeapProfile"
       ],
       "metadata": {
@@ -25955,7 +25957,8 @@
       "file": "components_services_heap_profiling_public_mojom_heap_profiling_service.mojom.js",
       "methods": [
         "AddProfilingClient",
-        "GetProfiledPids"
+        "GetProfiledPids",
+        "StopProfilingAllClients"
       ],
       "metadata": {
         "usage": {

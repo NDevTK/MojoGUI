@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7810.0';
+        const versionStr = window.mojoVersion || '149.0.7811.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -186,8 +186,6 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedPassword
 if (mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec = mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$ = {};
-mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec = mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec = mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec = mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec || { $: {} };
@@ -767,9 +765,6 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverRemote = class {
   userModifiedNonPasswordField(arg_renderer_id, arg_value, arg_autocomplete_attribute_has_username, arg_is_likely_otp) {
     return this.$.userModifiedNonPasswordField(arg_renderer_id, arg_value, arg_autocomplete_attribute_has_username, arg_is_likely_otp);
   }
-  showPasswordSuggestions(arg_request) {
-    return this.$.showPasswordSuggestions(arg_request);
-  }
   checkSafeBrowsingReputation(arg_form_action, arg_frame_url) {
     return this.$.checkSafeBrowsingReputation(arg_form_action, arg_frame_url);
   }
@@ -785,7 +780,6 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordManagerDriver', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -882,18 +876,9 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverRemoteCallHandler = c
       false);
   }
 
-  showPasswordSuggestions(arg_request) {
-    return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
-      mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec,
-      null,
-      [arg_request],
-      false);
-  }
-
   checkSafeBrowsingReputation(arg_form_action, arg_frame_url) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec,
       null,
       [arg_form_action, arg_frame_url],
@@ -902,7 +887,7 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverRemoteCallHandler = c
 
   focusedInputChanged(arg_focused_field_id, arg_focused_field_type) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec,
       null,
       [arg_focused_field_id, arg_focused_field_type],
@@ -911,7 +896,7 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverRemoteCallHandler = c
 
   logFirstFillingResult(arg_form_renderer_id, arg_result) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec,
       null,
       [arg_form_renderer_id, arg_result],
@@ -936,7 +921,6 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.PasswordManagerDriver', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1057,26 +1041,19 @@ mojo.internal.bindings.autofill.mojom.PasswordManagerDriverReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showPasswordSuggestions');
-          const result = this.impl.showPasswordSuggestions(params.arg_request);
-          break;
-        }
-        case 10: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSafeBrowsingReputation');
           const result = this.impl.checkSafeBrowsingReputation(params.arg_form_action, params.arg_frame_url);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusedInputChanged');
           const result = this.impl.focusedInputChanged(params.arg_focused_field_id, params.arg_focused_field_type);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFirstFillingResult');
@@ -1523,12 +1500,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_likely_otp', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_Params', [
