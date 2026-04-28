@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-27T11:30:55.303513Z",
-  "version": "149.0.7811.0",
+  "generated_at": "2026-04-28T11:41:52.374330Z",
+  "version": "149.0.7813.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3426,6 +3426,8 @@
         "OnContextUpdated",
         "HideInput",
         "RestoreInput",
+        "EnterBasicMode",
+        "ExitBasicMode",
         "InjectInput",
         "InjectInputWithIcon",
         "RemoveInjectedInput",
@@ -3575,7 +3577,6 @@
       "methods": [
         "AcceptFre",
         "RejectFre",
-        "DismissFre",
         "FreReloaded",
         "PrepareForClient",
         "ValidateAndOpenLinkInNewTab",
@@ -11479,24 +11480,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PageStabilityMonitor",
-      "module": "actor.mojom",
-      "file": "chrome_common_actor.mojom.js",
-      "methods": [
-        "NotifyWhenStable"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor"
           ]
         },
         "scope": "context",
@@ -23999,7 +23982,8 @@
         "NotifyObserversOfInputEventAcks",
         "OnInvalidInputEventSource",
         "StateOnOverscrollTransfer",
-        "RendererInputResponsivenessChanged"
+        "RendererInputResponsivenessChanged",
+        "OnInputRouterActive"
       ],
       "metadata": {
         "usage": {
@@ -24988,6 +24972,24 @@
           "associated": [],
           "direct": [
             "Internal Interface: on_device_internals.mojom.PageHandler.BindModelBrokerDebug"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageStabilityMonitor",
+      "module": "page_content_annotations.mojom",
+      "file": "components_page_content_annotations_content_mojom_page_stability.mojom.js",
+      "methods": [
+        "NotifyWhenStable"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor"
           ]
         },
         "scope": "context",
@@ -46088,6 +46090,7 @@
         "SetPageLifecycleState",
         "AudioStateChanged",
         "ActivatePrerenderedPage",
+        "UpgradePrerenderUntilScriptToFullPrerender",
         "UpdateWebPreferences",
         "UpdateRendererPreferences",
         "SetHistoryIndexAndLength",
@@ -51754,6 +51757,7 @@
       "imports": [
         "chrome/common/actor.mojom",
         "components/lens/lens_metadata.mojom",
+        "components/page_content_annotations/content/mojom/page_stability.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
@@ -55217,6 +55221,14 @@
       "imports": [
         "components/os_crypt/async/common/algorithm.mojom",
         "mojo/public/mojom/base/shared_memory.mojom"
+      ]
+    },
+    {
+      "filename": "components_page_content_annotations_content_mojom_page_stability.mojom.js",
+      "source": "components/page_content_annotations/content/mojom/page_stability.mojom",
+      "module": "page_content_annotations.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
       ]
     },
     {
