@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-28T11:41:52.374330Z",
-  "version": "149.0.7813.0",
+  "generated_at": "2026-04-29T11:25:56.611732Z",
+  "version": "149.0.7815.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7802,6 +7802,22 @@
       }
     },
     {
+      "name": "DrivePickerUntrustedHostHandler",
+      "module": "drive_picker_host_untrusted.mojom",
+      "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "zero_state_promo.mojom",
       "file": "chrome_browser_ui_webui_extensions_zero_state_promo_zero_state_promo.mojom.js",
@@ -12172,7 +12188,6 @@
         "OnImageDataRequested",
         "OnSelectionChange",
         "OnCollapseSelection",
-        "OnScreenshotRequested",
         "OnDistillationStatus",
         "OnDistillationStateChanged",
         "ScrollToTargetNode",
@@ -21186,10 +21201,7 @@
       "name": "DocumentScan",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_document_scan.mojom.js",
-      "methods": [
-        "OpenScanner",
-        "SetOptions"
-      ],
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -33762,7 +33774,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: remoting.mojom.RemotingHostControl.BindChromotingHostServices"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -33782,7 +33794,8 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: remoting.mojom.ChromotingHostServices.BindSessionServices"
+            "Internal Interface: remoting.mojom.ChromotingHostServices.BindSessionServices",
+            "Internal Interface: remoting.mojom.DesktopSessionConnectionEvents.OnSessionServicesClientConnected"
           ]
         },
         "scope": "context",
@@ -34129,8 +34142,7 @@
       "file": "remoting_host_mojom_remoting_host.mojom.js",
       "methods": [
         "ApplyHostConfig",
-        "InitializePairingRegistry",
-        "BindChromotingHostServices"
+        "InitializePairingRegistry"
       ],
       "metadata": {
         "usage": {
@@ -34149,7 +34161,8 @@
       "file": "remoting_host_mojom_remoting_host.mojom.js",
       "methods": [
         "OnTerminalDisconnected",
-        "OnDesktopSessionAgentAttached"
+        "OnDesktopSessionAgentAttached",
+        "OnSessionServicesClientConnected"
       ],
       "metadata": {
         "usage": {
@@ -37424,7 +37437,6 @@
         "FlushClientCertCache",
         "RevokeNetworkForNonces",
         "ClearNonces",
-        "ExemptUrlFromNetworkRevocationForNonce",
         "Prefetch",
         "GetBoundNetworkForTesting",
         "GetDeviceBoundSessionManager",
@@ -43886,8 +43898,6 @@
         "ReceivedDelegatedCapability",
         "SendFencedFrameReportingBeacon",
         "SendFencedFrameReportingBeaconToCustomURL",
-        "DisableUntrustedNetworkInFencedFrame",
-        "ExemptUrlFromNetworkRevocationForTesting",
         "SendLegacyTechEvent",
         "SetFencedFrameAutomaticBeaconReportEventData",
         "SendPrivateAggregationRequestsForFencedFrameEvent",
@@ -45169,6 +45179,7 @@
         "ExtractTextFragmentsMatches",
         "GetExistingSelectors",
         "RequestSelectorForViewportCenter",
+        "RequestSelectorForSelection",
         "ExtractFirstFragmentRect"
       ],
       "metadata": {
@@ -51240,6 +51251,12 @@
       "filename": "chrome_browser_ui_webui_drive_picker_host_drive_picker_host.mojom.js",
       "source": "chrome/browser/ui/webui/drive_picker_host/drive_picker_host.mojom",
       "module": "drive_picker_host.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
+      "source": "chrome/browser/ui/webui/drive_picker_host/untrusted/drive_picker_host_untrusted.mojom",
+      "module": "drive_picker_host_untrusted.mojom",
       "imports": []
     },
     {
@@ -61744,6 +61761,7 @@
       "module": "viz.mojom",
       "imports": [
         "mojo/public/mojom/base/token.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
