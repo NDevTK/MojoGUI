@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-29T11:25:56.611732Z",
-  "version": "149.0.7815.0",
+  "generated_at": "2026-04-30T11:24:10.493408Z",
+  "version": "149.0.7817.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3429,7 +3429,6 @@
         "EnterBasicMode",
         "ExitBasicMode",
         "InjectInput",
-        "InjectInputWithIcon",
         "RemoveInjectedInput",
         "OnZeroStateChange",
         "SetInNlm",
@@ -22841,6 +22840,27 @@
       }
     },
     {
+      "name": "TabStripUIController",
+      "module": "tabs_api.mojom",
+      "file": "components_browser_apis_tab_strip_tab_strip_ui_controller.mojom.js",
+      "methods": [
+        "ShowTabContextMenu"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
       "name": "ToolbarUIObserver",
       "module": "toolbar_ui_api.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
@@ -37695,7 +37715,8 @@
         "GetAddressMapCacheLinux",
         "AllowsGSSAPILibraryLoad",
         "DisableExclusiveCookieDatabaseLockingForTesting",
-        "IsHappyEyeballsV3Enabled"
+        "IsHappyEyeballsV3Enabled",
+        "HasRawHeadersAccess"
       ],
       "metadata": {
         "usage": {
@@ -42783,9 +42804,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -42806,9 +42824,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -44093,6 +44108,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ],
         "scrambled": false
       }
     },
@@ -47080,27 +47098,6 @@
       }
     },
     {
-      "name": "RTCLoggingDispatcher",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_rtc_logging_rtc_logging.mojom.js",
-      "methods": [
-        "StartDiagnosticLogging",
-        "FinishDiagnosticLogging",
-        "CancelDiagnosticLogging"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct",
-        "scrambled": false
-      }
-    },
-    {
       "name": "WebSensorProvider",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_sensor_web_sensor_provider.mojom.js",
@@ -47822,7 +47819,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kXuControls"
         ],
         "scrambled": false
@@ -48144,6 +48140,27 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "RTCLoggingDispatcher",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webrtc_rtc_logging.mojom.js",
+      "methods": [
+        "StartDiagnosticLogging",
+        "FinishDiagnosticLogging",
+        "CancelDiagnosticLogging"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -49079,7 +49096,8 @@
         "NavigateUrl",
         "CloseLensOverlayFromWebUI",
         "SetSmartTabSharingActive",
-        "GetSmartTabSharingActive"
+        "GetSmartTabSharingActive",
+        "OnContextMenuOpened"
       ],
       "metadata": {
         "usage": {
@@ -54470,6 +54488,17 @@
       "module": "tabs_api.mojom",
       "imports": [
         "components/browser_apis/tab_strip/tab_strip_api_data_model.mojom",
+        "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_tab_strip_tab_strip_ui_controller.mojom.js",
+      "source": "components/browser_apis/tab_strip/tab_strip_ui_controller.mojom",
+      "module": "tabs_api.mojom",
+      "imports": [
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
@@ -60072,7 +60101,8 @@
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/network_types.mojom",
         "services/network/public/mojom/transferable_socket.mojom",
-        "services/network/public/mojom/x509_certificate.mojom"
+        "services/network/public/mojom/x509_certificate.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -64595,12 +64625,6 @@
       ]
     },
     {
-      "filename": "third_party_blink_public_mojom_rtc_logging_rtc_logging.mojom.js",
-      "source": "third_party/blink/public/mojom/rtc_logging/rtc_logging.mojom",
-      "module": "blink.mojom",
-      "imports": []
-    },
-    {
       "filename": "third_party_blink_public_mojom_runtime_feature_state_runtime_feature.mojom.js",
       "source": "third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom",
       "module": "blink.mojom",
@@ -65265,6 +65289,12 @@
         "third_party/blink/public/mojom/v8_cache_options.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_webrtc_rtc_logging.mojom.js",
+      "source": "third_party/blink/public/mojom/webrtc/rtc_logging.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_webshare_share_error.mojom.js",
