@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-30T11:24:10.493408Z",
-  "version": "149.0.7817.0",
+  "generated_at": "2026-05-01T11:03:06.156365Z",
+  "version": "149.0.7819.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -218,7 +218,6 @@
       "module": "ash.boca.mojom",
       "file": "ash_webui_boca_ui_mojom_boca.mojom.js",
       "methods": [
-        "AuthenticateWebview",
         "GetWindowsTabsList",
         "ListCourses",
         "ListStudents",
@@ -10602,104 +10601,6 @@
     },
     {
       "name": "PageHandlerFactory",
-      "module": "tab_strip.mojom",
-      "file": "chrome_browser_ui_webui_tab_strip_tab_strip.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "tab_strip.mojom",
-      "file": "chrome_browser_ui_webui_tab_strip_tab_strip.mojom.js",
-      "methods": [
-        "GetGroupVisualData",
-        "GetTabs",
-        "CloseTab",
-        "GroupTab",
-        "MoveGroup",
-        "MoveTab",
-        "SetThumbnailTracked",
-        "UngroupTab",
-        "GetLayout",
-        "ShowEditDialogForGroup",
-        "ShowTabContextMenu",
-        "ShowBackgroundContextMenu",
-        "CloseContainer",
-        "ActivateTab"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: tab_strip.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "tab_strip.mojom",
-      "file": "chrome_browser_ui_webui_tab_strip_tab_strip.mojom.js",
-      "methods": [
-        "LayoutChanged",
-        "ReceivedKeyboardFocus",
-        "ContextMenuClosed",
-        "LongPress",
-        "TabGroupVisualsChanged",
-        "TabGroupMoved",
-        "TabGroupClosed",
-        "TabGroupStateChanged",
-        "TabCloseCancelled",
-        "TabCreated",
-        "TabRemoved",
-        "TabMoved",
-        "TabReplaced",
-        "TabActiveChanged",
-        "TabUpdated",
-        "TabThumbnailUpdated",
-        "ShowContextMenu",
-        "ThemeChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
       "module": "tab_strip_internals.mojom",
       "file": "chrome_browser_ui_webui_tab_strip_internals_tab_strip_internals.mojom.js",
       "methods": [
@@ -10997,7 +10898,7 @@
       "module": "watermark.mojom",
       "file": "chrome_browser_ui_webui_watermark_watermark.mojom.js",
       "methods": [
-        "SetWatermarkStyle",
+        "SetWatermarkSettings",
         "ShowNotificationToast"
       ],
       "metadata": {
@@ -22786,7 +22687,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -22821,7 +22722,6 @@
       "file": "components_browser_apis_tab_strip_tab_strip_experiment_api.mojom.js",
       "methods": [
         "ReplaceTabInSplit",
-        "ShowTabContextMenu",
         "GetAllTabsForProfile"
       ],
       "metadata": {
@@ -24705,6 +24605,7 @@
         "RecordModelSelectionAction",
         "ShouldShowDriveDisclaimer",
         "OnDriveDisclaimerAccepted",
+        "OnDriveUploadClicked",
         "GetPageClassification"
       ],
       "metadata": {
@@ -26857,7 +26758,8 @@
       "file": "components_surface_embed_common_surface_embed.mojom.js",
       "methods": [
         "SetFrameSinkId",
-        "UpdateLocalSurfaceIdFromChild"
+        "UpdateLocalSurfaceIdFromChild",
+        "ChildProcessGone"
       ],
       "metadata": {
         "usage": {
@@ -38452,6 +38354,7 @@
         "OnCertificateRequested",
         "OnAuthRequired",
         "OnLocalNetworkAccessPermissionRequired",
+        "OnPlatformLocalNetworkPermissionRequired",
         "OnClearSiteData",
         "OnLoadingStateUpdate",
         "OnDataUseUpdate",
@@ -40919,6 +40822,24 @@
       }
     },
     {
+      "name": "WebNNWeightsFileCreator",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_context_provider.mojom.js",
+      "methods": [
+        "CreateWeightsFile"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
+      }
+    },
+    {
       "name": "WebNNGraph",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_graph.mojom.js",
@@ -41261,7 +41182,7 @@
       "file": "third_party_blink_public_mojom_ai_ai_proofreader.mojom.js",
       "methods": [
         "Proofread",
-        "GetCorrectionType"
+        "GetCorrectionsTypes"
       ],
       "metadata": {
         "usage": {
@@ -51639,15 +51560,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_tab_strip_tab_strip.mojom.js",
-      "source": "chrome/browser/ui/webui/tab_strip/tab_strip.mojom",
-      "module": "tab_strip.mojom",
-      "imports": [
-        "components/tabs/public/mojom/tabs.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_ui_webui_tab_strip_internals_tab_strip_internals.mojom.js",
       "source": "chrome/browser/ui/webui/tab_strip_internals/tab_strip_internals.mojom",
       "module": "tab_strip_internals.mojom",
@@ -61930,6 +61842,7 @@
       "source": "services/webnn/public/mojom/webnn_context_provider.mojom",
       "module": "webnn.mojom",
       "imports": [
+        "mojo/public/mojom/base/file.mojom",
         "services/webnn/public/mojom/features.mojom",
         "services/webnn/public/mojom/webnn_context.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",
