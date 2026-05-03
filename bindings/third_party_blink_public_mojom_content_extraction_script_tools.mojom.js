@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7821.0';
+        const versionStr = window.mojoVersion || '149.0.7823.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -147,6 +147,10 @@ mojo.internal.bindings.blink.mojom.ModelContextHost_RegisterScriptTool_ParamsSpe
 if (mojo.internal.bindings.blink.mojom.ModelContextHost_RegisterScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_RegisterScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_RegisterScriptTool_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContext = mojo.internal.bindings.blink.mojom.ModelContext || {};
 mojo.internal.bindings.blink.mojom.ModelContextSpec = mojo.internal.bindings.blink.mojom.ModelContextSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.ModelContextSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextSpec.$ = {};
@@ -333,12 +337,16 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemote = class {
   unregisterScriptTool(arg_name) {
     return this.$.unregisterScriptTool(arg_name);
   }
+  getScriptTools() {
+    return this.$.getScriptTools();
+  }
 };
 
 mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContextHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -372,6 +380,15 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
       false);
   }
 
+  getScriptTools() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.ModelContextHost.getRemote = function() {
@@ -390,6 +407,7 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContextHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -455,6 +473,24 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterScriptTool');
           const result = this.impl.unregisterScriptTool(params.arg_name);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getScriptTools');
+          const result = this.impl.getScriptTools();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_tools' in response) ? response['arg_tools'] : response;
+              const resp_obj = { 'arg_tools': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getScriptTools FAILED:', e));
+          }
           break;
         }
       }
@@ -646,6 +682,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec, 'blink.mojom.ModelContextHost_UnregisterScriptTool_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec, 'blink.mojom.ModelContextHost_GetScriptTools_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec, 'blink.mojom.ModelContextHost_GetScriptTools_ResponseParams', [
+      mojo.internal.StructField('arg_tools', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ScriptToolSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

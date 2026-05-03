@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-02T10:42:45.704927Z",
-  "version": "149.0.7821.0",
+  "generated_at": "2026-05-03T10:45:57.043299Z",
+  "version": "149.0.7823.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -42868,7 +42868,8 @@
       "methods": [
         "BindModelContext",
         "RegisterScriptTool",
-        "UnregisterScriptTool"
+        "UnregisterScriptTool",
+        "GetScriptTools"
       ],
       "metadata": {
         "usage": {
