@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,6 +158,10 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePress
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipCollapseAnimationEnded_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipCollapseAnimationEnded_ParamsSpec || { $: {} };
@@ -388,6 +392,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onLhsChipClicked(arg_identifier, arg_is_mouse_interaction) {
     return this.$.onLhsChipClicked(arg_identifier, arg_is_mouse_interaction);
   }
+  onLhsChipPointerEntered(arg_identifier) {
+    return this.$.onLhsChipPointerEntered(arg_identifier);
+  }
+  onLhsChipPointerExited(arg_identifier) {
+    return this.$.onLhsChipPointerExited(arg_identifier);
+  }
   onLhsChipExpandAnimationEnded(arg_identifier) {
     return this.$.onLhsChipExpandAnimationEnded(arg_identifier);
   }
@@ -406,6 +416,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,9 +505,27 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  onLhsChipExpandAnimationEnded(arg_identifier) {
+  onLhsChipPointerEntered(arg_identifier) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
+      mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec,
+      null,
+      [arg_identifier],
+      false);
+  }
+
+  onLhsChipPointerExited(arg_identifier) {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
+      mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec,
+      null,
+      [arg_identifier],
+      false);
+  }
+
+  onLhsChipExpandAnimationEnded(arg_identifier) {
+    return this.proxy.sendMessage(
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec,
       null,
       [arg_identifier],
@@ -504,7 +534,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onLhsChipCollapseAnimationEnded(arg_identifier) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipCollapseAnimationEnded_ParamsSpec,
       null,
       [arg_identifier],
@@ -513,7 +543,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onHomeButtonDropUrl(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_ParamsSpec,
       null,
       [arg_url],
@@ -522,7 +552,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onHomeButtonDropFile(arg_drop_position) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropFile_ParamsSpec,
       null,
       [arg_drop_position],
@@ -547,6 +577,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -660,26 +692,40 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onLhsChipPointerEntered');
+          const result = this.impl.onLhsChipPointerEntered(params.arg_identifier);
+          break;
+        }
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onLhsChipPointerExited');
+          const result = this.impl.onLhsChipPointerExited(params.arg_identifier);
+          break;
+        }
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipExpandAnimationEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLhsChipExpandAnimationEnded');
           const result = this.impl.onLhsChipExpandAnimationEnded(params.arg_identifier);
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipCollapseAnimationEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLhsChipCollapseAnimationEnded');
           const result = this.impl.onLhsChipCollapseAnimationEnded(params.arg_identifier);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHomeButtonDropUrl');
           const result = this.impl.onHomeButtonDropUrl(params.arg_url);
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHomeButtonDropFile');
@@ -761,6 +807,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipClicked_Params', [
       mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_mouse_interaction', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerEntered_Params', [
+      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipPointerExited_Params', [
+      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

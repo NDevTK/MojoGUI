@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,8 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec = mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec = mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec || { $: {} };
 if (mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionClient = mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionClient || {};
@@ -449,13 +451,25 @@ mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionRequest = mojo.inter
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
+// Struct: WebNNExecutionProviderDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec, 'webnn.mojom.WebNNExecutionProviderDetails', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hardware_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_first_selected', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
 // Struct: WebNNContextIntrospectionDetails
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec, 'webnn.mojom.WebNNContextIntrospectionDetails', [
       mojo.internal.StructField('arg_context_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_context_backend', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_execution_providers', 16, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.WebNNExecutionProviderDetailsSpec, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionClient_OnUpdateExistingContextDetails_ParamsSpec, 'webnn.mojom.WebNNServiceIntrospectionClient_OnUpdateExistingContextDetails_Params', [
       mojo.internal.StructField('arg_contexts_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.WebNNContextIntrospectionDetailsSpec, false), null, false, 0, undefined),

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-04T11:44:01.175073Z",
-  "version": "149.0.7825.0",
+  "generated_at": "2026-05-05T11:11:23.448776Z",
+  "version": "149.0.7827.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -243,7 +243,6 @@
         "GetUserPref",
         "SetUserPref",
         "SetSitePermission",
-        "CloseTab",
         "OpenFeedbackDialog",
         "RefreshWorkbook",
         "GetSpeechRecognitionInstallationStatus",
@@ -3840,6 +3839,7 @@
         "SetContextAccessIndicator",
         "GetUserProfileInfo",
         "SyncCookies",
+        "ClientErrorDialogStateChanged",
         "LogBeginAsyncEvent",
         "LogEndAsyncEvent",
         "LogInstantEvent",
@@ -11436,8 +11436,7 @@
       "module": "webui_browser.mojom",
       "file": "chrome_browser_ui_webui_browser_browser.mojom.js",
       "methods": [
-        "CreatePageHandler",
-        "GetTabStripInset"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
@@ -11504,7 +11503,8 @@
         "Maximize",
         "Restore",
         "Close",
-        "ShowBackForwardMenu"
+        "ShowBackForwardMenu",
+        "GetTabStripInset"
       ],
       "metadata": {
         "usage": {
@@ -23051,6 +23051,8 @@
         "InvokePinnedToolbarAction",
         "OnLhsChipMousePressed",
         "OnLhsChipClicked",
+        "OnLhsChipPointerEntered",
+        "OnLhsChipPointerExited",
         "OnLhsChipExpandAnimationEnded",
         "OnLhsChipCollapseAnimationEnded",
         "OnHomeButtonDropUrl",

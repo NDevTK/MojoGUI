@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,7 +140,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateClientError = {
   kUnableToCalculateTokenSize: 1,
   kInitialInputTooLarge: 2,
   kUnsupportedLanguage: 3,
-  kUnsupportedPerformancePreference: 4,
+  kUnsupportedOptionsForPerformancePreference: 4,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

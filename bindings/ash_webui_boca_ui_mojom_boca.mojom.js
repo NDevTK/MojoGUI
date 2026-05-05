@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -271,10 +271,6 @@ mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec =
 if (mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$ = {};
 mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$ = {};
-mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$ = {};
 mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec || { $: {} };
@@ -615,9 +611,6 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote = class {
   setSitePermission(arg_url, arg_permission, arg_setting) {
     return this.$.setSitePermission(arg_url, arg_permission, arg_setting);
   }
-  closeTab(arg_tab_id) {
-    return this.$.closeTab(arg_tab_id);
-  }
   openFeedbackDialog() {
     return this.$.openFeedbackDialog();
   }
@@ -648,7 +641,6 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -870,18 +862,9 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  closeTab(arg_tab_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
-      mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec,
-      mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
-      [arg_tab_id],
-      false);
-  }
-
   openFeedbackDialog() {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
       [],
@@ -890,7 +873,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   refreshWorkbook() {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec,
       [],
@@ -899,7 +882,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   getSpeechRecognitionInstallationStatus() {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
       [],
@@ -908,7 +891,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   startSpotlight(arg_crd_connection_code) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec,
       [arg_crd_connection_code],
@@ -917,7 +900,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   presentStudentScreen(arg_student, arg_receiver_id) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
       [arg_student, arg_receiver_id],
@@ -926,7 +909,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   stopPresentingStudentScreen() {
     return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
       [],
@@ -935,7 +918,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   presentOwnScreen(arg_receiver_id) {
     return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
       [arg_receiver_id],
@@ -944,7 +927,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
 
   stopPresentingOwnScreen() {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
       [],
@@ -969,7 +952,6 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1421,24 +1403,6 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeTab');
-          const result = this.impl.closeTab(params.arg_tab_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
-              const resp_obj = { 'arg_success': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] closeTab FAILED:', e));
-          }
-          break;
-        }
-        case 22: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
@@ -1454,7 +1418,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 23: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshWorkbook');
@@ -1471,7 +1435,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSpeechRecognitionInstallationStatus');
@@ -1489,7 +1453,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSpotlight');
@@ -1506,7 +1470,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presentStudentScreen');
@@ -1524,7 +1488,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 27: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingStudentScreen');
@@ -1542,7 +1506,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 28: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presentOwnScreen');
@@ -1560,7 +1524,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 29: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopPresentingOwnScreen');
@@ -2464,18 +2428,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_SetSitePermission_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec, 'ash.boca.mojom.PageHandler_CloseTab_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_CloseTab_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

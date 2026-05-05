@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -136,10 +136,6 @@ if (mojo.internal.bindings.webui_browser.mojom.PageHandlerFactorySpec.$.structSp
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory.$interfaceName = 'webui_browser.mojom.PageHandlerFactory';
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
-mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$ = {};
-mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.webui_browser.mojom.Page = mojo.internal.bindings.webui_browser.mojom.Page || {};
 mojo.internal.bindings.webui_browser.mojom.PageSpec = mojo.internal.bindings.webui_browser.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.webui_browser.mojom.PageSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageSpec.$ = {};
@@ -186,6 +182,10 @@ mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec = mojo.i
 if (mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec.$ = {};
 mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec.$ = {};
+mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec.$ = {};
+mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec = mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.webui_browser.mojom.GuestHandler = mojo.internal.bindings.webui_browser.mojom.GuestHandler || {};
 mojo.internal.bindings.webui_browser.mojom.GuestHandlerSpec = mojo.internal.bindings.webui_browser.mojom.GuestHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.webui_browser.mojom.GuestHandlerSpec.$.structSpec && mojo.internal.bindings.webui_browser.mojom.GuestHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webui_browser.mojom.GuestHandlerSpec.$ = {};
@@ -278,16 +278,12 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemote = class {
   createPageHandler(arg_page, arg_handler) {
     return this.$.createPageHandler(arg_page, arg_handler);
   }
-  getTabStripInset() {
-    return this.$.getTabStripInset();
-  }
 };
 
 mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('webui_browser.mojom.PageHandlerFactory', [
-      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -298,15 +294,6 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler =
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
       [arg_page, arg_handler],
-      false);
-  }
-
-  getTabStripInset() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
-      mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
-      [],
       false);
   }
 
@@ -328,7 +315,6 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('webui_browser.mojom.PageHandlerFactory', [
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -378,24 +364,6 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getTabStripInset');
-          const result = this.impl.getTabStripInset();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_width' in response) ? response['arg_width'] : response;
-              const resp_obj = { 'arg_width': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getTabStripInset FAILED:', e));
-          }
           break;
         }
       }
@@ -697,12 +665,16 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemote = class {
   showBackForwardMenu(arg_is_back) {
     return this.$.showBackForwardMenu(arg_is_back);
   }
+  getTabStripInset() {
+    return this.$.getTabStripInset();
+  }
 };
 
 mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('webui_browser.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -826,6 +798,15 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
+  getTabStripInset() {
+    return this.proxy.sendMessage(
+      this.ordinals[12],  // ordinal
+      mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec,
+      mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.webui_browser.mojom.PageHandler.getRemote = function() {
@@ -844,6 +825,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('webui_browser.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1003,6 +985,24 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showBackForwardMenu');
           const result = this.impl.showBackForwardMenu(params.arg_is_back);
+          break;
+        }
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTabStripInset');
+          const result = this.impl.getTabStripInset();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_width' in response) ? response['arg_width'] : response;
+              const resp_obj = { 'arg_width': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getTabStripInset FAILED:', e));
+          }
           break;
         }
       }
@@ -1364,17 +1364,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec, 'webui_browser.mojom.PageHandlerFactory_GetTabStripInset_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec, 'webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParams', [
-      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec, 'webui_browser.mojom.Page_SetFocusToLocationBar_Params', [
       mojo.internal.StructField('arg_is_user_initiated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1478,6 +1467,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowBackForwardMenu_ParamsSpec, 'webui_browser.mojom.PageHandler_ShowBackForwardMenu_Params', [
       mojo.internal.StructField('arg_is_back', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ParamsSpec, 'webui_browser.mojom.PageHandler_GetTabStripInset_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParamsSpec, 'webui_browser.mojom.PageHandler_GetTabStripInset_ResponseParams', [
+      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

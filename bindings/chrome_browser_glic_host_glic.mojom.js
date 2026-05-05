@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -551,6 +551,8 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = mojo
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec || { $: {} };
@@ -2765,6 +2767,9 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   syncCookies() {
     return this.$.syncCookies();
   }
+  clientErrorDialogStateChanged(arg_shown_dialog_type) {
+    return this.$.clientErrorDialogStateChanged(arg_shown_dialog_type);
+  }
   logBeginAsyncEvent(arg_event_async_id, arg_task_id, arg_event, arg_details) {
     return this.$.logBeginAsyncEvent(arg_event_async_id, arg_task_id, arg_event, arg_details);
   }
@@ -2873,6 +2878,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3500,9 +3506,18 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       false);
   }
 
-  logBeginAsyncEvent(arg_event_async_id, arg_task_id, arg_event, arg_details) {
+  clientErrorDialogStateChanged(arg_shown_dialog_type) {
     return this.proxy.sendMessage(
       this.ordinals[59],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec,
+      null,
+      [arg_shown_dialog_type],
+      false);
+  }
+
+  logBeginAsyncEvent(arg_event_async_id, arg_task_id, arg_event, arg_details) {
+    return this.proxy.sendMessage(
+      this.ordinals[60],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
       [arg_event_async_id, arg_task_id, arg_event, arg_details],
@@ -3511,7 +3526,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   logEndAsyncEvent(arg_event_async_id, arg_details) {
     return this.proxy.sendMessage(
-      this.ordinals[60],  // ordinal
+      this.ordinals[61],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
       [arg_event_async_id, arg_details],
@@ -3520,7 +3535,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   logInstantEvent(arg_task_id, arg_event, arg_details) {
     return this.proxy.sendMessage(
-      this.ordinals[61],  // ordinal
+      this.ordinals[62],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
       [arg_task_id, arg_event, arg_details],
@@ -3529,7 +3544,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   journalClear() {
     return this.proxy.sendMessage(
-      this.ordinals[62],  // ordinal
+      this.ordinals[63],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
       [],
@@ -3538,7 +3553,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   journalSnapshot(arg_clear_journal) {
     return this.proxy.sendMessage(
-      this.ordinals[63],  // ordinal
+      this.ordinals[64],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
       [arg_clear_journal],
@@ -3547,7 +3562,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   journalStart(arg_max_bytes, arg_capture_screenshots) {
     return this.proxy.sendMessage(
-      this.ordinals[64],  // ordinal
+      this.ordinals[65],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
       [arg_max_bytes, arg_capture_screenshots],
@@ -3556,7 +3571,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   journalStop() {
     return this.proxy.sendMessage(
-      this.ordinals[65],  // ordinal
+      this.ordinals[66],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
       [],
@@ -3565,7 +3580,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   journalRecordFeedback(arg_positive, arg_reason) {
     return this.proxy.sendMessage(
-      this.ordinals[66],  // ordinal
+      this.ordinals[67],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
       [arg_positive, arg_reason],
@@ -3574,7 +3589,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onUserInputSubmitted(arg_mode) {
     return this.proxy.sendMessage(
-      this.ordinals[67],  // ordinal
+      this.ordinals[68],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
       [arg_mode],
@@ -3583,7 +3598,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onContextUploadStarted() {
     return this.proxy.sendMessage(
-      this.ordinals[68],  // ordinal
+      this.ordinals[69],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
       [],
@@ -3592,7 +3607,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onContextUploadCompleted() {
     return this.proxy.sendMessage(
-      this.ordinals[69],  // ordinal
+      this.ordinals[70],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
       [],
@@ -3601,7 +3616,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onReaction(arg_reactionType) {
     return this.proxy.sendMessage(
-      this.ordinals[70],  // ordinal
+      this.ordinals[71],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
       [arg_reactionType],
@@ -3610,7 +3625,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onResponseStarted() {
     return this.proxy.sendMessage(
-      this.ordinals[71],  // ordinal
+      this.ordinals[72],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
       [],
@@ -3619,7 +3634,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onResponseStopped(arg_details) {
     return this.proxy.sendMessage(
-      this.ordinals[72],  // ordinal
+      this.ordinals[73],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
       [arg_details],
@@ -3628,7 +3643,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onSessionTerminated() {
     return this.proxy.sendMessage(
-      this.ordinals[73],  // ordinal
+      this.ordinals[74],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
       [],
@@ -3637,7 +3652,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onTurnCompleted(arg_model, arg_duration) {
     return this.proxy.sendMessage(
-      this.ordinals[74],  // ordinal
+      this.ordinals[75],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
       [arg_model, arg_duration],
@@ -3646,7 +3661,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onResponseRated(arg_positive) {
     return this.proxy.sendMessage(
-      this.ordinals[75],  // ordinal
+      this.ordinals[76],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
       [arg_positive],
@@ -3655,7 +3670,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onClosedCaptionsShown() {
     return this.proxy.sendMessage(
-      this.ordinals[76],  // ordinal
+      this.ordinals[77],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
       [],
@@ -3664,7 +3679,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onActionSubmitted(arg_is_retry) {
     return this.proxy.sendMessage(
-      this.ordinals[77],  // ordinal
+      this.ordinals[78],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnActionSubmitted_ParamsSpec,
       null,
       [arg_is_retry],
@@ -3673,7 +3688,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   scrollTo(arg_params) {
     return this.proxy.sendMessage(
-      this.ordinals[78],  // ordinal
+      this.ordinals[79],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
       [arg_params],
@@ -3682,7 +3697,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   dropScrollToHighlight() {
     return this.proxy.sendMessage(
-      this.ordinals[79],  // ordinal
+      this.ordinals[80],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
       [],
@@ -3691,7 +3706,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   setSyntheticExperimentState(arg_trial_name, arg_group_name) {
     return this.proxy.sendMessage(
-      this.ordinals[80],  // ordinal
+      this.ordinals[81],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
       [arg_trial_name, arg_group_name],
@@ -3700,7 +3715,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   openOsPermissionSettingsMenu(arg_type) {
     return this.proxy.sendMessage(
-      this.ordinals[81],  // ordinal
+      this.ordinals[82],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
       [arg_type],
@@ -3709,7 +3724,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   getOsMicrophonePermissionStatus() {
     return this.proxy.sendMessage(
-      this.ordinals[82],  // ordinal
+      this.ordinals[83],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
       [],
@@ -3718,7 +3733,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   getZeroStateSuggestionsAndSubscribe(arg_is_live, arg_options) {
     return this.proxy.sendMessage(
-      this.ordinals[83],  // ordinal
+      this.ordinals[84],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
       [arg_is_live, arg_options],
@@ -3727,7 +3742,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   getZeroStateSuggestionsForFocusedTab(arg_is_first_run) {
     return this.proxy.sendMessage(
-      this.ordinals[84],  // ordinal
+      this.ordinals[85],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
       [arg_is_first_run],
@@ -3736,7 +3751,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   maybeRefreshUserStatus() {
     return this.proxy.sendMessage(
-      this.ordinals[85],  // ordinal
+      this.ordinals[86],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
       [],
@@ -3745,7 +3760,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   isDebuggerAttached() {
     return this.proxy.sendMessage(
-      this.ordinals[86],  // ordinal
+      this.ordinals[87],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
       [],
@@ -3754,7 +3769,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   subscribeToPageMetadata(arg_tab_id, arg_names) {
     return this.proxy.sendMessage(
-      this.ordinals[87],  // ordinal
+      this.ordinals[88],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
       [arg_tab_id, arg_names],
@@ -3763,7 +3778,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   switchConversation(arg_info) {
     return this.proxy.sendMessage(
-      this.ordinals[88],  // ordinal
+      this.ordinals[89],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
       [arg_info],
@@ -3772,7 +3787,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   registerConversation(arg_info) {
     return this.proxy.sendMessage(
-      this.ordinals[89],  // ordinal
+      this.ordinals[90],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
       [arg_info],
@@ -3781,7 +3796,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   setOnboardingCompleted() {
     return this.proxy.sendMessage(
-      this.ordinals[90],  // ordinal
+      this.ordinals[91],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
       [],
@@ -3790,7 +3805,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   subscribeToTabData(arg_tab_id, arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[91],  // ordinal
+      this.ordinals[92],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
       [arg_tab_id, arg_receiver],
@@ -3799,7 +3814,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   subscribeToTabFavicon(arg_tab_id, arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[92],  // ordinal
+      this.ordinals[93],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsSpec,
       null,
       [arg_tab_id, arg_receiver],
@@ -3824,6 +3839,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4676,33 +4692,40 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clientErrorDialogStateChanged');
+          const result = this.impl.clientErrorDialogStateChanged(params.arg_shown_dialog_type);
+          break;
+        }
+        case 60: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logBeginAsyncEvent');
           const result = this.impl.logBeginAsyncEvent(params.arg_event_async_id, params.arg_task_id, params.arg_event, params.arg_details);
           break;
         }
-        case 60: {
+        case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logEndAsyncEvent');
           const result = this.impl.logEndAsyncEvent(params.arg_event_async_id, params.arg_details);
           break;
         }
-        case 61: {
+        case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInstantEvent');
           const result = this.impl.logInstantEvent(params.arg_task_id, params.arg_event, params.arg_details);
           break;
         }
-        case 62: {
+        case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalClear_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalClear');
           const result = this.impl.journalClear();
           break;
         }
-        case 63: {
+        case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalSnapshot');
@@ -4720,105 +4743,105 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 64: {
+        case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalStart');
           const result = this.impl.journalStart(params.arg_max_bytes, params.arg_capture_screenshots);
           break;
         }
-        case 65: {
+        case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalStop');
           const result = this.impl.journalStop();
           break;
         }
-        case 66: {
+        case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalRecordFeedback');
           const result = this.impl.journalRecordFeedback(params.arg_positive, params.arg_reason);
           break;
         }
-        case 67: {
+        case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUserInputSubmitted');
           const result = this.impl.onUserInputSubmitted(params.arg_mode);
           break;
         }
-        case 68: {
+        case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadStarted');
           const result = this.impl.onContextUploadStarted();
           break;
         }
-        case 69: {
+        case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUploadCompleted');
           const result = this.impl.onContextUploadCompleted();
           break;
         }
-        case 70: {
+        case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReaction');
           const result = this.impl.onReaction(params.arg_reactionType);
           break;
         }
-        case 71: {
+        case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted();
           break;
         }
-        case 72: {
+        case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStopped');
           const result = this.impl.onResponseStopped(params.arg_details);
           break;
         }
-        case 73: {
+        case 74: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionTerminated');
           const result = this.impl.onSessionTerminated();
           break;
         }
-        case 74: {
+        case 75: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTurnCompleted');
           const result = this.impl.onTurnCompleted(params.arg_model, params.arg_duration);
           break;
         }
-        case 75: {
+        case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseRated');
           const result = this.impl.onResponseRated(params.arg_positive);
           break;
         }
-        case 76: {
+        case 77: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosedCaptionsShown');
           const result = this.impl.onClosedCaptionsShown();
           break;
         }
-        case 77: {
+        case 78: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnActionSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActionSubmitted');
           const result = this.impl.onActionSubmitted(params.arg_is_retry);
           break;
         }
-        case 78: {
+        case 79: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollTo');
@@ -4836,28 +4859,28 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 79: {
+        case 80: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dropScrollToHighlight');
           const result = this.impl.dropScrollToHighlight();
           break;
         }
-        case 80: {
+        case 81: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSyntheticExperimentState');
           const result = this.impl.setSyntheticExperimentState(params.arg_trial_name, params.arg_group_name);
           break;
         }
-        case 81: {
+        case 82: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openOsPermissionSettingsMenu');
           const result = this.impl.openOsPermissionSettingsMenu(params.arg_type);
           break;
         }
-        case 82: {
+        case 83: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOsMicrophonePermissionStatus');
@@ -4875,7 +4898,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 83: {
+        case 84: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsAndSubscribe');
@@ -4893,7 +4916,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 84: {
+        case 85: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getZeroStateSuggestionsForFocusedTab');
@@ -4911,14 +4934,14 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 85: {
+        case 86: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeRefreshUserStatus');
           const result = this.impl.maybeRefreshUserStatus();
           break;
         }
-        case 86: {
+        case 87: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDebuggerAttached');
@@ -4936,7 +4959,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 87: {
+        case 88: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToPageMetadata');
@@ -4954,7 +4977,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 88: {
+        case 89: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchConversation');
@@ -4972,7 +4995,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 89: {
+        case 90: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerConversation');
@@ -4990,21 +5013,21 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 90: {
+        case 91: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOnboardingCompleted');
           const result = this.impl.setOnboardingCompleted();
           break;
         }
-        case 91: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToTabData');
           const result = this.impl.subscribeToTabData(params.arg_tab_id, params.arg_receiver);
           break;
         }
-        case 92: {
+        case 93: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToTabFavicon');
@@ -7942,6 +7965,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec, 'glic.mojom.WebClientHandler_SyncCookies_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_ParamsSpec, 'glic.mojom.WebClientHandler_ClientErrorDialogStateChanged_Params', [
+      mojo.internal.StructField('arg_shown_dialog_type', 0, 0, mojo.internal.bindings.glic.mojom.ClientErrorDialogTypeSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

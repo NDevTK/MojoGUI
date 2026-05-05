@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '149.0.7825.0';
+        const versionStr = window.mojoVersion || '149.0.7827.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,6 +135,9 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageTypeSpec = mojo.i
 mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipThemeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipThemeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyleSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionActionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipIconSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipIconSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.SecurityLevelSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SecurityLevelSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxActionSpec || { $: {} };
@@ -167,6 +170,10 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec = mojo.
 if (mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec || { $: {} };
@@ -314,6 +321,39 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
 mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifier = {
   kUnspecified: 0,
   kLocationIcon: 1,
+  kPermissionIndicator: 2,
+  kPermissionRequest: 3,
+};
+
+// Enum: PermissionChipTheme
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipTheme = {
+  kUnspecified: 0,
+  kNormalVisibility: 1,
+  kLowVisibility: 2,
+  kActivityIndicator: 3,
+  kInUseActivityIndicator: 4,
+  kBlockedActivityIndicator: 5,
+  kOnSystemBlockedActivityIndicator: 6,
+};
+
+// Enum: PermissionPromptStyle
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyle = {
+  kUnspecified: 0,
+  kBubbleOnly: 1,
+  kChip: 2,
+  kLocationBarRightIcon: 3,
+  kQuietChip: 4,
+};
+
+// Enum: PermissionAction
+mojo.internal.bindings.toolbar_ui_api.mojom.PermissionAction = {
+  kUnspecified: 0,
+  kGranted: 1,
+  kDenied: 2,
+  kDismissed: 3,
+  kIgnored: 4,
+  kRevoked: 5,
+  kGrantedOnce: 6,
 };
 
 // Enum: SecurityChipIcon
@@ -494,6 +534,31 @@ mojo.internal.Struct(
     ],
     [[0, 40]]);
 
+// Struct: PermissionChipState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec, 'toolbar_ui_api.mojom.PermissionChipState', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_show_blocked_icon', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_fully_collapsed', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 4, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipThemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tooltip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_decision', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prompt_style', 36, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: PermissionDashboardState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec, 'toolbar_ui_api.mojom.PermissionDashboardState', [
+      mojo.internal.StructField('arg_indicator_chip', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_chip', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_divider_visible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: SecurityChipState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec, 'toolbar_ui_api.mojom.SecurityChipState', [
@@ -502,6 +567,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_clickable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_text_dangerous', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_visible', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -510,8 +576,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec, 'toolbar_ui_api.mojom.LhsChipsState', [
       mojo.internal.StructField('arg_security_chip', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_activity_indicators', 8, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_dashboard', 16, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: NavigationControlsState
 mojo.internal.Struct(
