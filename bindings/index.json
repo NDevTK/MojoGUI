@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-05T11:11:23.448776Z",
-  "version": "149.0.7827.0",
+  "generated_at": "2026-05-06T11:44:24.710700Z",
+  "version": "150.0.7828.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4023,7 +4023,8 @@
         "SetGuestUrlPresets",
         "TriggerInvokeFromInternalsAction",
         "SetWebContinuityOriginatingHostUrlPreset",
-        "SetShowErrorAllowed"
+        "SetShowErrorAllowed",
+        "ShowExperimentalOptIn"
       ],
       "metadata": {
         "usage": {
@@ -4079,7 +4080,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4106,7 +4106,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4129,7 +4128,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4265,7 +4263,6 @@
         "category": "internal",
         "gates": [
           "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4288,7 +4285,6 @@
         "category": "internal",
         "gates": [
           "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4926,7 +4922,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4952,7 +4947,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -4982,7 +4976,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7555,8 +7548,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7590,8 +7581,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7622,8 +7611,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -8267,6 +8254,77 @@
       }
     },
     {
+      "name": "PageHandler",
+      "module": "multistep_filter_internals.mojom",
+      "file": "chrome_browser_ui_webui_multistep_filter_internals_multistep_filter_internals.mojom.js",
+      "methods": [
+        "GetBufferedLogs"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: multistep_filter_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "multistep_filter_internals.mojom",
+      "file": "chrome_browser_ui_webui_multistep_filter_internals_multistep_filter_internals.mojom.js",
+      "methods": [
+        "OnLogEntryAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "multistep_filter_internals.mojom",
+      "file": "chrome_browser_ui_webui_multistep_filter_internals_multistep_filter_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
       "name": "ShareTargetListener",
       "module": "nearby_share.mojom",
       "file": "chrome_browser_ui_webui_nearby_share_nearby_share.mojom.js",
@@ -8881,7 +8939,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -8904,7 +8961,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -20080,7 +20136,6 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kGlicRegionSelectionNew",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -24853,6 +24908,7 @@
         "QueryAutocomplete",
         "StopAutocomplete",
         "OpenAutocompleteMatch",
+        "SetSmartComposeStats",
         "SetPopupSelection",
         "OpenPopupSelection",
         "OnNavigationLikely",
@@ -25202,7 +25258,26 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor"
+            "Internal Interface: chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor",
+            "Internal Interface: page_content_annotations.mojom.PageStabilityMonitorManager.CreatePageStabilityMonitor"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageStabilityMonitorManager",
+      "module": "page_content_annotations.mojom",
+      "file": "components_page_content_annotations_content_mojom_page_stability.mojom.js",
+      "methods": [
+        "CreatePageStabilityMonitor"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -43193,7 +43268,9 @@
       "file": "third_party_blink_public_mojom_devtools_devtools_agent.mojom.js",
       "methods": [
         "DispatchProtocolCommand",
-        "UnpauseAndTerminate"
+        "UnpauseAndTerminate",
+        "AddScriptToEvaluateOnNewDocument",
+        "RemoveScriptToEvaluateOnNewDocument"
       ],
       "metadata": {
         "usage": {
@@ -46878,7 +46955,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_picture_in_picture_picture_in_picture.mojom.js",
       "methods": [
-        "StartSession"
+        "StartSession",
+        "RequestImmersivePlaybackConfirmation"
       ],
       "metadata": {
         "usage": {
@@ -51630,6 +51708,16 @@
       "module": "mojom",
       "imports": [
         "services/device/public/mojom/geolocation_internals.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_multistep_filter_internals_multistep_filter_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/multistep_filter_internals/multistep_filter_internals.mojom",
+      "module": "multistep_filter_internals.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/uuid.mojom",
+        "mojo/public/mojom/base/values.mojom"
       ]
     },
     {
@@ -61790,6 +61878,7 @@
       "imports": [
         "gpu/ipc/common/mailbox.mojom",
         "services/viz/public/mojom/compositing/bitmap_in_shared_memory.mojom",
+        "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
         "services/viz/public/mojom/compositing/texture_releaser.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/color_space.mojom"
