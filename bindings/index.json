@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-06T11:44:24.710700Z",
-  "version": "150.0.7828.0",
+  "generated_at": "2026-05-07T11:43:51.534006Z",
+  "version": "150.0.7830.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3827,7 +3827,6 @@
         "CaptureRegion",
         "DeleteCapturedRegion",
         "SetAudioDucking",
-        "SetPanelDraggableAreas",
         "SetMinimumPanelSize",
         "SetMicrophonePermissionState",
         "SetLocationPermissionState",
@@ -3840,6 +3839,7 @@
         "GetUserProfileInfo",
         "SyncCookies",
         "ClientErrorDialogStateChanged",
+        "ReportClientTransientError",
         "LogBeginAsyncEvent",
         "LogEndAsyncEvent",
         "LogInstantEvent",
@@ -11604,87 +11604,6 @@
         },
         "scope": "context",
         "category": "internal"
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "extensions_bar.mojom",
-      "file": "chrome_browser_ui_webui_browser_extensions_bar.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "extensions_bar.mojom",
-      "file": "chrome_browser_ui_webui_browser_extensions_bar.mojom.js",
-      "methods": [
-        "ExecuteUserAction",
-        "ShowContextMenu",
-        "ToggleExtensionsMenuFromWebUI"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: extensions_bar.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "extensions_bar.mojom",
-      "file": "chrome_browser_ui_webui_browser_extensions_bar.mojom.js",
-      "methods": [
-        "ActionsAddedOrUpdated",
-        "ActionRemoved",
-        "ActionPoppedOut"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
       }
     },
     {
@@ -23076,6 +22995,87 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "extensions_bar.mojom",
+      "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "extensions_bar.mojom",
+      "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
+      "methods": [
+        "ExecuteUserAction",
+        "ShowContextMenu",
+        "ToggleExtensionsMenuFromWebUI"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: extensions_bar.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "extensions_bar.mojom",
+      "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
+      "methods": [
+        "ActionsAddedOrUpdated",
+        "ActionRemoved",
+        "ActionPoppedOut"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
       "name": "ToolbarUIObserver",
       "module": "toolbar_ui_api.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
@@ -24924,7 +24924,6 @@
         "NotifySessionAbandoned",
         "AddFileContext",
         "AddTabContext",
-        "AddDriveContext",
         "DeleteContext",
         "ClearFiles",
         "SubmitQuery",
@@ -27114,7 +27113,8 @@
       "methods": [
         "SetFrameSinkId",
         "UpdateLocalSurfaceIdFromChild",
-        "ChildProcessGone"
+        "ChildProcessGone",
+        "RequestFocus"
       ],
       "metadata": {
         "usage": {
@@ -35318,7 +35318,8 @@
       "file": "services_device_public_mojom_geolocation.mojom.js",
       "methods": [
         "SetHighAccuracyHint",
-        "QueryNextPosition"
+        "QueryNextPosition",
+        "QueryCachedPosition"
       ],
       "metadata": {
         "usage": {
@@ -51035,6 +51036,7 @@
         "chrome/browser/glic/host/glic_features.mojom",
         "chrome/common/actor_webui.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
+        "mojo/public/mojom/base/absl_status.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/proto_wrapper.mojom",
@@ -52140,15 +52142,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_browser_extensions_bar.mojom.js",
-      "source": "chrome/browser/ui/webui_browser/extensions_bar.mojom",
-      "module": "extensions_bar.mojom",
-      "imports": [
-        "url/mojom/url.mojom",
-        "ui/base/mojom/menu_source_type.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_web_applications_mojom_user_display_mode.mojom.js",
       "source": "chrome/browser/web_applications/mojom/user_display_mode.mojom",
       "module": "web_app.mojom",
@@ -52185,6 +52178,7 @@
         "components/lens/lens_metadata.mojom",
         "components/page_content_annotations/content/mojom/page_stability.mojom",
         "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
@@ -54894,6 +54888,15 @@
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
+      "source": "components/browser_apis/ui_controllers/toolbar/extensions_bar.mojom",
+      "module": "extensions_bar.mojom",
+      "imports": [
+        "url/mojom/url.mojom",
+        "ui/base/mojom/menu_source_type.mojom"
       ]
     },
     {
