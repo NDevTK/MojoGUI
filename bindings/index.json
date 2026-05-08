@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-07T11:43:51.534006Z",
-  "version": "150.0.7830.0",
+  "generated_at": "2026-05-08T11:03:49.528362Z",
+  "version": "150.0.7831.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8229,6 +8229,77 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_celebration.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_celebration.mojom.js",
+      "methods": [
+        "GetSignInCelebrationUserInfo"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: intro.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_celebration.mojom.js",
+      "methods": [
+        "OnSignInCelebrationUserInfoUpdated"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -41175,7 +41246,8 @@
       "methods": [
         "CreateGraphBuilder",
         "CreateTensor",
-        "CreateTensorFromMailbox"
+        "CreateTensorFromMailbox",
+        "Dispatch"
       ],
       "metadata": {
         "usage": {
@@ -41229,9 +41301,7 @@
       "name": "WebNNGraph",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_graph.mojom.js",
-      "methods": [
-        "Dispatch"
-      ],
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -51703,6 +51773,14 @@
       "source": "chrome/browser/ui/webui/infobar_internals/infobar_internals.mojom",
       "module": "infobar_internals.mojom",
       "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_intro_sign_in_celebration.mojom.js",
+      "source": "chrome/browser/ui/webui/intro/sign_in_celebration.mojom",
+      "module": "intro.mojom",
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_location_internals_location_internals.mojom.js",
