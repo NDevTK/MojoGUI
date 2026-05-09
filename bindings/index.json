@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-08T11:03:49.528362Z",
-  "version": "150.0.7831.0",
+  "generated_at": "2026-05-09T10:48:20.262083Z",
+  "version": "150.0.7834.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -5112,8 +5112,7 @@
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -8343,7 +8342,9 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -8368,7 +8369,9 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -8383,7 +8386,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
@@ -8391,7 +8394,9 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -8624,7 +8629,8 @@
       "methods": [
         "StartActionChipsRetrieval",
         "ActivateMetricsFunnel",
-        "SetActionChipsVisibility"
+        "SetActionChipsVisibility",
+        "NotifyActionChipClicked"
       ],
       "metadata": {
         "usage": {
@@ -9707,7 +9713,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -19080,7 +19085,6 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -21372,7 +21376,6 @@
         "BindAccountManager",
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
-        "BindDocumentScan",
         "BindInSessionAuth",
         "BindLocalPrinter",
         "BindMachineLearningService",
@@ -21390,22 +21393,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "DocumentScan",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_document_scan.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindDocumentScan"
           ]
         },
         "scope": "context",
@@ -23910,24 +23897,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: data_decoder.mojom.DataDecoderService.BindPixCodeValidator"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "RssLinkReader",
-      "module": "feed.mojom",
-      "file": "components_feed_mojom_rss_link_reader.mojom.js",
-      "methods": [
-        "GetRssLinks"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -34290,7 +34259,8 @@
         "BeginFileWrite",
         "SetHostCursorRenderedByClient",
         "StartAudioInjector",
-        "InjectAudioPacket"
+        "InjectAudioPacket",
+        "SetAudioInjectorSampleInfo"
       ],
       "metadata": {
         "usage": {
@@ -37810,8 +37780,8 @@
         "FlushCachedClientCertIfNeeded",
         "FlushMatchingCachedClientCert",
         "FlushClientCertCache",
-        "RevokeNetworkForNonces",
-        "ClearNonces",
+        "RestrictNetworkForIds",
+        "ClearNetworkRestrictions",
         "Prefetch",
         "GetBoundNetworkForTesting",
         "GetDeviceBoundSessionManager",
@@ -43017,7 +42987,8 @@
         "BindModelContext",
         "RegisterScriptTool",
         "UnregisterScriptTool",
-        "GetScriptTools"
+        "GetScriptTools",
+        "ExecuteRemoteScriptTool"
       ],
       "metadata": {
         "usage": {
@@ -43036,7 +43007,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_content_extraction_script_tools.mojom.js",
       "methods": [
-        "NotifyToolChange"
+        "NotifyToolChange",
+        "ExecuteScriptTool"
       ],
       "metadata": {
         "usage": {
@@ -44463,7 +44435,8 @@
         "UpdateBrowserControlsState",
         "SetV8CompileHints",
         "Discard",
-        "FinalizeNavigationConfidence"
+        "FinalizeNavigationConfidence",
+        "NotifyRelatedPagesFinalized"
       ],
       "metadata": {
         "usage": {
@@ -49523,7 +49496,8 @@
         "CloseLensOverlayFromWebUI",
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive",
-        "OnContextMenuOpened"
+        "OnContextMenuOpened",
+        "NotifyComposeboxQuerySubmittedWithContext"
       ],
       "metadata": {
         "usage": {
@@ -54389,7 +54363,6 @@
         "chromeos/components/payments/mojom/payment_app.mojom",
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
-        "chromeos/crosapi/mojom/document_scan.mojom",
         "chromeos/crosapi/mojom/local_printer.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
         "chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom",
@@ -54402,12 +54375,6 @@
         "services/media_session/public/mojom/audio_focus.mojom",
         "services/media_session/public/mojom/media_controller.mojom"
       ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_document_scan.mojom.js",
-      "source": "chromeos/crosapi/mojom/document_scan.mojom",
-      "module": "crosapi.mojom",
-      "imports": []
     },
     {
       "filename": "chromeos_crosapi_mojom_local_printer.mojom.js",
@@ -55278,14 +55245,6 @@
       "source": "components/facilitated_payments/core/mojom/pix_code_validator.mojom",
       "module": "payments.facilitated.mojom",
       "imports": []
-    },
-    {
-      "filename": "components_feed_mojom_rss_link_reader.mojom.js",
-      "source": "components/feed/mojom/rss_link_reader.mojom",
-      "module": "feed.mojom",
-      "imports": [
-        "url/mojom/url.mojom"
-      ]
     },
     {
       "filename": "components_global_media_controls_public_mojom_device_service.mojom.js",
@@ -63012,6 +62971,7 @@
       "source": "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
       "module": "blink.mojom",
       "imports": [
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "url/mojom/origin.mojom"
       ]
     },
