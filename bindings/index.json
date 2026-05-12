@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-11T12:35:55.706640Z",
-  "version": "150.0.7834.0",
+  "generated_at": "2026-05-12T11:48:29.712838Z",
+  "version": "150.0.7836.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3415,7 +3415,8 @@
         "OnboardingTooltipDismissed",
         "ReopenTabs",
         "PinSidePanel",
-        "UnpinSidePanel"
+        "UnpinSidePanel",
+        "OnContextMenuOpened"
       ],
       "metadata": {
         "usage": {
@@ -3465,7 +3466,8 @@
         "UnlockInput",
         "SetShowReopenTabs",
         "OnSidePanelPinStateChanged",
-        "SetExpandButtonEnabled"
+        "SetExpandButtonEnabled",
+        "TurnOnSmartTabSharing"
       ],
       "metadata": {
         "usage": {
@@ -3848,6 +3850,7 @@
         "JournalStart",
         "JournalStop",
         "JournalRecordFeedback",
+        "OnOptinImpression",
         "OnUserInputSubmitted",
         "OnContextUploadStarted",
         "OnContextUploadCompleted",
@@ -7893,21 +7896,24 @@
       }
     },
     {
-      "name": "DrivePickerUntrustedHostHandler",
+      "name": "PageHandler",
       "module": "drive_picker_host_untrusted.mojom",
       "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
-      "methods": [
-        "BindPage"
-      ],
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: drive_picker_host_untrusted.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
+        ]
       }
     },
     {
@@ -7932,6 +7938,29 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "drive_picker_host_untrusted.mojom",
+      "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -21385,8 +21414,7 @@
         "BindMediaSessionAudioFocus",
         "BindMediaSessionAudioFocusDebug",
         "BindTelemetryDiagnosticRoutinesService",
-        "BindTelemetryManagementService",
-        "BindTelemetryProbeService"
+        "BindTelemetryManagementService"
       ],
       "metadata": {
         "usage": {
@@ -21467,14 +21495,13 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_probe_service.mojom.js",
       "methods": [
-        "ProbeTelemetryInfo",
-        "GetOemData"
+        "ProbeTelemetryInfo"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindTelemetryProbeService"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -62053,6 +62080,7 @@
         "services/viz/public/mojom/compositing/transferable_resource.mojom",
         "services/viz/public/mojom/compositing/view_transition_request.mojom",
         "skia/public/mojom/skcolor4f.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/display_color_spaces.mojom",
         "ui/gfx/mojom/overlay_transform.mojom",
@@ -64545,6 +64573,7 @@
         "mojo/public/mojom/base/values.mojom",
         "services/network/public/mojom/content_security_policy.mojom",
         "services/network/public/mojom/fetch_api.mojom",
+        "services/network/public/mojom/link_header.mojom",
         "services/network/public/mojom/source_location.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
         "services/network/public/mojom/trust_tokens.mojom",
