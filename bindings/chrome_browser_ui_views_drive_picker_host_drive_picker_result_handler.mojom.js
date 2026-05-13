@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,11 +125,43 @@
 mojo.internal.bindings.drive_picker_host.mojom = mojo.internal.bindings.drive_picker_host.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.drive_picker_host.mojom.DrivePickerErrorSpec = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec = mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec || { $: {} };
+if (mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec.$.structSpec && mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec.$ = {};
 mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler || {};
 mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerSpec = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerSpec.$.structSpec && mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerSpec.$ = {};
 mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler.$interfaceName = 'drive_picker_host.mojom.DrivePickerResultHandler';
+mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec.$.structSpec && mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec.$ = {};
+mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec.$.structSpec && mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec.$ = {};
+mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec = mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: DrivePickerError
+mojo.internal.bindings.drive_picker_host.mojom.DrivePickerError = {
+  kTokenFetchFailure: 0,
+  kInvalidResponse: 1,
+  kInvalidFileId: 2,
+  kInvalidFileMetadata: 3,
+  kUnsupportedFileType: 4,
+  kInvalidFileSize: 5,
+  kAlreadyActive: 6,
+  kWindowNotFound: 7,
+  kApiLoadFailure: 8,
+  kMojoDisconnected: 9,
+  kWebUINotFound: 10,
+  kViewNotFound: 11,
+  kUnknown: 12,
+};
 
 // Interface: DrivePickerResultHandler
 mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerPendingReceiver = class {
@@ -161,13 +193,52 @@ mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerRemote = 
   close() {
     this.proxy.close();
   }
+  onSelection(arg_files) {
+    return this.$.onSelection(arg_files);
+  }
+  onCancel() {
+    return this.$.onCancel();
+  }
+  onError(arg_error) {
+    return this.$.onError(arg_error);
+  }
 };
 
 mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('drive_picker_host.mojom.DrivePickerResultHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
+  }
+
+  onSelection(arg_files) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec,
+      null,
+      [arg_files],
+      false);
+  }
+
+  onCancel() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  onError(arg_error) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec,
+      null,
+      [arg_error],
+      false);
   }
 
 };
@@ -188,6 +259,9 @@ mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerReceiver 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('drive_picker_host.mojom.DrivePickerResultHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -231,6 +305,27 @@ mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerReceiver 
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSelection');
+          const result = this.impl.onSelection(params.arg_files);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onCancel');
+          const result = this.impl.onCancel();
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onError');
+          const result = this.impl.onError(params.arg_error);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -246,3 +341,33 @@ mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandlerRequest =
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DriveFile
+mojo.internal.Struct(
+    mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec, 'drive_picker_host.mojom.DriveFile', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size_bytes', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_key', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_ParamsSpec, 'drive_picker_host.mojom.DrivePickerResultHandler_OnSelection_Params', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.drive_picker_host.mojom.DriveFileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_ParamsSpec, 'drive_picker_host.mojom.DrivePickerResultHandler_OnCancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.drive_picker_host.mojom.DrivePickerResultHandler_OnError_ParamsSpec, 'drive_picker_host.mojom.DrivePickerResultHandler_OnError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.drive_picker_host.mojom.DrivePickerErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+

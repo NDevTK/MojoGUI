@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -166,6 +166,13 @@ mojo.internal.bindings.composebox_query.mojom.ContextUploadErrorType = {
   kServerSizeLimitExceeded: 4,
   kAborted: 5,
   kImageProcessingError: 6,
+  kBrowserProcessingFileTooLargeError: 7,
+  kBrowserProcessingFileEmptyError: 8,
+  kBrowserProcessingMaxFilesExceededError: 9,
+  kBrowserProcessingUnsupportedFileTypeError: 10,
+  kBrowserProcessingFileUploadNotAllowedError: 11,
+  kBrowserProcessingMaxImagesExceededError: 12,
+  kBrowserProcessingMaxPdfsExceededError: 13,
 };
 
 // Enum: ModelMode

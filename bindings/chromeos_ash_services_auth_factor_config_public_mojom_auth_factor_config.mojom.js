@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -264,6 +264,8 @@ mojo.internal.bindings.ash.auth.mojom.PinComplexity = {
 mojo.internal.bindings.ash.auth.mojom.PasswordComplexity = {
   kOk: 0,
   kTooShort: 1,
+  kMissesCharacters: 2,
+  kContainsTrivialSequence: 3,
 };
 
 // Interface: FactorObserver

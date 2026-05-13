@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,16 +168,10 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter = mojo.internal.b
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec || { $ : {} };
 if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterSpec.$ = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter.$interfaceName = 'safe_browsing.mojom.PhishingModelSetter';
-mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$ = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$ = {};
-mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$ = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$ = {};
-mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$ = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$.structSpec && mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$ = {};
 mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec || { $: {} };
@@ -222,9 +216,6 @@ mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -780,20 +771,11 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote = class {
   close() {
     this.proxy.close();
   }
-  setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model) {
-    return this.$.setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model);
-  }
   setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
     return this.$.setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model);
   }
-  attachImageEmbeddingModel(arg_image_embedding_model) {
-    return this.$.attachImageEmbeddingModel(arg_image_embedding_model);
-  }
   attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
     return this.$.attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model);
-  }
-  setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
-    return this.$.setPhishingFlatBufferModel(arg_region, arg_tflite_model);
   }
   setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model) {
     return this.$.setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model);
@@ -815,60 +797,30 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
-      null,
-      [arg_region, arg_tflite_model, arg_image_embedding_model],
-      false);
   }
 
   setImageEmbeddingAndPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec,
       null,
       [arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
       false);
   }
 
-  attachImageEmbeddingModel(arg_image_embedding_model) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
-      null,
-      [arg_image_embedding_model],
-      false);
-  }
-
   attachImageEmbeddingModelAndDimensions(arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec,
       null,
       [arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
       false);
   }
 
-  setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
-      null,
-      [arg_region, arg_tflite_model],
-      false);
-  }
-
   setPhishingTfLiteModel(arg_classification_input_width, arg_classification_input_height, arg_classification_model) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec,
       null,
       [arg_classification_input_width, arg_classification_input_height, arg_classification_model],
@@ -877,7 +829,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
 
   clearScorer() {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
       [],
@@ -886,7 +838,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
 
   setTestObserver(arg_observer) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
       [arg_observer],
@@ -911,9 +863,6 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('safe_browsing.mojom.PhishingModelSetter', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -964,54 +913,33 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingFlatBufferModel');
-          const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.arg_region, params.arg_tflite_model, params.arg_image_embedding_model);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingTfLiteModel');
           const result = this.impl.setImageEmbeddingAndPhishingTfLiteModel(params.arg_classification_input_width, params.arg_classification_input_height, params.arg_classification_model, params.arg_image_embedding_input_width, params.arg_image_embedding_input_height, params.arg_image_embedding_model);
           break;
         }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
-          const result = this.impl.attachImageEmbeddingModel(params.arg_image_embedding_model);
-          break;
-        }
-        case 3: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModelAndDimensions');
           const result = this.impl.attachImageEmbeddingModelAndDimensions(params.arg_image_embedding_input_width, params.arg_image_embedding_input_height, params.arg_image_embedding_model);
           break;
         }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
-          const result = this.impl.setPhishingFlatBufferModel(params.arg_region, params.arg_tflite_model);
-          break;
-        }
-        case 5: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhishingTfLiteModel');
           const result = this.impl.setPhishingTfLiteModel(params.arg_classification_input_width, params.arg_classification_input_height, params.arg_classification_model);
           break;
         }
-        case 6: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestObserver');
@@ -1555,14 +1483,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image_embedding_model', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_Params', [
       mojo.internal.StructField('arg_classification_input_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_classification_input_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -1574,23 +1494,10 @@ mojo.internal.Struct(
     [[0, 40]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
-      mojo.internal.StructField('arg_image_embedding_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_Params', [
       mojo.internal.StructField('arg_image_embedding_input_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_image_embedding_input_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_image_embedding_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

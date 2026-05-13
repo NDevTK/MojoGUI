@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -229,6 +229,9 @@ mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = mojo.internal.bindings.viz.m
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TilingSpec = mojo.internal.bindings.viz.mojom.TilingSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.TrackedElementRectsSpec = mojo.internal.bindings.viz.mojom.TrackedElementRectsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TransferableResourceSpec = mojo.internal.bindings.viz.mojom.TransferableResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -680,8 +683,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_delegated_ink_metadata', 328, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_screenshot_destination', 336, 0, mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_latency_info', 344, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_rects', 352, 0, mojo.internal.bindings.viz.mojom.TrackedElementRectsSpec, null, false, 0, undefined),
     ],
-    [[0, 360]]);
+    [[0, 368]]);
 
 // Struct: PendingLayerContext
 mojo.internal.Struct(

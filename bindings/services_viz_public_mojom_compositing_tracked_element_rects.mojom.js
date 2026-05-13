@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -154,10 +154,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TrackedElementRectSpec, 'viz.mojom.TrackedElementRect', [
       mojo.internal.StructField('arg_tracked_element_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 16, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_parent_frame_token', 32, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_should_add_to_compositor_frame_metadata', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 24, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parent_frame_token', 40, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: TrackedElementRects
 mojo.internal.Struct(

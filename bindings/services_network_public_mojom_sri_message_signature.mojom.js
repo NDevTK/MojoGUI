@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -170,6 +170,10 @@ mojo.internal.bindings.network.mojom.SRIMessageSignatureError = {
   kValidationFailedInvalidLength: 18,
   kValidationFailedSignatureMismatch: 19,
   kValidationFailedIntegrityMismatch: 20,
+  kSignatureBaseUnknownDerivedComponent: 21,
+  kSignatureBaseMissingHeader: 22,
+  kSignatureBaseInvalidUnencodedDigest: 23,
+  kSignatureBaseUnsupportedComponent: 24,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

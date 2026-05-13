@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,8 +132,6 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRoleSpec = mojo.inte
 mojo.internal.bindings.network.mojom.RestrictedCookiePartitionSpec = mojo.internal.bindings.network.mojom.RestrictedCookiePartitionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec = mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$ = {};
-mojo.internal.bindings.network.mojom.CookiesResponseSpec = mojo.internal.bindings.network.mojom.CookiesResponseSpec || { $: {} };
-if (mojo.internal.bindings.network.mojom.CookiesResponseSpec.$.structSpec && mojo.internal.bindings.network.mojom.CookiesResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CookiesResponseSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCanonicalCookieParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCanonicalCookieParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.RestrictedCanonicalCookieParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCanonicalCookieParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCanonicalCookieParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCookieManager = mojo.internal.bindings.network.mojom.RestrictedCookieManager || {};
@@ -154,8 +152,6 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_R
 if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$ = {};
-mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec || { $: {} };
@@ -260,8 +256,8 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemote = class {
   addChangeListener(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_listener) {
     return this.$.addChangeListener(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_listener);
   }
-  setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie) {
-    return this.$.setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie);
+  setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie) {
+    return this.$.setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie);
   }
   getCookiesString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_force_disable_third_party_cookies) {
     return this.$.getCookiesString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_force_disable_third_party_cookies);
@@ -311,12 +307,12 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       false);
   }
 
-  setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie) {
+  setCookieFromString(arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec,
-      mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec,
-      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie],
+      null,
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie],
       false);
   }
 
@@ -462,18 +458,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCookieFromString');
-          const result = this.impl.setCookieFromString(params.arg_url, params.arg_site_for_cookies, params.arg_top_frame_origin, params.arg_storage_access_api_status, params.arg_get_version_shared_memory, params.arg_is_ad_tagged, params.arg_apply_devtools_overrides, params.arg_cookie);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
-              const resp_obj = { 'arg_response': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] setCookieFromString FAILED:', e));
-          }
+          const result = this.impl.setCookieFromString(params.arg_url, params.arg_site_for_cookies, params.arg_top_frame_origin, params.arg_storage_access_api_status, params.arg_is_ad_tagged, params.arg_apply_devtools_overrides, params.arg_cookie);
           break;
         }
         case 4: {
@@ -534,15 +519,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-// Struct: CookiesResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookiesResponseSpec, 'network.mojom.CookiesResponse', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_buffer', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookies', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
 
 // Struct: RestrictedCanonicalCookieParams
 mojo.internal.Struct(
@@ -619,18 +595,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_site_for_cookies', 8, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_storage_access_api_status', 24, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_get_version_shared_memory', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_tagged', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_apply_devtools_overrides', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_tagged', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_apply_devtools_overrides', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.network.mojom.CookiesResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec, 'network.mojom.RestrictedCookieManager_GetCookiesString_Params', [

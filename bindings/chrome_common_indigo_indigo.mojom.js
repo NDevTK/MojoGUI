@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -201,8 +201,8 @@ mojo.internal.bindings.chrome.mojom.IndigoAgentHostRemote = class {
   close() {
     this.proxy.close();
   }
-  startImageReplacement(arg_replacement) {
-    return this.$.startImageReplacement(arg_replacement);
+  startImageReplacement(arg_replacement, arg_is_primary) {
+    return this.$.startImageReplacement(arg_replacement, arg_is_primary);
   }
 };
 
@@ -214,12 +214,12 @@ mojo.internal.bindings.chrome.mojom.IndigoAgentHostRemoteCallHandler = class {
     ]);
   }
 
-  startImageReplacement(arg_replacement) {
+  startImageReplacement(arg_replacement, arg_is_primary) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.IndigoAgentHost_StartImageReplacement_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.IndigoAgentHost_StartImageReplacement_ResponseParamsSpec,
-      [arg_replacement],
+      [arg_replacement, arg_is_primary],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.chrome.mojom.IndigoAgentHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.IndigoAgentHost_StartImageReplacement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startImageReplacement');
-          const result = this.impl.startImageReplacement(params.arg_replacement);
+          const result = this.impl.startImageReplacement(params.arg_replacement, params.arg_is_primary);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -631,8 +631,9 @@ mojo.internal.bindings.chrome.mojom.IndigoOnboardingDialogHostRequest = mojo.int
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.IndigoAgentHost_StartImageReplacement_ParamsSpec, 'chrome.mojom.IndigoAgentHost_StartImageReplacement_Params', [
       mojo.internal.StructField('arg_replacement', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReplacementRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_primary', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.IndigoAgentHost_StartImageReplacement_ResponseParamsSpec, 'chrome.mojom.IndigoAgentHost_StartImageReplacement_ResponseParams', [

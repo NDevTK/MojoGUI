@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1956,8 +1956,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_data_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 32, 0, mojo.internal.bindings.composebox_query.mojom.ContextUploadErrorTypeSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: TabAttachment
 mojo.internal.Struct(

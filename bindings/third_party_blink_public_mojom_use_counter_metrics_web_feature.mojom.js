@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3553,12 +3553,12 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kScriptSchedulingType_InOrder: 4241,
   kScriptSchedulingType_Async: 4242,
   kFocusgroup: 4243,
-  kV8HTMLElement_Focusgroup_AttributeGetter: 4244,
-  kV8HTMLElement_Focusgroup_AttributeSetter: 4245,
-  kV8MathMLElement_Focusgroup_AttributeGetter: 4246,
-  kV8MathMLElement_Focusgroup_AttributeSetter: 4247,
-  kV8SVGElement_Focusgroup_AttributeGetter: 4248,
-  kV8SVGElement_Focusgroup_AttributeSetter: 4249,
+  kV8HTMLElement_FocusGroup_AttributeGetter: 4244,
+  kV8HTMLElement_FocusGroup_AttributeSetter: 4245,
+  kV8MathMLElement_FocusGroup_AttributeGetter: 4246,
+  kV8MathMLElement_FocusGroup_AttributeSetter: 4247,
+  kV8SVGElement_FocusGroup_AttributeGetter: 4248,
+  kV8SVGElement_FocusGroup_AttributeSetter: 4249,
   kCSSLegacyPerspectiveOrigin: 4250,
   kCSSLegacyTransformOrigin: 4251,
   kCSSLegacyBorderImage: 4252,
@@ -5201,6 +5201,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kCapabilityElementOnPromptDismiss: 5892,
   kCapabilityElementOnValidationStatusChange: 5893,
   kInputParsedParentSelectNoOptions: 5894,
+  kFocusGroupStart: 5895,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

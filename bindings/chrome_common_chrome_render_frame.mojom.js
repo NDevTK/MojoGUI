@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -321,8 +321,8 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemote = class {
   cancelTool(arg_task_id) {
     return this.$.cancelTool(arg_task_id);
   }
-  getCrossDocumentScriptToolResult(arg_invocation_id) {
-    return this.$.getCrossDocumentScriptToolResult(arg_invocation_id);
+  getCrossDocumentScriptToolResult(arg_execution_id) {
+    return this.$.getCrossDocumentScriptToolResult(arg_execution_id);
   }
   startActorJournal(arg_client) {
     return this.$.startActorJournal(arg_client);
@@ -482,12 +482,12 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       false);
   }
 
-  getCrossDocumentScriptToolResult(arg_invocation_id) {
+  getCrossDocumentScriptToolResult(arg_execution_id) {
     return this.proxy.sendMessage(
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetCrossDocumentScriptToolResult_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetCrossDocumentScriptToolResult_ResponseParamsSpec,
-      [arg_invocation_id],
+      [arg_execution_id],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetCrossDocumentScriptToolResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCrossDocumentScriptToolResult');
-          const result = this.impl.getCrossDocumentScriptToolResult(params.arg_invocation_id);
+          const result = this.impl.getCrossDocumentScriptToolResult(params.arg_execution_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -955,7 +955,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetCrossDocumentScriptToolResult_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_GetCrossDocumentScriptToolResult_Params', [
-      mojo.internal.StructField('arg_invocation_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_execution_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

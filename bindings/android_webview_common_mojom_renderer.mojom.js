@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,8 @@ mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec = mo
 if (mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec.$ = {};
 mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$ = {};
+mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec = mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec.$.structSpec && mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec.$ = {};
 
 // Interface: Renderer
 mojo.internal.bindings.android_webview.mojom.RendererPendingReceiver = class {
@@ -171,12 +173,16 @@ mojo.internal.bindings.android_webview.mojom.RendererRemote = class {
   setJsOnlineProperty(arg_network_up) {
     return this.$.setJsOnlineProperty(arg_network_up);
   }
+  prefetchNativeLibrary() {
+    return this.$.prefetchNativeLibrary();
+  }
 };
 
 mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.Renderer', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -200,6 +206,15 @@ mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
       false);
   }
 
+  prefetchNativeLibrary() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.android_webview.mojom.Renderer.getRemote = function() {
@@ -218,6 +233,7 @@ mojo.internal.bindings.android_webview.mojom.RendererReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('android_webview.mojom.Renderer', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -277,6 +293,13 @@ mojo.internal.bindings.android_webview.mojom.RendererReceiver = class {
           const result = this.impl.setJsOnlineProperty(params.arg_network_up);
           break;
         }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.prefetchNativeLibrary');
+          const result = this.impl.prefetchNativeLibrary();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -302,4 +325,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_network_up', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.android_webview.mojom.Renderer_PrefetchNativeLibrary_ParamsSpec, 'android_webview.mojom.Renderer_PrefetchNativeLibrary_Params', [
+    ],
+    [[0, 8]]);
 

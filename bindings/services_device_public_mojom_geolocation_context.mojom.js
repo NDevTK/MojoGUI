@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -156,9 +156,6 @@ mojo.internal.bindings.device.mojom.GeopositionResultSpec = mojo.internal.bindin
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
-mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: GeolocationPermissionLevel
 mojo.internal.bindings.device.mojom.GeolocationPermissionLevel = {
@@ -197,8 +194,8 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemote = class {
   close() {
     this.proxy.close();
   }
-  bindGeolocation(arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission) {
-    return this.$.bindGeolocation(arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission);
+  bindGeolocation(arg_receiver, arg_requesting_origin, arg_client_id, arg_has_precise_permission) {
+    return this.$.bindGeolocation(arg_receiver, arg_requesting_origin, arg_client_id, arg_has_precise_permission);
   }
   onPermissionUpdated(arg_origin, arg_permission_level) {
     return this.$.onPermissionUpdated(arg_origin, arg_permission_level);
@@ -222,12 +219,12 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
     ]);
   }
 
-  bindGeolocation(arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission) {
+  bindGeolocation(arg_receiver, arg_requesting_origin, arg_client_id, arg_has_precise_permission) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
-      [arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission],
+      [arg_receiver, arg_requesting_origin, arg_client_id, arg_has_precise_permission],
       false);
   }
 
@@ -327,7 +324,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGeolocation');
-          const result = this.impl.bindGeolocation(params.arg_receiver, params.arg_requesting_url, params.arg_client_id, params.arg_has_precise_permission);
+          const result = this.impl.bindGeolocation(params.arg_receiver, params.arg_requesting_origin, params.arg_client_id, params.arg_has_precise_permission);
           break;
         }
         case 1: {
@@ -370,7 +367,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec, 'device.mojom.GeolocationContext_BindGeolocation_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 4, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requesting_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requesting_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_has_precise_permission', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -909,6 +909,8 @@ mojo.internal.bindings.network.mojom.kWebSocketOptionNone = 0;
 mojo.internal.bindings.network.mojom.kWebSocketOptionBlockAllCookies = 1;
 
 mojo.internal.bindings.network.mojom.kWebSocketOptionBlockThirdPartyCookies = 2;
+
+mojo.internal.bindings.network.mojom.kWebSocketOptionMaximumPriority = 4;
 
 mojo.internal.bindings.network.mojom.kBrowserProcessId = 0;
 

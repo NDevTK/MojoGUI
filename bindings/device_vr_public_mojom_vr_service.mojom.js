@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1607,8 +1607,8 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemote = class {
   submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token) {
     return this.$.submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token);
   }
-  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
-    return this.$.submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited);
+  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_camera_sync_tokens, arg_time_waited) {
+    return this.$.submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_camera_sync_tokens, arg_time_waited);
   }
 };
 
@@ -1660,12 +1660,12 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       false);
   }
 
-  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
+  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_camera_sync_tokens, arg_time_waited) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
-      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited],
+      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_camera_sync_tokens, arg_time_waited],
       false);
   }
 
@@ -1767,7 +1767,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
-          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_frame_id, params.arg_layer_ids, params.arg_sync_token, params.arg_time_waited);
+          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_frame_id, params.arg_layer_ids, params.arg_sync_token, params.arg_camera_sync_tokens, params.arg_time_waited);
           break;
         }
       }
@@ -3289,9 +3289,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_layer_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.LayerIdSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_waited', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_camera_sync_tokens', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_waited', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameTransferred_Params', [

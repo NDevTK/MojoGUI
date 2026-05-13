@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,6 +131,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.AIPageContentAttributeTypeSpec = mojo.internal.bindings.blink.mojom.AIPageContentAttributeTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec = mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AIPageContentCssPositionSpec = mojo.internal.bindings.blink.mojom.AIPageContentCssPositionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIPageContentClickabilityReasonSpec = mojo.internal.bindings.blink.mojom.AIPageContentClickabilityReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIPageContentInteractionDisabledReasonSpec = mojo.internal.bindings.blink.mojom.AIPageContentInteractionDisabledReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.AIPageContentTextSizeSpec = mojo.internal.bindings.blink.mojom.AIPageContentTextSizeSpec || { $: mojo.internal.Enum().$ };
@@ -273,6 +274,15 @@ mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRole = {
   kFooter: 7,
   kContentHidden: 8,
   kPaidContent: 9,
+};
+
+// Enum: AIPageContentCssPosition
+mojo.internal.bindings.blink.mojom.AIPageContentCssPosition = {
+  kStatic: 0,
+  kRelative: 1,
+  kAbsolute: 2,
+  kFixed: 3,
+  kSticky: 4,
 };
 
 // Enum: AIPageContentClickabilityReason
@@ -519,8 +529,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_outer_bounding_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_fragment_visible_bounding_boxes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_position', 24, 0, mojo.internal.bindings.blink.mojom.AIPageContentCssPositionSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: AIPageContentSelection
 mojo.internal.Struct(

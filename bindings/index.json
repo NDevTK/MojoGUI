@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-12T11:48:29.712838Z",
-  "version": "150.0.7836.0",
+  "generated_at": "2026-05-13T11:55:54.421907Z",
+  "version": "150.0.7838.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -72,7 +72,8 @@
       "file": "android_webview_common_mojom_renderer.mojom.js",
       "methods": [
         "ClearCache",
-        "SetJsOnlineProperty"
+        "SetJsOnlineProperty",
+        "PrefetchNativeLibrary"
       ],
       "metadata": {
         "usage": {
@@ -4657,7 +4658,11 @@
       "name": "DrivePickerResultHandler",
       "module": "drive_picker_host.mojom",
       "file": "chrome_browser_ui_views_drive_picker_host_drive_picker_result_handler.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnSelection",
+        "OnCancel",
+        "OnError"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -21469,8 +21474,6 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "ShowSystemPrintSettings",
-        "CreatePrintJob",
         "CancelPrintJob",
         "GetPrintServersConfig",
         "ChoosePrintServers",
@@ -26073,11 +26076,8 @@
       "module": "safe_browsing.mojom",
       "file": "components_safe_browsing_content_common_safe_browsing.mojom.js",
       "methods": [
-        "SetImageEmbeddingAndPhishingFlatBufferModel",
         "SetImageEmbeddingAndPhishingTfLiteModel",
-        "AttachImageEmbeddingModel",
         "AttachImageEmbeddingModelAndDimensions",
-        "SetPhishingFlatBufferModel",
         "SetPhishingTfLiteModel",
         "ClearScorer",
         "SetTestObserver"
@@ -51333,7 +51333,9 @@
       "filename": "chrome_browser_ui_views_drive_picker_host_drive_picker_result_handler.mojom.js",
       "source": "chrome/browser/ui/views/drive_picker_host/drive_picker_result_handler.mojom",
       "module": "drive_picker_host.mojom",
-      "imports": []
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_access_code_cast_access_code_cast.mojom.js",
@@ -62077,6 +62079,7 @@
         "services/viz/public/mojom/compositing/resource_id.mojom",
         "services/viz/public/mojom/compositing/surface_range.mojom",
         "services/viz/public/mojom/compositing/tiling.mojom",
+        "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
         "services/viz/public/mojom/compositing/transferable_resource.mojom",
         "services/viz/public/mojom/compositing/view_transition_request.mojom",
         "skia/public/mojom/skcolor4f.mojom",

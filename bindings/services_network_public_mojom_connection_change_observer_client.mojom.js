@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -178,8 +178,8 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemote = clas
   close() {
     this.proxy.close();
   }
-  onSessionClosed() {
-    return this.$.onSessionClosed();
+  onSessionClosed(arg_was_ever_used_to_create_streams) {
+    return this.$.onSessionClosed(arg_was_ever_used_to_create_streams);
   }
   onNetworkEvent(arg_event) {
     return this.$.onNetworkEvent(arg_event);
@@ -199,12 +199,12 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemoteCallHan
     ]);
   }
 
-  onSessionClosed() {
+  onSessionClosed(arg_was_ever_used_to_create_streams) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
-      [],
+      [arg_was_ever_used_to_create_streams],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
-          const result = this.impl.onSessionClosed();
+          const result = this.impl.onSessionClosed(params.arg_was_ever_used_to_create_streams);
           break;
         }
         case 1: {
@@ -338,8 +338,9 @@ mojo.internal.Struct(
     [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
+      mojo.internal.StructField('arg_was_ever_used_to_create_streams', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7836.0';
+        const versionStr = window.mojoVersion || '150.0.7838.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -297,7 +297,7 @@ mojo.internal.bindings.device.mojom.SmartCardError = {
   kNoService: 23,
   kCommError: 24,
   kInternalError: 25,
-  kUnknownError: 26,
+  kUnknownCard: 26,
   kServerTooBusy: 27,
   kUnexpected: 28,
   kShutdown: 29,
