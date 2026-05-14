@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -486,7 +486,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_css_classes', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_aria_label', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_aria_description', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer_id', 128, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_form_id', 136, 0, mojo.internal.bindings.autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_form_control_ax_id', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),

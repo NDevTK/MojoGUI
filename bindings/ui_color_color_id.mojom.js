@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -182,20 +182,21 @@ mojo.internal.bindings.color.mojom.RendererColorId = {
   kColorWebNativeControlScrollbarArrowBackgroundPressed: 49,
   kColorWebNativeControlScrollbarArrowForeground: 50,
   kColorWebNativeControlScrollbarArrowForegroundDisabled: 51,
-  kColorWebNativeControlScrollbarArrowForegroundPressed: 52,
-  kColorWebNativeControlScrollbarCorner: 53,
-  kColorWebNativeControlScrollbarThumb: 54,
-  kColorWebNativeControlScrollbarThumbHovered: 55,
-  kColorWebNativeControlScrollbarThumbOverlayMinimalMode: 56,
-  kColorWebNativeControlScrollbarThumbPressed: 57,
-  kColorWebNativeControlScrollbarTrack: 58,
-  kColorWebNativeControlSlider: 59,
-  kColorWebNativeControlSliderBorder: 60,
-  kColorWebNativeControlSliderBorderHovered: 61,
-  kColorWebNativeControlSliderBorderPressed: 62,
-  kColorWebNativeControlSliderDisabled: 63,
-  kColorWebNativeControlSliderHovered: 64,
-  kColorWebNativeControlSliderPressed: 65,
+  kColorWebNativeControlScrollbarArrowForegroundHovered: 52,
+  kColorWebNativeControlScrollbarArrowForegroundPressed: 53,
+  kColorWebNativeControlScrollbarCorner: 54,
+  kColorWebNativeControlScrollbarThumb: 55,
+  kColorWebNativeControlScrollbarThumbHovered: 56,
+  kColorWebNativeControlScrollbarThumbOverlayMinimalMode: 57,
+  kColorWebNativeControlScrollbarThumbPressed: 58,
+  kColorWebNativeControlScrollbarTrack: 59,
+  kColorWebNativeControlSlider: 60,
+  kColorWebNativeControlSliderBorder: 61,
+  kColorWebNativeControlSliderBorderHovered: 62,
+  kColorWebNativeControlSliderBorderPressed: 63,
+  kColorWebNativeControlSliderDisabled: 64,
+  kColorWebNativeControlSliderHovered: 65,
+  kColorWebNativeControlSliderPressed: 66,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

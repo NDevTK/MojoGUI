@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -164,6 +164,8 @@ mojo.internal.bindings.autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec = 
 if (mojo.internal.bindings.autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.PasswordManagerDriver = mojo.internal.bindings.autofill.mojom.PasswordManagerDriver || {};
 mojo.internal.bindings.autofill.mojom.PasswordManagerDriverSpec = mojo.internal.bindings.autofill.mojom.PasswordManagerDriverSpec || { $ : {} };
 if (mojo.internal.bindings.autofill.mojom.PasswordManagerDriverSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordManagerDriverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordManagerDriverSpec.$ = {};
@@ -336,12 +338,16 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemote = class {
   javaScriptChangedAutofilledValue(arg_form, arg_field_id, arg_old_value) {
     return this.$.javaScriptChangedAutofilledValue(arg_form, arg_field_id, arg_old_value);
   }
+  onEmailVerificationTokenShared() {
+    return this.$.onEmailVerificationTokenShared();
+  }
 };
 
 mojo.internal.bindings.autofill.mojom.AutofillDriverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillDriver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -505,6 +511,15 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemoteCallHandler = class {
       false);
   }
 
+  onEmailVerificationTokenShared() {
+    return this.proxy.sendMessage(
+      this.ordinals[16],  // ordinal
+      mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.autofill.mojom.AutofillDriver.getRemote = function() {
@@ -523,6 +538,7 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.AutofillDriver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -692,6 +708,13 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.javaScriptChangedAutofilledValue');
           const result = this.impl.javaScriptChangedAutofilledValue(params.arg_form, params.arg_field_id, params.arg_old_value);
+          break;
+        }
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onEmailVerificationTokenShared');
+          const result = this.impl.onEmailVerificationTokenShared();
           break;
         }
       }
@@ -1444,6 +1467,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_old_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec, 'autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_Params', [

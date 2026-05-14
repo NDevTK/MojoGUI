@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -304,6 +304,10 @@ mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_Params
 if (mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$ = {};
 mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec = mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ash.boca.mojom.Page = mojo.internal.bindings.ash.boca.mojom.Page || {};
 mojo.internal.bindings.ash.boca.mojom.PageSpec = mojo.internal.bindings.ash.boca.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ash.boca.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.boca.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.boca.mojom.PageSpec.$ = {};
@@ -642,12 +646,16 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemote = class {
   stopPresentingOwnScreen() {
     return this.$.stopPresentingOwnScreen();
   }
+  getGeminiStatus() {
+    return this.$.getGeminiStatus();
+  }
 };
 
 mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -941,6 +949,15 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
+  getGeminiStatus() {
+    return this.proxy.sendMessage(
+      this.ordinals[29],  // ordinal
+      mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec,
+      mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ash.boca.mojom.PageHandler.getRemote = function() {
@@ -959,6 +976,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ash.boca.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1546,6 +1564,24 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] stopPresentingOwnScreen FAILED:', e));
+          }
+          break;
+        }
+        case 29: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getGeminiStatus');
+          const result = this.impl.getGeminiStatus();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_enabled' in response) ? response['arg_enabled'] : response;
+              const resp_obj = { 'arg_enabled': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getGeminiStatus FAILED:', e));
           }
           break;
         }
@@ -2526,6 +2562,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ParamsSpec, 'ash.boca.mojom.PageHandler_GetGeminiStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParamsSpec, 'ash.boca.mojom.PageHandler_GetGeminiStatus_ResponseParams', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -517,6 +517,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_highlighted', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_activated', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_tooltip', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_accessibility_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_element_id', 24, 0, mojo.internal.String, null, true, 0, undefined),

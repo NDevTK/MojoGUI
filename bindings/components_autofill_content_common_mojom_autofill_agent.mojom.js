@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -170,8 +170,8 @@ mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinat
 if (mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec = mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent = mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent || {};
 mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec = mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec || { $ : {} };
 if (mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentSpec.$ = {};
@@ -350,8 +350,8 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemote = class {
   getPotentialLastFourCombinationsForStandaloneCvc() {
     return this.$.getPotentialLastFourCombinationsForStandaloneCvc();
   }
-  dispatchEmailVerifiedEvent(arg_field_id, arg_presentation_token) {
-    return this.$.dispatchEmailVerifiedEvent(arg_field_id, arg_presentation_token);
+  sendEmailVerificationToken(arg_field_id, arg_token) {
+    return this.$.sendEmailVerificationToken(arg_field_id, arg_token);
   }
 };
 
@@ -523,12 +523,12 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       false);
   }
 
-  dispatchEmailVerifiedEvent(arg_field_id, arg_presentation_token) {
+  sendEmailVerificationToken(arg_field_id, arg_token) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
-      mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec,
+      mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec,
       null,
-      [arg_field_id, arg_presentation_token],
+      [arg_field_id, arg_token],
       false);
   }
 
@@ -768,9 +768,9 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dispatchEmailVerifiedEvent');
-          const result = this.impl.dispatchEmailVerifiedEvent(params.arg_field_id, params.arg_presentation_token);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.sendEmailVerificationToken');
+          const result = this.impl.sendEmailVerificationToken(params.arg_field_id, params.arg_token);
           break;
         }
       }
@@ -1557,9 +1557,9 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec, 'autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_Params', [
+    mojo.internal.bindings.autofill.mojom.AutofillAgent_SendEmailVerificationToken_ParamsSpec, 'autofill.mojom.AutofillAgent_SendEmailVerificationToken_Params', [
       mojo.internal.StructField('arg_field_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presentation_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,6 +148,9 @@ mojo.internal.bindings.blink.mojom.JavaScriptFramework = {
   kSquarespace: 13,
   kWix: 14,
   kWordPress: 15,
+  kTFJS: 16,
+  kTransformersJS: 17,
+  kMediaPipe: 18,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

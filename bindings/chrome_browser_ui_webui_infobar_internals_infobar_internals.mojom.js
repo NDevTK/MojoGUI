@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -154,16 +154,17 @@ if (mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePage
 
 // Enum: InfoBarType
 mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
-  kDefaultBrowser: 0,
-  kDevTools: 1,
-  kExtensionDevTools: 2,
-  kIncognitoConnectability: 3,
-  kInstallerDownloader: 4,
-  kKeystone: 5,
-  kReloadPlugin: 6,
-  kSessionRestore: 7,
-  kStartupLaunch: 8,
-  kThemeInstalled: 9,
+  kCollectedCookies: 0,
+  kDefaultBrowser: 1,
+  kDevTools: 2,
+  kExtensionDevTools: 3,
+  kIncognitoConnectability: 4,
+  kInstallerDownloader: 5,
+  kKeystone: 6,
+  kReloadPlugin: 7,
+  kSessionRestore: 8,
+  kStartupLaunch: 9,
+  kThemeInstalled: 10,
 };
 
 // Interface: Page

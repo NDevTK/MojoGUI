@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7838.0';
+        const versionStr = window.mojoVersion || '150.0.7840.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -910,8 +910,8 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemote = class {
   enableTracing(arg_tracing_session_host, arg_tracing_session_client, arg_config, arg_output_file) {
     return this.$.enableTracing(arg_tracing_session_host, arg_tracing_session_client, arg_config, arg_output_file);
   }
-  cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled) {
-    return this.$.cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled);
+  cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name) {
+    return this.$.cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name);
   }
 };
 
@@ -933,12 +933,12 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
       false);
   }
 
-  cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled) {
+  cloneSession(arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
-      [arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled],
+      [arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name],
       false);
   }
 
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
-          const result = this.impl.cloneSession(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_unguessable_name, params.arg_privacy_filtering_enabled);
+          const result = this.impl.cloneSession(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_unguessable_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1686,7 +1686,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
       mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_filtering_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_unguessable_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

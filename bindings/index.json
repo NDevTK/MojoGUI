@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-13T11:55:54.421907Z",
-  "version": "150.0.7838.0",
+  "generated_at": "2026-05-14T11:45:22.587845Z",
+  "version": "150.0.7840.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -251,7 +251,8 @@
         "PresentStudentScreen",
         "StopPresentingStudentScreen",
         "PresentOwnScreen",
-        "StopPresentingOwnScreen"
+        "StopPresentingOwnScreen",
+        "GetGeminiStatus"
       ],
       "metadata": {
         "usage": {
@@ -21478,7 +21479,6 @@
         "GetPrintServersConfig",
         "ChoosePrintServers",
         "AddPrintServerObserver",
-        "GetPolicies",
         "GetPrinterTypeDenyList",
         "AddPrintJobObserver"
       ],
@@ -22733,7 +22733,7 @@
         "PreviewPasswordSuggestion",
         "PreviewPasswordGenerationSuggestion",
         "GetPotentialLastFourCombinationsForStandaloneCvc",
-        "DispatchEmailVerifiedEvent"
+        "SendEmailVerificationToken"
       ],
       "metadata": {
         "usage": {
@@ -22817,7 +22817,8 @@
         "DidAutofillForm",
         "SuppressAutomaticRefills",
         "RequestRefill",
-        "JavaScriptChangedAutofilledValue"
+        "JavaScriptChangedAutofilledValue",
+        "OnEmailVerificationTokenShared"
       ],
       "metadata": {
         "usage": {
