@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7840.0';
+        const versionStr = window.mojoVersion || '150.0.7841.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -281,8 +281,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRendere
 if (mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec.$ = {};
-mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParamsSpec || { $: {} };
@@ -1456,9 +1454,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemote = class {
   startAudioInjector(arg_audio_reader) {
     return this.$.startAudioInjector(arg_audio_reader);
   }
-  injectAudioPacket(arg_packet) {
-    return this.$.injectAudioPacket(arg_packet);
-  }
   setAudioInjectorSampleInfo(arg_info) {
     return this.$.setAudioInjectorSampleInfo(arg_info);
   }
@@ -1468,7 +1463,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionControl', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1633,18 +1627,9 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       false);
   }
 
-  injectAudioPacket(arg_packet) {
-    return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
-      mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec,
-      null,
-      [arg_packet],
-      false);
-  }
-
   setAudioInjectorSampleInfo(arg_info) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParamsSpec,
       [arg_info],
@@ -1669,7 +1654,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSessionControl', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1877,20 +1861,14 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.injectAudioPacket');
-          const result = this.impl.injectAudioPacket(params.arg_packet);
-          break;
-        }
-        case 17: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioInjectorSampleInfo');
           const result = this.impl.setAudioInjectorSampleInfo(params.arg_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const resp_obj = response;
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -3568,13 +3546,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionControl_StartAudioInjector_ParamsSpec, 'remoting.mojom.DesktopSessionControl_StartAudioInjector_Params', [
-      mojo.internal.StructField('arg_audio_reader', 0, 0, mojo.internal.bindings.remoting.mojom.IpcFifoBufferReaderSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectAudioPacket_ParamsSpec, 'remoting.mojom.DesktopSessionControl_InjectAudioPacket_Params', [
-      mojo.internal.StructField('arg_packet', 0, 0, mojo.internal.bindings.remoting.mojom.AudioPacketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_reader', 0, 0, mojo.internal.bindings.remoting.mojom.IpcFifoBufferReaderSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3586,8 +3558,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParamsSpec, 'remoting.mojom.DesktopSessionControl_SetAudioInjectorSampleInfo_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.VideoCapturer_Start_ParamsSpec, 'remoting.mojom.VideoCapturer_Start_Params', [

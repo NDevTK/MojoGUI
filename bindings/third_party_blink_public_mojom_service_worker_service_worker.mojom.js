@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7840.0';
+        const versionStr = window.mojoVersion || '150.0.7841.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -956,8 +956,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemote = class {
   setIdleDelay(arg_delay) {
     return this.$.setIdleDelay(arg_delay);
   }
-  addKeepAlive() {
-    return this.$.addKeepAlive();
+  addKeepAlive(arg_keepalive_sequence_number) {
+    return this.$.addKeepAlive(arg_keepalive_sequence_number);
   }
   clearKeepAlive() {
     return this.$.clearKeepAlive();
@@ -1211,12 +1211,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       false);
   }
 
-  addKeepAlive() {
+  addKeepAlive(arg_keepalive_sequence_number) {
     return this.proxy.sendMessage(
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec,
       null,
-      [],
+      [arg_keepalive_sequence_number],
       false);
   }
 
@@ -1728,7 +1728,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addKeepAlive');
-          const result = this.impl.addKeepAlive();
+          const result = this.impl.addKeepAlive(params.arg_keepalive_sequence_number);
           break;
         }
         case 24: {
@@ -2218,8 +2218,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec, 'blink.mojom.ServiceWorker_AddKeepAlive_Params', [
+      mojo.internal.StructField('arg_keepalive_sequence_number', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec, 'blink.mojom.ServiceWorker_ClearKeepAlive_Params', [

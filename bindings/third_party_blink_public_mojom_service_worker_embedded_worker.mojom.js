@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7840.0';
+        const versionStr = window.mojoVersion || '150.0.7841.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -459,8 +459,8 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote = class {
   close() {
     this.proxy.close();
   }
-  requestTermination() {
-    return this.$.requestTermination();
+  requestTermination(arg_observed_keepalive_sequence_number) {
+    return this.$.requestTermination(arg_observed_keepalive_sequence_number);
   }
   countFeature(arg_feature) {
     return this.$.countFeature(arg_feature);
@@ -504,12 +504,12 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
     ]);
   }
 
-  requestTermination() {
+  requestTermination(arg_observed_keepalive_sequence_number) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
-      [],
+      [arg_observed_keepalive_sequence_number],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTermination');
-          const result = this.impl.requestTermination();
+          const result = this.impl.requestTermination(params.arg_observed_keepalive_sequence_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -804,8 +804,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_Params', [
+      mojo.internal.StructField('arg_observed_keepalive_sequence_number', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParams', [

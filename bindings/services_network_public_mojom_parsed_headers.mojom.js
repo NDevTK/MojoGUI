@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7840.0';
+        const versionStr = window.mojoVersion || '150.0.7841.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,6 +148,9 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec = mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.DeclarativePerformanceObserverPolicySpec = mojo.internal.bindings.network.mojom.DeclarativePerformanceObserverPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec = mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -206,5 +209,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_avail_language', 152, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_content_language', 160, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_no_vary_search_with_parse_error', 168, 0, mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_declarative_performance_observer_policy', 184, 0, mojo.internal.bindings.network.mojom.DeclarativePerformanceObserverPolicySpec, null, true, 0, undefined),
     ],
-    [[0, 192]]);
+    [[0, 200]]);

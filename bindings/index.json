@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-14T11:45:22.587845Z",
-  "version": "150.0.7840.0",
+  "generated_at": "2026-05-15T11:49:14.052460Z",
+  "version": "150.0.7841.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -34287,7 +34287,6 @@
         "BeginFileWrite",
         "SetHostCursorRenderedByClient",
         "StartAudioInjector",
-        "InjectAudioPacket",
         "SetAudioInjectorSampleInfo"
       ],
       "metadata": {
@@ -60025,6 +60024,12 @@
       "imports": []
     },
     {
+      "filename": "services_network_public_mojom_declarative_performance_observer.mojom.js",
+      "source": "services/network/public/mojom/declarative_performance_observer.mojom",
+      "module": "network.mojom",
+      "imports": []
+    },
+    {
       "filename": "services_network_public_mojom_default_credentials.mojom.js",
       "source": "services/network/public/mojom/default_credentials.mojom",
       "module": "network.mojom",
@@ -60643,6 +60648,7 @@
         "services/network/public/mojom/no_vary_search.mojom",
         "services/network/public/mojom/supports_loading_mode.mojom",
         "services/network/public/mojom/timing_allow_origin.mojom",
+        "services/network/public/mojom/declarative_performance_observer.mojom",
         "services/network/public/mojom/web_client_hints_types.mojom",
         "services/network/public/mojom/x_frame_options.mojom"
       ]
