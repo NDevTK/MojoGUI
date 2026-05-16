@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-15T11:49:14.052460Z",
-  "version": "150.0.7841.0",
+  "generated_at": "2026-05-16T10:55:46.085628Z",
+  "version": "150.0.7843.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -43,6 +43,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3577,6 +3579,28 @@
         "category": "internal",
         "gates": [
           "feature:kOptimizationGuideOnDeviceModel"
+        ]
+      }
+    },
+    {
+      "name": "ExperimentalOptInPageHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
+      "methods": [
+        "Accept",
+        "Reject"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -11148,8 +11172,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -11178,8 +11201,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpFooter"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -11202,8 +11224,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -12009,7 +12030,8 @@
       "file": "chrome_common_indigo_indigo.mojom.js",
       "methods": [
         "InjectScript",
-        "Invoke"
+        "Invoke",
+        "Reset"
       ],
       "metadata": {
         "usage": {
@@ -13440,6 +13462,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
         ]
@@ -21475,7 +21499,6 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "CancelPrintJob",
         "GetPrintServersConfig",
         "ChoosePrintServers",
         "AddPrintServerObserver",
@@ -22598,6 +22621,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kXuControls",
           "feature:kNtpNextFeatures"
         ]
@@ -22976,7 +23001,8 @@
         "Back",
         "Forward",
         "BackButtonHovered",
-        "NavigateHome"
+        "NavigateHome",
+        "Navigate"
       ],
       "metadata": {
         "usage": {
@@ -23200,7 +23226,8 @@
         "OnLhsChipExpandAnimationEnded",
         "OnLhsChipCollapseAnimationEnded",
         "OnHomeButtonDropUrl",
-        "OnHomeButtonDropFile"
+        "OnHomeButtonDropFile",
+        "OnToolbarDropFile"
       ],
       "metadata": {
         "usage": {
@@ -25046,7 +25073,8 @@
         "UpdateAutoSuggestedTabContext",
         "UpdateLensSearchEligibility",
         "UpdateContentSharingPolicy",
-        "UpdateAimPopupEligibility"
+        "UpdateAimPopupEligibility",
+        "OnEmbeddedPermissionPromptChanged"
       ],
       "metadata": {
         "usage": {
@@ -28191,6 +28219,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -28283,6 +28313,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -28840,7 +28872,8 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kInterestGroupStorage",
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -35916,6 +35949,23 @@
       }
     },
     {
+      "name": "SensorConnectionWatcher",
+      "module": "device.mojom",
+      "file": "services_device_public_mojom_sensor.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "SensorProvider",
       "module": "device.mojom",
       "file": "services_device_public_mojom_sensor_provider.mojom.js",
@@ -39746,6 +39796,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kIndigo",
           "feature:kSharedStorageAPI",
           "feature:kGlicActorUi",
@@ -39830,7 +39882,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -39850,7 +39906,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -39868,7 +39928,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -39887,7 +39951,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -39907,7 +39975,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -39926,7 +39998,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -41214,6 +41290,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kIndigo"
         ]
       }
@@ -41254,7 +41332,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -41273,7 +41355,11 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kInitialWebUI",
+          "feature:kInitialWebUIWithoutLanguageDetection"
+        ]
       }
     },
     {
@@ -44264,6 +44350,41 @@
       }
     },
     {
+      "name": "UnboundedSurfaceHost",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)",
+            "blink.mojom.LocalFrameHost.RequestUnboundedSurface"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated"
+      }
+    },
+    {
+      "name": "UnboundedSurfaceClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
+      "methods": [
+        "OnDismissed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "LocalFrameHost",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
@@ -44342,7 +44463,8 @@
         "NotifyStorageAccessed",
         "RecordWindowProxyUsageMetrics",
         "NotifyDocumentInteractive",
-        "InitializeCrashReportContext"
+        "InitializeCrashReportContext",
+        "RequestUnboundedSurface"
       ],
       "metadata": {
         "usage": {
@@ -51092,6 +51214,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
+      "source": "chrome/browser/glic/experimental_opt_in/glic_experimental_opt_in.mojom",
+      "module": "glic.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_glic_fre_glic_fre.mojom.js",
       "source": "chrome/browser/glic/fre/glic_fre.mojom",
       "module": "glic.mojom",
@@ -51104,6 +51232,7 @@
       "source": "chrome/browser/glic/host/glic.mojom",
       "module": "glic.mojom",
       "imports": [
+        "chrome/common/glic_enums.mojom",
         "chrome/browser/glic/host/glic_features.mojom",
         "chrome/common/actor_webui.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
@@ -51129,6 +51258,7 @@
       "module": "glic.mojom",
       "imports": [
         "chrome/browser/glic/host/glic.mojom",
+        "chrome/common/glic_enums.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
@@ -51798,9 +51928,7 @@
       "source": "chrome/browser/ui/webui/multistep_filter_internals/multistep_filter_internals.mojom",
       "module": "multistep_filter_internals.mojom",
       "imports": [
-        "mojo/public/mojom/base/time.mojom",
-        "mojo/public/mojom/base/uuid.mojom",
-        "mojo/public/mojom/base/values.mojom"
+        "mojo/public/mojom/base/time.mojom"
       ]
     },
     {
@@ -52247,7 +52375,8 @@
       "module": "actor.webui.mojom",
       "imports": [
         "skia/public/mojom/bitmap.mojom",
-        "url/mojom/origin.mojom"
+        "url/mojom/origin.mojom",
+        "chrome/common/glic_enums.mojom"
       ]
     },
     {
@@ -52284,6 +52413,12 @@
       "filename": "chrome_common_font_prewarmer.mojom.js",
       "source": "chrome/common/font_prewarmer.mojom",
       "module": "chrome.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_common_glic_enums.mojom.js",
+      "source": "chrome/common/glic_enums.mojom",
+      "module": "glic.mojom",
       "imports": []
     },
     {
@@ -54892,7 +55027,8 @@
       "imports": [
         "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
         "mojo/public/mojom/base/empty.mojom",
-        "mojo/public/mojom/base/error.mojom"
+        "mojo/public/mojom/base/error.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -56751,6 +56887,7 @@
         "services/network/public/mojom/url_request.mojom",
         "services/network/public/mojom/url_response_head.mojom",
         "services/service_manager/public/mojom/interface_provider.mojom",
+        "services/viz/public/mojom/compositing/compositor_frame_sink.mojom",
         "services/viz/public/mojom/compositing/surface_id.mojom",
         "third_party/blink/public/mojom/associated_interfaces/associated_interfaces.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
@@ -56783,6 +56920,7 @@
         "third_party/blink/public/mojom/service_worker/service_worker_container.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "third_party/blink/public/mojom/webpreferences/web_preferences.mojom",
+        "third_party/blink/public/mojom/widget/platform_widget.mojom",
         "third_party/blink/public/mojom/widget/visual_properties.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
         "ui/accessibility/mojom/ax_tree_update.mojom",
