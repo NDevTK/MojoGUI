@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-18T13:01:49.722553Z",
-  "version": "150.0.7843.0",
+  "generated_at": "2026-05-19T12:34:52.909655Z",
+  "version": "150.0.7846.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3420,7 +3420,9 @@
         "ReopenTabs",
         "PinSidePanel",
         "UnpinSidePanel",
-        "OnContextMenuOpened"
+        "OnContextMenuOpened",
+        "NotifySmartTabSharingTryItIphResult",
+        "NotifySmartTabSharingDefaultOnIphResult"
       ],
       "metadata": {
         "usage": {
@@ -3471,7 +3473,9 @@
         "SetShowReopenTabs",
         "OnSidePanelPinStateChanged",
         "SetExpandButtonEnabled",
-        "TurnOnSmartTabSharing"
+        "TurnOnSmartTabSharing",
+        "ShowSmartTabSharingTryItIph",
+        "ShowSmartTabSharingDefaultOnIph"
       ],
       "metadata": {
         "usage": {
@@ -3804,6 +3808,66 @@
       }
     },
     {
+      "name": "ActorClient",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "RequestToShowCredentialSelectionDialog",
+        "RequestToShowAutofillSuggestionsDialog",
+        "RequestToShowUserConfirmationDialog",
+        "RequestToConfirmNavigation",
+        "NotifyActorTaskStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ActorHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "AutofillSuggestionDialogOnFormPresented",
+        "AutofillSuggestionDialogOnFormPreviewChanged",
+        "AutofillSuggestionDialogOnFormConfirmed",
+        "GetContextForActorFromTab",
+        "CreateTask",
+        "PerformActions",
+        "CancelActions",
+        "StopActorTask",
+        "PauseActorTask",
+        "ResumeActorTask",
+        "InterruptActorTask",
+        "UninterruptActorTask",
+        "CreateActorTab",
+        "LogBeginAsyncEvent",
+        "LogEndAsyncEvent",
+        "LogInstantEvent",
+        "JournalClear",
+        "JournalSnapshot",
+        "JournalStart",
+        "JournalStop",
+        "JournalRecordFeedback"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateActorHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebClientHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -3811,12 +3875,10 @@
         "WebClientCreated",
         "WebClientInitialized",
         "WebClientInitializeFailed",
+        "CreateActorHandler",
         "CreateTab",
         "OpenLinkInPopup",
         "OpenGlicSettingsPage",
-        "AutofillSuggestionDialogOnFormPresented",
-        "AutofillSuggestionDialogOnFormPreviewChanged",
-        "AutofillSuggestionDialogOnFormConfirmed",
         "OpenPasswordManagerSettingsPage",
         "ClosePanel",
         "ClosePanelAndShutdown",
@@ -3828,7 +3890,6 @@
         "GetModelQualityClientId",
         "GetContextFromFocusedTab",
         "GetContextFromTab",
-        "GetContextForActorFromTab",
         "SetMaximumNumberOfPinnedTabs",
         "PinTabs",
         "UnpinTabs",
@@ -3840,15 +3901,6 @@
         "GetSkill",
         "RecordSkillsWebClientEvent",
         "SubscribeToPinCandidates",
-        "CreateTask",
-        "PerformActions",
-        "CancelActions",
-        "StopActorTask",
-        "PauseActorTask",
-        "ResumeActorTask",
-        "InterruptActorTask",
-        "UninterruptActorTask",
-        "CreateActorTab",
         "ActivateTab",
         "ResizeWidget",
         "CaptureScreenshot",
@@ -3868,14 +3920,6 @@
         "SyncCookies",
         "ClientErrorDialogStateChanged",
         "ReportClientTransientError",
-        "LogBeginAsyncEvent",
-        "LogEndAsyncEvent",
-        "LogInstantEvent",
-        "JournalClear",
-        "JournalSnapshot",
-        "JournalStart",
-        "JournalStop",
-        "JournalRecordFeedback",
         "OnOptinImpression",
         "OnUserInputSubmitted",
         "OnContextUploadStarted",
@@ -3999,13 +4043,8 @@
         "NotifySkillPreviewsChanged",
         "NotifySkillToInvokeChanged",
         "NotifyZeroStateSuggestionsChanged",
-        "NotifyActorTaskStateChanged",
         "NotifyPageMetadataChanged",
         "NotifyDefaultTabContextPermissionStateChanged",
-        "RequestToShowCredentialSelectionDialog",
-        "RequestToShowAutofillSuggestionsDialog",
-        "RequestToShowUserConfirmationDialog",
-        "RequestToConfirmNavigation",
         "NotifyAdditionalContext",
         "NotifyActuationOnWebSettingChanged",
         "NotifyActOnWebCapabilityChanged",
@@ -4783,8 +4822,8 @@
     },
     {
       "name": "PageHandler",
-      "module": "accessibility_annotator.info.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_accessibility_annotator_info.mojom.js",
+      "module": "personal_context.notice.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_personal_context_notice.mojom.js",
       "methods": [
         "GetAccountInfo",
         "OnInfoAcknowledged",
@@ -21841,6 +21880,24 @@
       }
     },
     {
+      "name": "HotrodStatus",
+      "module": "ash.cfm.mojom",
+      "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_hotrod_status.mojom.js",
+      "methods": [
+        "PostCallStatus"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "MeetDevicesInfo",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_info.mojom.js",
@@ -24991,6 +25048,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -25047,6 +25105,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -25089,6 +25148,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -48853,6 +48913,10 @@
         },
         "scope": "context",
         "category": "associated",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ],
         "scrambled": false
       }
     },
@@ -48879,6 +48943,10 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI"
+        ],
         "scrambled": false
       }
     },
@@ -49626,7 +49694,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -49658,7 +49725,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -49683,7 +49749,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -51232,9 +51297,9 @@
       "source": "chrome/browser/glic/host/glic.mojom",
       "module": "glic.mojom",
       "imports": [
-        "chrome/common/glic_enums.mojom",
         "chrome/browser/glic/host/glic_features.mojom",
         "chrome/common/actor_webui.mojom",
+        "chrome/common/glic_enums.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/absl_status.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
@@ -51476,9 +51541,9 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_accessibility_annotator_accessibility_annotator_info.mojom.js",
-      "source": "chrome/browser/ui/webui/accessibility_annotator/accessibility_annotator_info.mojom",
-      "module": "accessibility_annotator.info.mojom",
+      "filename": "chrome_browser_ui_webui_accessibility_annotator_personal_context_notice.mojom.js",
+      "source": "chrome/browser/ui/webui/accessibility_annotator/personal_context_notice.mojom",
+      "module": "personal_context.notice.mojom",
       "imports": []
     },
     {
@@ -54644,6 +54709,12 @@
       "imports": [
         "chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_probe.mojom"
       ]
+    },
+    {
+      "filename": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_hotrod_status.mojom.js",
+      "source": "chromeos/services/chromebox_for_meetings/public/mojom/meet_devices_hotrod_status.mojom",
+      "module": "ash.cfm.mojom",
+      "imports": []
     },
     {
       "filename": "chromeos_services_chromebox_for_meetings_public_mojom_meet_devices_info.mojom.js",
