@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -172,21 +172,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_target_tree_id', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_extension_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_offset', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_node_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_offset', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_action_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_test_event_to_fire', 60, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_rect', 64, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_point', 72, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_horizontal_scroll_alignment', 88, 0, mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vertical_scroll_alignment', 92, 0, mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_behavior', 96, 0, mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_role', 100, 0, mojo.internal.bindings.ax.mojom.RoleSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_child_tree_id', 104, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_node_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_offset', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_node_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_offset', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_action_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_rect', 56, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_point', 64, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_event_to_fire', 80, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_horizontal_scroll_alignment', 84, 0, mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vertical_scroll_alignment', 88, 0, mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_behavior', 92, 0, mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_tree_id', 96, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_role', 112, 0, mojo.internal.bindings.ax.mojom.RoleSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_intlist_attributes', 120, 0, mojo.internal.Map(mojo.internal.bindings.ax.mojom.IntListAttributeSpec, mojo.internal.Array(mojo.internal.Int32, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_stringlist_attributes', 128, 0, mojo.internal.Map(mojo.internal.bindings.ax.mojom.StringListAttributeSpec, mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
     ],

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -250,6 +250,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsType = {
   DEVICE_ATTRIBUTES: 116,
   PERMISSION_ACTIONS_HISTORY: 117,
   SUSPICIOUS_NOTIFICATION_SHOW_ORIGINAL: 118,
+  SUB_APPS_WITHOUT_PROMPTS: 119,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

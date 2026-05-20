@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -221,24 +221,25 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_force_gpu_mem_discardable_limit_bytes', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_force_max_texture_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_program_cache_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_gr_context_type', 16, 0, mojo.internal.bindings.gpu.mojom.GrContextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_vulkan', 20, 0, mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vulkan_heap_memory_limit', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vulkan_sync_cpu_memory_limit', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_gpu_benchmarking_extension', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_webgpu', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_unsafe_webgpu', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_webgpu_developer_features', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_webgpu_experimental_features', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_webgpu_compat', 32, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_perf_data_collection', 32, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_native_gpu_memory_buffers', 32, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_separate_egl_display_for_webgl_testing', 33, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_webgpu_adapter', 36, 0, mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_webgpu_power_preference', 40, 0, mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_dawn_backend_validation', 44, 0, mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled_dawn_features_list', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_dawn_features_list', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_pump_type', 64, 0, mojo.internal.bindings.mojo_base.mojom.MessagePumpTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ignored_gpu_blocklist_entries', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gr_context_type', 24, 0, mojo.internal.bindings.gpu.mojom.GrContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_vulkan', 28, 0, mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vulkan_heap_memory_limit', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vulkan_sync_cpu_memory_limit', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_gpu_benchmarking_extension', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_webgpu', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_unsafe_webgpu', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_webgpu_developer_features', 40, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_webgpu_experimental_features', 40, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_webgpu_compat', 40, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_perf_data_collection', 40, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_native_gpu_memory_buffers', 40, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_separate_egl_display_for_webgl_testing', 41, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_webgpu_adapter', 44, 0, mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_webgpu_power_preference', 48, 0, mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_dawn_backend_validation', 52, 0, mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled_dawn_features_list', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_dawn_features_list', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_pump_type', 72, 0, mojo.internal.bindings.mojo_base.mojom.MessagePumpTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);

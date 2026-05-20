@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-19T12:34:52.909655Z",
-  "version": "150.0.7846.0",
+  "generated_at": "2026-05-20T12:16:00.040373Z",
+  "version": "150.0.7847.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -25048,7 +25048,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -25105,7 +25104,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpNextFeatures"
@@ -25148,7 +25146,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -37848,7 +37845,6 @@
         "GetPrivateStateTokenRedemptionRecords",
         "DeleteStoredTrustTokens",
         "SetBlockTrustTokens",
-        "SetDohFallbackUpgradeAllowed",
         "ClearNetworkingHistoryBetween",
         "ClearHttpCache",
         "ComputeHttpCacheSize",
@@ -55129,7 +55125,6 @@
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
         "components/tab_groups/public/mojom/tab_group_types.mojom",
         "components/tabs/public/mojom/tabs.mojom",
-        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },

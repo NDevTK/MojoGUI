@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1246,6 +1246,7 @@ mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateType = {
   kTerminalCompletion: 3,
   kTerminalStopped: 4,
   kTerminalFailed: 5,
+  MinVersion: 5,
 };
 
 // Enum: SubscriberObservationType

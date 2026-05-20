@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -161,6 +161,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_main_frame_intersection', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_compositor_visible_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_occlusion_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameOcclusionStateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hidden_for_media_playback', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_outermost_main_frame_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_outermost_main_frame_scroll_position', 40, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_main_frame_transform', 48, 0, mojo.internal.bindings.gfx.mojom.TransformSpec, null, false, 0, undefined),

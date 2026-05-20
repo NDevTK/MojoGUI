@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7846.0';
+        const versionStr = window.mojoVersion || '150.0.7847.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,7 +130,6 @@ mojo.internal.bindings.ax.mojom.EventSpec = mojo.internal.bindings.ax.mojom.Even
 mojo.internal.bindings.ax.mojom.RoleSpec = mojo.internal.bindings.ax.mojom.RoleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.StateSpec = mojo.internal.bindings.ax.mojom.StateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.ActionSpec = mojo.internal.bindings.ax.mojom.ActionSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ax.mojom.ActionFlagsSpec = mojo.internal.bindings.ax.mojom.ActionFlagsSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec = mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec = mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec = mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec || { $: mojo.internal.Enum().$ };
@@ -524,13 +523,6 @@ mojo.internal.bindings.ax.mojom.Action = {
   MinVersion: 33,
   MinVersion: 33,
   MinVersion: 33,
-};
-
-// Enum: ActionFlags
-mojo.internal.bindings.ax.mojom.ActionFlags = {
-  kNone: 0,
-  kRequestImages: 1,
-  kRequestInlineTextBoxes: 2,
 };
 
 // Enum: ScrollAlignment
