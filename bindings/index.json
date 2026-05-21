@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-20T12:16:00.040373Z",
-  "version": "150.0.7847.0",
+  "generated_at": "2026-05-21T12:39:47.816593Z",
+  "version": "150.0.7849.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -267,8 +267,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1472,8 +1471,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1493,8 +1491,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1552,8 +1549,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1749,7 +1745,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -1773,8 +1768,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1806,8 +1800,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1872,8 +1865,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1895,8 +1887,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -1924,8 +1915,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -2606,8 +2596,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -2666,8 +2655,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -2691,8 +2679,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -2778,8 +2765,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3274,8 +3260,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3334,8 +3319,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3358,8 +3342,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3385,8 +3368,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3435,9 +3417,9 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3491,6 +3473,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3514,9 +3497,9 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3751,8 +3734,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -3766,6 +3748,7 @@
         "WebviewCommitted",
         "OnZoomLevelChange",
         "ClosePanel",
+        "OpenHelpCenterTopicAndClosePanel",
         "OpenProfilePickerAndClosePanel",
         "OpenDisabledByAdminLinkAndClosePanel",
         "SignInAndClosePanel",
@@ -3784,8 +3767,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4218,8 +4200,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4268,8 +4249,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4308,8 +4288,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4375,8 +4354,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4403,8 +4381,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4439,8 +4416,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4616,7 +4592,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -4646,7 +4621,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -4757,7 +4731,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed",
@@ -4785,7 +4758,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed",
@@ -4844,7 +4816,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
@@ -4853,8 +4824,8 @@
     },
     {
       "name": "PageHandlerFactory",
-      "module": "browser.accessibility_annotator_internals.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
+      "module": "browser.personal_context_internals.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
       "methods": [
         "CreatePageHandler"
       ],
@@ -4869,57 +4840,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "browser.accessibility_annotator_internals.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
-      "methods": [
-        "TriggerFirstRun"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: browser.accessibility_annotator_internals.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "actor_internals.mojom",
-      "file": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
-      "methods": [
-        "JournalEntryAdded"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4927,50 +4848,25 @@
     },
     {
       "name": "PageHandler",
-      "module": "actor_internals.mojom",
-      "file": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
+      "module": "browser.personal_context_internals.mojom",
+      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
       "methods": [
-        "StartLogging",
-        "StopLogging"
+        "TriggerFirstRun"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: actor_internals.mojom.PageHandlerFactory.CreatePageHandler"
+            "Internal Interface: browser.personal_context_internals.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "actor_internals.mojom",
-      "file": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4993,7 +4889,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -5018,7 +4913,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -5101,8 +4995,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5133,8 +5026,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5267,7 +5159,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -5293,7 +5184,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -5317,8 +5207,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5345,8 +5234,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5396,7 +5284,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -5435,7 +5322,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -5459,8 +5345,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5486,8 +5371,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5559,8 +5443,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5583,7 +5466,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -5621,7 +5503,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -5667,7 +5548,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -5693,7 +5573,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -5742,8 +5621,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5767,8 +5645,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -5814,7 +5691,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -6320,7 +6196,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault"
         ]
       }
@@ -6345,7 +6220,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault"
         ]
       }
@@ -6369,7 +6243,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -6394,7 +6267,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -6442,7 +6314,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -6467,7 +6338,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -6577,7 +6447,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -6604,7 +6473,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -6966,7 +6834,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -6994,7 +6861,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -7047,7 +6913,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -7075,7 +6940,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -7207,8 +7071,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7230,8 +7093,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7320,7 +7182,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -7347,7 +7208,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
@@ -7507,8 +7367,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7530,8 +7389,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7553,6 +7411,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -7577,6 +7436,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -7618,7 +7478,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7651,7 +7510,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7731,7 +7589,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -7755,7 +7612,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -7868,8 +7724,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7914,8 +7769,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7943,8 +7797,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7980,8 +7833,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8028,8 +7880,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8069,8 +7920,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8092,9 +7942,44 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "FeatureShowcasePageHandler",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
+      "methods": [
+        "FinishFeatureShowcase"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feature_showcase.mojom.FeatureShowcasePageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "FeatureShowcasePageHandlerFactory",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -8127,8 +8012,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8154,7 +8038,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -8178,7 +8061,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -8201,8 +8083,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8227,8 +8108,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8277,8 +8157,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8301,8 +8180,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8324,8 +8202,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8347,8 +8224,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8370,8 +8246,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8440,7 +8315,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
@@ -8492,7 +8366,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
@@ -8740,8 +8613,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
+          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -8788,8 +8660,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
+          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures"
         ]
       }
@@ -8835,9 +8706,9 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8888,9 +8759,9 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8923,6 +8794,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8949,8 +8821,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8990,8 +8861,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9014,7 +8884,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -9039,7 +8908,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -9090,8 +8958,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9206,8 +9073,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9229,8 +9095,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9253,7 +9118,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -9275,7 +9139,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -9366,8 +9229,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9389,8 +9251,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9437,8 +9298,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9461,8 +9321,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9514,7 +9373,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
@@ -9548,7 +9406,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
@@ -9600,8 +9457,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9624,8 +9480,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9673,7 +9528,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule"
         ]
@@ -9712,7 +9566,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule"
         ]
@@ -9764,9 +9617,9 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9789,6 +9642,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9914,8 +9768,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9941,8 +9794,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9965,8 +9817,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9992,8 +9843,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10142,7 +9992,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -10169,7 +10018,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -10468,7 +10316,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -10506,7 +10353,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -10564,8 +10410,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10589,8 +10434,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10637,8 +10481,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10663,8 +10506,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10712,8 +10554,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10739,8 +10580,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10788,8 +10628,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10817,8 +10656,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10886,7 +10724,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -10928,7 +10767,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule"
         ]
       }
@@ -10980,7 +10818,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -11013,7 +10850,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -11066,8 +10902,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11089,8 +10924,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11138,7 +10972,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -11163,7 +10996,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter"
         ]
       }
@@ -11210,8 +11042,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11239,8 +11070,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11346,8 +11176,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11370,8 +11199,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11432,8 +11260,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11482,8 +11309,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11505,8 +11331,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11549,8 +11374,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11596,7 +11420,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -11622,7 +11445,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -11677,7 +11499,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -11745,7 +11566,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -13503,8 +13323,8 @@
         "gates": [
           "feature:kInitialWebUI",
           "feature:kInitialWebUIWithoutLanguageDetection",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -18200,8 +18020,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -18225,8 +18044,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -19182,7 +19000,6 @@
         "category": "internal",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -22681,7 +22498,8 @@
           "feature:kInitialWebUI",
           "feature:kInitialWebUIWithoutLanguageDetection",
           "feature:kXuControls",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -22702,10 +22520,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
@@ -22731,10 +22547,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
@@ -22762,12 +22576,87 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "actor_internals.mojom",
+      "file": "components_actor_public_mojom_actor_internals.mojom.js",
+      "methods": [
+        "JournalEntryAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "actor_internals.mojom",
+      "file": "components_actor_public_mojom_actor_internals.mojom.js",
+      "methods": [
+        "StartLogging",
+        "StopLogging"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: actor_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "actor_internals.mojom",
+      "file": "components_actor_public_mojom_actor_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23014,7 +22903,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed",
@@ -23185,7 +23073,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -23212,7 +23099,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -23284,7 +23170,8 @@
         "OnLhsChipCollapseAnimationEnded",
         "OnHomeButtonDropUrl",
         "OnHomeButtonDropFile",
-        "OnToolbarDropFile"
+        "OnToolbarDropFile",
+        "ShowAvatarMenu"
       ],
       "metadata": {
         "usage": {
@@ -23321,8 +23208,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23821,8 +23707,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23846,8 +23731,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23995,8 +23879,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -24162,8 +24045,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -24188,8 +24070,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -24311,8 +24192,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -24336,8 +24216,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25048,9 +24927,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25104,9 +24983,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25131,7 +25010,8 @@
         "UpdateLensSearchEligibility",
         "UpdateContentSharingPolicy",
         "UpdateAimPopupEligibility",
-        "OnEmbeddedPermissionPromptChanged"
+        "OnEmbeddedPermissionPromptChanged",
+        "SetRestoredTabIds"
       ],
       "metadata": {
         "usage": {
@@ -25146,6 +25026,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -25287,8 +25168,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25610,7 +25490,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -25618,7 +25499,9 @@
       "name": "PolicyPageClient",
       "module": "policy.mojom",
       "file": "components_policy_resources_webui_mojom_policy.mojom.js",
-      "methods": [],
+      "methods": [
+        "StatusUpdated"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -25647,7 +25530,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -27684,8 +27568,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27709,8 +27592,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27784,8 +27666,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27810,8 +27691,7 @@
           "feature:kWebOTP",
           "feature:kLazyBrowserInterfaceBroker",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27881,8 +27761,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27906,8 +27785,7 @@
           "feature:kInterestGroupStorage",
           "feature:kLazyBrowserInterfaceBroker",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -27998,8 +27876,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -29988,8 +29865,7 @@
           "feature:kMojoServices",
           "feature:kXuControls",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -31205,8 +31081,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -31253,8 +31128,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -36571,7 +36445,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
@@ -39191,8 +39064,7 @@
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -39627,8 +39499,7 @@
         "category": "direct",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -40347,8 +40218,7 @@
           "feature:kMojoServices",
           "feature:kXuControls",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -41378,7 +41248,8 @@
         "CreateGraphBuilder",
         "CreateTensor",
         "CreateTensorFromMailbox",
-        "Dispatch"
+        "Dispatch",
+        "DestroyGraph"
       ],
       "metadata": {
         "usage": {
@@ -41463,13 +41334,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "webnn.mojom.WebNNContext.CreateGraphBuilder"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Internal Interface: webnn.mojom.WebNNContext.CreateGraphBuilder"
+          ]
         },
         "scope": "context",
-        "category": "associated"
+        "category": "internal"
       }
     },
     {
@@ -47286,8 +47157,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
+          "feature:kBrowsingTopics"
         ],
         "scrambled": false
       }
@@ -48565,6 +48435,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
@@ -49505,8 +49377,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49530,8 +49401,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49553,8 +49423,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49593,8 +49462,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49643,8 +49511,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49690,9 +49557,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49721,9 +49588,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49745,6 +49612,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49868,6 +49736,7 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
+          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -49918,6 +49787,7 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
+          "feature:kNtpNextFeatures",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -49968,8 +49838,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49991,8 +49860,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50026,8 +49894,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50054,8 +49921,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50092,8 +49958,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50123,8 +49988,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50152,8 +50016,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50200,6 +50063,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50238,6 +50102,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50262,6 +50127,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50355,8 +50221,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -50379,8 +50244,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpNextFeatures"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -51543,18 +51407,10 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_ui_webui_accessibility_annotator_internals_accessibility_annotator_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/accessibility_annotator_internals/accessibility_annotator_internals.mojom",
-      "module": "browser.accessibility_annotator_internals.mojom",
+      "filename": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/accessibility_annotator_internals/personal_context_internals.mojom",
+      "module": "browser.personal_context_internals.mojom",
       "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_actor_internals_actor_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/actor_internals/actor_internals.mojom",
-      "module": "actor_internals.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
     },
     {
       "filename": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
@@ -51937,6 +51793,12 @@
       "filename": "chrome_browser_ui_webui_extensions_zero_state_promo_zero_state_promo.mojom.js",
       "source": "chrome/browser/ui/webui/extensions_zero_state_promo/zero_state_promo.mojom",
       "module": "zero_state_promo.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
+      "source": "chrome/browser/ui/webui/feature_showcase/feature_showcase.mojom",
+      "module": "feature_showcase.mojom",
       "imports": []
     },
     {
@@ -54940,6 +54802,14 @@
       "source": "components/account_id/mojom/account_id.mojom",
       "module": "signin.mojom",
       "imports": []
+    },
+    {
+      "filename": "components_actor_public_mojom_actor_internals.mojom.js",
+      "source": "components/actor/public/mojom/actor_internals.mojom",
+      "module": "actor_internals.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "components_actor_public_mojom_actor_types.mojom.js",
@@ -63778,6 +63648,7 @@
       "imports": [
         "cc/mojom/browser_controls_state.mojom",
         "cc/mojom/browser_controls_offset_tag_modifications.mojom",
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/string16.mojom",
