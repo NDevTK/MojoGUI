@@ -625,10 +625,15 @@
     try {
       if (!trustedPolicy) {
         // Use the safeHTML function for trusted HTML
-        // Don't want to implement a custom sanitizer or use a library, so return the input as is.
-        // Script injection is blocked by our CSP.
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
-          createHTML: (input) => input,
+          createHTML: (input) => {
+            const div = document.createElement("div");
+            div.setHTML(str);
+            if (div.innerHTML != input) {
+              console.warn('Safer content mismatch ' + input ' vs ' + div.innerHTML);
+            }
+            return input;
+          },
         });
       }
     } catch (e) {
