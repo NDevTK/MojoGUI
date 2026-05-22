@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-21T12:39:47.816593Z",
-  "version": "150.0.7849.0",
+  "generated_at": "2026-05-22T12:13:44.435160Z",
+  "version": "150.0.7851.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9260,7 +9260,8 @@
       "module": "omnibox_popup.mojom",
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "methods": [
-        "OnShow"
+        "OnShow",
+        "OnContextMenuClosed"
       ],
       "metadata": {
         "usage": {
@@ -9334,7 +9335,8 @@
         "AddContext",
         "FocusInput",
         "ClearPopup",
-        "SetPreserveContextOnClose"
+        "SetPreserveContextOnClose",
+        "OnContextMenuClosed"
       ],
       "metadata": {
         "usage": {
@@ -21433,8 +21435,7 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
       "methods": [
-        "CreateRoutine",
-        "IsRoutineArgumentSupported"
+        "CreateRoutine"
       ],
       "metadata": {
         "usage": {
@@ -23168,6 +23169,7 @@
         "OnLhsChipPointerExited",
         "OnLhsChipExpandAnimationEnded",
         "OnLhsChipCollapseAnimationEnded",
+        "OnLhsChipDrag",
         "OnHomeButtonDropUrl",
         "OnHomeButtonDropFile",
         "OnToolbarDropFile",
@@ -31010,6 +31012,24 @@
       }
     },
     {
+      "name": "ModelLedSuggestionsService",
+      "module": "ai.mojom",
+      "file": "ios_chrome_browser_optimization_guide_mojom_model_led_suggestions_service.mojom.js",
+      "methods": [
+        "FetchModelLedSuggestions"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "SmartTabGroupingService",
       "module": "ai.mojom",
       "file": "ios_chrome_browser_optimization_guide_mojom_smart_tab_grouping_service.mojom.js",
@@ -31033,24 +31053,6 @@
       "file": "ios_chrome_browser_optimization_guide_mojom_tab_organization_service.mojom.js",
       "methods": [
         "ExecuteGroupTabs"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ZeroStateSuggestionsService",
-      "module": "ai.mojom",
-      "file": "ios_chrome_browser_optimization_guide_mojom_zero_state_suggestions_service.mojom.js",
-      "methods": [
-        "FetchZeroStateSuggestions"
       ],
       "metadata": {
         "usage": {
@@ -41241,6 +41243,42 @@
       }
     },
     {
+      "name": "WebNNCompilerContext",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_compiler_context.mojom.js",
+      "methods": [
+        "CreateGraphBuilder"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: webnn.mojom.WebNNCompilerService.CreateCompilerContext"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebNNCompilerService",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_compiler_service.mojom.js",
+      "methods": [
+        "CreateCompilerContext"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebNNContext",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_context.mojom.js",
@@ -41316,7 +41354,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: webnn.mojom.WebNNModelLoader.LoadCompiledGraph"
           ]
         },
         "scope": "context",
@@ -41336,7 +41374,26 @@
         "usage": {
           "associated": [],
           "direct": [
+            "Internal Interface: webnn.mojom.WebNNCompilerContext.CreateGraphBuilder",
             "Internal Interface: webnn.mojom.WebNNContext.CreateGraphBuilder"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebNNModelLoader",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_model_loader.mojom.js",
+      "methods": [
+        "LoadCompiledGraph"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -52297,9 +52354,9 @@
       "source": "chrome/common/actor_webui.mojom",
       "module": "actor.webui.mojom",
       "imports": [
+        "chrome/common/glic_enums.mojom",
         "skia/public/mojom/bitmap.mojom",
-        "url/mojom/origin.mojom",
-        "chrome/common/glic_enums.mojom"
+        "url/mojom/origin.mojom"
       ]
     },
     {
@@ -55052,6 +55109,7 @@
       "imports": [
         "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
+        "ui/base/dragdrop/mojom/drag_drop_types.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "mojo/public/mojom/base/empty.mojom",
@@ -55064,6 +55122,7 @@
       "source": "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
       "module": "toolbar_ui_api.mojom",
       "imports": [
+        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
@@ -57982,6 +58041,14 @@
       ]
     },
     {
+      "filename": "ios_chrome_browser_optimization_guide_mojom_model_led_suggestions_service.mojom.js",
+      "source": "ios/chrome/browser/optimization_guide/mojom/model_led_suggestions_service.mojom",
+      "module": "ai.mojom",
+      "imports": [
+        "mojo/public/mojom/base/proto_wrapper.mojom"
+      ]
+    },
+    {
       "filename": "ios_chrome_browser_optimization_guide_mojom_smart_tab_grouping_service.mojom.js",
       "source": "ios/chrome/browser/optimization_guide/mojom/smart_tab_grouping_service.mojom",
       "module": "ai.mojom",
@@ -57992,14 +58059,6 @@
     {
       "filename": "ios_chrome_browser_optimization_guide_mojom_tab_organization_service.mojom.js",
       "source": "ios/chrome/browser/optimization_guide/mojom/tab_organization_service.mojom",
-      "module": "ai.mojom",
-      "imports": [
-        "mojo/public/mojom/base/proto_wrapper.mojom"
-      ]
-    },
-    {
-      "filename": "ios_chrome_browser_optimization_guide_mojom_zero_state_suggestions_service.mojom.js",
-      "source": "ios/chrome/browser/optimization_guide/mojom/zero_state_suggestions_service.mojom",
       "module": "ai.mojom",
       "imports": [
         "mojo/public/mojom/base/proto_wrapper.mojom"
@@ -62449,6 +62508,28 @@
       ]
     },
     {
+      "filename": "services_webnn_public_mojom_webnn_compiler_context.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_compiler_context.mojom",
+      "module": "webnn.mojom",
+      "imports": [
+        "services/webnn/public/mojom/webnn_graph_builder.mojom"
+      ]
+    },
+    {
+      "filename": "services_webnn_public_mojom_webnn_compiler_service.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_compiler_service.mojom",
+      "module": "webnn.mojom",
+      "imports": [
+        "sandbox/policy/mojom/sandbox.mojom",
+        "services/webnn/public/mojom/ep_package_info.mojom",
+        "services/webnn/public/mojom/features.mojom",
+        "services/webnn/public/mojom/webnn_compiler_context.mojom",
+        "services/webnn/public/mojom/webnn_context_properties.mojom",
+        "services/webnn/public/mojom/webnn_context_provider.mojom",
+        "services/webnn/public/mojom/webnn_model_loader.mojom"
+      ]
+    },
+    {
       "filename": "services_webnn_public_mojom_webnn_context.mojom.js",
       "source": "services/webnn/public/mojom/webnn_context.mojom",
       "module": "webnn.mojom",
@@ -62476,6 +62557,7 @@
       "imports": [
         "mojo/public/mojom/base/file.mojom",
         "services/webnn/public/mojom/features.mojom",
+        "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_context.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",
         "services/webnn/public/mojom/webnn_device.mojom",
@@ -62511,6 +62593,18 @@
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",
+        "services/webnn/public/mojom/webnn_device.mojom",
+        "services/webnn/public/mojom/webnn_error.mojom",
+        "services/webnn/public/mojom/webnn_graph.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom"
+      ]
+    },
+    {
+      "filename": "services_webnn_public_mojom_webnn_model_loader.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_model_loader.mojom",
+      "module": "webnn.mojom",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/webnn_device.mojom",
         "services/webnn/public/mojom/webnn_error.mojom",
         "services/webnn/public/mojom/webnn_graph.mojom",
