@@ -630,7 +630,7 @@
             const div = document.createElement("div");
             div.setHTML(str);
             if (div.innerHTML != input) {
-              console.warn('Safer content mismatch ' + input ' vs ' + div.innerHTML);
+              console.warn('Safer content mismatch ' + input + ' vs ' + div.innerHTML);
             }
             return input;
           },
