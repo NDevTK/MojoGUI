@@ -628,7 +628,7 @@
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
           createHTML: (input) => {
             const div = document.createElement("div");
-            div.setHTML(str);
+            div.setHTML(input);
             if (div.innerHTML != input) {
               console.warn('Safer content mismatch ' + input + ' vs ' + div.innerHTML);
             }
