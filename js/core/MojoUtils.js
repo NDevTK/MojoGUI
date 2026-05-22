@@ -624,14 +624,15 @@
   if (typeof global.trustedTypes !== "undefined") {
     try {
       if (!trustedPolicy) {
-        // Use the safeHTML function for trusted HTML
+        // Use the safeHTML function for trusted HTML only
         trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
           createHTML: (input) => {
-            const div = document.createElement("div");
-            div.setHTML(input);
-            if (div.innerHTML != input) {
-              console.warn('Safer content mismatch ' + input + ' vs ' + div.innerHTML);
-            }
+// Not ready for native sanitizer
+//            const div = document.createElement("div");
+//            div.setHTML(input);
+//            if (div.innerHTML != input) {
+//              console.warn('Safer content mismatch ' + input + ' vs ' + div.innerHTML);
+//            }
             return input;
           },
         });
