@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-22T12:13:44.435160Z",
-  "version": "150.0.7851.0",
+  "generated_at": "2026-05-23T11:05:05.704359Z",
+  "version": "150.0.7853.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3404,7 +3404,9 @@
         "UnpinSidePanel",
         "OnContextMenuOpened",
         "NotifySmartTabSharingTryItIphResult",
-        "NotifySmartTabSharingDefaultOnIphResult"
+        "NotifySmartTabSharingDefaultOnIphResult",
+        "RegisterWindow",
+        "CloseWindow"
       ],
       "metadata": {
         "usage": {
@@ -3430,7 +3432,6 @@
       "methods": [
         "SetThreadTitle",
         "SetTaskDetails",
-        "SetAimUrl",
         "OnSidePanelStateChanged",
         "PostMessageToWebview",
         "OnHandshakeComplete",
@@ -3457,7 +3458,8 @@
         "SetExpandButtonEnabled",
         "TurnOnSmartTabSharing",
         "ShowSmartTabSharingTryItIph",
-        "ShowSmartTabSharingDefaultOnIph"
+        "ShowSmartTabSharingDefaultOnIph",
+        "OnWindowClosed"
       ],
       "metadata": {
         "usage": {
@@ -4023,7 +4025,6 @@
         "NotifySkillPreviewChanged",
         "NotifyContextualSkillPreviewsChanged",
         "NotifySkillPreviewsChanged",
-        "NotifySkillToInvokeChanged",
         "NotifyZeroStateSuggestionsChanged",
         "NotifyPageMetadataChanged",
         "NotifyDefaultTabContextPermissionStateChanged",
@@ -5186,82 +5187,6 @@
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "ash.borealis_installer.mojom",
-      "file": "chrome_browser_ui_webui_ash_borealis_installer_borealis_installer.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "ash.borealis_installer.mojom",
-      "file": "chrome_browser_ui_webui_ash_borealis_installer_borealis_installer.mojom.js",
-      "methods": [
-        "Install",
-        "ShutDown",
-        "Launch",
-        "CancelInstall",
-        "OnPageClosed",
-        "OpenStoragePage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ash.borealis_installer.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "ash.borealis_installer.mojom",
-      "file": "chrome_browser_ui_webui_ash_borealis_installer_borealis_installer.mojom.js",
-      "methods": [
-        "OnProgressUpdate",
-        "OnInstallFinished",
-        "RequestClose"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8094,7 +8019,6 @@
       "methods": [
         "GetLocalEligibility",
         "GetCombinedEligibility",
-        "InvalidateRemoteEligibility",
         "GetOptimizationGuideStatus"
       ],
       "metadata": {
@@ -25603,7 +25527,7 @@
         "IsPrintingEnabled",
         "ScriptedPrint",
         "PrintingFailed",
-        "UpdatePrintSettings",
+        "GetPrintPreviewParams",
         "SetupScriptedPrintPreview",
         "ShowScriptedPrintPreview",
         "RequestPrintPreview",
@@ -25653,7 +25577,8 @@
         "GetMatchingElements",
         "DoClick",
         "DoPaste",
-        "DoSelect"
+        "DoSelect",
+        "GetValuesOfMatchingElements"
       ],
       "metadata": {
         "usage": {
@@ -28045,7 +27970,8 @@
         "SetProfilingFile",
         "WriteClangProfilingProfile",
         "OnMemoryPressure",
-        "SetBatterySaverMode"
+        "SetBatterySaverMode",
+        "FreeAslrBeacons"
       ],
       "metadata": {
         "usage": {
@@ -44519,6 +44445,8 @@
         "JavaScriptExecuteRequest",
         "JavaScriptExecuteRequestForTests",
         "JavaScriptExecuteRequestInIsolatedWorld",
+        "InvokeScriptToolForInspector",
+        "NotifyInspectorOfCrossDocumentScriptToolResult",
         "BindReportingObserver",
         "UpdateOpener",
         "GetSavableResourceLinks",
@@ -51517,14 +51445,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_ash_borealis_installer_borealis_installer.mojom.js",
-      "source": "chrome/browser/ui/webui/ash/borealis_installer/borealis_installer.mojom",
-      "module": "ash.borealis_installer.mojom",
-      "imports": [
-        "chrome/browser/ash/borealis/borealis_types.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_ui_webui_ash_cloud_upload_cloud_upload.mojom.js",
       "source": "chrome/browser/ui/webui/ash/cloud_upload/cloud_upload.mojom",
       "module": "ash.cloud_upload.mojom",
@@ -52365,6 +52285,7 @@
       "module": "chrome.mojom",
       "imports": [
         "chrome/common/actor.mojom",
+        "components/actor/public/mojom/actor_types.mojom",
         "components/lens/lens_metadata.mojom",
         "components/page_content_annotations/content/mojom/page_stability.mojom",
         "mojo/public/mojom/base/string16.mojom",
@@ -55126,6 +55047,7 @@
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "skia/public/mojom/skcolor.mojom",
         "ui/gfx/range/mojom/range.mojom"
       ]
     },
@@ -60783,7 +60705,8 @@
         "services/network/public/mojom/timing_allow_origin.mojom",
         "services/network/public/mojom/declarative_performance_observer.mojom",
         "services/network/public/mojom/web_client_hints_types.mojom",
-        "services/network/public/mojom/x_frame_options.mojom"
+        "services/network/public/mojom/x_frame_options.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
