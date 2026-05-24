@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-23T11:05:05.704359Z",
-  "version": "150.0.7853.0",
+  "generated_at": "2026-05-24T11:08:01.206415Z",
+  "version": "150.0.7855.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -35671,7 +35671,7 @@
       "methods": [
         "AddVirtualPressureSource",
         "RemoveVirtualPressureSource",
-        "UpdateVirtualPressureSourceData",
+        "UpdateVirtualPressureSourceState",
         "AddClient"
       ],
       "metadata": {

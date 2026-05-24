@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7853.0';
+        const versionStr = window.mojoVersion || '150.0.7855.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,7 +148,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec, 'blink.mojom.WebPressureUpdate', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.device.mojom.PressureStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_own_contribution_estimate', 8, 0, mojo.internal.Double, -1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);

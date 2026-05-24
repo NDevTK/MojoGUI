@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7853.0';
+        const versionStr = window.mojoVersion || '150.0.7855.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -182,6 +182,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec = mojo.inter
 if (mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PermissionDashboardStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec || { $: {} };
@@ -595,6 +597,14 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: SecurityChipAccessibilityState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec, 'toolbar_ui_api.mojom.SecurityChipAccessibilityState', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: SecurityChipState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipStateSpec, 'toolbar_ui_api.mojom.SecurityChipState', [
@@ -604,8 +614,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_text_dangerous', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_visible', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_state', 24, 0, mojo.internal.bindings.toolbar_ui_api.mojom.SecurityChipAccessibilityStateSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: LhsChipsState
 mojo.internal.Struct(

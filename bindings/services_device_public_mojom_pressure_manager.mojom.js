@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7853.0';
+        const versionStr = window.mojoVersion || '150.0.7855.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -141,10 +141,10 @@ mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_
 if (mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$ = {};
-mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec = mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec || { $: {} };
@@ -212,8 +212,8 @@ mojo.internal.bindings.device.mojom.PressureManagerRemote = class {
   removeVirtualPressureSource(arg_token, arg_source) {
     return this.$.removeVirtualPressureSource(arg_token, arg_source);
   }
-  updateVirtualPressureSourceData(arg_token, arg_source, arg_state, arg_own_contribution_estimate) {
-    return this.$.updateVirtualPressureSourceData(arg_token, arg_source, arg_state, arg_own_contribution_estimate);
+  updateVirtualPressureSourceState(arg_token, arg_source, arg_state) {
+    return this.$.updateVirtualPressureSourceState(arg_token, arg_source, arg_state);
   }
   addClient(arg_source, arg_token, arg_client) {
     return this.$.addClient(arg_source, arg_token, arg_client);
@@ -249,12 +249,12 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       false);
   }
 
-  updateVirtualPressureSourceData(arg_token, arg_source, arg_state, arg_own_contribution_estimate) {
+  updateVirtualPressureSourceState(arg_token, arg_source, arg_state) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
-      mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec,
-      [arg_token, arg_source, arg_state, arg_own_contribution_estimate],
+      mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec,
+      mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec,
+      [arg_token, arg_source, arg_state],
       false);
   }
 
@@ -368,18 +368,18 @@ mojo.internal.bindings.device.mojom.PressureManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateVirtualPressureSourceData');
-          const result = this.impl.updateVirtualPressureSourceData(params.arg_token, params.arg_source, params.arg_state, params.arg_own_contribution_estimate);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateVirtualPressureSourceState');
+          const result = this.impl.updateVirtualPressureSourceState(params.arg_token, params.arg_source, params.arg_state);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec.$.structSpec, resp_obj);
+                header.ordinal, header.requestId, mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] updateVirtualPressureSourceData FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] updateVirtualPressureSourceState FAILED:', e));
           }
           break;
         }
@@ -584,16 +584,15 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_Params', [
+    mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceState_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_state', 12, 0, mojo.internal.bindings.device.mojom.PressureStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_own_contribution_estimate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParams', [
+    mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParamsSpec, 'device.mojom.PressureManager_UpdateVirtualPressureSourceState_ResponseParams', [
     ],
     [[0, 8]]);
 

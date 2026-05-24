@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7853.0';
+        const versionStr = window.mojoVersion || '150.0.7855.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -138,8 +138,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-mojo.internal.bindings.device.mojom.kDefaultOwnContributionEstimate = -1.0;
-
 // Enum: PressureSource
 mojo.internal.bindings.device.mojom.PressureSource = {
   kCpu: 0,
@@ -168,6 +166,5 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureDataSpec, 'device.mojom.PressureData', [
       mojo.internal.StructField('arg_cpu_utilization', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_own_contribution_estimate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
