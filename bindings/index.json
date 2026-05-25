@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-24T11:08:01.206415Z",
-  "version": "150.0.7855.0",
+  "generated_at": "2026-05-25T12:57:30.738477Z",
+  "version": "150.0.7857.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9185,7 +9185,8 @@
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "methods": [
         "OnShow",
-        "OnContextMenuClosed"
+        "OnContextMenuClosed",
+        "SetInputText"
       ],
       "metadata": {
         "usage": {

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7855.0';
+        const versionStr = window.mojoVersion || '150.0.7857.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -147,6 +147,8 @@ mojo.internal.bindings.omnibox_popup.mojom.Page_OnShow_ParamsSpec = mojo.interna
 if (mojo.internal.bindings.omnibox_popup.mojom.Page_OnShow_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.Page_OnShow_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.Page_OnShow_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -459,12 +461,16 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemote = class {
   onContextMenuClosed() {
     return this.$.onContextMenuClosed();
   }
+  setInputText(arg_input) {
+    return this.$.setInputText(arg_input);
+  }
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -488,6 +494,15 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  setInputText(arg_input) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec,
+      null,
+      [arg_input],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.Page.getRemote = function() {
@@ -506,6 +521,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -565,6 +581,13 @@ mojo.internal.bindings.omnibox_popup.mojom.PageReceiver = class {
           const result = this.impl.onContextMenuClosed();
           break;
         }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setInputText');
+          const result = this.impl.setInputText(params.arg_input);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -602,4 +625,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.Page_OnContextMenuClosed_ParamsSpec, 'omnibox_popup.mojom.Page_OnContextMenuClosed_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.Page_SetInputText_ParamsSpec, 'omnibox_popup.mojom.Page_SetInputText_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
