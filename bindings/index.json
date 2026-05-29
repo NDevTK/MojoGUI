@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-28T13:41:38.048615Z",
-  "version": "150.0.7863.0",
+  "generated_at": "2026-05-29T12:42:11.284308Z",
+  "version": "150.0.7865.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4794,84 +4794,6 @@
       }
     },
     {
-      "name": "PageHandler",
-      "module": "personal_context.notice.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_personal_context_notice.mojom.js",
-      "methods": [
-        "GetAccountInfo",
-        "OnInfoAcknowledged",
-        "OnInfoDismissed",
-        "OnManageSettingsClicked",
-        "OnLearnMoreClicked",
-        "ShowUi"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "browser.personal_context_internals.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "browser.personal_context_internals.mojom",
-      "file": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
-      "methods": [
-        "TriggerFirstRun"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: browser.personal_context_internals.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "PageHandlerFactory",
       "module": "ai_overlay_dialog.mojom",
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
@@ -7403,7 +7325,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7436,7 +7357,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7467,7 +7387,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -9504,6 +9423,84 @@
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "personal_context.notice.mojom",
+      "file": "chrome_browser_ui_webui_personal_context_personal_context_notice.mojom.js",
+      "methods": [
+        "GetAccountInfo",
+        "OnInfoAcknowledged",
+        "OnInfoDismissed",
+        "OnManageSettingsClicked",
+        "OnLearnMoreClicked",
+        "ShowUi"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "browser.personal_context_internals.mojom",
+      "file": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "browser.personal_context_internals.mojom",
+      "file": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
+      "methods": [
+        "TriggerFirstRun"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: browser.personal_context_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -13012,24 +13009,6 @@
           "direct": [
             "Internal Interface: printing.mojom.UnsandboxedPrintBackendHost.BindBackend",
             "Internal Interface: printing.mojom.SandboxedPrintBackendHost.BindBackend"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PrinterXmlParser",
-      "module": "printing.mojom",
-      "file": "chrome_services_printing_public_mojom_printer_xml_parser.mojom.js",
-      "methods": [
-        "ParseXmlForPrinterCapabilities"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -22816,6 +22795,51 @@
       }
     },
     {
+      "name": "TabDragService",
+      "module": "tabs_api.mojom",
+      "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
+      "methods": [
+        "StartDrag"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
+      "name": "DropTarget",
+      "module": "tabs_api.mojom",
+      "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
+      "methods": [
+        "GetBounds",
+        "OnDragEntered",
+        "OnDrag",
+        "OnDragLeave",
+        "OnDrop",
+        "OnDragCancelled"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "TabStripService",
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_strip_tab_strip_api.mojom.js",
@@ -22839,8 +22863,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kWebUIToolbarProcessOverheadExperiment",
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -22880,8 +22904,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kNtpFooter"
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -29864,8 +29887,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ]
       }
     },
@@ -35215,7 +35237,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
@@ -38822,10 +38843,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -40675,6 +40693,7 @@
         "StoreBlobToDisk",
         "ClearGrShaderDiskCache",
         "EnsureWebNNExecutionProvidersReady",
+        "RequestWebNNCompilerContext",
         "CreateWebNNWeightsFile"
       ],
       "metadata": {
@@ -44693,7 +44712,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
@@ -45063,10 +45081,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -45837,9 +45852,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ],
         "scrambled": false
       }
     },
@@ -48261,9 +48273,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ],
         "scrambled": false
       }
     },
@@ -48547,9 +48556,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
-        ],
         "scrambled": false
       }
     },
@@ -49643,6 +49649,7 @@
       "module": "help_bubble.mojom",
       "file": "ui_webui_resources_cr_components_help_bubble_help_bubble.mojom.js",
       "methods": [
+        "BindTrackedElementHandler",
         "HelpBubbleButtonPressed",
         "HelpBubbleClosed"
       ],
@@ -50245,11 +50252,14 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: help_bubble.mojom.PdfHelpBubbleHandlerFactory.CreateHelpBubbleHandler"
+            "Internal Interface: help_bubble.mojom.HelpBubbleHandler.BindTrackedElementHandler"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
       }
     },
     {
@@ -51272,18 +51282,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_accessibility_annotator_personal_context_notice.mojom.js",
-      "source": "chrome/browser/ui/webui/accessibility_annotator/personal_context_notice.mojom",
-      "module": "personal_context.notice.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_accessibility_annotator_internals_personal_context_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/accessibility_annotator_internals/personal_context_internals.mojom",
-      "module": "browser.personal_context_internals.mojom",
-      "imports": []
-    },
-    {
       "filename": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
       "module": "ai_overlay_dialog.mojom",
@@ -51877,6 +51875,18 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_personal_context_personal_context_notice.mojom.js",
+      "source": "chrome/browser/ui/webui/personal_context/personal_context_notice.mojom",
+      "module": "personal_context.notice.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/personal_context_internals/personal_context_internals.mojom",
+      "module": "browser.personal_context_internals.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_privacy_sandbox_privacy_sandbox_internals.mojom.js",
       "source": "chrome/browser/ui/webui/privacy_sandbox/privacy_sandbox_internals.mojom",
       "module": "privacy_sandbox_internals.mojom",
@@ -52040,7 +52050,7 @@
       "source": "chrome/browser/ui/webui/tab_strip_internals/tab_strip_internals.mojom",
       "module": "tab_strip_internals.mojom",
       "imports": [
-        "components/tab_groups/public/mojom/tab_group_types.mojom",
+        "components/browser_apis/tab_strip/tab_strip_api_data_model.mojom",
         "components/tabs/public/mojom/tabs.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
@@ -52569,17 +52579,7 @@
         "printing/mojom/print.mojom",
         "printing/mojom/printing_context.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "chrome/services/printing/public/mojom/printer_xml_parser.mojom"
-      ]
-    },
-    {
-      "filename": "chrome_services_printing_public_mojom_printer_xml_parser.mojom.js",
-      "source": "chrome/services/printing/public/mojom/printer_xml_parser.mojom",
-      "module": "printing.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom",
-        "printing/mojom/print.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -54826,6 +54826,17 @@
       "source": "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
       "module": "browser_controls_api.mojom",
       "imports": []
+    },
+    {
+      "filename": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
+      "source": "components/browser_apis/tab_drag/tab_drag_api.mojom",
+      "module": "tabs_api.mojom",
+      "imports": [
+        "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
     },
     {
       "filename": "components_browser_apis_tab_strip_tab_strip_api.mojom.js",
@@ -61668,6 +61679,10 @@
         "ui/gfx/mojom/gpu_extra_info.mojom",
         "url/mojom/url.mojom",
         "services/webnn/public/mojom/ep_package_info.mojom",
+        "services/webnn/public/mojom/webnn_model_loader.mojom",
+        "services/webnn/public/mojom/webnn_compiler_context.mojom",
+        "services/webnn/public/mojom/webnn_context_properties.mojom",
+        "services/webnn/public/mojom/webnn_context_provider.mojom",
         "ui/gfx/mojom/dxgi_info.mojom"
       ]
     },
