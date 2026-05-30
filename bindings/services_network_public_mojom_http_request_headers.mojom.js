@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7865.0';
+        const versionStr = window.mojoVersion || '150.0.7866.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,6 +130,8 @@ mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec = mojo.in
 if (mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec.$ = {};
 mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$ = {};
+mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -152,3 +154,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+// Struct: HttpRequestHeadersUpdateParams
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec, 'network.mojom.HttpRequestHeadersUpdateParams', [
+      mojo.internal.StructField('arg_removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

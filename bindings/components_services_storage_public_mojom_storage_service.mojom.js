@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7865.0';
+        const versionStr = window.mojoVersion || '150.0.7866.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -200,8 +200,8 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemote = class {
   setDataDirectory(arg_path, arg_directory) {
     return this.$.setDataDirectory(arg_path, arg_directory);
   }
-  bindSessionStorageControl(arg_path, arg_receiver) {
-    return this.$.bindSessionStorageControl(arg_path, arg_receiver);
+  bindSessionStorageControl(arg_path, arg_clear_on_open, arg_receiver) {
+    return this.$.bindSessionStorageControl(arg_path, arg_clear_on_open, arg_receiver);
   }
   bindLocalStorageControl(arg_path, arg_receiver) {
     return this.$.bindLocalStorageControl(arg_path, arg_receiver);
@@ -241,12 +241,12 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       false);
   }
 
-  bindSessionStorageControl(arg_path, arg_receiver) {
+  bindSessionStorageControl(arg_path, arg_clear_on_open, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
-      [arg_path, arg_receiver],
+      [arg_path, arg_clear_on_open, arg_receiver],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageControl');
-          const result = this.impl.bindSessionStorageControl(params.arg_path, params.arg_receiver);
+          const result = this.impl.bindSessionStorageControl(params.arg_path, params.arg_clear_on_open, params.arg_receiver);
           break;
         }
         case 3: {
@@ -399,7 +399,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindSessionStorageControl_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.SessionStorageControlPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clear_on_open', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.SessionStorageControlPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

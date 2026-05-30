@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7865.0';
+        const versionStr = window.mojoVersion || '150.0.7866.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -348,8 +348,8 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemote = class {
   unregisterScriptTool(arg_name) {
     return this.$.unregisterScriptTool(arg_name);
   }
-  getScriptTools() {
-    return this.$.getScriptTools();
+  getScriptTools(arg_from_origins) {
+    return this.$.getScriptTools(arg_from_origins);
   }
   executeRemoteScriptTool(arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments) {
     return this.$.executeRemoteScriptTool(arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments);
@@ -395,12 +395,12 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
       false);
   }
 
-  getScriptTools() {
+  getScriptTools(arg_from_origins) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec,
-      [],
+      [arg_from_origins],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScriptTools');
-          const result = this.impl.getScriptTools();
+          const result = this.impl.getScriptTools(params.arg_from_origins);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -763,8 +763,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ParamsSpec, 'blink.mojom.ModelContextHost_GetScriptTools_Params', [
+      mojo.internal.StructField('arg_from_origins', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec, 'blink.mojom.ModelContextHost_GetScriptTools_ResponseParams', [

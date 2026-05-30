@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7865.0';
+        const versionStr = window.mojoVersion || '150.0.7866.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1430,8 +1430,8 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemote = class {
   initializeCrashReportContext(arg_length) {
     return this.$.initializeCrashReportContext(arg_length);
   }
-  requestUnboundedSurface(arg_host, arg_client) {
-    return this.$.requestUnboundedSurface(arg_host, arg_client);
+  requestUnboundedSurface(arg_host, arg_client, arg_bounds) {
+    return this.$.requestUnboundedSurface(arg_host, arg_client, arg_bounds);
   }
 };
 
@@ -2193,12 +2193,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
       false);
   }
 
-  requestUnboundedSurface(arg_host, arg_client) {
+  requestUnboundedSurface(arg_host, arg_client, arg_bounds) {
     return this.proxy.sendMessage(
       this.ordinals[75],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalFrameHost_RequestUnboundedSurface_ParamsSpec,
       null,
-      [arg_host, arg_client],
+      [arg_host, arg_client, arg_bounds],
       false);
   }
 
@@ -2932,7 +2932,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_RequestUnboundedSurface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUnboundedSurface');
-          const result = this.impl.requestUnboundedSurface(params.arg_host, params.arg_client);
+          const result = this.impl.requestUnboundedSurface(params.arg_host, params.arg_client, params.arg_bounds);
           break;
         }
       }
@@ -5974,8 +5974,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_RequestUnboundedSurface_ParamsSpec, 'blink.mojom.LocalFrameHost_RequestUnboundedSurface_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.UnboundedSurfaceHostPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.UnboundedSurfaceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_ParamsSpec, 'blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_Params', [

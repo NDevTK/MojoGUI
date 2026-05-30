@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-29T12:42:11.284308Z",
-  "version": "150.0.7865.0",
+  "generated_at": "2026-05-30T11:13:35.701658Z",
+  "version": "150.0.7866.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3904,6 +3904,7 @@
         "SyncCookies",
         "ClientErrorDialogStateChanged",
         "ReportClientTransientError",
+        "ProcessCounterAbuseVerdict",
         "OnOptinImpression",
         "OnUserInputSubmitted",
         "OnContextUploadStarted",
