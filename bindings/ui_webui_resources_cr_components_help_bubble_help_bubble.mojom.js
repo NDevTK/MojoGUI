@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -151,8 +151,6 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler = mojo.internal.bindi
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerSpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler.$interfaceName = 'help_bubble.mojom.HelpBubbleHandler';
-mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec && mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$ = {};
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec = mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec || { $: {} };
@@ -368,8 +366,8 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote = cla
   close() {
     this.proxy.close();
   }
-  createHelpBubbleHandler(arg_client, arg_handler) {
-    return this.$.createHelpBubbleHandler(arg_client, arg_handler);
+  createHelpBubbleHandler(arg_client, arg_help_bubble_handler, arg_tracked_element_handler) {
+    return this.$.createHelpBubbleHandler(arg_client, arg_help_bubble_handler, arg_tracked_element_handler);
   }
 };
 
@@ -381,12 +379,12 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHa
     ]);
   }
 
-  createHelpBubbleHandler(arg_client, arg_handler) {
+  createHelpBubbleHandler(arg_client, arg_help_bubble_handler, arg_tracked_element_handler) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      [arg_client, arg_handler],
+      [arg_client, arg_help_bubble_handler, arg_tracked_element_handler],
       false);
   }
 
@@ -456,7 +454,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
-          const result = this.impl.createHelpBubbleHandler(params.arg_client, params.arg_handler);
+          const result = this.impl.createHelpBubbleHandler(params.arg_client, params.arg_help_bubble_handler, params.arg_tracked_element_handler);
           break;
         }
       }
@@ -503,9 +501,6 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  bindTrackedElementHandler(arg_handler) {
-    return this.$.bindTrackedElementHandler(arg_handler);
-  }
   helpBubbleButtonPressed(arg_native_identifier, arg_button_index) {
     return this.$.helpBubbleButtonPressed(arg_native_identifier, arg_button_index);
   }
@@ -520,22 +515,12 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = cl
     this.ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandler', [
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  bindTrackedElementHandler(arg_handler) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
-      null,
-      [arg_handler],
-      false);
   }
 
   helpBubbleButtonPressed(arg_native_identifier, arg_button_index) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
       [arg_native_identifier, arg_button_index],
@@ -544,7 +529,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = cl
 
   helpBubbleClosed(arg_native_identifier, arg_reason) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
       [arg_native_identifier, arg_reason],
@@ -569,7 +554,6 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('help_bubble.mojom.HelpBubbleHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -617,19 +601,12 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
-          const result = this.impl.bindTrackedElementHandler(params.arg_handler);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
           const result = this.impl.helpBubbleButtonPressed(params.arg_native_identifier, params.arg_button_index);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
@@ -893,15 +870,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_help_bubble_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_handler', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_Params', [

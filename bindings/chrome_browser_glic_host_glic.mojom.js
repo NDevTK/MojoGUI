@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1240,6 +1240,7 @@ mojo.internal.bindings.glic.mojom.WebUseCounter = {
   kTaskInterruptedForUserClarification: 3,
   kSelectionToggledViaSharedMenu: 4,
   kSelectionToggledViaHotKey: 5,
+  kSubmitPromptWithTextSelectionCue: 6,
 };
 
 // Enum: ClientErrorDialogType
@@ -1320,6 +1321,7 @@ mojo.internal.bindings.glic.mojom.HostCapability = {
   kAutoLoginSignInWithGoogle: 10,
   kShareImageViaInvoke: 11,
   kImgWebDragDrop: 12,
+  kNoWebUiLoader: 13,
 };
 
 // Enum: ClientCapabilities

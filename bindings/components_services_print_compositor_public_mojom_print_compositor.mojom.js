@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,7 +131,6 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.watermark = mojo.internal.bindings.watermark || {};
 
 mojo.internal.bindings.printing.mojom.StatusSpec = mojo.internal.bindings.printing.mojom.StatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing.mojom.DocumentTypeSpec = mojo.internal.bindings.printing.mojom.DocumentTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.printing.mojom.PrintCompositor = mojo.internal.bindings.printing.mojom.PrintCompositor || {};
 mojo.internal.bindings.printing.mojom.PrintCompositorSpec = mojo.internal.bindings.printing.mojom.PrintCompositorSpec || { $ : {} };
 if (mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$.structSpec && mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.printing.mojom.PrintCompositorSpec.$ = {};
@@ -194,12 +193,6 @@ mojo.internal.bindings.printing.mojom.Status = {
   kCompositingFailure: 3,
 };
 
-// Enum: DocumentType
-mojo.internal.bindings.printing.mojom.DocumentType = {
-  kPDF: 0,
-  kXPS: 1,
-};
-
 // Interface: PrintCompositor
 mojo.internal.bindings.printing.mojom.PrintCompositorPendingReceiver = class {
   constructor(handle) {
@@ -242,11 +235,11 @@ mojo.internal.bindings.printing.mojom.PrintCompositorRemote = class {
   compositePage(arg_frame_guid, arg_sk_region, arg_subframe_content_info) {
     return this.$.compositePage(arg_frame_guid, arg_sk_region, arg_subframe_content_info);
   }
-  compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info, arg_document_type) {
-    return this.$.compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info, arg_document_type);
+  compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info) {
+    return this.$.compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info);
   }
-  prepareToCompositeDocument(arg_document_type) {
-    return this.$.prepareToCompositeDocument(arg_document_type);
+  prepareToCompositeDocument() {
+    return this.$.prepareToCompositeDocument();
   }
   finishDocumentComposition(arg_pages_count) {
     return this.$.finishDocumentComposition(arg_pages_count);
@@ -323,21 +316,21 @@ mojo.internal.bindings.printing.mojom.PrintCompositorRemoteCallHandler = class {
       false);
   }
 
-  compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info, arg_document_type) {
+  compositeDocument(arg_frame_guid, arg_sk_region, arg_subframe_content_info) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec,
-      [arg_frame_guid, arg_sk_region, arg_subframe_content_info, arg_document_type],
+      [arg_frame_guid, arg_sk_region, arg_subframe_content_info],
       false);
   }
 
-  prepareToCompositeDocument(arg_document_type) {
+  prepareToCompositeDocument() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec,
-      [arg_document_type],
+      [],
       false);
   }
 
@@ -510,7 +503,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compositeDocument');
-          const result = this.impl.compositeDocument(params.arg_frame_guid, params.arg_sk_region, params.arg_subframe_content_info, params.arg_document_type);
+          const result = this.impl.compositeDocument(params.arg_frame_guid, params.arg_sk_region, params.arg_subframe_content_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -527,7 +520,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareToCompositeDocument');
-          const result = this.impl.prepareToCompositeDocument(params.arg_document_type);
+          const result = this.impl.prepareToCompositeDocument();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -648,9 +641,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sk_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_type', 24, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_ResponseParams', [
@@ -661,9 +653,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_Params', [
-      mojo.internal.StructField('arg_document_type', 0, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParams', [

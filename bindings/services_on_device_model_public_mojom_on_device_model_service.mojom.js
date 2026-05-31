@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -971,8 +971,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_encoder_cache', 32, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_adapter_cache', 40, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_program_cache', 48, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_encoder_program_cache', 56, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_adapter_program_cache', 64, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 80]]);
 
 // Struct: LoadModelParams
 mojo.internal.Struct(

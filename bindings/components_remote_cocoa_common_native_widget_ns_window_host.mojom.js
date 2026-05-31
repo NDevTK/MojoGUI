@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -324,7 +324,8 @@ mojo.internal.bindings.remote_cocoa.mojom.HitTestResult = {
   kDraggableBackground: 0,
   kRootView: 1,
   kSubView: 2,
-  kOther: 3,
+  kBlockedSubView: 3,
+  kOther: 4,
 };
 
 // Interface: NativeWidgetNSWindowHost

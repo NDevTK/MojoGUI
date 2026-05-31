@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -153,6 +153,17 @@ mojo.internal.bindings.blink.mojom.EmailVerificationRequestResult = {
   kWellKnownMissingAccountsEndpoint: 20,
   kUserLoggedOut: 21,
   kWellKnownAccountsEndpointCrossOrigin: 22,
+  kAccountsHttpNotFound: 23,
+  kAccountsNoResponse: 24,
+  kAccountsInvalidResponse: 25,
+  kAccountsInvalidContentType: 26,
+  kAccountsEmptyList: 27,
+  kEmailVerificationWellKnownHttpNotFound: 28,
+  kEmailVerificationWellKnownNoResponse: 29,
+  kEmailVerificationWellKnownInvalidResponse: 30,
+  kEmailVerificationWellKnownInvalidContentType: 31,
+  kJwksHttpNotFound: 32,
+  kJwksInvalidResponse: 33,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

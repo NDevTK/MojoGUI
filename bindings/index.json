@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-30T11:13:35.701658Z",
-  "version": "150.0.7866.0",
+  "generated_at": "2026-05-31T11:28:43.462354Z",
+  "version": "150.0.7868.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3576,6 +3576,7 @@
       "methods": [
         "Accept",
         "Reject",
+        "OnWebviewLoaded",
         "SyncCookies",
         "ValidateAndOpenLinkInNewTab"
       ],
@@ -7326,6 +7327,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7358,6 +7360,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7388,6 +7391,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
+          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -8367,7 +8371,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -8396,7 +8401,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -9433,8 +9439,8 @@
       "file": "chrome_browser_ui_webui_personal_context_personal_context_notice.mojom.js",
       "methods": [
         "GetAccountInfo",
-        "OnInfoAcknowledged",
-        "OnInfoDismissed",
+        "OnNoticeAcknowledged",
+        "OnNoticeDismissed",
         "OnManageSettingsClicked",
         "OnLearnMoreClicked",
         "ShowUi"
@@ -22864,8 +22870,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -22905,6 +22911,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -49650,7 +49657,6 @@
       "module": "help_bubble.mojom",
       "file": "ui_webui_resources_cr_components_help_bubble_help_bubble.mojom.js",
       "methods": [
-        "BindTrackedElementHandler",
         "HelpBubbleButtonPressed",
         "HelpBubbleClosed"
       ],
@@ -50253,14 +50259,11 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: help_bubble.mojom.HelpBubbleHandler.BindTrackedElementHandler"
+            "Internal Interface: help_bubble.mojom.PdfHelpBubbleHandlerFactory.CreateHelpBubbleHandler"
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -54778,6 +54781,12 @@
     {
       "filename": "components_autofill_core_browser_data_model_autofill_ai_autofill_ai_enums.mojom.js",
       "source": "components/autofill/core/browser/data_model/autofill_ai/autofill_ai_enums.mojom",
+      "module": "autofill.mojom",
+      "imports": []
+    },
+    {
+      "filename": "components_autofill_core_browser_data_model_payments_enum_types.mojom.js",
+      "source": "components/autofill/core/browser/data_model/payments/enum_types.mojom",
       "module": "autofill.mojom",
       "imports": []
     },
@@ -63905,6 +63914,7 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/token.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]

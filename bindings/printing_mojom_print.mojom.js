@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -218,7 +218,6 @@ mojo.internal.bindings.printing.mojom.PrintScalingOption = {
 mojo.internal.bindings.printing.mojom.SkiaDocumentType = {
   kPDF: 0,
   kMSKP: 1,
-  kXPS: 2,
 };
 
 // Enum: MetafileDataType

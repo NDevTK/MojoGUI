@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,6 +135,8 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Accept_ParamsSpec
 if (mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Accept_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Accept_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Accept_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec = mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec = mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec = mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ResponseParamsSpec || { $: {} };
@@ -183,6 +185,9 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerRemote = class {
   reject() {
     return this.$.reject();
   }
+  onWebviewLoaded() {
+    return this.$.onWebviewLoaded();
+  }
   syncCookies() {
     return this.$.syncCookies();
   }
@@ -195,6 +200,7 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerRemoteCallHandler 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.ExperimentalOptInPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -220,9 +226,18 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerRemoteCallHandler 
       false);
   }
 
-  syncCookies() {
+  onWebviewLoaded() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
+      mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  syncCookies() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec,
       mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ResponseParamsSpec,
       [],
@@ -231,7 +246,7 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerRemoteCallHandler 
 
   validateAndOpenLinkInNewTab(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
       [arg_url],
@@ -256,6 +271,7 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.ExperimentalOptInPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -319,6 +335,13 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onWebviewLoaded');
+          const result = this.impl.onWebviewLoaded();
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_SyncCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.syncCookies');
           const result = this.impl.syncCookies();
@@ -335,7 +358,7 @@ mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandlerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateAndOpenLinkInNewTab');
@@ -364,6 +387,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_Reject_ParamsSpec, 'glic.mojom.ExperimentalOptInPageHandler_Reject_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_ParamsSpec, 'glic.mojom.ExperimentalOptInPageHandler_OnWebviewLoaded_Params', [
     ],
     [[0, 8]]);
 

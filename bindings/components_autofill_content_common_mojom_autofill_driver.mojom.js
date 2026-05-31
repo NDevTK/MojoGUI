@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -338,8 +338,8 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemote = class {
   javaScriptChangedAutofilledValue(arg_form, arg_field_id, arg_old_value) {
     return this.$.javaScriptChangedAutofilledValue(arg_form, arg_field_id, arg_old_value);
   }
-  onEmailVerificationTokenShared() {
-    return this.$.onEmailVerificationTokenShared();
+  onEmailVerificationTokenShared(arg_field_id) {
+    return this.$.onEmailVerificationTokenShared(arg_field_id);
   }
 };
 
@@ -511,12 +511,12 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemoteCallHandler = class {
       false);
   }
 
-  onEmailVerificationTokenShared() {
+  onEmailVerificationTokenShared(arg_field_id) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec,
       null,
-      [],
+      [arg_field_id],
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEmailVerificationTokenShared');
-          const result = this.impl.onEmailVerificationTokenShared();
+          const result = this.impl.onEmailVerificationTokenShared(params.arg_field_id);
           break;
         }
       }
@@ -1470,8 +1470,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_ParamsSpec, 'autofill.mojom.AutofillDriver_OnEmailVerificationTokenShared_Params', [
+      mojo.internal.StructField('arg_field_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec, 'autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_Params', [

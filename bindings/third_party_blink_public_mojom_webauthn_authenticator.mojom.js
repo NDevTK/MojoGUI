@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -282,7 +282,8 @@ mojo.internal.bindings.blink.mojom.AuthenticatorStatus = {
   CERTIFICATE_ERROR: 27,
   ERROR_WITH_DOM_EXCEPTION_DETAILS: 28,
   IMMEDIATE_NOT_FOUND: 29,
-  UNKNOWN_ERROR: 30,
+  CROSS_DEVICE_FALLBACK: 30,
+  UNKNOWN_ERROR: 31,
 };
 
 // Enum: AuthenticatorTransport

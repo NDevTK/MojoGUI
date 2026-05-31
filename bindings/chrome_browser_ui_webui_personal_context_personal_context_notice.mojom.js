@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,10 +137,10 @@ mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_
 if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ParamsSpec.$ = {};
 mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ResponseParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_GetAccountInfo_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec.$ = {};
-mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec.$ = {};
+mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec.$ = {};
+mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec.$ = {};
 mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnManageSettingsClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec = mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnLearnMoreClicked_ParamsSpec || { $: {} };
@@ -181,11 +181,11 @@ mojo.internal.bindings.personal_context.notice.mojom.PageHandlerRemote = class {
   getAccountInfo() {
     return this.$.getAccountInfo();
   }
-  onInfoAcknowledged() {
-    return this.$.onInfoAcknowledged();
+  onNoticeAcknowledged() {
+    return this.$.onNoticeAcknowledged();
   }
-  onInfoDismissed() {
-    return this.$.onInfoDismissed();
+  onNoticeDismissed() {
+    return this.$.onNoticeDismissed();
   }
   onManageSettingsClicked() {
     return this.$.onManageSettingsClicked();
@@ -220,19 +220,19 @@ mojo.internal.bindings.personal_context.notice.mojom.PageHandlerRemoteCallHandle
       false);
   }
 
-  onInfoAcknowledged() {
+  onNoticeAcknowledged() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec,
+      mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onInfoDismissed() {
+  onNoticeDismissed() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec,
+      mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec,
       null,
       [],
       false);
@@ -352,16 +352,16 @@ mojo.internal.bindings.personal_context.notice.mojom.PageHandlerReceiver = class
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onInfoAcknowledged');
-          const result = this.impl.onInfoAcknowledged();
+          const params = decoder.decodeStructInline(mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onNoticeAcknowledged');
+          const result = this.impl.onNoticeAcknowledged();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onInfoDismissed');
-          const result = this.impl.onInfoDismissed();
+          const params = decoder.decodeStructInline(mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onNoticeDismissed');
+          const result = this.impl.onNoticeDismissed();
           break;
         }
         case 3: {
@@ -420,12 +420,12 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_ParamsSpec, 'personal_context.notice.mojom.PageHandler_OnInfoAcknowledged_Params', [
+    mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_ParamsSpec, 'personal_context.notice.mojom.PageHandler_OnNoticeAcknowledged_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnInfoDismissed_ParamsSpec, 'personal_context.notice.mojom.PageHandler_OnInfoDismissed_Params', [
+    mojo.internal.bindings.personal_context.notice.mojom.PageHandler_OnNoticeDismissed_ParamsSpec, 'personal_context.notice.mojom.PageHandler_OnNoticeDismissed_Params', [
     ],
     [[0, 8]]);
 

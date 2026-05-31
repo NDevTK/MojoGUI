@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -174,6 +174,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxViewStateSpec = mojo.internal
 if (mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxViewStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxViewStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxViewStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec || { $: {} };
@@ -552,6 +554,14 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
+// Struct: SelectedKeywordState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec, 'toolbar_ui_api.mojom.SelectedKeywordState', [
+      mojo.internal.StructField('arg_short_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_full_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: PinnedToolbarActionState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, 'toolbar_ui_api.mojom.PinnedToolbarActionState', [
@@ -573,8 +583,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_location_bar_flags', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarFlagsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_setting_image_states', 16, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_lhs_chips_state', 24, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipsStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_keyword', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.SelectedKeywordStateSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: PermissionChipState
 mojo.internal.Struct(

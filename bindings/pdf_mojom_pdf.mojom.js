@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -953,8 +953,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_glyph', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_total_advance', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_character_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: InkTypefaceRun
 mojo.internal.Struct(
@@ -970,8 +971,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.InkTextRunSpec, 'pdf.mojom.InkTextRun', [
       mojo.internal.StructField('arg_typeface_runs', 0, 0, mojo.internal.Array(mojo.internal.bindings.pdf.mojom.InkTypefaceRunSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: InkTextInfo
 mojo.internal.Struct(

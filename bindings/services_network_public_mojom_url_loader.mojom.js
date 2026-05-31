@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7866.0';
+        const versionStr = window.mojoVersion || '150.0.7868.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -169,7 +169,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.EarlyHintsSpec = mojo.internal.bindings.network.mojom.EarlyHintsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RequestPrioritySpec = mojo.internal.bindings.network.mojom.RequestPrioritySpec || { $: mojo.internal.Enum().$ };
@@ -215,8 +215,8 @@ mojo.internal.bindings.network.mojom.URLLoaderRemote = class {
   close() {
     this.proxy.close();
   }
-  followRedirect(arg_removed_headers, arg_modified_headers, arg_modified_cors_exempt_headers, arg_new_url) {
-    return this.$.followRedirect(arg_removed_headers, arg_modified_headers, arg_modified_cors_exempt_headers, arg_new_url);
+  followRedirect(arg_headers_update_params, arg_new_url) {
+    return this.$.followRedirect(arg_headers_update_params, arg_new_url);
   }
   setPriority(arg_priority, arg_intra_priority_value) {
     return this.$.setPriority(arg_priority, arg_intra_priority_value);
@@ -232,12 +232,12 @@ mojo.internal.bindings.network.mojom.URLLoaderRemoteCallHandler = class {
     ]);
   }
 
-  followRedirect(arg_removed_headers, arg_modified_headers, arg_modified_cors_exempt_headers, arg_new_url) {
+  followRedirect(arg_headers_update_params, arg_new_url) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
-      [arg_removed_headers, arg_modified_headers, arg_modified_cors_exempt_headers, arg_new_url],
+      [arg_headers_update_params, arg_new_url],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.network.mojom.URLLoaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.followRedirect');
-          const result = this.impl.followRedirect(params.arg_removed_headers, params.arg_modified_headers, params.arg_modified_cors_exempt_headers, params.arg_new_url);
+          const result = this.impl.followRedirect(params.arg_headers_update_params, params.arg_new_url);
           break;
         }
         case 1: {
@@ -616,12 +616,10 @@ mojo.internal.Struct(
     [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
-      mojo.internal.StructField('arg_removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_headers_update_params', 0, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersUpdateParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
