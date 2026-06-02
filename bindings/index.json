@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-01T15:48:24.961482Z",
-  "version": "150.0.7869.0",
+  "generated_at": "2026-06-02T13:50:30.815978Z",
+  "version": "150.0.7871.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4034,6 +4034,7 @@
         "NotifyActuationOnWebSettingChanged",
         "NotifyActOnWebCapabilityChanged",
         "NotifyOnboardingCompletedChanged",
+        "NotifyGeminiEnterpriseSettingsChanged",
         "NotifyActorTaskListRowClicked",
         "Invoke",
         "GetExperimentalTriggeringUpdates"
@@ -7243,6 +7244,52 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "browser.context_hub.mojom",
+      "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "browser.context_hub.mojom",
+      "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: browser.context_hub.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "CustomizeButtonsHandlerFactory",
       "module": "customize_buttons.mojom",
       "file": "chrome_browser_ui_webui_customize_buttons_customize_buttons.mojom.js",
@@ -7835,6 +7882,42 @@
       }
     },
     {
+      "name": "PasswordManagerPageHandler",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
+      "methods": [
+        "PinPasswordManager"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feature_showcase.mojom.PasswordManagerPageHandlerFactory.CreatePasswordManagerPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PasswordManagerPageHandlerFactory",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
+      "methods": [
+        "CreatePasswordManagerPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "feed_internals.mojom",
       "file": "chrome_browser_ui_webui_feed_internals_feed_internals.mojom.js",
@@ -7941,7 +8024,8 @@
       "methods": [
         "GetLocalEligibility",
         "GetCombinedEligibility",
-        "GetOptimizationGuideStatus"
+        "GetOptimizationGuideStatus",
+        "GetGlicPromptInfo"
       ],
       "metadata": {
         "usage": {
@@ -9532,7 +9616,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9557,7 +9640,6 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9632,9 +9714,7 @@
         "SetPage",
         "Connect",
         "Close",
-        "SendRequest",
-        "SendZssRequest",
-        "SendFormsAiRequest"
+        "SendRequest"
       ],
       "metadata": {
         "usage": {
@@ -10582,7 +10662,8 @@
       "methods": [
         "UpdateSkills",
         "RemoveSkill",
-        "Update1PSkills"
+        "Update1PSkills",
+        "SetSkillsEnabled"
       ],
       "metadata": {
         "usage": {
@@ -16380,6 +16461,7 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
+          "permission:MIDI_SYSEX",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -18843,6 +18925,8 @@
         "category": "internal",
         "gates": [
           "feature:kBrowsingTopics",
+          "permission:MIDI",
+          "permission:MIDI_SYSEX",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -21175,24 +21259,6 @@
       }
     },
     {
-      "name": "PrintJobObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": [
-        "OnPrintJobUpdate"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "LocalPrinter",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
@@ -21200,8 +21266,7 @@
         "GetPrintServersConfig",
         "ChoosePrintServers",
         "AddPrintServerObserver",
-        "GetPrinterTypeDenyList",
-        "AddPrintJobObserver"
+        "GetPrinterTypeDenyList"
       ],
       "metadata": {
         "usage": {
@@ -24895,7 +24960,8 @@
         "UpdateContentSharingPolicy",
         "UpdateAimPopupEligibility",
         "OnEmbeddedPermissionPromptChanged",
-        "SetRestoredTabIds"
+        "SetRestoredTabIds",
+        "SetAimThreadRestoredTabs"
       ],
       "metadata": {
         "usage": {
@@ -27928,8 +27994,7 @@
         "SetProfilingFile",
         "WriteClangProfilingProfile",
         "OnMemoryPressure",
-        "SetBatterySaverMode",
-        "FreeAslrBeacons"
+        "SetBatterySaverMode"
       ],
       "metadata": {
         "usage": {
@@ -27939,7 +28004,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "permission:MIDI",
+          "permission:MIDI_SYSEX"
+        ]
       }
     },
     {
@@ -31086,6 +31155,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "permission:MIDI"
+        ],
         "scrambled": false
       }
     },
@@ -31710,8 +31782,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "permission:MIDI",
+          "permission:MIDI_SYSEX"
         ]
       }
     },
@@ -31732,8 +31804,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "permission:MIDI",
+          "permission:MIDI_SYSEX"
         ]
       }
     },
@@ -32461,6 +32533,7 @@
         "CreateDCOMPSurfaceRegistry",
         "GetCdmOrigin",
         "GetFrameScreenRect",
+        "GetContentProtectionWindow",
         "BindEmbedderReceiver"
       ],
       "metadata": {
@@ -38937,8 +39010,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "permission:MIDI",
+          "permission:MIDI_SYSEX",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -43089,7 +43162,8 @@
         "category": "direct",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
+          "feature:kBrowsingTopicsDocumentAPI",
+          "permission:MIDI_SYSEX"
         ]
       }
     },
@@ -43171,6 +43245,10 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "permission:MIDI",
+          "permission:MIDI_SYSEX"
+        ],
         "scrambled": false
       }
     },
@@ -45525,7 +45603,8 @@
         "category": "direct",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
+          "feature:kBrowsingTopicsDocumentAPI",
+          "permission:MIDI_SYSEX"
         ],
         "scrambled": false
       }
@@ -45734,7 +45813,8 @@
         "category": "direct",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
+          "feature:kBrowsingTopicsDocumentAPI",
+          "permission:MIDI_SYSEX"
         ],
         "scrambled": false
       }
@@ -46718,6 +46798,7 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
+          "permission:MIDI_SYSEX",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
@@ -47050,7 +47131,9 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics"
+          "feature:kBrowsingTopics",
+          "permission:MIDI",
+          "permission:MIDI_SYSEX"
         ],
         "scrambled": false
       }
@@ -51591,6 +51674,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
+      "source": "chrome/browser/ui/webui/context_hub/context_hub.mojom",
+      "module": "browser.context_hub.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_customize_buttons_customize_buttons.mojom.js",
       "source": "chrome/browser/ui/webui/customize_buttons/customize_buttons.mojom",
       "module": "customize_buttons.mojom",
@@ -51663,6 +51752,12 @@
     {
       "filename": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
       "source": "chrome/browser/ui/webui/feature_showcase/feature_showcase.mojom",
+      "module": "feature_showcase.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
+      "source": "chrome/browser/ui/webui/feature_showcase/password_manager.mojom",
       "module": "feature_showcase.mojom",
       "imports": []
     },
@@ -63914,7 +64009,6 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
-        "mojo/public/mojom/base/token.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
