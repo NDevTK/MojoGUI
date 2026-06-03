@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -622,8 +622,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIPageContentImageInfoSpec, 'blink.mojom.AIPageContentImageInfo', [
       mojo.internal.StructField('arg_image_caption', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_source_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: AIPageContentSvgRootData
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -336,17 +336,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_do_not_update_selection_on_mutating_selection_range', 126, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_require_transient_activation_for_get_display_media', 126, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_require_transient_activation_for_show_file_or_directory_picker', 126, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_require_transient_activation_and_user_confirmation_for_subapps_api', 126, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_in_forced_colors', 126, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_forced_colors_disabled', 126, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_picture_in_picture_enabled', 127, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_translate_service_available', 127, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_lazy_load_enabled', 127, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_mixed_content_upgrades', 127, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_always_show_focus', 127, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_drag_drop_enabled', 127, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_dragend_context_menu', 127, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webxr_immersive_ar_allowed', 127, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_forced_colors', 126, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_forced_colors_disabled', 126, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_picture_in_picture_enabled', 126, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_translate_service_available', 127, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_lazy_load_enabled', 127, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_mixed_content_upgrades', 127, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_always_show_focus', 127, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_drag_drop_enabled', 127, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_dragend_context_menu', 127, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webxr_immersive_ar_allowed', 127, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_wide_named_frame_lookup', 127, 7, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_v8_cache_options', 128, 0, mojo.internal.bindings.blink.mojom.V8CacheOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_animation_policy', 132, 0, mojo.internal.bindings.blink.mojom.ImageAnimationPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_text_track_background_color', 136, 0, mojo.internal.String, null, false, 0, undefined),
@@ -369,13 +369,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_preferred_contrast', 248, 0, mojo.internal.bindings.blink.mojom.PreferredContrastSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_low_priority_iframes_threshold', 252, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_quality_estimator_web_holdback', 256, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_wide_named_frame_lookup', 260, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_strict_mime_type_check_for_worker_scripts_enabled', 260, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_modal_context_menu', 260, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_enabled', 260, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ai_ot_apis_enabled', 260, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ignore_duplicate_nav_enabled', 260, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_indigo_onboarding', 260, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_strict_mime_type_check_for_worker_scripts_enabled', 260, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_modal_context_menu', 260, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_request_enabled', 260, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ai_ot_apis_enabled', 260, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ignore_duplicate_nav_enabled', 260, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_indigo_onboarding', 260, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_duplicate_nav_threshold', 264, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, 0, false, 0, undefined),
     ],
     [[0, 280]]);

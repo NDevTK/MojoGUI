@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1844,8 +1844,8 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   createWebSocket(arg_url, arg_requested_protocols, arg_storage_access_api_status, arg_isolation_info, arg_additional_headers, arg_process_id, arg_origin, arg_client_security_state, arg_options, arg_traffic_annotation, arg_handshake_client, arg_url_loader_network_observer, arg_auth_handler, arg_header_client, arg_throttling_profile_id, arg_network_restrictions_id) {
     return this.$.createWebSocket(arg_url, arg_requested_protocols, arg_storage_access_api_status, arg_isolation_info, arg_additional_headers, arg_process_id, arg_origin, arg_client_security_state, arg_options, arg_traffic_annotation, arg_handshake_client, arg_url_loader_network_observer, arg_auth_handler, arg_header_client, arg_throttling_profile_id, arg_network_restrictions_id);
   }
-  createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state) {
-    return this.$.createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state);
+  createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state) {
+    return this.$.createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state);
   }
   createNetLogExporter(arg_receiver) {
     return this.$.createNetLogExporter(arg_receiver);
@@ -2487,12 +2487,12 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
-  createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state) {
+  createWebTransport(arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state) {
     return this.proxy.sendMessage(
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_CreateWebTransport_ParamsSpec,
       null,
-      [arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state],
+      [arg_url, arg_origin, arg_network_anonymization_key, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_handshake_client, arg_url_loader_network_observer, arg_client_security_state],
       false);
   }
 
@@ -3592,7 +3592,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebTransport');
-          const result = this.impl.createWebTransport(params.arg_url, params.arg_origin, params.arg_network_anonymization_key, params.arg_fingerprints, params.arg_application_protocols, params.arg_congestion_control, params.arg_handshake_client, params.arg_url_loader_network_observer, params.arg_client_security_state);
+          const result = this.impl.createWebTransport(params.arg_url, params.arg_origin, params.arg_network_anonymization_key, params.arg_fingerprints, params.arg_application_protocols, params.arg_congestion_control, params.arg_anticipated_concurrent_incoming_unidirectional_streams, params.arg_anticipated_concurrent_incoming_bidirectional_streams, params.arg_handshake_client, params.arg_url_loader_network_observer, params.arg_client_security_state);
           break;
         }
         case 48: {
@@ -4910,11 +4910,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fingerprints', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_application_protocols', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_congestion_control', 48, 0, mojo.internal.bindings.network.mojom.WebTransportCongestionControlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handshake_client', 52, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_loader_network_observer', 60, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_security_state', 72, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_unidirectional_streams_$flag', 52, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams_$value', originalFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_bidirectional_streams_$flag', 52, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams_$value', originalFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_unidirectional_streams_$value', 54, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams_$flag', originalFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_bidirectional_streams_$value', 56, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams_$flag', originalFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams' }),
+      mojo.internal.StructField('arg_handshake_client', 60, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_network_observer', 68, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_security_state', 80, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec, 'network.mojom.NetworkContext_CreateNetLogExporter_Params', [

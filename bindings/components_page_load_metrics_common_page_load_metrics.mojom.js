@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,6 +148,8 @@ mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec = mojo.i
 if (mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec = mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec || { $: {} };
@@ -248,8 +250,8 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote = class {
   close() {
     this.proxy.close();
   }
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings) {
-    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings);
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings, arg_font_loading_metrics) {
+    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings, arg_font_loading_metrics);
   }
   addCustomUserTiming(arg_custom_user_timing) {
     return this.$.addCustomUserTiming(arg_custom_user_timing);
@@ -265,12 +267,12 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
     ]);
   }
 
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings) {
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings, arg_font_loading_metrics) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings],
+      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_event_timings, arg_subresource_load_metrics, arg_soft_navigation_metrics, arg_soft_largest_contentful_paint, arg_custom_user_timings, arg_font_loading_metrics],
       false);
   }
 
@@ -350,7 +352,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTiming');
-          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_event_timings, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics, params.arg_soft_largest_contentful_paint, params.arg_custom_user_timings);
+          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_event_timings, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics, params.arg_soft_largest_contentful_paint, params.arg_custom_user_timings, params.arg_font_loading_metrics);
           break;
         }
         case 1: {
@@ -468,6 +470,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_domain_lookup_end', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: FontLoadingMetrics
+mojo.internal.Struct(
+    mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec, 'page_load_metrics.mojom.FontLoadingMetrics', [
+      mojo.internal.StructField('arg_fallback_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fallback_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_shape_cache_hit_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_initial_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shape_cache_miss_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PageLoadTiming
 mojo.internal.Struct(
@@ -638,8 +651,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_soft_navigation_metrics', 64, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_soft_largest_contentful_paint', 72, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_custom_user_timings', 80, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_font_loading_metrics', 88, 0, mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec, null, true, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_Params', [

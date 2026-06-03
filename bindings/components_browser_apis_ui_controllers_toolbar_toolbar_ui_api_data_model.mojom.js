@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.IconTypeSpec = mojo.internal.binding
 mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuTypeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabActiveLocationSpec = mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabActiveLocationSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarButtonTypeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarButtonTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuIconTypeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuIconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuSeveritySpec = mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuSeveritySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageTypeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec || { $: mojo.internal.Enum().$ };
@@ -164,6 +166,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec = mojo.i
 if (mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec || { $: {} };
@@ -254,6 +258,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuType = {
   kPinnedActionSidePanelShowMerchantTrust: 32,
   kPinnedActionSendSharedTabGroupFeedback: 33,
   kPinnedActionSidePanelShowComments: 34,
+  kAppMenu: 35,
 };
 
 // Enum: SplitTabActiveLocation
@@ -270,6 +275,21 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarButtonType = {
   kUnspecified: 0,
   kSplitTabs: 1,
   kHome: 2,
+};
+
+// Enum: AppMenuIconType
+mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuIconType = {
+  kNone: 0,
+  kUpgradeNotification: 1,
+  kGlobalError: 2,
+};
+
+// Enum: AppMenuSeverity
+mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuSeverity = {
+  kNone: 0,
+  kLow: 1,
+  kMedium: 2,
+  kHigh: 3,
 };
 
 // Enum: ContentSettingImageType
@@ -501,6 +521,19 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
+// Struct: AppMenuControlState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec, 'toolbar_ui_api.mojom.AppMenuControlState', [
+      mojo.internal.StructField('arg_icon_type', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuIconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_severity', 4, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuSeveritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tooltip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_context_menu_visible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_trailing_margin', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
 // Struct: AvatarControlState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec, 'toolbar_ui_api.mojom.AvatarControlState', [
@@ -649,9 +682,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_split_tabs_control_state', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.SplitTabsControlStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_back_forward_control_state', 16, 0, mojo.internal.bindings.toolbar_ui_api.mojom.BackForwardControlStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_home_control_state', 24, 0, mojo.internal.bindings.toolbar_ui_api.mojom.HomeControlStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_avatar_control_state', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_bar_state', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pinned_toolbar_actions_state', 48, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_layout_constants_version', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_app_menu_control_state', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_avatar_control_state', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_bar_state', 48, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned_toolbar_actions_state', 56, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_constants_version', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);

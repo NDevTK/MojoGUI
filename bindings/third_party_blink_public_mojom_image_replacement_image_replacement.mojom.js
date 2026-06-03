@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -148,12 +148,12 @@ if (mojo.internal.bindings.blink.mojom.ImageReplacementHost_ReplacementFrameAtta
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.QuadFSpec = mojo.internal.bindings.gfx.mojom.QuadFSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_base.mojom.TokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ImageReplacement
 mojo.internal.bindings.blink.mojom.ImageReplacementPendingReceiver = class {
@@ -185,8 +185,8 @@ mojo.internal.bindings.blink.mojom.ImageReplacementRemote = class {
   close() {
     this.proxy.close();
   }
-  startReplacement(arg_host_remote) {
-    return this.$.startReplacement(arg_host_remote);
+  startReplacement(arg_host_remote, arg_tracked_element_feature_id) {
+    return this.$.startReplacement(arg_host_remote, arg_tracked_element_feature_id);
   }
   renderReplacement() {
     return this.$.renderReplacement();
@@ -202,12 +202,12 @@ mojo.internal.bindings.blink.mojom.ImageReplacementRemoteCallHandler = class {
     ]);
   }
 
-  startReplacement(arg_host_remote) {
+  startReplacement(arg_host_remote, arg_tracked_element_feature_id) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageReplacement_StartReplacement_ParamsSpec,
       null,
-      [arg_host_remote],
+      [arg_host_remote, arg_tracked_element_feature_id],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.blink.mojom.ImageReplacementReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageReplacement_StartReplacement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReplacement');
-          const result = this.impl.startReplacement(params.arg_host_remote);
+          const result = this.impl.startReplacement(params.arg_host_remote, params.arg_tracked_element_feature_id);
           break;
         }
         case 1: {
@@ -341,8 +341,8 @@ mojo.internal.bindings.blink.mojom.ImageReplacementHostRemote = class {
   close() {
     this.proxy.close();
   }
-  replacementFrameAttached(arg_replacement_frame_token, arg_quad, arg_original_image) {
-    return this.$.replacementFrameAttached(arg_replacement_frame_token, arg_quad, arg_original_image);
+  replacementFrameAttached(arg_replacement_frame_token, arg_original_image, arg_tracked_element_id) {
+    return this.$.replacementFrameAttached(arg_replacement_frame_token, arg_original_image, arg_tracked_element_id);
   }
 };
 
@@ -354,12 +354,12 @@ mojo.internal.bindings.blink.mojom.ImageReplacementHostRemoteCallHandler = class
     ]);
   }
 
-  replacementFrameAttached(arg_replacement_frame_token, arg_quad, arg_original_image) {
+  replacementFrameAttached(arg_replacement_frame_token, arg_original_image, arg_tracked_element_id) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageReplacementHost_ReplacementFrameAttached_ParamsSpec,
       null,
-      [arg_replacement_frame_token, arg_quad, arg_original_image],
+      [arg_replacement_frame_token, arg_original_image, arg_tracked_element_id],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.ImageReplacementHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageReplacementHost_ReplacementFrameAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replacementFrameAttached');
-          const result = this.impl.replacementFrameAttached(params.arg_replacement_frame_token, params.arg_quad, params.arg_original_image);
+          const result = this.impl.replacementFrameAttached(params.arg_replacement_frame_token, params.arg_original_image, params.arg_tracked_element_id);
           break;
         }
       }
@@ -457,8 +457,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageReplacement_StartReplacement_ParamsSpec, 'blink.mojom.ImageReplacement_StartReplacement_Params', [
       mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ImageReplacementHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_feature_id_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_tracked_element_feature_id_$value', originalFieldName: 'arg_tracked_element_feature_id' }),
+      mojo.internal.StructField('arg_tracked_element_feature_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_tracked_element_feature_id_$flag', originalFieldName: 'arg_tracked_element_feature_id' }),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageReplacement_RenderReplacement_ParamsSpec, 'blink.mojom.ImageReplacement_RenderReplacement_Params', [
@@ -468,8 +470,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImageReplacementHost_ReplacementFrameAttached_ParamsSpec, 'blink.mojom.ImageReplacementHost_ReplacementFrameAttached_Params', [
       mojo.internal.StructField('arg_replacement_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quad', 8, 0, mojo.internal.bindings.gfx.mojom.QuadFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_image', 16, 0, mojo.internal.bindings.blink.mojom.ImageDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_image', 8, 0, mojo.internal.bindings.blink.mojom.ImageDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

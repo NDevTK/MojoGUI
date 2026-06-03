@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '150.0.7871.0';
+        const versionStr = window.mojoVersion || '151.0.7872.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -181,8 +181,8 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorRemote = class {
   close() {
     this.proxy.close();
   }
-  connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_client) {
-    return this.$.connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_client);
+  connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_client) {
+    return this.$.connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_client);
   }
 };
 
@@ -194,12 +194,12 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorRemoteCallHandler = clas
     ]);
   }
 
-  connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_client) {
+  connect(arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_client) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
-      [arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_client],
+      [arg_url, arg_fingerprints, arg_application_protocols, arg_congestion_control, arg_anticipated_concurrent_incoming_unidirectional_streams, arg_anticipated_concurrent_incoming_bidirectional_streams, arg_client],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_url, params.arg_fingerprints, params.arg_application_protocols, params.arg_congestion_control, params.arg_client);
+          const result = this.impl.connect(params.arg_url, params.arg_fingerprints, params.arg_application_protocols, params.arg_congestion_control, params.arg_anticipated_concurrent_incoming_unidirectional_streams, params.arg_anticipated_concurrent_incoming_bidirectional_streams, params.arg_client);
           break;
         }
       }
@@ -293,7 +293,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_fingerprints', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_application_protocols', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_congestion_control', 24, 0, mojo.internal.bindings.network.mojom.WebTransportCongestionControlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 28, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_unidirectional_streams_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams_$value', originalFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_bidirectional_streams_$flag', 28, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams_$value', originalFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_unidirectional_streams_$value', 30, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams_$flag', originalFieldName: 'arg_anticipated_concurrent_incoming_unidirectional_streams' }),
+      mojo.internal.StructField('arg_anticipated_concurrent_incoming_bidirectional_streams_$value', 32, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams_$flag', originalFieldName: 'arg_anticipated_concurrent_incoming_bidirectional_streams' }),
+      mojo.internal.StructField('arg_client', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
