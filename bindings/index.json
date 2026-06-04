@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03T14:22:17.644547Z",
-  "version": "151.0.7872.0",
+  "generated_at": "2026-06-04T12:39:36.384586Z",
+  "version": "151.0.7873.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8137,6 +8137,42 @@
       }
     },
     {
+      "name": "IntroPageHandlerFactory",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_intro.mojom.js",
+      "methods": [
+        "CreateIntroPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "IntroPage",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_intro.mojom.js",
+      "methods": [
+        "ToggleAnimations"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "SignInCelebrationPageHandlerFactory",
       "module": "intro.mojom",
       "file": "chrome_browser_ui_webui_intro_sign_in_celebration.mojom.js",
@@ -8664,7 +8700,9 @@
         "OnDoodleImageRendered",
         "OnDoodleShared",
         "OnPromoLinkClicked",
-        "OnAppRendered"
+        "OnAppRendered",
+        "CanShowRealboxContextMenuAnimation",
+        "RecordRealboxContextMenuAnimationImpression"
       ],
       "metadata": {
         "usage": {
@@ -10824,6 +10862,7 @@
       "file": "chrome_browser_ui_webui_tab_search_tab_search.mojom.js",
       "methods": [
         "CloseTab",
+        "CloseTabs",
         "CloseWebUiTab",
         "GetProfileData",
         "GetIsSplit",
@@ -22788,17 +22827,41 @@
       }
     },
     {
-      "name": "PageHandler",
+      "name": "PageHandlerFactory",
       "module": "autofill_ml_internals.mojom",
       "file": "components_autofill_core_browser_ml_model_logging_autofill_ml_internals.mojom.js",
       "methods": [
-        "SetPage"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
             "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kSurfaceEmbed",
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "autofill_ml_internals.mojom",
+      "file": "components_autofill_core_browser_ml_model_logging_autofill_ml_internals.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: autofill_ml_internals.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -36955,6 +37018,7 @@
       "file": "services_network_public_mojom_connection_change_observer_client.mojom.js",
       "methods": [
         "OnSessionClosed",
+        "OnConnectionEstablished",
         "OnNetworkEvent",
         "OnConnectionFailed"
       ],
@@ -43327,9 +43391,7 @@
       "file": "third_party_blink_public_mojom_devtools_devtools_agent.mojom.js",
       "methods": [
         "DispatchProtocolCommand",
-        "UnpauseAndTerminate",
-        "AddScriptToEvaluateOnNewDocument",
-        "RemoveScriptToEvaluateOnNewDocument"
+        "UnpauseAndTerminate"
       ],
       "metadata": {
         "usage": {
@@ -47523,7 +47585,8 @@
         "QueuePermissionsPolicyViolationReport",
         "QueuePotentialPermissionsPolicyViolationReport",
         "QueueDocumentPolicyViolationReport",
-        "QueueCSPHashReport"
+        "QueueCSPHashReport",
+        "QueueConnectionAllowlistViolationReport"
       ],
       "metadata": {
         "usage": {
@@ -51790,6 +51853,12 @@
       "filename": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
       "source": "chrome/browser/ui/webui/infobar_internals/infobar_internals.mojom",
       "module": "infobar_internals.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_intro_intro.mojom.js",
+      "source": "chrome/browser/ui/webui/intro/intro.mojom",
+      "module": "intro.mojom",
       "imports": []
     },
     {
@@ -59944,7 +60013,11 @@
       "filename": "services_network_public_mojom_connection_change_observer_client.mojom.js",
       "source": "services/network/public/mojom/connection_change_observer_client.mojom",
       "module": "network.mojom",
-      "imports": []
+      "imports": [
+        "services/network/public/mojom/load_timing_internal_info.mojom",
+        "services/network/public/mojom/network_types.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "services_network_public_mojom_connection_endpoint_metadata.mojom.js",
