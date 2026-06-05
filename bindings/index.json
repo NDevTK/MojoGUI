@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-04T12:39:36.384586Z",
-  "version": "151.0.7873.0",
+  "generated_at": "2026-06-05T12:33:07.176130Z",
+  "version": "151.0.7875.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3605,7 +3605,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -11283,7 +11283,8 @@
         "SetGraphRecordEnabled",
         "IsGraphRecording",
         "RequestExistingContextsDetails",
-        "RequestAvailableExecutionProvidersDetails"
+        "RequestAvailableExecutionProvidersDetails",
+        "ForceOrtEnvironmentCreationForIntrospection"
       ],
       "metadata": {
         "usage": {
@@ -11550,7 +11551,8 @@
         "SetReloadStopState",
         "ShowSidePanel",
         "CloseSidePanel",
-        "OnFullscreenModeChanged"
+        "OnFullscreenModeChanged",
+        "OnPaintAsActiveChanged"
       ],
       "metadata": {
         "usage": {
@@ -11655,7 +11657,8 @@
         "CancelTool",
         "GetCrossDocumentScriptToolResult",
         "StartActorJournal",
-        "CreatePageStabilityMonitor"
+        "CreatePageStabilityMonitor",
+        "PdfPageCaptured"
       ],
       "metadata": {
         "usage": {
@@ -23149,7 +23152,8 @@
       "module": "toolbar_ui_api.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
       "methods": [
-        "OnNavigationControlsStateChanged"
+        "OnNavigationControlsStateChanged",
+        "OnFocusRequested"
       ],
       "metadata": {
         "usage": {
@@ -27267,7 +27271,8 @@
       "file": "components_translate_content_common_translate.mojom.js",
       "methods": [
         "TranslateFrame",
-        "RevertTranslation"
+        "RevertTranslation",
+        "PdfPageCaptured"
       ],
       "metadata": {
         "usage": {
@@ -41402,7 +41407,8 @@
       "methods": [
         "SetClient",
         "GetExistingContextsDetails",
-        "GetAvailableExecutionProvidersDetails"
+        "GetAvailableExecutionProvidersDetails",
+        "ForceOrtEnvironmentCreationForIntrospection"
       ],
       "metadata": {
         "usage": {
@@ -41646,6 +41652,26 @@
       }
     },
     {
+      "name": "AIManagerCreateSemanticEmbedderClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
+      "methods": [
+        "OnResult",
+        "OnError"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "AIManager",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
@@ -41704,6 +41730,25 @@
       "methods": [
         "Rewrite",
         "MeasureUsage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "AISemanticEmbedder",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_semantic_embedder.mojom.js",
+      "methods": [
+        "Embed"
       ],
       "metadata": {
         "usage": {
@@ -42161,7 +42206,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
@@ -42229,7 +42273,6 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
@@ -42476,8 +42519,7 @@
         "category": "direct",
         "gates": [
           "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure"
+          "feature:kBrowsingTopicsDocumentAPI"
         ],
         "scrambled": false
       }
@@ -48385,6 +48427,30 @@
       }
     },
     {
+      "name": "DeclarativePerformanceObserverHost",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_timing_declarative_performance_observer.mojom.js",
+      "methods": [
+        "DidObservePerformanceEntries"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "gates": [
+          "feature:kBrowsingTopics",
+          "feature:kBrowsingTopicsDocumentAPI",
+          "feature:kComputePressure"
+        ],
+        "scrambled": false
+      }
+    },
+    {
       "name": "UnhandledTapNotifier",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_unhandled_tap_notifier_unhandled_tap_notifier.mojom.js",
@@ -49602,6 +49668,7 @@
       "file": "ui_webui_resources_cr_components_composebox_composebox.mojom.js",
       "methods": [
         "FocusChanged",
+        "StartPlatformVoiceRecognition",
         "HandleLensButtonClick",
         "HandleFileUpload",
         "NavigateUrl",
@@ -56574,8 +56641,8 @@
       "module": "translate.mojom",
       "imports": [
         "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -62759,7 +62826,8 @@
         "third_party/blink/public/mojom/ai/ai_rewriter.mojom",
         "third_party/blink/public/mojom/ai/ai_summarizer.mojom",
         "third_party/blink/public/mojom/ai/ai_writer.mojom",
-        "third_party/blink/public/mojom/ai/ai_classifier.mojom"
+        "third_party/blink/public/mojom/ai/ai_classifier.mojom",
+        "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom"
       ]
     },
     {
@@ -62778,6 +62846,14 @@
       "imports": [
         "third_party/blink/public/mojom/ai/ai_common.mojom",
         "third_party/blink/public/mojom/ai/model_streaming_responder.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_ai_ai_semantic_embedder.mojom.js",
+      "source": "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/ai/ai_common.mojom"
       ]
     },
     {
@@ -65759,6 +65835,15 @@
       "source": "third_party/blink/public/mojom/subapps/sub_apps_service.mojom",
       "module": "blink.mojom",
       "imports": []
+    },
+    {
+      "filename": "third_party_blink_public_mojom_timing_declarative_performance_observer.mojom.js",
+      "source": "third_party/blink/public/mojom/timing/declarative_performance_observer.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/values.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_timing_performance_mark_or_measure.mojom.js",
