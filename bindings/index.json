@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-05T12:33:07.176130Z",
-  "version": "151.0.7875.0",
+  "generated_at": "2026-06-06T11:17:55.882710Z",
+  "version": "151.0.7877.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4878,6 +4878,7 @@
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_tools_tools.mojom.js",
       "methods": [
         "OpenUrl",
+        "FollowLink",
         "PerformSearch",
         "SwitchTab",
         "CloseCurrentTab",
@@ -7201,7 +7202,6 @@
       "module": "chrome_finds_internals.mojom",
       "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
       "methods": [
-        "Start",
         "GetFindsServiceModelResponse",
         "TriggerFindsTestNotification",
         "GetHistoryJson"
@@ -9194,7 +9194,8 @@
       "module": "omnibox_popup.mojom",
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "methods": [
-        "ShowContextMenu"
+        "ShowContextMenu",
+        "CloseUI"
       ],
       "metadata": {
         "usage": {
@@ -9680,49 +9681,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PrivateStateTokensPageHandler",
-      "module": "private_state_tokens.mojom",
-      "file": "chrome_browser_ui_webui_privacy_sandbox_private_state_tokens_private_state_tokens.mojom.js",
-      "methods": [
-        "GetIssuerTokenCounts"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
-      "name": "RelatedWebsiteSetsPageHandler",
-      "module": "related_website_sets.mojom",
-      "file": "chrome_browser_ui_webui_privacy_sandbox_related_website_sets_related_website_sets.mojom.js",
-      "methods": [
-        "GetRelatedWebsiteSets"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -18968,8 +18926,7 @@
         "gates": [
           "feature:kBrowsingTopics",
           "permission:MIDI",
-          "permission:MIDI_SYSEX",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "permission:MIDI_SYSEX"
         ]
       }
     },
@@ -24039,6 +23996,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -41022,6 +40980,7 @@
           "associated": [],
           "direct": [
             "Internal Interface: viz.mojom.FrameSinkManager.CreateCompositorFrameSink",
+            "Internal Interface: blink.mojom.UnboundedSurfaceHost.GetCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateBundledCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateSimpleCompositorFrameSink",
@@ -41688,8 +41647,7 @@
         "CanCreateProofreader",
         "CreateProofreader",
         "CanCreateClassifier",
-        "CreateClassifier",
-        "AddModelDownloadProgressObserver"
+        "CreateClassifier"
       ],
       "metadata": {
         "usage": {
@@ -44360,7 +44318,10 @@
       "name": "UnboundedSurfaceHost",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
-      "methods": [],
+      "methods": [
+        "GetCompositorFrameSink",
+        "UpdateBounds"
+      ],
       "metadata": {
         "usage": {
           "associated": [
@@ -44378,6 +44339,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
       "methods": [
+        "OnSurfaceAllocated",
         "OnDismissed"
       ],
       "metadata": {
@@ -52132,18 +52094,6 @@
         "components/content_settings/core/common/content_settings_types.mojom",
         "components/content_settings/core/common/content_settings.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_privacy_sandbox_private_state_tokens_private_state_tokens.mojom.js",
-      "source": "chrome/browser/ui/webui/privacy_sandbox/private_state_tokens/private_state_tokens.mojom",
-      "module": "private_state_tokens.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_privacy_sandbox_related_website_sets_related_website_sets.mojom.js",
-      "source": "chrome/browser/ui/webui/privacy_sandbox/related_website_sets/related_website_sets.mojom",
-      "module": "related_website_sets.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
@@ -63829,6 +63779,9 @@
         "services/network/public/mojom/url_loader_completion_status.mojom",
         "services/network/public/mojom/attribution.mojom",
         "services/viz/public/mojom/compositing/offset_tag.mojom",
+        "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "services/viz/public/mojom/compositing/local_surface_id.mojom",
+        "services/viz/public/mojom/compositing/compositor_frame_sink.mojom",
         "skia/public/mojom/bitmap.mojom",
         "skia/public/mojom/skcolor.mojom",
         "skia/public/mojom/skcolor4f.mojom",
