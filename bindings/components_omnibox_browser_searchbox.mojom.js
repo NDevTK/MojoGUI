@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7877.0';
+        const versionStr = window.mojoVersion || '151.0.7878.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -627,8 +627,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   clearFiles(arg_should_block_auto_suggested_tabs) {
     return this.$.clearFiles(arg_should_block_auto_suggested_tabs);
   }
-  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
-    return this.$.submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key);
+  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key, arg_is_voice_search) {
+    return this.$.submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key, arg_is_voice_search);
   }
   openLensSearch() {
     return this.$.openLensSearch();
@@ -900,12 +900,12 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
+  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key, arg_is_voice_search) {
     return this.proxy.sendMessage(
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
-      [arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
+      [arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key, arg_is_voice_search],
       false);
   }
 
@@ -1295,7 +1295,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitQuery');
-          const result = this.impl.submitQuery(params.arg_query_text, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
+          const result = this.impl.submitQuery(params.arg_query_text, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key, params.arg_is_voice_search);
           break;
         }
         case 23: {
@@ -2321,6 +2321,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ctrl_key', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_meta_key', 9, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_shift_key', 9, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_voice_search', 9, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
