@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-08T13:59:03.292617Z",
-  "version": "151.0.7881.0",
+  "generated_at": "2026-06-09T12:31:48.902497Z",
+  "version": "151.0.7883.2",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4090,6 +4090,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
           "feature:kSurfaceEmbed"
@@ -8244,7 +8245,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -9648,13 +9650,12 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9678,7 +9679,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11106,7 +11106,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -22894,7 +22897,8 @@
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
       "methods": [
-        "StartDrag"
+        "StartDrag",
+        "RegisterDropTarget"
       ],
       "metadata": {
         "usage": {
@@ -22909,6 +22913,22 @@
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
+      }
+    },
+    {
+      "name": "DropTargetRegistration",
+      "module": "tabs_api.mojom",
+      "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "tabs_api.mojom.TabDragService.RegisterDropTarget"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated"
       }
     },
     {
@@ -37699,6 +37719,7 @@
         "SetBlockTrustTokens",
         "ClearNetworkingHistoryBetween",
         "ClearHttpCache",
+        "ClearHttpCacheLogically",
         "ComputeHttpCacheSize",
         "NotifyBrowserIdle",
         "NotifyExternalCacheHit",
@@ -66107,6 +66128,7 @@
         "third_party/blink/public/mojom/service_worker/controller_service_worker.mojom",
         "third_party/blink/public/mojom/service_worker/service_worker_container.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
+        "third_party/blink/public/mojom/frame/policy_container.mojom",
         "third_party/blink/public/mojom/frame/back_forward_cache_controller.mojom",
         "url/mojom/url.mojom",
         "url/mojom/origin.mojom"
