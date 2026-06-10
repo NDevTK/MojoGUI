@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-09T12:31:48.902497Z",
-  "version": "151.0.7883.2",
+  "generated_at": "2026-06-10T12:49:23.175479Z",
+  "version": "151.0.7885.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9631,54 +9631,6 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "privacy_sandbox_internals.mojom",
-      "file": "chrome_browser_ui_webui_privacy_sandbox_privacy_sandbox_internals.mojom.js",
-      "methods": [
-        "ReadPrefsWithPrefixes",
-        "ReadContentSettings",
-        "ContentSettingsPatternToString",
-        "StringToContentSettingsPattern"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "privacy_sandbox_internals.mojom",
-      "file": "chrome_browser_ui_webui_privacy_sandbox_privacy_sandbox_internals.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -24961,7 +24913,7 @@
         "ActivateMetricsFunnel",
         "RecordToolSelectionAction",
         "RecordModelSelectionAction",
-        "ShouldShowDriveDisclaimer",
+        "GetDriveDisclaimerStatus",
         "OnDriveDisclaimerAccepted",
         "OnDriveUploadClicked",
         "GetPageClassification"
@@ -25004,7 +24956,7 @@
         "UpdateLensSearchEligibility",
         "UpdateContentSharingPolicy",
         "UpdateAimPopupEligibility",
-        "OnEmbeddedPermissionPromptChanged",
+        "OnPermissionPromptChanged",
         "SetRestoredTabIds",
         "SetAimThreadRestoredTabs"
       ],
@@ -27291,7 +27243,10 @@
       "methods": [
         "GenerateSigningKey",
         "FromWrappedSigningKey",
+        "GenerateAttestationKey",
+        "FromWrappedAttestationKey",
         "Sign",
+        "Certify",
         "GetAllKeysForGarbageCollection",
         "DeleteKeys",
         "DeleteAllKeys"
@@ -35042,8 +34997,8 @@
       "module": "audio.mojom",
       "file": "services_audio_public_mojom_ml_model_manager.mojom.js",
       "methods": [
-        "SetResidualEchoEstimationModel",
-        "StopServingResidualEchoEstimationModel"
+        "SetModel",
+        "StopServingModel"
       ],
       "metadata": {
         "usage": {
@@ -36868,7 +36823,6 @@
       "module": "network.mojom",
       "file": "services_network_public_mojom_cache_encryption_provider.mojom.js",
       "methods": [
-        "GetEncryptor",
         "GetEncryptedCacheEncryptionKey"
       ],
       "metadata": {
@@ -47136,8 +47090,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_picture_in_picture_picture_in_picture.mojom.js",
       "methods": [
-        "StartSession",
-        "RequestImmersivePlaybackConfirmation"
+        "StartSession"
       ],
       "metadata": {
         "usage": {
@@ -52105,16 +52058,6 @@
       "source": "chrome/browser/ui/webui/personal_context_internals/personal_context_internals.mojom",
       "module": "browser.personal_context_internals.mojom",
       "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_privacy_sandbox_privacy_sandbox_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/privacy_sandbox/privacy_sandbox_internals.mojom",
-      "module": "privacy_sandbox_internals.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom",
-        "components/content_settings/core/common/content_settings_types.mojom",
-        "components/content_settings/core/common/content_settings.mojom"
-      ]
     },
     {
       "filename": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
@@ -60514,6 +60457,7 @@
         "components/unexportable_keys/mojom/unexportable_key_service.mojom",
         "components/variations/variations.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
