@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-10T12:49:23.175479Z",
-  "version": "151.0.7885.0",
+  "generated_at": "2026-06-11T13:52:55.672999Z",
+  "version": "151.0.7887.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8229,6 +8229,62 @@
       }
     },
     {
+      "name": "SignInPromoPageHandlerFactory",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_promo.mojom.js",
+      "methods": [
+        "CreateSignInPromoPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SignInPromoPageHandler",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_promo.mojom.js",
+      "methods": [
+        "GetManagedDeviceDisclaimer",
+        "ContinueWithAccount",
+        "ContinueWithoutAccount"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: intro.mojom.SignInPromoPageHandlerFactory.CreateSignInPromoPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SignInPromoPage",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_sign_in_promo.mojom.js",
+      "methods": [
+        "OnResetButtons"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "LocationInternalsHandler",
       "module": "mojom",
       "file": "chrome_browser_ui_webui_location_internals_location_internals.mojom.js",
@@ -9197,7 +9253,8 @@
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "methods": [
         "ShowContextMenu",
-        "CloseUI"
+        "CloseUI",
+        "OnSelectionChanged"
       ],
       "metadata": {
         "usage": {
@@ -9221,7 +9278,7 @@
       "methods": [
         "OnShow",
         "OnContextMenuClosed",
-        "SetInputText"
+        "SetInputState"
       ],
       "metadata": {
         "usage": {
@@ -21194,32 +21251,10 @@
       }
     },
     {
-      "name": "PrintServerObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": [
-        "OnPrintServersChanged",
-        "OnServerPrintersChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "LocalPrinter",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "methods": [
-        "GetPrintServersConfig",
-        "ChoosePrintServers",
-        "AddPrintServerObserver",
         "GetPrinterTypeDenyList"
       ],
       "metadata": {
@@ -37753,7 +37788,8 @@
           "associated": [],
           "direct": [
             "Internal Interface: mirroring.mojom.ResourceProvider.GetNetworkContext",
-            "Internal Interface: network.mojom.NetworkService.CreateNetworkContext"
+            "Internal Interface: network.mojom.NetworkService.CreateNetworkContext",
+            "Internal Interface: network.mojom.NetworkContextCreator.CreateNetworkContext"
           ]
         },
         "scope": "context",
@@ -37870,13 +37906,32 @@
         "DecodeContentEncoding",
         "SetTLS13EarlyDataEnabled",
         "AddDurableMessageCollector",
-        "GetVrpFlags"
+        "GetVrpFlags",
+        "BindNetworkContextCreator"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "NetworkContextCreator",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_network_service.mojom.js",
+      "methods": [
+        "CreateNetworkContext"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: network.mojom.NetworkService.BindNetworkContextCreator"
           ]
         },
         "scope": "context",
@@ -51873,6 +51928,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_intro_sign_in_promo.mojom.js",
+      "source": "chrome/browser/ui/webui/intro/sign_in_promo.mojom",
+      "module": "intro.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_location_internals_location_internals.mojom.js",
       "source": "chrome/browser/ui/webui/location_internals/location_internals.mojom",
       "module": "mojom",
@@ -52006,7 +52067,8 @@
       "source": "chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup.mojom",
       "module": "omnibox_popup.mojom",
       "imports": [
-        "ui/gfx/geometry/mojom/geometry.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/gfx/range/mojom/range.mojom"
       ]
     },
     {
