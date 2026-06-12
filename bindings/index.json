@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-11T13:52:55.672999Z",
-  "version": "151.0.7887.0",
+  "generated_at": "2026-06-12T12:50:58.822431Z",
+  "version": "151.0.7888.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3520,7 +3520,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3544,7 +3545,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3565,7 +3567,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -4114,7 +4117,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -8301,8 +8305,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -8549,8 +8552,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -8579,8 +8581,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -8625,8 +8626,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -8672,8 +8673,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -21187,7 +21188,6 @@
         "GetAccounts",
         "ShowAddAccountDialog",
         "ShowReauthAccountDialog",
-        "ShowManageAccountsSettings",
         "GetPersistentErrorForAccount",
         "CreateAccessTokenFetcher",
         "ReportAuthError"
@@ -22479,7 +22479,6 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22504,7 +22503,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22528,7 +22526,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22852,6 +22849,29 @@
       }
     },
     {
+      "name": "BookmarksService",
+      "module": "bookmarks_api.mojom",
+      "file": "components_browser_apis_bookmarks_bookmarks_api.mojom.js",
+      "methods": [
+        "GetBookmarks",
+        "GetBookmark"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
       "name": "BrowserControlsService",
       "module": "browser_controls_api.mojom",
       "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
@@ -23006,7 +23026,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -23151,7 +23170,9 @@
         "OnHomeButtonDropUrl",
         "OnHomeButtonDropFile",
         "OnToolbarDropFile",
-        "ShowAvatarMenu"
+        "ShowAvatarMenu",
+        "SetAvatarButtonHovered",
+        "SetAvatarButtonFocused"
       ],
       "metadata": {
         "usage": {
@@ -49649,7 +49670,8 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -49681,7 +49703,8 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -49705,7 +49728,8 @@
           "feature:kInstallElement",
           "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -55027,6 +55051,15 @@
       "module": "autofill.mojom",
       "imports": [
         "components/autofill/core/common/mojom/autofill_types.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_bookmarks_bookmarks_api.mojom.js",
+      "source": "components/browser_apis/bookmarks/bookmarks_api.mojom",
+      "module": "bookmarks_api.mojom",
+      "imports": [
+        "mojo/public/mojom/base/error.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
