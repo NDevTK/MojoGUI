@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T12:50:58.822431Z",
-  "version": "151.0.7888.0",
+  "generated_at": "2026-06-13T11:48:34.190760Z",
+  "version": "151.0.7891.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3878,6 +3878,7 @@
         "GetModelQualityClientId",
         "GetContextFromFocusedTab",
         "GetContextFromTab",
+        "GetImageBytesFromTab",
         "SetMaximumNumberOfPinnedTabs",
         "PinTabs",
         "UnpinTabs",
@@ -9572,7 +9573,8 @@
         "IsPasswordManagerPinAvailable",
         "SwitchBiometricAuthBeforeFillingState",
         "StartPasswordChange",
-        "GetPasswordManagerActionableError"
+        "GetPasswordManagerActionableError",
+        "ShowLastExportedFileInShell"
       ],
       "metadata": {
         "usage": {
@@ -10701,6 +10703,24 @@
           "associated": [],
           "direct": [
             "Internal Interface: skills.mojom.PageHandlerFactory.CreateDialogHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SkillsPageHandler",
+      "module": "skills.mojom",
+      "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "methods": [
+        "SyncCookies"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
@@ -11863,7 +11883,8 @@
       "module": "chrome.mojom",
       "file": "chrome_common_indigo_indigo.mojom.js",
       "methods": [
-        "StartImageReplacement"
+        "StartImageReplacement",
+        "ReportInvokeError"
       ],
       "metadata": {
         "usage": {
@@ -24059,7 +24080,8 @@
         "CreateGuest",
         "SetSize",
         "Navigate",
-        "SetPermission"
+        "SetPermission",
+        "SetUserAgentOverride"
       ],
       "metadata": {
         "usage": {
@@ -24955,6 +24977,7 @@
         "GetPlaceholderConfig",
         "GetRecentTabs",
         "GetTabPreview",
+        "WaitForTabFaviconLoad",
         "GetInputState",
         "NotifySessionStarted",
         "NotifySessionAbandoned",
@@ -30021,7 +30044,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
     },
@@ -35375,6 +35399,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
@@ -39002,7 +39027,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -41031,10 +41059,10 @@
           "associated": [],
           "direct": [
             "Internal Interface: viz.mojom.FrameSinkManager.CreateCompositorFrameSink",
-            "Internal Interface: blink.mojom.UnboundedSurfaceHost.GetCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateBundledCompositorFrameSink",
             "Internal Interface: blink.mojom.EmbeddedFrameSinkProvider.CreateSimpleCompositorFrameSink",
+            "Internal Interface: blink.mojom.UnboundedSurfaceHost.GetCompositorFrameSink",
             "Internal Interface: blink.mojom.WidgetHost.CreateFrameSink"
           ]
         },
@@ -42972,7 +43000,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_content_extraction_ai_page_content.mojom.js",
       "methods": [
-        "GetAIPageContent"
+        "GetAIPageContent",
+        "GetImageBytes"
       ],
       "metadata": {
         "usage": {
@@ -44278,7 +44307,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
         "scrambled": false
       }
@@ -44353,45 +44383,6 @@
       "methods": [
         "SetNumberOfMatches",
         "SetActiveMatch"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UnboundedSurfaceHost",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
-      "methods": [
-        "GetCompositorFrameSink",
-        "UpdateBounds"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [
-            "Source: Associated Interface (RFH/Navigation)",
-            "blink.mojom.LocalFrameHost.RequestUnboundedSurface"
-          ],
-          "direct": []
-        },
-        "scope": "context",
-        "category": "associated"
-      }
-    },
-    {
-      "name": "UnboundedSurfaceClient",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_frame_frame.mojom.js",
-      "methods": [
-        "OnSurfaceAllocated",
-        "OnDismissed"
       ],
       "metadata": {
         "usage": {
@@ -44915,6 +44906,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
@@ -45284,7 +45276,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -45340,6 +45335,7 @@
       "methods": [
         "AddImeTextSpansToExistingText",
         "ClearImeTextSpansByType",
+        "CancelStylusGesturePreview",
         "SetCompositionFromExistingText",
         "ExtendSelectionAndDelete",
         "ExtendSelectionAndReplace",
@@ -46057,6 +46053,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ],
         "scrambled": false
       }
     },
@@ -48463,6 +48462,47 @@
       }
     },
     {
+      "name": "UnboundedSurfaceHost",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_unbounded_element_unbounded_element.mojom.js",
+      "methods": [
+        "GetCompositorFrameSink",
+        "UpdateBounds"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)",
+            "blink.mojom.LocalFrameHost.RequestUnboundedSurface"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "UnboundedSurfaceClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_unbounded_element_unbounded_element.mojom.js",
+      "methods": [
+        "OnSurfaceAllocated",
+        "OnDismissed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "UnhandledTapNotifier",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_unhandled_tap_notifier_unhandled_tap_notifier.mojom.js",
@@ -48505,6 +48545,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ],
         "scrambled": false
       }
     },
@@ -48788,6 +48831,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kWebMachineLearningNeuralNetwork"
+        ],
         "scrambled": false
       }
     },
@@ -49689,7 +49735,9 @@
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive",
         "OnContextMenuOpened",
-        "NotifyComposeboxQuerySubmittedWithContext"
+        "NotifyComposeboxQuerySubmittedWithContext",
+        "CanShowNextboxAnimation",
+        "RecordNextboxAnimationImpression"
       ],
       "metadata": {
         "usage": {
@@ -55059,6 +55107,7 @@
       "module": "bookmarks_api.mojom",
       "imports": [
         "mojo/public/mojom/base/error.mojom",
+        "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -55157,6 +55206,7 @@
       "source": "components/browser_apis/ui_controllers/toolbar/extensions_bar.mojom",
       "module": "extensions_bar.mojom",
       "imports": [
+        "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
         "url/mojom/url.mojom",
         "ui/base/mojom/menu_source_type.mojom"
       ]
@@ -63217,7 +63267,8 @@
         "ui/accessibility/ax_enums.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom"
       ]
     },
     {
@@ -63864,6 +63915,7 @@
         "third_party/blink/public/mojom/fetch/fetch_api_request.mojom",
         "third_party/blink/public/mojom/frame/blocked_navigation_types.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
+        "third_party/blink/public/mojom/unbounded_element/unbounded_element.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
         "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
         "third_party/blink/public/mojom/frame/fullscreen.mojom",
@@ -65885,6 +65937,17 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/unguessable_token.mojom"
+      ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_unbounded_element_unbounded_element.mojom.js",
+      "source": "third_party/blink/public/mojom/unbounded_element/unbounded_element.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "services/viz/public/mojom/compositing/compositor_frame_sink.mojom",
+        "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "services/viz/public/mojom/compositing/local_surface_id.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
