@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7891.0';
+        const versionStr = window.mojoVersion || '151.0.7892.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -398,6 +398,7 @@ mojo.internal.bindings.extensions.mojom.APIPermissionID = {
   kGlicPrivate: 265,
   kGlicPrivateInvoke: 266,
   kIndigoPrivate: 267,
+  kContextualTasksPrivate: 268,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

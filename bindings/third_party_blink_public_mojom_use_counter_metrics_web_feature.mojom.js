@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7891.0';
+        const versionStr = window.mojoVersion || '151.0.7892.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -4668,7 +4668,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kWebAppManifestDisplayBrowser: 5359,
   kWebAppManifestDisplayFullscreen: 5360,
   kWebAppManifestDisplayStandalone: 5361,
-  kBlockingAttributeFullFrameRateToken: 5362,
+  kOBSOLETE_BlockingAttributeFullFrameRateToken: 5362,
   kCrossOriginOwnerInterestGroupSubframeCheckFailed: 5363,
   kPreferredAudioOutputDevices: 5364,
   kSharedStorageAPI_SelectURL_Method_CalledWithOneURL: 5365,
@@ -5229,6 +5229,10 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kCreateTextModuleScript: 5920,
   kDigitalCredentialsProtocolOpenId4VciV1: 5921,
   kElementAttachShadowNonHTMLNamespace: 5922,
+  kV8Element_AriaActionsElements_AttributeGetter: 5923,
+  kV8Element_AriaActionsElements_AttributeSetter: 5924,
+  kV8ElementInternals_AriaActionsElements_AttributeGetter: 5925,
+  kV8ElementInternals_AriaActionsElements_AttributeSetter: 5926,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
