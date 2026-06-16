@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-15T15:37:31.978797Z",
-  "version": "151.0.7892.0",
+  "generated_at": "2026-06-16T14:53:06.462445Z",
+  "version": "151.0.7894.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4012,7 +4012,6 @@
         "NotifyPanelWasClosed",
         "NotifyPanelStateChange",
         "NotifyPanelActiveChange",
-        "NotifyIsInvoking",
         "NotifyPanelCanAttachChange",
         "NotifyMicrophonePermissionStateChanged",
         "StopMicrophone",
@@ -7209,7 +7208,6 @@
       "file": "chrome_browser_ui_webui_chrome_finds_internals_chrome_finds_internals.mojom.js",
       "methods": [
         "GetFindsServiceModelResponse",
-        "TriggerFindsTestNotification",
         "GetHistoryJson"
       ],
       "metadata": {
@@ -7875,6 +7873,42 @@
       "file": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
       "methods": [
         "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GoogleLensPageHandler",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_google_lens.mojom.js",
+      "methods": [
+        "EnableGoogleLens"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feature_showcase.mojom.GoogleLensPageHandlerFactory.CreateGoogleLensPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GoogleLensPageHandlerFactory",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_google_lens.mojom.js",
+      "methods": [
+        "CreateGoogleLensPageHandler"
       ],
       "metadata": {
         "usage": {
@@ -9574,7 +9608,9 @@
         "SwitchBiometricAuthBeforeFillingState",
         "StartPasswordChange",
         "GetPasswordManagerActionableError",
-        "ShowLastExportedFileInShell"
+        "ShowLastExportedFileInShell",
+        "DisconnectCloudAuthenticator",
+        "IsConnectedToCloudAuthenticator"
       ],
       "metadata": {
         "usage": {
@@ -10859,7 +10895,8 @@
         "ReplaceActiveSplitTab",
         "SaveRecentlyClosedExpandedPref",
         "StartTabGroupTutorial",
-        "MaybeShowUI"
+        "MaybeShowUI",
+        "GetRangesIgnoringCaseAndAccents"
       ],
       "metadata": {
         "usage": {
@@ -22699,7 +22736,7 @@
         "SuppressAutomaticRefills",
         "RequestRefill",
         "JavaScriptChangedAutofilledValue",
-        "OnEmailVerificationTokenShared"
+        "FormWithEmailVerificationTokenSubmitted"
       ],
       "metadata": {
         "usage": {
@@ -32645,7 +32682,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebOTP",
           "feature:kWebLockScreenApi"
         ]
       }
@@ -48671,8 +48707,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebOTP",
-          "feature:kWebLockScreenApi"
+          "feature:kWebOTP"
         ]
       }
     },
@@ -48717,6 +48752,48 @@
         "PreventSilentAccess",
         "Disconnect"
       ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ],
+        "scrambled": false
+      }
+    },
+    {
+      "name": "FederatedRequest",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebOTP",
+          "feature:kWebLockScreenApi"
+        ],
+        "scrambled": false
+      }
+    },
+    {
+      "name": "FederatedRequestService",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -49980,22 +50057,44 @@
       }
     },
     {
-      "name": "ForeignSessionPageHandler",
+      "name": "ForeignSessionPageHandlerFactory",
       "module": "history.mojom",
       "file": "ui_webui_resources_cr_components_history_foreign_sessions.mojom.js",
       "methods": [
-        "SetPage",
-        "GetForeignSessions",
-        "OpenForeignSessionAllTabs",
-        "OpenForeignSessionTab",
-        "DeleteForeignSession",
-        "SetForeignSessionCollapsed"
+        "CreateForeignSessionPageHandler"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
             "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "ForeignSessionPageHandler",
+      "module": "history.mojom",
+      "file": "ui_webui_resources_cr_components_history_foreign_sessions.mojom.js",
+      "methods": [
+        "GetForeignSessions",
+        "OpenForeignSessionAllTabs",
+        "OpenForeignSessionTab",
+        "DeleteForeignSession",
+        "SetForeignSessionCollapsed",
+        "ShowUi"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: history.mojom.ForeignSessionPageHandlerFactory.CreateForeignSessionPageHandler"
           ]
         },
         "scope": "context",
@@ -50157,11 +50256,32 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "history_embeddings.mojom",
+      "file": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "history_embeddings.mojom",
       "file": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
       "methods": [
-        "SetPage",
         "Search",
         "SendQualityLog",
         "RecordSearchResultsMetrics",
@@ -50173,7 +50293,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: history_embeddings.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -51947,6 +52067,12 @@
     {
       "filename": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
       "source": "chrome/browser/ui/webui/feature_showcase/feature_showcase.mojom",
+      "module": "feature_showcase.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_feature_showcase_google_lens.mojom.js",
+      "source": "chrome/browser/ui/webui/feature_showcase/google_lens.mojom",
       "module": "feature_showcase.mojom",
       "imports": []
     },
@@ -60853,6 +60979,14 @@
       "imports": []
     },
     {
+      "filename": "services_network_public_mojom_origin_or_wildcard_header_value.mojom.js",
+      "source": "services/network/public/mojom/origin_or_wildcard_header_value.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "url/mojom/origin.mojom"
+      ]
+    },
+    {
       "filename": "services_network_public_mojom_originating_process_id.mojom.js",
       "source": "services/network/public/mojom/originating_process_id.mojom",
       "module": "network.mojom",
@@ -60894,6 +61028,7 @@
         "services/network/public/mojom/document_isolation_policy.mojom",
         "services/network/public/mojom/link_header.mojom",
         "services/network/public/mojom/no_vary_search.mojom",
+        "services/network/public/mojom/origin_or_wildcard_header_value.mojom",
         "services/network/public/mojom/supports_loading_mode.mojom",
         "services/network/public/mojom/timing_allow_origin.mojom",
         "services/network/public/mojom/declarative_performance_observer.mojom",
