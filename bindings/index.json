@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-16T14:53:06.462445Z",
-  "version": "151.0.7894.0",
+  "generated_at": "2026-06-17T13:37:05.548398Z",
+  "version": "151.0.7896.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3595,49 +3595,6 @@
         "gates": [
           "feature:kNtpFooter"
         ]
-      }
-    },
-    {
-      "name": "FrePageHandlerFactory",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_fre_glic_fre.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "FrePageHandler",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_fre_glic_fre.mojom.js",
-      "methods": [
-        "AcceptFre",
-        "RejectFre",
-        "FreReloaded",
-        "PrepareForClient",
-        "ValidateAndOpenLinkInNewTab",
-        "WebUiStateChanged",
-        "ExceededTimeoutError",
-        "LogWebUiLoadComplete"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: glic.mojom.FrePageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
       }
     },
     {
@@ -7275,7 +7232,9 @@
       "name": "PageHandler",
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
-      "methods": [],
+      "methods": [
+        "GenerateAutoTodos"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -7847,6 +7806,43 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "DefaultBrowserPageHandler",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_default_browser.mojom.js",
+      "methods": [
+        "SetAsDefaultBrowser",
+        "SkipSetAsDefaultBrowser"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feature_showcase.mojom.DefaultBrowserPageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DefaultBrowserPageHandlerFactory",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_default_browser.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -9083,7 +9079,8 @@
       "module": "aim_eligibility.mojom",
       "file": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
       "methods": [
-        "OnEligibilityStateChanged"
+        "OnEligibilityStateChanged",
+        "OnDriveStatusChanged"
       ],
       "metadata": {
         "usage": {
@@ -9610,7 +9607,8 @@
         "GetPasswordManagerActionableError",
         "ShowLastExportedFileInShell",
         "DisconnectCloudAuthenticator",
-        "IsConnectedToCloudAuthenticator"
+        "IsConnectedToCloudAuthenticator",
+        "UndoRemoveSavedPasswordOrException"
       ],
       "metadata": {
         "usage": {
@@ -21288,7 +21286,6 @@
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
         "BindInSessionAuth",
-        "BindLocalPrinter",
         "BindMachineLearningService",
         "BindSensorHalClient",
         "BindHidManager",
@@ -21302,24 +21299,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "LocalPrinter",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "methods": [
-        "GetPrinterTypeDenyList"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindLocalPrinter"
           ]
         },
         "scope": "context",
@@ -22912,7 +22891,10 @@
       "file": "components_browser_apis_bookmarks_bookmarks_api.mojom.js",
       "methods": [
         "GetBookmarks",
-        "GetBookmark"
+        "GetBookmark",
+        "CreateBookmarkNode",
+        "UpdateBookmarkNode",
+        "DeleteBookmarkNode"
       ],
       "metadata": {
         "usage": {
@@ -25001,6 +24983,7 @@
       "methods": [
         "OnFocusChanged",
         "QueryAutocomplete",
+        "QueryAutocompleteWithSuggestInventory",
         "StopAutocomplete",
         "OpenAutocompleteMatch",
         "SetSmartComposeStats",
@@ -25691,6 +25674,24 @@
         "CompleteHandshake",
         "Encrypt",
         "Decrypt"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PrivateVerificationTokensProvider",
+      "module": "private_verification_tokens.mojom",
+      "file": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
+      "methods": [
+        "GetTokens"
       ],
       "metadata": {
         "usage": {
@@ -51428,14 +51429,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_glic_fre_glic_fre.mojom.js",
-      "source": "chrome/browser/glic/fre/glic_fre.mojom",
-      "module": "glic.mojom",
-      "imports": [
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_glic_host_glic.mojom.js",
       "source": "chrome/browser/glic/host/glic.mojom",
       "module": "glic.mojom",
@@ -51992,7 +51985,9 @@
       "filename": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "source": "chrome/browser/ui/webui/context_hub/context_hub.mojom",
       "module": "browser.context_hub.mojom",
-      "imports": []
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_customize_buttons_customize_buttons.mojom.js",
@@ -52062,6 +52057,12 @@
       "filename": "chrome_browser_ui_webui_extensions_zero_state_promo_zero_state_promo.mojom.js",
       "source": "chrome/browser/ui/webui/extensions_zero_state_promo/zero_state_promo.mojom",
       "module": "zero_state_promo.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_feature_showcase_default_browser.mojom.js",
+      "source": "chrome/browser/ui/webui/feature_showcase/default_browser.mojom",
+      "module": "feature_showcase.mojom",
       "imports": []
     },
     {
@@ -52178,6 +52179,7 @@
       "source": "chrome/browser/ui/webui/new_tab_page/action_chips/action_chips.mojom",
       "module": "action_chips.mojom",
       "imports": [
+        "components/omnibox/browser/searchbox.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
@@ -54719,7 +54721,6 @@
         "chromeos/components/payments/mojom/payment_app.mojom",
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
-        "chromeos/crosapi/mojom/local_printer.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
         "chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom",
         "chromeos/crosapi/mojom/telemetry_event_service.mojom",
@@ -54735,13 +54736,7 @@
       "filename": "chromeos_crosapi_mojom_local_printer.mojom.js",
       "source": "chromeos/crosapi/mojom/local_printer.mojom",
       "module": "crosapi.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom",
-        "printing/backend/mojom/print_backend.mojom",
-        "printing/mojom/print.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "url/mojom/url.mojom"
-      ]
+      "imports": []
     },
     {
       "filename": "chromeos_crosapi_mojom_nullable_primitives.mojom.js",
@@ -55232,6 +55227,7 @@
       "source": "components/browser_apis/bookmarks/bookmarks_api.mojom",
       "module": "bookmarks_api.mojom",
       "imports": [
+        "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
         "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom"
@@ -55332,9 +55328,26 @@
       "source": "components/browser_apis/ui_controllers/toolbar/extensions_bar.mojom",
       "module": "extensions_bar.mojom",
       "imports": [
+        "components/browser_apis/ui_controllers/toolbar/extensions_bar_data_model.mojom",
         "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
-        "url/mojom/url.mojom",
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
         "ui/base/mojom/menu_source_type.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_toolbar_extensions_bar_data_model.mojom.js",
+      "source": "components/browser_apis/ui_controllers/toolbar/extensions_bar_data_model.mojom",
+      "module": "extensions_bar.mojom",
+      "imports": [
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_toolbar_icon_handle.mojom.js",
+      "source": "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
+      "module": "toolbar_ui_api.mojom",
+      "imports": [
+        "skia/public/mojom/skcolor.mojom"
       ]
     },
     {
@@ -55343,6 +55356,7 @@
       "module": "toolbar_ui_api.mojom",
       "imports": [
         "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
         "ui/base/dragdrop/mojom/drag_drop_types.mojom",
         "ui/base/mojom/menu_source_type.mojom",
@@ -55358,10 +55372,11 @@
       "module": "toolbar_ui_api.mojom",
       "imports": [
         "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
+        "components/browser_apis/ui_controllers/toolbar/extensions_bar_data_model.mojom",
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
-        "skia/public/mojom/skcolor.mojom",
         "ui/gfx/range/mojom/range.mojom"
       ]
     },
@@ -56236,6 +56251,14 @@
       "module": "private_ai.mojom",
       "imports": [
         "sandbox/policy/mojom/sandbox.mojom"
+      ]
+    },
+    {
+      "filename": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
+      "source": "components/private_verification_tokens/mojom/private_verification_tokens_service.mojom",
+      "module": "private_verification_tokens.mojom",
+      "imports": [
+        "url/mojom/origin.mojom"
       ]
     },
     {
