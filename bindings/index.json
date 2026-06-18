@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-17T13:37:05.548398Z",
-  "version": "151.0.7896.0",
+  "generated_at": "2026-06-18T12:46:17.260357Z",
+  "version": "151.0.7898.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3404,7 +3404,8 @@
         "NotifySmartTabSharingTryItIphResult",
         "NotifySmartTabSharingDefaultOnIphResult",
         "RegisterWindow",
-        "CloseWindow"
+        "CloseWindow",
+        "MaybeTriggerPinningPromo"
       ],
       "metadata": {
         "usage": {
@@ -3418,6 +3419,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3474,6 +3476,7 @@
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3498,6 +3501,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3521,7 +3525,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -3546,7 +3551,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -3568,7 +3574,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -3813,6 +3820,25 @@
       }
     },
     {
+      "name": "AnnotationHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "ScrollTo",
+        "DropScrollToHighlight"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateAnnotationHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebClientHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -3821,6 +3847,7 @@
         "WebClientInitialized",
         "WebClientInitializeFailed",
         "CreateActorHandler",
+        "CreateAnnotationHandler",
         "CreateTab",
         "OpenLinkInPopup",
         "OpenGlicSettingsPage",
@@ -3879,8 +3906,6 @@
         "OnResponseRated",
         "OnClosedCaptionsShown",
         "OnActionSubmitted",
-        "ScrollTo",
-        "DropScrollToHighlight",
         "SetSyntheticExperimentState",
         "OpenOsPermissionSettingsMenu",
         "GetOsMicrophonePermissionStatus",
@@ -4075,7 +4100,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -4425,7 +4451,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -4450,7 +4475,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -4477,7 +4501,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -4504,7 +4527,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -4529,7 +4551,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -4556,11 +4577,10 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
+          "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -4588,7 +4608,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -7223,6 +7242,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7247,6 +7267,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7271,6 +7292,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpFooter"
         ]
       }
@@ -7296,6 +7318,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpFooter"
         ]
       }
@@ -8658,6 +8681,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -8705,6 +8729,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -8727,7 +8752,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -8751,6 +8775,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8806,6 +8831,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8841,6 +8867,7 @@
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9581,7 +9608,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -9623,7 +9650,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -9648,7 +9675,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -9701,6 +9728,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9725,6 +9753,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9928,7 +9957,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -9975,7 +10004,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10003,7 +10032,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10029,7 +10058,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10055,7 +10084,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10082,7 +10111,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10354,7 +10383,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10391,7 +10419,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10422,7 +10449,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
@@ -10781,7 +10807,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -13330,7 +13357,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -22886,6 +22912,24 @@
       }
     },
     {
+      "name": "BookmarksObserver",
+      "module": "bookmarks_api.mojom",
+      "file": "components_browser_apis_bookmarks_bookmarks_api.mojom.js",
+      "methods": [
+        "OnBookmarksEvents"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "BookmarksService",
       "module": "bookmarks_api.mojom",
       "file": "components_browser_apis_bookmarks_bookmarks_api.mojom.js",
@@ -22894,6 +22938,7 @@
         "GetBookmark",
         "CreateBookmarkNode",
         "UpdateBookmarkNode",
+        "MoveBookmarkNode",
         "DeleteBookmarkNode"
       ],
       "metadata": {
@@ -23199,6 +23244,8 @@
         "OnOmniboxAction",
         "OnPageInitialized",
         "ShowContentSettingsBubble",
+        "OnPageActionClick",
+        "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
         "OnLhsChipMousePressed",
         "OnLhsChipClicked",
@@ -24971,6 +25018,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -25029,6 +25077,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -25073,6 +25122,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -25315,7 +25365,8 @@
       "methods": [
         "GetStateInfo",
         "SetUseCaseRequested",
-        "UninstallModels"
+        "UninstallModels",
+        "ResetModelCrashCount"
       ],
       "metadata": {
         "usage": {
@@ -34129,6 +34180,7 @@
         "GetPdfBytes",
         "GetPageText",
         "GetMostVisiblePageIndex",
+        "HasMeaningfulText",
         "GetSaveDataBufferHandlerForDrive"
       ],
       "metadata": {
@@ -41763,7 +41815,9 @@
         "CanCreateProofreader",
         "CreateProofreader",
         "CanCreateClassifier",
-        "CreateClassifier"
+        "CreateClassifier",
+        "CanCreateSemanticEmbedder",
+        "CreateSemanticEmbedder"
       ],
       "metadata": {
         "usage": {
@@ -49793,6 +49847,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49828,6 +49883,7 @@
         "category": "internal",
         "gates": [
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49853,6 +49909,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49877,7 +49934,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -49901,7 +49957,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -49980,8 +50035,8 @@
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
           "feature:kNtpNextFeatures",
-          "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -50030,8 +50085,8 @@
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
           "feature:kNtpNextFeatures",
-          "feature:kNtpTabGroupsModule",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -50195,7 +50250,6 @@
       "file": "ui_webui_resources_cr_components_history_clusters_history_clusters.mojom.js",
       "methods": [
         "OpenHistoryUrl",
-        "SetPage",
         "ShowContextMenuForSearchbox",
         "ShowContextMenuForURL",
         "ShowSidePanelUI",
@@ -50215,7 +50269,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: history_clusters.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -50251,6 +50305,28 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "history_clusters.mojom",
+      "file": "ui_webui_resources_cr_components_history_clusters_history_clusters.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50349,6 +50425,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50388,6 +50465,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50413,6 +50491,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50436,7 +50515,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -50465,7 +50543,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
