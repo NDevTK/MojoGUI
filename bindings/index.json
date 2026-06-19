@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-18T12:46:17.260357Z",
-  "version": "151.0.7898.0",
+  "generated_at": "2026-06-19T13:28:48.479081Z",
+  "version": "151.0.7900.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -21317,8 +21317,7 @@
         "BindHidManager",
         "BindMediaSessionController",
         "BindMediaSessionAudioFocus",
-        "BindMediaSessionAudioFocusDebug",
-        "BindTelemetryDiagnosticRoutinesService"
+        "BindMediaSessionAudioFocusDebug"
       ],
       "metadata": {
         "usage": {
@@ -21398,7 +21397,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindTelemetryDiagnosticRoutinesService"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -22968,7 +22967,8 @@
         "Forward",
         "BackButtonHovered",
         "NavigateHome",
-        "Navigate"
+        "Navigate",
+        "NavigateText"
       ],
       "metadata": {
         "usage": {
@@ -30133,8 +30133,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ]
       }
     },
@@ -34531,6 +34530,24 @@
       }
     },
     {
+      "name": "PeerConnectionProcessControl",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "ConnectDesktopChannel"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "SecurityKeyForwarder",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_remote_security_key.mojom.js",
@@ -35489,8 +35506,7 @@
         "category": "internal",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ]
       }
     },
@@ -41057,8 +41073,7 @@
       "module": "viz.mojom",
       "file": "services_viz_privileged_mojom_gl_info_collection_gpu_service.mojom.js",
       "methods": [
-        "GetGpuSupportedDirectXVersionAndDevicePerfInfo",
-        "GetGpuSupportedVulkanVersionInfo"
+        "GetGpuSupportedDirectXVersionAndDevicePerfInfo"
       ],
       "metadata": {
         "usage": {
@@ -43441,6 +43456,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ],
         "scrambled": false
       }
     },
@@ -43461,6 +43479,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ],
         "scrambled": false
       }
     },
@@ -44398,8 +44419,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -44754,6 +44774,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kFontAccess",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
         "scrambled": false
@@ -44818,6 +44839,7 @@
         "EnforceInsecureRequestPolicy",
         "SetReplicatedOrigin",
         "SetReplicatedIsAdFrame",
+        "SetReplicatedIsSecureContextRoot",
         "SetReplicatedName",
         "DispatchLoadEventForFrameOwner",
         "SetNeedsOcclusionTracking",
@@ -44998,8 +45020,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -45142,8 +45163,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFontAccess",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -48671,7 +48691,8 @@
       "methods": [
         "IsInstalled",
         "Install",
-        "InstallFromElement"
+        "InstallFromElement",
+        "InstallFromManifest"
       ],
       "metadata": {
         "usage": {
@@ -54799,8 +54820,6 @@
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
         "chromeos/crosapi/mojom/probe_service.mojom",
-        "chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom",
-        "chromeos/crosapi/mojom/telemetry_event_service.mojom",
         "chromeos/services/chromebox_for_meetings/public/mojom/cfm_service_manager.mojom",
         "chromeos/services/machine_learning/public/mojom/machine_learning_service.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
@@ -59541,6 +59560,12 @@
     {
       "filename": "remoting_host_mojom_login_session.mojom.js",
       "source": "remoting/host/mojom/login_session.mojom",
+      "module": "remoting.mojom",
+      "imports": []
+    },
+    {
+      "filename": "remoting_host_mojom_peer_session.mojom.js",
+      "source": "remoting/host/mojom/peer_session.mojom",
       "module": "remoting.mojom",
       "imports": []
     },
