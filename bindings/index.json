@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-19T13:28:48.479081Z",
-  "version": "151.0.7900.0",
+  "generated_at": "2026-06-20T11:51:43.138726Z",
+  "version": "151.0.7902.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -11215,6 +11215,8 @@
         "GetFeaturePromos",
         "ShowFeaturePromo",
         "ClearFeaturePromoData",
+        "GetNonIphPromos",
+        "ClearNonIphPromoData",
         "ClearSessionData",
         "ForceNewSession",
         "RemoveGracePeriods",
@@ -48869,7 +48871,11 @@
       "name": "FederatedRequestService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
-      "methods": [],
+      "methods": [
+        "RegisterIdP",
+        "UnregisterIdP",
+        "PreventSilentAccess"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -62245,6 +62251,7 @@
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/mojom/gpu_extra_info.mojom",
         "url/mojom/url.mojom",
+        "services/webnn/public/mojom/ep_device_info.mojom",
         "services/webnn/public/mojom/ep_package_info.mojom",
         "services/webnn/public/mojom/webnn_model_loader.mojom",
         "services/webnn/public/mojom/webnn_compiler_context.mojom",
@@ -62879,6 +62886,14 @@
       ]
     },
     {
+      "filename": "services_webnn_public_mojom_ep_device_info.mojom.js",
+      "source": "services/webnn/public/mojom/ep_device_info.mojom",
+      "module": "webnn.mojom",
+      "imports": [
+        "services/webnn/public/mojom/webnn_device.mojom"
+      ]
+    },
+    {
       "filename": "services_webnn_public_mojom_ep_package_info.mojom.js",
       "source": "services/webnn/public/mojom/ep_package_info.mojom",
       "module": "webnn.mojom",
@@ -62900,8 +62915,9 @@
       "source": "services/webnn/public/mojom/webnn_compiler_service.mojom",
       "module": "webnn.mojom",
       "imports": [
+        "mojo/public/mojom/base/file_path.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
-        "services/webnn/public/mojom/ep_package_info.mojom",
+        "services/webnn/public/mojom/ep_device_info.mojom",
         "services/webnn/public/mojom/features.mojom",
         "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",

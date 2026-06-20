@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7900.0';
+        const versionStr = window.mojoVersion || '151.0.7902.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -222,6 +222,9 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
+mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec = mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
+mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec = mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
@@ -312,8 +315,8 @@ mojo.internal.bindings.viz.mojom.GpuHostRemote = class {
   ensureWebNNExecutionProvidersReady() {
     return this.$.ensureWebNNExecutionProvidersReady();
   }
-  requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info) {
-    return this.$.requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info);
+  requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_target_device) {
+    return this.$.requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_target_device);
   }
   createWebNNWeightsFile() {
     return this.$.createWebNNWeightsFile();
@@ -489,12 +492,12 @@ mojo.internal.bindings.viz.mojom.GpuHostRemoteCallHandler = class {
       false);
   }
 
-  requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info) {
+  requestWebNNCompilerContext(arg_context_options, arg_context_properties, arg_target_device) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec,
-      [arg_context_options, arg_context_properties, arg_ep_package_info],
+      [arg_context_options, arg_context_properties, arg_target_device],
       false);
   }
 
@@ -724,7 +727,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestWebNNCompilerContext');
-          const result = this.impl.requestWebNNCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_ep_package_info);
+          const result = this.impl.requestWebNNCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_target_device);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -884,7 +887,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec, 'viz.mojom.GpuHost_RequestWebNNCompilerContext_Params', [
       mojo.internal.StructField('arg_context_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ep_package_info', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_device', 16, 0, mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

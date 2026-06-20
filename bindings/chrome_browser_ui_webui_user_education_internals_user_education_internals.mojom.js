@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7900.0';
+        const versionStr = window.mojoVersion || '151.0.7902.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -162,6 +162,14 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec.$ = {};
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec.$ = {};
+mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.structSpec && mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$ = {};
 mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec = mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec || { $: {} };
@@ -263,6 +271,12 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
   clearFeaturePromoData(arg_feature_name) {
     return this.$.clearFeaturePromoData(arg_feature_name);
   }
+  getNonIphPromos() {
+    return this.$.getNonIphPromos();
+  }
+  clearNonIphPromoData(arg_feature_name) {
+    return this.$.clearNonIphPromoData(arg_feature_name);
+  }
   clearSessionData() {
     return this.$.clearSessionData();
   }
@@ -311,6 +325,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('mojom.user_education_internals.UserEducationInternalsPageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -388,9 +404,27 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       false);
   }
 
-  clearSessionData() {
+  getNonIphPromos() {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
+      mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec,
+      mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  clearNonIphPromoData(arg_feature_name) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec,
+      mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec,
+      [arg_feature_name],
+      false);
+  }
+
+  clearSessionData() {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
       [],
@@ -399,7 +433,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   forceNewSession() {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
       [],
@@ -408,7 +442,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   removeGracePeriods() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
       [],
@@ -417,7 +451,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   getNewBadges() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
       [],
@@ -426,7 +460,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   getWhatsNewModules() {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
       [],
@@ -435,7 +469,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   getWhatsNewEditions() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
       [],
@@ -444,7 +478,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   getNtpPromos() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
       [],
@@ -453,7 +487,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   getNtpPromoPreferences() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
       [],
@@ -462,7 +496,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   clearNewBadgeData(arg_feature_name) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
       [arg_feature_name],
@@ -471,7 +505,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   clearWhatsNewData() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
       [],
@@ -480,7 +514,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   clearNtpPromoData(arg_id) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
       [arg_id],
@@ -489,7 +523,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   clearNtpPromoPreferences() {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
       [],
@@ -498,7 +532,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   launchWhatsNewStaging() {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
       [],
@@ -507,7 +541,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
 
   updateWhatsNewVersionOverride(arg_version) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_UpdateWhatsNewVersionOverride_ParamsSpec,
       null,
       [arg_version],
@@ -532,6 +566,8 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('mojom.user_education_internals.UserEducationInternalsPageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -705,6 +741,42 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getNonIphPromos');
+          const result = this.impl.getNonIphPromos();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_non_iph_promos' in response) ? response['arg_non_iph_promos'] : response;
+              const resp_obj = { 'arg_non_iph_promos': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getNonIphPromos FAILED:', e));
+          }
+          break;
+        }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearNonIphPromoData');
+          const result = this.impl.clearNonIphPromoData(params.arg_feature_name);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_error_message' in response) ? response['arg_error_message'] : response;
+              const resp_obj = { 'arg_error_message': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearNonIphPromoData FAILED:', e));
+          }
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearSessionData');
           const result = this.impl.clearSessionData();
@@ -721,7 +793,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceNewSession');
@@ -739,7 +811,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeGracePeriods');
@@ -757,7 +829,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewBadges');
@@ -775,7 +847,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewModules');
@@ -793,7 +865,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWhatsNewEditions');
@@ -811,7 +883,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 12: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromos');
@@ -829,7 +901,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNtpPromoPreferences');
@@ -847,7 +919,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 14: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNewBadgeData');
@@ -865,7 +937,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 15: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearWhatsNewData');
@@ -883,7 +955,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 16: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoData');
@@ -901,7 +973,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 17: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNtpPromoPreferences');
@@ -919,14 +991,14 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
           }
           break;
         }
-        case 18: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchWhatsNewStaging');
           const result = this.impl.launchWhatsNewStaging();
           break;
         }
-        case 19: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_UpdateWhatsNewVersionOverride_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWhatsNewVersionOverride');
@@ -1059,6 +1131,29 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParams', [
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_GetNonIphPromos_ResponseParams', [
+      mojo.internal.StructField('arg_non_iph_promos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_Params', [
+      mojo.internal.StructField('arg_feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParamsSpec, 'mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNonIphPromoData_ResponseParams', [
       mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);

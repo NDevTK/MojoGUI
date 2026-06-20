@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7900.0';
+        const versionStr = window.mojoVersion || '151.0.7902.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -207,6 +207,18 @@ mojo.internal.bindings.blink.mojom.FederatedRequestService = mojo.internal.bindi
 mojo.internal.bindings.blink.mojom.FederatedRequestServiceSpec = mojo.internal.bindings.blink.mojom.FederatedRequestServiceSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.FederatedRequestServiceSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestServiceSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FederatedRequestService.$interfaceName = 'blink.mojom.FederatedRequestService';
+mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
@@ -839,13 +851,52 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceRemote = class {
   close() {
     this.proxy.close();
   }
+  registerIdP(arg_url) {
+    return this.$.registerIdP(arg_url);
+  }
+  unregisterIdP(arg_url) {
+    return this.$.unregisterIdP(arg_url);
+  }
+  preventSilentAccess() {
+    return this.$.preventSilentAccess();
+  }
 };
 
 mojo.internal.bindings.blink.mojom.FederatedRequestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FederatedRequestService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
+  }
+
+  registerIdP(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec,
+      [arg_url],
+      false);
+  }
+
+  unregisterIdP(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec,
+      [arg_url],
+      false);
+  }
+
+  preventSilentAccess() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec,
+      [],
+      false);
   }
 
 };
@@ -866,6 +917,9 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FederatedRequestService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -909,6 +963,59 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerIdP');
+          const result = this.impl.registerIdP(params.arg_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] registerIdP FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.unregisterIdP');
+          const result = this.impl.unregisterIdP(params.arg_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] unregisterIdP FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.preventSilentAccess');
+          const result = this.impl.preventSilentAccess();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] preventSilentAccess FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1157,4 +1264,38 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.DisconnectStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ParamsSpec, 'blink.mojom.FederatedRequestService_RegisterIdP_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_RegisterIdP_ResponseParamsSpec, 'blink.mojom.FederatedRequestService_RegisterIdP_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.RegisterIdpStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ParamsSpec, 'blink.mojom.FederatedRequestService_UnregisterIdP_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParamsSpec, 'blink.mojom.FederatedRequestService_UnregisterIdP_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ParamsSpec, 'blink.mojom.FederatedRequestService_PreventSilentAccess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParamsSpec, 'blink.mojom.FederatedRequestService_PreventSilentAccess_ResponseParams', [
+    ],
+    [[0, 8]]);
 

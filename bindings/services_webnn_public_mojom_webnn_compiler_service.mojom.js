@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7900.0';
+        const versionStr = window.mojoVersion || '151.0.7902.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,6 +135,9 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_Pa
 if (mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -143,7 +146,7 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec = mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
-mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec = mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec = mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNCompilerContextSpec = mojo.internal.bindings.webnn.mojom.WebNNCompilerContextSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -187,8 +190,8 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  createCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info, arg_model_loader, arg_receiver) {
-    return this.$.createCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info, arg_model_loader, arg_receiver);
+  createCompilerContext(arg_context_options, arg_context_properties, arg_ep_library_path, arg_target_device, arg_model_loader, arg_receiver) {
+    return this.$.createCompilerContext(arg_context_options, arg_context_properties, arg_ep_library_path, arg_target_device, arg_model_loader, arg_receiver);
   }
 };
 
@@ -200,12 +203,12 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceRemoteCallHandler = class
     ]);
   }
 
-  createCompilerContext(arg_context_options, arg_context_properties, arg_ep_package_info, arg_model_loader, arg_receiver) {
+  createCompilerContext(arg_context_options, arg_context_properties, arg_ep_library_path, arg_target_device, arg_model_loader, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec,
       null,
-      [arg_context_options, arg_context_properties, arg_ep_package_info, arg_model_loader, arg_receiver],
+      [arg_context_options, arg_context_properties, arg_ep_library_path, arg_target_device, arg_model_loader, arg_receiver],
       false);
   }
 
@@ -275,7 +278,7 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompilerContext');
-          const result = this.impl.createCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_ep_package_info, params.arg_model_loader, params.arg_receiver);
+          const result = this.impl.createCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_ep_library_path, params.arg_target_device, params.arg_model_loader, params.arg_receiver);
           break;
         }
       }
@@ -297,9 +300,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec, 'webnn.mojom.WebNNCompilerService_CreateCompilerContext_Params', [
       mojo.internal.StructField('arg_context_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ep_package_info', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_loader', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNModelLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNCompilerContextPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ep_library_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_device', 24, 0, mojo.internal.bindings.webnn.mojom.EpDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_loader', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNModelLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNCompilerContextPendingReceiver), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
