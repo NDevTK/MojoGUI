@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T15:15:04.140792Z",
-  "version": "151.0.7906.0",
+  "generated_at": "2026-06-23T12:29:06.470905Z",
+  "version": "151.0.7908.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -87,7 +87,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -15259,7 +15260,6 @@
         "OnSharesheetInstanceReady",
         "OnSystemStateInstanceReady",
         "OnSystemUiInstanceReady",
-        "OnTimerInstanceReady",
         "OnTracingInstanceReady",
         "OnTtsInstanceReady",
         "OnUsbHostInstanceReady",
@@ -17496,44 +17496,6 @@
       "methods": [
         "SetDarkThemeStatus",
         "SetOverlayColor"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TimerHost",
-      "module": "arc.mojom",
-      "file": "chromeos_ash_experiences_arc_mojom_timer.mojom.js",
-      "methods": [
-        "CreateTimers",
-        "StartTimer",
-        "SetTime"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TimerInstance",
-      "module": "arc.mojom",
-      "file": "chromeos_ash_experiences_arc_mojom_timer.mojom.js",
-      "methods": [
-        "Init"
       ],
       "metadata": {
         "usage": {
@@ -23013,7 +22975,9 @@
       "name": "DropTargetRegistration",
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnBoundsChanged"
+      ],
       "metadata": {
         "usage": {
           "associated": [
@@ -23030,7 +22994,6 @@
       "module": "tabs_api.mojom",
       "file": "components_browser_apis_tab_drag_tab_drag_api.mojom.js",
       "methods": [
-        "GetBounds",
         "OnDragEntered",
         "OnDrag",
         "OnDragLeave",
@@ -24748,7 +24711,11 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kWebViewMemoryProfilingClient",
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -26254,6 +26221,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kWebViewMemoryProfilingClient",
           "feature:kWebPayments"
         ]
       }
@@ -26294,6 +26262,7 @@
         "scope": "context",
         "category": "associated",
         "gates": [
+          "feature:kWebViewMemoryProfilingClient",
           "feature:kIndigo"
         ]
       }
@@ -26392,7 +26361,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebViewMemoryProfilingClient",
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -27157,6 +27130,7 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
+          "feature:kWebViewMemoryProfilingClient",
           "feature:kWebPayments"
         ]
       }
@@ -28739,7 +28713,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -30870,7 +30845,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -33363,7 +33339,8 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -47030,7 +47007,8 @@
           "permission:MIDI_SYSEX",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kWebViewMemoryProfilingClient"
         ],
         "scrambled": false
       }
@@ -48874,7 +48852,9 @@
       "methods": [
         "RegisterIdP",
         "UnregisterIdP",
-        "PreventSilentAccess"
+        "PreventSilentAccess",
+        "RequestUserInfo",
+        "Disconnect"
       ],
       "metadata": {
         "usage": {
@@ -53648,7 +53628,6 @@
         "chromeos/ash/experiences/arc/mojom/sharesheet.mojom",
         "chromeos/ash/experiences/arc/mojom/system_state.mojom",
         "chromeos/ash/experiences/arc/mojom/system_ui.mojom",
-        "chromeos/ash/experiences/arc/mojom/timer.mojom",
         "chromeos/ash/experiences/arc/mojom/tracing.mojom",
         "chromeos/ash/experiences/arc/mojom/tts.mojom",
         "chromeos/ash/experiences/arc/mojom/usb_host.mojom",
@@ -54038,14 +54017,6 @@
       "source": "chromeos/ash/experiences/arc/mojom/system_ui.mojom",
       "module": "arc.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_ash_experiences_arc_mojom_timer.mojom.js",
-      "source": "chromeos/ash/experiences/arc/mojom/timer.mojom",
-      "module": "arc.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
     },
     {
       "filename": "chromeos_ash_experiences_arc_mojom_tracing.mojom.js",
@@ -54833,12 +54804,6 @@
         "services/media_session/public/mojom/audio_focus.mojom",
         "services/media_session/public/mojom/media_controller.mojom"
       ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_local_printer.mojom.js",
-      "source": "chromeos/crosapi/mojom/local_printer.mojom",
-      "module": "crosapi.mojom",
-      "imports": []
     },
     {
       "filename": "chromeos_crosapi_mojom_nullable_primitives.mojom.js",
