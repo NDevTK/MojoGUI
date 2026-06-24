@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
+mojo.internal.bindings.page_load_metrics.mojom.ScriptTypeSpec = mojo.internal.bindings.page_load_metrics.mojom.ScriptTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec = mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$ = {};
@@ -148,6 +149,8 @@ mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec = mojo.i
 if (mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec = mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec || { $: {} };
@@ -212,6 +215,22 @@ mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bind
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RequestPrioritySpec = mojo.internal.bindings.network.mojom.RequestPrioritySpec || { $: mojo.internal.Enum().$ };
+
+// Enum: ScriptType
+mojo.internal.bindings.page_load_metrics.mojom.ScriptType = {
+  kOther: 0,
+  kLatin: 1,
+  kHan: 2,
+  kHangul: 3,
+  kHiragana: 4,
+  kKatakana: 5,
+  kArabic: 6,
+  kBengali: 7,
+  kDevanagari: 8,
+  kCyrillic: 9,
+  kCommon: 10,
+  kEmoji: 11,
+};
 
 // Enum: CacheType
 mojo.internal.bindings.page_load_metrics.mojom.CacheType = {
@@ -471,6 +490,14 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: ScriptFallbackInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec, 'page_load_metrics.mojom.ScriptFallbackInfo', [
+      mojo.internal.StructField('arg_script_type', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: FontLoadingMetrics
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.FontLoadingMetricsSpec, 'page_load_metrics.mojom.FontLoadingMetrics', [
@@ -479,8 +506,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shape_cache_hit_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fallback_initial_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_shape_cache_miss_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_script_fallback_metrics', 32, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.ScriptFallbackInfoSpec, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: PageLoadTiming
 mojo.internal.Struct(

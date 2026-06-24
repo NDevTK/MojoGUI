@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2064,8 +2064,8 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemote = class {
   getDatabaseInfo() {
     return this.$.getDatabaseInfo();
   }
-  open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority) {
-    return this.$.open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority);
+  open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority, arg_request_shared_connection) {
+    return this.$.open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority, arg_request_shared_connection);
   }
   deleteDatabase(arg_client, arg_name, arg_force_close) {
     return this.$.deleteDatabase(arg_client, arg_name, arg_force_close);
@@ -2091,12 +2091,12 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       false);
   }
 
-  open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority) {
+  open(arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority, arg_request_shared_connection) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec,
       null,
-      [arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority],
+      [arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority, arg_request_shared_connection],
       false);
   }
 
@@ -2194,7 +2194,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_client, params.arg_database_callbacks, params.arg_name, params.arg_version, params.arg_version_change_transaction_receiver, params.arg_transaction_id, params.arg_priority);
+          const result = this.impl.open(params.arg_client, params.arg_database_callbacks, params.arg_name, params.arg_version, params.arg_version_change_transaction_receiver, params.arg_transaction_id, params.arg_priority, params.arg_request_shared_connection);
           break;
         }
         case 2: {
@@ -2866,8 +2866,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_shared_connection', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec, 'blink.mojom.IDBFactory_DeleteDatabase_Params', [

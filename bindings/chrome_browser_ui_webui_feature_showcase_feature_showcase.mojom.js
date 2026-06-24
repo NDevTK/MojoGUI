@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,6 +132,8 @@ if (mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerSpec
 mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler.$interfaceName = 'feature_showcase.mojom.FeatureShowcasePageHandler';
 mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec = mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec.$.structSpec && mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec.$ = {};
+mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec = mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec.$.structSpec && mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec.$ = {};
 mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactory = mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactory || {};
 mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactorySpec = mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactorySpec.$ = {};
@@ -172,12 +174,16 @@ mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerRemote =
   finishFeatureShowcase() {
     return this.$.finishFeatureShowcase();
   }
+  nextStepShown() {
+    return this.$.nextStepShown();
+  }
 };
 
 mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('feature_showcase.mojom.FeatureShowcasePageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -186,6 +192,15 @@ mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerRemoteCa
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  nextStepShown() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec,
       null,
       [],
       false);
@@ -209,6 +224,7 @@ mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerReceiver
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('feature_showcase.mojom.FeatureShowcasePageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -258,6 +274,13 @@ mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerReceiver
           const params = decoder.decodeStructInline(mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finishFeatureShowcase');
           const result = this.impl.finishFeatureShowcase();
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.nextStepShown');
+          const result = this.impl.nextStepShown();
           break;
         }
       }
@@ -412,6 +435,11 @@ mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandlerFactoryR
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_ParamsSpec, 'feature_showcase.mojom.FeatureShowcasePageHandler_FinishFeatureShowcase_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_ParamsSpec, 'feature_showcase.mojom.FeatureShowcasePageHandler_NextStepShown_Params', [
     ],
     [[0, 8]]);
 

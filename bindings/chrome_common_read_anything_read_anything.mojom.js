@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.read_anything.mojom = mojo.internal.bindings.read_anything.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
@@ -222,6 +223,8 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHi
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechEngineStalled_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechEngineStalled_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechEngineStalled_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechEngineStalled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechEngineStalled_ParamsSpec.$ = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPage = mojo.internal.bindings.read_anything.mojom.UntrustedPage || {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec || { $ : {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageSpec.$ = {};
@@ -262,6 +265,8 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpe
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
@@ -291,6 +296,9 @@ mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec = mojo
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: InstallationState
 mojo.internal.bindings.read_anything.mojom.InstallationState = {
@@ -672,12 +680,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemote = class {
   onSpeechEngineStalled() {
     return this.$.onSpeechEngineStalled();
   }
+  requestReadabilityDistillation() {
+    return this.$.requestReadabilityDistillation();
+  }
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1011,6 +1023,15 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       false);
   }
 
+  requestReadabilityDistillation() {
+    return this.proxy.sendMessage(
+      this.ordinals[33],  // ordinal
+      mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler.getRemote = function() {
@@ -1029,6 +1050,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1347,6 +1369,13 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
           const result = this.impl.onSpeechEngineStalled();
           break;
         }
+        case 33: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestReadabilityDistillation');
+          const result = this.impl.requestReadabilityDistillation();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1445,12 +1474,16 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote = class {
   onReadabilityDistillationStateChanged(arg_state) {
     return this.$.onReadabilityDistillationStateChanged(arg_state);
   }
+  onMainFrameSameDocumentNavigation(arg_url) {
+    return this.$.onMainFrameSameDocumentNavigation(arg_url);
+  }
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1634,6 +1667,15 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       false);
   }
 
+  onMainFrameSameDocumentNavigation(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[18],  // ordinal
+      mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec,
+      null,
+      [arg_url],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.read_anything.mojom.UntrustedPage.getRemote = function() {
@@ -1652,6 +1694,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1837,6 +1880,13 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadabilityDistillationStateChanged');
           const result = this.impl.onReadabilityDistillationStateChanged(params.arg_state);
+          break;
+        }
+        case 18: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onMainFrameSameDocumentNavigation');
+          const result = this.impl.onMainFrameSameDocumentNavigation(params.arg_url);
           break;
         }
       }
@@ -2094,6 +2144,11 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_RequestReadabilityDistillation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec, 'read_anything.mojom.UntrustedPage_AccessibilityEventReceived_Params', [
       mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_updates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
@@ -2215,6 +2270,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_Params', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.read_anything.mojom.ReadAnythingDistillationStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

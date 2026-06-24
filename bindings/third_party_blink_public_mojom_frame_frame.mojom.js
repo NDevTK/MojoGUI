@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -523,6 +523,14 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec =
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec || { $: {} };
@@ -4662,6 +4670,12 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemote = class {
   setWindowRect(arg_bounds) {
     return this.$.setWindowRect(arg_bounds);
   }
+  moveWindowTo(arg_origin) {
+    return this.$.moveWindowTo(arg_origin);
+  }
+  resizeWindowTo(arg_size) {
+    return this.$.resizeWindowTo(arg_size);
+  }
   didFirstVisuallyNonEmptyPaint() {
     return this.$.didFirstVisuallyNonEmptyPaint();
   }
@@ -4698,6 +4712,8 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalMainFrameHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4781,9 +4797,27 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
       false);
   }
 
-  didFirstVisuallyNonEmptyPaint() {
+  moveWindowTo(arg_origin) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
+      mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec,
+      [arg_origin],
+      false);
+  }
+
+  resizeWindowTo(arg_size) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec,
+      [arg_size],
+      false);
+  }
+
+  didFirstVisuallyNonEmptyPaint() {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec,
       null,
       [],
@@ -4792,7 +4826,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   didAccessInitialMainDocument() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec,
       null,
       [],
@@ -4801,7 +4835,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   didChangeThemeColor(arg_theme_color) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidChangeThemeColor_ParamsSpec,
       null,
       [arg_theme_color],
@@ -4810,7 +4844,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   didChangeBackgroundColor(arg_background_color, arg_color_adjust) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidChangeBackgroundColor_ParamsSpec,
       null,
       [arg_background_color, arg_color_adjust],
@@ -4819,7 +4853,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   maximize() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Maximize_ParamsSpec,
       null,
       [],
@@ -4828,7 +4862,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   minimize() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Minimize_ParamsSpec,
       null,
       [],
@@ -4837,7 +4871,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   restore() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Restore_ParamsSpec,
       null,
       [],
@@ -4846,7 +4880,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   setResizable(arg_resizable) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetResizable_ParamsSpec,
       null,
       [arg_resizable],
@@ -4855,7 +4889,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   draggableRegionsChanged(arg_regions) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DraggableRegionsChanged_ParamsSpec,
       null,
       [arg_regions],
@@ -4864,7 +4898,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
 
   onFirstContentfulPaint(arg_duration) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec,
       null,
       [arg_duration],
@@ -4889,6 +4923,8 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalMainFrameHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5020,68 +5056,102 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.moveWindowTo');
+          const result = this.impl.moveWindowTo(params.arg_origin);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] moveWindowTo FAILED:', e));
+          }
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.resizeWindowTo');
+          const result = this.impl.resizeWindowTo(params.arg_size);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] resizeWindowTo FAILED:', e));
+          }
+          break;
+        }
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didFirstVisuallyNonEmptyPaint');
           const result = this.impl.didFirstVisuallyNonEmptyPaint();
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidAccessInitialMainDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didAccessInitialMainDocument');
           const result = this.impl.didAccessInitialMainDocument();
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidChangeThemeColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeThemeColor');
           const result = this.impl.didChangeThemeColor(params.arg_theme_color);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DidChangeBackgroundColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeBackgroundColor');
           const result = this.impl.didChangeBackgroundColor(params.arg_background_color, params.arg_color_adjust);
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Maximize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maximize');
           const result = this.impl.maximize();
           break;
         }
-        case 12: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Minimize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.minimize');
           const result = this.impl.minimize();
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_Restore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restore');
           const result = this.impl.restore();
           break;
         }
-        case 14: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetResizable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResizable');
           const result = this.impl.setResizable(params.arg_resizable);
           break;
         }
-        case 15: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_DraggableRegionsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.draggableRegionsChanged');
           const result = this.impl.draggableRegionsChanged(params.arg_regions);
           break;
         }
-        case 16: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFirstContentfulPaint');
@@ -6320,6 +6390,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec, 'blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ParamsSpec, 'blink.mojom.LocalMainFrameHost_MoveWindowTo_Params', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParamsSpec, 'blink.mojom.LocalMainFrameHost_MoveWindowTo_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ParamsSpec, 'blink.mojom.LocalMainFrameHost_ResizeWindowTo_Params', [
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParamsSpec, 'blink.mojom.LocalMainFrameHost_ResizeWindowTo_ResponseParams', [
     ],
     [[0, 8]]);
 

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-23T12:29:06.470905Z",
-  "version": "151.0.7908.0",
+  "generated_at": "2026-06-24T12:14:42.960725Z",
+  "version": "151.0.7910.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4451,7 +4451,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -4476,7 +4477,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -4502,7 +4502,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -4527,7 +4526,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
         ]
       }
@@ -4551,8 +4551,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -4580,6 +4579,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4608,8 +4608,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -7244,6 +7243,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7269,6 +7269,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7294,6 +7295,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kNtpFooter"
         ]
       }
@@ -7320,6 +7322,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kNtpFooter"
         ]
       }
@@ -7874,7 +7877,8 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_feature_showcase.mojom.js",
       "methods": [
-        "FinishFeatureShowcase"
+        "FinishFeatureShowcase",
+        "NextStepShown"
       ],
       "metadata": {
         "usage": {
@@ -8683,6 +8687,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -8731,6 +8736,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -8752,8 +8758,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -8777,6 +8782,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8833,6 +8839,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8869,6 +8876,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9608,8 +9616,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9650,8 +9657,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9675,8 +9681,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9730,6 +9735,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9755,6 +9761,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9959,7 +9966,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10006,7 +10012,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10034,7 +10039,6 @@
         "category": "internal",
         "gates": [
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10060,7 +10064,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10086,7 +10089,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10113,7 +10115,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10384,7 +10385,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10420,7 +10420,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10450,7 +10449,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -10809,7 +10807,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -12389,7 +12388,8 @@
         "SendPinStateRequest",
         "TogglePresentation",
         "AckReadingModeHidden",
-        "OnSpeechEngineStalled"
+        "OnSpeechEngineStalled",
+        "RequestReadabilityDistillation"
       ],
       "metadata": {
         "usage": {
@@ -12429,7 +12429,8 @@
         "OnImageDataDownloaded",
         "OnPinStatusReceived",
         "UpdateContent",
-        "OnReadabilityDistillationStateChanged"
+        "OnReadabilityDistillationStateChanged",
+        "OnMainFrameSameDocumentNavigation"
       ],
       "metadata": {
         "usage": {
@@ -13359,8 +13360,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -13516,7 +13516,6 @@
       "file": "chrome_updater_net_mac_mojom_updater_fetcher.mojom.js",
       "methods": [
         "OnResponseStarted",
-        "OnProgress",
         "OnDownloadComplete"
       ],
       "metadata": {
@@ -13536,7 +13535,7 @@
       "file": "chrome_updater_net_mac_mojom_updater_fetcher.mojom.js",
       "methods": [
         "PostRequest",
-        "DownloadToFile"
+        "DownloadToStream"
       ],
       "metadata": {
         "usage": {
@@ -23604,7 +23603,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpCalendarModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -23637,7 +23636,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpCalendarModule",
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -24988,8 +24987,10 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -25047,8 +25048,10 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -25092,8 +25095,10 @@
           "feature:kInstallElement",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -41034,6 +41039,7 @@
         "Crash",
         "Hang",
         "ThrowJavaException",
+        "InduceMemoryInvalidAccess",
         "GetVrpFlags"
       ],
       "metadata": {
@@ -44713,6 +44719,8 @@
         "UpdateTargetURL",
         "RequestClose",
         "SetWindowRect",
+        "MoveWindowTo",
+        "ResizeWindowTo",
         "DidFirstVisuallyNonEmptyPaint",
         "DidAccessInitialMainDocument",
         "DidChangeThemeColor",
@@ -48854,7 +48862,9 @@
         "UnregisterIdP",
         "PreventSilentAccess",
         "RequestUserInfo",
-        "Disconnect"
+        "Disconnect",
+        "ResolveTokenRequest",
+        "SetIdpSigninStatus"
       ],
       "metadata": {
         "usage": {
@@ -49853,8 +49863,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49889,8 +49898,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49915,8 +49923,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -49940,8 +49947,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -49963,8 +49969,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -50043,8 +50048,8 @@
           "feature:kPaymentLinkDetection",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpCalendarModule",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -50093,8 +50098,8 @@
           "feature:kPaymentLinkDetection",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpCalendarModule",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -50433,6 +50438,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50473,6 +50479,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50499,6 +50506,7 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
@@ -50521,8 +50529,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -50549,8 +50556,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -52832,6 +52838,7 @@
       "module": "read_anything.mojom",
       "imports": [
         "mojo/public/mojom/base/file.mojom",
+        "url/mojom/url.mojom",
         "skia/public/mojom/skcolor.mojom",
         "skia/public/mojom/bitmap.mojom",
         "ui/accessibility/ax_features.mojom",
@@ -53159,7 +53166,6 @@
       "source": "chrome/updater/net/mac/mojom/updater_fetcher.mojom",
       "module": "updater.mojom",
       "imports": [
-        "mojo/public/mojom/base/file.mojom",
         "url/mojom/url.mojom"
       ]
     },

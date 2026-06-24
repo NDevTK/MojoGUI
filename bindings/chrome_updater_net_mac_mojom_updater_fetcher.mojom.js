@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,8 +145,6 @@ if (mojo.internal.bindings.updater.mojom.FileDownloadObserverSpec.$.structSpec &
 mojo.internal.bindings.updater.mojom.FileDownloadObserver.$interfaceName = 'updater.mojom.FileDownloadObserver';
 mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$ = {};
-mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$ = {};
 mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec = mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$ = {};
 mojo.internal.bindings.updater.mojom.FetchService = mojo.internal.bindings.updater.mojom.FetchService || {};
@@ -157,15 +155,12 @@ mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec = mojo.
 if (mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$ = {};
 mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$ = {};
-mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec.$ = {};
+mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec = mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -380,9 +375,6 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemote = class {
   onResponseStarted(arg_http_status_code, arg_content_length) {
     return this.$.onResponseStarted(arg_http_status_code, arg_content_length);
   }
-  onProgress(arg_current) {
-    return this.$.onProgress(arg_current);
-  }
   onDownloadComplete(arg_net_error, arg_content_size) {
     return this.$.onDownloadComplete(arg_net_error, arg_content_size);
   }
@@ -392,7 +384,6 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FileDownloadObserver', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -407,18 +398,9 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       false);
   }
 
-  onProgress(arg_current) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec,
-      null,
-      [arg_current],
-      false);
-  }
-
   onDownloadComplete(arg_net_error, arg_content_size) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec,
       null,
       [arg_net_error, arg_content_size],
@@ -443,7 +425,6 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('updater.mojom.FileDownloadObserver', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -498,13 +479,6 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_current);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
           const result = this.impl.onDownloadComplete(params.arg_net_error, params.arg_content_size);
@@ -557,8 +531,8 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemote = class {
   postRequest(arg_url, arg_post_data, arg_content_type, arg_additional_headers) {
     return this.$.postRequest(arg_url, arg_post_data, arg_content_type, arg_additional_headers);
   }
-  downloadToFile(arg_url, arg_output_file) {
-    return this.$.downloadToFile(arg_url, arg_output_file);
+  downloadToStream(arg_url, arg_response_stream) {
+    return this.$.downloadToStream(arg_url, arg_response_stream);
   }
 };
 
@@ -580,12 +554,12 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
       false);
   }
 
-  downloadToFile(arg_url, arg_output_file) {
+  downloadToStream(arg_url, arg_response_stream) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec,
-      mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec,
-      [arg_url, arg_output_file],
+      mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec,
+      mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec,
+      [arg_url, arg_response_stream],
       false);
   }
 
@@ -672,9 +646,9 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.downloadToFile');
-          const result = this.impl.downloadToFile(params.arg_url, params.arg_output_file);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.downloadToStream');
+          const result = this.impl.downloadToStream(params.arg_url, params.arg_response_stream);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -682,9 +656,9 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
               const resp_obj = { 'arg_observer': val };
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec, resp_obj);
+                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] downloadToFile FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] downloadToStream FAILED:', e));
           }
           break;
         }
@@ -746,12 +720,6 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnProgress_Params', [
-      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params', [
       mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_content_size_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_size_$value', originalFieldName: 'arg_content_size' }),
@@ -775,14 +743,14 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
+    mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ParamsSpec, 'updater.mojom.FetchService_DownloadToStream_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_stream', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
+    mojo.internal.bindings.updater.mojom.FetchService_DownloadToStream_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToStream_ResponseParams', [
       mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.FileDownloadObserverPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);

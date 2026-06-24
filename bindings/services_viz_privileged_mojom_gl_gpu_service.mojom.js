@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,6 +133,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gl = mojo.internal.bindings.gl || {};
 mojo.internal.bindings.vrp_flags = mojo.internal.bindings.vrp_flags || {};
 
+mojo.internal.bindings.viz.mojom.MemoryInvalidAccessTypeSpec = mojo.internal.bindings.viz.mojom.MemoryInvalidAccessTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.viz.mojom.GpuService = mojo.internal.bindings.viz.mojom.GpuService || {};
 mojo.internal.bindings.viz.mojom.GpuServiceSpec = mojo.internal.bindings.viz.mojom.GpuServiceSpec || { $ : {} };
 if (mojo.internal.bindings.viz.mojom.GpuServiceSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuServiceSpec.$ = {};
@@ -211,6 +212,8 @@ mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec = mojo.internal.bind
 if (mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ResponseParamsSpec || { $: {} };
@@ -270,6 +273,14 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionSpec = mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionRemote = mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionRemote || class {};
 mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionPendingReceiver = mojo.internal.bindings.webnn.mojom.WebNNServiceIntrospectionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
+
+// Enum: MemoryInvalidAccessType
+mojo.internal.bindings.viz.mojom.MemoryInvalidAccessType = {
+  kHeapOverflow: 0,
+  kHeapUnderflow: 1,
+  kUseAfterFree: 2,
+  kMemberDereferenceAfterFree: 3,
+};
 
 // Interface: GpuService
 mojo.internal.bindings.viz.mojom.GpuServicePendingReceiver = class {
@@ -391,6 +402,9 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemote = class {
   throwJavaException() {
     return this.$.throwJavaException();
   }
+  induceMemoryInvalidAccess(arg_action) {
+    return this.$.induceMemoryInvalidAccess(arg_action);
+  }
   getVrpFlags() {
     return this.$.getVrpFlags();
   }
@@ -400,6 +414,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -704,9 +719,18 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       false);
   }
 
-  getVrpFlags() {
+  induceMemoryInvalidAccess(arg_action) {
     return this.proxy.sendMessage(
       this.ordinals[30],  // ordinal
+      mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec,
+      null,
+      [arg_action],
+      false);
+  }
+
+  getVrpFlags() {
+    return this.proxy.sendMessage(
+      this.ordinals[31],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ResponseParamsSpec,
       [],
@@ -731,6 +755,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('viz.mojom.GpuService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1091,6 +1116,13 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.induceMemoryInvalidAccess');
+          const result = this.impl.induceMemoryInvalidAccess(params.arg_action);
+          break;
+        }
+        case 31: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVrpFlags');
           const result = this.impl.getVrpFlags();
@@ -1344,6 +1376,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec, 'viz.mojom.GpuService_ThrowJavaException_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuService_InduceMemoryInvalidAccess_ParamsSpec, 'viz.mojom.GpuService_InduceMemoryInvalidAccess_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.viz.mojom.MemoryInvalidAccessTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_GetVrpFlags_ParamsSpec, 'viz.mojom.GpuService_GetVrpFlags_Params', [

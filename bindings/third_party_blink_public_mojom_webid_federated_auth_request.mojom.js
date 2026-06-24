@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '151.0.7908.0';
+        const versionStr = window.mojoVersion || '151.0.7910.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -229,6 +229,14 @@ mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ParamsSpec
 if (mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
@@ -879,12 +887,20 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceRemote = class {
   disconnect(arg_options) {
     return this.$.disconnect(arg_options);
   }
+  resolveTokenRequest(arg_account_id, arg_params) {
+    return this.$.resolveTokenRequest(arg_account_id, arg_params);
+  }
+  setIdpSigninStatus(arg_origin, arg_status, arg_options) {
+    return this.$.setIdpSigninStatus(arg_origin, arg_status, arg_options);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.FederatedRequestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FederatedRequestService', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -938,6 +954,24 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceRemoteCallHandler = cl
       false);
   }
 
+  resolveTokenRequest(arg_account_id, arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec,
+      [arg_account_id, arg_params],
+      false);
+  }
+
+  setIdpSigninStatus(arg_origin, arg_status, arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec,
+      [arg_origin, arg_status, arg_options],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.FederatedRequestService.getRemote = function() {
@@ -956,6 +990,8 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.FederatedRequestService', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1090,6 +1126,41 @@ mojo.internal.bindings.blink.mojom.FederatedRequestServiceReceiver = class {
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_Disconnect_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
+          }
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.resolveTokenRequest');
+          const result = this.impl.resolveTokenRequest(params.arg_account_id, params.arg_params);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] resolveTokenRequest FAILED:', e));
+          }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setIdpSigninStatus');
+          const result = this.impl.setIdpSigninStatus(params.arg_origin, params.arg_status, params.arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setIdpSigninStatus FAILED:', e));
           }
           break;
         }
@@ -1414,4 +1485,30 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.DisconnectStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ParamsSpec, 'blink.mojom.FederatedRequestService_ResolveTokenRequest_Params', [
+      mojo.internal.StructField('arg_account_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.blink.mojom.ResolveTokenParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParamsSpec, 'blink.mojom.FederatedRequestService_ResolveTokenRequest_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ParamsSpec, 'blink.mojom.FederatedRequestService_SetIdpSigninStatus_Params', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.blink.mojom.IdpSigninStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.blink.mojom.LoginStatusOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParamsSpec, 'blink.mojom.FederatedRequestService_SetIdpSigninStatus_ResponseParams', [
+    ],
+    [[0, 8]]);
 
