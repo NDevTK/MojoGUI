@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-24T12:14:42.960725Z",
-  "version": "151.0.7910.0",
+  "generated_at": "2026-06-25T12:13:04.256527Z",
+  "version": "151.0.7912.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3769,7 +3769,8 @@
         "RequestToShowAutofillSuggestionsDialog",
         "RequestToShowUserConfirmationDialog",
         "RequestToConfirmNavigation",
-        "NotifyActorTaskStateChanged"
+        "NotifyActorTaskStateChanged",
+        "RequestToShowGmailOtpOptInDialog"
       ],
       "metadata": {
         "usage": {
@@ -7731,7 +7732,8 @@
       "module": "drive_picker_host_untrusted.mojom",
       "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
       "methods": [
-        "ShowDrivePicker"
+        "ShowDrivePicker",
+        "LoadConsentKitUrl"
       ],
       "metadata": {
         "usage": {
@@ -7778,7 +7780,8 @@
       "module": "drive_picker_host_untrusted.mojom",
       "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
       "methods": [
-        "ShowDrivePicker"
+        "ShowDrivePicker",
+        "LoadConsentKitUrl"
       ],
       "metadata": {
         "usage": {
@@ -11209,6 +11212,7 @@
       "module": "mojom.user_education_internals",
       "file": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
       "methods": [
+        "IsFeatureEngagementInitialized",
         "GetTutorials",
         "StartTutorial",
         "GetSessionData",
@@ -21324,7 +21328,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: crosapi.mojom.TelemetryDiagnosticRoutinesService.CreateRoutine"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -21337,24 +21341,6 @@
       "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
       "methods": [
         "OnRoutineStateChange"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TelemetryDiagnosticRoutinesService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": [
-        "CreateRoutine"
       ],
       "metadata": {
         "usage": {
@@ -24989,8 +24975,7 @@
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25050,8 +25035,7 @@
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -25097,8 +25081,7 @@
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -52140,7 +52123,8 @@
       "source": "chrome/browser/ui/webui/drive_picker_host/untrusted/drive_picker_host_untrusted.mojom",
       "module": "drive_picker_host_untrusted.mojom",
       "imports": [
-        "chrome/browser/ui/views/drive_picker_host/drive_picker_result_handler.mojom"
+        "chrome/browser/ui/views/drive_picker_host/drive_picker_result_handler.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
