@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-25T12:13:04.256527Z",
-  "version": "151.0.7912.0",
+  "generated_at": "2026-06-26T12:08:41.080455Z",
+  "version": "151.0.7914.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7255,7 +7255,8 @@
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "methods": [
-        "GenerateAutoTodos"
+        "GenerateAutoTodos",
+        "GetAllEntries"
       ],
       "metadata": {
         "usage": {
@@ -7972,6 +7973,44 @@
       "file": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
       "methods": [
         "CreatePasswordManagerPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ThemesAndCustomizationPageHandler",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_themes_and_customization.mojom.js",
+      "methods": [
+        "SnapshotTheme",
+        "AcceptTheme",
+        "RevertTheme"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: feature_showcase.mojom.ThemesAndCustomizationPageHandlerFactory.CreateThemesAndCustomizationPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ThemesAndCustomizationPageHandlerFactory",
+      "module": "feature_showcase.mojom",
+      "file": "chrome_browser_ui_webui_feature_showcase_themes_and_customization.mojom.js",
+      "methods": [
+        "CreateThemesAndCustomizationPageHandler"
       ],
       "metadata": {
         "usage": {
@@ -9326,7 +9365,9 @@
       "methods": [
         "ShowContextMenu",
         "CloseUI",
-        "OnSelectionChanged"
+        "OnManualBlur",
+        "OnSelectionChanged",
+        "Revert"
       ],
       "metadata": {
         "usage": {
@@ -9646,7 +9687,9 @@
         "ShowLastExportedFileInShell",
         "DisconnectCloudAuthenticator",
         "IsConnectedToCloudAuthenticator",
-        "UndoRemoveSavedPasswordOrException"
+        "UndoRemoveSavedPasswordOrException",
+        "RequestPasswordsExport",
+        "GetPasswordsExportProgress"
       ],
       "metadata": {
         "usage": {
@@ -9668,7 +9711,9 @@
       "name": "Page",
       "module": "password_manager.mojom",
       "file": "chrome_browser_ui_webui_password_manager_password_manager.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnPasswordsExportProgress"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -11316,8 +11361,7 @@
         "ResetPinnedVersionForIsolatedWebApp",
         "SetAllowDowngradesForIsolatedWebApp",
         "SearchForIsolatedWebAppUpdates",
-        "GetIsolatedWebAppDevModeAppInfo",
-        "RotateKey"
+        "GetIsolatedWebAppDevModeAppInfo"
       ],
       "metadata": {
         "usage": {
@@ -22887,7 +22931,7 @@
         "CreateBookmarkNode",
         "UpdateBookmarkNode",
         "MoveBookmarkNode",
-        "DeleteBookmarkNode"
+        "DeleteBookmarkNodes"
       ],
       "metadata": {
         "usage": {
@@ -41352,7 +41396,9 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: webnn.mojom.WebNNCompilerService.CreateCompilerContext"
+            "Internal Interface: viz.mojom.GpuHost.RequestWebNNCompilerContext",
+            "Internal Interface: webnn.mojom.WebNNCompilerService.CreateCompilerContext",
+            "Internal Interface: webnn.mojom.WebNNContext.RequestCompilerContext"
           ]
         },
         "scope": "context",
@@ -41386,7 +41432,8 @@
         "CreateTensor",
         "CreateTensorFromMailbox",
         "Dispatch",
-        "DestroyGraph"
+        "DestroyGraph",
+        "RequestCompilerContext"
       ],
       "metadata": {
         "usage": {
@@ -48819,12 +48866,14 @@
       "name": "FederatedRequest",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
-      "methods": [],
+      "methods": [
+        "Abort"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: blink.mojom.FederatedRequestService.StartTokenRequest"
           ]
         },
         "scope": "context",
@@ -48841,6 +48890,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
       "methods": [
+        "StartTokenRequest",
         "RegisterIdP",
         "UnregisterIdP",
         "PreventSilentAccess",
@@ -52059,7 +52109,8 @@
       "source": "chrome/browser/ui/webui/context_hub/context_hub.mojom",
       "module": "browser.context_hub.mojom",
       "imports": [
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "mojo/public/mojom/base/time.mojom"
       ]
     },
     {
@@ -52154,6 +52205,12 @@
     {
       "filename": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
       "source": "chrome/browser/ui/webui/feature_showcase/password_manager.mojom",
+      "module": "feature_showcase.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_feature_showcase_themes_and_customization.mojom.js",
+      "source": "chrome/browser/ui/webui/feature_showcase/themes_and_customization.mojom",
       "module": "feature_showcase.mojom",
       "imports": []
     },
@@ -55298,6 +55355,7 @@
         "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -62889,6 +62947,7 @@
         "gpu/ipc/common/sync_token.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/features.mojom",
+        "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_tensor.mojom",
         "services/webnn/public/mojom/webnn_error.mojom",
         "services/webnn/public/mojom/webnn_graph_builder.mojom",
@@ -65485,6 +65544,7 @@
       "module": "blink.mojom",
       "imports": [
         "media/mojo/mojom/media_player.mojom",
+        "media/mojo/mojom/media_types.mojom",
         "services/media_session/public/mojom/media_session.mojom",
         "services/viz/public/mojom/compositing/surface_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
