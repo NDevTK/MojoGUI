@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-26T12:08:41.080455Z",
-  "version": "151.0.7914.0",
+  "generated_at": "2026-06-27T11:21:12.095958Z",
+  "version": "151.0.7916.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3851,6 +3851,7 @@
         "CreateActorHandler",
         "CreateAnnotationHandler",
         "CreateTab",
+        "ActivateTabWithUrl",
         "OpenLinkInPopup",
         "OpenGlicSettingsPage",
         "OpenPasswordManagerSettingsPage",
@@ -12363,6 +12364,24 @@
       "file": "chrome_common_plugin.mojom.js",
       "methods": [
         "GetPluginInfo"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DistillationEvaluator",
+      "module": "reading_mode.mojom",
+      "file": "chrome_common_read_anything_distillation_evaluator.mojom.js",
+      "methods": [
+        "Evaluate"
       ],
       "metadata": {
         "usage": {
@@ -21278,7 +21297,6 @@
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
       "methods": [
         "AddObserver",
-        "GetAccounts",
         "ShowAddAccountDialog",
         "ShowReauthAccountDialog",
         "GetPersistentErrorForAccount",
@@ -23253,7 +23271,8 @@
         "OnToolbarDropFile",
         "ShowAvatarMenu",
         "SetAvatarButtonHovered",
-        "SetAvatarButtonFocused"
+        "SetAvatarButtonFocused",
+        "SetAvatarButtonIphPromoShowing"
       ],
       "metadata": {
         "usage": {
@@ -26253,8 +26272,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebViewMemoryProfilingClient",
-          "feature:kWebPayments"
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -26395,8 +26413,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebViewMemoryProfilingClient",
-          "feature:kWebPayments"
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -28154,7 +28171,11 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kWebViewMemoryProfilingClient",
+          "feature:kWebPayments"
+        ]
       }
     },
     {
@@ -28184,7 +28205,9 @@
         "category": "internal",
         "gates": [
           "permission:MIDI",
-          "permission:MIDI_SYSEX"
+          "permission:MIDI_SYSEX",
+          "feature:kWebViewMemoryProfilingClient",
+          "feature:kWebPayments"
         ]
       }
     },
@@ -28835,7 +28858,7 @@
       "module": "content.mojom",
       "file": "content_common_thread_type_switcher.mojom.js",
       "methods": [
-        "SetThreadType"
+        "SetThreadTypes"
       ],
       "metadata": {
         "usage": {
@@ -47045,8 +47068,7 @@
           "permission:MIDI_SYSEX",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kWebViewMemoryProfilingClient"
+          "feature:kInstallElement"
         ],
         "scrambled": false
       }
@@ -52871,6 +52893,15 @@
         "mojo/public/mojom/base/string16.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_common_read_anything_distillation_evaluator.mojom.js",
+      "source": "chrome/common/read_anything/distillation_evaluator.mojom",
+      "module": "reading_mode.mojom",
+      "imports": [
+        "sandbox/policy/mojom/sandbox.mojom",
+        "ui/accessibility/mojom/ax_tree_update.mojom"
       ]
     },
     {
