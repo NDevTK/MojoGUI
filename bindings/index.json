@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-28T11:42:40.313590Z",
-  "version": "151.0.7918.0",
+  "generated_at": "2026-06-29T14:03:13.499181Z",
+  "version": "151.0.7920.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
